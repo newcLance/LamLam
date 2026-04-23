@@ -1605,5 +1605,245 @@
         }
       ]
     }
+  ],
+  "Stellar Blade": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "星刃 - Official",
+          "url": "https://www.playstation.com/games/stellar-blade/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/stellar-blade/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Resident Evil Village": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "生化危机：村庄 - Official",
+          "url": "https://www.residentevil.com/village/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/resident-evil-village/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Hogwarts Legacy": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "霍格沃茨之遗 - Official",
+          "url": "https://www.hogwartslegacy.com/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/hogwarts-legacy/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Cyberpunk 2077": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "赛博朋克2077 - Official",
+          "url": "https://www.cyberpunk.net",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/cyberpunk-2077/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Marvel's Spider-Man Remastered": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "漫威蜘蛛侠 - Official",
+          "url": "https://insomniac.games/game/marvels-spider-man-remastered/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/marvels-spider-man-remastered/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Inscryption": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "邪恶冥刻 - Official",
+          "url": "https://www.inscryption-game.com",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/inscryption/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "DAVE THE DIVER": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "潜水员戴夫 - Official",
+          "url": "https://www.mintrock.et/en/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/dave-the-diver/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "SIGNALIS": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "信号 - Official",
+          "url": "http://rose-engine.org/signalis/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/signalis/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Split Fiction": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "分裂虚构 - Official",
+          "url": "https://www.ea.com/games/split-fiction",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/split-fiction/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Days Gone": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "往日不再 - Official",
+          "url": "https://www.playstation.com/games/days-gone/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/days-gone/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Balatro": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "小丑牌 - Official",
+          "url": "https://www.playbalatro.com/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/balatro/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Cult of the Lamb": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "咩咩启示录 - Official",
+          "url": "https://massivemonster.com/games/cult-of-the-lamb",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/cult-of-the-lamb/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "DREDGE": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "疏浚 - Official",
+          "url": "https://www.dredge.game/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/dredge/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Satisfactory": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "幸福工厂 - Official",
+          "url": "https://www.satisfactorygame.com/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/satisfactory/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Teardown": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "拆迁 - Official",
+          "url": "http://teardowngame.com",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/teardown/home-1.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

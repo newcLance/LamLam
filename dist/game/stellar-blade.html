@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星刃 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/stellar-blade/home-1.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+      
+      <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[.06] hover:bg-white/10 text-neutral-400 hover:text-white text-sm transition mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回列表
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">星刃</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">Shift Up / Sony · Action · 2025.11.14</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">Shift Up 开发的韩式动作游戏，以精致角色建模和流畅战斗闻名。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">近未来动作</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">角色建模标杆</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">韩式美学</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">开放区域</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">服装系统</span>
+        
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="shrink-0 hidden md:block">
+      <a href="https://www.playstation.com/games/stellar-blade/" target="_blank" rel="noopener"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded bg-white text-black font-bold text-sm hover:bg-neutral-200 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        访问官网
+        <span class="opacity-50 group-hover:opacity-100 transition">↗</span>
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+
+  
+  
+  <section id="sec-screenshots" class="mb-14">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-lg font-bold flex items-center gap-2">
+        <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+        官网截图
+      </h2>
+      
+      <a href="https://www.playstation.com/games/stellar-blade/" target="_blank" rel="noopener"
+         class="md:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded bg-white text-black text-xs font-bold hover:bg-neutral-200 transition">
+        访问官网 ↗
+      </a>
+      
+    </div>
+
+    
+    
+    
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <h3 class="text-sm font-semibold text-neutral-300">星刃 - Official</h3>
+        
+        <span class="text-[11px] text-neutral-600">2026-04-23</span>
+        
+        
+        <a href="https://www.playstation.com/games/stellar-blade/" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1 px-3 py-1 rounded text-[11px] font-semibold bg-white/[.06] text-neutral-400 hover:bg-white/10 hover:text-white border border-white/10 transition ml-auto shrink-0">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          访问页面 ↗
+        </a>
+        
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+             data-lightbox-src="../screenshots/stellar-blade/home-1.webp"
+             x-on:click="$store.lightbox.show('../screenshots/stellar-blade/home-1.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/stellar-blade/home-1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    
+  </section>
+  
+
+  
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>角色动作流畅度</b>在动作游戏中名列前茅——EVE的闪避、格挡、空中连招形成了独特的"芭蕾式战斗"视觉节奏
+    
+      <a href="https://www.ign.com/articles/stellar-blade-review" target="_blank" rel="noopener" class="src-link">— IGN 8/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>末世荒原的环境美术</b>极具电影感——被沙尘覆盖的首尔废墟、破损的高楼、铁锈色天空，营造出令人窒息的末日氛围
+    
+      <a href="https://www.gamespot.com/reviews/stellar-blade-review/1900-6418225/" target="_blank" rel="noopener" class="src-link">— GameSpot 8/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>XION空间站的<b>赛博朋克美学</b>——全白极简主义内饰搭配霓虹灯光，与地面废墟形成极端反差
+    
+      <a href="https://www.pushsquare.com/reviews/ps5/stellar-blade" target="_blank" rel="noopener" class="src-link">— Push Square 8/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>Boss战的<b>视觉震撼力</b>是绝对卖点——巨型Naytiba造型融合生物恐怖与机械美学，每场Boss都像在打一座会动的雕塑
+    
+      <a href="https://www.ign.com/articles/stellar-blade-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>EVE的<b>服装系统</b>极其丰富——从战术紧身衣到休闲私服超过30套，每套都有独立建模和材质细节
+    
+      <a href="https://www.pushsquare.com/reviews/ps5/stellar-blade" target="_blank" rel="noopener" class="src-link">— Push Square ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>获评2024年度<b>最佳动作游戏视觉</b>之一，角色建模精度被认为达到了PS5世代新高
+    
+      <a href="https://www.gameinformer.com/review/stellar-blade/stellar-blade-review" target="_blank" rel="noopener" class="src-link">— Game Informer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>部分<b>场景重复感</b>较强——中后期的地下设施和废墟走廊在视觉上变化不够
+    
+      <a href="https://www.ign.com/articles/stellar-blade-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>非战斗场景的<b>NPC表情动画</b>略显僵硬，与EVE的精细建模形成反差
+    
+      <a href="https://www.gamespot.com/reviews/stellar-blade-review/1900-6418225/" target="_blank" rel="noopener" class="src-link">— GameSpot ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>开放地图探索的<b>视觉引导</b>不够清晰，容易在相似的废墟场景中迷路
+    
+      <a href="https://www.pushsquare.com/reviews/ps5/stellar-blade" target="_blank" rel="noopener" class="src-link">— Push Square ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>后期<b>敌人种类</b>视觉变化有限，色彩换皮感明显
+    
+      <a href="https://store.steampowered.com/app/2237550/Stellar_Blade/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>EVE的<b>角色设计</b>引发全网讨论——Shift Up将手游角色建模的精细度成功移植到主机3A级别
+    
+      <a href="https://www.reddit.com/r/StellarBlade/" target="_blank" rel="noopener" class="src-link">— Reddit r/StellarBlade ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>Photo Mode的<b>使用率极高</b>，社区产出大量EVE造型截图，证明角色视觉本身就是核心卖点
+    
+      <a href="https://x.com/search?q=stellar%20blade%20photo%20mode" target="_blank" rel="noopener" class="src-link">— Twitter/X ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>韩国审美</b>在3A主机市场的首次大规模成功——面部比例、身材设计、服装风格都带有鲜明的K-美学标签
+    
+      <a href="https://www.eurogamer.net/stellar-blade-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>每次更新新服装的<b>社区讨论热度</b>堪比时装发布会，证明Shift Up在角色商业化视觉上的能力
+    
+      <a href="https://www.reddit.com/r/StellarBlade/" target="_blank" rel="noopener" class="src-link">— Reddit ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>DLC预告中的<b>新区域美术</b>引发期待——雪地和海洋场景的色调与本篇沙漠形成互补
+    
+      <a href="https://blog.playstation.com/" target="_blank" rel="noopener" class="src-link">— PlayStation Blog ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>部分玩家反映<b>UI信息层级</b>不够清晰——装备对比、技能树的可读性有提升空间
+    
+      <a href="https://www.reddit.com/r/StellarBlade/" target="_blank" rel="noopener" class="src-link">— Reddit ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>地图标记系统的<b>视觉密度</b>过高，图标互相重叠
+    
+      <a href="https://store.steampowered.com/app/2237550/Stellar_Blade/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>通关后缺乏<b>视觉变化</b>的持续驱动力——除了Photo Mode截图，后期内容的视觉新鲜感不足
+    
+      <a href="https://www.reddit.com/r/StellarBlade/" target="_blank" rel="noopener" class="src-link">— Reddit ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">IP / STORY</div>
+  <div class="text-sm font-bold text-white mb-4">末日地球 · 人类回归之战</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>远未来</b>末日时代，人类被迫离开地球后数百年</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>废墟首尔</b>为核心，从沙漠荒原到地下设施，最终回到空间站<b>XION</b></div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">EVE——第七空降部队的<b>精英战士</b>，外表精致但身手致命；搭档Adam（人类幸存者）与Lily（机械工程师）</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>超高科技</b>——纳米战斗服、等离子武器、空间站文明，但地面已退化为原始废墟</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>人类回归军（EVE）</b> vs <b>Naytiba（异形生物）</b>——核心是夺回家园，视觉上是优雅人形 vs 恐怖异形的对比</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>荒原</b>（沙漠+残垣）、<b>废墟首尔</b>（高楼残骸）、<b>地下设施</b>（工业管道）、<b>XION空间站</b>（极简白色美学）</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>纳米战斗服</b>、<b>等离子刀刃</b>、<b>Naytiba异形</b>、<b>空间站</b>、<b>沙尘暴</b>、<b>废墟霓虹</b></div>
+  </div>
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3">末日废墟 + 极简太空站 · 极端反差美学</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">场景美术的核心策略是<b>极端反差</b>——地面是锈色、沙黄、血红主导的废墟末世，空间站则是纯白、冷蓝、极简主义的未来乌托邦。<b>破损首尔</b>的城市废墟极具识别度，韩文招牌和现代建筑残骸赋予了末世场景独特的地域感。光照偏<b>高对比度电影感</b>，黄昏和沙尘暴场景的色温控制尤为出色。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3">K-美学战斗服 · 功能性与性感并存</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">EVE的服装设计是全游戏最大视觉资产——<b>纳米战斗服</b>兼顾科幻功能性与身体线条展示，材质渲染的<b>光泽细节</b>达到PS5顶级水准。服装系统超过30套，覆盖战斗、休闲、特殊主题，每套独立建模。Shift Up将移动端角色卡牌的<b>精致感</b>移植到3A主机，面部和身体比例带有鲜明的韩式审美标签。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3">简洁科幻HUD · 轻量信息呈现</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI走<b>极简科幻</b>路线——战斗HUD仅保留血条、耐力条和技能CD，信息密度低但清晰度高。菜单界面使用<b>深色背景+白色文字</b>的标准科幻配色。技能树以<b>网状图</b>呈现，视觉上清爽但导航效率一般。地图界面的标记系统在信息密度上有改进空间。装备对比的<b>数值可视化</b>较弱。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3">纳米刀刃 · Naytiba异形 · 空间站光环</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>EVE本人</b>就是最核心的视觉符号——精致面容、白色战斗服、飘逸长发构成了极强的角色辨识度。<b>纳米刀刃</b>的蓝色光效是战斗场景的视觉锚点。<b>Naytiba</b>的有机异形造型（触手、甲壳、发光器官）构成了敌人美学体系。XION空间站的<b>圆弧白色光环</b>是科幻乌托邦的视觉图腾。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3">角色先行 · 韩式精致感 · 性感争议营销</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发策略<b>以EVE为绝对中心</b>——几乎所有物料都聚焦角色本身而非世界观。Key Art构图以<b>角色特写+末世背景</b>为标准模板。宣发中的服装展示频率极高，每次新服装公布都能引发社交媒体讨论。围绕角色设计的<b>审美争议</b>（审查/反审查）本身成为了最大的免费营销。品牌色以<b>白+橙</b>为主调。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        <a href="cyberpunk-2077.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">赛博朋克2077 <span class="text-xs text-neutral-500 font-normal ml-1">CD Projekt Red</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>开放世界动作RPG</b>，赛博朋克2077的西方赛博美学 vs 星刃的韩式末日美学——角色设计哲学的东西方对比</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="black-myth-wukong.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-neutral-500 font-normal ml-1">游戏科学 (Game Science)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>PS5动作游戏标杆</b>，黑神话的东方神话美术 vs 星刃的科幻末世美术——两种3A视觉路线的对比</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="resident-evil-village.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">生化危机：村庄 <span class="text-xs text-neutral-500 font-normal ml-1">Capcom</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>第三人称动作恐怖</b>混合类型，生化危机村庄的哥特恐怖 vs 星刃的科幻异形——怪物设计语言对比</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="ghost-of-yotei.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">羊蹄山之魂 <span class="text-xs text-neutral-500 font-normal ml-1">Sucker Punch</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>魂系战斗节奏</b>的动作游戏，艾尔登法环的中世纪黑暗奇幻 vs 星刃的科幻末世——场景规模与Boss设计对比</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=211,214,101,212,113','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 5 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-timeline',    label:'时间线'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-rivals',      label:'竞品推荐'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>

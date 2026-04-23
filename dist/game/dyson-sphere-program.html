@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>戴森球计划 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+  
+  
+  <div class="absolute inset-0 z-0 bg-gradient-to-br from-surface-1 to-surface-0"></div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+      
+      <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[.06] hover:bg-white/10 text-neutral-400 hover:text-white text-sm transition mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回列表
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">戴森球计划</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">Youthcat Studio · Simulation · 2021.1.21</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">国产太空工厂自动化，建造戴森球的宏大目标。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">太空工厂</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">戴森球</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">自动化</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">国产</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">行星探索</span>
+        
+      </div>
+      
+    </div>
+
+    
+    
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>戴森球</b>从概念到实物的视觉实现——亲手建造包裹恒星的巨型结构，从第一块太阳帆到完整球壳的过程是游戏史上最壮观的建造体验
+    
+      <a href="https://www.ign.com/articles/dyson-sphere-program-early-access-review" target="_blank" rel="noopener" class="src-link">— IGN 8/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>星际尺度的<b>物流网络</b>视觉——行星间的物流塔发射火箭穿越太空运输物资，缩小视角看到的星际航线网络美如星图
+    
+      <a href="https://www.pcgamer.com/dyson-sphere-program-early-access-review/" target="_blank" rel="noopener" class="src-link">— PC Gamer 85/100 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>不同星球的<b>地貌多样性</b>——冰冻星球、熔岩星球、气态巨行星、潮汐锁定行星，每颗星球都有独特的视觉个性
+    
+      <a href="https://www.rockpapershotgun.com/dyson-sphere-program-review" target="_blank" rel="noopener" class="src-link">— Rock Paper Shotgun ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>缩放到<b>星系全景</b>看自己建造的戴森球包裹恒星——从工厂微观到宇宙宏观的尺度跨越是纯粹的视觉震撼
+    
+      <a href="https://www.ign.com/articles/dyson-sphere-program-early-access-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>太阳帆群</b>在恒星前飞过的剪影——数千面太阳帆排列成几何图案的画面壮观且诗意
+    
+      <a href="https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>后期<b>帧率下降</b>严重——数千建筑和物流线路同时运转时性能压力极大
+    
+      <a href="https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>地面工厂的<b>美观度</b>较难维持——密集建筑和传送带容易视觉混乱
+    
+      <a href="https://www.reddit.com/r/Dyson_Sphere_Program/" target="_blank" rel="noopener" class="src-link">— Reddit r/Dyson_Sphere_Program ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>戴森球完成后<b>缺少终局目标</b>——1.0版本前的EA阶段后期内容不足
+    
+      <a href="https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>国产独立游戏</b>的骄傲——柚子猫工作室5人团队创造了全球畅销的工厂建造游戏
+    
+      <a href="https://www.gamedeveloper.com/" target="_blank" rel="noopener" class="src-link">— Game Developer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>社区分享的<b>戴森球设计</b>极其壮观——从简单球壳到复杂几何花纹，玩家的建造创意无限
+    
+      <a href="https://www.reddit.com/r/Dyson_Sphere_Program/" target="_blank" rel="noopener" class="src-link">— Reddit ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>蓝图系统</b>的社区共享——让新手也能建造复杂工厂
+    
+      <a href="https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/" target="_blank" rel="noopener" class="src-link">— Steam ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>1.0正式版的<b>战斗系统</b>和新内容——EA到正式版的视觉进化显著
+    
+      <a href="https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/" target="_blank" rel="noopener" class="src-link">— Steam ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>建筑<b>外观定制</b>选项有限——社区期望更多美化工具
+    
+      <a href="https://www.reddit.com/r/Dyson_Sphere_Program/" target="_blank" rel="noopener" class="src-link">— Reddit ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>学习曲线<b>陡峭</b>——新手初期的视觉信息量偏大
+    
+      <a href="https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">IP / STORY</div>
+  <div class="text-sm font-bold text-white mb-4">星际工业 · 建造戴森球</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>远未来</b>——人类已掌握星际旅行和恒星工程</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>多星系</b>——从初始星球到整个星簇，尺度从行星到恒星系统</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">伊卡洛斯——<b>机械体工程师</b>，被派往宇宙深处建造戴森球为文明提供能源</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>极端高科技</b>——从手工采矿到恒星级工程的完整科技演化</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>工程师</b> vs <b>宇宙距离和资源管理</b>——核心挑战是跨星际物流的优化</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>多种行星</b>（冰冻/熔岩/沙漠/海洋/气态）+ <b>恒星系统</b> + <b>星际航线</b></div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>戴森球/壳</b>、<b>太阳帆</b>、<b>行星物流塔</b>、<b>星际物流火箭</b>、<b>传送带</b>、<b>伊卡洛斯</b></div>
+  </div>
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3">星际工业 · 从微观工厂到宏观戴森球</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">核心美术策略是<b>极端的尺度跨越</b>——从传送带上的螺丝钉到包裹恒星的巨型球壳。行星表面的地貌渲染精度超出工厂游戏预期——<b>冰晶</b>、<b>熔岩流</b>、<b>海洋反射</b>各有质感。太空场景的<b>星空背景</b>和<b>恒星光效</b>极其壮观。戴森球/壳的设计编辑器允许玩家创造复杂的<b>几何图案</b>——这是游戏最独特的视觉创作工具。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3">伊卡洛斯 + 建筑设备 · 科幻工业设计</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>伊卡洛斯</b>的机械体设计——悬浮移动、喷射飞行、能量护盾，科幻工程师的标准形象。建筑设备的<b>工业设计</b>精致——采矿机、冶炼炉、化工厂各有独特外观和运转动画。<b>星际物流火箭</b>发射升空的画面极具仪式感。太阳帆的<b>几何排列</b>在恒星前形成的剪影是游戏最优雅的视觉时刻。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3">星图+物流网+建造菜单 · 多层级信息UI</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI需要处理<b>从行星到星系</b>的多层级信息。星图界面的<b>3D缩放</b>流畅自然。物流网络视图用<b>彩色航线</b>展示资源流向。建造菜单分类清晰。戴森球编辑器的<b>几何工具</b>是独特的创意UI——在恒星周围绘制球壳框架。整体UI走<b>简洁科幻</b>风格——深色背景+蓝色高亮。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3">戴森球 · 太阳帆 · 星际火箭</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>戴森球/壳</b>是游戏的终极视觉目标——一个包裹恒星的人造结构，是人类工程的极限幻想。<b>太阳帆群</b>在恒星光芒中的剪影是诗意与工业的完美结合。<b>星际物流火箭</b>穿越太空的航迹是星际文明的视觉象征。<b>伊卡洛斯飞行</b>时的能量尾迹是个体在宇宙中的存在感标记。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3">国产骄傲 + 宇宙工程幻想 + EA口碑</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发以<b>"建造戴森球"</b>的宏大幻想为核心卖点——概念本身就自带传播力。Key Art以<b>恒星+戴森球框架</b>为标准构图。国产5人小团队的<b>开发者故事</b>是国内外媒体热点。品牌色以<b>深蓝+恒星橙</b>为主调。Steam EA的<b>"特别好评"</b>和持续更新维持了长期关注。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        <a href="satisfactory.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">幸福工厂 <span class="text-xs text-neutral-500 font-normal ml-1">Coffee Stain Studios</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>工厂建造</b>标杆，Satisfactory的第一人称星球级 vs 戴森球的俯视星际级——两种建造尺度</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="the-planet-crafter.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">星球工匠 <span class="text-xs text-neutral-500 font-normal ml-1">Miju Games</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>外星开拓</b>题材，The Planet Crafter的星球改造 vs 戴森球的恒星工程——两种宇宙级建造</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="black-myth-wukong.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-neutral-500 font-normal ml-1">游戏科学 (Game Science)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>国产游戏</b>的全球突破，黑神话的3A动作 vs 戴森球的独立建造——国产游戏两种出海路线</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="balatro.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">小丑牌 <span class="text-xs text-neutral-500 font-normal ml-1">LocalThunk</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>系统驱动</b>的极度上瘾游戏，Balatro的数字爆炸 vs 戴森球的产线优化——两种"工程快感"</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=229,227,230,101,221','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 5 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-timeline',    label:'时间线'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-rivals',      label:'竞品推荐'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>

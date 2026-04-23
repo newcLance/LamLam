@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>披萨塔 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+  
+  
+  <div class="absolute inset-0 z-0 bg-gradient-to-br from-surface-1 to-surface-0"></div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+      
+      <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[.06] hover:bg-white/10 text-neutral-400 hover:text-white text-sm transition mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回列表
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">披萨塔</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">Tour De Pizza · Platformer · 2023.1.26</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">疯狂高速平台跳跃，Wario Land精神续作，手绘动画风。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">高速平台</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">手绘动画</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">评分系统</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">Wario Land</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">疯狂节奏</span>
+        
+      </div>
+      
+    </div>
+
+    
+    
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+
+  
+  
+
+  
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>90年代卡通</b>的手绘动画风格——Ren & Stimpy式的夸张变形、流畅帧动画、疯狂表情变化，每一帧都像在看暴力卡通
+    
+      <a href="https://www.ign.com/articles/pizza-tower-review" target="_blank" rel="noopener" class="src-link">— IGN 8/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>角色<b>高速移动时的形变动画</b>极具视觉冲击——Peppino从站立到全速冲刺的变形过程涉及数十帧手绘
+    
+      <a href="https://www.pcgamer.com/pizza-tower-review/" target="_blank" rel="noopener" class="src-link">— PC Gamer 90/100 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>每个关卡的<b>主题美术</b>完全不同——从意大利餐厅到废弃工厂到鬼屋到西部荒野，风格跨度极大
+    
+      <a href="https://www.destructoid.com/reviews/review-pizza-tower/" target="_blank" rel="noopener" class="src-link">— Destructoid 9/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Pizza Time逃跑阶段</b>的视觉紧迫感——倒计时+场景崩塌+全速奔跑，肾上腺素爆表
+    
+      <a href="https://www.ign.com/articles/pizza-tower-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>P-Rank通关的<b>完美评价</b>——从D到P的评分动画极具满足感
+    
+      <a href="https://www.pcgamer.com/pizza-tower-review/" target="_blank" rel="noopener" class="src-link">— PC Gamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>Boss战的<b>卡通暴力</b>——Peppino和Boss互相追打的动画像极了Tom和Jerry
+    
+      <a href="https://www.destructoid.com/reviews/review-pizza-tower/" target="_blank" rel="noopener" class="src-link">— Destructoid ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>高速移动时<b>场景可读性</b>偶尔下降——角色速度太快导致无法看清前方障碍
+    
+      <a href="https://store.steampowered.com/app/2231450/Pizza_Tower/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>部分关卡的<b>美术密度</b>过高——背景和前景元素互相干扰
+    
+      <a href="https://www.ign.com/articles/pizza-tower-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>全P-Rank后<b>缺少额外挑战</b>——虽然速通社区活跃但游戏本身没有官方endgame
+    
+      <a href="https://store.steampowered.com/app/2231450/Pizza_Tower/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Peppino的表情包</b>成为独立游戏界最热梗图——他的惊恐脸、狂喜脸、愤怒脸都是天然meme素材
+    
+      <a href="https://www.reddit.com/r/PizzaTower/" target="_blank" rel="noopener" class="src-link">— Reddit r/PizzaTower ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>社区<b>速通文化</b>极其活跃——Pizza Tower的帧精确操作和路线优化吸引了大量速通玩家
+    
+      <a href="https://www.speedrun.com/pizza_tower" target="_blank" rel="noopener" class="src-link">— speedrun.com ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>开发者Tour De Pizza的<b>长期社区运营</b>——从GameJolt Demo到Steam正式版的数年社区积累
+    
+      <a href="https://www.gamedeveloper.com/" target="_blank" rel="noopener" class="src-link">— Game Developer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>Mod社区的<b>自定义关卡</b>极其丰富——玩家创作的关卡在美术风格上甚至能匹配原版
+    
+      <a href="https://gamebanana.com/games/19155" target="_blank" rel="noopener" class="src-link">— GameBanana ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>社区对<b>DLC/续作</b>的期待极高——原版的美术质量证明了团队的手绘实力
+    
+      <a href="https://www.reddit.com/r/PizzaTower/" target="_blank" rel="noopener" class="src-link">— Reddit ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>部分隐藏<b>秘密房间</b>的视觉提示不够——社区需要攻略才能找到所有收集品
+    
+      <a href="https://store.steampowered.com/app/2231450/Pizza_Tower/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>主线内容<b>约6-8小时</b>——虽然P-Rank和速通延长了生命周期但核心内容偏短
+    
+      <a href="https://store.steampowered.com/app/2231450/Pizza_Tower/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">IP / STORY</div>
+  <div class="text-sm font-bold text-white mb-4">披萨厨师 · 疯狂塔楼冒险</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>当代</b>——一个荒诞的卡通世界</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>Pizza Tower</b>——一座充满疯狂机关和怪物的巨塔，每层都是不同主题</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">Peppino Spaghetti——<b>焦虑的意大利披萨厨师</b>，为保护自己的餐厅不被摧毁而勇闯疯狂塔楼</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>卡通物理</b>——无视现实物理的夸张动作，一切服从卡通逻辑</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>Peppino</b> vs <b>Pizzaface（披萨脸）</b>和各层Boss——核心是保卫披萨店的荒诞冒险</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>意大利餐厅</b>、<b>垃圾场</b>、<b>农场</b>、<b>西部荒野</b>、<b>鬼屋</b>、<b>冰雪区</b>等20+主题关卡</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>披萨</b>、<b>意大利面</b>、<b>Peppino的焦虑脸</b>、<b>计时器</b>（Pizza Time）、<b>P-Rank</b>、<b>Wario Land式变身</b></div>
+  </div>
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3">90年代卡通 + Wario Land · 手绘疯狂</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">Pizza Tower的美术是<b>90年代暴力卡通美学的游戏化极致</b>——粗线条、夸张变形、高饱和色彩、帧帧不同的手绘动画。每个关卡的<b>主题完全独立</b>：中世纪城堡、西部荒野、日式庭院、科幻太空站等。场景细节密度极高——背景填满了<b>搞怪彩蛋</b>和致敬元素。色彩策略以<b>高饱和+高对比</b>为主——红黄蓝绿交织，视觉上热闹到混乱边缘。Pizza Time阶段的场景<b>崩塌动画</b>是全游戏最紧张的视觉时刻。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3">Peppino变形记 · 帧动画的极致</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">Peppino的角色动画是Pizza Tower的<b>技术核心</b>——每个动作状态（站立、跑步、冲刺、变身、攻击）都有数十帧<b>手绘动画</b>，角色在高速移动时的形变夸张到离谱。Boss角色的设计走<b>夸张卡通恐怖</b>路线——Pizzaface的巨脸、Fake Peppino的诡异扭曲。NPC角色（Gustavo和Brick）有独立的动画体系。服装变化通过<b>变身机制</b>实现——Peppino可变成骑士、鬼魂、火箭等形态。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3">街机评分UI · 即时反馈</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI走<b>经典街机</b>风格——分数、连击数、排名实时显示在屏幕角落。P-Rank系统的<b>评分动画</b>——从D到P的字母渐变——是强力的正向反馈。Pizza Time倒计时的<b>巨大数字</b>在屏幕上营造紧迫感。关卡选择使用<b>塔楼楼层</b>的纵向布局，视觉隐喻清晰。整体UI保持了<b>手绘卡通</b>一致性——按钮、字体、图标都带有涂鸦质感。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3">Peppino焦虑脸 · 披萨 · Pizza Time计时器</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>Peppino的焦虑表情</b>是游戏最具传播力的视觉资产——他惊恐、愤怒、狂喜的面部变化是天然的表情包素材。<b>披萨</b>作为核心道具和主题元素贯穿始终。<b>Pizza Time</b>的红色倒计时是游戏最紧张的视觉信号。<b>P-Rank</b>的金色字母是追求完美的视觉目标。<b>Pizzaface</b>（最终Boss）的巨大笑脸是恐怖与搞笑并存的设计范例。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3">手绘品质 + 社区培养 + 速通传播</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">Pizza Tower的宣发是<b>"社区培养式"的长期策略</b>——从GameJolt Demo开始数年的社区积累，正式版发售时已有大量核心粉丝。预告片主打<b>手绘动画的帧数和流畅度</b>——"看看这些手绘帧"本身就是卖点。Key Art以<b>Peppino的夸张表情+塔楼</b>为核心构图。品牌色以<b>红黄</b>（披萨色）为主调。速通社区的<b>极限操作视频</b>是持续传播的引擎。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        <a href="hi-fi-rush.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">完美音浪 <span class="text-xs text-neutral-500 font-normal ml-1">Tango Gameworks / Krafton</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>节奏感极强的动作游戏</b>，Hi-Fi Rush的音乐节奏 vs Pizza Tower的速度节奏——两种"心流动作"的美术策略</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="hollow-knight-silksong.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">空洞骑士：丝之歌 <span class="text-xs text-neutral-500 font-normal ml-1">Team Cherry</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>2D动作平台</b>的美术标杆，空洞骑士的暗黑手绘 vs Pizza Tower的疯狂卡通——两种独立2D美术的极端路线</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="cult-of-the-lamb.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">咩咩启示录 <span class="text-xs text-neutral-500 font-normal ml-1">Massive Monster</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>Devolver Digital</b>发行的独立视觉标杆（注：Pizza Tower非Devolver但同为独立领域），咩咩启示录的可爱邪典 vs Pizza Tower的疯狂卡通——两种"反主流"美术</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="vampire-survivors.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">吸血鬼幸存者 <span class="text-xs text-neutral-500 font-normal ml-1">poncle</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>独立游戏爆款</b>且美术风格独特，Vampire Survivors的极简像素 vs Pizza Tower的极致手绘——两种"低预算高辨识度"的路线</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=224,208,205,223,222','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 5 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-timeline',    label:'时间线'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-rivals',      label:'竞品推荐'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>

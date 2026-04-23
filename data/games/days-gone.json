@@ -1,0 +1,83 @@
+{
+  "id": 220,
+  "slug": "days-gone",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>太平洋西北的自然风光</b>是全游戏最大的视觉资产——俄勒冈州的松林、雪山、河流、火山湖在虚幻引擎下呈现出令人屏息的美感", "src": "IGN 6.5/10", "url": "https://www.ign.com/articles/days-gone-review"},
+        {"text": "<b>异变者尸潮</b>（Horde）的视觉冲击力在开放世界丧尸游戏中无出其右——数百个丧尸同屏涌来的画面是真正的恐怖与壮观并存", "src": "GameSpot 5/10", "url": "https://www.gamespot.com/reviews/days-gone-review/1900-6417147/"},
+        {"text": "动态<b>天气和日夜循环</b>对gameplay的影响在视觉上表现极佳——暴风雪中能见度骤降、夜晚丧尸更活跃且更难辨认", "src": "Push Square 7/10", "url": "https://www.pushsquare.com/reviews/ps4/days-gone"}
+      ],
+      "excitement": [
+        {"text": "第一次遭遇<b>大型尸潮</b>——数百丧尸从洞穴/建筑中蜂拥而出的那个瞬间是游戏史上最令人肾上腺素飙升的视觉体验之一", "src": "多媒体综合", "url": "https://www.ign.com/articles/days-gone-review"},
+        {"text": "骑摩托穿越<b>秋色森林</b>的公路感——金色树叶、阳光穿透树冠、引擎声回荡在山谷中", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps4/days-gone"},
+        {"text": "PC版的<b>画质增强</b>——21:9超宽屏+4K+解锁帧率让俄勒冈风光达到了接近纪录片的质感", "src": "Digital Foundry", "url": "https://www.eurogamer.net/digitalfoundry-2021-days-gone-pc-port-review"}
+      ],
+      "pain": [
+        {"text": "人物<b>面部动画</b>质量参差——主角Deacon还行但大量配角的表情僵硬", "src": "IGN", "url": "https://www.ign.com/articles/days-gone-review"},
+        {"text": "营地和人类据点的<b>美术重复</b>——铁丝网+集装箱+帐篷的组合在不同营地间高度相似", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/days-gone-review/1900-6417147/"}
+      ],
+      "churn": [
+        {"text": "主线中后期的<b>节奏拖沓</b>——大量驾车赶路的视觉单调消磨了前期的新鲜感", "src": "IGN", "url": "https://www.ign.com/articles/days-gone-review"},
+        {"text": "发售初期<b>大量视觉Bug</b>——NPC穿模、贴图闪烁、帧率骤降（PS4版已大幅改善）", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps4/days-gone"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "PC版发售后<b>口碑逆转</b>——社区重新发现了游戏的视觉品质，\"被低估的神作\"成为主流叙事", "src": "Reddit r/DaysGone", "url": "https://www.reddit.com/r/DaysGone/"},
+        {"text": "<b>尸潮对决</b>的视频剪辑是YouTube上最热的Days Gone内容——玩家发明了各种创意方法清潮", "src": "YouTube", "url": "https://www.youtube.com/results?search_query=days+gone+horde"},
+        {"text": "社区对<b>Days Gone 2</b>被取消的持续惋惜——认为Bend Studio的开放世界技术力被浪费了", "src": "Reddit", "url": "https://www.reddit.com/r/DaysGone/"}
+      ],
+      "excitement": [
+        {"text": "Photo Mode在PC版发挥最大价值——<b>俄勒冈风光+摩托车</b>的公路摄影成为独特的视觉品类", "src": "Steam社区", "url": "https://store.steampowered.com/app/1259420/Days_Gone/"},
+        {"text": "尸潮挑战模式的<b>重玩价值</b>极高——不同策略清潮的视觉多样性", "src": "Reddit", "url": "https://www.reddit.com/r/DaysGone/"}
+      ],
+      "pain": [
+        {"text": "<b>摩托车外观定制</b>选项有限——社区期望更多涂装和零件", "src": "Reddit", "url": "https://www.reddit.com/r/DaysGone/"}
+      ],
+      "churn": [
+        {"text": "续作被取消导致<b>社区流失</b>——核心粉丝对系列前景感到失望", "src": "Reddit", "url": "https://www.reddit.com/r/DaysGone/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "俄勒冈末日 · 公路骑士的求生之路",
+    "dims": [
+      {"label": "时间", "value": "<b>近未来末日后</b>约2年——病毒爆发导致文明崩溃"},
+      {"label": "发生地", "value": "<b>俄勒冈州</b>——太平洋西北的松林、火山湖、小镇废墟、高速公路"},
+      {"label": "角色", "value": "Deacon St. John——前<b>飞车党成员</b>，在末世中寻找失散妻子，骑摩托穿越危险荒野"},
+      {"label": "科技水平", "value": "<b>当代科技退化</b>——文明设施崩溃，幸存者依赖拼凑装备和摩托车机械维修"},
+      {"label": "对抗关系", "value": "<b>幸存者（Deacon）</b> vs <b>异变者尸潮/敌对人类营地</b>——核心是在末世中保持人性，同时对抗数以百计的丧尸潮"},
+      {"label": "地图", "value": "<b>瀑布溪谷</b>（松林+农场）、<b>贝尔纳普区</b>（火山熔岩地貌）、<b>火山口湖</b>（高海拔雪景）、<b>小镇废墟</b>、<b>NERO检查站</b>（政府设施）"},
+      {"label": "元素", "value": "<b>摩托车</b>、<b>尸潮</b>（Horde）、<b>NERO注射器</b>、<b>燃烧瓶</b>、<b>飞车党补丁</b>、<b>无线电</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "太平洋西北自然 + 末日废墟 · 荒野公路美学",
+      "value": "Days Gone的场景美术核心是<b>真实俄勒冈地理</b>的高质量还原——松林的密度、山地的起伏、河流的走向、火山地貌的荒凉都极具地理辨识度。色调策略随区域变化：北部是<b>温暖秋色</b>（金黄+深绿）、中部是<b>灰棕色</b>（火山灰+枯木）、南部是<b>冷白</b>（高海拔积雪）。<b>动态天气</b>和<b>日夜循环</b>不仅影响gameplay还大幅改变视觉体验——暴风雪中的白茫茫一片 vs 晴天的壮丽山景是完全不同的游戏。"
+    },
+    "costume": {
+      "title": "飞车党末世生存 · 粗犷实用主义",
+      "value": "Deacon的造型设计精准定位了<b>\"飞车党求生者\"</b>——磨损皮衣、纹身、凌乱发型，服装细节传达了末世两年的磨损感。<b>摩托车</b>作为\"可穿戴装备\"的视觉地位等同角色本身——涂装、配件、消音器都有视觉变化。敌对帮派通过<b>统一服饰</b>区分——暴徒红、骑手黑、狂信者白。异变者的<b>变异程度</b>视觉分级清晰——从近似人类的新变到完全畸变的尖叫者/收割者。幸存者营地的平民着装呈现<b>拼凑感</b>——军用品+户外装备+日常衣物的混搭。"
+    },
+    "ui": {
+      "title": "实用生存HUD · 摩托车仪表盘",
+      "value": "UI走<b>实用主义生存</b>风格——HUD显示血量、体力、武器弹药和摩托车油量/耐久。<b>摩托车仪表盘</b>的UI设计是亮点——油表和速度表在骑行时成为持续关注的视觉焦点。地图使用<b>卫星风格</b>，标记清晰但缺少风格化处理。技能树按照<b>近战/远程/生存</b>三系分类，图标设计简洁。NERO注射器的<b>注射动画</b>是角色升级的仪式性视觉时刻。"
+    },
+    "symbol": {
+      "title": "摩托车 · 尸潮 · 飞车党臂章",
+      "value": "<b>摩托车</b>是Days Gone的绝对视觉图腾——它不仅是交通工具更是角色身份的延伸，引擎声就是这个世界的背景音乐。<b>尸潮</b>（Horde）的群体涌动是游戏最具标志性的视觉——数百个个体汇成有机的流体运动，画面恐怖与壮观并存。Deacon背心上的<b>飞车党臂章</b>\"Mongrels MC\"是前世身份的视觉残留。<b>NERO</b>（政府机构）的黑色科技设备——注射器、检查站、直升机——是阴谋叙事的视觉线索。"
+    },
+    "promo": {
+      "title": "末世公路 + 尸潮震撼 · 从失败到翻盘",
+      "value": "初始宣发以<b>尸潮技术演示</b>为核心——E3的锯木厂尸潮Demo曾是当年最震撼的实机演示之一。Key Art以<b>Deacon+摩托+荒野</b>为标准构图，传达公路末世的核心卖点。品牌色以<b>荒野绿+黄昏橙</b>为主调。发售后评分偏低但<b>PC版口碑逆转</b>——\"被低估的佳作\"成为二次营销叙事。Bend Studio的<b>续作被取消</b>反而激发了社区的悲情传播。"
+    },
+    "rivals": [
+      {"id": 212, "reason": "同为<b>第三人称恐怖生存</b>，生化危机村庄的哥特恐怖 vs Days Gone的开放世界末世——封闭 vs 开放的恐怖美术策略"},
+      {"id": 214, "reason": "同为<b>开放世界</b>的城市/荒野对比，赛博朋克的霓虹都市 vs Days Gone的自然荒野——两种截然不同的开放世界美术方向"},
+      {"id": 203, "reason": "同为<b>PS独占开放世界</b>，对马岛的日本自然美景 vs Days Gone的美国西北自然——两种\"自然即美术\"的设计哲学"},
+      {"id": 131, "reason": "同为<b>末世丧尸</b>题材，消逝的光芒的城市跑酷 vs Days Gone的荒野摩托——两种末世机动性的视觉表达"}
+    ]
+  }
+}

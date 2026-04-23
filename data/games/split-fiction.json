@@ -1,0 +1,82 @@
+{
+  "id": 219,
+  "slug": "split-fiction",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>科幻+奇幻双世界</b>的美术跨度是Hazelight系列最大的——一侧是赛博朋克霓虹城市，另一侧是魔法森林王国，两种风格在同一个游戏中无缝切换", "src": "IGN 8/10", "url": "https://www.ign.com/articles/split-fiction-review"},
+        {"text": "每个章节都是<b>完全不同的美术风格</b>——从2D手绘动画到写实雪景，从太空站到中世纪城堡，视觉多样性远超同类合作游戏", "src": "GameSpot 8/10", "url": "https://www.gamespot.com/reviews/split-fiction-review/1900-6418300/"},
+        {"text": "角色在<b>两个虚构世界之间穿梭</b>时的过渡动画极具创意——空间扭曲、色彩混合、物理规则交换", "src": "Eurogamer", "url": "https://www.eurogamer.net/split-fiction-review"}
+      ],
+      "excitement": [
+        {"text": "双人<b>分屏+合屏</b>的镜头切换设计——两个玩家在不同世界执行不同任务时的画面分割极具视觉张力", "src": "IGN", "url": "https://www.ign.com/articles/split-fiction-review"},
+        {"text": "章节间的<b>美术风格突变</b>——从写实3D突然进入手绘2D，从赛博朋克跳到卡通风，每次转场都是惊喜", "src": "Game Informer", "url": "https://www.gameinformer.com/review/split-fiction"},
+        {"text": "Josef Fares继《双人成行》后再次证明<b>合作游戏的视觉可能性</b>——场景设计始终服务于双人交互", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps5/split-fiction"}
+      ],
+      "pain": [
+        {"text": "部分章节的<b>视觉精度</b>不如It Takes Two——追求更多风格变化的代价是单个风格的打磨深度下降", "src": "IGN", "url": "https://www.ign.com/articles/split-fiction-review"},
+        {"text": "科幻世界的<b>赛博朋克元素</b>在视觉上不够创新——与主流赛博朋克视觉的区分度不足", "src": "PC Gamer", "url": "https://www.pcgamer.com/split-fiction-review/"}
+      ],
+      "churn": [
+        {"text": "一次通关后<b>重玩驱动</b>主要靠收集品——视觉上的惊喜不可复制", "src": "Steam评测", "url": "https://store.steampowered.com/app/2092820/Split_Fiction/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "社区将Split Fiction与It Takes Two进行<b>逐章美术对比</b>——讨论Hazelight的视觉进化方向", "src": "Reddit r/SplitFiction", "url": "https://www.reddit.com/r/SplitFiction/"},
+        {"text": "<b>Josef Fares</b>的导演风格成为品牌——\"每章一个新玩法+新美术\"的设计哲学获得行业认可", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"},
+        {"text": "双人合作体验的<b>社交媒体传播</b>极强——玩家分享搞笑双人互动片段成为主要传播内容", "src": "Twitter/X", "url": "https://x.com/search?q=split%20fiction%20coop"}
+      ],
+      "excitement": [
+        {"text": "2D手绘风格章节的<b>美术风格</b>获得单独好评——社区期望Hazelight探索更多风格化方向", "src": "Reddit", "url": "https://www.reddit.com/r/SplitFiction/"},
+        {"text": "合作游戏社区对<b>Friend's Pass</b>（免费邀请朋友）的好评——降低了合作门槛", "src": "Steam", "url": "https://store.steampowered.com/app/2092820/Split_Fiction/"}
+      ],
+      "pain": [
+        {"text": "纯<b>单人模式</b>的缺失——部分玩家找不到合作伙伴无法体验", "src": "Reddit", "url": "https://www.reddit.com/r/SplitFiction/"}
+      ],
+      "churn": [
+        {"text": "10小时左右的<b>流程长度</b>偏短——特别是在花了大量时间找到合作伙伴之后", "src": "Steam评测", "url": "https://store.steampowered.com/app/2092820/Split_Fiction/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "虚构世界交错 · 科幻与奇幻的碰撞",
+    "dims": [
+      {"label": "时间", "value": "<b>当代</b>框架 + 虚构世界无限时空——两位作家被困在自己创作的小说世界中"},
+      {"label": "发生地", "value": "<b>科幻世界</b>（赛博朋克城市/太空站/AI领域）与<b>奇幻世界</b>（魔法森林/中世纪城堡/巨龙领地）的交替与融合"},
+      {"label": "角色", "value": "Mio（科幻作家）和Zoe（奇幻作家）——<b>两位性格迥异的女性</b>被迫合作，各自的创作世界是对方的异世界"},
+      {"label": "科技水平", "value": "<b>双轨</b>——科幻侧有霓虹城市、AI、太空科技；奇幻侧有魔法、龙、中世纪冷兵器"},
+      {"label": "对抗关系", "value": "<b>两位作家</b> vs <b>虚构世界的失控</b>——核心是创作者与创作物的关系，视觉上是两种世界观的冲突与融合"},
+      {"label": "地图", "value": "<b>赛博城市</b>、<b>魔法森林</b>、<b>太空站</b>、<b>中世纪城堡</b>、<b>2D手绘世界</b>、<b>雪山</b>等20+种场景"},
+      {"label": "元素", "value": "<b>书稿/小说</b>、<b>科幻光效</b>（蓝色）、<b>魔法光效</b>（金色）、<b>分屏线</b>、<b>世界融合裂缝</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "多风格万花筒 · 每章一个美术世界",
+      "value": "Split Fiction的美术策略是<b>极致的风格多样性</b>——每个章节都像一个独立的美术Demo。科幻世界采用<b>赛博朋克蓝紫色调</b>（霓虹、全息投影、金属质感），奇幻世界采用<b>温暖自然色调</b>（森林绿、营火橙、石城灰）。最大亮点是风格突变章节——从3D写实突然进入<b>2D手绘动画</b>、从正常比例进入<b>微缩世界</b>、从彩色进入<b>黑白剪影</b>。这种\"不设限\"的美术策略让游戏始终保持视觉新鲜感。"
+    },
+    "costume": {
+      "title": "科幻vs奇幻 · 双主角双造型体系",
+      "value": "Mio和Zoe的角色设计直接服务于<b>双世界叙事</b>——Mio在科幻世界穿赛博紧身衣、在奇幻世界穿旅行斗篷；Zoe反之亦然。两位主角的<b>服装会随世界切换</b>而自动变化，视觉上强化了跨世界的身份错位感。各章节的NPC造型紧跟章节美术风格——科幻城市的霓虹居民、奇幻森林的精灵、2D世界的手绘角色。"
+    },
+    "ui": {
+      "title": "双人分屏UI · 信息清晰的合作界面",
+      "value": "UI设计的核心挑战是<b>双人分屏的信息管理</b>——Hazelight在分屏/合屏切换时的镜头过渡极其流畅。各世界的UI风格跟随场景变化：科幻界面用<b>全息投影</b>风格、奇幻界面用<b>手绘羊皮纸</b>风格。分屏线本身被设计为<b>叙事元素</b>——它的形状和颜色随剧情变化。任务提示和交互图标保持<b>简洁统一</b>，不因风格变化而增加认知负担。"
+    },
+    "symbol": {
+      "title": "分屏线 · 书稿 · 科幻蓝与奇幻金",
+      "value": "<b>分屏线</b>是Split Fiction最核心的视觉符号——它不仅是技术分界更是叙事隐喻，代表两个世界、两种人格、两段人生的交界。<b>科幻蓝</b>和<b>奇幻金</b>的双色系贯穿所有视觉物料，成为品牌的色彩识别系统。<b>小说书稿</b>作为\"虚构中的虚构\"的物理载体，在关键时刻出现。<b>世界融合裂缝</b>——科幻和奇幻元素物理混合——是后半段最强的视觉意象。"
+    },
+    "promo": {
+      "title": "Hazelight品牌 + 合作核心 + 风格万花筒",
+      "value": "宣发策略围绕<b>\"Josef Fares新作\"</b>的品牌效应——《双人成行》TGA年度游戏的口碑直接转化为信任。预告片大量展示<b>风格切换的惊喜感</b>——30秒内从赛博朋克跳到魔法森林再到2D手绘。Key Art以<b>两位主角+分裂世界</b>为标准构图。品牌色以<b>蓝紫+金色</b>的对比为主调。<b>Friend's Pass</b>机制被作为核心营销点——\"只需一人购买，两人同玩\"。"
+    },
+    "rivals": [
+      {"id": 219, "reason": "Hazelight系列内部对比——It Takes Two vs Split Fiction的美术进化"},
+      {"id": 208, "reason": "同为<b>风格化动作</b>游戏，Hi-Fi Rush的节奏感 vs Split Fiction的合作感——两种\"玩法融合美术\"的设计策略"},
+      {"id": 214, "reason": "科幻世界部分与<b>赛博朋克2077</b>的赛博朋克视觉对比——3A专注 vs 合作游戏的赛博美术投入差异"},
+      {"id": 213, "reason": "奇幻世界部分与<b>霍格沃茨</b>的魔法视觉对比——合作游戏的奇幻美术 vs IP改编的奇幻美术"}
+    ]
+  }
+}

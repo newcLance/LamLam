@@ -1,0 +1,80 @@
+{
+  "id": 230,
+  "slug": "the-planet-crafter",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>星球环境渐变</b>是全游戏最大的视觉成就——从红色死寂荒漠到蓝天白云绿草地，数十小时的游玩过程中星球在你眼前活过来", "src": "IGN 7/10", "url": "https://www.ign.com/articles/the-planet-crafter-review"},
+        {"text": "天空颜色的<b>渐进变化</b>极其自然——从棕红到橙黄到淡蓝到深蓝，每次抬头都能看到terraforming的进展", "src": "PC Gamer 80/100", "url": "https://www.pcgamer.com/the-planet-crafter-review/"},
+        {"text": "第一场<b>雨</b>落下的瞬间——在荒凉星球上经历数小时后突然看到雨滴，情感冲击极强", "src": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/the-planet-crafter-review"}
+      ],
+      "excitement": [
+        {"text": "大气层形成后看到<b>第一次日落</b>——从无大气的死寂到橙红色天际线的壮美，是星球改造的最佳视觉回报", "src": "IGN", "url": "https://www.ign.com/articles/the-planet-crafter-review"},
+        {"text": "海洋形成后<b>水面反射天空</b>——曾经的干涸盆地变成蓝色湖泊，地貌的根本性改变令人震撼", "src": "Steam评测", "url": "https://store.steampowered.com/app/1284190/The_Planet_Crafter/"}
+      ],
+      "pain": [
+        {"text": "前期<b>荒漠阶段</b>视觉单调——红棕色地表持续很长时间", "src": "PC Gamer", "url": "https://www.pcgamer.com/the-planet-crafter-review/"},
+        {"text": "建筑的<b>美观度</b>有限——基地模块的外观选择偏少", "src": "Steam评测", "url": "https://store.steampowered.com/app/1284190/The_Planet_Crafter/"}
+      ],
+      "churn": [
+        {"text": "terraforming达到<b>最终阶段</b>后缺少新目标——星球变绿后的内容深度不足", "src": "Steam评测", "url": "https://store.steampowered.com/app/1284190/The_Planet_Crafter/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "社区分享的<b>星球变化对比截图</b>（before/after）是最热内容——\"看我把死星变成了伊甸园\"", "src": "Reddit r/ThePlanetCrafter", "url": "https://www.reddit.com/r/ThePlanetCrafter/"},
+        {"text": "Miju Games的<b>持续更新</b>——多人合作、新区域、新机制不断丰富游戏", "src": "Steam", "url": "https://store.steampowered.com/app/1284190/The_Planet_Crafter/"},
+        {"text": "\"<b>最治愈的生存游戏</b>\"成为社区共识——没有敌人、没有饥饿死亡（可关），纯粹的建造与改造", "src": "Reddit", "url": "https://www.reddit.com/r/ThePlanetCrafter/"}
+      ],
+      "excitement": [
+        {"text": "多人合作更新后<b>共建基地</b>的社交体验——一起看星球变绿的共享成就感", "src": "Steam", "url": "https://store.steampowered.com/app/1284190/The_Planet_Crafter/"}
+      ],
+      "pain": [
+        {"text": "基地建筑的<b>装饰选项</b>有限——社区期望更多室内和室外美化工具", "src": "Reddit", "url": "https://www.reddit.com/r/ThePlanetCrafter/"}
+      ],
+      "churn": [
+        {"text": "单次完整流程后<b>重玩动力</b>不足——星球变化的惊喜不可复制", "src": "Steam评测", "url": "https://store.steampowered.com/app/1284190/The_Planet_Crafter/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "死寂星球 · 从荒漠到伊甸",
+    "dims": [
+      {"label": "时间", "value": "<b>未来</b>——人类掌握了星球改造技术"},
+      {"label": "发生地", "value": "<b>一颗死寂行星</b>——初始为红色荒漠，逐步改造为宜居星球"},
+      {"label": "角色", "value": "被流放的<b>太空殖民者</b>——独自在荒星上执行terraforming任务"},
+      {"label": "科技水平", "value": "<b>星球改造科技</b>——氧气发生器、热量发生器、气压控制、生物播种"},
+      {"label": "对抗关系", "value": "<b>殖民者</b> vs <b>死寂环境</b>——没有敌人，核心挑战是用技术对抗荒芜"},
+      {"label": "地图", "value": "<b>红色荒漠</b>→<b>苔藓草地</b>→<b>森林</b>→<b>湖泊/海洋</b>——同一张地图随terraforming进度彻底改变"},
+      {"label": "元素", "value": "<b>氧气指标</b>、<b>热量指标</b>、<b>气压指标</b>、<b>火箭残骸</b>、<b>基地模块</b>、<b>生态播种器</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "渐进式星球重生 · 时间即美术",
+      "value": "The Planet Crafter最独特的美术策略是<b>\"时间本身就是美术内容\"</b>——同一个世界在数十小时的游玩过程中从死寂荒漠渐变为宜居绿洲。地表颜色从<b>棕红→土黄→灰绿→翠绿</b>渐变。天空从<b>无→棕霾→淡蓝→深蓝</b>。水体从<b>无→小水坑→湖泊→海洋</b>。这种极其缓慢但不可逆的视觉变化创造了独特的\"见证成长\"式满足感。"
+    },
+    "costume": {
+      "title": "太空服 + 工业设备 · 功能性科幻",
+      "value": "角色穿着<b>标准太空服</b>——初期必须佩戴头盔（无大气），后期大气形成后可摘掉。设备设计走<b>实用工业风</b>——氧气发生器、热量发生器、火箭引擎都有清晰的功能性外观。基地模块的<b>模块化设计</b>允许灵活组合但视觉多样性有限。随terraforming出现的<b>植被和动物</b>设计简约但辨识度足够。"
+    },
+    "ui": {
+      "title": "三大指标 + 建造菜单 · 进度驱动UI",
+      "value": "UI核心是<b>三大terraforming指标</b>（氧气/热量/气压）的实时显示——这三个数字是游戏最重要的视觉反馈，每次增长都代表星球向宜居迈进一步。建造菜单分类清晰。地图用<b>俯视扫描</b>风格。背包管理简洁实用。环境<b>温度/氧气</b>的HUD提醒在前期是生存关键。"
+    },
+    "symbol": {
+      "title": "天空颜色 · 第一场雨 · 绿色植被",
+      "value": "<b>天空颜色</b>是terraforming进度的终极视觉指标——抬头就能看到自己的成果。<b>第一场雨</b>是游戏最重要的情感时刻——荒漠上的雨滴意味着大气层形成。<b>绿色植被</b>的出现是视觉上的\"任务完成\"信号。<b>火箭残骸</b>散布在地表是前人失败的视觉提醒。<b>蝴蝶/鱼类</b>等生物的出现标志着生态系统的建立。"
+    },
+    "promo": {
+      "title": "星球重生 · 治愈生存 · EA渐进式口碑",
+      "value": "宣发以<b>\"从荒漠到伊甸\"</b>的转变对比为核心钩子——before/after截图自带传播力。Key Art以<b>半荒漠半绿洲</b>的分屏构图为标准。品牌色以<b>棕红→翠绿</b>的渐变为主调。\"最治愈的生存游戏\"的定位精准切入了<b>厌倦暴力生存</b>的玩家群体。Miju Games的持续更新维持了长期关注。"
+    },
+    "rivals": [
+      {"id": 229, "reason": "同为<b>外星开拓</b>题材，戴森球计划的恒星工程 vs Planet Crafter的星球改造——两种宇宙级建造"},
+      {"id": 227, "reason": "同为<b>建造类</b>游戏，Satisfactory的工厂建造 vs Planet Crafter的星球改造——工业化 vs 生态化"},
+      {"id": 210, "reason": "同为<b>治愈探索</b>类游戏，Stray的猫咪城市探索 vs Planet Crafter的星球探索——两种\"无敌人\"的探索体验"},
+      {"id": 217, "reason": "同为<b>治愈+收集</b>循环，Dave the Diver的海洋探索 vs Planet Crafter的星球改造——两种\"自然即奖励\"的设计"}
+    ]
+  }
+}

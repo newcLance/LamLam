@@ -1,0 +1,80 @@
+{
+  "id": 228,
+  "slug": "teardown",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>全体素可破坏</b>世界的视觉震撼——每一面墙、每一根柱子、每一辆车都可以用工具拆解，物理破坏的真实感前所未有", "src": "IGN 8/10", "url": "https://www.ign.com/articles/teardown-review"},
+        {"text": "体素渲染的<b>光线追踪</b>效果极其惊艳——水面反射、烟雾散射、火焰照明，低分辨率体素却有电影级光影", "src": "Digital Foundry", "url": "https://www.eurogamer.net/digitalfoundry-2022-teardown-pc-analysis"},
+        {"text": "破坏后<b>粉尘和碎片</b>的物理模拟——墙壁坍塌时的扬尘、碎片飞溅、结构连锁倒塌都有真实的视觉重量感", "src": "PC Gamer 84/100", "url": "https://www.pcgamer.com/teardown-review/"}
+      ],
+      "excitement": [
+        {"text": "精心策划<b>路线破坏</b>后按下计时器——从多个目标点极速穿越自己创造的通道，是\"规划+破坏+速通\"三重爽感", "src": "IGN", "url": "https://www.ign.com/articles/teardown-review"},
+        {"text": "用<b>火箭筒</b>轰掉整栋建筑时的视觉冲击——体素碎片如雨点般坠落，结构在重力作用下崩塌", "src": "PC Gamer", "url": "https://www.pcgamer.com/teardown-review/"}
+      ],
+      "pain": [
+        {"text": "体素<b>分辨率限制</b>——近距离观察时方块感明显，精细物品的辨识度不高", "src": "Steam评测", "url": "https://store.steampowered.com/app/1167630/Teardown/"},
+        {"text": "后期关卡的<b>难度曲线</b>陡峭——路线规划复杂度增加但视觉提示不足", "src": "IGN", "url": "https://www.ign.com/articles/teardown-review"}
+      ],
+      "churn": [
+        {"text": "主线通关后<b>沙盒模式</b>的目标性不足——自由破坏缺少长期驱动", "src": "Steam评测", "url": "https://store.steampowered.com/app/1167630/Teardown/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "Mod社区是游戏<b>最大的生命线</b>——自定义地图、载具、武器、工具让沙盒无限扩展", "src": "Steam创意工坊", "url": "https://steamcommunity.com/app/1167630/workshop/"},
+        {"text": "社区创作的<b>破坏视频</b>是最强传播内容——\"最壮观的爆炸\"和\"最精准的拆除\"是热门主题", "src": "YouTube", "url": "https://www.youtube.com/results?search_query=teardown+destruction"},
+        {"text": "Tuxedo Labs的<b>自研体素引擎</b>获得技术界高度认可——体素光追的实时渲染水平领先行业", "src": "GDC Talk", "url": "https://www.gdconf.com/"}
+      ],
+      "excitement": [
+        {"text": "DLC（Time Campers等）的<b>新机制</b>——时间倒流+破坏的组合创造了全新视觉玩法", "src": "Steam", "url": "https://store.steampowered.com/app/1167630/Teardown/"}
+      ],
+      "pain": [
+        {"text": "大规模破坏时的<b>性能需求</b>极高——低配置电脑帧率明显下降", "src": "Steam评测", "url": "https://store.steampowered.com/app/1167630/Teardown/"}
+      ],
+      "churn": [
+        {"text": "非Mod玩家的<b>内容深度</b>有限——纯主线+沙盒不足以支撑超长时间游玩", "src": "Steam评测", "url": "https://store.steampowered.com/app/1167630/Teardown/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "拆迁公司 · 解谜式破坏",
+    "dims": [
+      {"label": "时间", "value": "<b>当代</b>——一个普通的体素化小镇"},
+      {"label": "发生地", "value": "<b>北欧小镇</b>——港口、工厂、别墅、仓库等场景"},
+      {"label": "角色", "value": "拆迁工——为各种<b>可疑雇主</b>执行拆除/盗窃任务的工具人"},
+      {"label": "科技水平", "value": "<b>当代工业</b>——大锤、炸药、挖掘机、火箭筒等破坏工具"},
+      {"label": "对抗关系", "value": "<b>拆迁工</b> vs <b>建筑结构+警报倒计时</b>——核心是在限时内完成精准破坏路线"},
+      {"label": "地图", "value": "<b>港口</b>、<b>别墅区</b>、<b>工业区</b>、<b>小镇中心</b>、<b>Mod自定义地图</b>"},
+      {"label": "元素", "value": "<b>体素碎片</b>、<b>火焰</b>、<b>烟尘</b>、<b>爆炸</b>、<b>倒计时器</b>、<b>警报</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "体素光追 · 可破坏世界的极致美感",
+      "value": "Teardown的美术核心是<b>自研体素引擎的光线追踪</b>——低分辨率体素配合电影级光影创造了独特的美学。场景走<b>北欧小镇写实</b>路线——红砖仓库、木制别墅、港口起重机。核心视觉卖点是<b>破坏过程的美感</b>——墙壁开洞的截面、建筑倒塌的连锁反应、火焰蔓延的光照变化。夜间关卡的灯光和火焰互动尤为惊艳。"
+    },
+    "costume": {
+      "title": "体素物件 · 工具即角色",
+      "value": "Teardown没有传统角色设计——<b>工具就是角色</b>。大锤、喷枪、炸药、挖掘机各有独特的<b>破坏动画和效果</b>。载具（汽车/卡车/船只）的体素建模在保持辨识度的同时允许完全破坏。环境物件（家具/电器/货物）的<b>材质响应</b>各不相同——木头碎裂、金属弯曲、玻璃粉碎。"
+    },
+    "ui": {
+      "title": "极简工具轮 · 沉浸式HUD",
+      "value": "UI追求<b>最小化干扰</b>——工具选择用快捷键轮盘，任务目标用简洁标记点。关卡开始前的<b>规划阶段</b>无时间限制，UI完全隐藏以便观察环境。倒计时启动后的<b>巨大计时器</b>营造紧迫感。沙盒模式提供更多调试UI——物理参数、天气控制、时间控制。"
+    },
+    "symbol": {
+      "title": "体素碎片 · 火焰 · 倒塌瞬间",
+      "value": "<b>体素碎片</b>飞溅是游戏的标志性视觉——每次破坏都产出大量彩色方块碎片，在空中翻滚后散落。<b>火焰蔓延</b>的实时光照变化是技术展示重点。<b>建筑倒塌</b>的连锁反应——先裂缝、再倾斜、最终崩塌——是物理模拟的视觉高潮。<b>爆炸的蘑菇云</b>在体素世界中有独特的方块化美感。"
+    },
+    "promo": {
+      "title": "破坏即艺术 · 技术展示 + Mod生态",
+      "value": "宣发以<b>\"所见皆可破坏\"</b>的技术展示为核心——预告片主打慢镜头建筑倒塌。Key Art以<b>半破坏的建筑+飞散碎片</b>为标准构图。品牌色以<b>橙红</b>（爆炸色）为主调。Steam创意工坊的<b>Mod数量</b>是长期营销支撑。体素光追的技术力是游戏媒体持续关注的话题。"
+    },
+    "rivals": [
+      {"id": 227, "reason": "同为<b>建造/破坏</b>题材，Satisfactory的系统建造 vs Teardown的精准破坏——建设美学 vs 破坏美学"},
+      {"id": 226, "reason": "同为<b>低保真3D</b>风格，Lethal Company的低模恐怖 vs Teardown的体素破坏——两种简化3D的美术策略"},
+      {"id": 214, "reason": "同为<b>光线追踪</b>技术展示标杆，赛博朋克2077的传统光追 vs Teardown的体素光追——两种RT实现路线的视觉对比"},
+      {"id": 222, "reason": "同为<b>独立游戏现象级</b>，Vampire Survivors的系统设计 vs Teardown的物理引擎——两种\"技术驱动体验\"的路线"}
+    ]
+  }
+}

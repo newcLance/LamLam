@@ -1,0 +1,82 @@
+{
+  "id": 224,
+  "slug": "pizza-tower",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>90年代卡通</b>的手绘动画风格——Ren & Stimpy式的夸张变形、流畅帧动画、疯狂表情变化，每一帧都像在看暴力卡通", "src": "IGN 8/10", "url": "https://www.ign.com/articles/pizza-tower-review"},
+        {"text": "角色<b>高速移动时的形变动画</b>极具视觉冲击——Peppino从站立到全速冲刺的变形过程涉及数十帧手绘", "src": "PC Gamer 90/100", "url": "https://www.pcgamer.com/pizza-tower-review/"},
+        {"text": "每个关卡的<b>主题美术</b>完全不同——从意大利餐厅到废弃工厂到鬼屋到西部荒野，风格跨度极大", "src": "Destructoid 9/10", "url": "https://www.destructoid.com/reviews/review-pizza-tower/"}
+      ],
+      "excitement": [
+        {"text": "<b>Pizza Time逃跑阶段</b>的视觉紧迫感——倒计时+场景崩塌+全速奔跑，肾上腺素爆表", "src": "IGN", "url": "https://www.ign.com/articles/pizza-tower-review"},
+        {"text": "P-Rank通关的<b>完美评价</b>——从D到P的评分动画极具满足感", "src": "PC Gamer", "url": "https://www.pcgamer.com/pizza-tower-review/"},
+        {"text": "Boss战的<b>卡通暴力</b>——Peppino和Boss互相追打的动画像极了Tom和Jerry", "src": "Destructoid", "url": "https://www.destructoid.com/reviews/review-pizza-tower/"}
+      ],
+      "pain": [
+        {"text": "高速移动时<b>场景可读性</b>偶尔下降——角色速度太快导致无法看清前方障碍", "src": "Steam评测", "url": "https://store.steampowered.com/app/2231450/Pizza_Tower/"},
+        {"text": "部分关卡的<b>美术密度</b>过高——背景和前景元素互相干扰", "src": "IGN", "url": "https://www.ign.com/articles/pizza-tower-review"}
+      ],
+      "churn": [
+        {"text": "全P-Rank后<b>缺少额外挑战</b>——虽然速通社区活跃但游戏本身没有官方endgame", "src": "Steam评测", "url": "https://store.steampowered.com/app/2231450/Pizza_Tower/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "<b>Peppino的表情包</b>成为独立游戏界最热梗图——他的惊恐脸、狂喜脸、愤怒脸都是天然meme素材", "src": "Reddit r/PizzaTower", "url": "https://www.reddit.com/r/PizzaTower/"},
+        {"text": "社区<b>速通文化</b>极其活跃——Pizza Tower的帧精确操作和路线优化吸引了大量速通玩家", "src": "speedrun.com", "url": "https://www.speedrun.com/pizza_tower"},
+        {"text": "开发者Tour De Pizza的<b>长期社区运营</b>——从GameJolt Demo到Steam正式版的数年社区积累", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"}
+      ],
+      "excitement": [
+        {"text": "Mod社区的<b>自定义关卡</b>极其丰富——玩家创作的关卡在美术风格上甚至能匹配原版", "src": "GameBanana", "url": "https://gamebanana.com/games/19155"},
+        {"text": "社区对<b>DLC/续作</b>的期待极高——原版的美术质量证明了团队的手绘实力", "src": "Reddit", "url": "https://www.reddit.com/r/PizzaTower/"}
+      ],
+      "pain": [
+        {"text": "部分隐藏<b>秘密房间</b>的视觉提示不够——社区需要攻略才能找到所有收集品", "src": "Steam评测", "url": "https://store.steampowered.com/app/2231450/Pizza_Tower/"}
+      ],
+      "churn": [
+        {"text": "主线内容<b>约6-8小时</b>——虽然P-Rank和速通延长了生命周期但核心内容偏短", "src": "Steam评测", "url": "https://store.steampowered.com/app/2231450/Pizza_Tower/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "披萨厨师 · 疯狂塔楼冒险",
+    "dims": [
+      {"label": "时间", "value": "<b>当代</b>——一个荒诞的卡通世界"},
+      {"label": "发生地", "value": "<b>Pizza Tower</b>——一座充满疯狂机关和怪物的巨塔，每层都是不同主题"},
+      {"label": "角色", "value": "Peppino Spaghetti——<b>焦虑的意大利披萨厨师</b>，为保护自己的餐厅不被摧毁而勇闯疯狂塔楼"},
+      {"label": "科技水平", "value": "<b>卡通物理</b>——无视现实物理的夸张动作，一切服从卡通逻辑"},
+      {"label": "对抗关系", "value": "<b>Peppino</b> vs <b>Pizzaface（披萨脸）</b>和各层Boss——核心是保卫披萨店的荒诞冒险"},
+      {"label": "地图", "value": "<b>意大利餐厅</b>、<b>垃圾场</b>、<b>农场</b>、<b>西部荒野</b>、<b>鬼屋</b>、<b>冰雪区</b>等20+主题关卡"},
+      {"label": "元素", "value": "<b>披萨</b>、<b>意大利面</b>、<b>Peppino的焦虑脸</b>、<b>计时器</b>（Pizza Time）、<b>P-Rank</b>、<b>Wario Land式变身</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "90年代卡通 + Wario Land · 手绘疯狂",
+      "value": "Pizza Tower的美术是<b>90年代暴力卡通美学的游戏化极致</b>——粗线条、夸张变形、高饱和色彩、帧帧不同的手绘动画。每个关卡的<b>主题完全独立</b>：中世纪城堡、西部荒野、日式庭院、科幻太空站等。场景细节密度极高——背景填满了<b>搞怪彩蛋</b>和致敬元素。色彩策略以<b>高饱和+高对比</b>为主——红黄蓝绿交织，视觉上热闹到混乱边缘。Pizza Time阶段的场景<b>崩塌动画</b>是全游戏最紧张的视觉时刻。"
+    },
+    "costume": {
+      "title": "Peppino变形记 · 帧动画的极致",
+      "value": "Peppino的角色动画是Pizza Tower的<b>技术核心</b>——每个动作状态（站立、跑步、冲刺、变身、攻击）都有数十帧<b>手绘动画</b>，角色在高速移动时的形变夸张到离谱。Boss角色的设计走<b>夸张卡通恐怖</b>路线——Pizzaface的巨脸、Fake Peppino的诡异扭曲。NPC角色（Gustavo和Brick）有独立的动画体系。服装变化通过<b>变身机制</b>实现——Peppino可变成骑士、鬼魂、火箭等形态。"
+    },
+    "ui": {
+      "title": "街机评分UI · 即时反馈",
+      "value": "UI走<b>经典街机</b>风格——分数、连击数、排名实时显示在屏幕角落。P-Rank系统的<b>评分动画</b>——从D到P的字母渐变——是强力的正向反馈。Pizza Time倒计时的<b>巨大数字</b>在屏幕上营造紧迫感。关卡选择使用<b>塔楼楼层</b>的纵向布局，视觉隐喻清晰。整体UI保持了<b>手绘卡通</b>一致性——按钮、字体、图标都带有涂鸦质感。"
+    },
+    "symbol": {
+      "title": "Peppino焦虑脸 · 披萨 · Pizza Time计时器",
+      "value": "<b>Peppino的焦虑表情</b>是游戏最具传播力的视觉资产——他惊恐、愤怒、狂喜的面部变化是天然的表情包素材。<b>披萨</b>作为核心道具和主题元素贯穿始终。<b>Pizza Time</b>的红色倒计时是游戏最紧张的视觉信号。<b>P-Rank</b>的金色字母是追求完美的视觉目标。<b>Pizzaface</b>（最终Boss）的巨大笑脸是恐怖与搞笑并存的设计范例。"
+    },
+    "promo": {
+      "title": "手绘品质 + 社区培养 + 速通传播",
+      "value": "Pizza Tower的宣发是<b>\"社区培养式\"的长期策略</b>——从GameJolt Demo开始数年的社区积累，正式版发售时已有大量核心粉丝。预告片主打<b>手绘动画的帧数和流畅度</b>——\"看看这些手绘帧\"本身就是卖点。Key Art以<b>Peppino的夸张表情+塔楼</b>为核心构图。品牌色以<b>红黄</b>（披萨色）为主调。速通社区的<b>极限操作视频</b>是持续传播的引擎。"
+    },
+    "rivals": [
+      {"id": 208, "reason": "同为<b>节奏感极强的动作游戏</b>，Hi-Fi Rush的音乐节奏 vs Pizza Tower的速度节奏——两种\"心流动作\"的美术策略"},
+      {"id": 205, "reason": "同为<b>2D动作平台</b>的美术标杆，空洞骑士的暗黑手绘 vs Pizza Tower的疯狂卡通——两种独立2D美术的极端路线"},
+      {"id": 223, "reason": "同为<b>Devolver Digital</b>发行的独立视觉标杆（注：Pizza Tower非Devolver但同为独立领域），咩咩启示录的可爱邪典 vs Pizza Tower的疯狂卡通——两种\"反主流\"美术"},
+      {"id": 222, "reason": "同为<b>独立游戏爆款</b>且美术风格独特，Vampire Survivors的极简像素 vs Pizza Tower的极致手绘——两种\"低预算高辨识度\"的路线"}
+    ]
+  }
+}

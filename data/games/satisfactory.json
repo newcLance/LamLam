@@ -1,0 +1,81 @@
+{
+  "id": 227,
+  "slug": "satisfactory",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>工业美学</b>做到了游戏史上最精致——传送带上整齐排列的零件、管道系统的流体动画、巨型工厂的全景，每个构造都是可运转的艺术品", "src": "IGN 8/10", "url": "https://www.ign.com/articles/satisfactory-1-0-review"},
+        {"text": "外星球的<b>自然地貌</b>美术水准极高——茂密森林、红色沙漠、蓝色珊瑚洞穴、高海拔雪山，非工业区域的美感超出预期", "src": "PC Gamer 87/100", "url": "https://www.pcgamer.com/satisfactory-1-0-review/"},
+        {"text": "夜间工厂的<b>灯光效果</b>——自定义照明让玩家把工厂装饰成赛博朋克风或温馨小镇风", "src": "Eurogamer", "url": "https://www.eurogamer.net/satisfactory-1-0-review"}
+      ],
+      "excitement": [
+        {"text": "第一次建成<b>全自动化产线</b>时的视觉满足——看着原料从矿机到传送带到组装机到仓库的完整流程是纯粹的工程之美", "src": "IGN", "url": "https://www.ign.com/articles/satisfactory-1-0-review"},
+        {"text": "解锁<b>核电+粒子加速器</b>后的超级工厂——巨型建筑+复杂管道的视觉震撼", "src": "PC Gamer", "url": "https://www.pcgamer.com/satisfactory-1-0-review/"}
+      ],
+      "pain": [
+        {"text": "大型工厂的<b>帧率下降</b>——数千个传送带和机器同时运转时性能压力大", "src": "Steam评测", "url": "https://store.steampowered.com/app/526870/Satisfactory/"},
+        {"text": "管道/传送带在<b>复杂交叉</b>时的布局美观度难以维持——混乱的管线影响整体视觉", "src": "Reddit r/SatisfactoryGame", "url": "https://www.reddit.com/r/SatisfactoryGame/"}
+      ],
+      "churn": [
+        {"text": "后期<b>研究树节奏变慢</b>——解锁新视觉内容的间隔增大", "src": "Steam评测", "url": "https://store.steampowered.com/app/526870/Satisfactory/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "社区的<b>超级工厂</b>截图和视频是主要传播内容——\"看看我的完美工厂\"是核心社区活动", "src": "Reddit r/SatisfactoryGame", "url": "https://www.reddit.com/r/SatisfactoryGame/"},
+        {"text": "Coffee Stain Studios的<b>社区运营</b>极其出色——开发日志视频幽默专业，EA期间持续与玩家互动", "src": "YouTube", "url": "https://www.youtube.com/c/CoffeeStainStudios"},
+        {"text": "<b>Satisfactory Calculator</b>等社区工具——证明游戏的系统深度激发了工程师式的创作热情", "src": "satisfactory-calculator.com", "url": "https://satisfactory-calculator.com/"}
+      ],
+      "excitement": [
+        {"text": "1.0正式版的<b>终章内容</b>——解锁太空电梯最终阶段的成就感极强", "src": "Steam", "url": "https://store.steampowered.com/app/526870/Satisfactory/"},
+        {"text": "蓝图系统的<b>分享功能</b>让社区交换工厂设计——\"最美工厂\"评选成为社区传统", "src": "Reddit", "url": "https://www.reddit.com/r/SatisfactoryGame/"}
+      ],
+      "pain": [
+        {"text": "多人合作的<b>同步问题</b>——大型工厂在多人游戏中性能不稳定", "src": "Steam评测", "url": "https://store.steampowered.com/app/526870/Satisfactory/"}
+      ],
+      "churn": [
+        {"text": "通关后缺少<b>明确的endgame目标</b>——1.0后的长期驱动力依赖自设目标", "src": "Reddit", "url": "https://www.reddit.com/r/SatisfactoryGame/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "外星工业化 · FICSIT公司的开拓任务",
+    "dims": [
+      {"label": "时间", "value": "<b>未来</b>——人类已具备星际殖民能力"},
+      {"label": "发生地", "value": "<b>MASSAGE-2(A-B)b</b>——一颗资源丰富的外星球，地貌多样"},
+      {"label": "角色", "value": "FICSIT员工——被公司派到<b>外星球建设工厂</b>的工程师，身份匿名，核心是工厂而非个人"},
+      {"label": "科技水平", "value": "<b>工业科幻</b>——从手工采矿到核电+粒子加速器的完整科技树"},
+      {"label": "对抗关系", "value": "<b>工程师</b> vs <b>外星环境和原住生物</b>——核心不是战斗而是征服自然、建设秩序"},
+      {"label": "地图", "value": "<b>草原</b>、<b>沙漠</b>、<b>森林</b>、<b>沼泽</b>、<b>珊瑚洞穴</b>、<b>火山区</b>、<b>雪山</b>等多种地貌"},
+      {"label": "元素", "value": "<b>传送带</b>、<b>管道</b>、<b>组装机</b>、<b>太空电梯</b>、<b>HUB</b>、<b>电力塔</b>、<b>FICSIT标志</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "外星自然 + 工业文明 · 征服美学",
+      "value": "场景美术的核心张力是<b>原始自然 vs 工业文明</b>——茂密外星森林中矗立起钢铁工厂，传送带穿越峡谷，管道横跨河流。自然区域的<b>色彩丰富度</b>超出工厂建造类游戏的预期——蓝色珊瑚洞穴、红色沙漠、紫色蘑菇森林。工厂区域的美感完全由<b>玩家创造</b>——整齐的传送带布局、统一的建筑外观、夜间照明设计。"
+    },
+    "costume": {
+      "title": "FICSIT工业制服 + 外星生物",
+      "value": "玩家角色穿着<b>橙色FICSIT工装</b>——工业感+科幻感兼备。自定义选项通过<b>头饰和配件</b>实现。外星生物设计融合了科幻与卡通——从温顺的蜥蜴到攻击性的蜘蛛，视觉威胁度分级清晰。<b>机器设备</b>的工业设计极其精致——每台机器都有独特的运转动画和材质质感。"
+    },
+    "ui": {
+      "title": "工程师蓝图UI · 科技树+建造界面",
+      "value": "UI围绕<b>工程建造</b>设计——建造菜单分类清晰、快捷键丰富。科技树（里程碑系统）以<b>太空电梯阶段</b>呈现进度。地图使用<b>卫星扫描</b>风格。蓝图系统的<b>预览功能</b>让建造前就能看到成品效果。信号灯和告示牌系统让工厂管理更直观。"
+    },
+    "symbol": {
+      "title": "传送带 · 太空电梯 · FICSIT Logo",
+      "value": "<b>传送带</b>是Satisfactory的视觉DNA——整齐运转的传送带上排列的零件是工业之美的纯粹表达。<b>太空电梯</b>作为终极建筑矗立在世界中心，象征工业化的终点。<b>FICSIT</b>的企业Logo和标语（\"FICSIT: 我们不浪费\"）是黑色幽默的视觉标签。"
+    },
+    "promo": {
+      "title": "工厂之美 + 社区驱动 + EA长跑",
+      "value": "宣发以<b>\"建造完美工厂\"</b>的工程满足感为核心卖点。Key Art以<b>外星自然中的钢铁工厂</b>为标准构图。品牌色以<b>橙+工业灰</b>为主调。Coffee Stain的<b>幽默开发日志</b>是最强社区粘性工具。社区截图/视频（\"看我的超级工厂\"）是持续传播引擎。"
+    },
+    "rivals": [
+      {"id": 229, "reason": "同为<b>工厂建造</b>类标杆，戴森球计划的宇宙级工厂 vs Satisfactory的星球级工厂——2D俯视 vs 第一人称的建造体验对比"},
+      {"id": 226, "reason": "同为<b>合作类工业题材</b>，Lethal Company的打工地狱 vs Satisfactory的建造乌托邦——工业场景的正反两面"},
+      {"id": 228, "reason": "同为<b>建造破坏</b>题材，Teardown的体素破坏 vs Satisfactory的系统建造——破坏美学 vs 建设美学"},
+      {"id": 230, "reason": "同为<b>外星开拓</b>题材，The Planet Crafter的星球改造 vs Satisfactory的星球工业化——两种征服外星的方式"}
+    ]
+  }
+}

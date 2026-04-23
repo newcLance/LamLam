@@ -1,0 +1,81 @@
+{
+  "id": 226,
+  "slug": "lethal-company",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>PS1风格低模恐怖</b>的极致——刻意的低分辨率纹理、简陋的3D模型、昏暗的手电筒光源，用最少的美术预算创造了最强的恐怖氛围", "src": "PC Gamer 85/100", "url": "https://www.pcgamer.com/lethal-company-review/"},
+        {"text": "设施内部的<b>工业恐怖</b>美术——锈蚀管道、闪烁灯光、无尽走廊，每次进入都不知道会遇到什么", "src": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/lethal-company-review"},
+        {"text": "<b>怪物设计</b>的低保真恐怖——Bracken的黑色人形、Coil-Head的弹簧脑袋、Jester的音乐盒，每种怪物都用最简单的造型传达最大的恐惧", "src": "Eurogamer", "url": "https://www.eurogamer.net/lethal-company-review"}
+      ],
+      "excitement": [
+        {"text": "与队友<b>对讲机沟通</b>时突然听到背后的脚步声——多人合作的恐怖体验远超单人", "src": "IGN", "url": "https://www.ign.com/articles/lethal-company-early-access-review"},
+        {"text": "<b>船只回传战利品</b>的紧张倒计时——从设施逃出到登船的最后一刻是纯粹的肾上腺素体验", "src": "PC Gamer", "url": "https://www.pcgamer.com/lethal-company-review/"}
+      ],
+      "pain": [
+        {"text": "EA阶段的<b>内容量</b>有限——怪物种类和关卡在反复游玩后视觉新鲜感下降", "src": "Steam评测", "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"},
+        {"text": "室外星球表面的<b>美术精度</b>明显低于室内——地形简陋、植被稀疏", "src": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/lethal-company-review"}
+      ],
+      "churn": [
+        {"text": "长期游玩后<b>恐怖感递减</b>——熟悉怪物行为后紧张感下降", "src": "Steam评测", "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "<b>多人搞笑恐怖</b>视频是最大传播内容——队友被怪物追杀时的惨叫和混乱是天然的直播素材", "src": "YouTube/Twitch", "url": "https://www.youtube.com/results?search_query=lethal+company"},
+        {"text": "Mod社区<b>极其活跃</b>——自定义怪物、地图、道具、角色皮肤大幅延长了游戏生命周期", "src": "Thunderstore", "url": "https://thunderstore.io/c/lethal-company/"},
+        {"text": "Zeekerss（<b>solo开发者</b>）以一人之力创造了2023年末最火的多人游戏", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"}
+      ],
+      "excitement": [
+        {"text": "每次<b>版本更新</b>加入新怪物和新月球都引发社区集体探索热潮", "src": "Steam", "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"},
+        {"text": "<b>自定义Mod</b>的创意——从Among Us联动到恐怖版Mario，社区创作力惊人", "src": "Thunderstore", "url": "https://thunderstore.io/c/lethal-company/"}
+      ],
+      "pain": [
+        {"text": "匹配<b>随机队友</b>时体验不稳定——缺少内置语音匹配系统", "src": "Steam评测", "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"}
+      ],
+      "churn": [
+        {"text": "EA更新节奏<b>间隔较长</b>——核心玩家在内容干旱期流失", "src": "Reddit r/lethalcompany", "url": "https://www.reddit.com/r/lethalcompany/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "深空打工 · 企业恐怖",
+    "dims": [
+      {"label": "时间", "value": "<b>未来</b>——企业统治的太空殖民时代"},
+      {"label": "发生地", "value": "<b>废弃工业星球</b>——荒凉的行星表面+昏暗的地下设施"},
+      {"label": "角色", "value": "4人<b>底层打工人</b>——为了完成公司配额在危险星球上捡拾废品的苦逼员工"},
+      {"label": "科技水平", "value": "<b>粗糙太空工业</b>——对讲机、手电筒、铲子，设备简陋到令人绝望"},
+      {"label": "对抗关系", "value": "<b>打工人</b> vs <b>设施内怪物 + 公司配额</b>——双重压迫：怪物要命，公司要KPI"},
+      {"label": "地图", "value": "多个<b>废弃月球/星球</b>——各有不同设施布局和怪物组合，室外荒凉+室内恐怖"},
+      {"label": "元素", "value": "<b>对讲机</b>、<b>手电筒</b>、<b>废品</b>（各种荒诞物品）、<b>飞船</b>、<b>配额终端</b>、<b>怪物剪影</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "低保真工业恐怖 · PS1美学回归",
+      "value": "场景美术策略是<b>刻意的低保真</b>——PS1级别的纹理分辨率、简陋的光照、有限的环境细节，但这种粗糙感恰恰放大了恐怖氛围。设施内部使用<b>工业灰+锈红</b>色调，走廊昏暗狭窄。室外星球表面荒凉单调，强化了\"被遗弃\"的孤独感。<b>手电筒</b>是唯一光源——光锥范围有限，黑暗中随时可能出现威胁。"
+    },
+    "costume": {
+      "title": "企业制服 + 低模怪物 · 简陋即恐怖",
+      "value": "玩家角色穿着<b>统一企业制服</b>——橙色工装，毫无个性。怪物设计是全游戏最大的美术成就——<b>Bracken</b>的纯黑人形、<b>Coil-Head</b>的弹簧脖子、<b>Jester</b>的音乐盒头部，每种都用最简单的造型传达独特恐惧。低多边形的<b>简陋感</b>反而增加了\"恐怖谷\"效应——不够真实但够诡异。"
+    },
+    "ui": {
+      "title": "终端命令行 + 极简HUD",
+      "value": "飞船内的<b>命令行终端</b>是最独特的UI设计——用文字命令控制雷达、查看天气、管理配额。游戏内HUD极简——仅手电筒电量和物品提示。<b>对讲机</b>界面用按键说话机制，音质故意做成<b>低保真</b>。配额系统的数字压力始终悬在头顶。整体UI保持了\"廉价太空设备\"的拟真感。"
+    },
+    "symbol": {
+      "title": "手电筒光锥 · 对讲机 · 废品",
+      "value": "<b>手电筒光锥</b>在黑暗中是恐惧与安全的边界——光照到的是安全区，光照不到的是未知。<b>对讲机</b>的嘈杂声音是多人合作恐怖的核心——队友的惨叫通过对讲机传来比亲眼所见更可怕。各种<b>荒诞废品</b>（大瓶子、牙刷、金蜂巢）是黑色幽默的视觉载体。<b>飞船</b>作为唯一的安全空间，其关闭大门的画面是每轮最安心的时刻。"
+    },
+    "promo": {
+      "title": "零宣发 + 直播爆炸 + solo传奇",
+      "value": "Lethal Company几乎<b>没有传统宣发</b>——完全靠EA早期测试的直播口碑自然爆发。多人恐怖的<b>惨叫+搞笑</b>片段是最强传播物料——\"看朋友被怪物追\"是病毒式内容。solo开发者Zeekerss的故事本身是话题。品牌视觉极简——黑底+绿色终端文字。<b>低价策略</b>（约￥50）消除了多人组队的购买门槛。"
+    },
+    "rivals": [
+      {"id": 222, "reason": "同为<b>低美术预算但极度流行</b>，Vampire Survivors的像素弹幕 vs Lethal Company的低模恐怖——两种\"丑美学\""},
+      {"id": 218, "reason": "同为<b>低保真恐怖</b>，SIGNALIS的复古科幻恐怖 vs Lethal Company的合作工业恐怖——单人 vs 多人恐怖体验"},
+      {"id": 212, "reason": "同为<b>恐怖游戏</b>但预算天壤之别，RE Village的3A哥特 vs Lethal Company的低模极简——恐怖氛围不依赖美术预算"},
+      {"id": 227, "reason": "同为<b>合作类</b>工业题材，Satisfactory的建造乌托邦 vs Lethal Company的打工地狱——同为工业场景的正反两面"}
+    ]
+  }
+}

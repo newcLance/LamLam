@@ -1,0 +1,84 @@
+{
+  "id": 214,
+  "slug": "cyberpunk-2077",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>夜之城</b>是游戏史上最精致的开放世界城市——垂直城市结构、霓虹广告墙、贫民窟与摩天楼的交叠，密度和细节远超同类", "src": "IGN 9/10 (2.0)", "url": "https://www.ign.com/articles/cyberpunk-2077-phantom-liberty-review"},
+        {"text": "2.0版本的<b>光线追踪Overdrive</b>将城市夜景提升到摄影级别——雨后街道的反射、霓虹灯的散射、金属表面的高光让人忘记这是游戏", "src": "Digital Foundry", "url": "https://www.eurogamer.net/digitalfoundry-2023-cyberpunk-2077-overdrive-mode-tested"},
+        {"text": "Phantom Liberty DLC的<b>狗镇</b>美术——将贫民窟的视觉密度推到极致，每平方米都塞满了叙事性环境细节", "src": "Game Informer 9.5/10", "url": "https://www.gameinformer.com/review/cyberpunk-2077-phantom-liberty"}
+      ],
+      "excitement": [
+        {"text": "<b>脑舞序列</b>的视觉叙事手法——通过黑客接口回放记忆片段，UI层叠和画面扭曲创造了独特的赛博朋克调查体验", "src": "IGN", "url": "https://www.ign.com/articles/cyberpunk-2077-phantom-liberty-review"},
+        {"text": "驾车穿越<b>恶土</b>（Badlands）时的视觉震撼——从城市霓虹突然切换到沙漠荒野的日落，色调反差极强", "src": "PC Gamer 90/100", "url": "https://www.pcgamer.com/cyberpunk-2077-review/"},
+        {"text": "<b>第一人称</b>视角的沉浸感在义体改造场景中达到极致——看着自己的手臂被替换为机械臂，视觉冲击力远超第三人称", "src": "Eurogamer", "url": "https://www.eurogamer.net/cyberpunk-2077-review"}
+      ],
+      "pain": [
+        {"text": "发售初期<b>视觉Bug</b>严重——T-Pose、贴图错误、NPC行为异常极大破坏了沉浸感（2.0后基本修复）", "src": "多媒体综合", "url": "https://www.ign.com/articles/cyberpunk-2077-review"},
+        {"text": "室内场景的<b>光照质量</b>不如室外——部分任务场景的平面光照与城市的精致形成落差", "src": "Digital Foundry", "url": "https://www.eurogamer.net/digitalfoundry-2023-cyberpunk-2077-overdrive-mode-tested"}
+      ],
+      "churn": [
+        {"text": "主线之外的<b>开放世界活动</b>视觉重复——大量NCPD扫描点的场景布局趋同", "src": "IGN", "url": "https://www.ign.com/articles/cyberpunk-2077-review"},
+        {"text": "车辆定制的<b>视觉选项</b>有限——无法改装外观和涂装，与角色服装的自由度不匹配", "src": "Steam评测", "url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "<b>Photo Mode</b>是社区最活跃的内容工具——夜之城的每个角落都是天然摄影棚，社区产出的截图质量堪比概念艺术", "src": "Reddit r/cyberpunkgame", "url": "https://www.reddit.com/r/cyberpunkgame/"},
+        {"text": "《边缘行者》动画播出后<b>二次元与游戏社区</b>的破圈——David和Lucy的角色设计反向带动了游戏的视觉审美讨论", "src": "Netflix/TRIGGER", "url": "https://www.netflix.com/title/81054853"},
+        {"text": "Mod社区的<b>视觉增强</b>极为活跃——自定义车辆、角色外观、天气效果、光追Reshade预设", "src": "NexusMods", "url": "https://www.nexusmods.com/cyberpunk2077"}
+      ],
+      "excitement": [
+        {"text": "2.0更新后<b>回归玩家潮</b>——Photo Mode截图大量涌入社交媒体，\"夜之城摄影\"成为独立内容品类", "src": "Reddit", "url": "https://www.reddit.com/r/cyberpunkgame/"},
+        {"text": "<b>Edgerunners联动</b>内容的视觉彩蛋——David的夹克、Lucy的住所、Arasaka塔顶场景引发社区集体朝圣", "src": "Twitter/X", "url": "https://x.com/search?q=cyberpunk%20edgerunners%20easter%20egg"}
+      ],
+      "pain": [
+        {"text": "公寓定制的<b>可视化选项</b>有限——社区期待更多室内装饰和个性化空间", "src": "Reddit", "url": "https://www.reddit.com/r/cyberpunkgame/"},
+        {"text": "<b>第三人称</b>模式的缺失是持续讨论话题——玩家希望看到精心搭配的服装在游戏中完整展示", "src": "Steam论坛", "url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"}
+      ],
+      "churn": [
+        {"text": "Phantom Liberty之后<b>无新DLC</b>公布——社区对夜之城的视觉投入能否延续到续作表示关注", "src": "Reddit", "url": "https://www.reddit.com/r/cyberpunkgame/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "夜之城 · 义体传说",
+    "dims": [
+      {"label": "时间", "value": "<b>2077年</b>——超高科技但社会崩坏的近未来"},
+      {"label": "发生地", "value": "<b>夜之城</b>（Night City）——美国西海岸的独立都市国家，六大区域从企业中心到贫民窟各具特色"},
+      {"label": "角色", "value": "V——<b>赛博朋克雇佣兵</b>，因意外获得已故摇滚明星Johnny Silverhand的意识芯片，面临自我认同危机"},
+      {"label": "科技水平", "value": "<b>极端赛博科技</b>——义体改造普及、脑机接口日常化、AI觉醒、虚拟空间（Net）与现实并行"},
+      {"label": "对抗关系", "value": "<b>街头小人物（V）</b> vs <b>荒坂等超级企业</b>——核心是个体自由 vs 企业控制，视觉上是街头朋克的混乱活力 vs 企业大楼的冷酷秩序"},
+      {"label": "地图", "value": "<b>沃森</b>（亚洲风贫民窟）、<b>日本城</b>（霓虹消费区）、<b>市中心</b>（企业摩天楼）、<b>太平洋</b>（海地贫民窟）、<b>恶土</b>（城外沙漠荒野）、<b>狗镇</b>（DLC新区域）"},
+      {"label": "元素", "value": "<b>义体改造</b>、<b>霓虹广告</b>、<b>数据芯片</b>、<b>荒坂塔</b>、<b>脑舞</b>（Braindance）、<b>Johnny的银手</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "垂直城市 + 霓虹废墟 · 史上最精致的赛博朋克都市",
+      "value": "夜之城是<b>赛博朋克视觉美学的终极实现</b>——垂直城市结构将贫民窟、中产社区、企业高楼叠加在同一空间内，抬头是企业广告，低头是积水小巷。六个区域各有独立视觉身份：沃森的<b>亚洲风霓虹</b>、日本城的<b>消费主义光污染</b>、太平洋的<b>海地贫民窟水泥灰</b>、恶土的<b>沙漠铁锈</b>。光线追踪Overdrive模式下的夜景反射是当代游戏图形的天花板。"
+    },
+    "costume": {
+      "title": "街头朋克混搭 · 义体改造 · 阶层视觉编码",
+      "value": "服装设计是<b>夜之城社会结构的视觉编码</b>——街头小混混的DIY拼接、帮派的统一色彩标识、企业员工的极简套装、明星的华丽义体。V的服装系统涵盖上百件单品，从<b>皮衣+军靴</b>的街头风到<b>西装+义体眼</b>的企业风全覆盖。<b>义体改造</b>的外观设计是最大亮点——螳螂刀从手腕展开、大猩猩臂的金属关节、光学义眼的HUD界面都兼具功能性与视觉冲击力。"
+    },
+    "ui": {
+      "title": "赛博扫描HUD · 信息密集 · 黑客美学",
+      "value": "UI设计围绕<b>义体植入HUD</b>的概念——所有界面信息都是\"V眼中看到的世界\"。扫描模式的<b>赛博网格覆盖</b>将整个世界变成数据层。黑客入侵的<b>矩阵代码</b>界面是独特的小游戏UI。手机/车辆/武器的界面统一使用<b>冷蓝+橙红</b>警告色。菜单界面信息密度极高，角色属性/义体/技能树的数据量庞大但层级清晰。脑舞回放界面的<b>时间轴控制</b>是UI设计亮点。"
+    },
+    "symbol": {
+      "title": "霓虹广告 · 义体手臂 · 荒坂塔",
+      "value": "<b>霓虹广告</b>是夜之城的视觉DNA——密集的全息投影、巨型LED屏幕、闪烁的店铺招牌构成了城市的视觉噪音。<b>义体改造</b>（特别是螳螂刀和大猩猩臂）是角色力量的视觉外化。<b>荒坂塔</b>作为城市天际线的绝对地标，象征着企业权力。<b>Johnny Silverhand的银色手臂</b>是叙事核心符号。<b>Samurai乐队标志</b>（炸弹+翅膀）是反叛精神的视觉图腾。边缘行者动画中<b>David的黄色夹克</b>成为跨媒介视觉符号。"
+    },
+    "promo": {
+      "title": "基努里维斯 · 黄色品牌色 · 从灾难到翻身",
+      "value": "宣发经历了<b>从顶峰到谷底再到翻身</b>的完整弧线。初期以<b>基努·里维斯</b>的明星效应和\"史上最宏大的赛博朋克城市\"为核心卖点。品牌色<b>赛博黄</b>（#FCEE09）极具辨识度，成为游戏品牌设计的经典案例。发售后口碑崩盘，2.0翻身后\"赛博朋克复活\"本身成为最大营销叙事。《边缘行者》动画的<b>TRIGGER美术风格</b>为IP注入了全新视觉维度——二次元与游戏的双向破圈。"
+    },
+    "rivals": [
+      {"id": 211, "reason": "同为<b>近未来科幻</b>的视觉标杆，赛博朋克的霓虹都市 vs 星刃的末日荒原——两种科幻美术方向"},
+      {"id": 201, "reason": "同为<b>最佳RPG</b>的年度竞争者，赛博朋克2077的科幻写实 vs BG3的奇幻写实——两款游戏在世界构建的视觉投入上都是天花板级别"},
+      {"id": 202, "reason": "同为<b>叙事驱动</b>的3A动作RPG，战神的北欧神话 vs 赛博朋克的近未来都市——线性叙事 vs 开放叙事的视觉策略对比"},
+      {"id": 128, "reason": "同为<b>开放世界FPS</b>且世界构建密度极高，STALKER2的废土 vs 赛博朋克的霓虹——荒凉 vs 繁华的末世美学对比"}
+    ]
+  }
+}

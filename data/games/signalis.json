@@ -1,0 +1,82 @@
+{
+  "id": 218,
+  "slug": "signalis",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>PS1时代生存恐怖</b>的视觉致敬做到了极致——固定机位、低分辨率纹理、CRT滤镜，但每个场景的光影构图都是精心计算的", "src": "IGN 9/10", "url": "https://www.ign.com/articles/signalis-review"},
+        {"text": "<b>东德美学+日式动画+洛夫克拉夫特</b>的三重混搭——冷战工业风、人形机器人的精致面庞、宇宙恐怖的扭曲肉体，这种融合完全独创", "src": "PC Gamer 89/100", "url": "https://www.pcgamer.com/signalis-review/"},
+        {"text": "叙事手法中大量使用<b>红白黑三色</b>的平面设计——文档、海报、UI都带有强烈的苏联宣传画美学", "src": "Eurogamer", "url": "https://www.eurogamer.net/signalis-review"}
+      ],
+      "excitement": [
+        {"text": "第一次进入<b>扭曲空间</b>（\"红色走廊\"）——从冷静的科幻恐怖突然跌入超现实主义噩梦，视觉冲击极强", "src": "IGN", "url": "https://www.ign.com/articles/signalis-review"},
+        {"text": "Replika单元的<b>面部特写过场</b>——精致的动画面庞与冰冷的机器人设定形成令人心碎的反差", "src": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/signalis-review"},
+        {"text": "获得2022年多项<b>最佳独立游戏恐怖</b>提名——被誉为\"这个时代的寂静岭精神续作\"", "src": "The Game Awards", "url": "https://thegameawards.com/"}
+      ],
+      "pain": [
+        {"text": "部分<b>解谜环节</b>的视觉提示不够清晰——需要在多个相似走廊间反复移动寻找线索", "src": "GameSpot 8/10", "url": "https://www.gamespot.com/reviews/signalis-review/1900-6417999/"},
+        {"text": "后期<b>怪物种类</b>增加后的视觉辨识度下降——部分变异体在低光照下难以区分", "src": "Steam评测", "url": "https://store.steampowered.com/app/1262350/SIGNALIS/"}
+      ],
+      "churn": [
+        {"text": "物品栏的<b>6格限制</b>导致频繁回箱操作——在视觉上重复走相同的走廊令人疲惫", "src": "PC Gamer", "url": "https://www.pcgamer.com/signalis-review/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "社区围绕<b>多结局解读</b>的深度讨论——游戏的视觉叙事线索（红色房间、国王与女王的隐喻）引发了大量分析文章", "src": "Reddit r/signalis", "url": "https://www.reddit.com/r/signalis/"},
+        {"text": "<b>Elster和Ariane</b>的关系成为独立游戏界最动人的叙事之一——机器人的温柔面部表情成为社区的情感锚点", "src": "Twitter/X", "url": "https://x.com/search?q=signalis%20elster%20ariane"},
+        {"text": "rose-engine（两人开发团队）的<b>美术功力</b>被行业高度认可——证明极少资源也能创造顶级视觉体验", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"}
+      ],
+      "excitement": [
+        {"text": "玩家自制的<b>Replika角色同人</b>质量极高——游戏的角色设计风格特别适合二次创作", "src": "Twitter/X", "url": "https://x.com/search?q=signalis%20fanart"},
+        {"text": "游戏的<b>原声带</b>（合成器+噪音+古典）在音乐社区获得独立认可", "src": "Bandcamp", "url": "https://rose-engine.bandcamp.com/"}
+      ],
+      "pain": [
+        {"text": "部分玩家对<b>叙事晦涩度</b>有抱怨——视觉线索和文本碎片需要大量拼凑", "src": "Reddit", "url": "https://www.reddit.com/r/signalis/"}
+      ],
+      "churn": [
+        {"text": "6-8小时的<b>流程长度</b>让部分玩家觉得意犹未尽——但也有人认为恰到好处", "src": "Steam评测", "url": "https://store.steampowered.com/app/1262350/SIGNALIS/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "深空殖民地 · 机器人的爱与记忆",
+    "dims": [
+      {"label": "时间", "value": "<b>遥远未来</b>——人类已殖民外星，但社会体制停滞在冷战式极权"},
+      {"label": "发生地", "value": "<b>深空采矿殖民地</b>——冰冷的地下设施、废弃的教育中心、扭曲的红色异空间"},
+      {"label": "角色", "value": "Elster——LSTR型<b>Replika（人形机器人）</b>，为寻找丢失的同伴深入恐怖设施。机器人却拥有最人性化的情感"},
+      {"label": "科技水平", "value": "<b>冷战+太空殖民</b>——故意保持低科技美学（CRT屏幕、磁带、笨重工业设备），与太空殖民的高科技设定形成矛盾"},
+      {"label": "对抗关系", "value": "<b>Elster</b> vs <b>变异Replika / 扭曲现实</b>——核心是记忆 vs 遗忘、承诺 vs 绝望，恐怖来源同时是物理怪物和存在主义危机"},
+      {"label": "地图", "value": "<b>飞船残骸</b>、<b>采矿设施</b>（冰冷工业走廊）、<b>教育中心</b>（东德校园）、<b>红色异空间</b>（超现实扭曲）、<b>塔</b>（最终目的地）"},
+      {"label": "元素", "value": "<b>Replika面具</b>、<b>红色</b>（血液/空间/情感）、<b>国王与女王</b>（隐喻符号）、<b>CRT显示器</b>、<b>磁带/信件</b>、<b>眼睛</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "冷战太空 + PS1恐怖 + 超现实红色走廊",
+      "value": "SIGNALIS的场景美术是<b>三种美学的完美叠加</b>：<b>东德冷战工业</b>的灰绿色调和笨重设备、<b>PS1生存恐怖</b>的低分辨率纹理和固定机位、<b>超现实主义</b>的红色扭曲空间。常规区域使用<b>极度克制的色彩</b>——灰、白、军绿，仅在关键时刻出现红色。光照设计故意保持<b>不足</b>——手电筒范围有限，走廊尽头始终模糊。CRT滤镜和扫描线效果赋予了画面<b>记忆退化</b>的质感。"
+    },
+    "costume": {
+      "title": "Replika制服 + 东德军装 · 精致与冰冷并存",
+      "value": "Replika的设计是SIGNALIS最出色的视觉成就——<b>精致的动画面庞</b>搭配标准化的军事制服，美丽与机械的矛盾感贯穿始终。各型号Replika通过<b>制服颜色和细节</b>区分：LSTR型红发、STAR型金发、FALKE型黑发。变异后的Replika设计融合了<b>肉体恐怖</b>与机械残骸——扭曲的面部、外露的线缆、不自然的关节弯曲。人类角色穿着<b>冷战军装</b>，领章和肩章传达极权体制的视觉语言。"
+    },
+    "ui": {
+      "title": "CRT终端 + 6格物品栏 · 复古恐怖界面",
+      "value": "UI全面致敬<b>PS1时代生存恐怖</b>——物品栏仅6格的限制不仅是玩法设计更是视觉焦虑的来源。菜单使用<b>CRT显示器</b>的视觉框架——绿色磷光文字、扫描线、屏幕曲率。地图手绘风格，标注简陋但氛围到位。文档阅读界面使用<b>信件/磁带/海报</b>等拟物化呈现，每份文档都有独立的平面设计风格。存档点使用<b>旧式电脑终端</b>，保存/读取画面带有数据流效果。"
+    },
+    "symbol": {
+      "title": "红色 · Replika面庞 · 国王与女王",
+      "value": "<b>红色</b>是SIGNALIS的情感母题——它代表血液、爱情、记忆、危险，在灰色世界中每一抹红都极具冲击力。<b>Replika的面部特写</b>是全游戏最令人难忘的画面——机器人脸上的泪水、微笑、绝望都通过精致的2D动画呈现。<b>国王与女王</b>的隐喻贯穿叙事——象棋棋子、童话故事、爱情誓言的视觉交织。<b>眼睛</b>是反复出现的恐怖元素——闭合的、流血的、空洞的。"
+    },
+    "promo": {
+      "title": "极简恐怖 · 复古致敬 · 独立口碑传播",
+      "value": "宣发以<b>极简恐怖美学</b>为核心——预告片节奏缓慢、压抑，大量使用固定机位长镜头和突然的视觉干扰。Key Art使用<b>Elster面部特写+红色元素</b>的标准构图。品牌色以<b>红+灰白</b>为主调，与游戏内色彩策略一致。宣发文案极度克制，不解释剧情只传递氛围。两人团队的<b>开发者故事</b>本身是强传播点——\"两个人做出了寂静岭精神续作\"。"
+    },
+    "rivals": [
+      {"id": 204, "reason": "被直接对标为<b>寂静岭精神续作</b>，SIGNALIS的冷战科幻恐怖 vs 寂静岭2的心理恐怖——两种恐怖美学的代际传承"},
+      {"id": 216, "reason": "同为<b>独立恐怖</b>的视觉标杆，Inscryption的暗色密室 vs SIGNALIS的冷战走廊——两种低成本高氛围的美术策略"},
+      {"id": 212, "reason": "同为<b>生存恐怖</b>领域，生化危机村庄的3A哥特 vs SIGNALIS的像素冷战——预算差百倍但恐怖感不分伯仲"},
+      {"id": 206, "reason": "同为<b>独立游戏美术标杆</b>但路线完全相反，Hades 2的鲜艳希腊神话 vs SIGNALIS的灰暗太空恐怖——色彩策略的两极"}
+    ]
+  }
+}
