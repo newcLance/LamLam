@@ -1445,5 +1445,165 @@
         }
       ]
     }
+  ],
+  "Baldur's Gate 3": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Baldur's Gate 3 - Official",
+          "url": "https://baldursgate3.game/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/baldurs-gate-3/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "God of War": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "God of War - Official",
+          "url": "https://www.playstation.com/en-us/god-of-war/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/god-of-war/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Ghost of Tsushima DIRECTOR'S CUT": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Ghost of Tsushima DIRECTOR'S CUT - Official",
+          "url": "https://www.playstation.com/en-us/games/ghost-of-tsushima/pc/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/ghost-of-tsushima/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "SILENT HILL 2": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "SILENT HILL 2 - Official",
+          "url": "https://www.konami.com/games/silenthill/2r/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/silent-hill-2/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Hollow Knight: Silksong": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Hollow Knight: Silksong - Official",
+          "url": "https://hollowknightsilksong.com/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/hollow-knight-silksong/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Hades II": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Hades II - Official",
+          "url": "https://www.supergiantgames.com/games/hades-ii/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/hades-2/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Persona 5 Royal": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Persona 5 Royal - Official",
+          "url": "https://asia.sega.com/persona-remaster/p5r/cn/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/persona-5-royal/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Hi-Fi RUSH": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Hi-Fi RUSH - Official",
+          "url": "https://hifirush.krafton.com/",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/hi-fi-rush/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Kingdom Come: Deliverance II": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Kingdom Come: Deliverance II - Official",
+          "url": "https://www.deepsilver.com/games/kingdom-come-deliverance-ii",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/kingdom-come-deliverance-2/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Stray": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Stray - Official",
+          "url": "https://annapurnainteractive.com/games/stray",
+          "date": "2026-04-23",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/stray/home-1.webp"
+          ]
+        }
+      ]
+    }
   ]
 }
