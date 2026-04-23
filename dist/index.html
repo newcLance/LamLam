@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>游戏竞品设计追踪台 - Game Design Tracker</title>
+<title>Game Tracker - 游戏竞品设计追踪台</title>
 <!-- Tailwind CSS CDN (Play mode) -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -12,9 +12,17 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        surface: { 0:'#0a0a0f', 1:'#12121a', 2:'#1a1a25', 3:'#22222f' },
-        bdr: 'rgba(85,85,106,.25)',
-        accent: '#818cf8',
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
       }
     }
   }
@@ -22,14 +30,12 @@ tailwind.config = {
 </script>
 <style type="text/tailwindcss">
 @layer base {
-  body { @apply bg-surface-0 text-slate-200 antialiased; }
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
   a { color: inherit; text-decoration: none; }
 }
 @layer components {
-  /* Keyword highlight inside data text */
-  .data-text b { @apply text-slate-100 font-semibold bg-indigo-500/10 px-0.5 rounded; }
-  /* Source link */
-  a.src-link { @apply text-accent text-xs opacity-80 hover:opacity-100 hover:underline transition-all; }
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
 }
 </style>
 <!-- Alpine.js CDN -->
@@ -69,13 +75,13 @@ document.addEventListener('alpine:init', function() {
 <body class="min-h-screen">
 
 
-<header class="sticky top-0 z-50 bg-surface-0/90 backdrop-blur-xl border-b border-bdr">
-  <div class="max-w-7xl mx-auto px-4 h-12 flex items-center gap-4">
-    <a href="/index.html" class="font-extrabold text-sm text-accent shrink-0">G 游戏竞品分析</a>
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="/index.html" class="font-extrabold text-sm text-white tracking-tight shrink-0">GAME TRACKER</a>
     
     <nav class="ml-auto flex gap-1 text-xs">
       
-      <a href="/index.html" class="px-3 py-1.5 rounded-md hover:bg-surface-2 text-slate-400 hover:text-slate-200 transition">产品浏览</a>
+      <a href="/index.html" class="px-3 py-1.5 rounded hover:bg-surface-2 text-neutral-500 hover:text-white transition">All Games</a>
       
     </nav>
   </div>
@@ -83,582 +89,53 @@ document.addEventListener('alpine:init', function() {
 
 
 
-<div x-data="{
-  query: '',
-  type: 'all',
-  get filtered() {
-    return this.type; // reactivity trigger
-  }
-}" class="max-w-7xl mx-auto px-4">
+<div class="max-w-6xl mx-auto px-6">
 
   
-  <div class="text-center py-12 pb-8">
-    <h1 class="text-3xl font-extrabold">游戏竞品设计追踪台</h1>
-    <div class="text-xs text-slate-500 tracking-widest uppercase mt-1">GAME DESIGN TRACKER</div>
-    <div class="text-sm text-slate-400 mt-2">覆盖 47 款产品 · 353 张官网截图 · 持续更新</div>
+  <div class="pt-16 pb-12">
+    <h1 class="text-4xl font-extrabold text-white tracking-tight">Game Tracker</h1>
+    <p class="text-sm text-neutral-500 mt-2 max-w-lg">覆盖 47 款产品 · 353 张官网截图 · 持续更新中</p>
   </div>
 
   
-  <div class="max-w-md mx-auto mb-6">
-    <input type="text" x-model="query" placeholder="🔍 搜索游戏名、公司、品类..."
-           class="w-full px-4 py-2.5 rounded-lg border border-bdr bg-surface-2 text-slate-200 text-sm outline-none focus:border-accent transition placeholder:text-slate-600"
+  <div x-data="{ query: '' }" class="mb-14">
+    <input type="text" x-model="query" placeholder="搜索游戏、公司、品类..."
+           class="w-full max-w-sm px-4 py-3 rounded bg-surface-2 border border-bdr text-white text-sm outline-none focus:border-white/20 transition placeholder:text-neutral-600"
            x-on:input="
              let q = query.toLowerCase().trim();
              document.querySelectorAll('[data-search]').forEach(el => {
                let hay = el.dataset.search || '';
-               let typeMatch = type === 'all' || el.dataset.type === type;
-               let searchMatch = !q || hay.includes(q);
-               el.style.display = (typeMatch && searchMatch) ? '' : 'none';
+               el.style.display = (!q || hay.includes(q)) ? '' : 'none';
              });
-             let shown = document.querySelectorAll('[data-search]:not([style*=none])').length;
-             document.getElementById('emptyState').style.display = shown ? 'none' : 'block';
-             document.getElementById('resultCount').textContent = shown;
+             document.querySelectorAll('.game-section').forEach(sec => {
+               let cards = sec.querySelectorAll('[data-search]');
+               let visible = Array.from(cards).filter(c => c.style.display !== 'none').length;
+               sec.style.display = visible > 0 ? '' : 'none';
+             });
            ">
   </div>
 
   
-  <div class="flex gap-2 mb-6 justify-center flex-wrap">
-    
-    <button x-on:click="type='all'; $el.closest('.flex').querySelectorAll('button').forEach(b=>b.classList.remove('bg-accent','text-white','border-accent'));$el.classList.add('bg-accent','text-white','border-accent'); document.querySelectorAll('[data-search]').forEach(el=>{let t=el.dataset.type;let q=query.toLowerCase().trim();let hay=el.dataset.search||'';el.style.display=((type==='all'||t===type)&&(!q||hay.includes(q)))?'':'none';}); let s=document.querySelectorAll('[data-search]:not([style*=none])').length; document.getElementById('emptyState').style.display=s?'none':'block'; document.getElementById('resultCount').textContent=s;"
-            class="px-4 py-1.5 rounded-full border text-xs font-medium transition bg-accent text-white border-accent">
-      全部 47
-    </button>
-    
-    <button x-on:click="type='platform'; $el.closest('.flex').querySelectorAll('button').forEach(b=>b.classList.remove('bg-accent','text-white','border-accent'));$el.classList.add('bg-accent','text-white','border-accent'); document.querySelectorAll('[data-search]').forEach(el=>{let t=el.dataset.type;let q=query.toLowerCase().trim();let hay=el.dataset.search||'';el.style.display=((type==='all'||t===type)&&(!q||hay.includes(q)))?'':'none';}); let s=document.querySelectorAll('[data-search]:not([style*=none])').length; document.getElementById('emptyState').style.display=s?'none':'block'; document.getElementById('resultCount').textContent=s;"
-            class="px-4 py-1.5 rounded-full border text-xs font-medium transition border-bdr text-slate-400 hover:border-accent hover:text-slate-200">
-      🎮 游戏平台 16
-    </button>
-    
-    <button x-on:click="type='game'; $el.closest('.flex').querySelectorAll('button').forEach(b=>b.classList.remove('bg-accent','text-white','border-accent'));$el.classList.add('bg-accent','text-white','border-accent'); document.querySelectorAll('[data-search]').forEach(el=>{let t=el.dataset.type;let q=query.toLowerCase().trim();let hay=el.dataset.search||'';el.style.display=((type==='all'||t===type)&&(!q||hay.includes(q)))?'':'none';}); let s=document.querySelectorAll('[data-search]:not([style*=none])').length; document.getElementById('emptyState').style.display=s?'none':'block'; document.getElementById('resultCount').textContent=s;"
-            class="px-4 py-1.5 rounded-full border text-xs font-medium transition border-bdr text-slate-400 hover:border-accent hover:text-slate-200">
-      🕹️ 单机大作 31
-    </button>
-    
-  </div>
-
-  <div class="text-xs text-slate-500 mb-4">共 <strong id="resultCount" class="text-slate-300">47</strong> 款产品</div>
+  
+  
 
   
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
-    
-      
-
-
-
-<a href="game/steam.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="steam steam valve corporation 综合平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/steam/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🎮 Steam</div>
-    <div class="text-xs text-slate-500 mt-1">Valve Corporation · 综合平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/epic-games-store.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="epic 游戏商店 epic games store epic games pc平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/epic/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">⚡ Epic 游戏商店</div>
-    <div class="text-xs text-slate-500 mt-1">Epic Games · PC平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/playstation-store.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="playstation 商店 playstation store sony interactive entertainment 主机平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/playstation-store/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🎯 PlayStation 商店</div>
-    <div class="text-xs text-slate-500 mt-1">Sony Interactive Entertainment · 主机平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/xbox-microsoft-store.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="xbox 商店 xbox / microsoft store microsoft 主机平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/xbox/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🟢 Xbox 商店</div>
-    <div class="text-xs text-slate-500 mt-1">Microsoft · 主机平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/nintendo-eshop.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="任天堂 eshop nintendo eshop nintendo 主机平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/nintendo-eshop/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🍄 任天堂 eShop</div>
-    <div class="text-xs text-slate-500 mt-1">Nintendo · 主机平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/wegame.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="wegame wegame 腾讯 pc平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/wegame/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🐧 WeGame</div>
-    <div class="text-xs text-slate-500 mt-1">腾讯 · PC平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/taptap.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="taptap taptap 心动网络 (xd inc.) 移动平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/taptap/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">📱 TapTap</div>
-    <div class="text-xs text-slate-500 mt-1">心动网络 (XD Inc.) · 移动平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/好游快爆.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="好游快爆 好游快爆 4399 / 九游 移动平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/haoyoukuaibao/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">💥 好游快爆</div>
-    <div class="text-xs text-slate-500 mt-1">4399 / 九游 · 移动平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/gog.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="gog gog cd projekt pc平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/gog/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🏰 GOG</div>
-    <div class="text-xs text-slate-500 mt-1">CD Projekt · PC平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/nvidia-geforce-now.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="geforce now 云游戏 nvidia geforce now nvidia 云游戏"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/geforce-now/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">💚 GeForce NOW 云游戏</div>
-    <div class="text-xs text-slate-500 mt-1">NVIDIA · 云游戏</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/xbox-cloud-gaming.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="xbox 云游戏 xbox cloud gaming microsoft 云游戏"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/xbox-cloud-gaming/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">☁️ Xbox 云游戏</div>
-    <div class="text-xs text-slate-500 mt-1">Microsoft · 云游戏</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/google-play-games.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="google play 游戏 google play games google 移动平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/google-play-games/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">▶️ Google Play 游戏</div>
-    <div class="text-xs text-slate-500 mt-1">Google · 移动平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/apple-arcade.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="apple arcade apple arcade apple 移动平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/apple-arcade/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🍎 Apple Arcade</div>
-    <div class="text-xs text-slate-500 mt-1">Apple · 移动平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/steam-deck-掌机生态.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="steam deck 掌机 steam deck / 掌机生态 valve + 第三方 综合平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/steam-deck/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🕹️ Steam Deck 掌机</div>
-    <div class="text-xs text-slate-500 mt-1">Valve + 第三方 · 综合平台</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/discord.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="discord discord discord inc. 游戏社区"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/discord/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">💬 Discord</div>
-    <div class="text-xs text-slate-500 mt-1">Discord Inc. · 游戏社区</div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/米哈游-hoyoverse.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="米哈游 hoyoverse 米哈游 hoyoverse mihoyo 综合平台"
-   data-type="platform">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/hoyoverse/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">⭐ 米哈游 HoYoverse</div>
-    <div class="text-xs text-slate-500 mt-1">miHoYo · 综合平台</div>
-  </div>
-</a>
-
-    
-    
-      
-
-
-
-<a href="game/black-myth-wukong.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="黑神话：悟空 black myth: wukong 游戏科学 (game science) action rpg 黑悟空,悟空,黑猴,wukong"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/black-myth-wukong/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🐒 黑神话：悟空</div>
-    <div class="text-xs text-slate-500 mt-1">游戏科学 (Game Science) · Action RPG</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国产</span>
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">FPS 第一人称射击</h2>
+      <span class="text-xs text-neutral-600">16 games</span>
     </div>
-  </div>
-</a>
-
-    
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
       
-
-
-
-<a href="game/elden-ring-shadow-of-the-erdtree.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="艾尔登法环：黄金树幽影 elden ring: shadow of the erdtree fromsoftware rpg 法环dlc,法环,老头环,er"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/elden-ring/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🔥 艾尔登法环：黄金树幽影</div>
-    <div class="text-xs text-slate-500 mt-1">FromSoftware · RPG</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/astro-bot.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="宇宙机器人 astro bot team asobi platformer 太空机器人,astro bot"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/astro-bot/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🤖 宇宙机器人</div>
-    <div class="text-xs text-slate-500 mt-1">Team Asobi · Platformer</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/final-fantasy-vii-rebirth.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="最终幻想7：重生 final fantasy vii rebirth square enix rpg ff7r,最终幻想7"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/ff7-rebirth/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">⚔️ 最终幻想7：重生</div>
-    <div class="text-xs text-slate-500 mt-1">Square Enix · RPG</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/metaphor-refantazio.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="暗喻幻想 metaphor: refantazio atlus rpg mrf,metaphor"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/metaphor-refantazio/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">👑 暗喻幻想</div>
-    <div class="text-xs text-slate-500 mt-1">Atlus · RPG</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/clair-obscur-expedition-33.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="光暗交响：远征33 clair obscur: expedition 33 sandfall interactive rpg co33"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/clair-obscur/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🎨 光暗交响：远征33</div>
-    <div class="text-xs text-slate-500 mt-1">Sandfall Interactive · RPG</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/death-stranding-2-on-the-beach.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="死亡搁浅2：在海滩上 death stranding 2: on the beach kojima productions action ds2,死亡搁浅2"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/death-stranding-2/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🌊 死亡搁浅2：在海滩上</div>
-    <div class="text-xs text-slate-500 mt-1">Kojima Productions · Action</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
       
 
 
 
 <a href="game/doom-the-dark-ages.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="毁灭战士：黑暗时代 doom: the dark ages id software / bethesda fps doom新作,毁灭战士"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -667,173 +144,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">💀 毁灭战士：黑暗时代</div>
-    <div class="text-xs text-slate-500 mt-1">id Software / Bethesda · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">毁灭战士：黑暗时代</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">id Software / Bethesda</div>
   </div>
 </a>
 
-    
       
-
-
-
-<a href="game/ghost-of-yotei.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="羊蹄山之魂 ghost of yotei sucker punch action-adventure 对马岛续作,goy"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/ghost-of-yotei/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🗾 羊蹄山之魂</div>
-    <div class="text-xs text-slate-500 mt-1">Sucker Punch · Action-Adventure</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/nioh-3.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="仁王3 nioh 3 team ninja / koei tecmo action rpg 仁王,nioh"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/nioh3/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">⚔️ 仁王3</div>
-    <div class="text-xs text-slate-500 mt-1">Team Ninja / Koei Tecmo · Action RPG</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/sekiro-shadows-die-twice.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="只狼：影逝二度 sekiro: shadows die twice fromsoftware action 只狼,sekiro"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/sekiro/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🗡️ 只狼：影逝二度</div>
-    <div class="text-xs text-slate-500 mt-1">FromSoftware · Action</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/devil-may-cry-5.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="鬼泣5 devil may cry 5 capcom action dmc5,鬼泣"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/dmc5/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">😈 鬼泣5</div>
-    <div class="text-xs text-slate-500 mt-1">Capcom · Action</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/where-winds-meet.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="燕云十六声 where winds meet everstone / netease open world action rpg 燕云,where winds meet"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/yunxiao/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🏯 燕云十六声</div>
-    <div class="text-xs text-slate-500 mt-1">Everstone / NetEase · Open World Action RPG</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已运营</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国产</span>
-    </div>
-  </div>
-</a>
-
-    
-      
-
-
-
-<a href="game/wuchang-fallen-feathers.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="明末：渊虚之羽 wuchang: fallen feathers leenzee / 505 games action rpg 明末,wuchang"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/wuchang/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🪶 明末：渊虚之羽</div>
-    <div class="text-xs text-slate-500 mt-1">Leenzee / 505 Games · Action RPG</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国产</span>
-    </div>
-  </div>
-</a>
-
-    
       
 
 
 
 <a href="game/indiana-jones-and-the-great-circle.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="夺宝奇兵：大圈 indiana jones and the great circle machinegames / bethesda fps 夺宝奇兵,印第安纳琼斯"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -842,23 +165,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🧳 夺宝奇兵：大圈</div>
-    <div class="text-xs text-slate-500 mt-1">MachineGames / Bethesda · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">夺宝奇兵：大圈</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">MachineGames / Bethesda</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/s-t-a-l-k-e-r-2-heart-of-chornobyl.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="潜行者2：切尔诺贝利之心 s.t.a.l.k.e.r. 2: heart of chornobyl gsc game world fps 潜行者2,stalker2"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -867,23 +186,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">☢️ 潜行者2：切尔诺贝利之心</div>
-    <div class="text-xs text-slate-500 mt-1">GSC Game World · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">潜行者2：切尔诺贝利之心</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">GSC Game World</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/atomfall.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="原子陨落 atomfall rebellion fps atomfall"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -892,23 +207,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">☣️ 原子陨落</div>
-    <div class="text-xs text-slate-500 mt-1">Rebellion · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">原子陨落</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Rebellion</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/dying-light-the-beast.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="消逝的光芒：野兽 dying light: the beast techland fps 消光野兽,dl"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -917,23 +228,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🧟 消逝的光芒：野兽</div>
-    <div class="text-xs text-slate-500 mt-1">Techland · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">消逝的光芒：野兽</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Techland</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/metroid-prime-4-beyond.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="银河战士prime 4：超越 metroid prime 4: beyond retro studios / nintendo fps 银河战士4,mp4"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -942,23 +249,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🚀 银河战士Prime 4：超越</div>
-    <div class="text-xs text-slate-500 mt-1">Retro Studios / Nintendo · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">银河战士Prime 4：超越</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Retro Studios / Nintendo</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/high-on-life-2.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="嗨皮人生2 high on life 2 squanch games fps hol2"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -967,23 +270,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🤪 嗨皮人生2</div>
-    <div class="text-xs text-slate-500 mt-1">Squanch Games · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">嗨皮人生2</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Squanch Games</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/the-outer-worlds-2.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="天外世界2 the outer worlds 2 obsidian / xbox fps 外部世界2,tow2"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -992,23 +291,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🌌 天外世界2</div>
-    <div class="text-xs text-slate-500 mt-1">Obsidian / Xbox · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">天外世界2</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Obsidian / Xbox</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/call-of-duty-modern-warfare-ii-2022.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="使命召唤：现代战争2 (2022) call of duty: modern warfare ii (2022) infinity ward / activision fps cod mw2,codmw2,使命召唤,使命召唤19,cod19,现代战争2"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -1017,23 +312,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🎯 使命召唤：现代战争2 (2022)</div>
-    <div class="text-xs text-slate-500 mt-1">Infinity Ward / Activision · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">使命召唤：现代战争2 (2022)</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Infinity Ward / Activision</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/counter-strike-2.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="反恐精英2 counter-strike 2 valve fps cs2,csgo"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -1042,23 +333,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🔫 反恐精英2</div>
-    <div class="text-xs text-slate-500 mt-1">Valve · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">反恐精英2</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Valve</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/atomic-heart.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="原子之心 atomic heart mundfish fps ah,原子之心1"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -1067,23 +354,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">⚙️ 原子之心</div>
-    <div class="text-xs text-slate-500 mt-1">Mundfish · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">原子之心</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Mundfish</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/avatar-frontiers-of-pandora.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="阿凡达：潘多拉边境 avatar: frontiers of pandora massive entertainment / ubisoft fps 阿凡达"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -1092,23 +375,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🌿 阿凡达：潘多拉边境</div>
-    <div class="text-xs text-slate-500 mt-1">Massive Entertainment / Ubisoft · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">阿凡达：潘多拉边境</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Massive Entertainment / Ubisoft</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/call-of-duty-modern-warfare-iii-2023.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="使命召唤：现代战争3 (2023) call of duty: modern warfare iii (2023) sledgehammer games / activision fps cod mw3,codmw3,使命召唤,使命召唤20,cod20,现代战争3"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -1117,48 +396,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🎯 使命召唤：现代战争3 (2023)</div>
-    <div class="text-xs text-slate-500 mt-1">Sledgehammer Games / Activision · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">使命召唤：现代战争3 (2023)</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Sledgehammer Games / Activision</div>
   </div>
 </a>
 
-    
       
-
-
-
-<a href="game/helldivers-2.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
-   data-search="绝地潜兵2 helldivers 2 arrowhead game studios / sie tps hd2,地狱潜兵2,绝地潜兵,绝地潜兵2"
-   data-type="game">
-  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
-    
-    <img src="screenshots/helldivers2/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-    
-  </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🪖 绝地潜兵2</div>
-    <div class="text-xs text-slate-500 mt-1">Arrowhead Game Studios / SIE · TPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
-  </div>
-</a>
-
-    
       
 
 
 
 <a href="game/call-of-duty-black-ops-6.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="使命召唤：黑色行动6 call of duty: black ops 6 treyarch / activision fps cod bo6,codbo6"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -1167,23 +417,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">⚔️ 使命召唤：黑色行动6</div>
-    <div class="text-xs text-slate-500 mt-1">Treyarch / Activision · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">使命召唤：黑色行动6</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Treyarch / Activision</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/delta-force.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="三角洲行动 delta force (三角洲行动) 琳琅天上 / 腾讯 fps df,三角洲"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -1192,23 +438,19 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🎮 三角洲行动</div>
-    <div class="text-xs text-slate-500 mt-1">琳琅天上 / 腾讯 · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国产</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">三角洲行动</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">琳琅天上 / 腾讯</div>
   </div>
 </a>
 
-    
+      
       
 
 
 
 <a href="game/killing-floor-3.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="杀戮空间3 killing floor 3 tripwire interactive fps kf3"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -1217,23 +459,96 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🧟 杀戮空间3</div>
-    <div class="text-xs text-slate-500 mt-1">Tripwire Interactive · FPS</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">已发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国际</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">杀戮空间3</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Tripwire Interactive</div>
   </div>
 </a>
 
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">Action 动作</h2>
+      <span class="text-xs text-neutral-600">4 games</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/death-stranding-2-on-the-beach.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="死亡搁浅2：在海滩上 death stranding 2: on the beach kojima productions action ds2,死亡搁浅2"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
+    <img src="screenshots/death-stranding-2/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">死亡搁浅2：在海滩上</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Kojima Productions</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/sekiro-shadows-die-twice.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="只狼：影逝二度 sekiro: shadows die twice fromsoftware action 只狼,sekiro"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/sekiro/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">只狼：影逝二度</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">FromSoftware</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/devil-may-cry-5.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="鬼泣5 devil may cry 5 capcom action dmc5,鬼泣"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/dmc5/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">鬼泣5</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Capcom</div>
+  </div>
+</a>
+
+      
       
 
 
 
 <a href="game/phantom-blade-zero.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="影之刃零 phantom blade zero s-game action 影刃零,pbz"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -1242,28 +557,825 @@ document.addEventListener('alpine:init', function() {
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">🗡️ 影之刃零</div>
-    <div class="text-xs text-slate-500 mt-1">S-GAME · Action</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">即将发售</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">国产</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">影之刃零</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">S-GAME</div>
   </div>
 </a>
 
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">Action RPG 动作角色扮演</h2>
+      <span class="text-xs text-neutral-600">3 games</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/black-myth-wukong.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="黑神话：悟空 black myth: wukong 游戏科学 (game science) action rpg 黑悟空,悟空,黑猴,wukong"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/black-myth-wukong/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">黑神话：悟空</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">游戏科学 (Game Science)</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/nioh-3.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="仁王3 nioh 3 team ninja / koei tecmo action rpg 仁王,nioh"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/nioh3/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">仁王3</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Team Ninja / Koei Tecmo</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/wuchang-fallen-feathers.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="明末：渊虚之羽 wuchang: fallen feathers leenzee / 505 games action rpg 明末,wuchang"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/wuchang/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">明末：渊虚之羽</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Leenzee / 505 Games</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">RPG 角色扮演</h2>
+      <span class="text-xs text-neutral-600">4 games</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/elden-ring-shadow-of-the-erdtree.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="艾尔登法环：黄金树幽影 elden ring: shadow of the erdtree fromsoftware rpg 法环dlc,法环,老头环,er"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/elden-ring/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">艾尔登法环：黄金树幽影</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">FromSoftware</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/final-fantasy-vii-rebirth.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="最终幻想7：重生 final fantasy vii rebirth square enix rpg ff7r,最终幻想7"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/ff7-rebirth/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">最终幻想7：重生</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Square Enix</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/metaphor-refantazio.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="暗喻幻想 metaphor: refantazio atlus rpg mrf,metaphor"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/metaphor-refantazio/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">暗喻幻想</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Atlus</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/clair-obscur-expedition-33.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="光暗交响：远征33 clair obscur: expedition 33 sandfall interactive rpg co33"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/clair-obscur/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">光暗交响：远征33</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Sandfall Interactive</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">Action-Adventure 动作冒险</h2>
+      <span class="text-xs text-neutral-600">1 games</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/ghost-of-yotei.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="羊蹄山之魂 ghost of yotei sucker punch action-adventure 对马岛续作,goy"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/ghost-of-yotei/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">羊蹄山之魂</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Sucker Punch</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">Open World 开放世界</h2>
+      <span class="text-xs text-neutral-600">1 games</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/where-winds-meet.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="燕云十六声 where winds meet everstone / netease open world action rpg 燕云,where winds meet"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/yunxiao/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">燕云十六声</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Everstone / NetEase</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">Platformer 平台跳跃</h2>
+      <span class="text-xs text-neutral-600">1 games</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/astro-bot.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="宇宙机器人 astro bot team asobi platformer 太空机器人,astro bot"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/astro-bot/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">宇宙机器人</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Team Asobi</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">TPS 第三人称射击</h2>
+      <span class="text-xs text-neutral-600">1 games</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/helldivers-2.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="绝地潜兵2 helldivers 2 arrowhead game studios / sie tps hd2,地狱潜兵2,绝地潜兵,绝地潜兵2"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/helldivers2/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">绝地潜兵2</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Arrowhead Game Studios / SIE</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
 
   
-  <div id="emptyState" class="text-center py-20 text-slate-500 hidden">
-    <div class="text-5xl mb-4 opacity-50">💡</div>
-    <div class="text-sm mb-4">没找到想要的游戏？提交心愿</div>
-    <a href="https://wj.qq.com/s2/26428392/849b/" target="_blank"
-       class="inline-block px-8 py-2.5 rounded-lg bg-accent text-white text-sm font-semibold hover:bg-indigo-500 transition">
-      📮 提交心愿
-    </a>
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">综合平台</h2>
+      <span class="text-xs text-neutral-600">3 platforms</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/steam.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="steam steam valve corporation 综合平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/steam/store-home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
   </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">Steam</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Valve Corporation</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/steam-deck-掌机生态.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="steam deck 掌机 steam deck / 掌机生态 valve + 第三方 综合平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/steam-deck/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">Steam Deck 掌机</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Valve + 第三方</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/米哈游-hoyoverse.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="米哈游 hoyoverse 米哈游 hoyoverse mihoyo 综合平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/hoyoverse/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">米哈游 HoYoverse</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">miHoYo</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">PC平台</h2>
+      <span class="text-xs text-neutral-600">3 platforms</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/epic-games-store.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="epic 游戏商店 epic games store epic games pc平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/epic/store-home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">Epic 游戏商店</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Epic Games</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/wegame.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="wegame wegame 腾讯 pc平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/wegame/store-home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">WeGame</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">腾讯</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/gog.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="gog gog cd projekt pc平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/gog/store-home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">GOG</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">CD Projekt</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">主机平台</h2>
+      <span class="text-xs text-neutral-600">3 platforms</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/playstation-store.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="playstation 商店 playstation store sony interactive entertainment 主机平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/playstation-store/store-home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">PlayStation 商店</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Sony Interactive Entertainment</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/xbox-microsoft-store.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="xbox 商店 xbox / microsoft store microsoft 主机平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/xbox/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">Xbox 商店</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Microsoft</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/nintendo-eshop.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="任天堂 eshop nintendo eshop nintendo 主机平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/nintendo-eshop/store-home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">任天堂 eShop</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Nintendo</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">移动平台</h2>
+      <span class="text-xs text-neutral-600">4 platforms</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/taptap.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="taptap taptap 心动网络 (xd inc.) 移动平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/taptap/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">TapTap</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">心动网络 (XD Inc.)</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/好游快爆.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="好游快爆 好游快爆 4399 / 九游 移动平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/haoyoukuaibao/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">好游快爆</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">4399 / 九游</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/google-play-games.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="google play 游戏 google play games google 移动平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/google-play-games/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">Google Play 游戏</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Google</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/apple-arcade.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="apple arcade apple arcade apple 移动平台"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/apple-arcade/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">Apple Arcade</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Apple</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">云游戏</h2>
+      <span class="text-xs text-neutral-600">2 platforms</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/nvidia-geforce-now.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="geforce now 云游戏 nvidia geforce now nvidia 云游戏"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/geforce-now/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">GeForce NOW 云游戏</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">NVIDIA</div>
+  </div>
+</a>
+
+      
+      
+
+
+
+<a href="game/xbox-cloud-gaming.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="xbox 云游戏 xbox cloud gaming microsoft 云游戏"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/xbox-cloud-gaming/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">Xbox 云游戏</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Microsoft</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+  
+  
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">游戏社区</h2>
+      <span class="text-xs text-neutral-600">1 platforms</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      
+      
+
+
+
+<a href="game/discord.html"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   data-search="discord discord discord inc. 游戏社区"
+   data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    
+    <img src="screenshots/discord/home-1.webp"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    
+  </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">Discord</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">Discord Inc.</div>
+  </div>
+</a>
+
+      
+    </div>
+  </section>
+  
+  
+
+  
+  <footer class="border-t border-bdr py-10 mt-8">
+    <div class="flex items-center justify-between text-xs text-neutral-600">
+      <span>Game Tracker · 游戏竞品设计追踪台</span>
+      <a href="https://wj.qq.com/s2/26428392/849b/" target="_blank" class="hover:text-white transition">提交心愿 ↗</a>
+    </div>
+  </footer>
+
 </div>
 
 
@@ -1321,7 +1433,7 @@ document.addEventListener('alpine:init', function() {
         x-on:scroll.window="show = window.scrollY > 400"
         x-show="show" x-cloak
         x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
-        class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center text-lg shadow-lg z-50 hover:bg-indigo-500 transition">
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
   ↑
 </button>
 

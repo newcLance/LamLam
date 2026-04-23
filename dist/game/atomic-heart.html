@@ -12,9 +12,17 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        surface: { 0:'#0a0a0f', 1:'#12121a', 2:'#1a1a25', 3:'#22222f' },
-        bdr: 'rgba(85,85,106,.25)',
-        accent: '#818cf8',
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
       }
     }
   }
@@ -22,14 +30,12 @@ tailwind.config = {
 </script>
 <style type="text/tailwindcss">
 @layer base {
-  body { @apply bg-surface-0 text-slate-200 antialiased; }
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
   a { color: inherit; text-decoration: none; }
 }
 @layer components {
-  /* Keyword highlight inside data text */
-  .data-text b { @apply text-slate-100 font-semibold bg-indigo-500/10 px-0.5 rounded; }
-  /* Source link */
-  a.src-link { @apply text-accent text-xs opacity-80 hover:opacity-100 hover:underline transition-all; }
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
 }
 </style>
 <!-- Alpine.js CDN -->
@@ -69,13 +75,13 @@ document.addEventListener('alpine:init', function() {
 <body class="min-h-screen">
 
 
-<header class="sticky top-0 z-50 bg-surface-0/90 backdrop-blur-xl border-b border-bdr">
-  <div class="max-w-7xl mx-auto px-4 h-12 flex items-center gap-4">
-    <a href="../index.html" class="font-extrabold text-sm text-accent shrink-0">G 游戏竞品分析</a>
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="font-extrabold text-sm text-white tracking-tight shrink-0">GAME TRACKER</a>
     
     <nav class="ml-auto flex gap-1 text-xs">
       
-<a href="../index.html" class="px-3 py-1.5 rounded-md hover:bg-surface-2 text-slate-400 hover:text-slate-200 transition text-xs">← 返回列表</a>
+<a href="../index.html" class="px-3 py-1.5 rounded hover:bg-surface-2 text-neutral-500 hover:text-white transition text-xs">← Back</a>
 
     </nav>
   </div>
@@ -112,17 +118,17 @@ document.addEventListener('alpine:init', function() {
 
       
       <div class="flex gap-2 flex-wrap mb-5">
-        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-accent/15 text-accent border border-accent/20">已发售</span>
-        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">国际</span>
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">买断制</span>
+        <span class="px-3 py-1 rounded text-xs font-semibold bg-white/10 text-white border border-white/10">已发售</span>
+        <span class="px-3 py-1 rounded text-xs font-semibold bg-white/[.06] text-neutral-400 border border-white/[.06]">国际</span>
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.04] text-neutral-500 border border-white/[.04]">买断制</span>
         
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PC</span>
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.04] text-neutral-500 border border-white/[.04]">PC</span>
         
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PS5</span>
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.04] text-neutral-500 border border-white/[.04]">PS5</span>
         
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PS4</span>
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.04] text-neutral-500 border border-white/[.04]">PS4</span>
         
-        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">Xbox</span>
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.04] text-neutral-500 border border-white/[.04]">Xbox</span>
         
       </div>
 
@@ -146,7 +152,7 @@ document.addEventListener('alpine:init', function() {
     
     <div class="shrink-0 hidden md:block">
       <a href="https://mundfish.com/en/projects/atomic-heart" target="_blank" rel="noopener"
-         class="group flex items-center gap-2.5 px-6 py-3 rounded-xl bg-accent text-white font-bold text-sm shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:bg-indigo-500 transition-all">
+         class="group flex items-center gap-2.5 px-6 py-3 rounded bg-white text-black font-bold text-sm hover:bg-neutral-200 transition-all">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         访问官网
         <span class="opacity-50 group-hover:opacity-100 transition">↗</span>
@@ -164,12 +170,12 @@ document.addEventListener('alpine:init', function() {
   <section id="sec-screenshots" class="mb-14">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-lg font-bold flex items-center gap-2">
-        <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+        <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
         官网截图
       </h2>
       
       <a href="https://mundfish.com/en/projects/atomic-heart" target="_blank" rel="noopener"
-         class="md:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-white text-xs font-bold shadow-lg shadow-accent/20 hover:bg-indigo-500 transition">
+         class="md:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded bg-white text-black text-xs font-bold hover:bg-neutral-200 transition">
         访问官网 ↗
       </a>
       
@@ -186,7 +192,7 @@ document.addEventListener('alpine:init', function() {
         
         
         <a href="https://mundfish.com/en/projects/atomic-heart" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold bg-accent/10 text-accent hover:bg-accent/20 border border-accent/20 transition ml-auto shrink-0">
+           class="inline-flex items-center gap-1 px-3 py-1 rounded text-[11px] font-semibold bg-white/[.06] text-neutral-400 hover:bg-white/10 hover:text-white border border-white/10 transition ml-auto shrink-0">
           <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           访问页面 ↗
         </a>
@@ -195,7 +201,7 @@ document.addEventListener('alpine:init', function() {
       <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
         
         
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
              data-lightbox-src="../screenshots/atomic-heart/home-1.webp"
              x-on:click="$store.lightbox.show('../screenshots/atomic-heart/home-1.webp')">
           <div class="relative pt-[56.25%]">
@@ -209,7 +215,7 @@ document.addEventListener('alpine:init', function() {
         </div>
         
         
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
              data-lightbox-src="../screenshots/atomic-heart/home-2.webp"
              x-on:click="$store.lightbox.show('../screenshots/atomic-heart/home-2.webp')">
           <div class="relative pt-[56.25%]">
@@ -223,7 +229,7 @@ document.addEventListener('alpine:init', function() {
         </div>
         
         
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
              data-lightbox-src="../screenshots/atomic-heart/home-3.webp"
              x-on:click="$store.lightbox.show('../screenshots/atomic-heart/home-3.webp')">
           <div class="relative pt-[56.25%]">
@@ -237,7 +243,7 @@ document.addEventListener('alpine:init', function() {
         </div>
         
         
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
              data-lightbox-src="../screenshots/atomic-heart/home-4.webp"
              x-on:click="$store.lightbox.show('../screenshots/atomic-heart/home-4.webp')">
           <div class="relative pt-[56.25%]">
@@ -251,7 +257,7 @@ document.addEventListener('alpine:init', function() {
         </div>
         
         
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
              data-lightbox-src="../screenshots/atomic-heart/home-5.webp"
              x-on:click="$store.lightbox.show('../screenshots/atomic-heart/home-5.webp')">
           <div class="relative pt-[56.25%]">
@@ -265,7 +271,7 @@ document.addEventListener('alpine:init', function() {
         </div>
         
         
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
              data-lightbox-src="../screenshots/atomic-heart/home-6.webp"
              x-on:click="$store.lightbox.show('../screenshots/atomic-heart/home-6.webp')">
           <div class="relative pt-[56.25%]">
@@ -279,7 +285,7 @@ document.addEventListener('alpine:init', function() {
         </div>
         
         
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
              data-lightbox-src="../screenshots/atomic-heart/home-7.webp"
              x-on:click="$store.lightbox.show('../screenshots/atomic-heart/home-7.webp')">
           <div class="relative pt-[56.25%]">
@@ -293,7 +299,7 @@ document.addEventListener('alpine:init', function() {
         </div>
         
         
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
              data-lightbox-src="../screenshots/atomic-heart/home-8.webp"
              x-on:click="$store.lightbox.show('../screenshots/atomic-heart/home-8.webp')">
           <div class="relative pt-[56.25%]">
@@ -318,14 +324,14 @@ document.addEventListener('alpine:init', function() {
   
   <section id="sec-timeline" class="mb-14">
     <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
-      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
       设计变化时间线
     </h2>
     <div class="relative pl-6 border-l-2 border-bdr space-y-5">
       
       <div class="relative">
         <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
-        <div class="text-xs text-accent font-bold tracking-wide">2023-02</div>
+        <div class="text-xs text-white font-bold tracking-wide">2023-02</div>
         <div class="text-sm text-slate-400 mt-1 leading-relaxed">全球发售
           
         </div>
@@ -333,7 +339,7 @@ document.addEventListener('alpine:init', function() {
       
       <div class="relative">
         <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
-        <div class="text-xs text-accent font-bold tracking-wide">2023-08</div>
+        <div class="text-xs text-white font-bold tracking-wide">2023-08</div>
         <div class="text-sm text-slate-400 mt-1 leading-relaxed">DLC 《Annotated Body》 发布
           
         </div>
@@ -347,7 +353,7 @@ document.addEventListener('alpine:init', function() {
   
   <section id="sec-playerexp" class="mb-14">
     <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
-      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
       玩家游戏体验清单
     </h2>
     <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
@@ -358,15 +364,15 @@ document.addEventListener('alpine:init', function() {
         
         
         <button x-on:click="tab='media'"
-                :class="tab==='media' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
                 class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">🎤 媒体试玩评测</button>
         
         <button x-on:click="tab='community'"
-                :class="tab==='community' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
                 class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">💬 玩家社区讨论</button>
         
         <button x-on:click="tab='bili'"
-                :class="tab==='bili' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
                 class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">📺 B站试玩视频</button>
         
       </div>
@@ -733,7 +739,7 @@ document.addEventListener('alpine:init', function() {
   
   <section id="sec-story" class="mb-14">
     <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
-      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
       IP / 故事剧情
     </h2>
     
@@ -785,7 +791,7 @@ document.addEventListener('alpine:init', function() {
   
   <section id="sec-aesthetic" class="mb-14">
     <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
-      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
       玩家审美偏好
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -868,7 +874,7 @@ document.addEventListener('alpine:init', function() {
   
   <section id="sec-rivals" class="mb-14">
     <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
-      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
       综合竞品推荐
     </h2>
     <p class="text-xs text-slate-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
@@ -931,7 +937,7 @@ document.addEventListener('alpine:init', function() {
       </div>
       <div class="p-5 border-t border-bdr">
         <button onclick="window.open('../compare.html?ids=142,128,129,110,127','_blank')"
-                class="w-full py-3.5 rounded-xl border border-accent/30 bg-accent/[.08] text-accent text-sm font-bold hover:bg-accent/15 hover:border-accent/50 transition text-center cursor-pointer">
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
           ⚡ 一键对比这 5 款游戏
         </button>
       </div>
@@ -943,15 +949,15 @@ document.addEventListener('alpine:init', function() {
 
 
 <nav x-data="anchorNav()" x-init="init()"
-     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/90 backdrop-blur-xl border border-bdr rounded-2xl px-2.5 py-3 shadow-2xl"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
      x-on:scroll.window.throttle.100ms="onScroll()">
   <template x-for="s in sections" :key="s.id">
     <a :href="'#' + s.id"
        x-on:click.prevent="scrollTo(s.id)"
-       class="group flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs transition-all"
-       :class="active === s.id ? 'bg-accent/15 text-accent' : 'text-slate-500 hover:text-slate-300 hover:bg-surface-2'">
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
       <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
-            :class="active === s.id ? 'bg-accent' : 'bg-slate-600 group-hover:bg-slate-400'"></span>
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
       <span x-text="s.label" class="whitespace-nowrap"></span>
     </a>
   </template>
@@ -1013,7 +1019,7 @@ document.addEventListener('alpine:init', function() {
         x-on:scroll.window="show = window.scrollY > 400"
         x-show="show" x-cloak
         x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
-        class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center text-lg shadow-lg z-50 hover:bg-indigo-500 transition">
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
   ↑
 </button>
 

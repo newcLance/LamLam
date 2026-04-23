@@ -4,7 +4,7 @@
 {% set ns = namespace(img=none) %}
 {% for m in ss %}{% for s in m.screens %}{% if s.imgs and not ns.img %}{% set ns.img = s.imgs[0] %}{% endif %}{% endfor %}{% endfor %}
 <a href="{{ prefix }}game/{{ g.slug }}.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="{{ (g.nameCN or '')|lower }} {{ g.name|lower }} {{ g.company|lower }} {{ (g.genre or '')|lower }} {{ (g.alias or '')|lower }}"
    data-type="game">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -12,16 +12,12 @@
     <img src="{{ prefix }}screenshots/{{ ns.img.split('screenshots/')[1] if 'screenshots/' in ns.img else ns.img }}"
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     {% else %}
-    <div class="absolute inset-0 flex items-center justify-center text-slate-500 text-3xl font-black opacity-30">{{ g.name[0] }}</div>
+    <div class="absolute inset-0 flex items-center justify-center text-neutral-700 text-3xl font-black">{{ g.name[0] }}</div>
     {% endif %}
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">{{ g.icon }} {{ g.nameCN or g.name }}</div>
-    <div class="text-xs text-slate-500 mt-1">{{ g.company }} · {{ g.genre }}</div>
-    <div class="flex gap-1 mt-1.5 flex-wrap">
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">{{ g.category }}</span>
-      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">{{ g.region }}</span>
-    </div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">{{ g.nameCN or g.name }}</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">{{ g.company }}</div>
   </div>
 </a>
 {% endmacro %}
@@ -32,7 +28,7 @@
 {% set ns = namespace(img=none) %}
 {% for m in ss %}{% for s in m.screens %}{% if s.imgs and not ns.img %}{% set ns.img = s.imgs[0] %}{% endif %}{% endfor %}{% endfor %}
 <a href="{{ prefix }}game/{{ p.slug }}.html"
-   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="{{ (p.nameCN or '')|lower }} {{ p.name|lower }} {{ p.company|lower }} {{ (p.category or '')|lower }}"
    data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
@@ -41,9 +37,9 @@
          loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     {% endif %}
   </div>
-  <div class="p-3">
-    <div class="font-semibold text-sm">{{ p.icon }} {{ p.nameCN or p.name }}</div>
-    <div class="text-xs text-slate-500 mt-1">{{ p.company }} · {{ p.category }}</div>
+  <div class="px-3 py-2.5">
+    <div class="font-semibold text-[13px] text-white truncate">{{ p.nameCN or p.name }}</div>
+    <div class="text-[11px] text-neutral-600 mt-0.5">{{ p.company }}</div>
   </div>
 </a>
 {% endmacro %}

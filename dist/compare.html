@@ -12,9 +12,17 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        surface: { 0:'#0a0a0f', 1:'#12121a', 2:'#1a1a25', 3:'#22222f' },
-        bdr: 'rgba(85,85,106,.25)',
-        accent: '#818cf8',
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
       }
     }
   }
@@ -22,14 +30,12 @@ tailwind.config = {
 </script>
 <style type="text/tailwindcss">
 @layer base {
-  body { @apply bg-surface-0 text-slate-200 antialiased; }
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
   a { color: inherit; text-decoration: none; }
 }
 @layer components {
-  /* Keyword highlight inside data text */
-  .data-text b { @apply text-slate-100 font-semibold bg-indigo-500/10 px-0.5 rounded; }
-  /* Source link */
-  a.src-link { @apply text-accent text-xs opacity-80 hover:opacity-100 hover:underline transition-all; }
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
 }
 </style>
 <!-- Alpine.js CDN -->
@@ -69,9 +75,9 @@ document.addEventListener('alpine:init', function() {
 <body class="min-h-screen">
 
 
-<header class="sticky top-0 z-50 bg-surface-0/90 backdrop-blur-xl border-b border-bdr">
-  <div class="max-w-7xl mx-auto px-4 h-12 flex items-center gap-4">
-    <a href="/index.html" class="font-extrabold text-sm text-accent shrink-0">G 游戏竞品分析</a>
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="/index.html" class="font-extrabold text-sm text-white tracking-tight shrink-0">GAME TRACKER</a>
     
     <nav class="ml-auto flex gap-1 text-xs">
       
@@ -188,7 +194,7 @@ document.addEventListener('alpine:init', function() {
         x-on:scroll.window="show = window.scrollY > 400"
         x-show="show" x-cloak
         x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
-        class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center text-lg shadow-lg z-50 hover:bg-indigo-500 transition">
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
   ↑
 </button>
 

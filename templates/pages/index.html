@@ -1,72 +1,105 @@
 {% extends "base.html" %}
 {% from "macros/cards.html" import game_card, platform_card %}
 
-{% block title %}游戏竞品设计追踪台 - Game Design Tracker{% endblock %}
+{% block title %}Game Tracker - 游戏竞品设计追踪台{% endblock %}
 
 {% block content %}
-<div x-data="{
-  query: '',
-  type: 'all',
-  get filtered() {
-    return this.type; // reactivity trigger
-  }
-}" class="max-w-7xl mx-auto px-4">
+<div class="max-w-6xl mx-auto px-6">
 
-  {# Hero #}
-  <div class="text-center py-12 pb-8">
-    <h1 class="text-3xl font-extrabold">游戏竞品设计追踪台</h1>
-    <div class="text-xs text-slate-500 tracking-widest uppercase mt-1">GAME DESIGN TRACKER</div>
-    <div class="text-sm text-slate-400 mt-2">覆盖 {{ total_products }} 款产品 · {{ total_screenshots }} 张官网截图 · 持续更新</div>
+  {# ===== HERO ===== #}
+  <div class="pt-16 pb-12">
+    <h1 class="text-4xl font-extrabold text-white tracking-tight">Game Tracker</h1>
+    <p class="text-sm text-neutral-500 mt-2 max-w-lg">覆盖 {{ total_products }} 款产品 · {{ total_screenshots }} 张官网截图 · 持续更新中</p>
   </div>
 
-  {# Search #}
-  <div class="max-w-md mx-auto mb-6">
-    <input type="text" x-model="query" placeholder="🔍 搜索游戏名、公司、品类..."
-           class="w-full px-4 py-2.5 rounded-lg border border-bdr bg-surface-2 text-slate-200 text-sm outline-none focus:border-accent transition placeholder:text-slate-600"
+  {# ===== SEARCH ===== #}
+  <div x-data="{ query: '' }" class="mb-14">
+    <input type="text" x-model="query" placeholder="搜索游戏、公司、品类..."
+           class="w-full max-w-sm px-4 py-3 rounded bg-surface-2 border border-bdr text-white text-sm outline-none focus:border-white/20 transition placeholder:text-neutral-600"
            x-on:input="
              let q = query.toLowerCase().trim();
              document.querySelectorAll('[data-search]').forEach(el => {
                let hay = el.dataset.search || '';
-               let typeMatch = type === 'all' || el.dataset.type === type;
-               let searchMatch = !q || hay.includes(q);
-               el.style.display = (typeMatch && searchMatch) ? '' : 'none';
+               el.style.display = (!q || hay.includes(q)) ? '' : 'none';
              });
-             let shown = document.querySelectorAll('[data-search]:not([style*=none])').length;
-             document.getElementById('emptyState').style.display = shown ? 'none' : 'block';
-             document.getElementById('resultCount').textContent = shown;
+             document.querySelectorAll('.game-section').forEach(sec => {
+               let cards = sec.querySelectorAll('[data-search]');
+               let visible = Array.from(cards).filter(c => c.style.display !== 'none').length;
+               sec.style.display = visible > 0 ? '' : 'none';
+             });
            ">
   </div>
 
-  {# Type filters #}
-  <div class="flex gap-2 mb-6 justify-center flex-wrap">
-    {% for val, label, count in [("all","全部",total_products),("platform","🎮 游戏平台",products|length),("game","🕹️ 单机大作",games|length)] %}
-    <button x-on:click="type='{{ val }}'; $el.closest('.flex').querySelectorAll('button').forEach(b=>b.classList.remove('bg-accent','text-white','border-accent'));$el.classList.add('bg-accent','text-white','border-accent'); document.querySelectorAll('[data-search]').forEach(el=>{let t=el.dataset.type;let q=query.toLowerCase().trim();let hay=el.dataset.search||'';el.style.display=((type==='all'||t===type)&&(!q||hay.includes(q)))?'':'none';}); let s=document.querySelectorAll('[data-search]:not([style*=none])').length; document.getElementById('emptyState').style.display=s?'none':'block'; document.getElementById('resultCount').textContent=s;"
-            class="px-4 py-1.5 rounded-full border text-xs font-medium transition {{ 'bg-accent text-white border-accent' if val=='all' else 'border-bdr text-slate-400 hover:border-accent hover:text-slate-200' }}">
-      {{ label }} {{ count }}
-    </button>
-    {% endfor %}
-  </div>
+  {# ===== GAME SECTIONS BY GENRE ===== #}
+  {% set genre_order = ["FPS","Action","Action RPG","RPG","Action-Adventure","Open World Action RPG","Platformer","TPS"] %}
+  {% set genre_labels = {
+    "FPS":"FPS 第一人称射击",
+    "Action":"Action 动作",
+    "Action RPG":"Action RPG 动作角色扮演",
+    "RPG":"RPG 角色扮演",
+    "Action-Adventure":"Action-Adventure 动作冒险",
+    "Open World Action RPG":"Open World 开放世界",
+    "Platformer":"Platformer 平台跳跃",
+    "TPS":"TPS 第三人称射击"
+  } %}
 
-  <div class="text-xs text-slate-500 mb-4">共 <strong id="resultCount" class="text-slate-300">{{ total_products }}</strong> 款产品</div>
-
-  {# Card grid #}
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8">
-    {% for p in products %}
-      {{ platform_card(p, screenshots) }}
-    {% endfor %}
-    {% for g in games %}
+  {% for genre in genre_order %}
+  {% set genre_games = [] %}
+  {% for g in games %}{% if g.genre == genre %}{% set _ = genre_games.append(g) %}{% endif %}{% endfor %}
+  {% if genre_games %}
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">{{ genre_labels.get(genre, genre) }}</h2>
+      <span class="text-xs text-neutral-600">{{ genre_games|length }} games</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      {% for g in genre_games %}
       {{ game_card(g, screenshots) }}
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% endfor %}
 
-  {# Empty state + wishlist #}
-  <div id="emptyState" class="text-center py-20 text-slate-500 hidden">
-    <div class="text-5xl mb-4 opacity-50">💡</div>
-    <div class="text-sm mb-4">没找到想要的游戏？提交心愿</div>
-    <a href="{{ survey_url }}" target="_blank"
-       class="inline-block px-8 py-2.5 rounded-lg bg-accent text-white text-sm font-semibold hover:bg-indigo-500 transition">
-      📮 提交心愿
-    </a>
-  </div>
+  {# ===== PLATFORMS SECTION ===== #}
+  {% set platform_groups = {
+    "综合平台": [],
+    "PC平台": [],
+    "主机平台": [],
+    "移动平台": [],
+    "云游戏": [],
+    "游戏社区": []
+  } %}
+  {% for p in products %}
+    {% if p.category in platform_groups %}
+      {% set _ = platform_groups[p.category].append(p) %}
+    {% endif %}
+  {% endfor %}
+
+  {% for cat_name in ["综合平台","PC平台","主机平台","移动平台","云游戏","游戏社区"] %}
+  {% set cat_items = platform_groups[cat_name] %}
+  {% if cat_items %}
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">{{ cat_name }}</h2>
+      <span class="text-xs text-neutral-600">{{ cat_items|length }} platforms</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      {% for p in cat_items %}
+      {{ platform_card(p, screenshots) }}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% endfor %}
+
+  {# ===== FOOTER ===== #}
+  <footer class="border-t border-bdr py-10 mt-8">
+    <div class="flex items-center justify-between text-xs text-neutral-600">
+      <span>Game Tracker · 游戏竞品设计追踪台</span>
+      <a href="{{ survey_url }}" target="_blank" class="hover:text-white transition">提交心愿 ↗</a>
+    </div>
+  </footer>
+
 </div>
 {% endblock %}
