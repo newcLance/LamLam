@@ -111,8 +111,7 @@ document.addEventListener('alpine:init', function() {
       </a>
 
       <div class="flex items-center gap-3 mb-4">
-        <span class="text-4xl drop-shadow-lg">⭐</span>
-        <div>
+                <div>
           <h1 class="text-3xl font-extrabold tracking-tight leading-tight">米哈游 HoYoverse</h1>
           <div class="text-sm text-slate-400 mt-0.5">miHoYo · </div>
         </div>
@@ -482,13 +481,13 @@ function anchorNav() {
     active: '',
     init() {
       var defs = [
-        {id:'sec-header',     label:'📋 基本信息'},
-        {id:'sec-screenshots', label:'🖼 官网截图'},
-        {id:'sec-timeline',    label:'📅 时间线'},
-        {id:'sec-playerexp',   label:'🎮 体验清单'},
-        {id:'sec-story',       label:'📖 IP/故事'},
-        {id:'sec-aesthetic',   label:'🎨 审美偏好'},
-        {id:'sec-rivals',      label:'🎯 竞品推荐'}
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-timeline',    label:'时间线'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-rivals',      label:'竞品推荐'}
       ];
       this.sections = defs.filter(function(d) {
         return document.getElementById(d.id);

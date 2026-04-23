@@ -92,7 +92,7 @@ document.addEventListener('alpine:init', function() {
 <div class="max-w-7xl mx-auto px-4 py-6"
      x-data="compareApp()" x-init="init()">
 
-  <h1 class="text-xl font-bold mb-1">⚡ 竞品横向对比</h1>
+  <h1 class="text-xl font-bold mb-1">竞品横向对比</h1>
   <div class="flex gap-1.5 flex-wrap mb-6" id="chips">
     <template x-for="p in prods" :key="p.id">
       <span class="px-3 py-1 rounded-full bg-surface-2 border border-bdr text-xs text-slate-400"
@@ -101,7 +101,7 @@ document.addEventListener('alpine:init', function() {
   </div>
 
   
-  <h2 class="text-base font-bold mb-3">🖼 官网截图对比</h2>
+  <h2 class="text-base font-bold mb-3">官网截图对比</h2>
   <div class="grid gap-4 mb-8" :style="'grid-template-columns: repeat('+Math.min(prods.length,3)+',1fr)'">
     <template x-for="p in prods" :key="p.id">
       <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden">
@@ -113,7 +113,7 @@ document.addEventListener('alpine:init', function() {
         <div class="flex gap-1.5 p-3 overflow-x-auto">
           <template x-for="img in getImgs(p)" :key="img">
             <img :src="img" loading="lazy"
-                 class="shrink-0 w-44 h-24 rounded-md object-cover border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+                 class="shrink-0 w-44 h-24 rounded-md object-cover border border-bdr cursor-pointer hover:border-white/20 transition"
                  x-on:click="$dispatch('open-lightbox', img)">
           </template>
           <div x-show="getImgs(p).length===0" class="shrink-0 w-44 h-24 rounded-md bg-surface-2 flex items-center justify-center text-xs text-slate-600">暂无截图</div>
@@ -123,13 +123,13 @@ document.addEventListener('alpine:init', function() {
   </div>
 
   
-  <h2 class="text-base font-bold mb-3">📖 IP / 故事剧情对比</h2>
+  <h2 class="text-base font-bold mb-3">IP / 故事剧情对比</h2>
   <div class="overflow-x-auto mb-8">
     <div x-html="storyTableHtml"></div>
   </div>
 
   
-  <h2 class="text-base font-bold mb-3">🎨 审美偏好对比 <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold ml-2">共同点已高亮</span></h2>
+  <h2 class="text-base font-bold mb-3">审美偏好对比 <span class="text-xs px-2.5 py-0.5 rounded-full bg-white/[.08] text-neutral-300 font-semibold ml-2">共同点已高亮</span></h2>
   <div class="overflow-x-auto mb-8">
     <div x-html="tableHtml"></div>
   </div>
@@ -249,13 +249,13 @@ function compareApp(){
       t+='</tr></thead><tbody>';
       allLabels.forEach(dim=>{
         var common=findCommon(dim);
-        t+='<tr><td class="p-3 text-[11px] font-bold text-amber-400 uppercase tracking-wide bg-white/[.02] border-b border-bdr align-top">'+dim+'</td>';
+        t+='<tr><td class="p-3 text-[11px] font-bold text-neutral-500 uppercase tracking-wide bg-white/[.02] border-b border-bdr align-top">'+dim+'</td>';
         prods.forEach(p=>{
           var val='\u2014';
           if(p.story&&p.story.dims){var d=p.story.dims.find(x=>x.label===dim);if(d)val=d.value;}
           var isC=common.length&&common.some(term=>val.includes(term));
-          t+='<td class="p-3 text-[13px] leading-7 text-slate-400 border-b border-bdr align-top data-text'+(isC?' bg-emerald-500/[.06] border-l-[3px] border-l-emerald-400':'')+'">'
-            +val+(isC?'<span class="inline-block text-[9px] px-1.5 py-px rounded-full bg-emerald-500/15 text-emerald-400 font-bold ml-1.5">\u5171\u540c</span>':'')+'</td>';
+          t+='<td class="p-3 text-[13px] leading-7 text-slate-400 border-b border-bdr align-top data-text'+(isC?' bg-white/[.04] border-l-[3px] border-l-white/30':'')+'">'
+            +val+(isC?'<span class="inline-block text-[9px] px-1.5 py-px rounded-full bg-white/10 text-white font-bold ml-1.5">\u5171\u540c</span>':'')+'</td>';
         });
         t+='</tr>';
       });
@@ -290,8 +290,8 @@ function compareApp(){
           if(p.aesthetic&&p.aesthetic[dim]){val=p.aesthetic[dim].value||'\u2014';title=p.aesthetic[dim].title||'';}
           if(title)val='<div class="text-xs text-slate-500 font-semibold mb-1">'+title+'</div>'+val;
           var isC=common.length&&common.some(term=>val.includes(term));
-          t+='<td class="p-3 text-[13px] leading-7 text-slate-400 border-b border-bdr align-top data-text'+(isC?' bg-emerald-500/[.06] border-l-[3px] border-l-emerald-400':'')+'">'
-            +val+(isC?'<span class="inline-block text-[9px] px-1.5 py-px rounded-full bg-emerald-500/15 text-emerald-400 font-bold ml-1.5">\u5171\u540c</span>':'')+'</td>';
+          t+='<td class="p-3 text-[13px] leading-7 text-slate-400 border-b border-bdr align-top data-text'+(isC?' bg-white/[.04] border-l-[3px] border-l-white/30':'')+'">'
+            +val+(isC?'<span class="inline-block text-[9px] px-1.5 py-px rounded-full bg-white/10 text-white font-bold ml-1.5">\u5171\u540c</span>':'')+'</td>';
         });
         t+='</tr>';
       });
