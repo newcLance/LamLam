@@ -1,0 +1,79 @@
+{
+  "id": 205,
+  "slug": "hollow-knight-silksong",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>全手绘2D美术</b>的精度和密度令人难以置信——每个场景都是独立画作级别的背景绘制，3人团队的产出效率是行业奇迹", "src": "IGN 9/10", "url": "https://www.ign.com/articles/hollow-knight-silksong-review"},
+        {"text": "大黄蜂的<b>丝绸攻击</b>视觉语言——银白色丝线的拖尾效果与战斗节奏完美同步，比原版骑士的暗色调更灵动", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/hollow-knight-silksong-review/"},
+        {"text": "Pharloom王国的<b>垂直场景设计</b>——从地底蚁穴到云端钟楼，纵深跨度远超原版Hallownest", "src": "Eurogamer", "url": "https://www.eurogamer.net/hollow-knight-silksong-review"}
+      ],
+      "excitement": [
+        {"text": "Boss战中<b>背景美术的动态变化</b>——战斗越激烈，背景越壮丽，环境和战斗融为一体", "src": "IGN", "url": "https://www.ign.com/articles/hollow-knight-silksong-review"},
+        {"text": "<b>丝之歌</b>的音乐与视觉的同步设计——Christopher Larkin的配乐与场景色调/粒子效果完美匹配", "src": "多媒体综合", "url": "https://www.gamespot.com/reviews/hollow-knight-silksong-review/"}
+      ],
+      "pain": [
+        {"text": "部分<b>平台跳跃</b>关卡的视觉引导不够清晰——可交互平台与纯装饰背景的区分度不足", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/hollow-knight-silksong-review/"},
+        {"text": "<b>地图系统</b>延续原版的\"买图\"机制，新玩家在未购图区域容易迷失方向", "src": "PC Gamer", "url": "https://www.pcgamer.com/hollow-knight-silksong-review/"}
+      ],
+      "churn": [
+        {"text": "难度曲线陡峭，部分boss的<b>攻击预兆动画</b>与伤害判定的窗口不匹配", "src": "Steam评测", "url": "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "社区等待了<b>6年+</b>的期待——这种等待本身已成为游戏文化现象，\"Silksong when\"是游戏社区最经典的梗", "src": "Reddit r/HollowKnight", "url": "https://www.reddit.com/r/HollowKnight/"},
+        {"text": "大黄蜂在昆虫世界中<b>优雅又凶猛</b>的角色设计——丝绸斗篷+针形武器的剪影辨识度极高", "src": "Steam评测", "url": "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/"}
+      ],
+      "excitement": [
+        {"text": "每个新区域的<b>色彩主题</b>都是惊喜——翡翠绿的苔藓花园、金色的蜜蜂王国、深红的熔炉区", "src": "Reddit", "url": "https://www.reddit.com/r/HollowKnight/"}
+      ],
+      "pain": [
+        {"text": "缺少<b>快速旅行</b>的密度——地图节点间步行距离偏长，回溯时视觉新鲜感下降", "src": "Steam评测", "url": "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/"}
+      ],
+      "churn": [
+        {"text": "后期区域的<b>敌人密度</b>过高时，手绘背景的视觉层级被打乱", "src": "Steam评测", "url": "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "Pharloom · 丝绸与歌声的囚笼",
+    "dims": [
+      {"label": "时间", "value": "原版之后的<b>不确定时间线</b>，昆虫文明的衰亡期"},
+      {"label": "发生地", "value": "<b>Pharloom</b>——一个被<b>歌声</b>控制的陌生昆虫王国，从地底蚁穴延伸到云端钟楼的巨大垂直结构"},
+      {"label": "角色", "value": "<b>大黄蜂（Hornet）</b>——Hallownest的公主，被掳至Pharloom，需要战斗与攀爬逃出囚笼"},
+      {"label": "科技水平", "value": "<b>昆虫文明</b>——丝绸工艺、虫甲、灯笼、钟表机械"},
+      {"label": "对抗关系", "value": "<b>大黄蜂（自由）</b> vs <b>Pharloom歌之主宰（控制）</b>——丝绸的切割力 vs 歌声的束缚力"},
+      {"label": "地图", "value": "<b>苔藓花园</b>、<b>蜂蜜王国</b>、<b>深层熔炉</b>、<b>钟楼城市</b>、<b>丝绸工坊</b>、<b>云端教堂</b>"},
+      {"label": "元素", "value": "<b>丝线</b>、<b>针</b>（武器）、<b>钟/歌声</b>、<b>昆虫甲壳</b>、<b>灯笼光芒</b>、<b>骨钉</b>（原版遗产）"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "全手绘2D · 昆虫微观美学 · 色彩极致",
+      "value": "每一帧背景都是<b>手绘画作</b>级别——Team Cherry的2D美术密度在独立游戏中几乎无人能及。色彩运用极其大胆：每个区域都有<b>专属色彩主题</b>（翡翠/琥珀/深红/冰蓝），且过渡自然。<b>景深层次</b>丰富——前景昆虫/中景平台/背景建筑/远景天空至少4层。光源设计以<b>点光源</b>（灯笼/发光虫/晶体）为主，在暗色调中创造温暖焦点。"
+    },
+    "costume": {
+      "title": "昆虫甲壳 × 丝绸斗篷 · 生物形态设计",
+      "value": "角色设计完全基于<b>昆虫形态</b>——每个NPC和敌人都是真实昆虫的风格化演绎（蜜蜂/蚂蚁/螳螂/蝴蝶）。大黄蜂的<b>白色丝绸斗篷</b>在暗色调世界中辨识度极高，运动时的<b>飘逸动画</b>是角色美术的灵魂。敌人设计在\"可爱\"和\"威胁\"之间找到微妙平衡。Boss的<b>体型比例</b>跨度极大——从与玩家等大到占满屏幕。"
+    },
+    "ui": {
+      "title": "角色内嵌式 · 手绘图标 · 极简信息",
+      "value": "UI延续原版的<b>极简内嵌</b>风格——生命用<b>面具图标</b>（丝绸面具替代原版骨面具），丝线能量用<b>缠绕纹理</b>显示。地图是<b>手绘探索图</b>，需购买地图才能使用。物品和技能图标全部<b>手绘风格</b>，与世界美术语言统一。对话无语音，用<b>气泡+虫语音效</b>传达，保持想象空间。"
+    },
+    "symbol": {
+      "title": "丝线 · 针 · 面具 · 灯笼",
+      "value": "<b>丝线</b>贯穿整个游戏——武器是丝线射出的针、平台是丝绸织就的网、治愈是丝绸包裹的茧。<b>针</b>是大黄蜂的标志武器，其造型极简但辨识度极高。<b>面具</b>从原版延续——不同面具代表不同的存在方式。<b>灯笼</b>在黑暗世界中象征安全与希望，是探索奖励的视觉锚点。"
+    },
+    "promo": {
+      "title": "神秘独立 · 等待的艺术 · 手绘品质宣言",
+      "value": "宣发策略极其<b>克制</b>——Team Cherry几乎不做常规营销，每次信息发布都引发社区地震。Key Art以<b>大黄蜂动态姿态</b>为核心，丝线飞舞的构图动感十足。品牌色以<b>银白+深灰</b>为主调（对比原版的暗蓝）。<b>手绘品质</b>本身就是最大卖点——\"3人团队做出AAA级2D美术\"的叙事是传播核心。"
+    },
+    "rivals": [
+      {"id": 152, "reason": "同为<b>动作游戏</b>的美术标杆，鬼泣5的<b>3D风格化</b> vs 丝之歌的<b>2D手绘</b>——截然不同的美术路线"},
+      {"id": 150, "reason": "同为<b>高难度动作</b>游戏，只狼的<b>3D写实暗黑</b> vs 丝之歌的<b>2D手绘优雅</b>——两种死亡美学"},
+      {"id": 117, "reason": "同为<b>社区现象级</b>期待作品，黑神话的<b>3D东方神话</b> vs 丝之歌的<b>2D昆虫王国</b>——独立vs大制作的对比"},
+      {"id": 153, "reason": "同为<b>风格化美术</b>标杆，Metaphor的<b>油画JRPG</b> vs 丝之歌的<b>水彩独立</b>——两种2D美学极致"}
+    ]
+  }
+}

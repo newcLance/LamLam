@@ -228,14 +228,437 @@ document.addEventListener('alpine:init', function() {
 
   
   
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>UI设计教科书</b>——每一个菜单转场、每一个战斗指令都有独特的动态排版和色彩爆发，是游戏UI设计的最高标杆
+    
+      <a href="https://www.ign.com/articles/persona-5-royal-review" target="_blank" rel="noopener" class="src-link">— IGN 10/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>战斗界面的<b>红黑配色+漫画分格</b>——将回合制JRPG从"等待选择"变成了"视觉演出"
+    
+      <a href="https://www.gamespot.com/reviews/persona-5-royal-review/1900-6417440/" target="_blank" rel="noopener" class="src-link">— GameSpot 10/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>All-Out Attack</b>的定格画面——全队成员以漫画构图定格+泼墨效果，是JRPG史上最酷的战斗终结动画
+    
+      <a href="https://www.eurogamer.net/persona-5-royal-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>每次<b>觉醒Persona</b>的视觉表现——面具撕裂+蓝色火焰+哥特风召唤兽出现的一系列动画炸裂感拉满
+    
+      <a href="https://www.ign.com/articles/persona-5-royal-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>殿堂（Palace）</b>的视觉概念设计——每个反派的认知殿堂都是独立的视觉世界（赌场/博物馆/太空站/邮轮）
+    
+      <a href="https://www.gamespot.com/reviews/persona-5-royal-review/1900-6417440/" target="_blank" rel="noopener" class="src-link">— GameSpot ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>日常生活部分的<b>场景复用</b>严重——学校/车站/涩谷的3D场景精度与殿堂部分差距很大
+    
+      <a href="https://www.ign.com/articles/persona-5-royal-review" target="_blank" rel="noopener" class="src-link">— 多媒体综合 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Mementos地牢</b>的随机生成关卡视觉单调——与精心设计的殿堂形成强烈反差
+    
+      <a href="https://www.pcgamer.com/persona-5-royal-pc-review/" target="_blank" rel="noopener" class="src-link">— PC Gamer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>游戏流程过长（100+小时），后期<b>日常对话场景</b>的视觉新鲜感逐渐衰减
+    
+      <a href="https://www.polygon.com/reviews/2022/10/17/23407786/persona-5-royal-review-pc-steam" target="_blank" rel="noopener" class="src-link">— Polygon ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>P5的<b>UI设计</b>在设计师社区中被封神——大量设计教程/解构文章分析其转场动画和排版逻辑
+    
+      <a href="https://www.reddit.com/r/Persona5/" target="_blank" rel="noopener" class="src-link">— Reddit r/Persona5 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>酸爵士(Acid Jazz)</b>配乐与视觉的完美同步——音乐的节奏感渗透进了每一个UI动画
+    
+      <a href="https://store.steampowered.com/app/1687950/Persona_5_Royal/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>PC版<b>4K分辨率</b>下的UI锐度提升巨大——原本为PS3/PS4设计的矢量UI在高分辨率下依然完美
+    
+      <a href="https://www.pcgamer.com/persona-5-royal-pc-review/" target="_blank" rel="noopener" class="src-link">— PC Gamer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>文字量</b>过大时的阅读疲劳——长对话场景的视觉节奏偏平
+    
+      <a href="https://store.steampowered.com/app/1687950/Persona_5_Royal/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>部分玩家认为<b>日系动漫美术</b>的门槛高——不接受这种画风就完全无法享受游戏
+    
+      <a href="https://store.steampowered.com/app/1687950/Persona_5_Royal/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+    </div>
+  </section>
+  
 
   
   
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">IP / STORY</div>
+  <div class="text-sm font-bold text-white mb-4">东京 · 心之怪盗团的正义反叛</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>现代东京</b>，20XX年的日本高中生活</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>涩谷/新宿/秋叶原</b>等真实东京地标 + 反派的<b>认知殿堂</b>（超现实异空间）</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>Joker</b>（代号）——转学生，组建<b>心之怪盗团</b>，潜入腐败者的内心世界窃取其欲望</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>现代都市 + 超自然Persona</b>——手机导航APP进入异世界，Persona是内心力量的具象化</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>心之怪盗团（反叛的年轻人）</b> vs <b>腐败的成人社会</b>——视觉上体现为<b>时尚叛逆</b> vs <b>灰色权威</b></div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>秀尽学园</b>（日常）、<b>勒布朗咖啡</b>（据点）、<b>殿堂</b>（赌场/美术馆/太空站/游轮/金字塔）、<b>Mementos</b>（地铁深层）</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>面具</b>（Persona觉醒）、<b>红+黑</b>双色母题、<b>扑克牌</b>、<b>锁链</b>（束缚与解放）、<b>星星</b>（Confidant系统）、<b>全员突击定格画</b></div>
+  </div>
+  
+</div>
+
+  </section>
+  
 
   
   
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3">波普红黑 × 东京日常 · 现实与超现实的视觉分裂</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">场景分为两个极端：日常部分是<b>写实的东京街景</b>（涩谷十字路口/地铁/学校），色调偏<b>灰蓝日常感</b>；殿堂部分是<b>超现实的心理空间</b>，每个殿堂都有完全独立的视觉主题（巴洛克赌场/古埃及金字塔/未来太空站）。这种<b>日常↔疯狂</b>的视觉反差是P5美术的核心张力。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3">怪盗团制服 × 日常校服 · 二重身份的时尚宣言</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">怪盗团成员在殿堂中穿<b>个人化战斗服</b>——Joker的长风衣+面具、Skull的骷髅面具+铆钉夹克、Fox的狐狸面具+日式修行服。日常部分则是<b>高中校服+休闲装</b>的真实感。这种<b>日常自我 vs 反叛自我</b>的双重身份在服装设计上完美传达。每个角色的<b>配色方案</b>独立且一以贯之。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3">史上最强游戏UI · 动态排版 · 红黑视觉炸弹</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">P5的UI是游戏设计史上的<b>天花板级作品</b>。核心设计语言：<b>红+黑+白</b>三色、<b>倾斜排版</b>（所有文字和面板都带角度）、<b>漫画分格</b>转场。每个菜单界面都有独特的<b>进入/退出动画</b>——不是简单的淡入淡出，而是设计过的视觉表演。战斗指令界面以<b>角色动态剪影</b>为背景，选项排列像漫画分镜。<b>All-Out Attack</b>的泼墨定格是UI动画的巅峰时刻。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3">面具 · 红黑双色 · 扑克牌 · 锁链</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>面具</b>是P5的第一视觉符号——撕下面具觉醒Persona的动作是游戏最核心的视觉仪式。<b>红+黑</b>的配色无处不在——从logo到UI到战斗特效。<b>扑克牌/塔罗牌</b>图案融入转场和能力系统。<b>锁链</b>象征社会对年轻人的束缚，在开场动画和主题中反复出现。<b>星星</b>代表人际关系（Confidant系统的核心视觉。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3">时尚叛逆 · 酸爵士 · 日系潮文化输出</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发走<b>时尚文化输出</b>路线——P5的美术不仅是游戏，更成为了时尚/音乐/亚文化的标志。Key Art以<b>全员怪盗装束</b>动态构图为核心，红黑配色识别度爆表。预告片剪辑<b>与酸爵士音乐节奏精确同步</b>——每个转场都踩在节拍上。品牌色<b>红+黑+白</b>。PC移植宣发强调"终于"登陆PC的情感牌。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
 
   
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        <a href="sekiro-shadows-die-twice.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">只狼：影逝二度 <span class="text-xs text-neutral-500 font-normal ml-1">FromSoftware</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>Atlus JRPG</b>，Metaphor是Atlus最新的<b>UI设计</b>挑战——能否超越P5的UI天花板</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="baldurs-gate-3.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">博德之门3 <span class="text-xs text-neutral-500 font-normal ml-1">Larian Studios</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>RPG年度标杆</b>，BG3的<b>西方CRPG写实UI</b> vs P5R的<b>日式风格化UI</b>——两种RPG视觉哲学的极端对比</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="phantom-blade-zero.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">影之刃零 <span class="text-xs text-neutral-500 font-normal ml-1">S-GAME</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>东方文化</b>RPG，黑神话的<b>中国神话3D写实</b> vs P5R的<b>日本都市2D风格化</b>——东亚美学的两种表达</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="hades-2.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">哈迪斯2 <span class="text-xs text-neutral-500 font-normal ml-1">Supergiant Games</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>风格化美术标杆</b>，Hades的<b>希腊神话插画</b> vs P5R的<b>东京波普漫画</b>——两种手绘动画美学</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=207,153,201,117,206','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 5 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
   
 
 </div>

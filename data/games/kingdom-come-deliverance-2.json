@@ -1,0 +1,79 @@
+{
+  "id": 209,
+  "slug": "kingdom-come-deliverance-2",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>CryEngine的真实感光照</b>在中世纪波西米亚场景中达到了照片级真实度——晨雾穿过村庄、午后阳光打在石墙上的质感堪称业界标杆", "src": "IGN 8.5/10", "url": "https://www.ign.com/articles/kingdom-come-deliverance-ii-review"},
+        {"text": "<b>历史考据级</b>的建筑/服装/武器还原——与博物馆级别的中世纪文物对比毫无违和感，是\"教育级\"视觉设计", "src": "GameSpot 8/10", "url": "https://www.gamespot.com/reviews/kingdom-come-deliverance-ii-review/"},
+        {"text": "剑术系统的<b>五方位攻击UI</b>——用星形准星显示攻击方向，将复杂的中世纪剑术可视化", "src": "PC Gamer", "url": "https://www.pcgamer.com/kingdom-come-deliverance-2-review/"}
+      ],
+      "excitement": [
+        {"text": "<b>大规模战役</b>场景——数百士兵混战的中世纪战场，烟尘/旗帜/弓箭密度达到电影级", "src": "IGN", "url": "https://www.ign.com/articles/kingdom-come-deliverance-ii-review"},
+        {"text": "城堡内部的<b>室内光照</b>——烛光/壁炉/彩色玻璃窗投射的光斑极其真实", "src": "PC Gamer", "url": "https://www.pcgamer.com/kingdom-come-deliverance-2-review/"}
+      ],
+      "pain": [
+        {"text": "<b>NPC面部</b>建模精度参差不齐——重要角色精致但路人NPC偏木讷", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/kingdom-come-deliverance-ii-review/"},
+        {"text": "物品栏UI的<b>信息密度</b>过高——装备属性、耐久度、修复状态、服装搭配层叠在一起", "src": "Eurogamer", "url": "https://www.eurogamer.net/kingdom-come-deliverance-2-review"}
+      ],
+      "churn": [
+        {"text": "早期版本<b>性能优化</b>问题——大场景帧率不稳影响视觉体验的流畅度", "src": "Steam评测", "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "社区对<b>服装分层系统</b>的热衷——内衣/衬衫/锁甲/外甲/斗篷五层穿着的视觉系统是RPG中最细致的", "src": "Reddit r/kingdomcome", "url": "https://www.reddit.com/r/kingdomcome/"},
+        {"text": "<b>昼夜循环</b>的视觉表现——从清晨薄雾到正午烈日到黄昏金光到深夜星空，每个时段的光照完全不同", "src": "Steam评测", "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"}
+      ],
+      "excitement": [
+        {"text": "在<b>真实波西米亚</b>景观中骑马漫游——游戏地图与Google Earth实景对比高度吻合", "src": "Reddit", "url": "https://www.reddit.com/r/kingdomcome/"}
+      ],
+      "pain": [
+        {"text": "<b>读取时间</b>过长影响探索节奏——频繁的场景切换等待", "src": "Steam评测", "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"}
+      ],
+      "churn": [
+        {"text": "写实风格的<b>低照度场景</b>（夜间/室内/地牢）时伽马设置不合理，部分玩家反映\"太暗看不清\"", "src": "Steam评测", "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "波西米亚 · 铁匠之子的复仇与命运",
+    "dims": [
+      {"label": "时间", "value": "<b>1403年</b>，波西米亚王国（今捷克），胡斯战争前夕"},
+      {"label": "发生地", "value": "<b>波西米亚乡间</b>——真实历史地理还原，涵盖Trosky城堡、Kuttenberg银矿城等真实地标"},
+      {"label": "角色", "value": "<b>Henry</b>——银匠之子（非骑士/英雄），从一介平民成长为改变历史的关键人物"},
+      {"label": "科技水平", "value": "<b>15世纪中世纪</b>——锻造铁器、十字弓、攻城器械、炼金术（真实科技水平，无魔法）"},
+      {"label": "对抗关系", "value": "<b>Henry（平民/正统王权）</b> vs <b>Sigismund的匈牙利军队（篡位者）</b>——中世纪的封建政治与个人复仇"},
+      {"label": "地图", "value": "<b>波西米亚乡村</b>、<b>森林猎场</b>、<b>修道院</b>、<b>采矿城镇</b>、<b>石头城堡</b>、<b>中世纪城镇</b>"},
+      {"label": "元素", "value": "<b>锻造铁砧</b>、<b>波西米亚狮鹫纹章</b>、<b>哥特式教堂</b>、<b>铠甲五层穿着</b>、<b>中世纪手抄本</b>、<b>十字架/宗教图像</b>"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "照片级写实中世纪 · CryEngine 自然光照巅峰",
+      "value": "场景美术追求<b>\"你在15世纪波西米亚醒来会看到什么\"</b>的极致写实。CryEngine的<b>全局光照</b>和<b>体积雾</b>在森林/田野/城镇场景中达到了行业最高水准。色调以<b>自然土色</b>为主——棕色泥土、灰色石墙、绿色草地、金色麦田。<b>天气系统</b>对视觉影响巨大——雨天泥泞的道路反射、雪天的白茫一片、晴天的丁达尔效应。"
+    },
+    "costume": {
+      "title": "博物馆级历史还原 · 五层穿甲系统",
+      "value": "服装设计堪称<b>游戏界最严格的历史考据</b>——每件盔甲都有真实历史原型。独创的<b>五层穿着系统</b>（内衣→衬衣→锁甲→板甲→外套）在视觉上完美呈现中世纪骑士的着装逻辑。<b>布料物理</b>和<b>金属锈蚀</b>质感写实。平民/商人/骑士/教士的服装严格区分社会阶层——视觉上就能读出NPC的身份。"
+    },
+    "ui": {
+      "title": "手抄本风格 · 五方位剑术准星 · 信息密度高",
+      "value": "UI走<b>中世纪手抄本</b>风格——菜单背景使用羊皮纸纹理，装饰性花纹参考中世纪书籍插画。最标志性的UI是<b>剑术五方位星形准星</b>——将复杂的欧洲剑术体系可视化为直观的方向选择。地图使用<b>手绘中世纪地图</b>风格。物品栏信息密度高但组织清晰——装备、食物、炼金材料分类tab切换。"
+    },
+    "symbol": {
+      "title": "波西米亚狮鹫 · 铁砧锻造 · 哥特教堂 · 十字架",
+      "value": "<b>波西米亚双尾狮鹫</b>纹章贯穿游戏，代表正统王权和Henry的忠诚。<b>铁砧和锻造</b>是Henry铁匠出身的视觉锚点。<b>哥特式教堂</b>的尖拱和彩窗是中世纪建筑美学的核心。<b>十字架</b>和宗教图像无处不在，反映15世纪宗教在日常生活中的绝对地位。<b>泥土和血迹</b>作为写实材质母题——Henry不是超级英雄，他会脏会受伤。"
+    },
+    "promo": {
+      "title": "历史真实主义 · 非典型RPG · 写实差异化",
+      "value": "宣发核心卖点是<b>\"无魔法的真实中世纪\"</b>——在一众奇幻RPG中以写实主义差异化。Key Art以<b>Henry身着铠甲</b>站在波西米亚风景前为经典构图。预告片强调<b>战役规模</b>和<b>历史场景</b>的震撼力。品牌色以<b>金+深褐+暗红</b>为主调，呼应中世纪纹章美学。Deep Silver发行的宣发调性偏<b>硬核写实</b>。"
+    },
+    "rivals": [
+      {"id": 113, "reason": "同为<b>开放世界RPG</b>但路线完全相反——艾尔登法环的<b>暗黑奇幻</b> vs KCD2的<b>历史写实</b>，魔法 vs 无魔法的对比"},
+      {"id": 201, "reason": "同为<b>沉浸式RPG</b>标杆，BG3的<b>D&D奇幻</b>系统 vs KCD2的<b>历史模拟</b>系统——两种RPG设计哲学"},
+      {"id": 202, "reason": "同为<b>写实风格</b>的叙事动作游戏，战神的<b>神话写实</b> vs KCD2的<b>历史写实</b>——\"可信度\"的不同层级"},
+      {"id": 117, "reason": "同为<b>近年RPG大作</b>，黑神话的<b>东方神话</b> vs KCD2的<b>欧洲历史</b>——两种文化背景的写实冒险"}
+    ]
+  }
+}

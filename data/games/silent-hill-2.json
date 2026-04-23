@@ -1,0 +1,79 @@
+{
+  "id": 204,
+  "slug": "silent-hill-2",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {"text": "<b>UE5的雾效渲染</b>将寂静岭的标志性浓雾提升到前所未有的视觉密度——距离衰减、体积光散射、粒子扰动三层叠加", "src": "IGN 9/10", "url": "https://www.ign.com/articles/silent-hill-2-review"},
+        {"text": "Bloober Team对原版<b>固定视角恐怖构图</b>的现代化翻译——第三人称越肩视角保留了逼仄感但增加了操控感", "src": "GameSpot 8/10", "url": "https://www.gamespot.com/reviews/silent-hill-2-review/1900-6418230/"},
+        {"text": "<b>三角头</b>的重新设计保留了原版的压迫感，同时UE5的材质技术让铁锈/污血/生锈金属的质感达到恐怖谷效果", "src": "Eurogamer", "url": "https://www.eurogamer.net/silent-hill-2-review"}
+      ],
+      "excitement": [
+        {"text": "裏世界转换时的<b>实时环境变形</b>——墙壁剥落、地面裂开、灯光骤灭的视觉冲击比原版更加震撼", "src": "IGN", "url": "https://www.ign.com/articles/silent-hill-2-review"},
+        {"text": "水中倒影和<b>镜面反射</b>的心理暗示用法——Bloober Team利用UE5反射技术创造了多层视觉叙事", "src": "多媒体综合", "url": "https://www.gamespot.com/reviews/silent-hill-2-review/1900-6418230/"}
+      ],
+      "pain": [
+        {"text": "部分<b>战斗动画</b>的打击反馈偏弱——铁管/木板击打怪物时缺少原版的\"沉重笨拙感\"", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/silent-hill-2-review/1900-6418230/"},
+        {"text": "<b>面部表情捕捉</b>在部分过场中显得僵硬，与UE5的环境写实度形成反差", "src": "Polygon", "url": "https://www.polygon.com/review/449893/silent-hill-2-review-remake-ps5-pc"}
+      ],
+      "churn": [
+        {"text": "部分迷宫关卡的<b>视觉引导</b>不足——黑暗+浓雾+相似走廊的组合导致迷路而非恐惧", "src": "Steam评测", "url": "https://store.steampowered.com/app/2124490/SILENT_HILL_2/"}
+      ]
+    },
+    "community": {
+      "memory": [
+        {"text": "社区对比原版与重制版的<b>颗粒感/色调</b>差异——原版的PS2颗粒感被认为是恐怖氛围的一部分，重制版的高清反而少了一层\"不安\"", "src": "Reddit r/silenthill", "url": "https://www.reddit.com/r/silenthill/"},
+        {"text": "<b>走廊尽头的黑暗</b>——游戏对\"看不见什么\"的恐惧设计远胜于\"看见什么\"，是心理恐怖视觉设计的典范", "src": "Steam评测", "url": "https://store.steampowered.com/app/2124490/SILENT_HILL_2/"}
+      ],
+      "excitement": [
+        {"text": "UE5下的<b>公寓走廊场景</b>——光影和材质的真实度让每一步都如履薄冰，是PC版视觉巅峰", "src": "PC Gamer", "url": "https://www.pcgamer.com/games/survival-horror/silent-hill-2-pc-review/"}
+      ],
+      "pain": [
+        {"text": "<b>怪物种类</b>相比现代恐怖游戏偏少，重复遭遇降低了视觉恐惧的新鲜感", "src": "Steam评测", "url": "https://store.steampowered.com/app/2124490/SILENT_HILL_2/"}
+      ],
+      "churn": [
+        {"text": "PC版早期<b>性能优化</b>问题——UE5的Lumen/Nanite在部分场景帧率不稳", "src": "Steam评测", "url": "https://store.steampowered.com/app/2124490/SILENT_HILL_2/"}
+      ]
+    }
+  },
+  "story": {
+    "title": "寂静岭 · 罪与罚的心理迷宫",
+    "dims": [
+      {"label": "时间", "value": "<b>当代</b>，主角收到已故妻子的信后前往寂静岭"},
+      {"label": "发生地", "value": "<b>寂静岭</b>——美国东北部的废弃小镇，被浓雾和诅咒笼罩。涵盖医院、公寓、监狱、湖畔等"},
+      {"label": "角色", "value": "<b>James Sunderland</b>——寻妻的普通男人，实际上是被<b>内疚</b>驱使来到寂静岭面对自己的罪"},
+      {"label": "科技水平", "value": "<b>现代日常</b>——手电筒、无线电、铁管、手枪，没有超自然武器"},
+      {"label": "对抗关系", "value": "<b>James（意识）</b> vs <b>寂静岭（潜意识）</b>——每个怪物都是James内心罪恶感的视觉化身"},
+      {"label": "地图", "value": "<b>雾中街道</b>、<b>蓝溪公寓</b>、<b>布鲁克海文医院</b>、<b>历史协会</b>、<b>托尔卡监狱</b>、<b>湖畔酒店</b>"},
+      {"label": "元素", "value": "<b>浓雾</b>、<b>铁锈/污血</b>、<b>三角头</b>、<b>无线电噪音</b>、<b>信件</b>、<b>镜子/倒影</b>、<b>水/湖</b>（罪恶沉没的隐喻）"}
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "浓雾 × 锈蚀 × 心理投射的恐怖空间",
+      "value": "场景美术的核心是<b>\"看不见\"比\"看见\"更恐怖</b>。浓雾和黑暗将可视距离压缩到极限，<b>手电筒锥形光</b>是唯一的安全感来源。裏世界的<b>铁锈+血肉+工业废墟</b>三层叠加创造出\"内脏外翻\"式的恐怖空间。色调极度压抑——灰绿色雾气、棕红色锈蚀、病态的黄色灯光。UE5的<b>体积雾</b>和<b>光线追踪</b>将原版的技术限制变成了主动的美术选择。"
+    },
+    "costume": {
+      "title": "日常着装 × 怪物身体恐怖 · 平凡中的异常",
+      "value": "James穿<b>普通夹克牛仔裤</b>——\"平凡人闯入噩梦\"的视觉反差是恐怖感的重要来源。怪物设计走<b>身体恐怖</b>路线——Lying Figure的包裹皮肤、Bubble Head Nurse的扭曲人体比例。<b>三角头</b>的铁质头盔+屠夫围裙是游戏史上最具辨识度的恐怖角色设计之一。所有怪物都带有<b>性暗示/暴力暗示</b>的双重解读，服务于心理恐怖主题。"
+    },
+    "ui": {
+      "title": "极度克制 · 噪音信号 · 恐惧增幅器",
+      "value": "UI设计的核心哲学是<b>\"越少越恐怖\"</b>。无常驻HUD，血量通过<b>角色动画</b>（捂腹/跛行）传达。物品栏使用<b>粗糙纸质背景</b>，字体偏<b>打字机</b>风格。最标志性的UI元素是<b>无线电噪音</b>——怪物靠近时发出的静电杂音是恐惧的听觉UI。地图是<b>手绘纸质地图</b>，标注模糊、有涂改痕迹。谜题线索以<b>便签/日记</b>形式呈现在环境中。"
+    },
+    "symbol": {
+      "title": "浓雾 · 三角头 · 镜子 · 水与沉没",
+      "value": "<b>浓雾</b>是寂静岭的第一视觉符号——既是技术方案（隐藏渲染边界）又是叙事工具（遮蔽真相）。<b>三角头</b>是James罪恶感的具象化，其三角铁盔和巨剑已成为恐怖游戏的图腾。<b>镜子/倒影</b>反复出现，暗示角色的自我审视和分裂。<b>水/湖</b>是沉没/溺亡/遗忘的母题。<b>铁锈和污血</b>是裏世界的材质母题，代表腐朽和伤口。"
+    },
+    "promo": {
+      "title": "心理恐怖 · 怀旧情怀 · 技术重生",
+      "value": "宣发同时打<b>\"经典重生\"</b>和<b>\"UE5技术力\"</b>两张牌。Key Art以<b>雾中剪影</b>为经典构图，James背影+浓雾的组合延续原版封面精神。预告片克制地展示环境而非怪物——<b>\"你听见了什么\"</b>比\"你看见了什么\"更有效。品牌色以<b>灰绿+锈红</b>为主调。Konami品牌回归是重要的情感卖点。"
+    },
+    "rivals": [
+      {"id": 121, "reason": "同为<b>恐怖游戏</b>重制标杆，生化危机Village的<b>动作恐怖</b> vs 寂静岭2的<b>心理恐怖</b>——两种恐怖视觉哲学"},
+      {"id": 117, "reason": "同为<b>UE5技术力展示</b>的年度大作，黑神话的华丽视觉 vs 寂静岭的<b>克制恐怖</b>视觉——引擎相同但美术方向完全对立"},
+      {"id": 150, "reason": "同为<b>日本开发/IP</b>的暗色调动作游戏，只狼的<b>战国黑暗</b> vs 寂静岭的<b>现代恐怖</b>"},
+      {"id": 156, "reason": "同为<b>叙事驱动</b>的紧凑体验，indiana jones的冒险 vs 寂静岭的恐怖——密闭空间 vs 开阔场景的对比"}
+    ]
+  }
+}

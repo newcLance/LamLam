@@ -228,14 +228,482 @@ document.addEventListener('alpine:init', function() {
 
   
   
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>D&D 第五版规则</b>的完整数字化还原——投骰、技能检定、法术位管理全部可视化呈现，是CRPG史上最接近桌游体验的UI系统
+    
+      <a href="https://www.ign.com/articles/baldurs-gate-3-review" target="_blank" rel="noopener" class="src-link">— IGN 10/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>电影级过场演出与<b>实时光照</b>结合，角色面部表情的微妙变化让对话系统从"读文字"升级为"看电影"
+    
+      <a href="https://www.gamespot.com/reviews/baldurs-gate-3-review/1900-6418109/" target="_blank" rel="noopener" class="src-link">— GameSpot 10/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>地下幽暗地域（Underdark）场景的<b>生物发光</b>设计——蘑菇、苔藓、水体全部自发光，是近年RPG中最惊艳的环境美术
+    
+      <a href="https://www.eurogamer.net/baldurs-gate-3-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>战斗中<b>环境交互的视觉反馈</b>极其丰富：踢翻油桶→火焰蔓延→烟雾遮蔽→雷电连锁，每次战斗都像一场即兴视觉秀
+    
+      <a href="https://www.ign.com/articles/baldurs-gate-3-review" target="_blank" rel="noopener" class="src-link">— IGN 10/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>角色定制系统的<b>视觉深度</b>令人震撼：从瞳孔颜色到面部伤疤、从角/尾造型到身体纹身，自定义维度超过市面所有RPG
+    
+      <a href="https://www.pcgamer.com/baldurs-gate-3-review/" target="_blank" rel="noopener" class="src-link">— PC Gamer 97/100 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>获得 2023 Golden Joystick Awards <b>最佳视觉设计</b>奖，击败《星空》《心灵杀手2》等强劲对手
+    
+      <a href="https://www.gamesradar.com/baldurs-gate-3-best-visual-design-gja-2023/" target="_blank" rel="noopener" class="src-link">— GamesRadar ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>物品栏UI在后期<b>信息过载</b>严重——数百件装备/消耗品的管理体验远不如战斗本身流畅
+    
+      <a href="https://www.ign.com/articles/baldurs-gate-3-review" target="_blank" rel="noopener" class="src-link">— 多媒体综合 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>部分<b>战斗机制的UI引导</b>不够清晰，新手玩家对法术位、反应、附赠动作等D&D概念的理解门槛偏高
+    
+      <a href="https://www.ign.com/articles/baldurs-gate-3-review" target="_blank" rel="noopener" class="src-link">— IGN 10/10 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>第三幕<b>城市场景性能</b>明显下降，大量NPC和建筑细节导致帧率不稳，视觉体验打折
+    
+      <a href="https://www.pcgamer.com/baldurs-gate-3-review/" target="_blank" rel="noopener" class="src-link">— PC Gamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>多人游戏中<b>UI同步延迟</b>偶发，同屏四人战斗时信息层叠混乱
+    
+      <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>角色创建界面的<b>光影实时预览</b>质量堪比预渲染CG，社区戏称"捏脸1小时，游戏10小时"
+    
+      <a href="https://www.reddit.com/r/BaldursGate3/" target="_blank" rel="noopener" class="src-link">— Reddit r/BaldursGate3 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>营地场景</b>的氛围设计极具沉浸感——篝火光影、夜空星辰、角色闲聊动画，是RPG中最温暖的"家"
+    
+      <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>Larian从<b>卡通风</b>到写实风的美术方向转变被证明是正确决策，最终风格平衡了奇幻感与真实感
+    
+      <a href="https://www.videogamer.com/news/baldurs-gate-3-devs-originally-went-for-a-truly-cartoony-art-style-but-im-glad-they-didnt-go-with-it/" target="_blank" rel="noopener" class="src-link">— VideoGamer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>玩家自发截图分享的频率极高，<b>Photo Mode</b>更新后社区内容产出爆发——证明视觉质量本身就是传播力
+    
+      <a href="https://www.reddit.com/r/BaldursGate3/" target="_blank" rel="noopener" class="src-link">— Reddit r/BaldursGate3 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>模组社区对<b>角色外观自定义</b>的热情极高，发型、服装、肤色模组是下载量最大的类别
+    
+      <a href="https://www.nexusmods.com/baldursgate3" target="_blank" rel="noopener" class="src-link">— NexusMods ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>地图UI的<b>层级导航</b>体验较差，多层建筑和地下区域的切换不够直观
+    
+      <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>日志系统的<b>视觉层级</b>不清晰，任务线索容易淹没在大量文本中
+    
+      <a href="https://www.reddit.com/r/BaldursGate3/" target="_blank" rel="noopener" class="src-link">— Reddit ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>战斗回合等待时间</b>在大规模遭遇战中过长，视觉上缺少"加速"或"跳过"的流畅方案
+    
+      <a href="https://store.steampowered.com/app/1086940/Baldurs_Gate_3/" target="_blank" rel="noopener" class="src-link">— Steam评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+    </div>
+  </section>
+  
 
   
   
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">IP / STORY</div>
+  <div class="text-sm font-bold text-white mb-4">费伦大陆 · 夺心魔危机</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>中世纪奇幻</b>时代，D&D 被遗忘国度设定</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>费伦大陆</b>——从荒野到幽暗地域（Underdark），最终到达<b>博德之门城</b>，涵盖森林、山脉、地下洞穴、沿海城市等多种地貌</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">玩家扮演被<b>夺心魔蝌蚪</b>寄生的冒险者，与6位各怀心事的同伴结盟。阵营自由选择，可走善良/中立/邪恶路线</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>冷兵器 + 魔法文明</b>——剑与法术并存，无火器，魔法物品和神术是核心科技</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>自由意志者（玩家）</b> vs <b>夺心魔/绝对者</b>——核心对抗是精神控制 vs 自由意志，视觉上体现为触手/寄生虫的异形美学 vs 各种族的多元美学</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>荒野营地</b>、<b>哥布林巢穴</b>、<b>幽暗地域</b>（生物发光洞穴）、<b>影之诅咒地</b>（永夜）、<b>博德之门城</b>（中世纪港口城市）</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>夺心魔触手</b>、<b>骰子</b>（D20投骰UI）、<b>营火</b>、<b>法术纹章</b>、<b>神祇符号</b>、<b>种族徽记</b>（精灵/矮人/提夫林等）</div>
+  </div>
+  
+</div>
+
+  </section>
+  
 
   
   
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3">写实奇幻 + 自然光影电影感</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">整体走<b>写实风格的高奇幻</b>路线，场景美术追求"可信的奇幻世界"。<b>自然光照</b>是最大亮点——从阳光穿透树冠的丁达尔效应，到幽暗地域的<b>生物发光</b>营造的冷色调神秘感，光影叙事能力极强。色调随叙事变化：第一幕温暖自然、第二幕<b>影之诅咒地</b>的永夜压抑、第三幕城市的<b>灰褐调</b>人间烟火。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3">多种族写实盔甲 + D&D 经典装备美学</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">角色服装严格遵循<b>D&D 种族设定</b>——精灵轻甲飘逸、矮人重甲厚实、提夫林带有<b>恶魔纹饰</b>。金属质感还原度极高，锁甲、鳞甲、板甲各有独特的<b>光泽反射</b>。魔法装备带有<b>附魔发光</b>效果，视觉上能直接传达装备品质。NPC服装设计精准传达社会阶层——贵族丝绸 vs 平民粗布 vs 流浪者皮革。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3">D&D 桌游数字化 · 羊皮纸质感界面</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI设计核心理念是<b>D&D桌游的数字化翻译</b>。界面大量使用<b>羊皮纸纹理</b>和手绘风格图标，骰子投掷动画是整个UI最具标志性的时刻。物品栏采用<b>网格式</b>排列，信息密度高但后期管理成本上升。战斗UI使用<b>时间轴</b>展示行动顺序，角色头像+状态图标的组合清晰高效。对话界面采用<b>电影宽屏</b>构图，选项文字排列优雅。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3">骰子 · 夺心魔触手 · 神祇徽记</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">最核心的视觉符号是<b>D20骰子</b>——它不仅是UI元素，更是游戏精神的图腾，代表"一切皆有可能"。<b>夺心魔触手</b>是叙事层面的核心视觉母题，紫色/粉色的有机曲线贯穿剧情。各<b>神祇的符号</b>（塞伦涅银月、巴尔颅骨等）构成了宗教美学体系。<b>营火</b>作为安全区的视觉锚点，在暗色调世界中提供温暖的橙色光源对比。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3">暗黑史诗 · 角色群像 · 电影叙事预告</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发走<b>暗黑史诗</b>路线，Key Art以角色群像构图为主——六位同伴站位暗示阵营和关系。预告片剪辑风格偏<b>电影化</b>，大量使用慢镜头+配乐高潮点。品牌色以<b>深紫+金色</b>为主调，呼应夺心魔和D&D经典配色。社交媒体传播策略独特，Larian擅长用<b>幽默/meme式</b>内容拉近与社区的距离，与游戏的史诗调性形成有趣反差。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
 
   
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        <a href="ghost-of-yotei.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">羊蹄山之魂 <span class="text-xs text-neutral-500 font-normal ml-1">Sucker Punch</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>暗黑奇幻RPG</b>标杆，艾尔登法环的开放世界美术 vs BG3的叙事场景美术——两种RPG视觉路线的对比</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        <a href="sekiro-shadows-die-twice.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">只狼：影逝二度 <span class="text-xs text-neutral-500 font-normal ml-1">FromSoftware</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">Metaphor同为<b>回合制RPG</b>且美术风格极具辨识度——Atlus的<b>风格化UI</b> vs Larian的<b>写实UI</b>，是JRPG和CRPG的视觉哲学对比</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="phantom-blade-zero.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">影之刃零 <span class="text-xs text-neutral-500 font-normal ml-1">S-GAME</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同年发售的<b>年度最佳</b>竞争者，两款游戏的官网和品牌设计在宣发维度有直接可比性</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=201,113,120,153,117','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 5 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
   
 
 </div>
