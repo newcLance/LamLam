@@ -36,11 +36,11 @@
       <div class="flex items-center gap-3 mb-4">
                 <div>
           <h1 class="text-3xl font-extrabold tracking-tight leading-tight">{{ g.nameCN or g.name }}</h1>
-          <div class="text-sm text-slate-400 mt-0.5">{{ g.company }} · {{ g.genre }}{% if g.releaseDate %} · {{ g.releaseDate }}{% endif %}</div>
+          <div class="text-sm text-neutral-400 mt-0.5">{{ g.company }} · {{ g.genre }}{% if g.releaseDate %} · {{ g.releaseDate }}{% endif %}</div>
         </div>
       </div>
 
-      <p class="text-sm text-slate-400/90 leading-relaxed max-w-2xl mb-5">{{ g.desc }}</p>
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">{{ g.desc }}</p>
 
       {# Feature pills #}
       {% if g.features %}
@@ -90,9 +90,9 @@
     {% if screen.imgs %}
     <div class="mb-8">
       <div class="flex items-center gap-3 mb-3">
-        <h3 class="text-sm font-semibold text-slate-300">{{ screen.title }}</h3>
+        <h3 class="text-sm font-semibold text-neutral-300">{{ screen.title }}</h3>
         {% if screen.date %}
-        <span class="text-[11px] text-slate-600">{{ screen.date }}</span>
+        <span class="text-[11px] text-neutral-600">{{ screen.date }}</span>
         {% endif %}
         {% if screen.url %}
         <a href="{{ screen.url }}" target="_blank" rel="noopener"
@@ -138,7 +138,7 @@
       <div class="relative">
         <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
         <div class="text-xs text-white font-bold tracking-wide">{{ c.date }}</div>
-        <div class="text-sm text-slate-400 mt-1 leading-relaxed">{{ c.text }}
+        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">{{ c.text }}
           {% if c.url %}<a href="{{ c.url }}" target="_blank" class="text-xs text-neutral-400 ml-2 opacity-70 hover:opacity-100 hover:underline transition">查看详情 ↗</a>{% endif %}
         </div>
       </div>
@@ -162,7 +162,7 @@
         {% if g.playerExp.biliVideos %}{% set tabs = tabs + [("bili","B站试玩视频")] %}{% endif %}
         {% for key, label in tabs %}
         <button x-on:click="tab='{{ key }}'"
-                :class="tab==='{{ key }}' ? 'text-white border-white bg-white/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                :class="tab==='{{ key }}' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
                 class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">{{ label }}</button>
         {% endfor %}
       </div>
@@ -215,10 +215,10 @@
             {% if loop.index == 1 %}bg-white/10 text-white
             {% elif loop.index == 2 %}bg-white/[.08] text-neutral-300
             {% elif loop.index == 3 %}bg-white/[.06] text-neutral-400
-            {% else %}bg-surface-2 text-slate-500{% endif %}">{{ loop.index }}</span>
+            {% else %}bg-surface-2 text-neutral-500{% endif %}">{{ loop.index }}</span>
           <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
-          <span class="flex-1 text-sm text-slate-200 font-medium truncate">{{ v.title }}</span>
-          <span class="text-xs text-slate-500 shrink-0">{{ v.views }}播放</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">{{ v.title }}</span>
+          <span class="text-xs text-neutral-500 shrink-0">{{ v.views }}播放</span>
         </a>
         {% endfor %}
       </div>
@@ -262,7 +262,7 @@
       <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
       综合竞品推荐
     </h2>
-    <p class="text-xs text-slate-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
 
     <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
       <div class="divide-y divide-white/[.04]">
@@ -273,10 +273,10 @@
            class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
           <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">{{ loop.index }}</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">{{ rg.nameCN or rg.name }} <span class="text-xs text-slate-500 font-normal ml-1">{{ rg.company }}</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-1">{{ r.reason }}</div>
+            <div class="text-sm font-semibold">{{ rg.nameCN or rg.name }} <span class="text-xs text-neutral-500 font-normal ml-1">{{ rg.company }}</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">{{ r.reason }}</div>
           </div>
-          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
         </a>
         {% endif %}
         {% endfor %}
