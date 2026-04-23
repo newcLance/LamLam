@@ -81,7 +81,7 @@ document.addEventListener('alpine:init', function() {
     
     <nav class="ml-auto flex gap-1 text-xs">
       
-<a href="index.html" class="px-3 py-1.5 rounded-md hover:bg-surface-2 text-neutral-400 hover:text-neutral-200 transition text-xs">← 返回列表</a>
+<a href="index.html" class="px-3 py-1.5 rounded hover:bg-surface-2 text-neutral-400 hover:text-white transition text-xs">← 返回列表</a>
 
     </nav>
   </div>
@@ -95,8 +95,8 @@ document.addEventListener('alpine:init', function() {
   <h1 class="text-xl font-bold mb-1">竞品横向对比</h1>
   <div class="flex gap-1.5 flex-wrap mb-6" id="chips">
     <template x-for="p in prods" :key="p.id">
-      <span class="px-3 py-1 rounded-full bg-surface-2 border border-bdr text-xs text-neutral-400"
-            x-text="p.icon + ' ' + (p.nameCN || p.name)"></span>
+      <span class="px-3 py-1 rounded bg-surface-2 border border-bdr text-xs text-neutral-400"
+            x-text="(p.nameCN || p.name)"></span>
     </template>
   </div>
 
@@ -104,33 +104,33 @@ document.addEventListener('alpine:init', function() {
   <h2 class="text-base font-bold mb-3">官网截图对比</h2>
   <div class="grid gap-4 mb-8" :style="'grid-template-columns: repeat('+Math.min(prods.length,3)+',1fr)'">
     <template x-for="p in prods" :key="p.id">
-      <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden">
+      <div class="bg-surface-1 border border-bdr rounded overflow-hidden">
         <div class="px-4 py-3 border-b border-bdr text-sm font-semibold flex items-center gap-2">
-          <span x-text="p.icon"></span>
           <span x-text="p.nameCN || p.name"></span>
           <span class="ml-auto text-xs text-neutral-500 font-normal" x-text="p.company"></span>
         </div>
         <div class="flex gap-1.5 p-3 overflow-x-auto">
           <template x-for="img in getImgs(p)" :key="img">
             <img :src="img" loading="lazy"
-                 class="shrink-0 w-44 h-24 rounded-md object-cover border border-bdr cursor-pointer hover:border-white/20 transition"
-                 x-on:click="$dispatch('open-lightbox', img)">
+                 class="shrink-0 w-44 h-24 rounded object-cover border border-bdr cursor-pointer hover:border-white/20 transition"
+                 x-on:click="$store.lightbox.show(img)"
+                 :data-lightbox-src="img">
           </template>
-          <div x-show="getImgs(p).length===0" class="shrink-0 w-44 h-24 rounded-md bg-surface-2 flex items-center justify-center text-xs text-neutral-600">暂无截图</div>
+          <div x-show="getImgs(p).length===0" class="shrink-0 w-44 h-24 rounded bg-surface-2 flex items-center justify-center text-xs text-neutral-600">暂无截图</div>
         </div>
       </div>
     </template>
   </div>
 
   
-  <h2 class="text-base font-bold mb-3">IP / 故事剧情对比</h2>
-  <div class="overflow-x-auto mb-8">
+  <h2 class="text-base font-bold mb-3">IP / 故事剧情对比 <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide">共同点已高亮</span></h2>
+  <div class="overflow-x-auto mb-8 max-h-[70vh] overflow-y-auto rounded border border-bdr">
     <div x-html="storyTableHtml"></div>
   </div>
 
   
-  <h2 class="text-base font-bold mb-3">审美偏好对比 <span class="text-xs px-2.5 py-0.5 rounded-full bg-white/[.08] text-neutral-300 font-semibold ml-2">共同点已高亮</span></h2>
-  <div class="overflow-x-auto mb-8">
+  <h2 class="text-base font-bold mb-3">审美偏好对比 <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide">共同点已高亮</span></h2>
+  <div class="overflow-x-auto mb-8 max-h-[70vh] overflow-y-auto rounded border border-bdr">
     <div x-html="tableHtml"></div>
   </div>
 
@@ -229,10 +229,9 @@ function compareApp(){
     buildStoryTable(){
       var prods=this.prods;
       if(!prods.length) return;
-      // Collect all story dim labels across products
       var allLabels=[];var seen={};
       prods.forEach(p=>{if(!p.story||!p.story.dims)return;p.story.dims.forEach(d=>{if(!seen[d.label]){seen[d.label]=1;allLabels.push(d.label);}});});
-      if(!allLabels.length){this.storyTableHtml='<div class="text-sm text-neutral-500">暂无 IP/故事数据</div>';return;}
+      if(!allLabels.length){this.storyTableHtml='<div class="text-sm text-neutral-500 p-4">暂无 IP/故事数据</div>';return;}
 
       function findCommon(dim){
         var vals=[];
@@ -243,9 +242,9 @@ function compareApp(){
         return Object.keys(counts).filter(t=>counts[t]>=2);
       }
 
-      var t='<table class="w-full border-collapse bg-surface-1 border border-bdr rounded-xl overflow-hidden text-left">';
-      t+='<thead><tr><th class="p-3 bg-surface-3 text-xs font-bold text-neutral-500 uppercase tracking-wide border-b border-bdr w-24">维度</th>';
-      prods.forEach(p=>{t+='<th class="p-3 bg-surface-2 border-b border-bdr min-w-[200px]"><span class="text-sm">'+p.icon+' '+(p.nameCN||p.name)+'</span></th>';});
+      var t='<table class="w-full border-collapse bg-surface-1 text-left">';
+      t+='<thead class="sticky top-0 z-10"><tr><th class="p-3 bg-surface-3 text-xs font-bold text-neutral-500 uppercase tracking-wide border-b border-bdr w-24">\u7ef4\u5ea6</th>';
+      prods.forEach(p=>{t+='<th class="p-3 bg-surface-2 border-b border-bdr min-w-[200px]"><span class="text-sm font-semibold">'+(p.nameCN||p.name)+'</span> <span class="text-xs text-neutral-600 font-normal">'+p.company+'</span></th>';});
       t+='</tr></thead><tbody>';
       allLabels.forEach(dim=>{
         var common=findCommon(dim);
@@ -254,8 +253,8 @@ function compareApp(){
           var val='\u2014';
           if(p.story&&p.story.dims){var d=p.story.dims.find(x=>x.label===dim);if(d)val=d.value;}
           var isC=common.length&&common.some(term=>val.includes(term));
-          t+='<td class="p-3 text-[13px] leading-7 text-neutral-400 border-b border-bdr align-top data-text'+(isC?' bg-white/[.04] border-l-[3px] border-l-white/30':'')+'">'
-            +val+(isC?'<span class="inline-block text-[9px] px-1.5 py-px rounded-full bg-white/10 text-white font-bold ml-1.5">\u5171\u540c</span>':'')+'</td>';
+          t+='<td class="p-3 text-[13px] leading-7 text-neutral-400 border-b border-bdr align-top data-text'+(isC?' bg-white/[.06] border-l-[3px] border-l-white/40':'')+'">'
+            +val+(isC?'<span class="inline-flex items-center gap-1 text-[9px] px-2 py-0.5 rounded border border-white/20 bg-white/10 text-white font-bold ml-1.5 whitespace-nowrap">\u2022 \u5171\u540c</span>':'')+'</td>';
         });
         t+='</tr>';
       });
@@ -266,7 +265,7 @@ function compareApp(){
       var prods=this.prods;
       if(!prods.length) return;
       var dims=['scene','costume','ui','symbol','promo'];
-      var dimLabels={scene:'\ud83c\udf04 \u573a\u666f\u6c1b\u56f4',costume:'\ud83d\udc58 \u89d2\u8272\u670d\u88c5',ui:'\ud83d\udcf1 UI\u754c\u9762',symbol:'\ud83d\udd23 \u89c6\u89c9\u7b26\u53f7',promo:'\ud83d\udce3 \u5ba3\u53d1\u98ce\u683c'};
+      var dimLabels={scene:'\u573a\u666f\u6c1b\u56f4',costume:'\u89d2\u8272\u670d\u88c5',ui:'UI\u754c\u9762',symbol:'\u89c6\u89c9\u7b26\u53f7',promo:'\u5ba3\u53d1\u98ce\u683c'};
 
       function findCommon(dim){
         var vals=[];
@@ -277,9 +276,9 @@ function compareApp(){
         return Object.keys(counts).filter(t=>counts[t]>=2);
       }
 
-      var t='<table class="w-full border-collapse bg-surface-1 border border-bdr rounded-xl overflow-hidden text-left">';
-      t+='<thead><tr><th class="p-3 bg-surface-3 text-xs font-bold text-neutral-500 uppercase tracking-wide border-b border-bdr w-28">\u7ef4\u5ea6</th>';
-      prods.forEach(p=>{t+='<th class="p-3 bg-surface-2 border-b border-bdr min-w-[200px]"><span class="text-sm">'+p.icon+' '+(p.nameCN||p.name)+'</span></th>';});
+      var t='<table class="w-full border-collapse bg-surface-1 text-left">';
+      t+='<thead class="sticky top-0 z-10"><tr><th class="p-3 bg-surface-3 text-xs font-bold text-neutral-500 uppercase tracking-wide border-b border-bdr w-28">\u7ef4\u5ea6</th>';
+      prods.forEach(p=>{t+='<th class="p-3 bg-surface-2 border-b border-bdr min-w-[200px]"><span class="text-sm font-semibold">'+(p.nameCN||p.name)+'</span> <span class="text-xs text-neutral-600 font-normal">'+p.company+'</span></th>';});
       t+='</tr></thead><tbody>';
 
       dims.forEach(dim=>{
@@ -290,8 +289,8 @@ function compareApp(){
           if(p.aesthetic&&p.aesthetic[dim]){val=p.aesthetic[dim].value||'\u2014';title=p.aesthetic[dim].title||'';}
           if(title)val='<div class="text-xs text-neutral-500 font-semibold mb-1">'+title+'</div>'+val;
           var isC=common.length&&common.some(term=>val.includes(term));
-          t+='<td class="p-3 text-[13px] leading-7 text-neutral-400 border-b border-bdr align-top data-text'+(isC?' bg-white/[.04] border-l-[3px] border-l-white/30':'')+'">'
-            +val+(isC?'<span class="inline-block text-[9px] px-1.5 py-px rounded-full bg-white/10 text-white font-bold ml-1.5">\u5171\u540c</span>':'')+'</td>';
+          t+='<td class="p-3 text-[13px] leading-7 text-neutral-400 border-b border-bdr align-top data-text'+(isC?' bg-white/[.06] border-l-[3px] border-l-white/40':'')+'">'
+            +val+(isC?'<span class="inline-flex items-center gap-1 text-[9px] px-2 py-0.5 rounded border border-white/20 bg-white/10 text-white font-bold ml-1.5 whitespace-nowrap">\u2022 \u5171\u540c</span>':'')+'</td>';
         });
         t+='</tr>';
       });
