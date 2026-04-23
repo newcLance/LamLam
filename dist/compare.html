@@ -32,6 +32,12 @@ tailwind.config = {
 @layer base {
   body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
   a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
 }
 @layer components {
   .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
@@ -123,13 +129,13 @@ document.addEventListener('alpine:init', function() {
   </div>
 
   
-  <h2 class="text-base font-bold mb-3">IP / 故事剧情对比 <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide">共同点已高亮</span></h2>
+  <h2 class="text-base font-bold mb-3">IP / 故事剧情对比 <span x-text="storyHasCommon ? '共同点已高亮' : '无明显共同点'" class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="storyTableHtml"></span></h2>
   <div class="overflow-x-auto mb-8 max-h-[70vh] overflow-y-auto rounded border border-bdr">
     <div x-html="storyTableHtml"></div>
   </div>
 
   
-  <h2 class="text-base font-bold mb-3">审美偏好对比 <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide">共同点已高亮</span></h2>
+  <h2 class="text-base font-bold mb-3">审美偏好对比 <span x-text="aesHasCommon ? '共同点已高亮' : '无明显共同点'" class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="tableHtml"></span></h2>
   <div class="overflow-x-auto mb-8 max-h-[70vh] overflow-y-auto rounded border border-bdr">
     <div x-html="tableHtml"></div>
   </div>
@@ -206,6 +212,8 @@ function compareApp(){
     screenshots: {},
     tableHtml: '',
     storyTableHtml: '',
+    storyHasCommon: false,
+    aesHasCommon: false,
     init(){
       var ids = new URLSearchParams(location.search).get('ids');
       if(!ids) return;
@@ -246,8 +254,10 @@ function compareApp(){
       t+='<thead class="sticky top-0 z-10"><tr><th class="p-3 bg-surface-3 text-xs font-bold text-neutral-500 uppercase tracking-wide border-b border-bdr w-24">\u7ef4\u5ea6</th>';
       prods.forEach(p=>{t+='<th class="p-3 bg-surface-2 border-b border-bdr min-w-[200px]"><span class="text-sm font-semibold">'+(p.nameCN||p.name)+'</span> <span class="text-xs text-neutral-600 font-normal">'+p.company+'</span></th>';});
       t+='</tr></thead><tbody>';
+      var hasAnyCommon=false;
       allLabels.forEach(dim=>{
         var common=findCommon(dim);
+        if(common.length) hasAnyCommon=true;
         t+='<tr><td class="p-3 text-[11px] font-bold text-neutral-500 uppercase tracking-wide bg-white/[.02] border-b border-bdr align-top">'+dim+'</td>';
         prods.forEach(p=>{
           var val='\u2014';
@@ -259,6 +269,7 @@ function compareApp(){
         t+='</tr>';
       });
       t+='</tbody></table>';
+      this.storyHasCommon=hasAnyCommon;
       this.storyTableHtml=t;
     },
     buildTable(){
@@ -281,8 +292,10 @@ function compareApp(){
       prods.forEach(p=>{t+='<th class="p-3 bg-surface-2 border-b border-bdr min-w-[200px]"><span class="text-sm font-semibold">'+(p.nameCN||p.name)+'</span> <span class="text-xs text-neutral-600 font-normal">'+p.company+'</span></th>';});
       t+='</tr></thead><tbody>';
 
+      var hasAnyCommon=false;
       dims.forEach(dim=>{
         var common=findCommon(dim);
+        if(common.length) hasAnyCommon=true;
         t+='<tr><td class="p-3 text-[11px] font-bold text-neutral-400 bg-white/[.02] border-b border-bdr align-top">'+(dimLabels[dim]||dim)+'</td>';
         prods.forEach(p=>{
           var val='\u2014';var title='';
@@ -295,6 +308,7 @@ function compareApp(){
         t+='</tr>';
       });
       t+='</tbody></table>';
+      this.aesHasCommon=hasAnyCommon;
       this.tableHtml=t;
     }
   };
