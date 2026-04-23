@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{% block title %}游戏竞品设计追踪台{% endblock %}</title>
+<link rel="icon" type="image/x-icon" href="{% block favicon_href %}/static/favicon.ico{% endblock %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% block favicon32_href %}/static/favicon-32.png{% endblock %}">
+<link rel="apple-touch-icon" href="{% block apple_icon_href %}/static/apple-touch-icon.png{% endblock %}">
 <!-- Tailwind CSS CDN (Play mode) -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -83,7 +86,10 @@ document.addEventListener('alpine:init', function() {
 {# ===== HEADER ===== #}
 <header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
   <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
-    <a href="{% block home_href %}/index.html{% endblock %}" class="font-extrabold text-sm text-white tracking-tight shrink-0">GAME TRACKER</a>
+    <a href="{% block home_href %}/index.html{% endblock %}" class="flex items-center gap-2 shrink-0">
+      <img src="{% block logo_href %}/static/logo.png{% endblock %}" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
     {% block header_center %}{% endblock %}
     <nav class="ml-auto flex gap-1 text-xs">
       {% block nav %}
