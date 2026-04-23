@@ -53,189 +53,268 @@ tailwind.config = {
 
 
 
-<div class="max-w-5xl mx-auto px-4 py-6">
+
+
+<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/clair-obscur/home-1.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
 
   
-  <div id="sec-header" class="flex items-center gap-3 mb-4">
-    <span class="text-3xl">🎨</span>
-    <div>
-      <h1 class="text-2xl font-bold">光暗交响：远征33</h1>
-      <div class="text-sm text-slate-500">Sandfall Interactive · RPG</div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-16 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl drop-shadow-lg">🎨</span>
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">光暗交响：远征33</h1>
+          <div class="text-sm text-slate-400 mt-0.5">Sandfall Interactive · RPG · 2025.4</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-400/90 leading-relaxed max-w-2xl mb-5">法国独立工作室出品的回合制 RPG，融合实时操作机制。</p>
+
+      
+      <div class="flex gap-2 flex-wrap mb-5">
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-accent/15 text-accent border border-accent/20">已发售</span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">国际</span>
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">买断制</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PC</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PS5</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">Xbox</span>
+        
+      </div>
+
+      
+      
+      <div class="flex gap-1.5 flex-wrap">
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">回合制 RPG</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">实时操作融合</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">法国独立开发</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">虎引擎5</span>
+        
+      </div>
+      
     </div>
-  </div>
 
-  
-  <div class="flex gap-2 flex-wrap mb-4">
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">已发售</span>
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">国际</span>
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">买断制</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PC</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS5</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">Xbox</span>
     
     
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">2025.4</span>
+    <div class="shrink-0 hidden md:block">
+      <a href="https://en.bandainamcoent.eu/clair-obscur/clair-obscur-expedition-33" target="_blank" rel="noopener"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded-xl bg-accent text-white font-bold text-sm shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:bg-indigo-500 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        访问官网
+        <span class="opacity-50 group-hover:opacity-100 transition">↗</span>
+      </a>
+    </div>
     
   </div>
+</div>
 
-  <p class="text-sm text-slate-400 leading-relaxed mb-5">法国独立工作室出品的回合制 RPG，融合实时操作机制。</p>
 
-  <div class="flex gap-1.5 flex-wrap mb-8">
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">回合制 RPG</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">实时操作融合</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">法国独立开发</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">虎引擎5</span>
-    
-  </div>
+<div class="max-w-5xl mx-auto px-6 pt-10 pb-16">
 
   
   
-  <div id="sec-screenshots" class="mb-8">
-    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
-    
-    
-    
-    <div class="flex items-center gap-2 mb-2">
-      <span class="text-xs text-slate-500">Clair Obscur - Bandai Namco 官网 · 2026-04-13</span>
+  <section id="sec-screenshots" class="mb-14">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-lg font-bold flex items-center gap-2">
+        <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+        官网截图
+      </h2>
       
       <a href="https://en.bandainamcoent.eu/clair-obscur/clair-obscur-expedition-33" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-accent/10 text-accent hover:bg-accent/20 transition shrink-0">
-        🔗 访问官网 ↗
+         class="md:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-white text-xs font-bold shadow-lg shadow-accent/20 hover:bg-indigo-500 transition">
+        访问官网 ↗
       </a>
       
     </div>
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/clair-obscur/home-1.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-1.webp')">
-        <img src="../screenshots/clair-obscur/home-1.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
-        </div>
+
+    
+    
+    
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <h3 class="text-sm font-semibold text-slate-300">Clair Obscur - Bandai Namco 官网</h3>
+        
+        <span class="text-[11px] text-slate-600">2026-04-13</span>
+        
+        
+        <a href="https://en.bandainamcoent.eu/clair-obscur/clair-obscur-expedition-33" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold bg-accent/10 text-accent hover:bg-accent/20 border border-accent/20 transition ml-auto shrink-0">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          访问页面 ↗
+        </a>
+        
       </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/clair-obscur/home-2.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-2.webp')">
-        <img src="../screenshots/clair-obscur/home-2.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/clair-obscur/home-1.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-1.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/clair-obscur/home-1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/clair-obscur/home-3.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-3.webp')">
-        <img src="../screenshots/clair-obscur/home-3.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/clair-obscur/home-2.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-2.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/clair-obscur/home-2.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/clair-obscur/home-4.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-4.webp')">
-        <img src="../screenshots/clair-obscur/home-4.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/clair-obscur/home-3.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-3.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/clair-obscur/home-3.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/clair-obscur/home-5.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-5.webp')">
-        <img src="../screenshots/clair-obscur/home-5.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/clair-obscur/home-4.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-4.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/clair-obscur/home-4.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/clair-obscur/home-6.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-6.webp')">
-        <img src="../screenshots/clair-obscur/home-6.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/clair-obscur/home-5.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-5.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/clair-obscur/home-5.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/clair-obscur/home-6.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-6.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/clair-obscur/home-6.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
       </div>
-      
     </div>
     
     
     
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-timeline" class="mb-8">
-    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
-    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+  <section id="sec-timeline" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      设计变化时间线
+    </h2>
+    <div class="relative pl-6 border-l-2 border-bdr space-y-5">
       
       <div class="relative">
-        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
-        <div class="text-xs text-accent font-semibold">2025-04</div>
-        <div class="text-sm text-slate-400">全球发售，获极高评价
+        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
+        <div class="text-xs text-accent font-bold tracking-wide">2025-04</div>
+        <div class="text-sm text-slate-400 mt-1 leading-relaxed">全球发售，获极高评价
           
         </div>
       </div>
       
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-playerexp" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
-       x-data="{ tab: 'media' }">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
-    </div>
-    
-    <div class="flex border-b border-bdr px-6 pt-3">
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
       
-      
-      
-      <button x-on:click="tab='media'"
-              :class="tab==='media' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">🎤 媒体试玩评测</button>
-      
-      <button x-on:click="tab='community'"
-              :class="tab==='community' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">💬 玩家社区讨论</button>
-      
-      <button x-on:click="tab='bili'"
-              :class="tab==='bili' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">📺 B站试玩视频</button>
-      
-    </div>
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">🎤 媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">💬 玩家社区讨论</button>
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">📺 B站试玩视频</button>
+        
+      </div>
 
-    
-    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
       
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
-          <div class="text-sm font-bold">记忆点 Memory</div>
-        </div>
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+            <div class="text-sm font-bold">记忆点 Memory</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>手绘美术+虚幻5写实</b>的混搭风格前所未见——角色和环境同时具备油画笔触和照片级光影
@@ -245,8 +324,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>即时操作+回合策略</b>的融合战斗系统——弹反/闪避是实时操作，指令是策略回合，两种快感并存
@@ -256,8 +335,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>法式诗意叙事</b>——不同于日式和美式RPG的调性，有种独特的文艺气质
@@ -267,18 +346,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
-          <div class="text-sm font-bold">兴奋点 Excitement</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+            <div class="text-sm font-bold">兴奋点 Excitement</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>Metacritic 88+ 分</b>——2025 年上半年评分最高的新 IP RPG
@@ -288,8 +367,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>来自<b>法国 20 人小团队</b>的首部作品就达到 3A 品质——独立开发奇迹
@@ -299,8 +378,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>Boss 设计</b>极具创意——每个 Boss 都像一件当代艺术装置
@@ -310,18 +389,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
-          <div class="text-sm font-bold">痛点 Pain</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+            <div class="text-sm font-bold">痛点 Pain</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>部分<b>回合制战斗节奏</b>偏慢——尤其在小怪遭遇战中操作重复
@@ -331,8 +410,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>叙事风格</b>偏抽象诗意——喜欢直白故事的玩家可能不适应
@@ -342,18 +421,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
-          <div class="text-sm font-bold">流失点 Churn</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+            <div class="text-sm font-bold">流失点 Churn</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>部分<b>解谜环节</b>提示不足——容易卡关导致放弃
@@ -363,8 +442,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>非回合制 RPG 爱好者可能被<b>战斗系统的学习曲线</b>劝退
@@ -374,23 +453,23 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-    </div>
-
-    
-    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
-          <div class="text-sm font-bold">记忆点 Memory</div>
+          
         </div>
         
         
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+            <div class="text-sm font-bold">记忆点 Memory</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>「<b>2025 年最大惊喜</b>」——社区没想到一个法国小团队能做出这个水准的 RPG
@@ -400,8 +479,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>美术风格</b>成为设计圈热议话题——被称为「最像油画的游戏」
@@ -411,18 +490,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
-          <div class="text-sm font-bold">兴奋点 Excitement</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+            <div class="text-sm font-bold">兴奋点 Excitement</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>Game Pass 首日</b>+口碑爆发形成完美组合——大量玩家零成本入坑
@@ -432,8 +511,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>社区对<b>Boss 设计</b>的讨论热度极高——每个 Boss 的艺术分析成为热帖
@@ -443,18 +522,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
-          <div class="text-sm font-bold">痛点 Pain</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+            <div class="text-sm font-bold">痛点 Pain</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>部分平台<b>技术问题</b>——Xbox 版帧率不稳、偶有闪退
@@ -464,8 +543,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>中文本地化</b>质量一般——部分翻译不够准确
@@ -475,18 +554,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
-          <div class="text-sm font-bold">流失点 Churn</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+            <div class="text-sm font-bold">流失点 Churn</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>后期难度曲线</b>陡升——部分 Boss 需要反复尝试
@@ -496,8 +575,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>偏<b>线性的流程</b>和有限的探索空间限制了自由度
@@ -507,81 +586,78 @@ tailwind.config = {
   </span>
 </div>
 
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" x-cloak class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1QQLezzETt/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-red-500/15 text-red-400
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【光与影：33号远征队】4K 最高画质 全结局 全剧情流程通关攻略 奇幻法式JRPG游戏 正式版- Clair Obscur：Expedition 33【完结】</span>
+          <span class="text-xs text-slate-500 shrink-0">41万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1CN9nYBEgr/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-amber-500/15 text-amber-400
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【光与影：33号远征队】4K 最高画质 全流程通关攻略 奇幻法式JRPG游戏 Demo试玩版 - Clair Obscur：Expedition 33</span>
+          <span class="text-xs text-slate-500 shrink-0">26万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1kgTLzjEgD/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-indigo-500/15 text-indigo-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【33号远征队神曲？我也略懂】Lumière - 光与影：33号远征队 钢琴演奏 | Clair Obscur: Expedition 33</span>
+          <span class="text-xs text-slate-500 shrink-0">7万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1YuM1zpEd7/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-slate-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【33号远征队神曲连发！】Alicia - 光与影：33号远征队 钢琴演奏 | Clair Obscur: Expedition 33 Main Theme</span>
+          <span class="text-xs text-slate-500 shrink-0">3万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1ZvVJzTEuY/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-slate-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【FF14】8人合奏 《光与影：33号远征队》 | 游戏主题曲《阿莉西亚》Clair Obscur: Expedition 33 - Alicia</span>
+          <span class="text-xs text-slate-500 shrink-0">2万播放</span>
+        </a>
         
       </div>
       
-      
     </div>
-
-    
-    
-    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
-      
-      <a href="https://www.bilibili.com/video/BV1QQLezzETt/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-red-500/15 text-red-400
-          ">1</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【光与影：33号远征队】4K 最高画质 全结局 全剧情流程通关攻略 奇幻法式JRPG游戏 正式版- Clair Obscur：Expedition 33【完结】</span>
-        <span class="text-xs text-slate-500 shrink-0">41万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1CN9nYBEgr/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-amber-500/15 text-amber-400
-          ">2</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【光与影：33号远征队】4K 最高画质 全流程通关攻略 奇幻法式JRPG游戏 Demo试玩版 - Clair Obscur：Expedition 33</span>
-        <span class="text-xs text-slate-500 shrink-0">26万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1kgTLzjEgD/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-indigo-500/15 text-indigo-400
-          ">3</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【33号远征队神曲？我也略懂】Lumière - 光与影：33号远征队 钢琴演奏 | Clair Obscur: Expedition 33</span>
-        <span class="text-xs text-slate-500 shrink-0">7万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1YuM1zpEd7/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-surface-2 text-slate-500">4</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【33号远征队神曲连发！】Alicia - 光与影：33号远征队 钢琴演奏 | Clair Obscur: Expedition 33 Main Theme</span>
-        <span class="text-xs text-slate-500 shrink-0">3万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1ZvVJzTEuY/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-surface-2 text-slate-500">5</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【FF14】8人合奏 《光与影：33号远征队》 | 游戏主题曲《阿莉西亚》Clair Obscur: Expedition 33 - Alicia</span>
-        <span class="text-xs text-slate-500 shrink-0">2万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-    </div>
-    
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-story" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
-    </div>
-    <div class="p-6">
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden p-6">
       
 <div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
   <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
@@ -625,20 +701,20 @@ tailwind.config = {
 </div>
 
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-aesthetic" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
-    </div>
-    <div class="p-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        
-        
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
 
 
 
@@ -649,10 +725,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">场景视觉是本作最大标签——所有环境在<b>UE5 照片级渲染</b>基础上叠加<b>印象派油画笔触后处理</b>，形成独一无二的「可行走油画」效果；色调随区域大幅变化：<b>海岸蓝白</b>（地中海日光感）、<b>森林暖绿</b>（莫奈花园质感）、<b>废墟灰紫</b>（浪漫主义废墟美学）；光影是核心表现力——<b>丁达尔效应</b>、体积雾、散射光被大量使用，让每个角落都像印象派画作</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -663,10 +739,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">角色服装设计融合<b>19世纪法国美好时代</b>的优雅裁剪与暗黑奇幻的战斗功能——长外套、高领、流苏、金属扣的混搭；主角团穿着有<b>军装骑行服</b>质感的冒险装——结构硬朗但不失优雅；Boss 造型走<b>当代艺术装置</b>路线——巨大、抽象、令人不安的美感，像 Alexander McQueen 的高定秀场</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -677,10 +753,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">战斗 UI 使用<b>手绘墨水线条</b>框架——技能图标有版画雕刻质感；HP/MP 条用<b>水彩渐变</b>填充而非纯色；菜单界面用<b>旧书页纹理+手写字体</b>营造复古感；战斗中的即时操作提示用简洁几何图形，不干扰视觉沉浸；整体 UI 设计理念：<b>让界面成为美术风格的延伸，而非独立于画面之外</b></div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -691,10 +767,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">核心视觉符号：<b>数字 33</b>（远征代号，贯穿全程的宿命标记）、<b>光与暗的对比</b>（标题即母题——Clair/明与Obscur/暗的永恒对抗）、<b>油画笔触</b>（世界本身就像一幅未完成的画——边缘模糊、色块流淌）；色彩母题为<b>蓝白+暖金+深紫</b>的法式配色——既优雅又忧郁</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -705,94 +781,97 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">宣发核心是<b>「见所未见的 RPG 视觉」</b>——首支预告片凭借独特的油画质感瞬间出圈，截图疯传；Key Art 使用<b>主角团行走在画布般大地上</b>的构图，强调「行走的油画」概念；作为<b>Game Pass 首日游戏</b>大幅降低了入门门槛，口碑裂变迅速；品牌叙事打<b>「法国小团队的3A梦想」</b>牌，独立精神引发玩家共鸣</div>
 </div>
 
-        
-        
-      </div>
+      
+      
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-rivals" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
-      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
-    </div>
-    <div class="p-6">
-      <div class="space-y-1">
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-slate-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
         
         
         
         <a href="metaphor-refantazio.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">👑</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">👑</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">暗喻幻想 <span class="text-xs text-slate-500 font-normal">Atlus</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为回合制RPG+高度风格化美术——Atlus式平面vs法式油画的风格化路线对标</div>
+            <div class="text-sm font-semibold">暗喻幻想 <span class="text-xs text-slate-500 font-normal ml-1">Atlus</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为回合制RPG+高度风格化美术——Atlus式平面vs法式油画的风格化路线对标</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="final-fantasy-vii-rebirth.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">⚔️</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">⚔️</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">最终幻想7：重生 <span class="text-xs text-slate-500 font-normal">Square Enix</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为高投入RPG——即时指令vs回合操作融合的战斗UI设计对比</div>
+            <div class="text-sm font-semibold">最终幻想7：重生 <span class="text-xs text-slate-500 font-normal ml-1">Square Enix</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为高投入RPG——即时指令vs回合操作融合的战斗UI设计对比</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="elden-ring-shadow-of-the-erdtree.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">🔥</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">🔥</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">艾尔登法环：黄金树幽影 <span class="text-xs text-slate-500 font-normal">FromSoftware</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为UE5高品质大作——写实暗黑 vs 油画诗意的美学取向对比</div>
+            <div class="text-sm font-semibold">艾尔登法环：黄金树幽影 <span class="text-xs text-slate-500 font-normal ml-1">FromSoftware</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为UE5高品质大作——写实暗黑 vs 油画诗意的美学取向对比</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="black-myth-wukong.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">🐒</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">🐒</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-slate-500 font-normal">游戏科学 (Game Science)</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为高评分RPG新作——中国水墨vs法式油画的东西方风格化差异</div>
+            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-slate-500 font-normal ml-1">游戏科学 (Game Science)</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为高评分RPG新作——中国水墨vs法式油画的东西方风格化差异</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
       </div>
-      <button onclick="window.open('../compare.html?ids=108,105,104,102,101','_blank')"
-              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
-        ⚡ 一键对比这 5 款游戏
-      </button>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=108,105,104,102,101','_blank')"
+                class="w-full py-3.5 rounded-xl border border-accent/30 bg-accent/[.08] text-accent text-sm font-bold hover:bg-accent/15 hover:border-accent/50 transition text-center cursor-pointer">
+          ⚡ 一键对比这 5 款游戏
+        </button>
+      </div>
     </div>
-  </div>
+  </section>
   
 
 </div>
 
 
 <nav x-data="anchorNav()" x-init="init()"
-     class="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 bg-surface-1/80 backdrop-blur border border-bdr rounded-xl px-2 py-3 shadow-lg"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/90 backdrop-blur-xl border border-bdr rounded-2xl px-2.5 py-3 shadow-2xl"
      x-on:scroll.window.throttle.100ms="onScroll()">
   <template x-for="s in sections" :key="s.id">
     <a :href="'#' + s.id"
        x-on:click.prevent="scrollTo(s.id)"
-       class="group flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs transition-all"
        :class="active === s.id ? 'bg-accent/15 text-accent' : 'text-slate-500 hover:text-slate-300 hover:bg-surface-2'">
       <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
             :class="active === s.id ? 'bg-accent' : 'bg-slate-600 group-hover:bg-slate-400'"></span>
@@ -807,29 +886,53 @@ tailwind.config = {
 <div x-data="{open:false, src:'', imgs:[], idx:0}"
      x-on:open-lightbox.window="open=true; src=$event.detail;
        imgs=Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el){ return el.getAttribute('data-lightbox-src'); });
-       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;"
-     x-on:keydown.escape.window="open=false"
+       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;
+       document.body.style.overflow='hidden';"
+     x-on:keydown.escape.window="if(open){open=false; document.body.style.overflow='';}"
      x-on:keydown.left.window="if(open && idx>0){idx--;src=imgs[idx]}"
      x-on:keydown.right.window="if(open && idx<imgs.length-1){idx++;src=imgs[idx]}"
      x-show="open" x-cloak
-     class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center"
-     x-on:click="open=false">
-  <!-- Close btn -->
-  <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm flex items-center justify-center transition z-10"
-          x-on:click.stop="open=false">✕</button>
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="open=false; document.body.style.overflow='';">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="(idx+1) + ' / ' + imgs.length"></div>
+    <div x-show="imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="open=false; document.body.style.overflow='';">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
   <!-- Prev btn -->
   <button x-show="idx > 0"
-          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
-          x-on:click.stop="idx--;src=imgs[idx]">‹</button>
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="idx--;src=imgs[idx]">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
   <!-- Next btn -->
   <button x-show="idx < imgs.length - 1"
-          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
-          x-on:click.stop="idx++;src=imgs[idx]">›</button>
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="idx++;src=imgs[idx]">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
   <!-- Image -->
-  <img :src="src" class="max-w-[92vw] max-h-[90vh] rounded-lg cursor-default" x-on:click.stop>
-  <!-- Counter -->
-  <div x-show="imgs.length > 1" class="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 text-white/70 text-xs"
-       x-text="(idx+1) + ' / ' + imgs.length"></div>
+  <img :src="src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
 </div>
 
 
@@ -851,7 +954,7 @@ function anchorNav() {
       var defs = [
         {id:'sec-header',     label:'📋 基本信息'},
         {id:'sec-screenshots', label:'🖼 官网截图'},
-        {id:'sec-timeline',    label:'📅 设计时间线'},
+        {id:'sec-timeline',    label:'📅 时间线'},
         {id:'sec-playerexp',   label:'🎮 体验清单'},
         {id:'sec-story',       label:'📖 IP/故事'},
         {id:'sec-aesthetic',   label:'🎨 审美偏好'},
@@ -864,7 +967,7 @@ function anchorNav() {
       this.onScroll();
     },
     onScroll() {
-      var offset = 80;
+      var offset = 120;
       var current = this.active;
       for (var i = this.sections.length - 1; i >= 0; i--) {
         var el = document.getElementById(this.sections[i].id);

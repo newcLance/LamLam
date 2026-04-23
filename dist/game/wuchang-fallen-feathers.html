@@ -53,139 +53,198 @@ tailwind.config = {
 
 
 
-<div class="max-w-5xl mx-auto px-4 py-6">
 
+
+<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
   
-  <div id="sec-header" class="flex items-center gap-3 mb-4">
-    <span class="text-3xl">🪶</span>
-    <div>
-      <h1 class="text-2xl font-bold">明末：渊虚之羽</h1>
-      <div class="text-sm text-slate-500">Leenzee / 505 Games · Action RPG</div>
-    </div>
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/wuchang/home-1.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
   </div>
-
-  
-  <div class="flex gap-2 flex-wrap mb-4">
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">已发售</span>
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">国产</span>
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">买断制</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PC</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS5</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">Xbox</span>
-    
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">2025</span>
-    
-  </div>
-
-  <p class="text-sm text-slate-400 leading-relaxed mb-5">明末克苏鲁气质的魂系动作 RPG，强调东方恐怖氛围与冷兵器战斗。</p>
-
-  <div class="flex gap-1.5 flex-wrap mb-8">
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">魂系动作 RPG</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">东方恐怖</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">明末题材</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">国产单机</span>
-    
-  </div>
-
   
   
-  <div id="sec-screenshots" class="mb-8">
-    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-16 pb-10 flex items-end gap-8">
     
-    
-    
-    <div class="flex items-center gap-2 mb-2">
-      <span class="text-xs text-slate-500">明末：渊虚之羽 - B站游戏专题页 · 2026-04-22</span>
-      
-      <a href="https://game.bilibili.com/wuchang/" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-accent/10 text-accent hover:bg-accent/20 transition shrink-0">
-        🔗 访问官网 ↗
-      </a>
-      
-    </div>
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/wuchang/home-1.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/wuchang/home-1.webp')">
-        <img src="../screenshots/wuchang/home-1.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl drop-shadow-lg">🪶</span>
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">明末：渊虚之羽</h1>
+          <div class="text-sm text-slate-400 mt-0.5">Leenzee / 505 Games · Action RPG · 2025</div>
         </div>
+      </div>
+
+      <p class="text-sm text-slate-400/90 leading-relaxed max-w-2xl mb-5">明末克苏鲁气质的魂系动作 RPG，强调东方恐怖氛围与冷兵器战斗。</p>
+
+      
+      <div class="flex gap-2 flex-wrap mb-5">
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-accent/15 text-accent border border-accent/20">已发售</span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">国产</span>
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">买断制</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PC</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PS5</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">Xbox</span>
+        
+      </div>
+
+      
+      
+      <div class="flex gap-1.5 flex-wrap">
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">魂系动作 RPG</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">东方恐怖</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">明末题材</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">国产单机</span>
+        
       </div>
       
     </div>
+
     
     
+    <div class="shrink-0 hidden md:block">
+      <a href="https://game.bilibili.com/wuchang/" target="_blank" rel="noopener"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded-xl bg-accent text-white font-bold text-sm shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:bg-indigo-500 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        访问官网
+        <span class="opacity-50 group-hover:opacity-100 transition">↗</span>
+      </a>
+    </div>
     
   </div>
+</div>
+
+
+<div class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+
+  
+  
+  <section id="sec-screenshots" class="mb-14">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-lg font-bold flex items-center gap-2">
+        <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+        官网截图
+      </h2>
+      
+      <a href="https://game.bilibili.com/wuchang/" target="_blank" rel="noopener"
+         class="md:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-white text-xs font-bold shadow-lg shadow-accent/20 hover:bg-indigo-500 transition">
+        访问官网 ↗
+      </a>
+      
+    </div>
+
+    
+    
+    
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <h3 class="text-sm font-semibold text-slate-300">明末：渊虚之羽 - B站游戏专题页</h3>
+        
+        <span class="text-[11px] text-slate-600">2026-04-22</span>
+        
+        
+        <a href="https://game.bilibili.com/wuchang/" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold bg-accent/10 text-accent hover:bg-accent/20 border border-accent/20 transition ml-auto shrink-0">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          访问页面 ↗
+        </a>
+        
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/wuchang/home-1.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/wuchang/home-1.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/wuchang/home-1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    
+  </section>
   
 
   
   
-  <div id="sec-timeline" class="mb-8">
-    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
-    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+  <section id="sec-timeline" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      设计变化时间线
+    </h2>
+    <div class="relative pl-6 border-l-2 border-bdr space-y-5">
       
       <div class="relative">
-        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
-        <div class="text-xs text-accent font-semibold">2025</div>
-        <div class="text-sm text-slate-400">正式发售
+        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
+        <div class="text-xs text-accent font-bold tracking-wide">2025</div>
+        <div class="text-sm text-slate-400 mt-1 leading-relaxed">正式发售
           
         </div>
       </div>
       
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-playerexp" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
-       x-data="{ tab: 'media' }">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
-    </div>
-    
-    <div class="flex border-b border-bdr px-6 pt-3">
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
       
-      
-      
-      <button x-on:click="tab='media'"
-              :class="tab==='media' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">🎤 媒体试玩评测</button>
-      
-      <button x-on:click="tab='community'"
-              :class="tab==='community' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">💬 玩家社区讨论</button>
-      
-      <button x-on:click="tab='bili'"
-              :class="tab==='bili' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">📺 B站试玩视频</button>
-      
-    </div>
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">🎤 媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">💬 玩家社区讨论</button>
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">📺 B站试玩视频</button>
+        
+      </div>
 
-    
-    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
       
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
-          <div class="text-sm font-bold">记忆点 Memory</div>
-        </div>
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+            <div class="text-sm font-bold">记忆点 Memory</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>明末巴蜀</b>背景在魂系游戏中独一无二——中国本土克苏鲁气质
@@ -195,8 +254,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>羽化系统</b>（变身机制）带来战斗维度的切换——人形与妖形的双重玩法
@@ -206,8 +265,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>Metacritic 75 分</b>——在国产魂系中属于稳健表现
@@ -217,18 +276,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
-          <div class="text-sm font-bold">兴奋点 Excitement</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+            <div class="text-sm font-bold">兴奋点 Excitement</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>东方恐怖美学</b>——疫病、复活、诅咒的视觉呈现令人不安又着迷
@@ -238,8 +297,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>国产魂系游戏</b>的又一力作——证明中国团队能驾驭这个品类
@@ -249,8 +308,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>505 Games 全球发行</b>——国产游戏走向国际市场的又一案例
@@ -260,18 +319,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
-          <div class="text-sm font-bold">痛点 Pain</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+            <div class="text-sm font-bold">痛点 Pain</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>关卡设计</b>偏模板化——捷径+篝火的循环缺乏新意
@@ -281,8 +340,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>敌人种类</b>偏少——后期复用率高
@@ -292,8 +351,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>画面精度</b>与同期 3A 仍有差距——部分贴图和光影较粗糙
@@ -303,18 +362,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
-          <div class="text-sm font-bold">流失点 Churn</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+            <div class="text-sm font-bold">流失点 Churn</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>难度设计</b>偏保守——魂系老手觉得太简单，新手又觉得不够友好
@@ -324,8 +383,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>剧情表达</b>过于碎片化——不了解明末历史的玩家难以代入
@@ -335,23 +394,23 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-    </div>
-
-    
-    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
-          <div class="text-sm font-bold">记忆点 Memory</div>
+          
         </div>
         
         
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+            <div class="text-sm font-bold">记忆点 Memory</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>「<b>中国本土克苏鲁</b>」标签——明末疫病+妖化的恐怖氛围独特
@@ -361,8 +420,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>巴蜀方言</b>配音成为社区讨论热点——沉浸感与出戏感并存
@@ -372,18 +431,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
-          <div class="text-sm font-bold">兴奋点 Excitement</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+            <div class="text-sm font-bold">兴奋点 Excitement</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>国产魂系</b>又一突破——与黑悟空、影之刃零组成国产动作三杰
@@ -393,8 +452,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>羽化变身</b>系统被玩家开发出多种 Build 玩法
@@ -404,18 +463,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
-          <div class="text-sm font-bold">痛点 Pain</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+            <div class="text-sm font-bold">痛点 Pain</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>优化问题</b>——PC 版帧数波动明显
@@ -425,8 +484,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>魂系同质化</b>争议——被质疑缺乏创新
@@ -436,18 +495,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
-          <div class="text-sm font-bold">流失点 Churn</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+            <div class="text-sm font-bold">流失点 Churn</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>内容量偏少</b>——主线通关仅 15~20 小时，缺乏 endgame
@@ -457,8 +516,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>缺乏多人联机</b>——纯单机体验在魂系品类中竞争力不足
@@ -468,81 +527,78 @@ tailwind.config = {
   </span>
 </div>
 
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" x-cloak class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1Kz8cz6EH1/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-red-500/15 text-red-400
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【明末：渊虚之羽】4K 最高画质 全收集 全结局 全剧情流程通关攻略 国产类魂动作角色扮演游戏 - Wuchang：Fallen Feathers</span>
+          <span class="text-xs text-slate-500 shrink-0">50万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1N1VFzfEKG/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-amber-500/15 text-amber-400
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【明末：渊虚之羽】全程通关剧情流程攻略 北京漫展线下试玩DEMO 国产动作类魂RPG游戏 WUCHANG: Fallen Feathers</span>
+          <span class="text-xs text-slate-500 shrink-0">14万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1BGbSzbEHd/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-indigo-500/15 text-indigo-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">《明末：渊虚之羽》全Boss流程最优路线 全剧情流程通关攻略 国风克苏鲁魂类arpg游戏 - Wuchang：Fallen Feathers</span>
+          <span class="text-xs text-slate-500 shrink-0">11万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1RnbBzWEsh/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-slate-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">《明末 淵虛之羽》完美結局 + 全部NPC支綫任務流程 省流版❗ 遊戲心得 新手入門  Wuchang: Fallen Feathers | 全部NPC | 劇</span>
+          <span class="text-xs text-slate-500 shrink-0">4万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1HfbdzHE3V/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-slate-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">Wuchang: Fallen Feathers The Last Dance | 无常：落羽！最后的舞蹈！</span>
+          <span class="text-xs text-slate-500 shrink-0">2万播放</span>
+        </a>
         
       </div>
       
-      
     </div>
-
-    
-    
-    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
-      
-      <a href="https://www.bilibili.com/video/BV1Kz8cz6EH1/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-red-500/15 text-red-400
-          ">1</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【明末：渊虚之羽】4K 最高画质 全收集 全结局 全剧情流程通关攻略 国产类魂动作角色扮演游戏 - Wuchang：Fallen Feathers</span>
-        <span class="text-xs text-slate-500 shrink-0">50万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1N1VFzfEKG/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-amber-500/15 text-amber-400
-          ">2</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【明末：渊虚之羽】全程通关剧情流程攻略 北京漫展线下试玩DEMO 国产动作类魂RPG游戏 WUCHANG: Fallen Feathers</span>
-        <span class="text-xs text-slate-500 shrink-0">14万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1BGbSzbEHd/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-indigo-500/15 text-indigo-400
-          ">3</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">《明末：渊虚之羽》全Boss流程最优路线 全剧情流程通关攻略 国风克苏鲁魂类arpg游戏 - Wuchang：Fallen Feathers</span>
-        <span class="text-xs text-slate-500 shrink-0">11万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1RnbBzWEsh/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-surface-2 text-slate-500">4</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">《明末 淵虛之羽》完美結局 + 全部NPC支綫任務流程 省流版❗ 遊戲心得 新手入門  Wuchang: Fallen Feathers | 全部NPC | 劇</span>
-        <span class="text-xs text-slate-500 shrink-0">4万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1HfbdzHE3V/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-surface-2 text-slate-500">5</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">Wuchang: Fallen Feathers The Last Dance | 无常：落羽！最后的舞蹈！</span>
-        <span class="text-xs text-slate-500 shrink-0">2万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-    </div>
-    
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-story" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
-    </div>
-    <div class="p-6">
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden p-6">
       
 <div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
   <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
@@ -586,20 +642,20 @@ tailwind.config = {
 </div>
 
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-aesthetic" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
-    </div>
-    <div class="p-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        
-        
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
 
 
 
@@ -610,10 +666,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">整体色调以<b>暗绿色腐败</b>和<b>灰白色瘟疫</b>为基底——巴蜀山城的<b>吊脚楼</b>在雨雾中呈现水墨残破感；瘟疫村落充斥<b>腐朽木屋、尸堆、黑色瘴气</b>；地下洞窟以<b>钟乳石+暗河</b>营造幽闭窒息感；妖化异域突变为<b>肉壁+骨刺+有机管道</b>的克苏鲁式恐怖空间；雨雪天气频繁，增强了末世的萧瑟感</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -624,10 +680,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">主角无常穿<b>明末布衣+轻甲</b>，造型融合了<b>道士法袍</b>和<b>刺客行装</b>的元素；NPC 和敌人穿<b>考据级明代服饰</b>（飞鱼服、曳撒、方巾）；妖化者的服装从正常明代服饰<b>逐步扭曲</b>——布料被骨刺撑裂、皮肤长出羽毛、面部融化变形；幕后势力以<b>暗红色仪式袍+符文</b>呈现邪教感</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -638,10 +694,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">HUD 框架沿用<b>魂系经典布局</b>（左上HP+精力，右下道具快捷栏）；视觉风格融入<b>中式书画元素</b>——血条边框带有毛笔笔触质感，Loading 画面使用<b>水墨插画</b>；Boss 血条居屏幕底部，附<b>简体中文名+繁体批注</b>；死亡画面预计使用中文书法字体</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -652,10 +708,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">核心视觉符号：<b>羽毛</b>（游戏副标题 Fallen Feathers 的叙事核心——堕落/变异的象征）、<b>瘟疫黑雾/瘴气</b>（疫病蔓延的视觉载体）、<b>明代云纹/蟒纹</b>（文化身份标记）、<b>无常面具</b>（主角身份的视觉锚点）；色彩母题为<b>暗绿+血红+灰白</b>——腐败、血腥与死亡的三色系</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -666,94 +722,97 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">宣发核心定位为<b>明末版血源诅咒</b>——用历史真实感+东方克苏鲁恐怖的差异化卖点切入魂系赛道；预告片突出<b>考据级明代场景</b>+<b>诡异 Boss 造型</b>的视觉冲击；Key Art 以<b>羽毛飘散+暗色巴蜀山城</b>构图；宣发策略走<b>TGA 首曝-Steam Next Fest 试玩-口碑发酵</b>路线，强调正统魂系+中国历史底蕴</div>
 </div>
 
-        
-        
-      </div>
+      
+      
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-rivals" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
-      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
-    </div>
-    <div class="p-6">
-      <div class="space-y-1">
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-slate-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
         
         
         
         <a href="black-myth-wukong.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">🐒</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">🐒</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-slate-500 font-normal">游戏科学 (Game Science)</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为国产动作 RPG + 中国历史/神话题材 + 暗色调美术</div>
+            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-slate-500 font-normal ml-1">游戏科学 (Game Science)</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为国产动作 RPG + 中国历史/神话题材 + 暗色调美术</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="sekiro-shadows-die-twice.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">🗡️</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">🗡️</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">只狼：影逝二度 <span class="text-xs text-slate-500 font-normal">FromSoftware</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为魂系战斗核心 + 东方背景 + 高难 Boss 设计</div>
+            <div class="text-sm font-semibold">只狼：影逝二度 <span class="text-xs text-slate-500 font-normal ml-1">FromSoftware</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为魂系战斗核心 + 东方背景 + 高难 Boss 设计</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="phantom-blade-zero.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">🗡️</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">🗡️</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">影之刃零 <span class="text-xs text-slate-500 font-normal">S-GAME</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为国产 3A + 暗黑东方题材 + 冷兵器战斗</div>
+            <div class="text-sm font-semibold">影之刃零 <span class="text-xs text-slate-500 font-normal ml-1">S-GAME</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为国产 3A + 暗黑东方题材 + 冷兵器战斗</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="nioh-3.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">⚔️</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">⚔️</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">仁王3 <span class="text-xs text-slate-500 font-normal">Team Ninja / Koei Tecmo</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为东方历史架空 + 魂系 RPG + 妖怪/超自然元素</div>
+            <div class="text-sm font-semibold">仁王3 <span class="text-xs text-slate-500 font-normal ml-1">Team Ninja / Koei Tecmo</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为东方历史架空 + 魂系 RPG + 妖怪/超自然元素</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
       </div>
-      <button onclick="window.open('../compare.html?ids=156,101,153,117,152','_blank')"
-              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
-        ⚡ 一键对比这 5 款游戏
-      </button>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=156,101,153,117,152','_blank')"
+                class="w-full py-3.5 rounded-xl border border-accent/30 bg-accent/[.08] text-accent text-sm font-bold hover:bg-accent/15 hover:border-accent/50 transition text-center cursor-pointer">
+          ⚡ 一键对比这 5 款游戏
+        </button>
+      </div>
     </div>
-  </div>
+  </section>
   
 
 </div>
 
 
 <nav x-data="anchorNav()" x-init="init()"
-     class="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 bg-surface-1/80 backdrop-blur border border-bdr rounded-xl px-2 py-3 shadow-lg"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/90 backdrop-blur-xl border border-bdr rounded-2xl px-2.5 py-3 shadow-2xl"
      x-on:scroll.window.throttle.100ms="onScroll()">
   <template x-for="s in sections" :key="s.id">
     <a :href="'#' + s.id"
        x-on:click.prevent="scrollTo(s.id)"
-       class="group flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs transition-all"
        :class="active === s.id ? 'bg-accent/15 text-accent' : 'text-slate-500 hover:text-slate-300 hover:bg-surface-2'">
       <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
             :class="active === s.id ? 'bg-accent' : 'bg-slate-600 group-hover:bg-slate-400'"></span>
@@ -768,29 +827,53 @@ tailwind.config = {
 <div x-data="{open:false, src:'', imgs:[], idx:0}"
      x-on:open-lightbox.window="open=true; src=$event.detail;
        imgs=Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el){ return el.getAttribute('data-lightbox-src'); });
-       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;"
-     x-on:keydown.escape.window="open=false"
+       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;
+       document.body.style.overflow='hidden';"
+     x-on:keydown.escape.window="if(open){open=false; document.body.style.overflow='';}"
      x-on:keydown.left.window="if(open && idx>0){idx--;src=imgs[idx]}"
      x-on:keydown.right.window="if(open && idx<imgs.length-1){idx++;src=imgs[idx]}"
      x-show="open" x-cloak
-     class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center"
-     x-on:click="open=false">
-  <!-- Close btn -->
-  <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm flex items-center justify-center transition z-10"
-          x-on:click.stop="open=false">✕</button>
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="open=false; document.body.style.overflow='';">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="(idx+1) + ' / ' + imgs.length"></div>
+    <div x-show="imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="open=false; document.body.style.overflow='';">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
   <!-- Prev btn -->
   <button x-show="idx > 0"
-          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
-          x-on:click.stop="idx--;src=imgs[idx]">‹</button>
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="idx--;src=imgs[idx]">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
   <!-- Next btn -->
   <button x-show="idx < imgs.length - 1"
-          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
-          x-on:click.stop="idx++;src=imgs[idx]">›</button>
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="idx++;src=imgs[idx]">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
   <!-- Image -->
-  <img :src="src" class="max-w-[92vw] max-h-[90vh] rounded-lg cursor-default" x-on:click.stop>
-  <!-- Counter -->
-  <div x-show="imgs.length > 1" class="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 text-white/70 text-xs"
-       x-text="(idx+1) + ' / ' + imgs.length"></div>
+  <img :src="src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
 </div>
 
 
@@ -812,7 +895,7 @@ function anchorNav() {
       var defs = [
         {id:'sec-header',     label:'📋 基本信息'},
         {id:'sec-screenshots', label:'🖼 官网截图'},
-        {id:'sec-timeline',    label:'📅 设计时间线'},
+        {id:'sec-timeline',    label:'📅 时间线'},
         {id:'sec-playerexp',   label:'🎮 体验清单'},
         {id:'sec-story',       label:'📖 IP/故事'},
         {id:'sec-aesthetic',   label:'🎨 审美偏好'},
@@ -825,7 +908,7 @@ function anchorNav() {
       this.onScroll();
     },
     onScroll() {
-      var offset = 80;
+      var offset = 120;
       var current = this.active;
       for (var i = this.sections.length - 1; i >= 0; i--) {
         var el = document.getElementById(this.sections[i].id);

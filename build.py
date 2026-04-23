@@ -89,7 +89,25 @@ def main():
         if not slug:
             continue
         ss = screenshots.get(g["name"], [])
-        html = detail_tpl.render(game=g, ss=ss, **ctx)
+        # Find first screenshot image for hero banner background
+        hero_bg = ""
+        for _m in ss:
+            for _s in _m.get("screens", []):
+                if _s.get("imgs"):
+                    hero_bg = _s["imgs"][0]
+                    break
+            if hero_bg:
+                break
+        # Find first screenshot URL for "Visit Website" button
+        first_url = ""
+        for _m in ss:
+            for _s in _m.get("screens", []):
+                if _s.get("url"):
+                    first_url = _s["url"]
+                    break
+            if first_url:
+                break
+        html = detail_tpl.render(game=g, ss=ss, hero_bg=hero_bg, site_url=first_url, **ctx)
         (gdir / f"{slug}.html").write_text(html, "utf-8")
     print(f"  [OK] {len(games)} detail pages")
 

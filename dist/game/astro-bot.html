@@ -53,155 +53,222 @@ tailwind.config = {
 
 
 
-<div class="max-w-5xl mx-auto px-4 py-6">
+
+
+<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/astro-bot/home-1.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
 
   
-  <div id="sec-header" class="flex items-center gap-3 mb-4">
-    <span class="text-3xl">🤖</span>
-    <div>
-      <h1 class="text-2xl font-bold">宇宙机器人</h1>
-      <div class="text-sm text-slate-500">Team Asobi · Platformer</div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-16 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl drop-shadow-lg">🤖</span>
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">宇宙机器人</h1>
+          <div class="text-sm text-slate-400 mt-0.5">Team Asobi · Platformer · 2024.9</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-400/90 leading-relaxed max-w-2xl mb-5">PS5 平台动作游戏，2024 TGA 年度游戏，被誉为新一代 3D 平台跳跃标杆。</p>
+
+      
+      <div class="flex gap-2 flex-wrap mb-5">
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-accent/15 text-accent border border-accent/20">已发售</span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">国际</span>
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">买断制</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PS5</span>
+        
+      </div>
+
+      
+      
+      <div class="flex gap-1.5 flex-wrap">
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">3D 平台跳跃</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">PS5 独占</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">TGA 年度游戏</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">轻松合家欢</span>
+        
+      </div>
+      
     </div>
-  </div>
 
-  
-  <div class="flex gap-2 flex-wrap mb-4">
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">已发售</span>
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">国际</span>
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">买断制</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS5</span>
     
     
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">2024.9</span>
-    
-  </div>
-
-  <p class="text-sm text-slate-400 leading-relaxed mb-5">PS5 平台动作游戏，2024 TGA 年度游戏，被誉为新一代 3D 平台跳跃标杆。</p>
-
-  <div class="flex gap-1.5 flex-wrap mb-8">
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">3D 平台跳跃</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">PS5 独占</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">TGA 年度游戏</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">轻松合家欢</span>
+    <div class="shrink-0 hidden md:block">
+      <a href="https://www.teamasobi.com/games/astro-bot" target="_blank" rel="noopener"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded-xl bg-accent text-white font-bold text-sm shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:bg-indigo-500 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        访问官网
+        <span class="opacity-50 group-hover:opacity-100 transition">↗</span>
+      </a>
+    </div>
     
   </div>
+</div>
+
+
+<div class="max-w-5xl mx-auto px-6 pt-10 pb-16">
 
   
   
-  <div id="sec-screenshots" class="mb-8">
-    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
-    
-    
-    
-    <div class="flex items-center gap-2 mb-2">
-      <span class="text-xs text-slate-500">Astro Bot - Team Asobi 官网 · 2026-04-10</span>
+  <section id="sec-screenshots" class="mb-14">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-lg font-bold flex items-center gap-2">
+        <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+        官网截图
+      </h2>
       
       <a href="https://www.teamasobi.com/games/astro-bot" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-accent/10 text-accent hover:bg-accent/20 transition shrink-0">
-        🔗 访问官网 ↗
+         class="md:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-white text-xs font-bold shadow-lg shadow-accent/20 hover:bg-indigo-500 transition">
+        访问官网 ↗
       </a>
       
     </div>
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/astro-bot/home-1.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/astro-bot/home-1.webp')">
-        <img src="../screenshots/astro-bot/home-1.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
-        </div>
+
+    
+    
+    
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <h3 class="text-sm font-semibold text-slate-300">Astro Bot - Team Asobi 官网</h3>
+        
+        <span class="text-[11px] text-slate-600">2026-04-10</span>
+        
+        
+        <a href="https://www.teamasobi.com/games/astro-bot" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold bg-accent/10 text-accent hover:bg-accent/20 border border-accent/20 transition ml-auto shrink-0">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          访问页面 ↗
+        </a>
+        
       </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/astro-bot/home-2.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/astro-bot/home-2.webp')">
-        <img src="../screenshots/astro-bot/home-2.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/astro-bot/home-1.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/astro-bot/home-1.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/astro-bot/home-1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/astro-bot/home-3.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/astro-bot/home-3.webp')">
-        <img src="../screenshots/astro-bot/home-3.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/astro-bot/home-2.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/astro-bot/home-2.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/astro-bot/home-2.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/astro-bot/home-3.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/astro-bot/home-3.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/astro-bot/home-3.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
       </div>
-      
     </div>
     
     
     
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-timeline" class="mb-8">
-    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
-    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+  <section id="sec-timeline" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      设计变化时间线
+    </h2>
+    <div class="relative pl-6 border-l-2 border-bdr space-y-5">
       
       <div class="relative">
-        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
-        <div class="text-xs text-accent font-semibold">2024-09</div>
-        <div class="text-sm text-slate-400">发售，获 TGA 年度游戏大奖
+        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
+        <div class="text-xs text-accent font-bold tracking-wide">2024-09</div>
+        <div class="text-sm text-slate-400 mt-1 leading-relaxed">发售，获 TGA 年度游戏大奖
           
         </div>
       </div>
       
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-playerexp" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
-       x-data="{ tab: 'media' }">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
-    </div>
-    
-    <div class="flex border-b border-bdr px-6 pt-3">
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
       
-      
-      
-      <button x-on:click="tab='media'"
-              :class="tab==='media' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">🎤 媒体试玩评测</button>
-      
-      <button x-on:click="tab='community'"
-              :class="tab==='community' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">💬 玩家社区讨论</button>
-      
-      <button x-on:click="tab='bili'"
-              :class="tab==='bili' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">📺 B站试玩视频</button>
-      
-    </div>
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">🎤 媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">💬 玩家社区讨论</button>
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">📺 B站试玩视频</button>
+        
+      </div>
 
-    
-    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
       
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
-          <div class="text-sm font-bold">记忆点 Memory</div>
-        </div>
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+            <div class="text-sm font-bold">记忆点 Memory</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>DualSense 触觉反馈</b>的终极展示——每个材质、每次跳跃都有独特手感，是「控制器即游戏」的教科书
@@ -211,8 +278,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>PlayStation 彩蛋宇宙</b>——从初代 PS 到 PS5 的经典角色全部以 Bot 形态出场，情怀拉满
@@ -222,8 +289,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>每个关卡都像一个<b>独立的创意玩具箱</b>——机制不重复，40+ 关卡几乎零疲劳
@@ -233,18 +300,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
-          <div class="text-sm font-bold">兴奋点 Excitement</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+            <div class="text-sm font-bold">兴奋点 Excitement</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>TGA 2024 年度游戏</b>——击败《黑神话》《小丑牌》等强敌拿下最高荣誉
@@ -254,8 +321,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>Metacritic 94 分</b>——2024 年评分最高的游戏之一
@@ -265,8 +332,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>每个世界的<b>隐藏关卡</b>都有惊喜——发现暗道时的成就感极强
@@ -276,18 +343,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
-          <div class="text-sm font-bold">痛点 Pain</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+            <div class="text-sm font-bold">痛点 Pain</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>流程偏短</b>——核心通关约 8-10 小时，对全价游戏来说内容量偏少
@@ -297,8 +364,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>PS5 独占</b>限制了受众面——无 PC 版让大量玩家无缘体验
@@ -308,18 +375,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
-          <div class="text-sm font-bold">流失点 Churn</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+            <div class="text-sm font-bold">流失点 Churn</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>全收集后缺乏回玩价值</b>——没有用户自创关卡或多人模式延续寿命
@@ -329,8 +396,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>对<b>非 PlayStation 粉丝</b>来说，大量致敬彩蛋可能缺乏共鸣
@@ -340,23 +407,23 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-    </div>
-
-    
-    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
-          <div class="text-sm font-bold">记忆点 Memory</div>
+          
         </div>
         
         
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+            <div class="text-sm font-bold">记忆点 Memory</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>「<b>3D 马里奥的最强挑战者</b>」——社区公认 Team Asobi 已具备任天堂级别的关卡设计能力
@@ -366,8 +433,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>PlayStation 老玩家集体回忆杀</b>——找到经典角色 Bot 时的截图分享刷屏各平台
@@ -377,18 +444,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
-          <div class="text-sm font-bold">兴奋点 Excitement</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+            <div class="text-sm font-bold">兴奋点 Excitement</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>TGA 年度游戏</b>引发话题风暴——「机器人凭什么赢黑猴」成为最热讨论
@@ -398,8 +465,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>社区自发整理<b>全彩蛋图鉴</b>，覆盖 PS 全系列经典角色出处
@@ -409,18 +476,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
-          <div class="text-sm font-bold">痛点 Pain</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+            <div class="text-sm font-bold">痛点 Pain</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>TGA 击败《黑神话》引发<b>中文社区争议</b>——部分玩家认为评奖体系偏西方
@@ -430,8 +497,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>定价争议</b>——70 美元全价对比 8 小时流程，性价比被质疑
@@ -441,18 +508,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
-          <div class="text-sm font-bold">流失点 Churn</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+            <div class="text-sm font-bold">流失点 Churn</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>白金奖杯</b>约 15 小时全部完成后就没有动力再打开了
@@ -462,8 +529,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>缺乏<b>DLC 或更新内容</b>的消息让社区热度快速消退
@@ -473,81 +540,78 @@ tailwind.config = {
   </span>
 </div>
 
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" x-cloak class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1cUp3eJEus/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-red-500/15 text-red-400
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【宇宙机器人】4K 最高画质 全收集 全流程通关攻略 索尼独占平台跳跃动作游戏 宇宙机器人2 - ASTRO BOT 2【完结】</span>
+          <span class="text-xs text-slate-500 shrink-0">227万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1x7CRBrEfA/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-amber-500/15 text-amber-400
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【4K】宇宙机器人 最终BOSS战</span>
+          <span class="text-xs text-slate-500 shrink-0">120万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV18TqqYWE71/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-indigo-500/15 text-indigo-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【IGN】《宇宙机器人》获TGA 2024年度游戏（颁奖环节以及交响乐表演全流程）</span>
+          <span class="text-xs text-slate-500 shrink-0">75万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1u8BgYmE7F/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-slate-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">《Astro bot》获奖瞬间国外博主反应合集</span>
+          <span class="text-xs text-slate-500 shrink-0">45万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV115pgeXEG1/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-slate-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【IGN】《宇宙机器人》开场12分钟实机演示</span>
+          <span class="text-xs text-slate-500 shrink-0">36万播放</span>
+        </a>
         
       </div>
       
-      
     </div>
-
-    
-    
-    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
-      
-      <a href="https://www.bilibili.com/video/BV1cUp3eJEus/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-red-500/15 text-red-400
-          ">1</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【宇宙机器人】4K 最高画质 全收集 全流程通关攻略 索尼独占平台跳跃动作游戏 宇宙机器人2 - ASTRO BOT 2【完结】</span>
-        <span class="text-xs text-slate-500 shrink-0">227万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1x7CRBrEfA/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-amber-500/15 text-amber-400
-          ">2</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【4K】宇宙机器人 最终BOSS战</span>
-        <span class="text-xs text-slate-500 shrink-0">120万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV18TqqYWE71/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-indigo-500/15 text-indigo-400
-          ">3</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【IGN】《宇宙机器人》获TGA 2024年度游戏（颁奖环节以及交响乐表演全流程）</span>
-        <span class="text-xs text-slate-500 shrink-0">75万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1u8BgYmE7F/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-surface-2 text-slate-500">4</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">《Astro bot》获奖瞬间国外博主反应合集</span>
-        <span class="text-xs text-slate-500 shrink-0">45万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV115pgeXEG1/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-surface-2 text-slate-500">5</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【IGN】《宇宙机器人》开场12分钟实机演示</span>
-        <span class="text-xs text-slate-500 shrink-0">36万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-    </div>
-    
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-story" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
-    </div>
-    <div class="p-6">
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden p-6">
       
 <div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
   <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
@@ -591,20 +655,20 @@ tailwind.config = {
 </div>
 
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-aesthetic" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
-    </div>
-    <div class="p-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        
-        
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
 
 
 
@@ -615,10 +679,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">整体视觉走<b>高饱和糖果色+微缩模型</b>路线——每个星球都像一个精心搭建的玩具箱；场景材质追求<b>可触摸感</b>：金属有光泽、沙子有颗粒、水面有折射，全部通过 DualSense 同步传递手感；光照极度干净明亮，<b>无任何暗黑元素</b>，纯粹的快乐美学；色彩饱和度极高但不刺眼，调色精准到每个像素都是「令人愉悦」的</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -629,10 +693,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">主角 Astro 是<b>白色极简机器人</b>——圆头圆眼大脚的亲和力造型，四肢用蓝色发光线条勾勒关节；核心设计策略是让 Astro 成为「白色画布」，通过<b>换装彩蛋</b>致敬 PlayStation 全系列角色（克雷托斯甲胄、蛇叔绷带、弥海砂校服等）；Bot 小伙伴们用<b>纯色+一个标志性配件</b>来传达不同角色身份，识别度极高</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -643,10 +707,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">游戏内 HUD 几乎为零——仅在必要时显示体力提示，<b>不设血条、不设分数板</b>，纯粹靠视觉和触觉传递状态；菜单界面用<b>3D 太空站</b>作为选关大厅，可走动、互动、发现彩蛋；字体圆润柔和，按钮有弹性动画；整体 UI 设计理念：<b>让玩家忘记 UI 的存在，全身心投入玩耍</b></div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -657,10 +721,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">核心视觉符号：<b>DualSense 控制器</b>（游戏的灵魂道具，也是叙事载体）、<b>蓝色发光线条</b>（Astro 身体的关节线 + PlayStation 品牌蓝色）、<b>△○×□ 图标</b>（贯穿场景和 UI 的母题）；色彩母题为<b>纯白+天蓝+高饱和多彩</b>的快乐调色板；每个世界用一种主色调区分——水世界蓝、沙漠金、森林绿、火山红</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -671,94 +735,97 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">宣发策略是<b>让游戏画面直接说话</b>——预告片以快节奏的关卡 Montage + DualSense 功能展示为主，不讲故事、不煽情，纯粹传递「好玩」；<b>TGA 年度游戏</b>是最大的营销事件，引发全球讨论；Key Art 以<b>Astro 站在 PS5 主机上</b>为核心构图，强化「PlayStation 代言人」定位；品牌色为纯白+天蓝，干净利落</div>
 </div>
 
-        
-        
-      </div>
+      
+      
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-rivals" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
-      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
-    </div>
-    <div class="p-6">
-      <div class="space-y-1">
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-slate-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
         
         
         
         <a href="final-fantasy-vii-rebirth.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">⚔️</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">⚔️</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">最终幻想7：重生 <span class="text-xs text-slate-500 font-normal">Square Enix</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为 PS5 独占大作，视觉精度和技术展示力对标</div>
+            <div class="text-sm font-semibold">最终幻想7：重生 <span class="text-xs text-slate-500 font-normal ml-1">Square Enix</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为 PS5 独占大作，视觉精度和技术展示力对标</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="metaphor-refantazio.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">👑</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">👑</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">暗喻幻想 <span class="text-xs text-slate-500 font-normal">Atlus</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为 2024 TGA 年度游戏候选——UI 设计语言和品牌风格化程度可对比</div>
+            <div class="text-sm font-semibold">暗喻幻想 <span class="text-xs text-slate-500 font-normal ml-1">Atlus</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为 2024 TGA 年度游戏候选——UI 设计语言和品牌风格化程度可对比</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="black-myth-wukong.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">🐒</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">🐒</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-slate-500 font-normal">游戏科学 (Game Science)</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">TGA 直接竞争对手——视觉风格截然相反（糖果色 vs 暗黑水墨），审美取向对比参考</div>
+            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-slate-500 font-normal ml-1">游戏科学 (Game Science)</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">TGA 直接竞争对手——视觉风格截然相反（糖果色 vs 暗黑水墨），审美取向对比参考</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="clair-obscur-expedition-33.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">🎨</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">🎨</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">光暗交响：远征33 <span class="text-xs text-slate-500 font-normal">Sandfall Interactive</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为高分新作，视觉艺术方向的差异化（纯快乐 vs 暗黑诗意）可供设计参考</div>
+            <div class="text-sm font-semibold">光暗交响：远征33 <span class="text-xs text-slate-500 font-normal ml-1">Sandfall Interactive</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为高分新作，视觉艺术方向的差异化（纯快乐 vs 暗黑诗意）可供设计参考</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
       </div>
-      <button onclick="window.open('../compare.html?ids=103,104,105,101,108','_blank')"
-              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
-        ⚡ 一键对比这 5 款游戏
-      </button>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=103,104,105,101,108','_blank')"
+                class="w-full py-3.5 rounded-xl border border-accent/30 bg-accent/[.08] text-accent text-sm font-bold hover:bg-accent/15 hover:border-accent/50 transition text-center cursor-pointer">
+          ⚡ 一键对比这 5 款游戏
+        </button>
+      </div>
     </div>
-  </div>
+  </section>
   
 
 </div>
 
 
 <nav x-data="anchorNav()" x-init="init()"
-     class="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 bg-surface-1/80 backdrop-blur border border-bdr rounded-xl px-2 py-3 shadow-lg"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/90 backdrop-blur-xl border border-bdr rounded-2xl px-2.5 py-3 shadow-2xl"
      x-on:scroll.window.throttle.100ms="onScroll()">
   <template x-for="s in sections" :key="s.id">
     <a :href="'#' + s.id"
        x-on:click.prevent="scrollTo(s.id)"
-       class="group flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs transition-all"
        :class="active === s.id ? 'bg-accent/15 text-accent' : 'text-slate-500 hover:text-slate-300 hover:bg-surface-2'">
       <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
             :class="active === s.id ? 'bg-accent' : 'bg-slate-600 group-hover:bg-slate-400'"></span>
@@ -773,29 +840,53 @@ tailwind.config = {
 <div x-data="{open:false, src:'', imgs:[], idx:0}"
      x-on:open-lightbox.window="open=true; src=$event.detail;
        imgs=Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el){ return el.getAttribute('data-lightbox-src'); });
-       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;"
-     x-on:keydown.escape.window="open=false"
+       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;
+       document.body.style.overflow='hidden';"
+     x-on:keydown.escape.window="if(open){open=false; document.body.style.overflow='';}"
      x-on:keydown.left.window="if(open && idx>0){idx--;src=imgs[idx]}"
      x-on:keydown.right.window="if(open && idx<imgs.length-1){idx++;src=imgs[idx]}"
      x-show="open" x-cloak
-     class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center"
-     x-on:click="open=false">
-  <!-- Close btn -->
-  <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm flex items-center justify-center transition z-10"
-          x-on:click.stop="open=false">✕</button>
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="open=false; document.body.style.overflow='';">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="(idx+1) + ' / ' + imgs.length"></div>
+    <div x-show="imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="open=false; document.body.style.overflow='';">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
   <!-- Prev btn -->
   <button x-show="idx > 0"
-          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
-          x-on:click.stop="idx--;src=imgs[idx]">‹</button>
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="idx--;src=imgs[idx]">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
   <!-- Next btn -->
   <button x-show="idx < imgs.length - 1"
-          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
-          x-on:click.stop="idx++;src=imgs[idx]">›</button>
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="idx++;src=imgs[idx]">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
   <!-- Image -->
-  <img :src="src" class="max-w-[92vw] max-h-[90vh] rounded-lg cursor-default" x-on:click.stop>
-  <!-- Counter -->
-  <div x-show="imgs.length > 1" class="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 text-white/70 text-xs"
-       x-text="(idx+1) + ' / ' + imgs.length"></div>
+  <img :src="src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
 </div>
 
 
@@ -817,7 +908,7 @@ function anchorNav() {
       var defs = [
         {id:'sec-header',     label:'📋 基本信息'},
         {id:'sec-screenshots', label:'🖼 官网截图'},
-        {id:'sec-timeline',    label:'📅 设计时间线'},
+        {id:'sec-timeline',    label:'📅 时间线'},
         {id:'sec-playerexp',   label:'🎮 体验清单'},
         {id:'sec-story',       label:'📖 IP/故事'},
         {id:'sec-aesthetic',   label:'🎨 审美偏好'},
@@ -830,7 +921,7 @@ function anchorNav() {
       this.onScroll();
     },
     onScroll() {
-      var offset = 80;
+      var offset = 120;
       var current = this.active;
       for (var i = this.sections.length - 1; i >= 0; i--) {
         var el = document.getElementById(this.sections[i].id);

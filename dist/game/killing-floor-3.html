@@ -53,169 +53,240 @@ tailwind.config = {
 
 
 
-<div class="max-w-5xl mx-auto px-4 py-6">
+
+
+<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/killing-floor-3/home-1.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
 
   
-  <div id="sec-header" class="flex items-center gap-3 mb-4">
-    <span class="text-3xl">🧟</span>
-    <div>
-      <h1 class="text-2xl font-bold">杀戮空间3</h1>
-      <div class="text-sm text-slate-500">Tripwire Interactive · FPS</div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-16 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl drop-shadow-lg">🧟</span>
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">杀戮空间3</h1>
+          <div class="text-sm text-slate-400 mt-0.5">Tripwire Interactive · FPS · 2025</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-slate-400/90 leading-relaxed max-w-2xl mb-5">合作射击经典续作，在末日场景中对抗大波变异敌人。</p>
+
+      
+      <div class="flex gap-2 flex-wrap mb-5">
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-accent/15 text-accent border border-accent/20">已发售</span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20">国际</span>
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">买断制</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PC</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">PS5</span>
+        
+        <span class="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-slate-400 border border-white/10">Xbox</span>
+        
+      </div>
+
+      
+      
+      <div class="flex gap-1.5 flex-wrap">
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">合作 FPS</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">PvE 生存射击</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">Tripwire 制作</span>
+        
+        <span class="px-2.5 py-0.5 rounded-full text-[11px] text-slate-500 border border-white/[.06] bg-white/[.03]">经典续作</span>
+        
+      </div>
+      
     </div>
-  </div>
 
-  
-  <div class="flex gap-2 flex-wrap mb-4">
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">已发售</span>
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">国际</span>
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">买断制</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PC</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS5</span>
-    
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">Xbox</span>
     
     
-    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">2025</span>
+    <div class="shrink-0 hidden md:block">
+      <a href="https://killingfloor3.com/" target="_blank" rel="noopener"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded-xl bg-accent text-white font-bold text-sm shadow-lg shadow-accent/25 hover:shadow-accent/40 hover:bg-indigo-500 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        访问官网
+        <span class="opacity-50 group-hover:opacity-100 transition">↗</span>
+      </a>
+    </div>
     
   </div>
+</div>
 
-  <p class="text-sm text-slate-400 leading-relaxed mb-5">合作射击经典续作，在末日场景中对抗大波变异敌人。</p>
 
-  <div class="flex gap-1.5 flex-wrap mb-8">
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">合作 FPS</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">PvE 生存射击</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">Tripwire 制作</span>
-    
-    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">经典续作</span>
-    
-  </div>
+<div class="max-w-5xl mx-auto px-6 pt-10 pb-16">
 
   
   
-  <div id="sec-screenshots" class="mb-8">
-    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
-    
-    
-    
-    <div class="flex items-center gap-2 mb-2">
-      <span class="text-xs text-slate-500">Killing Floor 3 - 官网 · 2026-04-13</span>
+  <section id="sec-screenshots" class="mb-14">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-lg font-bold flex items-center gap-2">
+        <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+        官网截图
+      </h2>
       
       <a href="https://killingfloor3.com/" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-accent/10 text-accent hover:bg-accent/20 transition shrink-0">
-        🔗 访问官网 ↗
+         class="md:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-accent text-white text-xs font-bold shadow-lg shadow-accent/20 hover:bg-indigo-500 transition">
+        访问官网 ↗
       </a>
       
     </div>
-    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/killing-floor-3/home-1.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/killing-floor-3/home-1.webp')">
-        <img src="../screenshots/killing-floor-3/home-1.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
-        </div>
+
+    
+    
+    
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <h3 class="text-sm font-semibold text-slate-300">Killing Floor 3 - 官网</h3>
+        
+        <span class="text-[11px] text-slate-600">2026-04-13</span>
+        
+        
+        <a href="https://killingfloor3.com/" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-semibold bg-accent/10 text-accent hover:bg-accent/20 border border-accent/20 transition ml-auto shrink-0">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          访问页面 ↗
+        </a>
+        
       </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/killing-floor-3/home-2.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/killing-floor-3/home-2.webp')">
-        <img src="../screenshots/killing-floor-3/home-2.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/killing-floor-3/home-1.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/killing-floor-3/home-1.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/killing-floor-3/home-1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/killing-floor-3/home-3.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/killing-floor-3/home-3.webp')">
-        <img src="../screenshots/killing-floor-3/home-3.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/killing-floor-3/home-2.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/killing-floor-3/home-2.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/killing-floor-3/home-2.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      
-      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           data-lightbox-src="../screenshots/killing-floor-3/home-4.webp"
-           x-on:click="$dispatch('open-lightbox','../screenshots/killing-floor-3/home-4.webp')">
-        <img src="../screenshots/killing-floor-3/home-4.webp" loading="lazy" class="w-full block">
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
-          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/killing-floor-3/home-3.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/killing-floor-3/home-3.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/killing-floor-3/home-3.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
         </div>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
+             data-lightbox-src="../screenshots/killing-floor-3/home-4.webp"
+             x-on:click="$dispatch('open-lightbox','../screenshots/killing-floor-3/home-4.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/killing-floor-3/home-4.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
       </div>
-      
     </div>
     
     
     
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-timeline" class="mb-8">
-    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
-    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+  <section id="sec-timeline" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      设计变化时间线
+    </h2>
+    <div class="relative pl-6 border-l-2 border-bdr space-y-5">
       
       <div class="relative">
-        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
-        <div class="text-xs text-accent font-semibold">2025</div>
-        <div class="text-sm text-slate-400">全球发售
+        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
+        <div class="text-xs text-accent font-bold tracking-wide">2025</div>
+        <div class="text-sm text-slate-400 mt-1 leading-relaxed">全球发售
           
         </div>
       </div>
       
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-playerexp" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
-       x-data="{ tab: 'media' }">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
-    </div>
-    
-    <div class="flex border-b border-bdr px-6 pt-3">
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
       
-      
-      
-      <button x-on:click="tab='media'"
-              :class="tab==='media' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">🎤 媒体试玩评测</button>
-      
-      <button x-on:click="tab='community'"
-              :class="tab==='community' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">💬 玩家社区讨论</button>
-      
-      <button x-on:click="tab='bili'"
-              :class="tab==='bili' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
-              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">📺 B站试玩视频</button>
-      
-    </div>
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">🎤 媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">💬 玩家社区讨论</button>
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-accent border-accent bg-accent/5' : 'text-slate-500 border-transparent hover:text-slate-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">📺 B站试玩视频</button>
+        
+      </div>
 
-    
-    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
       
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
-          <div class="text-sm font-bold">记忆点 Memory</div>
-        </div>
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+            <div class="text-sm font-bold">记忆点 Memory</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>波次射击</b>的核心循环稳固——在末日场景中对抗一波又一波变异敌人的爽快感不变
@@ -225,8 +296,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>职业系统</b>继续深化——每个职业的技能树和专属武器提供了差异化的合作分工
@@ -236,8 +307,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>UE5 升级后<b>血肉飞溅</b>和肢体分离效果达到系列最高水准
@@ -247,18 +318,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
-          <div class="text-sm font-bold">兴奋点 Excitement</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+            <div class="text-sm font-bold">兴奋点 Excitement</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>UE5 引擎</b>全面升级——光照、粒子效果和角色模型质量飞跃
@@ -268,8 +339,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>新增<b>动态事件系统</b>——每局游戏中会随机触发特殊挑战和变异规则
@@ -279,8 +350,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>经典的<b>慢动作最后一杀</b>（Zed Time）效果在 UE5 下更加华丽
@@ -290,18 +361,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
-          <div class="text-sm font-bold">痛点 Pain</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+            <div class="text-sm font-bold">痛点 Pain</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>玩法循环</b>本质上仍是 KF2 的升级版——创新幅度未达社区预期
@@ -311,8 +382,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>地图数量</b>发售时偏少——老粉丝期望更多样的场景
@@ -322,8 +393,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>与同类<b>合作射击</b>（Helldivers 2 / Darktide）相比缺乏社区话题性
@@ -333,18 +404,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
-          <div class="text-sm font-bold">流失点 Churn</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+            <div class="text-sm font-bold">流失点 Churn</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>波次射击的<b>重复性</b>天然高——中期内容消耗完毕后留存下降
@@ -354,8 +425,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>竞品<b>Helldivers 2 的现象级表现</b>严重分流了合作 PvE 玩家
@@ -365,23 +436,23 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-    </div>
-
-    
-    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
-          <div class="text-sm font-bold">记忆点 Memory</div>
+          
         </div>
         
         
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+            <div class="text-sm font-bold">记忆点 Memory</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>「<b>血浆最多的合作射击</b>」——KF 系列的暴力美学标签根深蒂固
@@ -391,8 +462,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>KF 系列</b>被视为合作波次射击品类的鼻祖之一
@@ -402,18 +473,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
-          <div class="text-sm font-bold">兴奋点 Excitement</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+            <div class="text-sm font-bold">兴奋点 Excitement</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>Zed Time 慢动作集锦</b>是社区最爱的短视频内容——血肉飞溅的慢放极度解压
@@ -423,8 +494,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>KF 老玩家社区<b>忠诚度极高</b>——核心群体跨三代追随
@@ -434,18 +505,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
-          <div class="text-sm font-bold">痛点 Pain</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+            <div class="text-sm font-bold">痛点 Pain</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>新玩家吸引力不足——在<b>Helldivers 2 / Deep Rock Galactic</b>面前缺乏差异化亮点
@@ -455,8 +526,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>Tripwire 过往的<b>争议事件</b>影响品牌形象
@@ -466,18 +537,18 @@ tailwind.config = {
   </span>
 </div>
 
-        
-      </div>
-      
-      
-      
-      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
-        <div class="flex items-center gap-2 mb-2.5">
-          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
-          <div class="text-sm font-bold">流失点 Churn</div>
+          
         </div>
         
         
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+            <div class="text-sm font-bold">流失点 Churn</div>
+          </div>
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span>合作 PvE 的<b>内容消耗速度</b>很快——需要持续的赛季更新维持活跃
@@ -487,8 +558,8 @@ tailwind.config = {
   </span>
 </div>
 
-        
-        
+          
+          
 <div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
   <span class="text-slate-600 shrink-0 mt-0.5">›</span>
   <span><b>品类竞争加剧</b>——2024-2025 年合作射击井喷，KF3 面临存在感危机
@@ -498,81 +569,78 @@ tailwind.config = {
   </span>
 </div>
 
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" x-cloak class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV14jqxYUEk4/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-red-500/15 text-red-400
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">全新多人联机恐怖冒险射击新游Killing Floor3|杀戮空间3即将上线 这里有你需要知道的一切</span>
+          <span class="text-xs text-slate-500 shrink-0">24万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV15yubzEE6N/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-amber-500/15 text-amber-400
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">把玩家当日本人整！方舟最新DLC首日差评如潮+《无畏契约》月底升级虚幻五引擎#游戏资讯#</span>
+          <span class="text-xs text-slate-500 shrink-0">20万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1ZG411o7mA/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-indigo-500/15 text-indigo-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【IGN】《杀戮空间3》公布预告 | Gamescom 2023</span>
+          <span class="text-xs text-slate-500 shrink-0">19万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1vNYCzyEpL/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-slate-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">每年生产上千万丧尸-杀戮空间3的世界发生了什么?系列回顾与怪物解释</span>
+          <span class="text-xs text-slate-500 shrink-0">16万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1SwBNYhEb5/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-slate-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-[11px] text-sky-500 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-slate-200 font-medium truncate">【Killing Floor 3】 赛博丧尸机械飞升！不知道几个兄弟才够打！</span>
+          <span class="text-xs text-slate-500 shrink-0">10万播放</span>
+        </a>
         
       </div>
       
-      
     </div>
-
-    
-    
-    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
-      
-      <a href="https://www.bilibili.com/video/BV14jqxYUEk4/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-red-500/15 text-red-400
-          ">1</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">全新多人联机恐怖冒险射击新游Killing Floor3|杀戮空间3即将上线 这里有你需要知道的一切</span>
-        <span class="text-xs text-slate-500 shrink-0">24万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV15yubzEE6N/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-amber-500/15 text-amber-400
-          ">2</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">把玩家当日本人整！方舟最新DLC首日差评如潮+《无畏契约》月底升级虚幻五引擎#游戏资讯#</span>
-        <span class="text-xs text-slate-500 shrink-0">20万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1ZG411o7mA/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-indigo-500/15 text-indigo-400
-          ">3</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【IGN】《杀戮空间3》公布预告 | Gamescom 2023</span>
-        <span class="text-xs text-slate-500 shrink-0">19万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1vNYCzyEpL/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-surface-2 text-slate-500">4</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">每年生产上千万丧尸-杀戮空间3的世界发生了什么?系列回顾与怪物解释</span>
-        <span class="text-xs text-slate-500 shrink-0">16万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-      <a href="https://www.bilibili.com/video/BV1SwBNYhEb5/" target="_blank" rel="noopener"
-         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
-          bg-surface-2 text-slate-500">5</span>
-        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
-        <span class="flex-1 text-sm text-slate-200 font-medium truncate">【Killing Floor 3】 赛博丧尸机械飞升！不知道几个兄弟才够打！</span>
-        <span class="text-xs text-slate-500 shrink-0">10万播放</span>
-        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
-      </a>
-      
-    </div>
-    
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-story" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
-    </div>
-    <div class="p-6">
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden p-6">
       
 <div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
   <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
@@ -616,20 +684,20 @@ tailwind.config = {
 </div>
 
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-aesthetic" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
-    </div>
-    <div class="p-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        
-        
-        
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
 
 
 
@@ -640,10 +708,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">场景以<b>末日后的工业废墟</b>为主调——废弃工厂、地下实验室、城市废墟、生物培养仓；UE5 的<b>Lumen 光照</b>让昏暗场景中的霓虹灯和应急灯产生强烈明暗对比；色调偏<b>冷灰蓝+警示红+生物绿</b>的工业恐怖配色；<b>血浆和肢体碎片</b>的物理模拟是视觉核心——地板和墙壁会被持续染红；Zed Time 慢动作让粒子效果以<b>高帧慢放</b>呈现</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -654,10 +722,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">玩家角色穿着<b>末日生存装备</b>——焊接面罩、防化服、军用背心、朋克改装服饰；每个职业有<b>视觉辨识度极高的专属装扮</b>——狂战士穿重甲、医疗兵白大褂、纵火狂穿防火服；Zed 敌人设计走<b>工业变异恐怖</b>路线——金属义肢+腐烂肉体+发光器官；Boss 设计融合<b>弗兰肯斯坦式科学怪人</b>美学</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -668,10 +736,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">HUD 以<b>波次计数器</b>为核心信息——当前波次/总波次/存活Zed数量在屏幕顶部显眼位置；血量和护甲用<b>工业仪表盘</b>风格展示；职业技能界面以<b>科技树图谱</b>呈现；商店系统在波间休息时以<b>军火商终端</b>的形式出现；Zed Time 触发时 UI 会切换为<b>高对比度慢动作</b>特效叠加</div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -682,10 +750,10 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">核心视觉符号：<b>Zed Time 慢动作</b>（系列最具辨识度的视觉机制——子弹时间下的血肉飞溅）、<b>电锯/斧头</b>（近战武器是系列招牌——狂战士的标志）、<b>变异体（Zed）剪影</b>（从 Crawler 到 Fleshpound 的经典敌人轮廓）、<b>血浆溅射</b>（游戏最核心的视觉反馈）；色彩母题为<b>工业灰+血红+变异绿</b></div>
 </div>
 
-        
-        
-        
-        
+      
+      
+      
+      
 
 
 
@@ -696,94 +764,97 @@ tailwind.config = {
   <div class="text-[13.5px] leading-7 text-slate-400 data-text">宣发核心打<b>暴力美学升级</b>——UE5 引擎下的血浆和肢体分离效果是预告片主角；目标受众精准锁定<b>合作 PvE 射击核心玩家</b>；Key Art 以<b>角色群像+Zed大军+血色背景</b>为标准构图；Tripwire 采用<b>社区优先</b>的宣发策略——Steam 抢先体验+Discord 反馈循环</div>
 </div>
 
-        
-        
-      </div>
+      
+      
     </div>
-  </div>
+  </section>
   
 
   
   
-  <div id="sec-rivals" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
-    <div class="px-6 pt-5">
-      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
-      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
-    </div>
-    <div class="p-6">
-      <div class="space-y-1">
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-accent inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-slate-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
         
         
         
         <a href="helldivers-2.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">🪖</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">🪖</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">绝地潜兵2 <span class="text-xs text-slate-500 font-normal">Arrowhead Game Studios / SIE</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为合作 PvE 射击——Helldivers 2 是最大的品类竞争对手</div>
+            <div class="text-sm font-semibold">绝地潜兵2 <span class="text-xs text-slate-500 font-normal ml-1">Arrowhead Game Studios / SIE</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为合作 PvE 射击——Helldivers 2 是最大的品类竞争对手</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="call-of-duty-black-ops-6.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">⚔️</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">⚔️</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">使命召唤：黑色行动6 <span class="text-xs text-slate-500 font-normal">Treyarch / Activision</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">COD BO6 僵尸模式同为波次合作射击</div>
+            <div class="text-sm font-semibold">使命召唤：黑色行动6 <span class="text-xs text-slate-500 font-normal ml-1">Treyarch / Activision</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">COD BO6 僵尸模式同为波次合作射击</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="dying-light-the-beast.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">🧟</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">🧟</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">消逝的光芒：野兽 <span class="text-xs text-slate-500 font-normal">Techland</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为末日生存题材 + FPS + 合作元素</div>
+            <div class="text-sm font-semibold">消逝的光芒：野兽 <span class="text-xs text-slate-500 font-normal ml-1">Techland</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为末日生存题材 + FPS + 合作元素</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
         
         
         <a href="atomfall.html"
-           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="text-xl w-8 text-center">☣️</span>
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-2xl w-10 text-center">☣️</span>
           <div class="flex-1 min-w-0">
-            <div class="text-sm font-semibold">原子陨落 <span class="text-xs text-slate-500 font-normal">Rebellion</span></div>
-            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为末世背景 + 生存射击 + 探索制造</div>
+            <div class="text-sm font-semibold">原子陨落 <span class="text-xs text-slate-500 font-normal ml-1">Rebellion</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-1">同为末世背景 + 生存射击 + 探索制造</div>
           </div>
-          <span class="text-xs text-slate-600">查看 →</span>
+          <span class="text-xs text-slate-600 shrink-0">查看 →</span>
         </a>
         
         
       </div>
-      <button onclick="window.open('../compare.html?ids=150,145,146,131,129','_blank')"
-              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
-        ⚡ 一键对比这 5 款游戏
-      </button>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=150,145,146,131,129','_blank')"
+                class="w-full py-3.5 rounded-xl border border-accent/30 bg-accent/[.08] text-accent text-sm font-bold hover:bg-accent/15 hover:border-accent/50 transition text-center cursor-pointer">
+          ⚡ 一键对比这 5 款游戏
+        </button>
+      </div>
     </div>
-  </div>
+  </section>
   
 
 </div>
 
 
 <nav x-data="anchorNav()" x-init="init()"
-     class="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 bg-surface-1/80 backdrop-blur border border-bdr rounded-xl px-2 py-3 shadow-lg"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/90 backdrop-blur-xl border border-bdr rounded-2xl px-2.5 py-3 shadow-2xl"
      x-on:scroll.window.throttle.100ms="onScroll()">
   <template x-for="s in sections" :key="s.id">
     <a :href="'#' + s.id"
        x-on:click.prevent="scrollTo(s.id)"
-       class="group flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs transition-all"
        :class="active === s.id ? 'bg-accent/15 text-accent' : 'text-slate-500 hover:text-slate-300 hover:bg-surface-2'">
       <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
             :class="active === s.id ? 'bg-accent' : 'bg-slate-600 group-hover:bg-slate-400'"></span>
@@ -798,29 +869,53 @@ tailwind.config = {
 <div x-data="{open:false, src:'', imgs:[], idx:0}"
      x-on:open-lightbox.window="open=true; src=$event.detail;
        imgs=Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el){ return el.getAttribute('data-lightbox-src'); });
-       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;"
-     x-on:keydown.escape.window="open=false"
+       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;
+       document.body.style.overflow='hidden';"
+     x-on:keydown.escape.window="if(open){open=false; document.body.style.overflow='';}"
      x-on:keydown.left.window="if(open && idx>0){idx--;src=imgs[idx]}"
      x-on:keydown.right.window="if(open && idx<imgs.length-1){idx++;src=imgs[idx]}"
      x-show="open" x-cloak
-     class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center"
-     x-on:click="open=false">
-  <!-- Close btn -->
-  <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm flex items-center justify-center transition z-10"
-          x-on:click.stop="open=false">✕</button>
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="open=false; document.body.style.overflow='';">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="(idx+1) + ' / ' + imgs.length"></div>
+    <div x-show="imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="open=false; document.body.style.overflow='';">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
   <!-- Prev btn -->
   <button x-show="idx > 0"
-          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
-          x-on:click.stop="idx--;src=imgs[idx]">‹</button>
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="idx--;src=imgs[idx]">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
   <!-- Next btn -->
   <button x-show="idx < imgs.length - 1"
-          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
-          x-on:click.stop="idx++;src=imgs[idx]">›</button>
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="idx++;src=imgs[idx]">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
   <!-- Image -->
-  <img :src="src" class="max-w-[92vw] max-h-[90vh] rounded-lg cursor-default" x-on:click.stop>
-  <!-- Counter -->
-  <div x-show="imgs.length > 1" class="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 text-white/70 text-xs"
-       x-text="(idx+1) + ' / ' + imgs.length"></div>
+  <img :src="src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
 </div>
 
 
@@ -842,7 +937,7 @@ function anchorNav() {
       var defs = [
         {id:'sec-header',     label:'📋 基本信息'},
         {id:'sec-screenshots', label:'🖼 官网截图'},
-        {id:'sec-timeline',    label:'📅 设计时间线'},
+        {id:'sec-timeline',    label:'📅 时间线'},
         {id:'sec-playerexp',   label:'🎮 体验清单'},
         {id:'sec-story',       label:'📖 IP/故事'},
         {id:'sec-aesthetic',   label:'🎨 审美偏好'},
@@ -855,7 +950,7 @@ function anchorNav() {
       this.onScroll();
     },
     onScroll() {
-      var offset = 80;
+      var offset = 120;
       var current = this.active;
       for (var i = this.sections.length - 1; i >= 0; i--) {
         var el = document.getElementById(this.sections[i].id);
