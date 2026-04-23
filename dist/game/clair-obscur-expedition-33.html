@@ -33,6 +33,36 @@ tailwind.config = {
 }
 </style>
 <!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </head>
@@ -165,7 +195,7 @@ tailwind.config = {
         
         <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
              data-lightbox-src="../screenshots/clair-obscur/home-1.webp"
-             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-1.webp')">
+             x-on:click="$store.lightbox.show('../screenshots/clair-obscur/home-1.webp')">
           <div class="relative pt-[56.25%]">
             <img src="../screenshots/clair-obscur/home-1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
           </div>
@@ -179,7 +209,7 @@ tailwind.config = {
         
         <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
              data-lightbox-src="../screenshots/clair-obscur/home-2.webp"
-             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-2.webp')">
+             x-on:click="$store.lightbox.show('../screenshots/clair-obscur/home-2.webp')">
           <div class="relative pt-[56.25%]">
             <img src="../screenshots/clair-obscur/home-2.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
           </div>
@@ -193,7 +223,7 @@ tailwind.config = {
         
         <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
              data-lightbox-src="../screenshots/clair-obscur/home-3.webp"
-             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-3.webp')">
+             x-on:click="$store.lightbox.show('../screenshots/clair-obscur/home-3.webp')">
           <div class="relative pt-[56.25%]">
             <img src="../screenshots/clair-obscur/home-3.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
           </div>
@@ -207,7 +237,7 @@ tailwind.config = {
         
         <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
              data-lightbox-src="../screenshots/clair-obscur/home-4.webp"
-             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-4.webp')">
+             x-on:click="$store.lightbox.show('../screenshots/clair-obscur/home-4.webp')">
           <div class="relative pt-[56.25%]">
             <img src="../screenshots/clair-obscur/home-4.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
           </div>
@@ -221,7 +251,7 @@ tailwind.config = {
         
         <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
              data-lightbox-src="../screenshots/clair-obscur/home-5.webp"
-             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-5.webp')">
+             x-on:click="$store.lightbox.show('../screenshots/clair-obscur/home-5.webp')">
           <div class="relative pt-[56.25%]">
             <img src="../screenshots/clair-obscur/home-5.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
           </div>
@@ -235,7 +265,7 @@ tailwind.config = {
         
         <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
              data-lightbox-src="../screenshots/clair-obscur/home-6.webp"
-             x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-6.webp')">
+             x-on:click="$store.lightbox.show('../screenshots/clair-obscur/home-6.webp')">
           <div class="relative pt-[56.25%]">
             <img src="../screenshots/clair-obscur/home-6.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
           </div>
@@ -883,15 +913,11 @@ tailwind.config = {
 
 
 
-<div x-data="{open:false, src:'', imgs:[], idx:0}"
-     x-on:open-lightbox.window="open=true; src=$event.detail;
-       imgs=Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el){ return el.getAttribute('data-lightbox-src'); });
-       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;
-       document.body.style.overflow='hidden';"
-     x-on:keydown.escape.window="if(open){open=false; document.body.style.overflow='';}"
-     x-on:keydown.left.window="if(open && idx>0){idx--;src=imgs[idx]}"
-     x-on:keydown.right.window="if(open && idx<imgs.length-1){idx++;src=imgs[idx]}"
-     x-show="open" x-cloak
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0"
      x-transition:enter-end="opacity-100"
@@ -899,35 +925,35 @@ tailwind.config = {
      x-transition:leave-start="opacity-100"
      x-transition:leave-end="opacity-0"
      class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
-     x-on:click="open=false; document.body.style.overflow='';">
+     x-on:click="$store.lightbox.close()">
 
   <!-- Top bar -->
   <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
-    <div x-show="imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
-         x-text="(idx+1) + ' / ' + imgs.length"></div>
-    <div x-show="imgs.length <= 1"></div>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
     <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
-            x-on:click="open=false; document.body.style.overflow='';">
+            x-on:click="$store.lightbox.close()">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
   </div>
 
   <!-- Prev btn -->
-  <button x-show="idx > 0"
+  <button x-show="$store.lightbox.idx > 0"
           class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
-          x-on:click.stop="idx--;src=imgs[idx]">
+          x-on:click.stop="$store.lightbox.prev()">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
   </button>
 
   <!-- Next btn -->
-  <button x-show="idx < imgs.length - 1"
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
           class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
-          x-on:click.stop="idx++;src=imgs[idx]">
+          x-on:click.stop="$store.lightbox.next()">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
   </button>
 
   <!-- Image -->
-  <img :src="src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
 
   <!-- Bottom hint -->
   <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>

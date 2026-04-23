@@ -31,20 +31,21 @@
 {% set ss = screenshots.get(p.name, []) %}
 {% set ns = namespace(img=none) %}
 {% for m in ss %}{% for s in m.screens %}{% if s.imgs and not ns.img %}{% set ns.img = s.imgs[0] %}{% endif %}{% endfor %}{% endfor %}
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="{{ (p.nameCN or '')|lower }} {{ p.name|lower }} {{ p.company|lower }} {{ (p.category or '')|lower }}"
-     data-type="platform">
+<a href="{{ prefix }}game/{{ p.slug }}.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="{{ (p.nameCN or '')|lower }} {{ p.name|lower }} {{ p.company|lower }} {{ (p.category or '')|lower }}"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     {% if ns.img %}
     <img src="{{ prefix }}screenshots/{{ ns.img.split('screenshots/')[1] if 'screenshots/' in ns.img else ns.img }}"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     {% endif %}
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">{{ p.icon }} {{ p.nameCN or p.name }}</div>
     <div class="text-xs text-slate-500 mt-1">{{ p.company }} · {{ p.category }}</div>
   </div>
-</div>
+</a>
 {% endmacro %}
 
 {# ===== PEX ITEM (experience checklist) ===== #}

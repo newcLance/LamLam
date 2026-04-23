@@ -33,6 +33,36 @@ tailwind.config = {
 }
 </style>
 <!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 </head>
@@ -115,320 +145,336 @@ tailwind.config = {
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="steam steam valve corporation 综合平台"
-     data-type="platform">
+<a href="game/steam.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="steam steam valve corporation 综合平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/steam/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">🎮 Steam</div>
     <div class="text-xs text-slate-500 mt-1">Valve Corporation · 综合平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="epic 游戏商店 epic games store epic games pc平台"
-     data-type="platform">
+<a href="game/epic-games-store.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="epic 游戏商店 epic games store epic games pc平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/epic/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">⚡ Epic 游戏商店</div>
     <div class="text-xs text-slate-500 mt-1">Epic Games · PC平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="playstation 商店 playstation store sony interactive entertainment 主机平台"
-     data-type="platform">
+<a href="game/playstation-store.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="playstation 商店 playstation store sony interactive entertainment 主机平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/playstation-store/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">🎯 PlayStation 商店</div>
     <div class="text-xs text-slate-500 mt-1">Sony Interactive Entertainment · 主机平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="xbox 商店 xbox / microsoft store microsoft 主机平台"
-     data-type="platform">
+<a href="game/xbox-microsoft-store.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="xbox 商店 xbox / microsoft store microsoft 主机平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/xbox/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">🟢 Xbox 商店</div>
     <div class="text-xs text-slate-500 mt-1">Microsoft · 主机平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="任天堂 eshop nintendo eshop nintendo 主机平台"
-     data-type="platform">
+<a href="game/nintendo-eshop.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="任天堂 eshop nintendo eshop nintendo 主机平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/nintendo-eshop/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">🍄 任天堂 eShop</div>
     <div class="text-xs text-slate-500 mt-1">Nintendo · 主机平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="wegame wegame 腾讯 pc平台"
-     data-type="platform">
+<a href="game/wegame.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="wegame wegame 腾讯 pc平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/wegame/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">🐧 WeGame</div>
     <div class="text-xs text-slate-500 mt-1">腾讯 · PC平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="taptap taptap 心动网络 (xd inc.) 移动平台"
-     data-type="platform">
+<a href="game/taptap.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="taptap taptap 心动网络 (xd inc.) 移动平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/taptap/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">📱 TapTap</div>
     <div class="text-xs text-slate-500 mt-1">心动网络 (XD Inc.) · 移动平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="好游快爆 好游快爆 4399 / 九游 移动平台"
-     data-type="platform">
+<a href="game/好游快爆.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="好游快爆 好游快爆 4399 / 九游 移动平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/haoyoukuaibao/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">💥 好游快爆</div>
     <div class="text-xs text-slate-500 mt-1">4399 / 九游 · 移动平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="gog gog cd projekt pc平台"
-     data-type="platform">
+<a href="game/gog.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="gog gog cd projekt pc平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/gog/store-home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">🏰 GOG</div>
     <div class="text-xs text-slate-500 mt-1">CD Projekt · PC平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="geforce now 云游戏 nvidia geforce now nvidia 云游戏"
-     data-type="platform">
+<a href="game/nvidia-geforce-now.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="geforce now 云游戏 nvidia geforce now nvidia 云游戏"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/geforce-now/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">💚 GeForce NOW 云游戏</div>
     <div class="text-xs text-slate-500 mt-1">NVIDIA · 云游戏</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="xbox 云游戏 xbox cloud gaming microsoft 云游戏"
-     data-type="platform">
+<a href="game/xbox-cloud-gaming.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="xbox 云游戏 xbox cloud gaming microsoft 云游戏"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/xbox-cloud-gaming/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">☁️ Xbox 云游戏</div>
     <div class="text-xs text-slate-500 mt-1">Microsoft · 云游戏</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="google play 游戏 google play games google 移动平台"
-     data-type="platform">
+<a href="game/google-play-games.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="google play 游戏 google play games google 移动平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/google-play-games/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">▶️ Google Play 游戏</div>
     <div class="text-xs text-slate-500 mt-1">Google · 移动平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="apple arcade apple arcade apple 移动平台"
-     data-type="platform">
+<a href="game/apple-arcade.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="apple arcade apple arcade apple 移动平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/apple-arcade/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">🍎 Apple Arcade</div>
     <div class="text-xs text-slate-500 mt-1">Apple · 移动平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="steam deck 掌机 steam deck / 掌机生态 valve + 第三方 综合平台"
-     data-type="platform">
+<a href="game/steam-deck-掌机生态.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="steam deck 掌机 steam deck / 掌机生态 valve + 第三方 综合平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/steam-deck/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">🕹️ Steam Deck 掌机</div>
     <div class="text-xs text-slate-500 mt-1">Valve + 第三方 · 综合平台</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="discord discord discord inc. 游戏社区"
-     data-type="platform">
+<a href="game/discord.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="discord discord discord inc. 游戏社区"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/discord/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">💬 Discord</div>
     <div class="text-xs text-slate-500 mt-1">Discord Inc. · 游戏社区</div>
   </div>
-</div>
+</a>
 
     
       
 
 
 
-<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
-     data-search="米哈游 hoyoverse 米哈游 hoyoverse mihoyo 综合平台"
-     data-type="platform">
+<a href="game/米哈游-hoyoverse.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="米哈游 hoyoverse 米哈游 hoyoverse mihoyo 综合平台"
+   data-type="platform">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/hoyoverse/home-1.webp"
-         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
     
   </div>
   <div class="p-3">
     <div class="font-semibold text-sm">⭐ 米哈游 HoYoverse</div>
     <div class="text-xs text-slate-500 mt-1">miHoYo · 综合平台</div>
   </div>
-</div>
+</a>
 
     
     
@@ -1222,15 +1268,11 @@ tailwind.config = {
 
 
 
-<div x-data="{open:false, src:'', imgs:[], idx:0}"
-     x-on:open-lightbox.window="open=true; src=$event.detail;
-       imgs=Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el){ return el.getAttribute('data-lightbox-src'); });
-       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;
-       document.body.style.overflow='hidden';"
-     x-on:keydown.escape.window="if(open){open=false; document.body.style.overflow='';}"
-     x-on:keydown.left.window="if(open && idx>0){idx--;src=imgs[idx]}"
-     x-on:keydown.right.window="if(open && idx<imgs.length-1){idx++;src=imgs[idx]}"
-     x-show="open" x-cloak
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
      x-transition:enter="transition ease-out duration-200"
      x-transition:enter-start="opacity-0"
      x-transition:enter-end="opacity-100"
@@ -1238,35 +1280,35 @@ tailwind.config = {
      x-transition:leave-start="opacity-100"
      x-transition:leave-end="opacity-0"
      class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
-     x-on:click="open=false; document.body.style.overflow='';">
+     x-on:click="$store.lightbox.close()">
 
   <!-- Top bar -->
   <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
-    <div x-show="imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
-         x-text="(idx+1) + ' / ' + imgs.length"></div>
-    <div x-show="imgs.length <= 1"></div>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
     <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
-            x-on:click="open=false; document.body.style.overflow='';">
+            x-on:click="$store.lightbox.close()">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
     </button>
   </div>
 
   <!-- Prev btn -->
-  <button x-show="idx > 0"
+  <button x-show="$store.lightbox.idx > 0"
           class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
-          x-on:click.stop="idx--;src=imgs[idx]">
+          x-on:click.stop="$store.lightbox.prev()">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
   </button>
 
   <!-- Next btn -->
-  <button x-show="idx < imgs.length - 1"
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
           class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
-          x-on:click.stop="idx++;src=imgs[idx]">
+          x-on:click.stop="$store.lightbox.next()">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
   </button>
 
   <!-- Image -->
-  <img :src="src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
 
   <!-- Bottom hint -->
   <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>

@@ -114,7 +114,7 @@
         {% set img_url = '../' ~ img if not img.startswith('http') else img %}
         <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-accent/40 transition-all duration-200"
              data-lightbox-src="{{ img_url }}"
-             x-on:click="$dispatch('open-lightbox','{{ img_url }}')">
+             x-on:click="$store.lightbox.show('{{ img_url }}')">
           <div class="relative pt-[56.25%]">
             <img src="{{ img_url }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
           </div>

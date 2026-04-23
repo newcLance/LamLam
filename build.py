@@ -4,7 +4,7 @@ Game Design Tracker - Static Site Generator
 Tech: Jinja2 + Tailwind CSS (CDN) + Alpine.js (CDN)
 Usage: python build.py
 """
-import json, shutil, os, sys
+import json, shutil, os, sys, re
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
@@ -34,6 +34,15 @@ def load_game_detail(slug):
     return load(p) if p.exists() else {}
 
 
+def slugify(text):
+    """Convert name to URL-safe slug."""
+    s = text.lower().strip()
+    s = re.sub(r'[^\w\s-]', '', s)      # remove non-word chars except -
+    s = re.sub(r'[\s_]+', '-', s)        # spaces/underscores → hyphens
+    s = re.sub(r'-+', '-', s).strip('-') # collapse multiple hyphens
+    return s or 'unnamed'
+
+
 def main():
     print("=== Building Game Design Tracker (v2) ===")
 
@@ -46,6 +55,11 @@ def main():
     products = load(DATA / "products.json")
     games = load(DATA / "games.json")
     screenshots = load(DATA / "screenshots.json")
+
+    # Add slug to products (platforms)
+    for p in products:
+        if not p.get("slug"):
+            p["slug"] = slugify(p["name"])
 
     # Enrich games with detail data
     games_by_id = {}
@@ -110,6 +124,34 @@ def main():
         html = detail_tpl.render(game=g, ss=ss, hero_bg=hero_bg, site_url=first_url, **ctx)
         (gdir / f"{slug}.html").write_text(html, "utf-8")
     print(f"  [OK] {len(games)} detail pages")
+
+    # 2b. Platform detail pages (reuse detail template)
+    pcount = 0
+    for p in products:
+        slug = p.get("slug", "")
+        if not slug:
+            continue
+        ss = screenshots.get(p["name"], [])
+        hero_bg = ""
+        for _m in ss:
+            for _s in _m.get("screens", []):
+                if _s.get("imgs"):
+                    hero_bg = _s["imgs"][0]
+                    break
+            if hero_bg:
+                break
+        first_url = ""
+        for _m in ss:
+            for _s in _m.get("screens", []):
+                if _s.get("url"):
+                    first_url = _s["url"]
+                    break
+            if first_url:
+                break
+        html = detail_tpl.render(game=p, ss=ss, hero_bg=hero_bg, site_url=first_url, **ctx)
+        (gdir / f"{slug}.html").write_text(html, "utf-8")
+        pcount += 1
+    print(f"  [OK] {pcount} platform detail pages")
 
     # 3. Compare page (client-side rendering)
     html = env.get_template("pages/compare.html").render(**ctx)
