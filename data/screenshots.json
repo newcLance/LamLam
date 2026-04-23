@@ -982,18 +982,47 @@
   ],
   "Sekiro: Shadows Die Twice": [
     {
-      "module": "官网首页",
+      "module": "官网",
       "screens": [
         {
-          "title": "只狼：影逝二度 - FromSoftware 官网",
+          "title": "只狼：影逝二度 - 官网首页",
           "url": "https://www.sekiro.jp/",
-          "date": "2026-04-22",
+          "date": "2026-04-23",
           "tag": "最新",
           "imgs": [
-            "screenshots/sekiro/home-1.webp",
-            "screenshots/sekiro/home-2.webp",
-            "screenshots/sekiro/home-3.webp",
-            "screenshots/sekiro/home-4.webp"
+            "screenshots/sekiro/home-1.webp"
+          ]
+        },
+        {
+          "title": "STORY & CHARACTERS",
+          "url": "https://www.sekiro.jp/story.html",
+          "date": "2026-04-23",
+          "imgs": [
+            "screenshots/sekiro/story-1.webp"
+          ]
+        },
+        {
+          "title": "SYSTEM",
+          "url": "https://www.sekiro.jp/system.html",
+          "date": "2026-04-23",
+          "imgs": [
+            "screenshots/sekiro/system-1.webp"
+          ]
+        },
+        {
+          "title": "CONCEPT",
+          "url": "https://www.sekiro.jp/concept.html",
+          "date": "2026-04-23",
+          "imgs": [
+            "screenshots/sekiro/concept-1.webp"
+          ]
+        },
+        {
+          "title": "MOVIE & IMAGES",
+          "url": "https://www.sekiro.jp/movieandimage.html",
+          "date": "2026-04-23",
+          "imgs": [
+            "screenshots/sekiro/media-1.webp"
           ]
         }
       ]
