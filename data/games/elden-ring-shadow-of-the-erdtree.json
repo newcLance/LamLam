@@ -1,0 +1,202 @@
+{
+  "id": 102,
+  "slug": "elden-ring-shadow-of-the-erdtree",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {
+          "text": "<b>黄金树幽影地图</b>的层叠结构令人叹为观止——地上、地下、空中三层空间相互穿插，密度远超本体",
+          "src": "IGN 10分",
+          "url": "https://www.ign.com/articles/elden-ring-shadow-of-the-erdtree-dlc-review"
+        },
+        {
+          "text": "<b>Messmer</b> 是 FromSoftware 史上最好的 Boss 设计之一——动作设计既优雅又致命",
+          "src": "GameSpot 10分",
+          "url": "https://www.gamespot.com/games/elden-ring/reviews/"
+        },
+        {
+          "text": "<b>Scadutree Fragment</b> 强化系统让 DLC 有了独立的成长曲线，不完全依赖本体等级",
+          "src": "Eurogamer 五星"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>Metacritic 94 分</b>——史上评分最高的游戏 DLC 之一",
+          "src": "Metacritic",
+          "url": "https://www.metacritic.com/game/elden-ring-shadow-of-the-erdtree/"
+        },
+        {
+          "text": "DLC 地图面积约等于<b>本体的 1/3</b>，但内容密度和 Boss 质量全面超越",
+          "src": "Digital Foundry"
+        },
+        {
+          "text": "<b>8 个全新武器类型</b>+ 大量新战技，Build 自由度再度提升",
+          "src": "Fextralife"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>难度争议</b>——DLC Boss 难度远超本体，部分被认为调得过高",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/elden-ring-shadow-of-the-erdtree-dlc-review"
+        },
+        {
+          "text": "Steam 用户评价一度<b>跌至「褒贬不一」</b>，主要因难度和 Scadutree 强化机制理解门槛高",
+          "src": "Steam 社区"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>最终 Boss Radahn</b> 第二阶段被广泛批评为「不公平设计」，部分玩家弃坑",
+          "src": "Reddit r/EldenRing"
+        },
+        {
+          "text": "必须在<b>本体通关较深</b>才能进入 DLC，劝退了不少回流玩家",
+          "src": "多平台综合"
+        }
+      ]
+    },
+    "community": {
+      "memory": [
+        {
+          "text": "「<b>这不是 DLC，这是一个新游戏</b>」成为社区共识——内容量级刷新了 DLC 标准",
+          "src": "Reddit / NGA"
+        },
+        {
+          "text": "<b>Miquella 的真面目</b>揭示引发社区深度考古——Lore 讨论热度堪比本体发售",
+          "src": "Reddit r/EldenRing"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>首周销量 500 万</b>——DLC 产品破历史记录",
+          "src": "Bandai Namco 官方"
+        },
+        {
+          "text": "社区<b>Build 实验</b>热度再度爆发——新武器+新战技组合引发大量配装分享",
+          "src": "B站 / YouTube"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>Steam 差评潮</b>——发售首周因难度争议引发大量负评轰炸",
+          "src": "Steam 评论区"
+        },
+        {
+          "text": "部分 Boss 的<b>延迟出手</b>和<b>连段设计</b>被认为破坏了传统魂系节奏",
+          "src": "NGA / 贴吧"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>DLC 门槛过高</b>——需先击败本体中后期 Boss 才能进入，阻碍了大量轻度玩家",
+          "src": "多平台综合"
+        },
+        {
+          "text": "通关后同样<b>缺乏多周目动力</b>——探索完成后缺少回来的理由",
+          "src": "Steam 评论"
+        }
+      ]
+    },
+    "biliVideos": [
+      {
+        "title": "【4K】艾尔登法环 黄金树幽影 全流程实况",
+        "bvid": "BV1Qu4m1A78w",
+        "views": "2500万"
+      },
+      {
+        "title": "黄金树幽影 全Boss战 无伤合集",
+        "bvid": "BV1fz421B7Kh",
+        "views": "1800万"
+      },
+      {
+        "title": "法环DLC深度评测：这值得满分吗？",
+        "bvid": "BV1wS411w7Qy",
+        "views": "950万"
+      },
+      {
+        "title": "黄金树幽影 隐藏Boss全收集攻略",
+        "bvid": "BV1Nm42187gS",
+        "views": "680万"
+      },
+      {
+        "title": "艾尔登法环DLC 最强配装推荐Top10",
+        "bvid": "BV1kS4y1K7pq",
+        "views": "520万"
+      }
+    ]
+  },
+  "aesthetic": {
+    "scene": {
+      "title": "黄金腐烂 x 幽暗神话 - 宫崎世界的极致暗美学",
+      "value": "DLC 地图「影之地」以<b>枯败的黄金树</b>为视觉中心，整体色调从本体的金色壮丽转向<b>暗金+灰紫+腐败绿</b>的衰颓美学；<b>Scadu Altus</b> 的荒原战场以灰蓝冷调+残垣断壁营造末日感，<b>古遗迹废墟</b>用大量体积雾和散射光强化神秘感；地下区域<b>Abyssal Woods</b> 是 FromSoftware 最恐怖的场景设计——密林+黑暗+不可战胜的追踪者"
+    },
+    "costume": {
+      "title": "腐金甲胄 x 异形神族 - FromSoft 造型设计巅峰",
+      "value": "核心 NPC <b>Messmer</b> 的设计堪称教科书——火焰蛇缠绕的骑士造型，红金配色极具辨识度；<b>Miquella</b> 以圣洁少年+诅咒永幼的反差设计叙事；DLC 新增的<b>角人族</b>（Hornsent）穿戴兽骨+铁锈质感的蛮族甲胄，与黄金一族的精致装束形成强烈阶级对比；Boss 设计上<b>狮子舞</b>（Dancing Lion）的双人合体生物造型是全系列最惊艳的创意之一"
+    },
+    "ui": {
+      "title": "继承本体极简 - 功能性 HUD + 地图雾解锁",
+      "value": "完全继承本体的<b>极简沉浸式 HUD</b>——底部 HP/FP/体力三条+Boss 血条；DLC 新增 Scadutree 强化进度显示在菜单内，不侵入战斗界面；<b>地图系统</b>延续雾层解锁机制，DLC 地图的三层结构需要分别探索揭示；整体 UI 设计理念不变：让视觉留给世界本身"
+    },
+    "symbol": {
+      "title": "黄金树的阴影 x 蛇与火焰 x 角与骨",
+      "value": "核心视觉符号：<b>枯败黄金树</b>（从壮丽到衰落的主题变迁）、<b>蛇与火焰</b>（Messmer 的家族符号，红色火蛇缠绕是DLC最具标识性的视觉元素）、<b>角与骨</b>（被压迫的角人族文明的视觉痕迹）；色彩母题从本体的<b>金色 vs 暗蓝</b>转变为<b>腐金 vs 灰紫 vs 火红</b>的三方对抗"
+    },
+    "promo": {
+      "title": "口碑驱动 + 争议营销 - 高标准 DLC 重新定义行业",
+      "value": "宣发策略围绕<b>「DLC 的极限在哪里」</b>展开——预告片以暗色调+新 Boss 剪影制造悬念，发售后<b>媒体满分潮</b>vs<b>玩家差评潮</b>的反差成为二次传播爆点；Key Art 以<b>Messmer 的火蛇形象</b>为核心，暗金色调延续品牌一致性；Bandai Namco 在争议期选择让口碑自然发酵而非公关干预，最终 Steam 评价回升至「好评」"
+    },
+    "rivals": [
+      {
+        "id": 101,
+        "reason": "同为高难 Boss 战+开放探索+碎片化叙事，直接在设计理念上互为参照"
+      },
+      {
+        "id": 153,
+        "reason": "FromSoftware 同门——弹反/架势系统的设计传承关系，Boss 战节奏对标"
+      },
+      {
+        "id": 152,
+        "reason": "同为高难动作 RPG+Build 多样性+日式暗黑美学，装备系统深度可对比"
+      },
+      {
+        "id": 156,
+        "reason": "同为魂系动作 RPG，DLC 难度争议与明末的难度定位有共鸣"
+      }
+    ]
+  },
+  "story": {
+    "title": "世界观与叙事",
+    "dims": [
+      {
+        "label": "时间",
+        "value": "<b>架空暗黑奇幻中世纪</b>——「交界地」时间线的平行影之地，黄金树投下的阴影覆盖的被遗忘历史"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>影之地 (Shadow Realm)</b>——被黄金树的阴影封印的古大陆，包含荒原、废墟、深渊密林和地下巨型遗迹"
+      },
+      {
+        "label": "角色扮演什么",
+        "value": "「<b>褪色者</b>」追随 Miquella 的足迹深入影之地——揭示黄金一族被掩盖的血腥历史"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>中世纪暗黑奇幻</b>——冷兵器+魔法+神力；影之地有更原始的部落文明与更古老的神灵遗迹"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>黄金一族 vs 角人族 vs Messmer 的军团</b>——种族清洗的加害者（黄金一族/精致甲胄）、被压迫者（角人族/兽骨蛮装）、叛离者（Messmer/火蛇赤红）三方视觉对立"
+      },
+      {
+        "label": "地图",
+        "value": "<b>开放世界三层叠加</b>：地表荒原（Scadu Altus 灰蓝战场）→ 中层废墟（教堂+要塞）→ 地下深渊（Abyssal Woods 暗黑密林）+ 空中遗迹；垂直空间设计是系列之最"
+      },
+      {
+        "label": "元素",
+        "value": "<b>哥特暗黑 × 北欧神话 × 宫崎英二叙事</b>；视觉标识为「腐金衰颓美学」——曾经辉煌的黄金文明在时间和谎言中崩塌；受中世纪圣像画、北欧维京文化、克苏鲁宇宙恐怖启发"
+      }
+    ]
+  }
+}

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使命召唤：现代战争3 (2023) - 游戏竞品分析</title>
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0a0a0f', 1:'#12121a', 2:'#1a1a25', 3:'#22222f' },
+        bdr: 'rgba(85,85,106,.25)',
+        accent: '#818cf8',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-slate-200 antialiased; }
+  a { color: inherit; text-decoration: none; }
+}
+@layer components {
+  /* Keyword highlight inside data text */
+  .data-text b { @apply text-slate-100 font-semibold bg-indigo-500/10 px-0.5 rounded; }
+  /* Source link */
+  a.src-link { @apply text-accent text-xs opacity-80 hover:opacity-100 hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/90 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-4 h-12 flex items-center gap-4">
+    <a href="../index.html" class="font-extrabold text-sm text-accent shrink-0">G 游戏竞品分析</a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+<a href="../index.html" class="px-3 py-1.5 rounded-md hover:bg-surface-2 text-slate-400 hover:text-slate-200 transition text-xs">← 返回列表</a>
+
+    </nav>
+  </div>
+</header>
+
+
+
+<div class="max-w-5xl mx-auto px-4 py-6">
+
+  
+  <div class="flex items-center gap-3 mb-4">
+    <span class="text-3xl">🎯</span>
+    <div>
+      <h1 class="text-2xl font-bold">使命召唤：现代战争3 (2023)</h1>
+      <div class="text-sm text-slate-500">Sledgehammer Games / Activision · FPS</div>
+    </div>
+  </div>
+
+  
+  <div class="flex gap-2 flex-wrap mb-4">
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">已发售</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">国际</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">买断制</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PC</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS5</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS4</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">Xbox</span>
+    
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">2023.11</span>
+    
+  </div>
+
+  <p class="text-sm text-slate-400 leading-relaxed mb-5">《使命召唤：现代战争3》重启版，赞誉参半但多人模式口碑稳定。</p>
+
+  <div class="flex gap-1.5 flex-wrap mb-8">
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">现代战争 FPS</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">COD 年货</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">多人对战</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">Warzone 整合</span>
+    
+  </div>
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
+    
+    
+    
+    <div class="text-xs text-slate-500 mb-2">COD MW3 2023 - 动视中文官网 · 2026-04-13</div>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/cod-mw3-2023/home-1.webp')">
+        <img src="../screenshots/cod-mw3-2023/home-1.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/cod-mw3-2023/home-2.webp')">
+        <img src="../screenshots/cod-mw3-2023/home-2.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/cod-mw3-2023/home-3.webp')">
+        <img src="../screenshots/cod-mw3-2023/home-3.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/cod-mw3-2023/home-4.webp')">
+        <img src="../screenshots/cod-mw3-2023/home-4.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/cod-mw3-2023/home-5.webp')">
+        <img src="../screenshots/cod-mw3-2023/home-5.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/cod-mw3-2023/home-6.webp')">
+        <img src="../screenshots/cod-mw3-2023/home-6.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/cod-mw3-2023/home-7.webp')">
+        <img src="../screenshots/cod-mw3-2023/home-7.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/cod-mw3-2023/home-8.webp')">
+        <img src="../screenshots/cod-mw3-2023/home-8.webp" loading="lazy" class="w-full block">
+      </div>
+      
+    </div>
+    
+    
+    
+  </div>
+  
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
+    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+      
+      <div class="relative">
+        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
+        <div class="text-xs text-accent font-semibold">2023-11</div>
+        <div class="text-sm text-slate-400">全球发售
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
+       x-data="{ tab: 'media' }">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
+    </div>
+    
+    <div class="flex border-b border-bdr px-6 pt-3">
+      
+      
+      
+      <button x-on:click="tab='media'"
+              :class="tab==='media' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">🎤 媒体试玩评测</button>
+      
+      <button x-on:click="tab='community'"
+              :class="tab==='community' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">💬 玩家社区讨论</button>
+      
+      <button x-on:click="tab='bili'"
+              :class="tab==='bili' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">📺 B站试玩视频</button>
+      
+    </div>
+
+    
+    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>多人模式回归<b>全部 16 张经典 MW2 (2009) 地图</b>重制——老玩家情怀拉满
+    
+      <span class="text-xs text-slate-600 ml-1">— IGN 评测</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>开放式战斗任务</b>取代传统线性关卡——战役可自由选择渗透路线
+    
+      <span class="text-xs text-slate-600 ml-1">— GameSpot</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>僵尸模式转型为<b>开放世界 PvE</b>——Urzikstan 大地图自由探索+任务
+    
+      <span class="text-xs text-slate-600 ml-1">— Eurogamer</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>经典地图回归</b>——Terminal、Highrise、Rust 等传说级地图的HD重制
+    
+      <span class="text-xs text-slate-600 ml-1">— COD 社区</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>多人模式<b>枪匠系统</b>进一步深化——改枪自由度为系列之最
+    
+      <span class="text-xs text-slate-600 ml-1">— Digital Foundry</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>与 MW2 共享引擎和<b>所有已购皮肤</b>——降低玩家迁移成本
+    
+      <span class="text-xs text-slate-600 ml-1">— 官方公告</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>战役长度仅 4 小时</b>——被广泛批评为 COD 史上最短且最敷衍的战役
+    
+      <span class="text-xs text-slate-600 ml-1">— IGN / GameSpot / Eurogamer</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>本质上被认为是<b>MW2 的大型 DLC</b>而非独立新作——69.99 美元定价引发争议
+    
+      <span class="text-xs text-slate-600 ml-1">— 全媒体共识</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>发售初期<b>Bug 和平衡性问题</b>严重——连杀奖励和武器数据崩坏
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit / Twitter</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>COD 年货中<b>评价最低</b>的一作——Metacritic 用户评分创系列新低
+    
+      <span class="text-xs text-slate-600 ml-1">— Metacritic</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>BO6 快速接棒</b>后 MW3 被迅速遗忘——生命周期不足一年
+    
+      <span class="text-xs text-slate-600 ml-1">— 行业分析</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>史上最贵 DLC</b>」成为MW3的永久社区标签
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit / Twitter / ResetEra</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>Sledgehammer 被社区戏称为<b>COD 的「补锅匠」工作室</b>
+    
+      <span class="text-xs text-slate-600 ml-1">— COD 社区</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>经典地图情怀</b>仍然有效——Terminal 和 Rust 的回归让老玩家短暂狂欢
+    
+      <span class="text-xs text-slate-600 ml-1">— YouTube / TikTok</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>开放世界<b>僵尸模式</b>初期获得社区好评——玩法创新方向受认可
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>社区对<b>COD 年货模式</b>的不满在 MW3 上集中爆发
+    
+      <span class="text-xs text-slate-600 ml-1">— 全平台</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>战役质量</b>差距让玩家质疑 Activision 是否还重视单人体验
+    
+      <span class="text-xs text-slate-600 ml-1">— ResetEra</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>玩家数快速流失</b>——发售两月后在线人数即低于 MW2 同期
+    
+      <span class="text-xs text-slate-600 ml-1">— 行业数据</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>大量玩家<b>退回 MW2 多人</b>或等待 BO6——MW3 成为过渡产品
+    
+      <span class="text-xs text-slate-600 ml-1">— COD 社区</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    
+    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
+      
+      <a href="https://www.bilibili.com/video/BV1placeholder13/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-red-500/15 text-red-400
+          ">1</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">COD MW3 全战役流程 4小时速通</span>
+        <span class="text-xs text-slate-500 shrink-0">280万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1placeholder14/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-amber-500/15 text-amber-400
+          ">2</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">MW3 vs MW2 多人模式对比 值得买吗</span>
+        <span class="text-xs text-slate-500 shrink-0">190万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
+    </div>
+    <div class="p-6">
+      
+<div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📖 世界观与叙事</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>紧接 MW2 结尾</b>——Makarov 恐怖袭击升级为全面战争</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>乌兹克斯坦 + 欧洲多国</b>——从中东战场扩展到欧洲城市</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text">「<b>Task Force 141 成员</b>」——继续追踪 Makarov 的全球恐怖网络</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>当代军事科技</b>——与 MW2 一致的真实武器装备体系</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>141 vs Makarov 恐怖网络</b>——系列宿敌的最终对决</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>开放式战斗任务</b>：战役引入半开放区域，允许自由选择渗透路线；多人模式 16 张 MW2 经典重制 + 新图</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>年货迭代 × 经典回归 × 开放僵尸</b>；美术标识沿用 MW2 的「现代军事写实」——引擎和视觉资产高度共享</div>
+  </div>
+  
+</div>
+
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-emerald-500/20 bg-gradient-to-br from-emerald-500/[.08] to-emerald-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-emerald-400">SCENE</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🏞 MW2 引擎延续 - 经典地图HD重制</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">整体沿用 MW2 的<b>IW 9.0 引擎</b>，场景品质与前作基本一致；核心卖点是<b>16 张 MW2(2009) 经典地图的 HD 重制</b>——Terminal 的机场候机厅、Highrise 的摩天楼工地、Rust 的沙漠油井，全部用现代光照重新渲染；战役场景新增<b>开放区域</b>——乌兹克斯坦的城市废墟和山区允许自由渗透；色调延续 MW2 的<b>军事冷灰蓝</b></div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-rose-500/20 bg-gradient-to-br from-rose-500/[.08] to-rose-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-rose-400">COSTUME</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">👘 MW2 资产延续 + 经典角色回归</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">角色模型大量<b>复用 MW2 资产</b>——141 特遣队外观基本不变；新增的<b>战斗通行证皮肤</b>开始出现更多夸张设计（联动皮肤/节日皮肤）；僵尸模式的<b>感染者设计</b>比传统 COD 僵尸更接近末日变异体；多人模式玩家视觉差异主要靠<b>皮肤商店</b>区分——从写实军装到全身发光套装都有</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-cyan-500/20 bg-gradient-to-br from-cyan-500/[.08] to-cyan-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-cyan-400">UI</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📱 MW2 界面微调版 - 仍有争议的导航</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">UI 框架延续 MW2 的<b>全屏 Tab 式导航</b>，但做了微调优化——模式切换更快、菜单层级略减；HUD 战斗中与 MW2 完全一致；新增的<b>战术地图</b>在开放式战役任务中标注可选目标和渗透路线；僵尸模式的 UI 引入<b>任务追踪和撤离倒计时</b>面板</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-violet-500/20 bg-gradient-to-br from-violet-500/[.08] to-violet-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-violet-400">SYMBOL</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🔣 Makarov x 经典地图 x COD年货标签</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">核心视觉符号：<b>Makarov</b>（系列经典反派回归，宣发核心人物）、<b>经典地图剪影</b>（Terminal机场/Rust油井/Highrise楼顶的怀旧符号）、<b>年货轮回</b>（MW3 被社区视为 COD 商业模式问题的缩影）；色彩母题与 MW2 一致为<b>军事冷灰+行动橙</b></div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-orange-500/20 bg-gradient-to-br from-orange-500/[.08] to-orange-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-orange-400">PROMO</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📣 经典地图回归 - 情怀营销为主</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">宣发核心打<b>经典回归情怀牌</b>——预告片以 MW2(2009) 经典地图的新旧对比为核心；Makarov 反派回归是叙事宣发焦点；<b>与 MW2 共享进度和皮肤</b>是降低玩家抵触的关键策略；Key Art 以 Makarov 面部特写为主；整体宣发力度弱于 MW2——被外界解读为 Activision 也知道这是过渡产品</div>
+</div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
+      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
+    </div>
+    <div class="p-6">
+      <div class="space-y-1">
+        
+        
+        
+        <a href="call-of-duty-modern-warfare-ii-2022.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🎯</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">使命召唤：现代战争2 (2022) <span class="text-xs text-slate-500 font-normal">Infinity Ward / Activision</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">直接前作——MW3 被社区视为 MW2 的大型 DLC</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="call-of-duty-black-ops-6.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">⚔️</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">使命召唤：黑色行动6 <span class="text-xs text-slate-500 font-normal">Treyarch / Activision</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">直接后继——BO6 是下一年的 COD 年货，MW3 生命周期因此缩短</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="counter-strike-2.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🔫</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">反恐精英2 <span class="text-xs text-slate-500 font-normal">Valve</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为全球竞技 FPS——CS2 在 MW3 低谷期吸收了大量射击玩家</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="delta-force.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🎮</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">三角洲行动 <span class="text-xs text-slate-500 font-normal">琳琅天上 / 腾讯</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">三角洲行动定位对标 COD 系列——MW3 的口碑危机给竞品创造了机会</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <button onclick="window.open('../compare.html?ids=144,140,146,141,147','_blank')"
+              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
+        ⚡ 一键对比这 5 款游戏
+      </button>
+    </div>
+  </div>
+  
+
+</div>
+
+
+
+<div x-data="{open:false, src:''}"
+     x-on:open-lightbox.window="open=true; src=$event.detail"
+     x-on:keydown.escape.window="open=false"
+     x-show="open" x-cloak
+     class="fixed inset-0 z-[999] bg-black/85 flex items-center justify-center cursor-zoom-out"
+     x-on:click="open=false">
+  <img :src="src" class="max-w-[95vw] max-h-[95vh] rounded-lg">
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center text-lg shadow-lg z-50 hover:bg-indigo-500 transition">
+  ↑
+</button>
+
+
+</body>
+</html>

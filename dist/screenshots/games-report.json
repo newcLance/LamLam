@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-04-22T02:39:41.266Z",
+  "total": 1,
+  "success": 1,
+  "failed": 0,
+  "results": [
+    {
+      "platform": "nioh3",
+      "success": true,
+      "file": "home.png",
+      "files": [
+        "home-1.png",
+        "home-2.png",
+        "home-3.png",
+        "home-4.png",
+        "home-5.png",
+        "home-6.png",
+        "home-7.png",
+        "home-8.png"
+      ],
+      "screens": 8,
+      "size": 14023,
+      "valid": true,
+      "blocked": false
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-04-13T12:45:06.861Z",
+  "total": 4,
+  "success": 1,
+  "failed": 0,
+  "results": [
+    {
+      "platform": "epic",
+      "success": true,
+      "file": "store-home.png",
+      "files": [
+        "store-home-1.png",
+        "store-home-2.png",
+        "store-home-3.png",
+        "store-home-4.png",
+        "store-home-5.png",
+        "store-home-6.png",
+        "store-home-7.png",
+        "store-home-8.png"
+      ],
+      "screens": 8,
+      "size": 8754,
+      "valid": true,
+      "blocked": false
+    },
+    {
+      "platform": "epic",
+      "success": true,
+      "file": "free-games.png",
+      "files": [
+        "free-games-1.png"
+      ],
+      "screens": 1,
+      "size": 29,
+      "valid": false,
+      "blocked": true
+    },
+    {
+      "platform": "epic",
+      "success": true,
+      "file": "browse.png",
+      "files": [
+        "browse-1.png"
+      ],
+      "screens": 1,
+      "size": 29,
+      "valid": false,
+      "blocked": true
+    },
+    {
+      "platform": "epic",
+      "success": true,
+      "file": "game-detail.png",
+      "files": [
+        "game-detail-1.png"
+      ],
+      "screens": 1,
+      "size": 28,
+      "valid": false,
+      "blocked": true
+    }
+  ]
+}

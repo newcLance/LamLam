@@ -1,0 +1,1184 @@
+[
+  {
+    "id": 101,
+    "name": "Black Myth: Wukong",
+    "nameCN": "黑神话：悟空",
+    "alias": "黑悟空,悟空,黑猴,wukong",
+    "icon": "🐒",
+    "company": "游戏科学 (Game Science)",
+    "category": "已发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5"
+    ],
+    "model": "买断制",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.8",
+    "releaseDate": "2024.8",
+    "desc": "西游题材单机动作 RPG，全球销量突破 2000 万份，中国游戏工业里程碑作品。",
+    "features": [
+      "单机动作RPG",
+      "西游题材",
+      "虚幻引擎5",
+      "3A 制作"
+    ],
+    "changes": [
+      {
+        "date": "2024-08",
+        "text": "全球发售，首周销量突破 1000 万"
+      },
+      {
+        "date": "2025-06",
+        "text": "DLC 扩展包确认开发中"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "black-myth-wukong"
+  },
+  {
+    "id": 102,
+    "name": "Elden Ring: Shadow of the Erdtree",
+    "nameCN": "艾尔登法环：黄金树幽影",
+    "alias": "法环DLC,法环,老头环,ER",
+    "icon": "🔥",
+    "company": "FromSoftware",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.6",
+    "releaseDate": "2024.6",
+    "desc": "《艾尔登法环》大型 DLC，为史上最高评游戏之一的拓展内容。",
+    "features": [
+      "魂系开放世界",
+      "DLC 扩展",
+      "宮崎英二监督",
+      "Bandai Namco 发行"
+    ],
+    "changes": [
+      {
+        "date": "2024-06",
+        "text": "全球发售，首周销量 500 万"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "elden-ring-shadow-of-the-erdtree"
+  },
+  {
+    "id": 103,
+    "name": "Astro Bot",
+    "nameCN": "宇宙机器人",
+    "alias": "太空机器人,Astro Bot",
+    "icon": "🤖",
+    "company": "Team Asobi",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PS5"
+    ],
+    "model": "买断制",
+    "genre": "Platformer",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.9",
+    "releaseDate": "2024.9",
+    "desc": "PS5 平台动作游戏，2024 TGA 年度游戏，被誉为新一代 3D 平台跳跃标杆。",
+    "features": [
+      "3D 平台跳跃",
+      "PS5 独占",
+      "TGA 年度游戏",
+      "轻松合家欢"
+    ],
+    "changes": [
+      {
+        "date": "2024-09",
+        "text": "发售，获 TGA 年度游戏大奖"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "astro-bot"
+  },
+  {
+    "id": 104,
+    "name": "Final Fantasy VII Rebirth",
+    "nameCN": "最终幻想7：重生",
+    "alias": "FF7R,最终幻想7",
+    "icon": "⚔️",
+    "company": "Square Enix",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PS5",
+      "PC"
+    ],
+    "model": "买断制",
+    "genre": "RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.2",
+    "releaseDate": "2024.2",
+    "desc": "FF7 重制三部曲第二部，开放世界探索 + 即时指令战斗。",
+    "features": [
+      "JRPG",
+      "开放世界",
+      "即时指令战斗",
+      "FF7 重制三部曲"
+    ],
+    "changes": [
+      {
+        "date": "2024-02",
+        "text": "PS5 先行发售"
+      },
+      {
+        "date": "2024-12",
+        "text": "PC 版发售"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "final-fantasy-vii-rebirth"
+  },
+  {
+    "id": 105,
+    "name": "Metaphor: ReFantazio",
+    "nameCN": "暗喻幻想",
+    "alias": "MRF,Metaphor",
+    "icon": "👑",
+    "company": "Atlus",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.10",
+    "releaseDate": "2024.10",
+    "desc": "Atlus 全新 IP，奇幻风格 RPG，来自《女神异闻录》系列核心团队。",
+    "features": [
+      "奇幻 RPG",
+      "Atlus 新 IP",
+      "回合制战斗",
+      "豪华界面"
+    ],
+    "changes": [
+      {
+        "date": "2024-10",
+        "text": "全球发售，广受好评"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "metaphor-refantazio"
+  },
+  {
+    "id": 108,
+    "name": "Clair Obscur: Expedition 33",
+    "nameCN": "光暗交响：远征33",
+    "alias": "CO33",
+    "icon": "🎨",
+    "company": "Sandfall Interactive",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025.4",
+    "releaseDate": "2025.4",
+    "desc": "法国独立工作室出品的回合制 RPG，融合实时操作机制。",
+    "features": [
+      "回合制 RPG",
+      "实时操作融合",
+      "法国独立开发",
+      "虎引擎5"
+    ],
+    "changes": [
+      {
+        "date": "2025-04",
+        "text": "全球发售，获极高评价"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "clair-obscur-expedition-33"
+  },
+  {
+    "id": 109,
+    "name": "Death Stranding 2: On the Beach",
+    "nameCN": "死亡搁浅2：在海滩上",
+    "alias": "DS2,死亡搁浅2",
+    "icon": "🌊",
+    "company": "Kojima Productions",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PS5",
+      "PC"
+    ],
+    "model": "买断制",
+    "genre": "Action",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025.6",
+    "releaseDate": "2025.6",
+    "desc": "小岛秀夫新作，“社交绞动作”第二弹。",
+    "features": [
+      "社交绞动作",
+      "小岛秀夫监督",
+      "开放世界",
+      "PS5 先行"
+    ],
+    "changes": [
+      {
+        "date": "2025-06",
+        "text": "PS5 全球发售"
+      },
+      {
+        "date": "2026-03",
+        "text": "PC 版发售"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "death-stranding-2-on-the-beach"
+  },
+  {
+    "id": 110,
+    "name": "Doom: The Dark Ages",
+    "nameCN": "毁灭战士：黑暗时代",
+    "alias": "DOOM新作,毁灭战士",
+    "icon": "💀",
+    "company": "id Software / Bethesda",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025.5",
+    "releaseDate": "2025.5",
+    "desc": "DOOM 系列前传，中世纪背景的 FPS 动作射击。",
+    "features": [
+      "FPS 射击",
+      "id Tech 引擎",
+      "中世纪背景",
+      "系列前传"
+    ],
+    "changes": [
+      {
+        "date": "2025-05",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "doom-the-dark-ages"
+  },
+  {
+    "id": 113,
+    "name": "Ghost of Yotei",
+    "nameCN": "羊蹄山之魂",
+    "alias": "对马岛续作,GOY",
+    "icon": "🗾",
+    "company": "Sucker Punch",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PS5"
+    ],
+    "model": "买断制",
+    "genre": "Action-Adventure",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025.10",
+    "releaseDate": "2025.10",
+    "desc": "《对马岛之魂》精神续作，背景设定在 17 世纪日本北海道。",
+    "features": [
+      "开放世界动作",
+      "PS5 独占",
+      "日本古代背景",
+      "Sucker Punch 制作"
+    ],
+    "changes": [
+      {
+        "date": "2025-10",
+        "text": "PS5 全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "ghost-of-yotei"
+  },
+  {
+    "id": 152,
+    "name": "Nioh 3",
+    "nameCN": "仁王3",
+    "alias": "仁王,Nioh",
+    "icon": "⚔️",
+    "company": "Team Ninja / Koei Tecmo",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5"
+    ],
+    "model": "买断制",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2026.2",
+    "releaseDate": "2026.2",
+    "desc": "Team Ninja 旗下战国黑暗动作 RPG 新作，延续高压战斗与 Build 深度。",
+    "features": [
+      "战国动作 RPG",
+      "高难战斗",
+      "多流派 Build",
+      "Team Ninja 制作"
+    ],
+    "changes": [
+      {
+        "date": "2026-02",
+        "text": "正式发售"
+      }
+    ],
+    "lastUpdate": "2026-04-22",
+    "slug": "nioh-3"
+  },
+  {
+    "id": 153,
+    "name": "Sekiro: Shadows Die Twice",
+    "nameCN": "只狼：影逝二度",
+    "alias": "只狼,Sekiro",
+    "icon": "🗡️",
+    "company": "FromSoftware",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS4",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "Action",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2019.3",
+    "releaseDate": "2019.3",
+    "desc": "FromSoftware 代表作，以弹反、架势与高压 BOSS 战为核心。",
+    "features": [
+      "弹反系统",
+      "高压 BOSS 战",
+      "日式暗黑美术",
+      "FromSoftware"
+    ],
+    "changes": [
+      {
+        "date": "2019-03",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-22",
+    "slug": "sekiro-shadows-die-twice"
+  },
+  {
+    "id": 154,
+    "name": "Devil May Cry 5",
+    "nameCN": "鬼泣5",
+    "alias": "DMC5,鬼泣",
+    "icon": "😈",
+    "company": "Capcom",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "Action",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2019.3",
+    "releaseDate": "2019.3",
+    "desc": "Capcom 招牌高速动作游戏，以角色切换与华丽连招见长。",
+    "features": [
+      "高速动作",
+      "华丽连招",
+      "角色切换",
+      "Capcom 制作"
+    ],
+    "changes": [
+      {
+        "date": "2019-03",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-22",
+    "slug": "devil-may-cry-5"
+  },
+  {
+    "id": 155,
+    "name": "Where Winds Meet",
+    "nameCN": "燕云十六声",
+    "alias": "燕云,Where Winds Meet",
+    "icon": "🏯",
+    "company": "Everstone / NetEase",
+    "category": "已运营",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5"
+    ],
+    "model": "免费+内购",
+    "genre": "Open World Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.12",
+    "releaseDate": "2024.12",
+    "desc": "开放世界武侠题材作品，强调国风写实、江湖探索与多人生态。",
+    "features": [
+      "开放世界武侠",
+      "国风写实",
+      "大地图探索",
+      "网易发行"
+    ],
+    "changes": [
+      {
+        "date": "2024-12",
+        "text": "正式公测"
+      }
+    ],
+    "lastUpdate": "2026-04-22",
+    "slug": "where-winds-meet"
+  },
+  {
+    "id": 156,
+    "name": "Wuchang: Fallen Feathers",
+    "nameCN": "明末：渊虚之羽",
+    "alias": "明末,Wuchang",
+    "icon": "🪶",
+    "company": "Leenzee / 505 Games",
+    "category": "已发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025",
+    "releaseDate": "2025",
+    "desc": "明末克苏鲁气质的魂系动作 RPG，强调东方恐怖氛围与冷兵器战斗。",
+    "features": [
+      "魂系动作 RPG",
+      "东方恐怖",
+      "明末题材",
+      "国产单机"
+    ],
+    "changes": [
+      {
+        "date": "2025",
+        "text": "正式发售"
+      }
+    ],
+    "lastUpdate": "2026-04-22",
+    "slug": "wuchang-fallen-feathers"
+  },
+  {
+    "id": 127,
+    "name": "Indiana Jones and the Great Circle",
+    "nameCN": "夺宝奇兵：大圈",
+    "alias": "夺宝奇兵,印第安纳琼斯",
+    "icon": "🧳",
+    "company": "MachineGames / Bethesda",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "Xbox",
+      "PS5"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.12",
+    "releaseDate": "2024.12",
+    "desc": "第一人称冒险动作游戏，设定在《夺宝奇兵》与《圣战奇兵》之间，融合解谜与动作射击。",
+    "features": [
+      "第一人称冒险",
+      "MachineGames 制作",
+      "id Tech 引擎",
+      "印第安纳·琼斯 IP"
+    ],
+    "changes": [
+      {
+        "date": "2024-12",
+        "text": "Xbox / PC 版发售"
+      },
+      {
+        "date": "2025-04",
+        "text": "PS5 版发售"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "indiana-jones-and-the-great-circle"
+  },
+  {
+    "id": 128,
+    "name": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+    "nameCN": "潜行者2：切尔诺贝利之心",
+    "alias": "潜行者2,STALKER2",
+    "icon": "☢️",
+    "company": "GSC Game World",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.11",
+    "releaseDate": "2024.11",
+    "desc": "切尔诺贝利禁区背景的开放世界 FPS 生存射击，融合 RPG 元素与恐怖氛围。",
+    "features": [
+      "开放世界 FPS",
+      "生存射击",
+      "虚幻引擎 5",
+      "A-Life 2.0 AI 系统"
+    ],
+    "changes": [
+      {
+        "date": "2024-11",
+        "text": "全球发售"
+      },
+      {
+        "date": "2025-03",
+        "text": "多次补丁更新优化性能"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "s-t-a-l-k-e-r-2-heart-of-chornobyl"
+  },
+  {
+    "id": 129,
+    "name": "Atomfall",
+    "nameCN": "原子陨落",
+    "alias": "Atomfall",
+    "icon": "☣️",
+    "company": "Rebellion",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025.3",
+    "releaseDate": "2025.3",
+    "desc": "英国核灾后背景的生存动作 FPS，融合探索、制造与射击玩法。",
+    "features": [
+      "生存动作 FPS",
+      "英国核灾后背景",
+      "Rebellion 制作",
+      "探索制造系统"
+    ],
+    "changes": [
+      {
+        "date": "2025-03",
+        "text": "全球发售，Game Pass 首日登录"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "atomfall"
+  },
+  {
+    "id": 131,
+    "name": "Dying Light: The Beast",
+    "nameCN": "消逝的光芒：野兽",
+    "alias": "消光野兽,DL",
+    "icon": "🧟",
+    "company": "Techland",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025.9",
+    "releaseDate": "2025.9",
+    "desc": "消逝的光芒系列独立资料片，以 Kyle Crane 为主角的开放世界生存 FPS。",
+    "features": [
+      "开放世界生存 FPS",
+      "跑酷动作",
+      "Techland 制作",
+      "独立资料片"
+    ],
+    "changes": [
+      {
+        "date": "2025-09",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "dying-light-the-beast"
+  },
+  {
+    "id": 132,
+    "name": "Metroid Prime 4: Beyond",
+    "nameCN": "银河战士Prime 4：超越",
+    "alias": "银河战士4,MP4",
+    "icon": "🚀",
+    "company": "Retro Studios / Nintendo",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "Switch",
+      "Switch 2"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025.12",
+    "releaseDate": "2025.12",
+    "desc": "银河战士系列第三人称探索射击经典续作，历经 7 年开发。",
+    "features": [
+      "探索射击",
+      "Retro Studios 制作",
+      "任天堂独占",
+      "7 年开发周期"
+    ],
+    "changes": [
+      {
+        "date": "2025-12",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "metroid-prime-4-beyond"
+  },
+  {
+    "id": 133,
+    "name": "High on Life 2",
+    "nameCN": "嗨皮人生2",
+    "alias": "HOL2",
+    "icon": "🤪",
+    "company": "Squanch Games",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2026.2",
+    "releaseDate": "2026.2",
+    "desc": "《嘿皮人生》续作，科幻喜剧 FPS，融合银河城战士的荒诞风格。",
+    "features": [
+      "科幻喜剧 FPS",
+      "Squanch Games 制作",
+      "荒诞叙事",
+      "Game Pass 首日"
+    ],
+    "changes": [
+      {
+        "date": "2026-02",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "high-on-life-2"
+  },
+  {
+    "id": 138,
+    "name": "The Outer Worlds 2",
+    "nameCN": "天外世界2",
+    "alias": "外部世界2,TOW2",
+    "icon": "🌌",
+    "company": "Obsidian / Xbox",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025.10",
+    "releaseDate": "2025.10",
+    "desc": "科幻角色扮演 FPS，黑曜石工作室制作，新星系与新船员的冒险。",
+    "features": [
+      "科幻 RPG FPS",
+      "Obsidian 制作",
+      "开放世界探索",
+      "Xbox 独占"
+    ],
+    "changes": [
+      {
+        "date": "2021-06",
+        "text": "E3 首次公布"
+      },
+      {
+        "date": "2025-10",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-10",
+    "slug": "the-outer-worlds-2"
+  },
+  {
+    "id": 140,
+    "name": "Call of Duty: Modern Warfare II (2022)",
+    "nameCN": "使命召唤：现代战争2 (2022)",
+    "alias": "COD MW2,CODMW2,使命召唤",
+    "icon": "🎯",
+    "company": "Infinity Ward / Activision",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2022.10",
+    "releaseDate": "2022.10",
+    "desc": "《使命召唤：现代战争2》重启版，全新引擎打造的现代战争题材 FPS，包含多人、战役和 DMZ 模式。",
+    "features": [
+      "现代战争 FPS",
+      "多人对战",
+      "Warzone 整合",
+      "DMZ 模式"
+    ],
+    "changes": [
+      {
+        "date": "2022-10",
+        "text": "全球发售，首周全球收入突破 8 亿美元"
+      }
+    ],
+    "lastUpdate": "2026-04-13",
+    "slug": "call-of-duty-modern-warfare-ii-2022"
+  },
+  {
+    "id": 141,
+    "name": "Counter-Strike 2",
+    "nameCN": "反恐精英2",
+    "alias": "CS2,CSGO",
+    "icon": "🔫",
+    "company": "Valve",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC"
+    ],
+    "model": "免费",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2023.9",
+    "releaseDate": "2023.9",
+    "desc": "CS:GO 的全面升级版，基于 Source 2 引擎重建，F2P 竞技 FPS 标杆。",
+    "features": [
+      "竞技 FPS",
+      "Source 2 引擎",
+      "F2P",
+      "CS 系列升级"
+    ],
+    "changes": [
+      {
+        "date": "2023-09",
+        "text": "正式取代 CS:GO 上线"
+      }
+    ],
+    "lastUpdate": "2026-04-13",
+    "slug": "counter-strike-2"
+  },
+  {
+    "id": 142,
+    "name": "Atomic Heart",
+    "nameCN": "原子之心",
+    "alias": "AH,原子之心1",
+    "icon": "⚙️",
+    "company": "Mundfish",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2023.2",
+    "releaseDate": "2023.2",
+    "desc": "复古未来主义背景的开放世界 FPS RPG，融合近战、射击与超能力战斗。",
+    "features": [
+      "复古未来 FPS RPG",
+      "开放世界",
+      "Mundfish 制作",
+      "近战与射击融合"
+    ],
+    "changes": [
+      {
+        "date": "2023-02",
+        "text": "全球发售"
+      },
+      {
+        "date": "2023-08",
+        "text": "DLC 《Annotated Body》 发布"
+      }
+    ],
+    "lastUpdate": "2026-04-13",
+    "slug": "atomic-heart"
+  },
+  {
+    "id": 143,
+    "name": "Avatar: Frontiers of Pandora",
+    "nameCN": "阿凡达：潘多拉边境",
+    "alias": "阿凡达",
+    "icon": "🌿",
+    "company": "Massive Entertainment / Ubisoft",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2023.12",
+    "releaseDate": "2023.12",
+    "desc": "阿凡达 IP 开放世界第一人称射击，探索潘多拉星的未知前线。",
+    "features": [
+      "开放世界 FPS",
+      "阿凡达 IP",
+      "Snowdrop 引擎",
+      "Ubisoft 发行"
+    ],
+    "changes": [
+      {
+        "date": "2023-12",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-13",
+    "slug": "avatar-frontiers-of-pandora"
+  },
+  {
+    "id": 144,
+    "name": "Call of Duty: Modern Warfare III (2023)",
+    "nameCN": "使命召唤：现代战争3 (2023)",
+    "alias": "COD MW3,CODMW3",
+    "icon": "🎯",
+    "company": "Sledgehammer Games / Activision",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2023.11",
+    "releaseDate": "2023.11",
+    "desc": "《使命召唤：现代战争3》重启版，赞誉参半但多人模式口碑稳定。",
+    "features": [
+      "现代战争 FPS",
+      "COD 年货",
+      "多人对战",
+      "Warzone 整合"
+    ],
+    "changes": [
+      {
+        "date": "2023-11",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-13",
+    "slug": "call-of-duty-modern-warfare-iii-2023"
+  },
+  {
+    "id": 145,
+    "name": "Helldivers 2",
+    "nameCN": "绝地潜兵2",
+    "alias": "HD2,地狱潜兵2",
+    "icon": "🪖",
+    "company": "Arrowhead Game Studios / SIE",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5"
+    ],
+    "model": "买断制",
+    "genre": "TPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.2",
+    "releaseDate": "2024.2",
+    "desc": "合作第三人称射击的现象级作品，融合强烈的美式军事风格与 PvE 策略射击。",
+    "features": [
+      "合作 TPS",
+      "美式军事风格",
+      "PvE 射击",
+      "现象级销量"
+    ],
+    "changes": [
+      {
+        "date": "2024-02",
+        "text": "全球发售，首月同时在线突破 45 万"
+      }
+    ],
+    "lastUpdate": "2026-04-13",
+    "slug": "helldivers-2"
+  },
+  {
+    "id": 146,
+    "name": "Call of Duty: Black Ops 6",
+    "nameCN": "使命召唤：黑色行动6",
+    "alias": "COD BO6,CODBO6",
+    "icon": "⚔️",
+    "company": "Treyarch / Activision",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.10",
+    "releaseDate": "2024.10",
+    "desc": "COD 黑色行动系列第 6 作，冷战背景叙事 + 全新多人射击体验。",
+    "features": [
+      "冷战 FPS",
+      "COD 黑色行动",
+      "Treyarch 制作",
+      "僵尸模式"
+    ],
+    "changes": [
+      {
+        "date": "2024-10",
+        "text": "全球发售，Game Pass 首日登录"
+      }
+    ],
+    "lastUpdate": "2026-04-13",
+    "slug": "call-of-duty-black-ops-6"
+  },
+  {
+    "id": 147,
+    "name": "Delta Force (三角洲行动)",
+    "nameCN": "三角洲行动",
+    "alias": "DF,三角洲",
+    "icon": "🎮",
+    "company": "琳琅天上 / 腾讯",
+    "category": "已发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox"
+    ],
+    "model": "免费",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.12",
+    "releaseDate": "2024.12",
+    "desc": "国产 F2P 战术射击游戏，融合大规模战场、战役模式与小队战术竞技。",
+    "features": [
+      "战术射击",
+      "F2P",
+      "国产 3A",
+      "大规模战场"
+    ],
+    "changes": [
+      {
+        "date": "2024-12",
+        "text": "全球抢先体验服上线"
+      }
+    ],
+    "lastUpdate": "2026-04-13",
+    "slug": "delta-force"
+  },
+  {
+    "id": 150,
+    "name": "Killing Floor 3",
+    "nameCN": "杀戮空间3",
+    "alias": "KF3",
+    "icon": "🧟",
+    "company": "Tripwire Interactive",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "FPS",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025",
+    "releaseDate": "2025",
+    "desc": "合作射击经典续作，在末日场景中对抗大波变异敌人。",
+    "features": [
+      "合作 FPS",
+      "PvE 生存射击",
+      "Tripwire 制作",
+      "经典续作"
+    ],
+    "changes": [
+      {
+        "date": "2025",
+        "text": "全球发售"
+      }
+    ],
+    "lastUpdate": "2026-04-13",
+    "slug": "killing-floor-3"
+  },
+  {
+    "id": 117,
+    "name": "Phantom Blade Zero",
+    "nameCN": "影之刃零",
+    "alias": "影刃零,PBZ",
+    "icon": "🗡️",
+    "company": "S-GAME",
+    "category": "即将发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5"
+    ],
+    "model": "买断制",
+    "genre": "Action",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2026",
+    "releaseDate": "2026.9.9",
+    "desc": "黑暗武侠题材动作游戏，灵游坊自主研发，虎幻引擎 5。",
+    "features": [
+      "武侠动作",
+      "UE5 引擎",
+      "国产 3A",
+      "灵游坊制作"
+    ],
+    "changes": [
+      {
+        "date": "2024-05",
+        "text": "首次公开实机演示",
+        "url": "https://www.bilibili.com/video/BV14x4y1b77U/"
+      },
+      {
+        "date": "2024-09",
+        "text": "TGS 2024 首次公开试玩",
+        "url": "https://www.gamersky.com/news/202409/1823200.shtml"
+      },
+      {
+        "date": "2025-07",
+        "text": "S-PARTY 北京首钢园 2000 人公测",
+        "url": "https://www.gcores.com/articles/200780"
+      },
+      {
+        "date": "2025-12",
+        "text": "TGA 定档 2026.9.9 发售",
+        "url": "https://www.bilibili.com/video/BV1FNmgB2EA1/"
+      }
+    ],
+    "lastUpdate": "2026-04-22",
+    "slug": "phantom-blade-zero"
+  }
+]

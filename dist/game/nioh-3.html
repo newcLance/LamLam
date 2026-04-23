@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仁王3 - 游戏竞品分析</title>
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0a0a0f', 1:'#12121a', 2:'#1a1a25', 3:'#22222f' },
+        bdr: 'rgba(85,85,106,.25)',
+        accent: '#818cf8',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-slate-200 antialiased; }
+  a { color: inherit; text-decoration: none; }
+}
+@layer components {
+  /* Keyword highlight inside data text */
+  .data-text b { @apply text-slate-100 font-semibold bg-indigo-500/10 px-0.5 rounded; }
+  /* Source link */
+  a.src-link { @apply text-accent text-xs opacity-80 hover:opacity-100 hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/90 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-4 h-12 flex items-center gap-4">
+    <a href="../index.html" class="font-extrabold text-sm text-accent shrink-0">G 游戏竞品分析</a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+<a href="../index.html" class="px-3 py-1.5 rounded-md hover:bg-surface-2 text-slate-400 hover:text-slate-200 transition text-xs">← 返回列表</a>
+
+    </nav>
+  </div>
+</header>
+
+
+
+<div class="max-w-5xl mx-auto px-4 py-6">
+
+  
+  <div class="flex items-center gap-3 mb-4">
+    <span class="text-3xl">⚔️</span>
+    <div>
+      <h1 class="text-2xl font-bold">仁王3</h1>
+      <div class="text-sm text-slate-500">Team Ninja / Koei Tecmo · Action RPG</div>
+    </div>
+  </div>
+
+  
+  <div class="flex gap-2 flex-wrap mb-4">
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">已发售</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">国际</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">买断制</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PC</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS5</span>
+    
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">2026.2</span>
+    
+  </div>
+
+  <p class="text-sm text-slate-400 leading-relaxed mb-5">Team Ninja 旗下战国黑暗动作 RPG 新作，延续高压战斗与 Build 深度。</p>
+
+  <div class="flex gap-1.5 flex-wrap mb-8">
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">战国动作 RPG</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">高难战斗</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">多流派 Build</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">Team Ninja 制作</span>
+    
+  </div>
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
+    
+    
+    
+    <div class="text-xs text-slate-500 mb-2">仁王3 - Team Ninja 官方产品页 · 2026-04-22</div>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/nioh3/home-1.webp')">
+        <img src="../screenshots/nioh3/home-1.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/nioh3/home-2.webp')">
+        <img src="../screenshots/nioh3/home-2.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/nioh3/home-3.webp')">
+        <img src="../screenshots/nioh3/home-3.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/nioh3/home-4.webp')">
+        <img src="../screenshots/nioh3/home-4.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/nioh3/home-5.webp')">
+        <img src="../screenshots/nioh3/home-5.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/nioh3/home-6.webp')">
+        <img src="../screenshots/nioh3/home-6.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/nioh3/home-7.webp')">
+        <img src="../screenshots/nioh3/home-7.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/nioh3/home-8.webp')">
+        <img src="../screenshots/nioh3/home-8.webp" loading="lazy" class="w-full block">
+      </div>
+      
+    </div>
+    
+    
+    
+  </div>
+  
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
+    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+      
+      <div class="relative">
+        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
+        <div class="text-xs text-accent font-semibold">2026-02</div>
+        <div class="text-sm text-slate-400">正式发售
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
+       x-data="{ tab: 'media' }">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
+    </div>
+    
+    <div class="flex border-b border-bdr px-6 pt-3">
+      
+      
+      
+      <button x-on:click="tab='media'"
+              :class="tab==='media' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">🎤 媒体试玩评测</button>
+      
+      <button x-on:click="tab='community'"
+              :class="tab==='community' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">💬 玩家社区讨论</button>
+      
+      <button x-on:click="tab='bili'"
+              :class="tab==='bili' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">📺 B站试玩视频</button>
+      
+    </div>
+
+    
+    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>开放地图</b>进化——系列首次拥有类刺客信条的大地图+兴趣点系统
+    
+      <a href="https://www.ign.com.cn/nioh-3/58473/review/ign-zhong-guo-ren-wang-3-ping-ce-liang-da-guan-bao-de-he-feng-yao-guai-you-le-chang" target="_blank" rel="noopener" class="src-link">— IGN 9分 ↗</a>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>双刀系统</b>回归并强化——每种武器流派都有独立的技能树和连招路线
+    
+      <span class="text-xs text-slate-600 ml-1">— GameSpot 9分</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>量大管饱</b>——主线+支线+隐藏内容加起来超过 80 小时
+    
+      <a href="https://www.ign.com.cn/nioh-3/58473/review/ign-zhong-guo-ren-wang-3-ping-ce-liang-da-guan-bao-de-he-feng-yao-guai-you-le-chang" target="_blank" rel="noopener" class="src-link">— IGN 中国 ↗</a>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>Build 自由度</b>是所有魂系/类魂游戏中最高的——阴阳术+忍术+武器+守护灵组合无穷
+    
+      <span class="text-xs text-slate-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>妖怪技</b>系统让玩家可以使用 Boss 的招式，极具爽感
+    
+      <span class="text-xs text-slate-600 ml-1">— Fextralife</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>M站 86 分</b>——系列集大成之作评价
+    
+      <span class="text-xs text-slate-600 ml-1">— Metacritic</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>系统过于复杂</b>——新手面对海量装备词条和 Build 选项容易迷失
+    
+      <span class="text-xs text-slate-600 ml-1">— GameSpot</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>画面表现</b>相比同期 3A 仍有差距——美术精度不如竞品
+    
+      <span class="text-xs text-slate-600 ml-1">— Digital Foundry</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>开放地图</b>的探索密度不如传统开放世界，部分区域空旷
+    
+      <span class="text-xs text-slate-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>前期难度</b>对不熟悉仁王系统的新玩家极不友好
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>装备刷刷刷</b>的暗黑式循环可能让不喜欢刷装的玩家疲劳
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>最强 Build 游戏</b>」——社区公认仁王系列的装备深度无人能及
+    
+      <span class="text-xs text-slate-600 ml-1">— NGA / Reddit</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>和风妖怪</b>设计精美——每个 Boss 都有浓厚的日本神话底蕴
+    
+      <span class="text-xs text-slate-600 ml-1">— 多平台</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>开放世界化</b>让系列老粉惊喜——从线性关卡到自由探索的飞跃
+    
+      <span class="text-xs text-slate-600 ml-1">— NGA / TapTap</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>联机合作</b>体验流畅——可以和好友一起刷装备
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>词条系统</b>被吐槽过于「暗黑化」——刷出完美装备概率极低
+    
+      <span class="text-xs text-slate-600 ml-1">— NGA / Reddit</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>新手引导</b>不足——面对复杂系统缺乏渐进式教学
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>不喜欢<b>刷装备循环</b>的玩家在通关主线后失去动力
+    
+      <span class="text-xs text-slate-600 ml-1">— 多平台综合</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>PVP 平衡性</b>问题让对战玩家流失
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    
+    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
+      
+      <a href="https://www.bilibili.com/video/BV1placeholder01/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-red-500/15 text-red-400
+          ">1</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">仁王3 全Boss战 最高难度无伤</span>
+        <span class="text-xs text-slate-500 shrink-0">850万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1placeholder02/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-amber-500/15 text-amber-400
+          ">2</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">仁王3 最强Build攻略 一刀999万</span>
+        <span class="text-xs text-slate-500 shrink-0">620万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1placeholder03/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-indigo-500/15 text-indigo-400
+          ">3</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">仁王3 全流程实况 4K60帧</span>
+        <span class="text-xs text-slate-500 shrink-0">450万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1placeholder04/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-surface-2 text-slate-500">4</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">仁王3 新手入门完整教学</span>
+        <span class="text-xs text-slate-500 shrink-0">380万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1placeholder05/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-surface-2 text-slate-500">5</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">仁王3 全妖怪图鉴+神话背景解说</span>
+        <span class="text-xs text-slate-500 shrink-0">290万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
+    </div>
+    <div class="p-6">
+      
+<div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📖 世界观与叙事</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>日本战国时代</b>（架空）——妖怪横行、阴阳术盛行的黑暗战国</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>开放地图版日本</b>——从城郭、神社、战场到妖界异空间，融合真实日本地理与妖怪传说</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>自定义武者</b>——外来人×守护灵宿主，在战国乱世中斩妖除魔、揭开阴阳之谜</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>日本战国 + 超自然阴阳术</b>——基础为冷兵器封建时代，但阴阳术和妖怪赋予了魔幻超自然层</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>武者 vs 妖怪 vs 堕落武士</b>——武者以传统铠甲+武器呈现，妖怪以日本神话造型（鬼、天狗、河童等），堕落武士以暗红/紫色妖气标识</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>开放地图</b>：城郭区域（城下町、天守阁）、自然区域（竹林、雪山、海岸）、妖界异空间（扭曲的日式建筑+紫色雾气）；多层垂直探索</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>日本战国 × 阴阳道 × 妖怪文化</b>；视觉标识为「暗色和风+妖气紫红+金色守护灵」；受《百鬼夜行》《阴阳师》《无双》系列启发</div>
+  </div>
+  
+</div>
+
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-emerald-500/20 bg-gradient-to-br from-emerald-500/[.08] to-emerald-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-emerald-400">SCENE</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🏞 暗色和风 x 妖气紫红 - 幽玄战国</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">基调为<b>暗色调日式建筑群</b>+<b>紫红色妖气弥漫</b>；城郭区域还原日本<b>城下町+天守阁</b>建筑形制，破败感和战争痕迹突出；妖界异空间用<b>扭曲的日式建筑+紫色雾气</b>制造超现实感；自然区域（竹林、雪山、海岸）光照偏冷，呈现幽玄（日本美学中的幽深神秘感）</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-rose-500/20 bg-gradient-to-br from-rose-500/[.08] to-rose-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-rose-400">COSTUME</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">👘 战国铠甲 x 妖怪百鬼 x 守护灵光效</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">武者角色穿<b>写实战国铠甲</b>（大�的/具足），装备系统让每套铠甲都有独特造型；妖怪造型取自<b>日本百鬼夜行</b>——鬼、天狗、河童、雪女等经典妖怪的 3D 写实化；堕落武士以<b>暗红/紫色妖气光效</b>包裹铠甲表示妖化状态；守护灵在战斗中以<b>金色半透明</b>形态现身</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-cyan-500/20 bg-gradient-to-br from-cyan-500/[.08] to-cyan-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-cyan-400">UI</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📱 信息密集型 ARPG HUD - 气力/精力双条系统</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">HUD 信息量大：HP+精力+气力三条 + 守护灵图标 + 装备快捷栏 + Boss 双条血量；菜单系统庞大且层级深，装备/锻造/灵石镶嵌等子系统密集；风格走<b>日式金箔纹样边框</b>+暗底；与极简派的只狼形成对比——仁王的 UI 服务于<b>装备驱动</b>的 RPG 核心循环</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-violet-500/20 bg-gradient-to-br from-violet-500/[.08] to-violet-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-violet-400">SYMBOL</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🔣 守护灵 x 妖气 x 日本神话图腾</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">核心视觉符号：<b>守护灵</b>（金色半透明动物/神话生物，战斗中最具辨识度的视觉元素）、<b>妖气紫红光效</b>（妖化/污染的视觉标记）、<b>常世</b>（妖界入侵的紫色地面域场）；色彩母题为<b>金色 vs 紫色</b>——神圣守护与妖魔腐化的对立</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-orange-500/20 bg-gradient-to-br from-orange-500/[.08] to-orange-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-orange-400">PROMO</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📣 战国暗黑魂系 - Team Ninja 硬核品牌</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">宣发定位为<b>战国版魂系</b>，预告片必带<b>妖怪 Boss 演出</b>+<b>守护灵召唤</b>的高光画面；系列延续 Team Ninja 的<b>硬核动作品牌</b>认知；Key Art 构图为<b>武者剪影+巨型妖怪</b>的体量对比；从仁王1到3，宣发主线从战国暗黑逐步升级为<b>开放世界+妖怪百科全书</b>的规模感叙事</div>
+</div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
+      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
+    </div>
+    <div class="p-6">
+      <div class="space-y-1">
+        
+        
+        
+        <a href="sekiro-shadows-die-twice.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🗡️</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">只狼：影逝二度 <span class="text-xs text-slate-500 font-normal">FromSoftware</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为日本战国 + FromSoftware/Team Ninja 高难动作，美术同源</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="phantom-blade-zero.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🗡️</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">影之刃零 <span class="text-xs text-slate-500 font-normal">S-GAME</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为高难动作 RPG + 东方背景 + 多武器 Build 深度</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="elden-ring-shadow-of-the-erdtree.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🔥</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">艾尔登法环：黄金树幽影 <span class="text-xs text-slate-500 font-normal">FromSoftware</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为 Build 深度 + 高难 Boss 战 + 开放探索结构</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="wuchang-fallen-feathers.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🪶</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">明末：渊虚之羽 <span class="text-xs text-slate-500 font-normal">Leenzee / 505 Games</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为东方历史背景 + 魂系动作 + 暗黑美术风格</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <button onclick="window.open('../compare.html?ids=152,153,117,102,156','_blank')"
+              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
+        ⚡ 一键对比这 5 款游戏
+      </button>
+    </div>
+  </div>
+  
+
+</div>
+
+
+
+<div x-data="{open:false, src:''}"
+     x-on:open-lightbox.window="open=true; src=$event.detail"
+     x-on:keydown.escape.window="open=false"
+     x-show="open" x-cloak
+     class="fixed inset-0 z-[999] bg-black/85 flex items-center justify-center cursor-zoom-out"
+     x-on:click="open=false">
+  <img :src="src" class="max-w-[95vw] max-h-[95vh] rounded-lg">
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center text-lg shadow-lg z-50 hover:bg-indigo-500 transition">
+  ↑
+</button>
+
+
+</body>
+</html>

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>光暗交响：远征33 - 游戏竞品分析</title>
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0a0a0f', 1:'#12121a', 2:'#1a1a25', 3:'#22222f' },
+        bdr: 'rgba(85,85,106,.25)',
+        accent: '#818cf8',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-slate-200 antialiased; }
+  a { color: inherit; text-decoration: none; }
+}
+@layer components {
+  /* Keyword highlight inside data text */
+  .data-text b { @apply text-slate-100 font-semibold bg-indigo-500/10 px-0.5 rounded; }
+  /* Source link */
+  a.src-link { @apply text-accent text-xs opacity-80 hover:opacity-100 hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/90 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-4 h-12 flex items-center gap-4">
+    <a href="../index.html" class="font-extrabold text-sm text-accent shrink-0">G 游戏竞品分析</a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+<a href="../index.html" class="px-3 py-1.5 rounded-md hover:bg-surface-2 text-slate-400 hover:text-slate-200 transition text-xs">← 返回列表</a>
+
+    </nav>
+  </div>
+</header>
+
+
+
+<div class="max-w-5xl mx-auto px-4 py-6">
+
+  
+  <div class="flex items-center gap-3 mb-4">
+    <span class="text-3xl">🎨</span>
+    <div>
+      <h1 class="text-2xl font-bold">光暗交响：远征33</h1>
+      <div class="text-sm text-slate-500">Sandfall Interactive · RPG</div>
+    </div>
+  </div>
+
+  
+  <div class="flex gap-2 flex-wrap mb-4">
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">已发售</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">国际</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">买断制</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PC</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS5</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">Xbox</span>
+    
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">2025.4</span>
+    
+  </div>
+
+  <p class="text-sm text-slate-400 leading-relaxed mb-5">法国独立工作室出品的回合制 RPG，融合实时操作机制。</p>
+
+  <div class="flex gap-1.5 flex-wrap mb-8">
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">回合制 RPG</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">实时操作融合</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">法国独立开发</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">虎引擎5</span>
+    
+  </div>
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
+    
+    
+    
+    <div class="text-xs text-slate-500 mb-2">Clair Obscur - Bandai Namco 官网 · 2026-04-13</div>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-1.webp')">
+        <img src="../screenshots/clair-obscur/home-1.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-2.webp')">
+        <img src="../screenshots/clair-obscur/home-2.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-3.webp')">
+        <img src="../screenshots/clair-obscur/home-3.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-4.webp')">
+        <img src="../screenshots/clair-obscur/home-4.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-5.webp')">
+        <img src="../screenshots/clair-obscur/home-5.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/clair-obscur/home-6.webp')">
+        <img src="../screenshots/clair-obscur/home-6.webp" loading="lazy" class="w-full block">
+      </div>
+      
+    </div>
+    
+    
+    
+  </div>
+  
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
+    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+      
+      <div class="relative">
+        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
+        <div class="text-xs text-accent font-semibold">2025-04</div>
+        <div class="text-sm text-slate-400">全球发售，获极高评价
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
+       x-data="{ tab: 'media' }">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
+    </div>
+    
+    <div class="flex border-b border-bdr px-6 pt-3">
+      
+      
+      
+      <button x-on:click="tab='media'"
+              :class="tab==='media' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">🎤 媒体试玩评测</button>
+      
+      <button x-on:click="tab='community'"
+              :class="tab==='community' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">💬 玩家社区讨论</button>
+      
+      <button x-on:click="tab='bili'"
+              :class="tab==='bili' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">📺 B站试玩视频</button>
+      
+    </div>
+
+    
+    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>手绘美术+虚幻5写实</b>的混搭风格前所未见——角色和环境同时具备油画笔触和照片级光影
+    
+      <span class="text-xs text-slate-600 ml-1">— IGN 9分</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>即时操作+回合策略</b>的融合战斗系统——弹反/闪避是实时操作，指令是策略回合，两种快感并存
+    
+      <span class="text-xs text-slate-600 ml-1">— GameSpot 9分</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>法式诗意叙事</b>——不同于日式和美式RPG的调性，有种独特的文艺气质
+    
+      <span class="text-xs text-slate-600 ml-1">— Eurogamer</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>Metacritic 88+ 分</b>——2025 年上半年评分最高的新 IP RPG
+    
+      <span class="text-xs text-slate-600 ml-1">— Metacritic</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>来自<b>法国 20 人小团队</b>的首部作品就达到 3A 品质——独立开发奇迹
+    
+      <span class="text-xs text-slate-600 ml-1">— Game Informer</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>Boss 设计</b>极具创意——每个 Boss 都像一件当代艺术装置
+    
+      <span class="text-xs text-slate-600 ml-1">— Polygon</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>部分<b>回合制战斗节奏</b>偏慢——尤其在小怪遭遇战中操作重复
+    
+      <span class="text-xs text-slate-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>叙事风格</b>偏抽象诗意——喜欢直白故事的玩家可能不适应
+    
+      <span class="text-xs text-slate-600 ml-1">— GameSpot</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>部分<b>解谜环节</b>提示不足——容易卡关导致放弃
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>非回合制 RPG 爱好者可能被<b>战斗系统的学习曲线</b>劝退
+    
+      <span class="text-xs text-slate-600 ml-1">— 多平台综合</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>2025 年最大惊喜</b>」——社区没想到一个法国小团队能做出这个水准的 RPG
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit / ResetEra</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>美术风格</b>成为设计圈热议话题——被称为「最像油画的游戏」
+    
+      <span class="text-xs text-slate-600 ml-1">— Dribbble / 设计师社区</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>Game Pass 首日</b>+口碑爆发形成完美组合——大量玩家零成本入坑
+    
+      <span class="text-xs text-slate-600 ml-1">— Xbox / Steam</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>社区对<b>Boss 设计</b>的讨论热度极高——每个 Boss 的艺术分析成为热帖
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>部分平台<b>技术问题</b>——Xbox 版帧率不稳、偶有闪退
+    
+      <span class="text-xs text-slate-600 ml-1">— Xbox 社区</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>中文本地化</b>质量一般——部分翻译不够准确
+    
+      <span class="text-xs text-slate-600 ml-1">— NGA</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>后期难度曲线</b>陡升——部分 Boss 需要反复尝试
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>偏<b>线性的流程</b>和有限的探索空间限制了自由度
+    
+      <span class="text-xs text-slate-600 ml-1">— 多平台综合</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    
+    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
+      
+      <a href="https://www.bilibili.com/video/BV1kS4y1K7pN/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-red-500/15 text-red-400
+          ">1</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">光暗交响 全流程实况 4K</span>
+        <span class="text-xs text-slate-500 shrink-0">280万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1wm42197kQ/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-amber-500/15 text-amber-400
+          ">2</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">2025年最美RPG！Clair Obscur 深度评测</span>
+        <span class="text-xs text-slate-500 shrink-0">350万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1fz421B7hK/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-indigo-500/15 text-indigo-400
+          ">3</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">光暗交响 全Boss战合集 无伤</span>
+        <span class="text-xs text-slate-500 shrink-0">190万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1Nm421E7kS/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-surface-2 text-slate-500">4</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">Clair Obscur 美术解析——油画般的游戏世界</span>
+        <span class="text-xs text-slate-500 shrink-0">240万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1rz4y1R7mQ/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-surface-2 text-slate-500">5</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">法国小团队如何做出3A品质RPG</span>
+        <span class="text-xs text-slate-500 shrink-0">160万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
+    </div>
+    <div class="p-6">
+      
+<div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📖 世界观与叙事</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>架空 Belle Époque 时代</b>——类似 19 世纪末法国美好年代的文明水平+超自然魔法</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>被画匠诅咒的大陆</b>——一个被神秘「画匠」（Paintress）每年抹去一个年龄段人口的世界</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text">「<b>第 33 远征队</b>」——对抗画匠诅咒的勇士小队，每个成员都是即将被抹去的年龄段中选出的志愿者</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>蒸汽时代+魔法</b>——火车、蒸汽动力机械与魔法超能力并存，有轻微蒸汽朋克元素</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>远征队 vs 画匠 (Paintress) 的守护者</b>——画匠是超越性的存在（巨大、抽象、艺术装置般的视觉），守护者各有独特的艺术主题外观</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>半开放探索</b>：法式小镇据点 → 自然荒野/废墟探索 → Boss 领域挑战；风格从地中海海岸到暗色密林不等</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>法式诗意 × 印象派视觉 × 存在主义叙事</b>；视觉标识为「可行走的油画」——环境和角色共享同一套笔触语言；受莫奈/雷诺阿印象派画风、法国文学（加缪/圣埃克苏佩里）、当代艺术装置启发</div>
+  </div>
+  
+</div>
+
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-emerald-500/20 bg-gradient-to-br from-emerald-500/[.08] to-emerald-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-emerald-400">SCENE</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🏞 法式印象派 x UE5 照片级 - 油画笔触与光追共存</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">场景视觉是本作最大标签——所有环境在<b>UE5 照片级渲染</b>基础上叠加<b>印象派油画笔触后处理</b>，形成独一无二的「可行走油画」效果；色调随区域大幅变化：<b>海岸蓝白</b>（地中海日光感）、<b>森林暖绿</b>（莫奈花园质感）、<b>废墟灰紫</b>（浪漫主义废墟美学）；光影是核心表现力——<b>丁达尔效应</b>、体积雾、散射光被大量使用，让每个角落都像印象派画作</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-rose-500/20 bg-gradient-to-br from-rose-500/[.08] to-rose-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-rose-400">COSTUME</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">👘 法式Belle Époque x 暗黑奇幻 - 优雅与战斗的混搭</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">角色服装设计融合<b>19世纪法国美好时代</b>的优雅裁剪与暗黑奇幻的战斗功能——长外套、高领、流苏、金属扣的混搭；主角团穿着有<b>军装骑行服</b>质感的冒险装——结构硬朗但不失优雅；Boss 造型走<b>当代艺术装置</b>路线——巨大、抽象、令人不安的美感，像 Alexander McQueen 的高定秀场</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-cyan-500/20 bg-gradient-to-br from-cyan-500/[.08] to-cyan-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-cyan-400">UI</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📱 手绘风格化 - 墨水线条 x 复古版画质感</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">战斗 UI 使用<b>手绘墨水线条</b>框架——技能图标有版画雕刻质感；HP/MP 条用<b>水彩渐变</b>填充而非纯色；菜单界面用<b>旧书页纹理+手写字体</b>营造复古感；战斗中的即时操作提示用简洁几何图形，不干扰视觉沉浸；整体 UI 设计理念：<b>让界面成为美术风格的延伸，而非独立于画面之外</b></div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-violet-500/20 bg-gradient-to-br from-violet-500/[.08] to-violet-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-violet-400">SYMBOL</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🔣 数字33 x 倒计时沙漏 x 画笔与颜料 x 光与暗</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">核心视觉符号：<b>数字 33</b>（远征代号，贯穿全程的宿命标记）、<b>光与暗的对比</b>（标题即母题——Clair/明与Obscur/暗的永恒对抗）、<b>油画笔触</b>（世界本身就像一幅未完成的画——边缘模糊、色块流淌）；色彩母题为<b>蓝白+暖金+深紫</b>的法式配色——既优雅又忧郁</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-orange-500/20 bg-gradient-to-br from-orange-500/[.08] to-orange-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-orange-400">PROMO</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📣 黑马出圈 - 视觉即卖点，独立精神即品牌</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">宣发核心是<b>「见所未见的 RPG 视觉」</b>——首支预告片凭借独特的油画质感瞬间出圈，截图疯传；Key Art 使用<b>主角团行走在画布般大地上</b>的构图，强调「行走的油画」概念；作为<b>Game Pass 首日游戏</b>大幅降低了入门门槛，口碑裂变迅速；品牌叙事打<b>「法国小团队的3A梦想」</b>牌，独立精神引发玩家共鸣</div>
+</div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
+      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
+    </div>
+    <div class="p-6">
+      <div class="space-y-1">
+        
+        
+        
+        <a href="metaphor-refantazio.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">👑</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">暗喻幻想 <span class="text-xs text-slate-500 font-normal">Atlus</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为回合制RPG+高度风格化美术——Atlus式平面vs法式油画的风格化路线对标</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="final-fantasy-vii-rebirth.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">⚔️</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">最终幻想7：重生 <span class="text-xs text-slate-500 font-normal">Square Enix</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为高投入RPG——即时指令vs回合操作融合的战斗UI设计对比</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="elden-ring-shadow-of-the-erdtree.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🔥</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">艾尔登法环：黄金树幽影 <span class="text-xs text-slate-500 font-normal">FromSoftware</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为UE5高品质大作——写实暗黑 vs 油画诗意的美学取向对比</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="black-myth-wukong.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🐒</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-slate-500 font-normal">游戏科学 (Game Science)</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为高评分RPG新作——中国水墨vs法式油画的东西方风格化差异</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <button onclick="window.open('../compare.html?ids=108,105,104,102,101','_blank')"
+              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
+        ⚡ 一键对比这 5 款游戏
+      </button>
+    </div>
+  </div>
+  
+
+</div>
+
+
+
+<div x-data="{open:false, src:''}"
+     x-on:open-lightbox.window="open=true; src=$event.detail"
+     x-on:keydown.escape.window="open=false"
+     x-show="open" x-cloak
+     class="fixed inset-0 z-[999] bg-black/85 flex items-center justify-center cursor-zoom-out"
+     x-on:click="open=false">
+  <img :src="src" class="max-w-[95vw] max-h-[95vh] rounded-lg">
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center text-lg shadow-lg z-50 hover:bg-indigo-500 transition">
+  ↑
+</button>
+
+
+</body>
+</html>

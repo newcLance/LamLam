@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>毁灭战士：黑暗时代 - 游戏竞品分析</title>
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0a0a0f', 1:'#12121a', 2:'#1a1a25', 3:'#22222f' },
+        bdr: 'rgba(85,85,106,.25)',
+        accent: '#818cf8',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-slate-200 antialiased; }
+  a { color: inherit; text-decoration: none; }
+}
+@layer components {
+  /* Keyword highlight inside data text */
+  .data-text b { @apply text-slate-100 font-semibold bg-indigo-500/10 px-0.5 rounded; }
+  /* Source link */
+  a.src-link { @apply text-accent text-xs opacity-80 hover:opacity-100 hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/90 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-4 h-12 flex items-center gap-4">
+    <a href="../index.html" class="font-extrabold text-sm text-accent shrink-0">G 游戏竞品分析</a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+<a href="../index.html" class="px-3 py-1.5 rounded-md hover:bg-surface-2 text-slate-400 hover:text-slate-200 transition text-xs">← 返回列表</a>
+
+    </nav>
+  </div>
+</header>
+
+
+
+<div class="max-w-5xl mx-auto px-4 py-6">
+
+  
+  <div class="flex items-center gap-3 mb-4">
+    <span class="text-3xl">💀</span>
+    <div>
+      <h1 class="text-2xl font-bold">毁灭战士：黑暗时代</h1>
+      <div class="text-sm text-slate-500">id Software / Bethesda · FPS</div>
+    </div>
+  </div>
+
+  
+  <div class="flex gap-2 flex-wrap mb-4">
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">已发售</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">国际</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">买断制</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PC</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS5</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">Xbox</span>
+    
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">2025.5</span>
+    
+  </div>
+
+  <p class="text-sm text-slate-400 leading-relaxed mb-5">DOOM 系列前传，中世纪背景的 FPS 动作射击。</p>
+
+  <div class="flex gap-1.5 flex-wrap mb-8">
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">FPS 射击</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">id Tech 引擎</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">中世纪背景</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">系列前传</span>
+    
+  </div>
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
+    
+    
+    
+    <div class="text-xs text-slate-500 mb-2">DOOM: The Dark Ages - Bethesda 官网 · 2026-04-10</div>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/doom-dark-ages/home-1.webp')">
+        <img src="../screenshots/doom-dark-ages/home-1.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/doom-dark-ages/home-2.webp')">
+        <img src="../screenshots/doom-dark-ages/home-2.webp" loading="lazy" class="w-full block">
+      </div>
+      
+    </div>
+    
+    
+    
+  </div>
+  
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
+    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+      
+      <div class="relative">
+        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
+        <div class="text-xs text-accent font-semibold">2025-05</div>
+        <div class="text-sm text-slate-400">全球发售
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
+       x-data="{ tab: 'media' }">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
+    </div>
+    
+    <div class="flex border-b border-bdr px-6 pt-3">
+      
+      
+      
+      <button x-on:click="tab='media'"
+              :class="tab==='media' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">🎤 媒体试玩评测</button>
+      
+      <button x-on:click="tab='community'"
+              :class="tab==='community' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">💬 玩家社区讨论</button>
+      
+      <button x-on:click="tab='bili'"
+              :class="tab==='bili' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">📺 B站试玩视频</button>
+      
+    </div>
+
+    
+    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>中世纪+科幻</b>的混搭设定前所未有——毁灭战士穿着魔法驱动的骑士铠甲用电锯和霰弹枪屠魔
+    
+      <span class="text-xs text-slate-600 ml-1">— IGN 9分</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>盾反系统</b>颠覆了系列玩法——从纯进攻转向攻守兼备，战斗节奏完全不同
+    
+      <span class="text-xs text-slate-600 ml-1">— GameSpot 9分</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>id Tech 引擎</b>的帧率表现依然是行业标杆——4K 60帧稳如磐石
+    
+      <span class="text-xs text-slate-600 ml-1">— Digital Foundry</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>巨型机甲战</b>——驾驶 Atlan 机甲踩碎巨型恶魔的爽快感是系列之最
+    
+      <span class="text-xs text-slate-600 ml-1">— IGN</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>Mick Gordon 回归</b>配乐——重金属+管弦乐+中世纪战鼓的融合极度燃
+    
+      <span class="text-xs text-slate-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>前传设定揭示了<b>Doom Slayer 的起源</b>——系列 Lore 粉的最大兴奋点
+    
+      <span class="text-xs text-slate-600 ml-1">— Polygon</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>关卡设计偏线性</b>——相比 Eternal 的开放沙盒战斗空间，本作走廊感更强
+    
+      <span class="text-xs text-slate-600 ml-1">— GameSpot</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>盾反学习曲线</b>——从 Eternal 习惯冲锋节奏的老玩家需要适应新节奏
+    
+      <span class="text-xs text-slate-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>主线<b>流程约 12-15 小时</b>——部分玩家认为对于全价游戏偏短
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>取消多人模式</b>让系列多人粉丝失望
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>id Software 永远不会让人失望</b>」是社区核心情绪——DOOM 品牌信任度极高
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit / Steam</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>机甲战</b>成为社区最热讨论——「想要独立的 DOOM 机甲游戏」呼声很高
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>Game Pass 首日</b>+高口碑带来巨大玩家量——社区活跃度极高
+    
+      <span class="text-xs text-slate-600 ml-1">— Xbox / Steam</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>最高难度</b>挑战视频在YouTube和B站大量涌现——硬核社区狂欢
+    
+      <span class="text-xs text-slate-600 ml-1">— YouTube / B站</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>部分玩家认为<b>取消双跳和空中冲刺</b>降低了系列标志性的机动性
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>Boss 战数量</b>偏少——社区期望更多的大型 Boss 对决
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>通关即弃</b>——纯单机体验缺少长期留存机制
+    
+      <span class="text-xs text-slate-600 ml-1">— 多平台综合</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>对<b>中世纪设定不感兴趣</b>的玩家可能更想要现代/未来的 DOOM
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    
+    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
+      
+      <a href="https://www.bilibili.com/video/BV1kS4y1K7rN/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-red-500/15 text-red-400
+          ">1</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">DOOM 黑暗时代 全流程 最高难度 4K</span>
+        <span class="text-xs text-slate-500 shrink-0">420万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1wm42197nQ/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-amber-500/15 text-amber-400
+          ">2</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">毁灭战士新作评测：中世纪版DOOM有多爽</span>
+        <span class="text-xs text-slate-500 shrink-0">380万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1fz421B7mK/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-indigo-500/15 text-indigo-400
+          ">3</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">DOOM Dark Ages 全机甲战合集</span>
+        <span class="text-xs text-slate-500 shrink-0">250万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1Nm421E7nS/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-surface-2 text-slate-500">4</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">id Tech引擎技术分析 DOOM新作画面有多强</span>
+        <span class="text-xs text-slate-500 shrink-0">180万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1rz4y1R7pQ/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-surface-2 text-slate-500">5</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">DOOM系列时间线全梳理 黑暗时代在哪</span>
+        <span class="text-xs text-slate-500 shrink-0">150万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
+    </div>
+    <div class="p-6">
+      
+<div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📖 世界观与叙事</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>远古中世纪</b>——DOOM 时间线的史前时代，Doom Slayer 的起源故事</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>中世纪人类王国 + 地狱维度</b>——城堡、战场、荒野和地狱裂缝并存的暗黑大陆</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text">「<b>Doom Slayer</b>」——尚未成为传说的战士，在中世纪人类与地狱恶魔的大战中崛起</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>魔法中世纪+地狱科技</b>——人类侧是冷兵器+魔法驱动机甲，地狱侧是生物有机科技+恶魔能量</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>人类王国 vs 地狱军团</b>——人类（金属甲胄/冷色/秩序）vs 恶魔（骨肉/红色/混沌），Slayer 是超越双方的第三种力量</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>线性关卡制</b>：中世纪城堡→荒野战场→地狱维度→巨型战争场景；每关都有紧凑的关卡设计和秘密区域</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>哥特中世纪 × 地狱恐怖 × 科幻暴力</b>；视觉标识为「暴力骑士」——中世纪美学与现代武器的极端反差；受中世纪骑士文学、地狱视觉传统（但丁/博斯）、重金属文化启发</div>
+  </div>
+  
+</div>
+
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-emerald-500/20 bg-gradient-to-br from-emerald-500/[.08] to-emerald-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-emerald-400">SCENE</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🏞 中世纪地狱 x 科幻金属 - 暴力美学的时代混搭</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">场景在<b>中世纪城堡废墟</b>和<b>地狱维度</b>之间切换——中世纪部分用<b>灰石+铁锈+冷蓝天光</b>营造肃杀感，地狱部分用<b>熔岩红+骨质白+恶魔肉红</b>构建极端恐怖空间；<b>巨型战场</b>设计是新特色——千军万马的远景规模配合近身血腥肉搏的近景形成视觉张力；id Tech 引擎的帧率和画质平衡是行业标杆——几乎没有任何画面妥协</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-rose-500/20 bg-gradient-to-br from-rose-500/[.08] to-rose-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-rose-400">COSTUME</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">👘 魔法骑士铠甲 x 地狱恶魔造型 - 暴力骑士美学</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>Doom Slayer</b> 的中世纪铠甲是核心设计亮点——将经典 Praetor 战甲与中世纪板甲融合，保留标志性绿色头盔+宽肩甲轮廓；<b>恶魔造型</b>延续系列一贯的<b>生物机械恐怖</b>风格——骨骼外露、肌肉撕裂、火焰寄生；新增的<b>龙坐骑</b>和<b>Atlan 机甲</b>设计走「哥特+科幻+魔法」三合一路线，极度酷炫</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-cyan-500/20 bg-gradient-to-br from-cyan-500/[.08] to-cyan-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-cyan-400">UI</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📱 极简信息 + 中世纪纹章 - DOOM 式沉浸 HUD</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">战斗 HUD 延续 DOOM 的<b>极度精简</b>原则——底部仅显示 HP+护甲+弹药+盾反冷却；新增<b>中世纪纹章</b>元素作为 UI 装饰——武器切换轮盘有骑士盾徽风格；菜单用<b>铁质+蚀刻</b>质感呈现，字体选用哥特式；荣耀击杀特写用<b>慢动作+血液飞溅粒子</b>强化爽感反馈</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-violet-500/20 bg-gradient-to-br from-violet-500/[.08] to-violet-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-violet-400">SYMBOL</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🔣 Slayer 标记 x 绿色头盔 x 电锯 x 五芒星</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">核心视觉符号：<b>Slayer 标记</b>（系列图腾——简化的头盔+交叉骨轮廓）、<b>绿色头盔</b>（DOOM 最具辨识度的设计元素，本作加入中世纪面罩变体）、<b>电锯</b>（暴力美学的终极符号——中世纪骑士手持电锯的反差感极强）、<b>五芒星/恶魔纹章</b>（地狱维度的视觉标记）；色彩母题为<b>金属灰+地狱红+Slayer 绿</b></div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-orange-500/20 bg-gradient-to-br from-orange-500/[.08] to-orange-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-orange-400">PROMO</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📣 暴力奇观 + IP信任 - DOOM 品牌零信任成本</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">宣发核心是<b>「Rip and Tear，但这次是中世纪」</b>——首支预告片用震撼的中世纪×地狱大战场面瞬间点燃全球；Key Art 以<b>Slayer 手持电锯站在中世纪战场上</b>为核心，绿色头盔+恶魔军团构成经典 DOOM 海报构图；<b>Game Pass 首日</b>是核心发行策略——Xbox 生态独占驱动下载量；品牌信任度极高，「id Software 出品」即品质保证</div>
+</div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
+      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
+    </div>
+    <div class="p-6">
+      <div class="space-y-1">
+        
+        
+        
+        <a href="s-t-a-l-k-e-r-2-heart-of-chornobyl.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">☢️</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">潜行者2：切尔诺贝利之心 <span class="text-xs text-slate-500 font-normal">GSC Game World</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为FPS大作——极速暴力vs硬核生存的射击设计取向对比</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="indiana-jones-and-the-great-circle.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🧳</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">夺宝奇兵：大圈 <span class="text-xs text-slate-500 font-normal">MachineGames / Bethesda</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为id Tech系引擎/Bethesda发行——引擎技术和第一人称体验对标</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="atomfall.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">☣️</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">原子陨落 <span class="text-xs text-slate-500 font-normal">Rebellion</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为2025年FPS新作——3A大制作vs AA精品的规模和品质对标</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="helldivers-2.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🪖</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">绝地潜兵2 <span class="text-xs text-slate-500 font-normal">Arrowhead Game Studios / SIE</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为PvE向射击——纯单机vs合作射击的设计策略对比</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <button onclick="window.open('../compare.html?ids=110,128,127,129,145','_blank')"
+              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
+        ⚡ 一键对比这 5 款游戏
+      </button>
+    </div>
+  </div>
+  
+
+</div>
+
+
+
+<div x-data="{open:false, src:''}"
+     x-on:open-lightbox.window="open=true; src=$event.detail"
+     x-on:keydown.escape.window="open=false"
+     x-show="open" x-cloak
+     class="fixed inset-0 z-[999] bg-black/85 flex items-center justify-center cursor-zoom-out"
+     x-on:click="open=false">
+  <img :src="src" class="max-w-[95vw] max-h-[95vh] rounded-lg">
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center text-lg shadow-lg z-50 hover:bg-indigo-500 transition">
+  ↑
+</button>
+
+
+</body>
+</html>

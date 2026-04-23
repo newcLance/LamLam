@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>原子之心 - 游戏竞品分析</title>
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0a0a0f', 1:'#12121a', 2:'#1a1a25', 3:'#22222f' },
+        bdr: 'rgba(85,85,106,.25)',
+        accent: '#818cf8',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-slate-200 antialiased; }
+  a { color: inherit; text-decoration: none; }
+}
+@layer components {
+  /* Keyword highlight inside data text */
+  .data-text b { @apply text-slate-100 font-semibold bg-indigo-500/10 px-0.5 rounded; }
+  /* Source link */
+  a.src-link { @apply text-accent text-xs opacity-80 hover:opacity-100 hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/90 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-4 h-12 flex items-center gap-4">
+    <a href="../index.html" class="font-extrabold text-sm text-accent shrink-0">G 游戏竞品分析</a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+<a href="../index.html" class="px-3 py-1.5 rounded-md hover:bg-surface-2 text-slate-400 hover:text-slate-200 transition text-xs">← 返回列表</a>
+
+    </nav>
+  </div>
+</header>
+
+
+
+<div class="max-w-5xl mx-auto px-4 py-6">
+
+  
+  <div class="flex items-center gap-3 mb-4">
+    <span class="text-3xl">⚙️</span>
+    <div>
+      <h1 class="text-2xl font-bold">原子之心</h1>
+      <div class="text-sm text-slate-500">Mundfish · FPS</div>
+    </div>
+  </div>
+
+  
+  <div class="flex gap-2 flex-wrap mb-4">
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">已发售</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">国际</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">买断制</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PC</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS5</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">PS4</span>
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">Xbox</span>
+    
+    
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">2023.2</span>
+    
+  </div>
+
+  <p class="text-sm text-slate-400 leading-relaxed mb-5">复古未来主义背景的开放世界 FPS RPG，融合近战、射击与超能力战斗。</p>
+
+  <div class="flex gap-1.5 flex-wrap mb-8">
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">复古未来 FPS RPG</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">开放世界</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">Mundfish 制作</span>
+    
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">近战与射击融合</span>
+    
+  </div>
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
+    
+    
+    
+    <div class="text-xs text-slate-500 mb-2">原子之心 - Mundfish 官网 · 2026-04-13</div>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/atomic-heart/home-1.webp')">
+        <img src="../screenshots/atomic-heart/home-1.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/atomic-heart/home-2.webp')">
+        <img src="../screenshots/atomic-heart/home-2.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/atomic-heart/home-3.webp')">
+        <img src="../screenshots/atomic-heart/home-3.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/atomic-heart/home-4.webp')">
+        <img src="../screenshots/atomic-heart/home-4.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/atomic-heart/home-5.webp')">
+        <img src="../screenshots/atomic-heart/home-5.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/atomic-heart/home-6.webp')">
+        <img src="../screenshots/atomic-heart/home-6.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/atomic-heart/home-7.webp')">
+        <img src="../screenshots/atomic-heart/home-7.webp" loading="lazy" class="w-full block">
+      </div>
+      
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','../screenshots/atomic-heart/home-8.webp')">
+        <img src="../screenshots/atomic-heart/home-8.webp" loading="lazy" class="w-full block">
+      </div>
+      
+    </div>
+    
+    
+    
+  </div>
+  
+
+  
+  
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
+    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+      
+      <div class="relative">
+        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
+        <div class="text-xs text-accent font-semibold">2023-02</div>
+        <div class="text-sm text-slate-400">全球发售
+          
+        </div>
+      </div>
+      
+      <div class="relative">
+        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
+        <div class="text-xs text-accent font-semibold">2023-08</div>
+        <div class="text-sm text-slate-400">DLC 《Annotated Body》 发布
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
+       x-data="{ tab: 'media' }">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
+    </div>
+    
+    <div class="flex border-b border-bdr px-6 pt-3">
+      
+      
+      
+      <button x-on:click="tab='media'"
+              :class="tab==='media' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">🎤 媒体试玩评测</button>
+      
+      <button x-on:click="tab='community'"
+              :class="tab==='community' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">💬 玩家社区讨论</button>
+      
+      <button x-on:click="tab='bili'"
+              :class="tab==='bili' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">📺 B站试玩视频</button>
+      
+    </div>
+
+    
+    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>苏联复古未来</b>美术风格令人过目不忘——金色穹顶、红色机器人、乌托邦建筑
+    
+      <span class="text-xs text-slate-600 ml-1">— IGN 评测</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>SHOK 手套</b>的超能力系统——冰冻、电击、念力组合战斗提供了爽快手感
+    
+      <span class="text-xs text-slate-600 ml-1">— GameSpot</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>游戏<b>开场 20 分钟</b>的苏联乐园展示堪称本世代最惊艳的序章之一
+    
+      <span class="text-xs text-slate-600 ml-1">— Eurogamer</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>美术方向</b>被多家媒体评为年度最佳——苏联乌托邦+生物力学的融合独一无二
+    
+      <span class="text-xs text-slate-600 ml-1">— Digital Foundry</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>Game Pass 首日登录，<b>首月玩家数</b>突破 500 万
+    
+      <span class="text-xs text-slate-600 ml-1">— 官方公告</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>原声配乐</b>融合苏联古典音乐与电子乐，战斗时Mick Gordon风格的重金属节拍极具感染力
+    
+      <span class="text-xs text-slate-600 ml-1">— 多媒体评测</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>开放世界部分<b>内容稀疏</b>——大量空旷区域只有重复的机器人巡逻
+    
+      <span class="text-xs text-slate-600 ml-1">— IGN</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>关卡设计</b>在中后期趋于重复——相似的实验室走廊和测试间循环出现
+    
+      <span class="text-xs text-slate-600 ml-1">— GameSpot</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>叙事节奏</b>拖沓——过场动画和对话时长严重超标
+    
+      <span class="text-xs text-slate-600 ml-1">— Eurogamer</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>通关后<b>无 NG+ 或挑战模式</b>——开放世界清点完毕即彻底结束
+    
+      <span class="text-xs text-slate-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>游戏后半段<b>难度飙升</b>导致部分玩家中途放弃
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-blue-500/15 text-blue-400">🧠</div>
+          <div class="text-sm font-bold">记忆点 Memory</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>苏联生化奇兵</b>」成为社区最常用的一句话定位
+    
+      <span class="text-xs text-slate-600 ml-1">— 全平台共识</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>双胞胎机器人</b>角色设计因争议性的性感造型成为全网热议话题
+    
+      <span class="text-xs text-slate-600 ml-1">— Twitter / Reddit</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-amber-500/15 text-amber-400">⚡</div>
+          <div class="text-sm font-bold">兴奋点 Excitement</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>摄影模式</b>产出大量高质量截图——苏联建筑+红色机器人的构图极具视觉冲击
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam / 小红书</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>中国市场<b>热度极高</b>——B站播放量和微博话题远超预期
+    
+      <span class="text-xs text-slate-600 ml-1">— B站 / 微博</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-red-500/15 text-red-400">🔥</div>
+          <div class="text-sm font-bold">痛点 Pain</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>俄乌冲突背景</b>下游戏的政治讨论不断——部分地区呼吁抵制
+    
+      <span class="text-xs text-slate-600 ml-1">— 国际媒体</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>开放世界<b>探索内容</b>被批密度不足，与线性关卡的品质差距明显
+    
+      <span class="text-xs text-slate-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+      
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm bg-slate-500/15 text-slate-400">💨</div>
+          <div class="text-sm font-bold">流失点 Churn</div>
+        </div>
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>DLC 评价</b>两极分化——扩展内容未能弥补本体的开放世界短板
+    
+      <span class="text-xs text-slate-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+        
+        
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span><b>Game Pass 效应</b>——大量玩家体验完序章后即流失
+    
+      <span class="text-xs text-slate-600 ml-1">— Game Pass 社区</span>
+    
+  </span>
+</div>
+
+        
+      </div>
+      
+      
+    </div>
+
+    
+    
+    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
+      
+      <a href="https://www.bilibili.com/video/BV1placeholder09/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-red-500/15 text-red-400
+          ">1</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">原子之心 全流程实况 苏联乌托邦探秘</span>
+        <span class="text-xs text-slate-500 shrink-0">680万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+      <a href="https://www.bilibili.com/video/BV1placeholder10/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          bg-amber-500/15 text-amber-400
+          ">2</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">原子之心 双胞胎BOSS战 全技能展示</span>
+        <span class="text-xs text-slate-500 shrink-0">420万播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
+    </div>
+    <div class="p-6">
+      
+<div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📖 世界观与叙事</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>架空 1955 年</b>——苏联在二战后实现了机器人革命和脑联网技术</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>设施 3826</b>——苏联秘密科研综合体，从地上乌托邦花园到地下恐怖实验室</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text">「<b>P-3 少校</b>」——被派去调查设施失控的苏联军官，左手装备 SHOK 聚合物手套</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>架空苏联超级科技</b>——脑联网、聚合物超能力、自主AI机器人、生物工程突变</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>P-3 vs 失控机器人 vs 生物突变体 vs 幕后黑手</b>——表面是设施事故，实际是政治阴谋</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>半开放世界</b>：地上的苏联田园是开放探索区，地下设施是线性关卡——两层结构交替推进</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text"><b>苏联复古未来 × 生化恐怖 × 超能力 FPS</b>；美术标识为「苏联乌托邦」——金色穹顶的理想国表皮下是生物力学的噩梦</div>
+  </div>
+  
+</div>
+
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-emerald-500/20 bg-gradient-to-br from-emerald-500/[.08] to-emerald-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-emerald-400">SCENE</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🏞 苏联乌托邦 - 金色穹顶下的生物力学恐怖</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">整体美术以<b>苏联复古未来主义</b>为核心——金色穹顶、红色旗帜、大理石宫殿构成乌托邦表层；地下实验室则转为<b>生物力学恐怖</b>——有机体与金属管线融合、黏液覆盖的走廊、红色警示灯；室外场景以<b>苏联田园+工业综合体</b>的反差为特色——向日葵田地旁就是巨型机器人工厂；色调在<b>乌托邦金+警示红+实验室惨白</b>间切换</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-rose-500/20 bg-gradient-to-br from-rose-500/[.08] to-rose-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-rose-400">COSTUME</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">👘 苏联工程师制服 x 生物力学机器人</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">主角 P-3 穿着<b>苏联研究员</b>标准工装——白色衬衫+工作裤+SHOK 手套（核心视觉焦点）；机器人敌人分为<b>工业机器人</b>（铁皮+铆钉+苏联红星标记）和<b>生物突变体</b>（植物/肉体与金属融合）；<b>双胞胎机器人</b>以流线型白色陶瓷+红色关节的芭蕾舞者造型成为系列标志；BOSS 设计融合<b>苏联雕塑感+生物异变</b></div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-cyan-500/20 bg-gradient-to-br from-cyan-500/[.08] to-cyan-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-cyan-400">UI</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📱 苏联仪表盘 - 模拟信号+红色指示器</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">HUD 设计模拟<b>苏联时代仪表</b>——血量和能量用环形表盘展示，<b>SHOK 手套</b>界面用全息投影方式呈现；菜单系统以<b>红色+金色</b>为主色，按钮和边框使用苏联宣传画风格的几何装饰；物品栏和升级界面用<b>蓝图/工程图纸</b>视觉语言；字体选用<b>粗衬线体</b>配合苏联官方文件质感</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-violet-500/20 bg-gradient-to-br from-violet-500/[.08] to-violet-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-violet-400">SYMBOL</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">🔣 SHOK 手套 x 红色机器人 x 金色穹顶 x 苏联红星</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">核心视觉符号：<b>SHOK 聚合物手套</b>（玩家能力的视觉载体）、<b>红色机器人</b>（苏联工业美学的极致表达）、<b>金色穹顶建筑</b>（乌托邦表象的最佳载体）、<b>苏联红星/镰刀锤</b>（架空世界观的政治视觉锚点）；色彩母题为<b>金色乌托邦 vs 惨白恐怖</b>的上下层对比</div>
+</div>
+
+        
+        
+        
+        
+
+
+
+
+<div class="rounded-xl p-5 border border-orange-500/20 bg-gradient-to-br from-orange-500/[.08] to-orange-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-orange-400">PROMO</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📣 苏联版生化奇兵 - 美术撑起一切</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">宣发核心策略是<b>美术先行</b>——从首支预告起就以苏联乌托邦+红色机器人的视觉冲击引爆关注；<b>双胞胎机器人</b>的话题性营销带来大量非游戏圈流量；Key Art 以<b>金色穹顶+P-3+SHOK 手套</b>为标准构图；Game Pass 首日策略保证了首周基础用户量；在中国市场以<b>「苏联美学」</b>为核心卖点获得超预期关注</div>
+</div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+  
+
+  
+  
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
+      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
+    </div>
+    <div class="p-6">
+      <div class="space-y-1">
+        
+        
+        
+        <a href="s-t-a-l-k-e-r-2-heart-of-chornobyl.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">☢️</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">潜行者2：切尔诺贝利之心 <span class="text-xs text-slate-500 font-normal">GSC Game World</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为苏联/东欧背景 + FPS + 开放世界探索 + 末世恐怖氛围</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="atomfall.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">☣️</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">原子陨落 <span class="text-xs text-slate-500 font-normal">Rebellion</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为核灾后背景 + FPS + 探索制造 + 独特世界观</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="doom-the-dark-ages.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">💀</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">毁灭战士：黑暗时代 <span class="text-xs text-slate-500 font-normal">id Software / Bethesda</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为 FPS + 超能力系统 + 高强度战斗节奏</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="indiana-jones-and-the-great-circle.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">🧳</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">夺宝奇兵：大圈 <span class="text-xs text-slate-500 font-normal">MachineGames / Bethesda</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">同为第一人称冒险 + 强叙事 + 独特年代感美术风格</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <button onclick="window.open('../compare.html?ids=142,128,129,110,127','_blank')"
+              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
+        ⚡ 一键对比这 5 款游戏
+      </button>
+    </div>
+  </div>
+  
+
+</div>
+
+
+
+<div x-data="{open:false, src:''}"
+     x-on:open-lightbox.window="open=true; src=$event.detail"
+     x-on:keydown.escape.window="open=false"
+     x-show="open" x-cloak
+     class="fixed inset-0 z-[999] bg-black/85 flex items-center justify-center cursor-zoom-out"
+     x-on:click="open=false">
+  <img :src="src" class="max-w-[95vw] max-h-[95vh] rounded-lg">
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center text-lg shadow-lg z-50 hover:bg-indigo-500 transition">
+  ↑
+</button>
+
+
+</body>
+</html>

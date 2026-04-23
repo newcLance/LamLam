@@ -1,0 +1,93 @@
+{# ===== GAME CARD (list page) ===== #}
+{% macro game_card(g, screenshots, prefix="") %}
+{% set ss = screenshots.get(g.name, []) %}
+{% set ns = namespace(img=none) %}
+{% for m in ss %}{% for s in m.screens %}{% if s.imgs and not ns.img %}{% set ns.img = s.imgs[0] %}{% endif %}{% endfor %}{% endfor %}
+<a href="{{ prefix }}game/{{ g.slug }}.html"
+   class="group block bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all"
+   data-search="{{ (g.nameCN or '')|lower }} {{ g.name|lower }} {{ g.company|lower }} {{ (g.genre or '')|lower }} {{ (g.alias or '')|lower }}"
+   data-type="game">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    {% if ns.img %}
+    <img src="{{ prefix }}screenshots/{{ ns.img.split('screenshots/')[1] if 'screenshots/' in ns.img else ns.img }}"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+    {% else %}
+    <div class="absolute inset-0 flex items-center justify-center text-slate-500 text-3xl font-black opacity-30">{{ g.name[0] }}</div>
+    {% endif %}
+  </div>
+  <div class="p-3">
+    <div class="font-semibold text-sm">{{ g.icon }} {{ g.nameCN or g.name }}</div>
+    <div class="text-xs text-slate-500 mt-1">{{ g.company }} · {{ g.genre }}</div>
+    <div class="flex gap-1 mt-1.5 flex-wrap">
+      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">{{ g.category }}</span>
+      <span class="px-2 py-0.5 rounded-full bg-surface-2 text-[10px] text-slate-500">{{ g.region }}</span>
+    </div>
+  </div>
+</a>
+{% endmacro %}
+
+{# ===== PLATFORM CARD ===== #}
+{% macro platform_card(p, screenshots, prefix="") %}
+{% set ss = screenshots.get(p.name, []) %}
+{% set ns = namespace(img=none) %}
+{% for m in ss %}{% for s in m.screens %}{% if s.imgs and not ns.img %}{% set ns.img = s.imgs[0] %}{% endif %}{% endfor %}{% endfor %}
+<div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden hover:border-indigo-500/30 hover:-translate-y-0.5 hover:shadow-xl transition-all cursor-pointer"
+     data-search="{{ (p.nameCN or '')|lower }} {{ p.name|lower }} {{ p.company|lower }} {{ (p.category or '')|lower }}"
+     data-type="platform">
+  <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
+    {% if ns.img %}
+    <img src="{{ prefix }}screenshots/{{ ns.img.split('screenshots/')[1] if 'screenshots/' in ns.img else ns.img }}"
+         loading="lazy" class="absolute inset-0 w-full h-full object-cover">
+    {% endif %}
+  </div>
+  <div class="p-3">
+    <div class="font-semibold text-sm">{{ p.icon }} {{ p.nameCN or p.name }}</div>
+    <div class="text-xs text-slate-500 mt-1">{{ p.company }} · {{ p.category }}</div>
+  </div>
+</div>
+{% endmacro %}
+
+{# ===== PEX ITEM (experience checklist) ===== #}
+{% macro pex_item(it) %}
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-slate-400 data-text">
+  <span class="text-slate-600 shrink-0 mt-0.5">›</span>
+  <span>{{ it.text }}
+    {% if it.url %}
+      <a href="{{ it.url }}" target="_blank" rel="noopener" class="src-link">— {{ it.src }} ↗</a>
+    {% else %}
+      <span class="text-xs text-slate-600 ml-1">— {{ it.src }}</span>
+    {% endif %}
+  </span>
+</div>
+{% endmacro %}
+
+{# ===== STORY/IP CONCEPT CARD ===== #}
+{% macro story_card(card) %}
+<div class="rounded-xl p-5 border border-amber-500/20 bg-gradient-to-br from-amber-500/[.08] to-amber-500/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-amber-400">IP / STORY</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">📖 {{ card.title }}</div>
+  {% for d in card.dims %}
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500 mb-1">{{ d.label }}</div>
+    <div class="text-[13.5px] leading-7 text-slate-400 data-text">{{ d.value }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{# ===== AESTHETIC VISUAL CARD ===== #}
+{% macro aes_card(key, card) %}
+{% set colors = {"scene":"border-emerald-500/20 bg-gradient-to-br from-emerald-500/[.08] to-emerald-500/[.02]",
+                 "costume":"border-rose-500/20 bg-gradient-to-br from-rose-500/[.08] to-rose-500/[.02]",
+                 "ui":"border-cyan-500/20 bg-gradient-to-br from-cyan-500/[.08] to-cyan-500/[.02]",
+                 "symbol":"border-violet-500/20 bg-gradient-to-br from-violet-500/[.08] to-violet-500/[.02]",
+                 "promo":"border-orange-500/20 bg-gradient-to-br from-orange-500/[.08] to-orange-500/[.02]"} %}
+{% set tag_colors = {"scene":"text-emerald-400","costume":"text-rose-400","ui":"text-cyan-400","symbol":"text-violet-400","promo":"text-orange-400"} %}
+{% set icons = {"scene":"🏞","costume":"👘","ui":"📱","symbol":"🔣","promo":"📣"} %}
+{% set labels = {"scene":"SCENE","costume":"COSTUME","ui":"UI","symbol":"SYMBOL","promo":"PROMO"} %}
+<div class="rounded-xl p-5 border {{ colors.get(key, 'border-indigo-500/20 bg-gradient-to-br from-indigo-500/[.08] to-indigo-500/[.02]') }}">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 {{ tag_colors.get(key, 'text-indigo-400') }}">{{ labels.get(key, key|upper) }}</div>
+  <div class="text-sm font-bold text-slate-200 mb-3">{{ icons.get(key, '🎨') }} {{ card.title }}</div>
+  <div class="text-[13.5px] leading-7 text-slate-400 data-text">{{ card.value }}</div>
+</div>
+{% endmacro %}

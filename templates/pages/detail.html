@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+{% from "macros/cards.html" import pex_item, aes_card, story_card %}
+{% set g = game %}
+
+{% block title %}{{ g.nameCN or g.name }} - 游戏竞品分析{% endblock %}
+{% block home_href %}../index.html{% endblock %}
+
+{% block nav %}
+<a href="../index.html" class="px-3 py-1.5 rounded-md hover:bg-surface-2 text-slate-400 hover:text-slate-200 transition text-xs">← 返回列表</a>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto px-4 py-6">
+
+  {# ===== HEADER ===== #}
+  <div class="flex items-center gap-3 mb-4">
+    <span class="text-3xl">{{ g.icon }}</span>
+    <div>
+      <h1 class="text-2xl font-bold">{{ g.nameCN or g.name }}</h1>
+      <div class="text-sm text-slate-500">{{ g.company }} · {{ g.genre }}</div>
+    </div>
+  </div>
+
+  {# Badges #}
+  <div class="flex gap-2 flex-wrap mb-4">
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-400">{{ g.category }}</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400">{{ g.region }}</span>
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">{{ g.model }}</span>
+    {% for pl in g.platforms %}
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">{{ pl }}</span>
+    {% endfor %}
+    {% if g.releaseDate %}
+    <span class="px-2.5 py-1 rounded-full text-xs font-medium bg-surface-2 text-slate-400">{{ g.releaseDate }}</span>
+    {% endif %}
+  </div>
+
+  <p class="text-sm text-slate-400 leading-relaxed mb-5">{{ g.desc }}</p>
+
+  <div class="flex gap-1.5 flex-wrap mb-8">
+    {% for f in g.features %}
+    <span class="px-3 py-1 rounded-full border border-bdr text-xs text-slate-400">{{ f }}</span>
+    {% endfor %}
+  </div>
+
+  {# ===== SCREENSHOTS ===== #}
+  {% if ss %}
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
+    {% for module in ss %}
+    {% for screen in module.screens %}
+    {% if screen.imgs %}
+    <div class="text-xs text-slate-500 mb-2">{{ screen.title }}{% if screen.date %} · {{ screen.date }}{% endif %}</div>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
+      {% for img in screen.imgs %}
+      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           x-on:click="$dispatch('open-lightbox','{{ '../' ~ img if not img.startswith('http') else img }}')">
+        <img src="{{ '../' ~ img if not img.startswith('http') else img }}" loading="lazy" class="w-full block">
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {# ===== TIMELINE ===== #}
+  {% if g.changes %}
+  <div class="mb-8">
+    <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
+    <div class="relative pl-5 border-l-2 border-bdr space-y-4">
+      {% for c in g.changes %}
+      <div class="relative">
+        <div class="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-accent border-2 border-surface-0"></div>
+        <div class="text-xs text-accent font-semibold">{{ c.date }}</div>
+        <div class="text-sm text-slate-400">{{ c.text }}
+          {% if c.url %}<a href="{{ c.url }}" target="_blank" class="text-xs text-accent ml-1.5 opacity-70 hover:opacity-100 hover:underline transition">查看详情 ↗</a>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {# ===== PLAYER EXPERIENCE CHECKLIST ===== #}
+  {% if g.playerExp %}
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
+       x-data="{ tab: 'media' }">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
+    </div>
+    {# Tabs #}
+    <div class="flex border-b border-bdr px-6 pt-3">
+      {% set tabs = [("media","🎤 媒体试玩评测"),("community","💬 玩家社区讨论")] %}
+      {% if g.playerExp.biliVideos %}{% set tabs = tabs + [("bili","📺 B站试玩视频")] %}{% endif %}
+      {% for key, label in tabs %}
+      <button x-on:click="tab='{{ key }}'"
+              :class="tab==='{{ key }}' ? 'text-accent border-accent' : 'text-slate-500 border-transparent hover:text-slate-300'"
+              class="px-5 py-2.5 text-sm font-semibold border-b-2 transition">{{ label }}</button>
+      {% endfor %}
+    </div>
+
+    {# Media tab #}
+    <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      {% set dims = [("memory","🧠","记忆点 Memory","bg-blue-500/15 text-blue-400"),
+                     ("excitement","⚡","兴奋点 Excitement","bg-amber-500/15 text-amber-400"),
+                     ("pain","🔥","痛点 Pain","bg-red-500/15 text-red-400"),
+                     ("churn","💨","流失点 Churn","bg-slate-500/15 text-slate-400")] %}
+      {% for key, icon, label, cls in dims %}
+      {% if g.playerExp.media and g.playerExp.media[key] %}
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm {{ cls }}">{{ icon }}</div>
+          <div class="text-sm font-bold">{{ label }}</div>
+        </div>
+        {% for it in g.playerExp.media[key] %}
+        {{ pex_item(it) }}
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    {# Community tab #}
+    <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-4 p-6">
+      {% for key, icon, label, cls in dims %}
+      {% if g.playerExp.community and g.playerExp.community[key] %}
+      <div class="bg-surface-2 border border-bdr rounded-lg p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-md flex items-center justify-center text-sm {{ cls }}">{{ icon }}</div>
+          <div class="text-sm font-bold">{{ label }}</div>
+        </div>
+        {% for it in g.playerExp.community[key] %}
+        {{ pex_item(it) }}
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    {# Bili tab #}
+    {% if g.playerExp.biliVideos %}
+    <div x-show="tab==='bili'" x-cloak class="px-6 py-3">
+      {% for v in g.playerExp.biliVideos %}
+      <a href="https://www.bilibili.com/video/{{ v.bvid }}/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 px-3.5 py-3 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+        <span class="w-5 h-5 rounded flex items-center justify-center text-[11px] font-bold
+          {% if loop.index == 1 %}bg-red-500/15 text-red-400
+          {% elif loop.index == 2 %}bg-amber-500/15 text-amber-400
+          {% elif loop.index == 3 %}bg-indigo-500/15 text-indigo-400
+          {% else %}bg-surface-2 text-slate-500{% endif %}">{{ loop.index }}</span>
+        <span class="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-[10px] text-sky-500 shrink-0">▶</span>
+        <span class="flex-1 text-sm text-slate-200 font-medium truncate">{{ v.title }}</span>
+        <span class="text-xs text-slate-500 shrink-0">{{ v.views }}播放</span>
+        <span class="text-xs text-slate-600 opacity-50 hover:opacity-100 hover:text-sky-500 transition shrink-0">↗</span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {# ===== IP / STORY ===== #}
+  {% if g.story %}
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
+    </div>
+    <div class="p-6">
+      {{ story_card(g.story) }}
+    </div>
+  </div>
+  {% endif %}
+
+  {# ===== AESTHETIC PROFILE ===== #}
+  {% if g.aesthetic %}
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        {% for key in ["scene","costume","ui","symbol","promo"] %}
+        {% if g.aesthetic[key] %}
+        {{ aes_card(key, g.aesthetic[key]) }}
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {# ===== RIVALS (independent section) ===== #}
+  {% if g.aesthetic and g.aesthetic.rivals %}
+  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+    <div class="px-6 pt-5">
+      <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
+      <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
+    </div>
+    <div class="p-6">
+      <div class="space-y-1">
+        {% for r in g.aesthetic.rivals %}
+        {% set rg = games_by_id.get(r.id) %}
+        {% if rg %}
+        <a href="{{ rg.slug }}.html"
+           class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="text-xl w-8 text-center">{{ rg.icon }}</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">{{ rg.nameCN or rg.name }} <span class="text-xs text-slate-500 font-normal">{{ rg.company }}</span></div>
+            <div class="text-xs text-slate-500 leading-snug mt-0.5">{{ r.reason }}</div>
+          </div>
+          <span class="text-xs text-slate-600">查看 →</span>
+        </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <button onclick="window.open('../compare.html?ids={{ g.id }}{% for r in g.aesthetic.rivals %},{{ r.id }}{% endfor %}','_blank')"
+              class="mt-4 w-full py-3 rounded-lg border border-indigo-500/30 bg-indigo-500/[.08] text-accent text-sm font-semibold hover:bg-indigo-500/15 hover:border-indigo-500/50 transition text-center cursor-pointer">
+        ⚡ 一键对比这 {{ g.aesthetic.rivals|length + 1 }} 款游戏
+      </button>
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}

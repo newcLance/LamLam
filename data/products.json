@@ -1,0 +1,718 @@
+[
+  {
+    "id": 1,
+    "name": "Steam",
+    "nameCN": "Steam",
+    "alias": "Steam商店",
+    "icon": "🎮",
+    "company": "Valve Corporation",
+    "category": "综合平台",
+    "region": "国际",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Web"
+    ],
+    "model": "分成制",
+    "scale": "1亿+",
+    "mau": "1.32亿",
+    "games": "10万+",
+    "established": "2003",
+    "desc": "全球最大的 PC 游戏数字分发平台，拥有最成熟的社区生态、创意工坊与游戏发现机制。近年持续强化 Steam Deck 硬件生态与 Proton 兼容层。",
+    "features": [
+      "游戏商店",
+      "社区中心",
+      "创意工坊",
+      "好友系统",
+      "Steam Deck",
+      "远程畅玩",
+      "直播",
+      "交易市场",
+      "鉴赏家",
+      "发现队列",
+      "家庭共享",
+      "Proton 兼容"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "商店页面改版，引入 AI 推荐卡片流"
+      },
+      {
+        "date": "2026-03",
+        "text": "Steam Deck OLED 二代发售，客户端适配新分辨率"
+      },
+      {
+        "date": "2025-12",
+        "text": "社区中心重构，评测系统增加「时长加权」排序"
+      }
+    ],
+    "lastUpdate": "2026-04-08"
+  },
+  {
+    "id": 2,
+    "name": "Epic Games Store",
+    "nameCN": "Epic 游戏商店",
+    "alias": "Epic,EGS,Epic商店",
+    "icon": "⚡",
+    "company": "Epic Games",
+    "category": "PC平台",
+    "region": "国际",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Web"
+    ],
+    "model": "分成制",
+    "scale": "1000万+",
+    "mau": "5600万",
+    "games": "2500+",
+    "established": "2018",
+    "desc": "以低分成（12%）和独占策略快速崛起的 PC 游戏商店，背靠 Unreal Engine 生态和 Fortnite 用户基础。",
+    "features": [
+      "游戏商店",
+      "每周免费",
+      "独占首发",
+      "成就系统",
+      "社交功能",
+      "创作者支持",
+      "Epic 在线服务",
+      "Mod 支持"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "上线购物车功能 + 用户评分系统"
+      },
+      {
+        "date": "2025-12",
+        "text": "推出 Epic 社交层，好友系统跨平台同步"
+      },
+      {
+        "date": "2025-09",
+        "text": "商店界面 2.0 改版，增加个性化推荐"
+      }
+    ],
+    "lastUpdate": "2026-04-07"
+  },
+  {
+    "id": 3,
+    "name": "PlayStation Store",
+    "nameCN": "PlayStation 商店",
+    "alias": "PS商店,PS Store",
+    "icon": "🎯",
+    "company": "Sony Interactive Entertainment",
+    "category": "主机平台",
+    "region": "国际",
+    "platforms": [
+      "Console",
+      "Web",
+      "iOS",
+      "Android"
+    ],
+    "model": "买断制",
+    "scale": "1亿+",
+    "mau": "1.1亿",
+    "games": "4500+",
+    "established": "2006",
+    "desc": "PlayStation 主机生态的数字商店，覆盖 PS5/PS4/PS VR2。PS Plus 订阅制贡献稳定收入。",
+    "features": [
+      "游戏商店",
+      "PS Plus",
+      "奖杯系统",
+      "远程游玩",
+      "PS VR2",
+      "分享工厂",
+      "派对聊天",
+      "PlayStation Stars"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "PS Store 移动端全面改版，新增「快速试玩」入口"
+      },
+      {
+        "date": "2025-12",
+        "text": "PS Plus 改版引入「日卡」短期订阅"
+      },
+      {
+        "date": "2025-09",
+        "text": "上线社区驱动的策展推荐"
+      }
+    ],
+    "lastUpdate": "2026-04-09"
+  },
+  {
+    "id": 4,
+    "name": "Xbox / Microsoft Store",
+    "nameCN": "Xbox 商店",
+    "alias": "微软商店,Xbox",
+    "icon": "🟢",
+    "company": "Microsoft",
+    "category": "主机平台",
+    "region": "国际",
+    "platforms": [
+      "Console",
+      "Windows",
+      "Web",
+      "iOS",
+      "Android"
+    ],
+    "model": "订阅制",
+    "scale": "1000万+",
+    "mau": "3400万",
+    "games": "3000+",
+    "established": "2012",
+    "desc": "微软 Xbox 生态的数字商店与 Game Pass 订阅中心。Game Pass 是当前游戏行业订阅制的标杆。",
+    "features": [
+      "Game Pass",
+      "云游戏",
+      "PC + 主机互通",
+      "智能分发",
+      "成就系统",
+      "LFG 组队",
+      "Xbox Cloud Gaming",
+      "向后兼容"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "Game Pass Standard 全球上线，取消 Core 层级"
+      },
+      {
+        "date": "2025-12",
+        "text": "xCloud 支持 4K 流媒体，新增键鼠适配"
+      },
+      {
+        "date": "2025-09",
+        "text": "Xbox 移动商店 Beta 测试启动"
+      }
+    ],
+    "lastUpdate": "2026-04-06"
+  },
+  {
+    "id": 5,
+    "name": "Nintendo eShop",
+    "nameCN": "任天堂 eShop",
+    "alias": "任天堂商店,NS商店,eshop",
+    "icon": "🍄",
+    "company": "Nintendo",
+    "category": "主机平台",
+    "region": "国际",
+    "platforms": [
+      "Console",
+      "Web"
+    ],
+    "model": "买断制",
+    "scale": "1亿+",
+    "mau": "1.16亿",
+    "games": "5000+",
+    "established": "2011",
+    "desc": "任天堂 Switch 生态的数字商店。以独占第一方 IP 为核心吸引力。",
+    "features": [
+      "游戏商店",
+      "Nintendo Switch Online",
+      "云存档",
+      "家庭计划",
+      "独立游戏专区",
+      "金币奖励",
+      "Wish List",
+      "新闻频道"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "Switch 2 配套新 eShop 预览版上线"
+      },
+      {
+        "date": "2026-03",
+        "text": "引入「共同游玩」演示功能"
+      },
+      {
+        "date": "2025-12",
+        "text": "优化搜索算法，增加标签筛选"
+      }
+    ],
+    "lastUpdate": "2026-04-05"
+  },
+  {
+    "id": 6,
+    "name": "WeGame",
+    "nameCN": "WeGame",
+    "alias": "腾讯WeGame,TGP",
+    "icon": "🐧",
+    "company": "腾讯",
+    "category": "PC平台",
+    "region": "国内",
+    "platforms": [
+      "Windows",
+      "Web"
+    ],
+    "model": "分成制",
+    "scale": "1000万+",
+    "mau": "4200万",
+    "games": "800+",
+    "established": "2017",
+    "desc": "腾讯旗下 PC 游戏平台，前身为 TGP。主打国内游戏加速、社区与分发服务。",
+    "features": [
+      "游戏商店",
+      "游戏加速",
+      "社区",
+      "直播",
+      "战绩查询",
+      "云游戏试玩",
+      "Mod 下载",
+      "游戏助手"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "全新「游戏发现」信息流上线，AI 推荐个性化改版"
+      },
+      {
+        "date": "2025-12",
+        "text": "增加独立游戏孵化专区"
+      },
+      {
+        "date": "2025-09",
+        "text": "WeGame 云游戏入口独立化"
+      }
+    ],
+    "lastUpdate": "2026-04-08"
+  },
+  {
+    "id": 7,
+    "name": "TapTap",
+    "nameCN": "TapTap",
+    "alias": "塔塔,taptap",
+    "icon": "📱",
+    "company": "心动网络 (XD Inc.)",
+    "category": "移动平台",
+    "region": "国内",
+    "platforms": [
+      "iOS",
+      "Android",
+      "Web"
+    ],
+    "model": "免费+内购",
+    "scale": "1000万+",
+    "mau": "3800万",
+    "games": "6000+",
+    "established": "2016",
+    "desc": "国内最大的游戏玩家社区与移动游戏发现平台，以高质量评分系统和社区内容著称。",
+    "features": [
+      "游戏评分",
+      "社区论坛",
+      "游戏发现",
+      "预约系统",
+      "游戏测试",
+      "开发者服务",
+      "排行榜",
+      "视频内容"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "上线「AI 游戏推荐官」个性化对话推荐"
+      },
+      {
+        "date": "2025-12",
+        "text": "社区改版，引入短视频内容流"
+      },
+      {
+        "date": "2025-09",
+        "text": "TapTap 国际版覆盖东南亚 5 国"
+      }
+    ],
+    "lastUpdate": "2026-04-09"
+  },
+  {
+    "id": 8,
+    "name": "好游快爆",
+    "nameCN": "好游快爆",
+    "alias": "好游,快爆",
+    "icon": "💥",
+    "company": "4399 / 九游",
+    "category": "移动平台",
+    "region": "国内",
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "model": "免费+内购",
+    "scale": "1000万+",
+    "mau": "2800万",
+    "games": "5000+",
+    "established": "2017",
+    "desc": "面向核心手游玩家的游戏社区和分发平台，聚焦「好游戏早知道」。",
+    "features": [
+      "游戏发现",
+      "攻略百科",
+      "社区",
+      "预约管理",
+      "游戏排行",
+      "BT 测试",
+      "礼包中心",
+      "开服提醒"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "攻略 AI 助手上线，支持图文问答"
+      },
+      {
+        "date": "2025-12",
+        "text": "改版「发现」首页，增加编辑推荐权重"
+      },
+      {
+        "date": "2025-09",
+        "text": "优化游戏详情页，增加实机视频"
+      }
+    ],
+    "lastUpdate": "2026-04-07"
+  },
+  {
+    "id": 9,
+    "name": "GOG",
+    "nameCN": "GOG",
+    "alias": "GOG商店",
+    "icon": "🏰",
+    "company": "CD Projekt",
+    "category": "PC平台",
+    "region": "国际",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Web"
+    ],
+    "model": "买断制",
+    "scale": "100万+",
+    "mau": "850万",
+    "games": "6000+",
+    "established": "2008",
+    "desc": "以 DRM-Free 为核心卖点的 PC 游戏商店，聚焦经典游戏保存和独立游戏。",
+    "features": [
+      "DRM-Free",
+      "GOG Galaxy",
+      "经典游戏",
+      "多平台聚合",
+      "退款保障",
+      "离线安装",
+      "社区",
+      "积分兑换"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "GOG Galaxy 3.0 Beta，全新统一库界面"
+      },
+      {
+        "date": "2025-12",
+        "text": "增加 GOG 积分体系与会员等级"
+      }
+    ],
+    "lastUpdate": "2026-04-04"
+  },
+  {
+    "id": 10,
+    "name": "NVIDIA GeForce NOW",
+    "nameCN": "GeForce NOW 云游戏",
+    "alias": "GFN,英伟达云游戏",
+    "icon": "💚",
+    "company": "NVIDIA",
+    "category": "云游戏",
+    "region": "国际",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "iOS",
+      "Android",
+      "Web"
+    ],
+    "model": "订阅制",
+    "scale": "100万+",
+    "mau": "2500万",
+    "games": "1800+",
+    "established": "2020",
+    "desc": "基于 NVIDIA GPU 云端算力的云游戏平台，支持用户串流已有游戏库。",
+    "features": [
+      "云端串流",
+      "RTX 支持",
+      "多平台",
+      "已有游戏库串流",
+      "低延迟",
+      "4K HDR",
+      "120fps",
+      "虚拟显示器"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "新增 RTX 5090 级云端节点，支持 DLSS 4"
+      },
+      {
+        "date": "2025-12",
+        "text": "推出「Day Pass」日卡订阅"
+      }
+    ],
+    "lastUpdate": "2026-04-06"
+  },
+  {
+    "id": 11,
+    "name": "Xbox Cloud Gaming",
+    "nameCN": "Xbox 云游戏",
+    "alias": "xCloud",
+    "icon": "☁️",
+    "company": "Microsoft",
+    "category": "云游戏",
+    "region": "国际",
+    "platforms": [
+      "Web",
+      "iOS",
+      "Android",
+      "Console",
+      "Windows"
+    ],
+    "model": "订阅制",
+    "scale": "1000万+",
+    "mau": "2000万",
+    "games": "400+",
+    "established": "2020",
+    "desc": "微软基于 Azure 的云游戏服务，集成于 Game Pass Ultimate。",
+    "features": [
+      "Game Pass 集成",
+      "跨平台",
+      "触控适配",
+      "社交功能",
+      "成就同步",
+      "快速恢复",
+      "键鼠支持"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "支持 4K/60fps 流媒体（Beta）"
+      },
+      {
+        "date": "2025-12",
+        "text": "新增「好友一起玩」云端同屏"
+      }
+    ],
+    "lastUpdate": "2026-04-05"
+  },
+  {
+    "id": 12,
+    "name": "Google Play Games",
+    "nameCN": "Google Play 游戏",
+    "alias": "谷歌游戏",
+    "icon": "▶️",
+    "company": "Google",
+    "category": "移动平台",
+    "region": "国际",
+    "platforms": [
+      "Android",
+      "Windows",
+      "Web"
+    ],
+    "model": "免费+内购",
+    "scale": "1亿+",
+    "mau": "5亿+",
+    "games": "100万+",
+    "established": "2013",
+    "desc": "Google 的游戏服务平台，Play Games for PC 让安卓游戏在 Windows 上原生运行。",
+    "features": [
+      "游戏商店",
+      "成就系统",
+      "云存档",
+      "排行榜",
+      "即时游戏",
+      "PC 版安卓游戏",
+      "家庭管理",
+      "Google Play Points"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "Play Games for PC 正式版全球推出"
+      },
+      {
+        "date": "2025-12",
+        "text": "改版游戏标签发现系统"
+      }
+    ],
+    "lastUpdate": "2026-04-08"
+  },
+  {
+    "id": 13,
+    "name": "Apple Arcade",
+    "nameCN": "Apple Arcade",
+    "alias": "苹果游戏,Apple游戏",
+    "icon": "🍎",
+    "company": "Apple",
+    "category": "移动平台",
+    "region": "国际",
+    "platforms": [
+      "iOS",
+      "macOS"
+    ],
+    "model": "订阅制",
+    "scale": "1000万+",
+    "mau": "估算 3500万",
+    "games": "250+",
+    "established": "2019",
+    "desc": "Apple 的游戏订阅服务，以无广告、无内购的纯买断体验为卖点。",
+    "features": [
+      "订阅制",
+      "无广告无内购",
+      "独占游戏",
+      "Apple Vision Pro",
+      "家庭共享",
+      "离线游玩",
+      "手柄支持",
+      "iCloud 存档"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "新增 20 款 Vision Pro 空间游戏"
+      },
+      {
+        "date": "2025-12",
+        "text": "推出「Arcade 编辑精选」周更栏目"
+      }
+    ],
+    "lastUpdate": "2026-04-03"
+  },
+  {
+    "id": 14,
+    "name": "Steam Deck / 掌机生态",
+    "nameCN": "Steam Deck 掌机",
+    "alias": "SD掌机,掌机",
+    "icon": "🕹️",
+    "company": "Valve + 第三方",
+    "category": "综合平台",
+    "region": "国际",
+    "platforms": [
+      "Linux",
+      "Windows"
+    ],
+    "model": "买断制",
+    "scale": "100万+",
+    "mau": "估算 800万",
+    "games": "继承 Steam 库",
+    "established": "2022",
+    "desc": "以 Steam Deck 为代表的 PC 掌机新品类，带动了 Proton 兼容层和 SteamOS 生态。",
+    "features": [
+      "便携 PC 游戏",
+      "SteamOS",
+      "Proton 兼容",
+      "手柄+触控",
+      "桌面模式",
+      "社区验证",
+      "快速挂起",
+      "Dock 扩展"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "Steam Deck OLED 2 发布，SteamOS 3.6"
+      },
+      {
+        "date": "2025-12",
+        "text": "社区兼容验证标签系统改版"
+      }
+    ],
+    "lastUpdate": "2026-04-07"
+  },
+  {
+    "id": 15,
+    "name": "Discord",
+    "nameCN": "Discord",
+    "alias": "DC,discord",
+    "icon": "💬",
+    "company": "Discord Inc.",
+    "category": "游戏社区",
+    "region": "国际",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "iOS",
+      "Android",
+      "Web",
+      "Linux"
+    ],
+    "model": "免费+内购",
+    "scale": "1亿+",
+    "mau": "2亿+",
+    "games": "—",
+    "established": "2015",
+    "desc": "全球最大的游戏语音社区平台，已成为游戏玩家社交的基础设施。",
+    "features": [
+      "语音频道",
+      "文字频道",
+      "服务器",
+      "Stage 直播",
+      "活动日程",
+      "应用商店",
+      "Nitro 订阅",
+      "游戏商店",
+      "Rich Presence"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "上线「Quests」游戏任务奖励系统"
+      },
+      {
+        "date": "2025-12",
+        "text": "Activities 小游戏平台扩展"
+      }
+    ],
+    "lastUpdate": "2026-04-09"
+  },
+  {
+    "id": 16,
+    "name": "米哈游 HoYoverse",
+    "nameCN": "米哈游 HoYoverse",
+    "alias": "米哈游,hoyoverse,MHY",
+    "icon": "⭐",
+    "company": "miHoYo",
+    "category": "综合平台",
+    "region": "国内",
+    "platforms": [
+      "Windows",
+      "iOS",
+      "Android",
+      "Console"
+    ],
+    "model": "免费+内购",
+    "scale": "1亿+",
+    "mau": "估算 8000万+",
+    "games": "5",
+    "established": "2011",
+    "desc": "以《原神》《崩坏》系列为核心的自研自发生态，HoYoLab 社区日趋平台化。",
+    "features": [
+      "HoYoLab 社区",
+      "HoYoPlay 启动器",
+      "游戏内工具",
+      "每日签到",
+      "互动地图",
+      "角色展柜",
+      "抽卡记录",
+      "多语言社区"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "HoYoPlay 整合全线游戏为统一启动器"
+      },
+      {
+        "date": "2025-12",
+        "text": "HoYoLab 新增创作者激励计划"
+      }
+    ],
+    "lastUpdate": "2026-04-10"
+  }
+]
