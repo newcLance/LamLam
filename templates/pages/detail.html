@@ -176,10 +176,7 @@
         {% for key, icon, label, cls in dims %}
         {% if g.playerExp.media and g.playerExp.media[key] %}
         <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
-          <div class="flex items-center gap-2 mb-3">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm {{ cls }}">{{ icon }}</div>
-            <div class="text-sm font-bold">{{ label }}</div>
-          </div>
+          <div class="text-sm font-bold mb-3">{{ label }}</div>
           {% for it in g.playerExp.media[key] %}
           {{ pex_item(it) }}
           {% endfor %}
@@ -193,10 +190,7 @@
         {% for key, icon, label, cls in dims %}
         {% if g.playerExp.community and g.playerExp.community[key] %}
         <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
-          <div class="flex items-center gap-2 mb-3">
-            <div class="w-8 h-8 rounded-lg flex items-center justify-center text-sm {{ cls }}">{{ icon }}</div>
-            <div class="text-sm font-bold">{{ label }}</div>
-          </div>
+          <div class="text-sm font-bold mb-3">{{ label }}</div>
           {% for it in g.playerExp.community[key] %}
           {{ pex_item(it) }}
           {% endfor %}
