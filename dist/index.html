@@ -112,7 +112,19 @@ document.addEventListener('alpine:init', function() {
                let visible = Array.from(cards).filter(c => c.style.display !== 'none').length;
                sec.style.display = visible > 0 ? '' : 'none';
              });
+             let anyVisible = Array.from(document.querySelectorAll('.game-section')).some(s => s.style.display !== 'none');
+             document.getElementById('emptyState').style.display = anyVisible ? 'none' : 'flex';
            ">
+  </div>
+
+  
+  <div id="emptyState" class="hidden flex-col items-center justify-center py-24">
+    <div class="text-5xl mb-6 opacity-30">🔍</div>
+    <div class="text-neutral-500 text-sm mb-8">没有找到匹配的游戏</div>
+    <a href="https://wj.qq.com/s2/26428392/849b/" target="_blank"
+       class="px-8 py-3.5 rounded bg-white text-black text-sm font-bold hover:bg-neutral-200 transition">
+      提交心愿 ↗
+    </a>
   </div>
 
   

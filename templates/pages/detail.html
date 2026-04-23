@@ -5,9 +5,7 @@
 {% block title %}{{ g.nameCN or g.name }} - 游戏竞品分析{% endblock %}
 {% block home_href %}../index.html{% endblock %}
 
-{% block nav %}
-<a href="../index.html" class="px-3 py-1.5 rounded hover:bg-surface-2 text-neutral-500 hover:text-white transition text-xs">← Back</a>
-{% endblock %}
+{% block nav %}{% endblock %}
 
 {% block content %}
 
@@ -26,9 +24,15 @@
   <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
 
   {# Content layer #}
-  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-16 pb-10 flex items-end gap-8">
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
     {# Left: Game info #}
     <div class="flex-1 min-w-0">
+      {# Back button above game name #}
+      <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[.06] hover:bg-white/10 text-neutral-400 hover:text-white text-sm transition mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回列表
+      </a>
+
       <div class="flex items-center gap-3 mb-4">
         <span class="text-4xl drop-shadow-lg">{{ g.icon }}</span>
         <div>
@@ -74,7 +78,7 @@
 </div>
 
 {# ===== MAIN CONTENT ===== #}
-<div class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+<div x-data class="max-w-5xl mx-auto px-6 pt-10 pb-16">
 
   {# ===== SCREENSHOTS ===== #}
   {% if ss %}
