@@ -112,23 +112,57 @@ PASS → 输出立项卡片，进入 Phase 2
 
 | # | 动作 | 规格 |
 |---|------|------|
-| 2.1 | 浏览器自动截图 | 1920px 宽，全页滚动分段，WebP quality=82 |
+| 2.1 | 浏览器自动截图 | 1920px 宽，**全页长截图**，PNG 或 WebP |
 | 2.2 | Cookie/弹窗自动处理 | Cookiebot/OneTrust/Didomi/年龄门禁 全覆盖 |
 | 2.3 | 兜底检查 | 截图全白/全黑/被遮挡 → 自动重试 |
-| 2.4 | 图片标准化 | `python scripts/optimize-images.py --dir {slug}` |
+| 2.4 | **长图切割（必选）** | `python scripts/slice-fullpage.py --slug {slug}` |
+| 2.5 | 图片标准化 | `python scripts/optimize-images.py --dir {slug}` |
+
+### 🚨 长图切割规范（2026-04-23 起强制执行）
+
+> **所有全页长截图必须经过 `slice-fullpage.py` 处理后才能入库。**
+
+#### 切割规则
+- **viewport 宽度 1920px** → 16:9 一屏高度 = **1080px**
+- 原始长图保留为 `{prefix}-full.webp`，作为第一张图，**打 `tag: "长图"` 标签**
+- 按 1080px 高度切割成 N 张切片：`{prefix}-1.webp`, `{prefix}-2.webp`, ...
+- **末尾残余 ≥ 270px**（一屏的 25%）保留为独立切片
+- **末尾残余 < 270px** 并入上一张（允许略超一屏）
+
+#### 前端展示
+- 第一张（长图）：独占全宽，**max-height 600px** 裁切预览 + 底部渐变提示，左上角 "全页长图" 徽章
+- 后续切片：标准 2-3 列网格，每张右上角显示 `N/总数` 编号
+- 点击任一图片进入灯箱查看原图
+
+#### 脚本用法
+```bash
+# 处理单款游戏
+python scripts/slice-fullpage.py --slug sekiro
+
+# 处理单款游戏的特定页面
+python scripts/slice-fullpage.py --slug sekiro --page home
+
+# 处理所有游戏
+python scripts/slice-fullpage.py --all
+
+# 预览模式（不执行）
+python scripts/slice-fullpage.py --slug sekiro --dry-run
+```
 
 ### 截图命名规范
 ```
 screenshots/{game-slug}/
-  ├── home-1.webp ~ home-N.webp    # 官网首页
-  ├── about-1.webp                  # 特色/玩法页
-  ├── media-1.webp                  # 媒体/预告片页
-  └── news-1.webp                   # 新闻页
+  ├── home-full.webp                # 官网首页长图（tag: 长图）
+  ├── home-1.webp ~ home-N.webp    # 官网首页 16:9 切片
+  ├── about-full.webp               # 特色/玩法页长图
+  ├── about-1.webp ~ about-N.webp  # 特色/玩法页切片
+  ├── media-full.webp               # 媒体/预告片页长图
+  └── news-full.webp                # 新闻页长图
 ```
 
 ### 产出物
-- `screenshots/{slug}/` 目录：5-10 张 WebP 截图
-- 更新 `data/screenshots.json`
+- `screenshots/{slug}/` 目录：长图 + 切片，每个页面 5-10 张 WebP
+- 更新 `data/screenshots.json`（第一张 img 为长图，tag 标记为 "长图"）
 
 ---
 

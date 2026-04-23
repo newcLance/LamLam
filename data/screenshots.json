@@ -290,17 +290,15 @@
         {
           "title": "WeGame 商店首页",
           "url": "https://www.wegame.com.cn/store",
-          "date": "2026-04-10",
-          "tag": "最新",
+          "date": "2026-04-23",
+          "tag": "长图",
           "imgs": [
+            "screenshots/wegame/store-home-full.webp",
             "screenshots/wegame/store-home-1.webp",
             "screenshots/wegame/store-home-2.webp",
             "screenshots/wegame/store-home-3.webp",
             "screenshots/wegame/store-home-4.webp",
-            "screenshots/wegame/store-home-5.webp",
-            "screenshots/wegame/store-home-6.webp",
-            "screenshots/wegame/store-home-7.webp",
-            "screenshots/wegame/store-home-8.webp"
+            "screenshots/wegame/store-home-5.webp"
           ]
         }
       ]
@@ -988,9 +986,14 @@
           "title": "只狼：影逝二度 - 官网首页",
           "url": "https://www.sekiro.jp/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/sekiro/home-1.webp"
+            "screenshots/sekiro/home-full.webp",
+            "screenshots/sekiro/home-1.webp",
+            "screenshots/sekiro/home-2.webp",
+            "screenshots/sekiro/home-3.webp",
+            "screenshots/sekiro/home-4.webp",
+            "screenshots/sekiro/home-5.webp"
           ]
         },
         {
@@ -998,32 +1001,55 @@
           "url": "https://www.sekiro.jp/story.html",
           "date": "2026-04-23",
           "imgs": [
-            "screenshots/sekiro/story-1.webp"
-          ]
+            "screenshots/sekiro/story-full.webp",
+            "screenshots/sekiro/story-1.webp",
+            "screenshots/sekiro/story-2.webp",
+            "screenshots/sekiro/story-3.webp"
+          ],
+          "tag": "长图"
         },
         {
           "title": "SYSTEM",
           "url": "https://www.sekiro.jp/system.html",
           "date": "2026-04-23",
           "imgs": [
-            "screenshots/sekiro/system-1.webp"
-          ]
+            "screenshots/sekiro/system-full.webp",
+            "screenshots/sekiro/system-1.webp",
+            "screenshots/sekiro/system-2.webp",
+            "screenshots/sekiro/system-3.webp",
+            "screenshots/sekiro/system-4.webp",
+            "screenshots/sekiro/system-5.webp",
+            "screenshots/sekiro/system-6.webp",
+            "screenshots/sekiro/system-7.webp",
+            "screenshots/sekiro/system-8.webp"
+          ],
+          "tag": "长图"
         },
         {
           "title": "CONCEPT",
           "url": "https://www.sekiro.jp/concept.html",
           "date": "2026-04-23",
           "imgs": [
-            "screenshots/sekiro/concept-1.webp"
-          ]
+            "screenshots/sekiro/concept-full.webp",
+            "screenshots/sekiro/concept-1.webp",
+            "screenshots/sekiro/concept-2.webp",
+            "screenshots/sekiro/concept-3.webp",
+            "screenshots/sekiro/concept-4.webp"
+          ],
+          "tag": "长图"
         },
         {
           "title": "MOVIE & IMAGES",
           "url": "https://www.sekiro.jp/movieandimage.html",
           "date": "2026-04-23",
           "imgs": [
-            "screenshots/sekiro/media-1.webp"
-          ]
+            "screenshots/sekiro/media-full.webp",
+            "screenshots/sekiro/media-1.webp",
+            "screenshots/sekiro/media-2.webp",
+            "screenshots/sekiro/media-3.webp",
+            "screenshots/sekiro/media-4.webp"
+          ],
+          "tag": "长图"
         }
       ]
     }
@@ -1397,12 +1423,12 @@
         {
           "title": "High on Life 2 - Squanch Games 官网",
           "url": "https://www.squanchgames.com/",
-          "date": "2026-04-14",
-          "tag": "最新",
+          "date": "2026-04-23",
+          "tag": "长图",
           "imgs": [
-            "screenshots/high-on-life-2/homepage.webp",
-            "screenshots/high-on-life-2/mid-section.webp",
-            "screenshots/high-on-life-2/bottom-section.webp"
+            "screenshots/high-on-life-2/test2-full.webp",
+            "screenshots/high-on-life-2/test2-1.webp",
+            "screenshots/high-on-life-2/test2-2.webp"
           ]
         }
       ]
@@ -1454,9 +1480,22 @@
           "title": "Baldur's Gate 3 - Official",
           "url": "https://baldursgate3.game/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/baldurs-gate-3/home-1.webp"
+            "screenshots/baldurs-gate-3/home-full.webp",
+            "screenshots/baldurs-gate-3/home-1.webp",
+            "screenshots/baldurs-gate-3/home-2.webp",
+            "screenshots/baldurs-gate-3/home-3.webp",
+            "screenshots/baldurs-gate-3/home-4.webp",
+            "screenshots/baldurs-gate-3/home-5.webp",
+            "screenshots/baldurs-gate-3/home-6.webp",
+            "screenshots/baldurs-gate-3/home-7.webp",
+            "screenshots/baldurs-gate-3/home-8.webp",
+            "screenshots/baldurs-gate-3/home-9.webp",
+            "screenshots/baldurs-gate-3/home-10.webp",
+            "screenshots/baldurs-gate-3/home-11.webp",
+            "screenshots/baldurs-gate-3/home-12.webp",
+            "screenshots/baldurs-gate-3/home-13.webp"
           ]
         }
       ]
@@ -1470,9 +1509,19 @@
           "title": "God of War - Official",
           "url": "https://www.playstation.com/en-us/god-of-war/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/god-of-war/home-1.webp"
+            "screenshots/god-of-war/home-full.webp",
+            "screenshots/god-of-war/home-1.webp",
+            "screenshots/god-of-war/home-2.webp",
+            "screenshots/god-of-war/home-3.webp",
+            "screenshots/god-of-war/home-4.webp",
+            "screenshots/god-of-war/home-5.webp",
+            "screenshots/god-of-war/home-6.webp",
+            "screenshots/god-of-war/home-7.webp",
+            "screenshots/god-of-war/home-8.webp",
+            "screenshots/god-of-war/home-9.webp",
+            "screenshots/god-of-war/home-10.webp"
           ]
         }
       ]
@@ -1486,9 +1535,13 @@
           "title": "Ghost of Tsushima DIRECTOR'S CUT - Official",
           "url": "https://www.playstation.com/en-us/games/ghost-of-tsushima/pc/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/ghost-of-tsushima/home-1.webp"
+            "screenshots/ghost-of-tsushima/home-full.webp",
+            "screenshots/ghost-of-tsushima/home-1.webp",
+            "screenshots/ghost-of-tsushima/home-2.webp",
+            "screenshots/ghost-of-tsushima/home-3.webp",
+            "screenshots/ghost-of-tsushima/home-4.webp"
           ]
         }
       ]
@@ -1518,9 +1571,14 @@
           "title": "Hollow Knight: Silksong - Official",
           "url": "https://hollowknightsilksong.com/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/hollow-knight-silksong/home-1.webp"
+            "screenshots/hollow-knight-silksong/home-full.webp",
+            "screenshots/hollow-knight-silksong/home-1.webp",
+            "screenshots/hollow-knight-silksong/home-2.webp",
+            "screenshots/hollow-knight-silksong/home-3.webp",
+            "screenshots/hollow-knight-silksong/home-4.webp",
+            "screenshots/hollow-knight-silksong/home-5.webp"
           ]
         }
       ]
@@ -1534,9 +1592,12 @@
           "title": "Hades II - Official",
           "url": "https://www.supergiantgames.com/games/hades-ii/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/hades-2/home-1.webp"
+            "screenshots/hades-2/home-full.webp",
+            "screenshots/hades-2/home-1.webp",
+            "screenshots/hades-2/home-2.webp",
+            "screenshots/hades-2/home-3.webp"
           ]
         }
       ]
@@ -1550,9 +1611,17 @@
           "title": "Persona 5 Royal - Official",
           "url": "https://asia.sega.com/persona-remaster/p5r/cn/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/persona-5-royal/home-1.webp"
+            "screenshots/persona-5-royal/home-full.webp",
+            "screenshots/persona-5-royal/home-1.webp",
+            "screenshots/persona-5-royal/home-2.webp",
+            "screenshots/persona-5-royal/home-3.webp",
+            "screenshots/persona-5-royal/home-4.webp",
+            "screenshots/persona-5-royal/home-5.webp",
+            "screenshots/persona-5-royal/home-6.webp",
+            "screenshots/persona-5-royal/home-7.webp",
+            "screenshots/persona-5-royal/home-8.webp"
           ]
         }
       ]
@@ -1566,9 +1635,21 @@
           "title": "Hi-Fi RUSH - Official",
           "url": "https://hifirush.krafton.com/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/hi-fi-rush/home-1.webp"
+            "screenshots/hi-fi-rush/home-full.webp",
+            "screenshots/hi-fi-rush/home-1.webp",
+            "screenshots/hi-fi-rush/home-2.webp",
+            "screenshots/hi-fi-rush/home-3.webp",
+            "screenshots/hi-fi-rush/home-4.webp",
+            "screenshots/hi-fi-rush/home-5.webp",
+            "screenshots/hi-fi-rush/home-6.webp",
+            "screenshots/hi-fi-rush/home-7.webp",
+            "screenshots/hi-fi-rush/home-8.webp",
+            "screenshots/hi-fi-rush/home-9.webp",
+            "screenshots/hi-fi-rush/home-10.webp",
+            "screenshots/hi-fi-rush/home-11.webp",
+            "screenshots/hi-fi-rush/home-12.webp"
           ]
         }
       ]
@@ -1582,9 +1663,16 @@
           "title": "Kingdom Come: Deliverance II - Official",
           "url": "https://www.deepsilver.com/games/kingdom-come-deliverance-ii",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/kingdom-come-deliverance-2/home-1.webp"
+            "screenshots/kingdom-come-deliverance-2/home-full.webp",
+            "screenshots/kingdom-come-deliverance-2/home-1.webp",
+            "screenshots/kingdom-come-deliverance-2/home-2.webp",
+            "screenshots/kingdom-come-deliverance-2/home-3.webp",
+            "screenshots/kingdom-come-deliverance-2/home-4.webp",
+            "screenshots/kingdom-come-deliverance-2/home-5.webp",
+            "screenshots/kingdom-come-deliverance-2/home-6.webp",
+            "screenshots/kingdom-come-deliverance-2/home-7.webp"
           ]
         }
       ]
@@ -1598,9 +1686,12 @@
           "title": "Stray - Official",
           "url": "https://annapurnainteractive.com/games/stray",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/stray/home-1.webp"
+            "screenshots/stray/home-full.webp",
+            "screenshots/stray/home-1.webp",
+            "screenshots/stray/home-2.webp",
+            "screenshots/stray/home-3.webp"
           ]
         }
       ]
@@ -1614,9 +1705,12 @@
           "title": "星刃 - Official",
           "url": "https://www.playstation.com/games/stellar-blade/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/stellar-blade/home-1.webp"
+            "screenshots/stellar-blade/home-full.webp",
+            "screenshots/stellar-blade/home-1.webp",
+            "screenshots/stellar-blade/home-2.webp",
+            "screenshots/stellar-blade/home-3.webp"
           ]
         }
       ]
@@ -1630,9 +1724,22 @@
           "title": "生化危机：村庄 - Official",
           "url": "https://www.residentevil.com/village/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/resident-evil-village/home-1.webp"
+            "screenshots/resident-evil-village/home-full.webp",
+            "screenshots/resident-evil-village/home-1.webp",
+            "screenshots/resident-evil-village/home-2.webp",
+            "screenshots/resident-evil-village/home-3.webp",
+            "screenshots/resident-evil-village/home-4.webp",
+            "screenshots/resident-evil-village/home-5.webp",
+            "screenshots/resident-evil-village/home-6.webp",
+            "screenshots/resident-evil-village/home-7.webp",
+            "screenshots/resident-evil-village/home-8.webp",
+            "screenshots/resident-evil-village/home-9.webp",
+            "screenshots/resident-evil-village/home-10.webp",
+            "screenshots/resident-evil-village/home-11.webp",
+            "screenshots/resident-evil-village/home-12.webp",
+            "screenshots/resident-evil-village/home-13.webp"
           ]
         }
       ]
@@ -1646,9 +1753,13 @@
           "title": "霍格沃茨之遗 - Official",
           "url": "https://www.hogwartslegacy.com/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/hogwarts-legacy/home-1.webp"
+            "screenshots/hogwarts-legacy/home-full.webp",
+            "screenshots/hogwarts-legacy/home-1.webp",
+            "screenshots/hogwarts-legacy/home-2.webp",
+            "screenshots/hogwarts-legacy/home-3.webp",
+            "screenshots/hogwarts-legacy/home-4.webp"
           ]
         }
       ]
@@ -1662,9 +1773,13 @@
           "title": "赛博朋克2077 - Official",
           "url": "https://www.cyberpunk.net",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/cyberpunk-2077/home-1.webp"
+            "screenshots/cyberpunk-2077/home-full.webp",
+            "screenshots/cyberpunk-2077/home-1.webp",
+            "screenshots/cyberpunk-2077/home-2.webp",
+            "screenshots/cyberpunk-2077/home-3.webp",
+            "screenshots/cyberpunk-2077/home-4.webp"
           ]
         }
       ]
@@ -1710,9 +1825,14 @@
           "title": "潜水员戴夫 - Official",
           "url": "https://www.mintrock.et/en/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/dave-the-diver/home-1.webp"
+            "screenshots/dave-the-diver/home-full.webp",
+            "screenshots/dave-the-diver/home-1.webp",
+            "screenshots/dave-the-diver/home-2.webp",
+            "screenshots/dave-the-diver/home-3.webp",
+            "screenshots/dave-the-diver/home-4.webp",
+            "screenshots/dave-the-diver/home-5.webp"
           ]
         }
       ]
@@ -1726,9 +1846,14 @@
           "title": "信号 - Official",
           "url": "http://rose-engine.org/signalis/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/signalis/home-1.webp"
+            "screenshots/signalis/home-full.webp",
+            "screenshots/signalis/home-1.webp",
+            "screenshots/signalis/home-2.webp",
+            "screenshots/signalis/home-3.webp",
+            "screenshots/signalis/home-4.webp",
+            "screenshots/signalis/home-5.webp"
           ]
         }
       ]
@@ -1742,9 +1867,12 @@
           "title": "分裂虚构 - Official",
           "url": "https://www.ea.com/games/split-fiction",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/split-fiction/home-1.webp"
+            "screenshots/split-fiction/home-full.webp",
+            "screenshots/split-fiction/home-1.webp",
+            "screenshots/split-fiction/home-2.webp",
+            "screenshots/split-fiction/home-3.webp"
           ]
         }
       ]
@@ -1758,9 +1886,18 @@
           "title": "往日不再 - Official",
           "url": "https://www.playstation.com/games/days-gone/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/days-gone/home-1.webp"
+            "screenshots/days-gone/home-full.webp",
+            "screenshots/days-gone/home-1.webp",
+            "screenshots/days-gone/home-2.webp",
+            "screenshots/days-gone/home-3.webp",
+            "screenshots/days-gone/home-4.webp",
+            "screenshots/days-gone/home-5.webp",
+            "screenshots/days-gone/home-6.webp",
+            "screenshots/days-gone/home-7.webp",
+            "screenshots/days-gone/home-8.webp",
+            "screenshots/days-gone/home-9.webp"
           ]
         }
       ]
@@ -1774,9 +1911,12 @@
           "title": "小丑牌 - Official",
           "url": "https://www.playbalatro.com/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/balatro/home-1.webp"
+            "screenshots/balatro/home-full.webp",
+            "screenshots/balatro/home-1.webp",
+            "screenshots/balatro/home-2.webp",
+            "screenshots/balatro/home-3.webp"
           ]
         }
       ]
@@ -1790,9 +1930,15 @@
           "title": "咩咩启示录 - Official",
           "url": "https://massivemonster.com/games/cult-of-the-lamb",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/cult-of-the-lamb/home-1.webp"
+            "screenshots/cult-of-the-lamb/home-full.webp",
+            "screenshots/cult-of-the-lamb/home-1.webp",
+            "screenshots/cult-of-the-lamb/home-2.webp",
+            "screenshots/cult-of-the-lamb/home-3.webp",
+            "screenshots/cult-of-the-lamb/home-4.webp",
+            "screenshots/cult-of-the-lamb/home-5.webp",
+            "screenshots/cult-of-the-lamb/home-6.webp"
           ]
         }
       ]
@@ -1806,9 +1952,17 @@
           "title": "疏浚 - Official",
           "url": "https://www.dredge.game/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/dredge/home-1.webp"
+            "screenshots/dredge/home-full.webp",
+            "screenshots/dredge/home-1.webp",
+            "screenshots/dredge/home-2.webp",
+            "screenshots/dredge/home-3.webp",
+            "screenshots/dredge/home-4.webp",
+            "screenshots/dredge/home-5.webp",
+            "screenshots/dredge/home-6.webp",
+            "screenshots/dredge/home-7.webp",
+            "screenshots/dredge/home-8.webp"
           ]
         }
       ]
@@ -1822,9 +1976,14 @@
           "title": "幸福工厂 - Official",
           "url": "https://www.satisfactorygame.com/",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/satisfactory/home-1.webp"
+            "screenshots/satisfactory/home-full.webp",
+            "screenshots/satisfactory/home-1.webp",
+            "screenshots/satisfactory/home-2.webp",
+            "screenshots/satisfactory/home-3.webp",
+            "screenshots/satisfactory/home-4.webp",
+            "screenshots/satisfactory/home-5.webp"
           ]
         }
       ]
@@ -1838,9 +1997,94 @@
           "title": "拆迁 - Official",
           "url": "http://teardowngame.com",
           "date": "2026-04-23",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/teardown/home-1.webp"
+            "screenshots/teardown/home-full.webp",
+            "screenshots/teardown/home-1.webp",
+            "screenshots/teardown/home-2.webp",
+            "screenshots/teardown/home-3.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Vampire Survivors": [
+    {
+      "name": "Official Site",
+      "screens": [
+        {
+          "title": "Homepage",
+          "imgs": [
+            "screenshots/vampire-survivors/home-full.webp",
+            "screenshots/vampire-survivors/home-2.webp",
+            "screenshots/vampire-survivors/home-3.webp"
+          ],
+          "tag": "长图"
+        }
+      ]
+    }
+  ],
+  "Pizza Tower": [
+    {
+      "name": "Official Site",
+      "screens": [
+        {
+          "title": "Homepage",
+          "imgs": [
+            "screenshots/pizza-tower/home-full.webp",
+            "screenshots/pizza-tower/home-2.webp",
+            "screenshots/pizza-tower/home-3.webp",
+            "screenshots/pizza-tower/home-4.webp"
+          ],
+          "tag": "长图"
+        }
+      ]
+    }
+  ],
+  "Lethal Company": [
+    {
+      "name": "Official Site",
+      "screens": [
+        {
+          "title": "Homepage",
+          "imgs": [
+            "screenshots/lethal-company/home-full.webp",
+            "screenshots/lethal-company/home-2.webp",
+            "screenshots/lethal-company/home-3.webp",
+            "screenshots/lethal-company/home-4.webp"
+          ],
+          "tag": "长图"
+        }
+      ]
+    }
+  ],
+  "Dyson Sphere Program": [
+    {
+      "name": "Official Site",
+      "screens": [
+        {
+          "title": "Homepage",
+          "imgs": [
+            "screenshots/dyson-sphere-program/home-full.webp",
+            "screenshots/dyson-sphere-program/home-2.webp",
+            "screenshots/dyson-sphere-program/home-3.webp",
+            "screenshots/dyson-sphere-program/home-4.webp",
+            "screenshots/dyson-sphere-program/home-5.webp",
+            "screenshots/dyson-sphere-program/home-6.webp"
+          ],
+          "tag": "长图"
+        }
+      ]
+    }
+  ],
+  "The Planet Crafter": [
+    {
+      "name": "Official Site",
+      "screens": [
+        {
+          "title": "Homepage",
+          "imgs": [
+            "screenshots/the-planet-crafter/home-1.webp"
           ]
         }
       ]
