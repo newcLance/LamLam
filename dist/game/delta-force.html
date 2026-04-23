@@ -56,7 +56,7 @@ tailwind.config = {
 <div class="max-w-5xl mx-auto px-4 py-6">
 
   
-  <div class="flex items-center gap-3 mb-4">
+  <div id="sec-header" class="flex items-center gap-3 mb-4">
     <span class="text-3xl">🎮</span>
     <div>
       <h1 class="text-2xl font-bold">三角洲行动</h1>
@@ -97,47 +97,90 @@ tailwind.config = {
 
   
   
-  <div class="mb-8">
+  <div id="sec-screenshots" class="mb-8">
     <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
     
     
     
-    <div class="text-xs text-slate-500 mb-2">三角洲行动 - 首页 · 2026-04-13</div>
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-xs text-slate-500">三角洲行动 - 首页 · 2026-04-13</span>
+      
+      <a href="https://df.qq.com/cp/a20240906main/index.html" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-accent/10 text-accent hover:bg-accent/20 transition shrink-0">
+        🔗 访问官网 ↗
+      </a>
+      
+    </div>
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/home-1.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/home-1.webp')">
         <img src="../screenshots/delta-force/home-1.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/home-2.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/home-2.webp')">
         <img src="../screenshots/delta-force/home-2.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/home-3.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/home-3.webp')">
         <img src="../screenshots/delta-force/home-3.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/home-4.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/home-4.webp')">
         <img src="../screenshots/delta-force/home-4.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/home-5.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/home-5.webp')">
         <img src="../screenshots/delta-force/home-5.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/home-6.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/home-6.webp')">
         <img src="../screenshots/delta-force/home-6.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/home-7.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/home-7.webp')">
         <img src="../screenshots/delta-force/home-7.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
     </div>
@@ -146,17 +189,35 @@ tailwind.config = {
     
     
     
-    <div class="text-xs text-slate-500 mb-2">三角洲行动 - 新闻资讯 · 2026-04-13</div>
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-xs text-slate-500">三角洲行动 - 新闻资讯 · 2026-04-13</span>
+      
+      <a href="https://df.qq.com/cp/a20240906main/newslist.html" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-accent/10 text-accent hover:bg-accent/20 transition shrink-0">
+        🔗 访问官网 ↗
+      </a>
+      
+    </div>
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/news-1.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/news-1.webp')">
         <img src="../screenshots/delta-force/news-1.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/news-2.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/news-2.webp')">
         <img src="../screenshots/delta-force/news-2.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
     </div>
@@ -165,17 +226,35 @@ tailwind.config = {
     
     
     
-    <div class="text-xs text-slate-500 mb-2">三角洲行动 - 视频中心 · 2026-04-13</div>
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-xs text-slate-500">三角洲行动 - 视频中心 · 2026-04-13</span>
+      
+      <a href="https://df.qq.com/cp/a20240906main/videolist.html" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-accent/10 text-accent hover:bg-accent/20 transition shrink-0">
+        🔗 访问官网 ↗
+      </a>
+      
+    </div>
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/video-1.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/video-1.webp')">
         <img src="../screenshots/delta-force/video-1.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+      
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="../screenshots/delta-force/video-2.webp"
            x-on:click="$dispatch('open-lightbox','../screenshots/delta-force/video-2.webp')">
         <img src="../screenshots/delta-force/video-2.webp" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       
     </div>
@@ -187,7 +266,7 @@ tailwind.config = {
 
   
   
-  <div class="mb-8">
+  <div id="sec-timeline" class="mb-8">
     <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
     <div class="relative pl-5 border-l-2 border-bdr space-y-4">
       
@@ -205,7 +284,7 @@ tailwind.config = {
 
   
   
-  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
+  <div id="sec-playerexp" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
        x-data="{ tab: 'media' }">
     <div class="px-6 pt-5">
       <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
@@ -593,7 +672,7 @@ tailwind.config = {
 
   
   
-  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+  <div id="sec-story" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
     <div class="px-6 pt-5">
       <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
     </div>
@@ -646,12 +725,12 @@ tailwind.config = {
 
   
   
-  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+  <div id="sec-aesthetic" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
     <div class="px-6 pt-5">
       <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
     </div>
     <div class="p-6">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         
         
         
@@ -730,7 +809,7 @@ tailwind.config = {
 
   
   
-  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+  <div id="sec-rivals" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
     <div class="px-6 pt-5">
       <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
       <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
@@ -802,14 +881,50 @@ tailwind.config = {
 </div>
 
 
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 bg-surface-1/80 backdrop-blur border border-bdr rounded-xl px-2 py-3 shadow-lg"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all"
+       :class="active === s.id ? 'bg-accent/15 text-accent' : 'text-slate-500 hover:text-slate-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-accent' : 'bg-slate-600 group-hover:bg-slate-400'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
 
-<div x-data="{open:false, src:''}"
-     x-on:open-lightbox.window="open=true; src=$event.detail"
+
+
+
+<div x-data="{open:false, src:'', imgs:[], idx:0}"
+     x-on:open-lightbox.window="open=true; src=$event.detail;
+       imgs=Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el){ return el.getAttribute('data-lightbox-src'); });
+       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;"
      x-on:keydown.escape.window="open=false"
+     x-on:keydown.left.window="if(open && idx>0){idx--;src=imgs[idx]}"
+     x-on:keydown.right.window="if(open && idx<imgs.length-1){idx++;src=imgs[idx]}"
      x-show="open" x-cloak
-     class="fixed inset-0 z-[999] bg-black/85 flex items-center justify-center cursor-zoom-out"
+     class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center"
      x-on:click="open=false">
-  <img :src="src" class="max-w-[95vw] max-h-[95vh] rounded-lg">
+  <!-- Close btn -->
+  <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm flex items-center justify-center transition z-10"
+          x-on:click.stop="open=false">✕</button>
+  <!-- Prev btn -->
+  <button x-show="idx > 0"
+          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
+          x-on:click.stop="idx--;src=imgs[idx]">‹</button>
+  <!-- Next btn -->
+  <button x-show="idx < imgs.length - 1"
+          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
+          x-on:click.stop="idx++;src=imgs[idx]">›</button>
+  <!-- Image -->
+  <img :src="src" class="max-w-[92vw] max-h-[90vh] rounded-lg cursor-default" x-on:click.stop>
+  <!-- Counter -->
+  <div x-show="imgs.length > 1" class="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 text-white/70 text-xs"
+       x-text="(idx+1) + ' / ' + imgs.length"></div>
 </div>
 
 
@@ -821,6 +936,49 @@ tailwind.config = {
   ↑
 </button>
 
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'📋 基本信息'},
+        {id:'sec-screenshots', label:'🖼 官网截图'},
+        {id:'sec-timeline',    label:'📅 设计时间线'},
+        {id:'sec-playerexp',   label:'🎮 体验清单'},
+        {id:'sec-story',       label:'📖 IP/故事'},
+        {id:'sec-aesthetic',   label:'🎨 审美偏好'},
+        {id:'sec-rivals',      label:'🎯 竞品推荐'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 80;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+</script>
 
 </body>
 </html>

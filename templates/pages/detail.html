@@ -13,7 +13,7 @@
 <div class="max-w-5xl mx-auto px-4 py-6">
 
   {# ===== HEADER ===== #}
-  <div class="flex items-center gap-3 mb-4">
+  <div id="sec-header" class="flex items-center gap-3 mb-4">
     <span class="text-3xl">{{ g.icon }}</span>
     <div>
       <h1 class="text-2xl font-bold">{{ g.nameCN or g.name }}</h1>
@@ -44,17 +44,30 @@
 
   {# ===== SCREENSHOTS ===== #}
   {% if ss %}
-  <div class="mb-8">
+  <div id="sec-screenshots" class="mb-8">
     <h2 class="text-base font-bold mb-3">🖼 官网截图</h2>
     {% for module in ss %}
     {% for screen in module.screens %}
     {% if screen.imgs %}
-    <div class="text-xs text-slate-500 mb-2">{{ screen.title }}{% if screen.date %} · {{ screen.date }}{% endif %}</div>
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-xs text-slate-500">{{ screen.title }}{% if screen.date %} · {{ screen.date }}{% endif %}</span>
+      {% if screen.url %}
+      <a href="{{ screen.url }}" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-accent/10 text-accent hover:bg-accent/20 transition shrink-0">
+        🔗 访问官网 ↗
+      </a>
+      {% endif %}
+    </div>
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
       {% for img in screen.imgs %}
-      <div class="rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
-           x-on:click="$dispatch('open-lightbox','{{ '../' ~ img if not img.startswith('http') else img }}')">
-        <img src="{{ '../' ~ img if not img.startswith('http') else img }}" loading="lazy" class="w-full block">
+      {% set img_url = '../' ~ img if not img.startswith('http') else img %}
+      <div class="group relative rounded-lg overflow-hidden border border-bdr cursor-pointer hover:border-indigo-500/30 transition"
+           data-lightbox-src="{{ img_url }}"
+           x-on:click="$dispatch('open-lightbox','{{ img_url }}')">
+        <img src="{{ img_url }}" loading="lazy" class="w-full block">
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+          <span class="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white text-sm">🔍</span>
+        </div>
       </div>
       {% endfor %}
     </div>
@@ -66,7 +79,7 @@
 
   {# ===== TIMELINE ===== #}
   {% if g.changes %}
-  <div class="mb-8">
+  <div id="sec-timeline" class="mb-8">
     <h2 class="text-base font-bold mb-3">📅 设计变化时间线</h2>
     <div class="relative pl-5 border-l-2 border-bdr space-y-4">
       {% for c in g.changes %}
@@ -84,7 +97,7 @@
 
   {# ===== PLAYER EXPERIENCE CHECKLIST ===== #}
   {% if g.playerExp %}
-  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
+  <div id="sec-playerexp" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8"
        x-data="{ tab: 'media' }">
     <div class="px-6 pt-5">
       <h3 class="text-base font-bold">📋 玩家游戏体验清单</h3>
@@ -162,7 +175,7 @@
 
   {# ===== IP / STORY ===== #}
   {% if g.story %}
-  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+  <div id="sec-story" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
     <div class="px-6 pt-5">
       <h3 class="text-base font-bold">📖 IP / 故事剧情</h3>
     </div>
@@ -174,12 +187,12 @@
 
   {# ===== AESTHETIC PROFILE ===== #}
   {% if g.aesthetic %}
-  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+  <div id="sec-aesthetic" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
     <div class="px-6 pt-5">
       <h3 class="text-base font-bold">🎨 玩家审美偏好</h3>
     </div>
     <div class="p-6">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {% for key in ["scene","costume","ui","symbol","promo"] %}
         {% if g.aesthetic[key] %}
         {{ aes_card(key, g.aesthetic[key]) }}
@@ -192,7 +205,7 @@
 
   {# ===== RIVALS (independent section) ===== #}
   {% if g.aesthetic and g.aesthetic.rivals %}
-  <div class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
+  <div id="sec-rivals" class="bg-surface-1 border border-bdr rounded-xl overflow-hidden mb-8">
     <div class="px-6 pt-5">
       <h3 class="text-base font-bold">🎯 综合竞品推荐</h3>
       <div class="text-xs text-slate-500 mt-1">基于体验清单 · 审美偏好 · IP故事三维度综合选出</div>
@@ -223,4 +236,66 @@
   {% endif %}
 
 </div>
+
+{# ===== ANCHOR NAV WIDGET ===== #}
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-1 bg-surface-1/80 backdrop-blur border border-bdr rounded-xl px-2 py-3 shadow-lg"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all"
+       :class="active === s.id ? 'bg-accent/15 text-accent' : 'text-slate-500 hover:text-slate-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-accent' : 'bg-slate-600 group-hover:bg-slate-400'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'📋 基本信息'},
+        {id:'sec-screenshots', label:'🖼 官网截图'},
+        {id:'sec-timeline',    label:'📅 设计时间线'},
+        {id:'sec-playerexp',   label:'🎮 体验清单'},
+        {id:'sec-story',       label:'📖 IP/故事'},
+        {id:'sec-aesthetic',   label:'🎨 审美偏好'},
+        {id:'sec-rivals',      label:'🎯 竞品推荐'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 80;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+</script>
 {% endblock %}

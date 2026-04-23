@@ -105,13 +105,32 @@ tailwind.config = {
 
 
 
-<div x-data="{open:false, src:''}"
-     x-on:open-lightbox.window="open=true; src=$event.detail"
+<div x-data="{open:false, src:'', imgs:[], idx:0}"
+     x-on:open-lightbox.window="open=true; src=$event.detail;
+       imgs=Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el){ return el.getAttribute('data-lightbox-src'); });
+       idx=imgs.indexOf($event.detail); if(idx<0) idx=0;"
      x-on:keydown.escape.window="open=false"
+     x-on:keydown.left.window="if(open && idx>0){idx--;src=imgs[idx]}"
+     x-on:keydown.right.window="if(open && idx<imgs.length-1){idx++;src=imgs[idx]}"
      x-show="open" x-cloak
-     class="fixed inset-0 z-[999] bg-black/85 flex items-center justify-center cursor-zoom-out"
+     class="fixed inset-0 z-[999] bg-black/90 flex items-center justify-center"
      x-on:click="open=false">
-  <img :src="src" class="max-w-[95vw] max-h-[95vh] rounded-lg">
+  <!-- Close btn -->
+  <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm flex items-center justify-center transition z-10"
+          x-on:click.stop="open=false">✕</button>
+  <!-- Prev btn -->
+  <button x-show="idx > 0"
+          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
+          x-on:click.stop="idx--;src=imgs[idx]">‹</button>
+  <!-- Next btn -->
+  <button x-show="idx < imgs.length - 1"
+          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-lg flex items-center justify-center transition z-10"
+          x-on:click.stop="idx++;src=imgs[idx]">›</button>
+  <!-- Image -->
+  <img :src="src" class="max-w-[92vw] max-h-[90vh] rounded-lg cursor-default" x-on:click.stop>
+  <!-- Counter -->
+  <div x-show="imgs.length > 1" class="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/60 text-white/70 text-xs"
+       x-text="(idx+1) + ' / ' + imgs.length"></div>
 </div>
 
 
