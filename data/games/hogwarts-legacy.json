@@ -4,53 +4,173 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>霍格沃茨城堡</b>的环境美术是全游戏最大成就——每条走廊、每间教室都按电影设定精准还原，会动的楼梯和浮动蜡烛让空间充满魔法感", "src": "IGN 9/10", "url": "https://www.ign.com/articles/hogwarts-legacy-review"},
-        {"text": "四季变化的<b>开放世界</b>美术——从霍格沃茨周围的秋色森林到霍格莫德的雪景街道，光照和植被随时间推移自然过渡", "src": "GameSpot 8/10", "url": "https://www.gamespot.com/reviews/hogwarts-legacy-review/1900-6418061/"},
-        {"text": "<b>法术视觉特效</b>的差异化做得极好——每种法术都有独特的光色、粒子轨迹和施法动画，战斗场面华丽而不混乱", "src": "Eurogamer", "url": "https://www.eurogamer.net/hogwarts-legacy-review"}
+        {
+          "text": "<b>霍格沃茨城堡</b>的环境美术是全游戏最大成就——每条走廊、每间教室都按电影设定精准还原，会动的楼梯和浮动蜡烛让空间充满魔法感",
+          "src": "IGN 9/10",
+          "url": "https://www.ign.com/articles/hogwarts-legacy-review"
+        },
+        {
+          "text": "四季变化的<b>开放世界</b>美术——从霍格沃茨周围的秋色森林到霍格莫德的雪景街道，光照和植被随时间推移自然过渡",
+          "src": "GameSpot 8/10",
+          "url": "https://www.gamespot.com/reviews/hogwarts-legacy-review/1900-6418061/"
+        },
+        {
+          "text": "<b>法术视觉特效</b>的差异化做得极好——每种法术都有独特的光色、粒子轨迹和施法动画，战斗场面华丽而不混乱",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/hogwarts-legacy-review"
+        }
       ],
       "excitement": [
-        {"text": "第一次收到<b>霍格沃茨入学通知书</b>、第一次走进大礼堂、第一次骑扫帚飞行——每个\"第一次\"都精确命中了哈利波特粉丝的情感按钮", "src": "IGN", "url": "https://www.ign.com/articles/hogwarts-legacy-review"},
-        {"text": "<b>需求室</b>的自定义装饰系统——家具摆放、魔法生物饲养的视觉满足感极强", "src": "Game Informer 8.5/10", "url": "https://www.gameinformer.com/review/hogwarts-legacy"},
-        {"text": "骑着<b>鹰马</b>从霍格沃茨钟塔俯瞰整片苏格兰高地——飞行系统的视觉体验是开放世界游戏中的顶级水平", "src": "Push Square 8/10", "url": "https://www.pushsquare.com/reviews/ps5/hogwarts-legacy"}
+        {
+          "text": "第一次收到<b>霍格沃茨入学通知书</b>、第一次走进大礼堂、第一次骑扫帚飞行——每个\"第一次\"都精确命中了哈利波特粉丝的情感按钮",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/hogwarts-legacy-review"
+        },
+        {
+          "text": "<b>需求室</b>的自定义装饰系统——家具摆放、魔法生物饲养的视觉满足感极强",
+          "src": "Game Informer 8.5/10",
+          "url": "https://www.gameinformer.com/review/hogwarts-legacy"
+        },
+        {
+          "text": "骑着<b>鹰马</b>从霍格沃茨钟塔俯瞰整片苏格兰高地——飞行系统的视觉体验是开放世界游戏中的顶级水平",
+          "src": "Push Square 8/10",
+          "url": "https://www.pushsquare.com/reviews/ps5/hogwarts-legacy"
+        }
       ],
       "pain": [
-        {"text": "城堡外的<b>开放世界</b>内容视觉重复度高——野外据点和洞穴的美术变化不够，与城堡内部的精致形成落差", "src": "IGN", "url": "https://www.ign.com/articles/hogwarts-legacy-review"},
-        {"text": "<b>NPC面部动画</b>在对话中偶尔出现\"恐怖谷\"效应——眼神和嘴型同步不够自然", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/hogwarts-legacy-review/1900-6418061/"}
+        {
+          "text": "城堡外的<b>开放世界</b>内容视觉重复度高——野外据点和洞穴的美术变化不够，与城堡内部的精致形成落差",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/hogwarts-legacy-review"
+        },
+        {
+          "text": "<b>NPC面部动画</b>在对话中偶尔出现\"恐怖谷\"效应——眼神和嘴型同步不够自然",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/hogwarts-legacy-review/1900-6418061/"
+        }
       ],
       "churn": [
-        {"text": "后期<b>任务结构</b>的视觉重复——反复进入相似的地下墓穴和精灵遗迹", "src": "Eurogamer", "url": "https://www.eurogamer.net/hogwarts-legacy-review"},
-        {"text": "支线NPC的<b>角色建模</b>重复使用率偏高，降低了世界的可信度", "src": "Steam评测", "url": "https://store.steampowered.com/app/990080/Hogwarts_Legacy/"}
+        {
+          "text": "后期<b>任务结构</b>的视觉重复——反复进入相似的地下墓穴和精灵遗迹",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/hogwarts-legacy-review"
+        },
+        {
+          "text": "支线NPC的<b>角色建模</b>重复使用率偏高，降低了世界的可信度",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/990080/Hogwarts_Legacy/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "玩家在<b>Photo Mode</b>中的城堡内部截图频率极高——大礼堂、图书馆、天文塔是最热门取景地", "src": "Reddit r/HogwartsLegacy", "url": "https://www.reddit.com/r/HogwartsLegacy/"},
-        {"text": "社区自发整理了<b>每个学院公共休息室</b>的美术对比——格兰芬多暖色壁炉 vs 斯莱特林冷绿水下 vs 拉文克劳蓝色穹顶 vs 赫奇帕奇温馨木屋", "src": "YouTube", "url": "https://www.youtube.com/results?search_query=hogwarts+legacy+common+rooms"},
-        {"text": "<b>服装系统</b>的收集驱动力极强——巫师帽、长袍、围巾的组合搭配成为社区讨论热点", "src": "Reddit", "url": "https://www.reddit.com/r/HogwartsLegacy/"}
+        {
+          "text": "玩家在<b>Photo Mode</b>中的城堡内部截图频率极高——大礼堂、图书馆、天文塔是最热门取景地",
+          "src": "Reddit r/HogwartsLegacy",
+          "url": "https://www.reddit.com/r/HogwartsLegacy/"
+        },
+        {
+          "text": "社区自发整理了<b>每个学院公共休息室</b>的美术对比——格兰芬多暖色壁炉 vs 斯莱特林冷绿水下 vs 拉文克劳蓝色穹顶 vs 赫奇帕奇温馨木屋",
+          "src": "YouTube",
+          "url": "https://www.youtube.com/results?search_query=hogwarts+legacy+common+rooms"
+        },
+        {
+          "text": "<b>服装系统</b>的收集驱动力极强——巫师帽、长袍、围巾的组合搭配成为社区讨论热点",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/HogwartsLegacy/"
+        }
       ],
       "excitement": [
-        {"text": "<b>季节变化</b>的截图分享是社区最热内容——同一场景的春秋冬对比图获得大量互动", "src": "Twitter/X", "url": "https://x.com/search?q=hogwarts%20legacy%20seasons"},
-        {"text": "需求室的<b>装饰分享</b>成为社区创意竞赛——玩家们比拼谁的魔法空间布置最精致", "src": "Reddit", "url": "https://www.reddit.com/r/HogwartsLegacy/"}
+        {
+          "text": "<b>季节变化</b>的截图分享是社区最热内容——同一场景的春秋冬对比图获得大量互动",
+          "src": "Twitter/X",
+          "url": "https://x.com/search?q=hogwarts%20legacy%20seasons"
+        },
+        {
+          "text": "需求室的<b>装饰分享</b>成为社区创意竞赛——玩家们比拼谁的魔法空间布置最精致",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/HogwartsLegacy/"
+        }
       ],
       "pain": [
-        {"text": "<b>装备外观覆盖</b>功能的缺失曾是最大抱怨——后期补丁加入的跨外观系统大幅提升了体验", "src": "Reddit", "url": "https://www.reddit.com/r/HogwartsLegacy/"},
-        {"text": "地图UI的<b>室内导航</b>在霍格沃茨城堡内体验较差——多层楼的切换不够直观", "src": "Steam评测", "url": "https://store.steampowered.com/app/990080/Hogwarts_Legacy/"}
+        {
+          "text": "<b>装备外观覆盖</b>功能的缺失曾是最大抱怨——后期补丁加入的跨外观系统大幅提升了体验",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/HogwartsLegacy/"
+        },
+        {
+          "text": "地图UI的<b>室内导航</b>在霍格沃茨城堡内体验较差——多层楼的切换不够直观",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/990080/Hogwarts_Legacy/"
+        }
       ],
       "churn": [
-        {"text": "通关后缺少<b>持续内容</b>的视觉驱动——没有新区域或季节活动来维持长期游玩动力", "src": "Reddit", "url": "https://www.reddit.com/r/HogwartsLegacy/"}
+        {
+          "text": "通关后缺少<b>持续内容</b>的视觉驱动——没有新区域或季节活动来维持长期游玩动力",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/HogwartsLegacy/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "【霍格沃茨之遗】4K 最高画质 全任务 全剧情流程通关攻略 开放世界魔法动作角色扮演游戏 霍格沃滋遗产 - Hogwarts Legacy【完结】",
+        "bvid": "BV1UG4y1T7WU",
+        "views": "530万"
+      },
+      {
+        "title": "看好了伏地魔，我只演示一遍【霍格沃茨之遗】",
+        "bvid": "BV1yR4y1e7t4",
+        "views": "341万"
+      },
+      {
+        "title": "【4K】老戴《霍格沃茨之遗》01 入学之路《霍格沃茨遗产》剧情流程解说《霍格沃兹之遗》",
+        "bvid": "BV1WR4y1z744",
+        "views": "287万"
+      },
+      {
+        "title": "满足了所有人对魔法世界幻想的游戏『霍格沃茨之遗』",
+        "bvid": "BV13ocFzME7e",
+        "views": "285万"
+      },
+      {
+        "title": "Epic连续喜加一【第1弹】《霍格沃茨之遗》",
+        "bvid": "BV1jJm5BXEqk",
+        "views": "235万"
+      }
+    ]
   },
   "story": {
     "title": "魔法世界 · 古老秘密",
     "dims": [
-      {"label": "时间", "value": "<b>1890年代</b>维多利亚时期——比哈利波特故事早约100年"},
-      {"label": "发生地", "value": "<b>霍格沃茨魔法学校</b>及周边苏格兰高地——涵盖城堡、霍格莫德村、禁林、海边悬崖和地下遗迹"},
-      {"label": "角色", "value": "玩家扮演一位拥有<b>古老魔法</b>天赋的五年级转学生，卷入哥布林叛乱和黑魔法师的阴谋"},
-      {"label": "科技水平", "value": "<b>维多利亚时代 + 魔法文明</b>——蒸汽火车与飞天扫帚共存，机械时钟与魔法肖像并列"},
-      {"label": "对抗关系", "value": "<b>学生（玩家）</b> vs <b>Ranrok哥布林叛军 + 黑魔法师</b>——核心是古老魔法的守护 vs 滥用，视觉上是学院温暖 vs 黑魔法阴暗"},
-      {"label": "地图", "value": "<b>霍格沃茨城堡</b>（核心hub）、<b>霍格莫德村</b>（商业区）、<b>禁林</b>（危险探索）、<b>海岸悬崖</b>（开阔地貌）、<b>哥布林矿洞</b>（地下关卡）"},
-      {"label": "元素", "value": "<b>魔杖</b>、<b>飞天扫帚</b>、<b>魔法生物</b>（鹰马/嗅嗅/凤凰）、<b>四学院徽章</b>、<b>分院帽</b>、<b>浮动蜡烛</b>、<b>古老魔法金色光芒</b>"}
+      {
+        "label": "时间",
+        "value": "<b>1890年代</b>维多利亚时期——比哈利波特故事早约100年"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>霍格沃茨魔法学校</b>及周边苏格兰高地——涵盖城堡、霍格莫德村、禁林、海边悬崖和地下遗迹"
+      },
+      {
+        "label": "角色",
+        "value": "玩家扮演一位拥有<b>古老魔法</b>天赋的五年级转学生，卷入哥布林叛乱和黑魔法师的阴谋"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>维多利亚时代 + 魔法文明</b>——蒸汽火车与飞天扫帚共存，机械时钟与魔法肖像并列"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>学生（玩家）</b> vs <b>Ranrok哥布林叛军 + 黑魔法师</b>——核心是古老魔法的守护 vs 滥用，视觉上是学院温暖 vs 黑魔法阴暗"
+      },
+      {
+        "label": "地图",
+        "value": "<b>霍格沃茨城堡</b>（核心hub）、<b>霍格莫德村</b>（商业区）、<b>禁林</b>（危险探索）、<b>海岸悬崖</b>（开阔地貌）、<b>哥布林矿洞</b>（地下关卡）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>魔杖</b>、<b>飞天扫帚</b>、<b>魔法生物</b>（鹰马/嗅嗅/凤凰）、<b>四学院徽章</b>、<b>分院帽</b>、<b>浮动蜡烛</b>、<b>古老魔法金色光芒</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -75,10 +195,22 @@
       "value": "宣发策略完全<b>以IP情怀为核心</b>——\"你的霍格沃茨入学通知书终于到了\"是贯穿所有物料的情感钩子。Key Art以<b>城堡全景</b>和<b>魔杖+光芒</b>为标准构图。预告片大量使用电影级运镜展示城堡内部细节，配乐引用HP系列的<b>交响乐基调</b>。品牌色以<b>暗金+深紫</b>为主调。社交媒体传播集中在\"选学院\"\"选魔杖\"等<b>个性化互动</b>内容，精准触发粉丝的自我投射欲。"
     },
     "rivals": [
-      {"id": 201, "reason": "同为<b>奇幻RPG</b>的世界构建标杆，博德之门3的D&D桌游美学 vs 霍格沃茨的电影还原美学——两种IP适配策略"},
-      {"id": 203, "reason": "同为<b>开放世界视觉标杆</b>，对马岛的东方写实 vs 霍格沃茨的西方魔幻——环境美术的不同极致"},
-      {"id": 214, "reason": "同为<b>大型开放世界</b>且美术投入极高，赛博朋克2077的夜之城 vs 霍格沃茨——现代都市科幻 vs 维多利亚魔法的世界观美术对比"},
-      {"id": 209, "reason": "同为<b>中世纪欧洲</b>背景的开放世界，天国拯救2的写实历史 vs 霍格沃茨的魔法历史——真实与幻想的美术分野"}
+      {
+        "id": 201,
+        "reason": "同为<b>奇幻RPG</b>的世界构建标杆，博德之门3的D&D桌游美学 vs 霍格沃茨的电影还原美学——两种IP适配策略"
+      },
+      {
+        "id": 203,
+        "reason": "同为<b>开放世界视觉标杆</b>，对马岛的东方写实 vs 霍格沃茨的西方魔幻——环境美术的不同极致"
+      },
+      {
+        "id": 214,
+        "reason": "同为<b>大型开放世界</b>且美术投入极高，赛博朋克2077的夜之城 vs 霍格沃茨——现代都市科幻 vs 维多利亚魔法的世界观美术对比"
+      },
+      {
+        "id": 209,
+        "reason": "同为<b>中世纪欧洲</b>背景的开放世界，天国拯救2的写实历史 vs 霍格沃茨的魔法历史——真实与幻想的美术分野"
+      }
     ]
   }
 }

@@ -4,51 +4,163 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>可爱+邪典</b>的美术反差是全游戏最大亮点——圆滚滚的小动物角色在进行献祭、洗脑、吃教徒等邪恶行为，反差萌做到了极致", "src": "IGN 8/10", "url": "https://www.ign.com/articles/cult-of-the-lamb-review"},
-        {"text": "Massive Monster的<b>手绘2D动画</b>风格极具辨识度——粗线条、扁平色彩、夸张的眼睛比例，看一眼就能识别", "src": "GameSpot 8/10", "url": "https://www.gamespot.com/reviews/cult-of-the-lamb-review/1900-6417940/"},
-        {"text": "<b>暗色森林</b>与<b>明亮营地</b>的色调对比——Roguelike战斗段落的阴暗 vs 经营段落的温馨形成了节奏感极强的视觉切换", "src": "Eurogamer", "url": "https://www.eurogamer.net/cult-of-the-lamb-review"}
+        {
+          "text": "<b>可爱+邪典</b>的美术反差是全游戏最大亮点——圆滚滚的小动物角色在进行献祭、洗脑、吃教徒等邪恶行为，反差萌做到了极致",
+          "src": "IGN 8/10",
+          "url": "https://www.ign.com/articles/cult-of-the-lamb-review"
+        },
+        {
+          "text": "Massive Monster的<b>手绘2D动画</b>风格极具辨识度——粗线条、扁平色彩、夸张的眼睛比例，看一眼就能识别",
+          "src": "GameSpot 8/10",
+          "url": "https://www.gamespot.com/reviews/cult-of-the-lamb-review/1900-6417940/"
+        },
+        {
+          "text": "<b>暗色森林</b>与<b>明亮营地</b>的色调对比——Roguelike战斗段落的阴暗 vs 经营段落的温馨形成了节奏感极强的视觉切换",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/cult-of-the-lamb-review"
+        }
       ],
       "excitement": [
-        {"text": "第一次在教徒面前进行<b>献祭仪式</b>——可爱的小动物围成圈举行黑暗仪式的画面荒诞而令人兴奋", "src": "IGN", "url": "https://www.ign.com/articles/cult-of-the-lamb-review"},
-        {"text": "Boss战的<b>美术创意</b>——四位旧神（Leshy/Heket/Kallamar/Shamura）的设计融合了洛夫克拉夫特恐怖与可爱动画风", "src": "Push Square 8/10", "url": "https://www.pushsquare.com/reviews/ps5/cult-of-the-lamb"},
-        {"text": "营地从<b>荒地发展为繁荣邪教村庄</b>的视觉变化——建筑物、装饰品、教徒数量的增长提供了持续的美术奖励", "src": "Game Informer 8.5/10", "url": "https://www.gameinformer.com/review/cult-of-the-lamb"}
+        {
+          "text": "第一次在教徒面前进行<b>献祭仪式</b>——可爱的小动物围成圈举行黑暗仪式的画面荒诞而令人兴奋",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/cult-of-the-lamb-review"
+        },
+        {
+          "text": "Boss战的<b>美术创意</b>——四位旧神（Leshy/Heket/Kallamar/Shamura）的设计融合了洛夫克拉夫特恐怖与可爱动画风",
+          "src": "Push Square 8/10",
+          "url": "https://www.pushsquare.com/reviews/ps5/cult-of-the-lamb"
+        },
+        {
+          "text": "营地从<b>荒地发展为繁荣邪教村庄</b>的视觉变化——建筑物、装饰品、教徒数量的增长提供了持续的美术奖励",
+          "src": "Game Informer 8.5/10",
+          "url": "https://www.gameinformer.com/review/cult-of-the-lamb"
+        }
       ],
       "pain": [
-        {"text": "Roguelike战斗部分的<b>房间多样性</b>不够——同类型敌人的视觉变化有限", "src": "IGN", "url": "https://www.ign.com/articles/cult-of-the-lamb-review"},
-        {"text": "后期营地管理的<b>UI效率</b>下降——教徒数量增多后逐个交互变得繁琐", "src": "Steam评测", "url": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/"}
+        {
+          "text": "Roguelike战斗部分的<b>房间多样性</b>不够——同类型敌人的视觉变化有限",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/cult-of-the-lamb-review"
+        },
+        {
+          "text": "后期营地管理的<b>UI效率</b>下降——教徒数量增多后逐个交互变得繁琐",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/"
+        }
       ],
       "churn": [
-        {"text": "通关后<b>经营内容</b>的深度不足——营地发展到顶级后缺少新的视觉目标", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/cult-of-the-lamb-review/1900-6417940/"}
+        {
+          "text": "通关后<b>经营内容</b>的深度不足——营地发展到顶级后缺少新的视觉目标",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/cult-of-the-lamb-review/1900-6417940/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "<b>小羊教主</b>成为独立游戏界的吉祥物——红色皇冠+大眼睛的剪影极具品牌辨识度", "src": "Reddit r/CultOfTheLamb", "url": "https://www.reddit.com/r/CultOfTheLamb/"},
-        {"text": "社区的<b>邪教梗创作</b>极其活跃——\"今天你献祭了吗\"成为玩家间的问候语", "src": "Twitter/X", "url": "https://x.com/search?q=cult%20of%20the%20lamb"},
-        {"text": "Massive Monster的<b>持续免费更新</b>（厨房/PvP等）每次都带来大量新美术内容", "src": "Steam", "url": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/"}
+        {
+          "text": "<b>小羊教主</b>成为独立游戏界的吉祥物——红色皇冠+大眼睛的剪影极具品牌辨识度",
+          "src": "Reddit r/CultOfTheLamb",
+          "url": "https://www.reddit.com/r/CultOfTheLamb/"
+        },
+        {
+          "text": "社区的<b>邪教梗创作</b>极其活跃——\"今天你献祭了吗\"成为玩家间的问候语",
+          "src": "Twitter/X",
+          "url": "https://x.com/search?q=cult%20of%20the%20lamb"
+        },
+        {
+          "text": "Massive Monster的<b>持续免费更新</b>（厨房/PvP等）每次都带来大量新美术内容",
+          "src": "Steam",
+          "url": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/"
+        }
       ],
       "excitement": [
-        {"text": "<b>自定义教义</b>的视觉选择——喂教徒吃屎还是给他们盛宴，不同选择对应不同的邪恶/善良视觉反馈", "src": "Reddit", "url": "https://www.reddit.com/r/CultOfTheLamb/"},
-        {"text": "PvP更新的<b>多人对战</b>模式让可爱角色互相厮杀——社区视频的传播力极强", "src": "YouTube", "url": "https://www.youtube.com/results?search_query=cult+of+the+lamb+pvp"}
+        {
+          "text": "<b>自定义教义</b>的视觉选择——喂教徒吃屎还是给他们盛宴，不同选择对应不同的邪恶/善良视觉反馈",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/CultOfTheLamb/"
+        },
+        {
+          "text": "PvP更新的<b>多人对战</b>模式让可爱角色互相厮杀——社区视频的传播力极强",
+          "src": "YouTube",
+          "url": "https://www.youtube.com/results?search_query=cult+of+the+lamb+pvp"
+        }
       ],
       "pain": [
-        {"text": "教徒的<b>外观多样性</b>有限——虽然有不同动物种类但装饰选项偏少", "src": "Reddit", "url": "https://www.reddit.com/r/CultOfTheLamb/"}
+        {
+          "text": "教徒的<b>外观多样性</b>有限——虽然有不同动物种类但装饰选项偏少",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/CultOfTheLamb/"
+        }
       ],
       "churn": [
-        {"text": "战斗Roguelike部分和经营部分的<b>美术深度不平衡</b>——经营侧的视觉投入明显多于战斗侧", "src": "Steam评测", "url": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/"}
+        {
+          "text": "战斗Roguelike部分和经营部分的<b>美术深度不平衡</b>——经营侧的视觉投入明显多于战斗侧",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1313140/Cult_of_the_Lamb/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "【风笑试玩】你见过天天铲屎的教主吗?(完结)丨咩咩启示录 全流程解说",
+        "bvid": "BV12g411C731",
+        "views": "257万"
+      },
+      {
+        "title": "教主教主！弗尔梅尔追到弗尔泰茱了吗？【咩咩启示录】",
+        "bvid": "BV1ya4y1C7c5",
+        "views": "150万"
+      },
+      {
+        "title": "最后的小羊成为祭品，被邪神救活后，成为一教之主【咩咩启示录】",
+        "bvid": "BV1GW4y117eX",
+        "views": "149万"
+      },
+      {
+        "title": "以 德 服 人 ！【咩咩启示录】",
+        "bvid": "BV1yF411A7Pz",
+        "views": "126万"
+      },
+      {
+        "title": "10倍伤害的圣衣！让主教臣服！【咩咩启示录】",
+        "bvid": "BV1JP41117uw",
+        "views": "119万"
+      }
+    ]
   },
   "story": {
     "title": "被拯救的小羊 · 建立邪教复仇旧神",
     "dims": [
-      {"label": "时间", "value": "<b>架空</b>——一个旧神统治的黑暗奇幻时代"},
-      {"label": "发生地", "value": "从<b>暗黑森林</b>的战斗区域到<b>营地</b>（教徒村庄），四个主题区域对应四位旧神"},
-      {"label": "角色", "value": "小羊——被<b>等待者</b>（The One Who Waits）拯救的小羊羔，从献祭品变为邪教教主，带领信徒推翻四位旧神"},
-      {"label": "科技水平", "value": "<b>原始魔法</b>——石器、木制工具、邪教仪式、黑暗法术"},
-      {"label": "对抗关系", "value": "<b>小羊教主</b> vs <b>四位旧神</b>（Leshy/Heket/Kallamar/Shamura）——核心是新信仰推翻旧秩序"},
-      {"label": "地图", "value": "<b>暗森林</b>（Leshy域）、<b>毒沼</b>（Heket域）、<b>深海</b>（Kallamar域）、<b>蛛网</b>（Shamura域）、<b>营地</b>（经营hub）"},
-      {"label": "元素", "value": "<b>红色皇冠</b>（教主标志）、<b>邪教符号</b>、<b>献祭祭坛</b>、<b>教义石碑</b>、<b>旧神面具</b>、<b>可爱动物</b>"}
+      {
+        "label": "时间",
+        "value": "<b>架空</b>——一个旧神统治的黑暗奇幻时代"
+      },
+      {
+        "label": "发生地",
+        "value": "从<b>暗黑森林</b>的战斗区域到<b>营地</b>（教徒村庄），四个主题区域对应四位旧神"
+      },
+      {
+        "label": "角色",
+        "value": "小羊——被<b>等待者</b>（The One Who Waits）拯救的小羊羔，从献祭品变为邪教教主，带领信徒推翻四位旧神"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>原始魔法</b>——石器、木制工具、邪教仪式、黑暗法术"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>小羊教主</b> vs <b>四位旧神</b>（Leshy/Heket/Kallamar/Shamura）——核心是新信仰推翻旧秩序"
+      },
+      {
+        "label": "地图",
+        "value": "<b>暗森林</b>（Leshy域）、<b>毒沼</b>（Heket域）、<b>深海</b>（Kallamar域）、<b>蛛网</b>（Shamura域）、<b>营地</b>（经营hub）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>红色皇冠</b>（教主标志）、<b>邪教符号</b>、<b>献祭祭坛</b>、<b>教义石碑</b>、<b>旧神面具</b>、<b>可爱动物</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -73,10 +185,22 @@
       "value": "宣发精准利用了<b>\"可爱+邪恶\"的反差</b>——预告片中小动物进行黑暗仪式的画面自带传播力。Key Art以<b>小羊教主+红色皇冠+黑暗背景</b>为标准构图。品牌色以<b>暗紫+红</b>为主调。社交媒体传播以<b>可爱角色做邪恶事</b>的GIF为主要物料——\"萌物献祭\"的视觉反差是天然的meme素材。Devolver Digital的<b>独立游戏发行品牌</b>加成提供了信任背书。"
     },
     "rivals": [
-      {"id": 206, "reason": "同为<b>Roguelike+基建</b>混合类型，Hades 2的希腊神话 vs 咩咩启示录的邪教奇幻——两种Roguelike的美术路线"},
-      {"id": 217, "reason": "同为<b>轻松管理+冒险</b>混合类型，Dave the Diver的海洋治愈 vs 咩咩启示录的可爱邪恶——两种\"日常+冒险\"的美术策略"},
-      {"id": 222, "reason": "同为<b>独立游戏现象级黑马</b>，Vampire Survivors的像素弹幕 vs 咩咩启示录的可爱邪典——两种品类定义的视觉路线"},
-      {"id": 205, "reason": "同为<b>2D动作</b>领域的美术标杆，空洞骑士的暗黑手绘 vs 咩咩启示录的可爱邪典——两种独立2D美术的方向"}
+      {
+        "id": 206,
+        "reason": "同为<b>Roguelike+基建</b>混合类型，Hades 2的希腊神话 vs 咩咩启示录的邪教奇幻——两种Roguelike的美术路线"
+      },
+      {
+        "id": 217,
+        "reason": "同为<b>轻松管理+冒险</b>混合类型，Dave the Diver的海洋治愈 vs 咩咩启示录的可爱邪恶——两种\"日常+冒险\"的美术策略"
+      },
+      {
+        "id": 222,
+        "reason": "同为<b>独立游戏现象级黑马</b>，Vampire Survivors的像素弹幕 vs 咩咩启示录的可爱邪典——两种品类定义的视觉路线"
+      },
+      {
+        "id": 205,
+        "reason": "同为<b>2D动作</b>领域的美术标杆，空洞骑士的暗黑手绘 vs 咩咩启示录的可爱邪典——两种独立2D美术的方向"
+      }
     ]
   }
 }

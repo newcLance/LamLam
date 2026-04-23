@@ -4,49 +4,153 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>洛夫克拉夫特式海洋恐怖</b>与低多边形美术的结合——白天宁静渔村，夜晚深海恐怖，日夜氛围反差极强", "src": "IGN 8/10", "url": "https://www.ign.com/articles/dredge-review"},
-        {"text": "海面上的<b>光影变化</b>是最大美术成就——从清晨金色波光到深夜伸手不见五指，每个时段都有独特情绪", "src": "GameSpot 8/10", "url": "https://www.gamespot.com/reviews/dredge-review/1900-6418085/"},
-        {"text": "深海<b>异变鱼类</b>的设计——正常鱼的扭曲版本，多了眼睛、多了头、多了触手，不适感恰到好处", "src": "Eurogamer", "url": "https://www.eurogamer.net/dredge-review"}
+        {
+          "text": "<b>洛夫克拉夫特式海洋恐怖</b>与低多边形美术的结合——白天宁静渔村，夜晚深海恐怖，日夜氛围反差极强",
+          "src": "IGN 8/10",
+          "url": "https://www.ign.com/articles/dredge-review"
+        },
+        {
+          "text": "海面上的<b>光影变化</b>是最大美术成就——从清晨金色波光到深夜伸手不见五指，每个时段都有独特情绪",
+          "src": "GameSpot 8/10",
+          "url": "https://www.gamespot.com/reviews/dredge-review/1900-6418085/"
+        },
+        {
+          "text": "深海<b>异变鱼类</b>的设计——正常鱼的扭曲版本，多了眼睛、多了头、多了触手，不适感恰到好处",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/dredge-review"
+        }
       ],
       "excitement": [
-        {"text": "第一次在<b>深夜海面</b>看到远处有东西在移动——Dredge从不告诉你那是什么，只用远处的阴影制造恐惧", "src": "IGN", "url": "https://www.ign.com/articles/dredge-review"},
-        {"text": "钓上<b>异变巨型鱼</b>的瞬间——物品栏里突然出现一条占满格子的怪物让人既惊喜又不安", "src": "PC Gamer 82/100", "url": "https://www.pcgamer.com/dredge-review/"}
+        {
+          "text": "第一次在<b>深夜海面</b>看到远处有东西在移动——Dredge从不告诉你那是什么，只用远处的阴影制造恐惧",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/dredge-review"
+        },
+        {
+          "text": "钓上<b>异变巨型鱼</b>的瞬间——物品栏里突然出现一条占满格子的怪物让人既惊喜又不安",
+          "src": "PC Gamer 82/100",
+          "url": "https://www.pcgamer.com/dredge-review/"
+        }
       ],
       "pain": [
-        {"text": "<b>低多边形</b>模型在近距离观察时精度不足——港口建筑和NPC细节有限", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/dredge-review/1900-6418085/"},
-        {"text": "部分海域的<b>视觉区分度</b>不够——不同区域海面看起来过于相似", "src": "Steam评测", "url": "https://store.steampowered.com/app/1562430/DREDGE/"}
+        {
+          "text": "<b>低多边形</b>模型在近距离观察时精度不足——港口建筑和NPC细节有限",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/dredge-review/1900-6418085/"
+        },
+        {
+          "text": "部分海域的<b>视觉区分度</b>不够——不同区域海面看起来过于相似",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1562430/DREDGE/"
+        }
       ],
       "churn": [
-        {"text": "通关后<b>探索动力</b>不足——主线结束后海洋失去了恐怖感", "src": "Steam评测", "url": "https://store.steampowered.com/app/1562430/DREDGE/"}
+        {
+          "text": "通关后<b>探索动力</b>不足——主线结束后海洋失去了恐怖感",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1562430/DREDGE/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "社区围绕<b>异变鱼类图鉴</b>的收集讨论极其活跃——\"今天你钓到了什么怪鱼\"是日常话题", "src": "Reddit r/dredge", "url": "https://www.reddit.com/r/dredge/"},
-        {"text": "Black Salt Games（新西兰小团队）的<b>首款作品</b>就获得全球认可", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"},
-        {"text": "<b>\"不要夜间出海\"</b>成为社区核心梗——但每个人都忍不住在夜晚探索", "src": "Reddit", "url": "https://www.reddit.com/r/dredge/"}
+        {
+          "text": "社区围绕<b>异变鱼类图鉴</b>的收集讨论极其活跃——\"今天你钓到了什么怪鱼\"是日常话题",
+          "src": "Reddit r/dredge",
+          "url": "https://www.reddit.com/r/dredge/"
+        },
+        {
+          "text": "Black Salt Games（新西兰小团队）的<b>首款作品</b>就获得全球认可",
+          "src": "Game Developer",
+          "url": "https://www.gamedeveloper.com/"
+        },
+        {
+          "text": "<b>\"不要夜间出海\"</b>成为社区核心梗——但每个人都忍不住在夜晚探索",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/dredge/"
+        }
       ],
       "excitement": [
-        {"text": "DLC带来的<b>新区域美术</b>——冰川和深海钻井平台扩展了视觉多样性", "src": "Steam", "url": "https://store.steampowered.com/app/1562430/DREDGE/"}
+        {
+          "text": "DLC带来的<b>新区域美术</b>——冰川和深海钻井平台扩展了视觉多样性",
+          "src": "Steam",
+          "url": "https://store.steampowered.com/app/1562430/DREDGE/"
+        }
       ],
       "pain": [
-        {"text": "<b>船只升级</b>的视觉变化不够显著——玩家期望更多外观定制", "src": "Reddit", "url": "https://www.reddit.com/r/dredge/"}
+        {
+          "text": "<b>船只升级</b>的视觉变化不够显著——玩家期望更多外观定制",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/dredge/"
+        }
       ],
       "churn": [
-        {"text": "主线10小时左右的<b>流程长度</b>对部分玩家偏短", "src": "Steam评测", "url": "https://store.steampowered.com/app/1562430/DREDGE/"}
+        {
+          "text": "主线10小时左右的<b>流程长度</b>对部分玩家偏短",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1562430/DREDGE/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "【散人】变异鱼群 神秘海怪 克苏鲁钓鱼  《渔帆暗涌》（完结共6P）",
+        "bvid": "BV1fv4y1H7e7",
+        "views": "289万"
+      },
+      {
+        "title": "渔夫好奇触摸神秘祭坛，带来毁灭灾难【鱼帆暗涌】Dredge",
+        "bvid": "BV1fT411s7ee",
+        "views": "276万"
+      },
+      {
+        "title": "【风笑试玩】钓上来这种东西掉SAN值啊！(完结)丨渔帆暗涌 Dredge 全流程解说",
+        "bvid": "BV1iN411N7aL",
+        "views": "201万"
+      },
+      {
+        "title": "深海之下，多少怪物正虎视眈眈！〖游戏不止〗",
+        "bvid": "BV1Eh411L7qC",
+        "views": "171万"
+      },
+      {
+        "title": "【风笑试玩】在这里捕鱼掉SAN值啊！丨Dredge Chapter One（Demo）试玩",
+        "bvid": "BV1de4y1J7aJ",
+        "views": "90万"
+      }
+    ]
   },
   "story": {
     "title": "诡异群岛 · 渔夫的深渊凝视",
     "dims": [
-      {"label": "时间", "value": "<b>模糊当代</b>——与世隔绝的群岛时间仿佛停滞"},
-      {"label": "发生地", "value": "<b>The Marrows群岛</b>——多个主题岛屿组成的海域，每区域有独特恐怖秘密"},
-      {"label": "角色", "value": "无名渔夫——被<b>神秘力量</b>引到此处的新来者，逐步揭开克苏鲁式真相"},
-      {"label": "科技水平", "value": "<b>低科技渔业</b>——渔船、鱼竿、探照灯，人类面对深海未知时的渺小"},
-      {"label": "对抗关系", "value": "<b>渔夫</b> vs <b>深海未知存在</b>——好奇心 vs 恐惧，海面之下永远比想象中更可怕"},
-      {"label": "地图", "value": "<b>Greater Marrow</b>（主镇）、<b>Gale Cliffs</b>（风暴悬崖）、<b>Stellar Basin</b>（星光盆地）、<b>Twisted Strand</b>（扭曲海峡）、<b>Devil's Spine</b>（恶魔脊梁）"},
-      {"label": "元素", "value": "<b>异变鱼类</b>、<b>迷雾</b>、<b>深夜海面</b>、<b>灯塔</b>、<b>古代遗物</b>、<b>船只残骸</b>"}
+      {
+        "label": "时间",
+        "value": "<b>模糊当代</b>——与世隔绝的群岛时间仿佛停滞"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>The Marrows群岛</b>——多个主题岛屿组成的海域，每区域有独特恐怖秘密"
+      },
+      {
+        "label": "角色",
+        "value": "无名渔夫——被<b>神秘力量</b>引到此处的新来者，逐步揭开克苏鲁式真相"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>低科技渔业</b>——渔船、鱼竿、探照灯，人类面对深海未知时的渺小"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>渔夫</b> vs <b>深海未知存在</b>——好奇心 vs 恐惧，海面之下永远比想象中更可怕"
+      },
+      {
+        "label": "地图",
+        "value": "<b>Greater Marrow</b>（主镇）、<b>Gale Cliffs</b>（风暴悬崖）、<b>Stellar Basin</b>（星光盆地）、<b>Twisted Strand</b>（扭曲海峡）、<b>Devil's Spine</b>（恶魔脊梁）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>异变鱼类</b>、<b>迷雾</b>、<b>深夜海面</b>、<b>灯塔</b>、<b>古代遗物</b>、<b>船只残骸</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -71,10 +175,22 @@
       "value": "宣发以<b>\"看似钓鱼实则恐怖\"</b>的反差为核心钩子。Key Art以<b>渔船在迷雾海面+水下阴影</b>为标准构图。品牌色以<b>深蓝+暗绿</b>为主调。独立游戏展会的Demo好评和Steam页面的<b>\"压倒性好评\"</b>是主要传播动力。"
     },
     "rivals": [
-      {"id": 217, "reason": "同为<b>海洋探索</b>题材，Dave the Diver的治愈海洋 vs DREDGE的恐怖海洋——同一题材两极美术表达"},
-      {"id": 218, "reason": "同为<b>独立恐怖</b>标杆，SIGNALIS的冷战太空恐怖 vs DREDGE的克苏鲁海洋恐怖——两种低成本高氛围策略"},
-      {"id": 216, "reason": "同为<b>独立叙事恐怖</b>，Inscryption的密室恐怖 vs DREDGE的海洋恐怖——两种\"日常活动+潜在恐怖\"的设计"},
-      {"id": 204, "reason": "同为<b>恐怖氛围</b>标杆，寂静岭2的城镇迷雾 vs DREDGE的海上迷雾——迷雾作为恐怖元素的不同空间应用"}
+      {
+        "id": 217,
+        "reason": "同为<b>海洋探索</b>题材，Dave the Diver的治愈海洋 vs DREDGE的恐怖海洋——同一题材两极美术表达"
+      },
+      {
+        "id": 218,
+        "reason": "同为<b>独立恐怖</b>标杆，SIGNALIS的冷战太空恐怖 vs DREDGE的克苏鲁海洋恐怖——两种低成本高氛围策略"
+      },
+      {
+        "id": 216,
+        "reason": "同为<b>独立叙事恐怖</b>，Inscryption的密室恐怖 vs DREDGE的海洋恐怖——两种\"日常活动+潜在恐怖\"的设计"
+      },
+      {
+        "id": 204,
+        "reason": "同为<b>恐怖氛围</b>标杆，寂静岭2的城镇迷雾 vs DREDGE的海上迷雾——迷雾作为恐怖元素的不同空间应用"
+      }
     ]
   }
 }

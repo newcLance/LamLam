@@ -248,6 +248,10 @@ document.addEventListener('alpine:init', function() {
                 :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
                 class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
         
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
       </div>
 
       
@@ -505,6 +509,58 @@ document.addEventListener('alpine:init', function() {
       </div>
 
       
+      
+      <div x-show="tab==='bili'" x-cloak class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1L4411h7sW/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【完结】老戴《往日不再 DAYS GONE》电影风精剪剧情流程解说 包含隐藏结局【往日不在】【共32P】</span>
+          <span class="text-xs text-neutral-500 shrink-0">435万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1xf4y1L7Xr/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">这也算尸潮，看着真可怜</span>
+          <span class="text-xs text-neutral-500 shrink-0">336万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV12441147RY/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">劝退大作？5分钟告诉你《往日不再》到底好不好玩</span>
+          <span class="text-xs text-neutral-500 shrink-0">101万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1GPmGY1EAu/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">被媒体评分埋没的丧尸游戏佳作『往日不再』</span>
+          <span class="text-xs text-neutral-500 shrink-0">77万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1S64y1S7jV/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【𝑺𝒕𝒆𝒂𝒎游戏资讯】免费领275元游戏大作！《战地6》或将有日本战场！《往日不再》PC版！腾讯入股柳叶刀工作室！《刺客信条：英灵殿》首个DLC跳票！</span>
+          <span class="text-xs text-neutral-500 shrink-0">64万播放</span>
+        </a>
+        
+      </div>
       
     </div>
   </section>

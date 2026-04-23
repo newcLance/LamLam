@@ -4,53 +4,173 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>角色动作流畅度</b>在动作游戏中名列前茅——EVE的闪避、格挡、空中连招形成了独特的\"芭蕾式战斗\"视觉节奏", "src": "IGN 8/10", "url": "https://www.ign.com/articles/stellar-blade-review"},
-        {"text": "<b>末世荒原的环境美术</b>极具电影感——被沙尘覆盖的首尔废墟、破损的高楼、铁锈色天空，营造出令人窒息的末日氛围", "src": "GameSpot 8/10", "url": "https://www.gamespot.com/reviews/stellar-blade-review/1900-6418225/"},
-        {"text": "XION空间站的<b>赛博朋克美学</b>——全白极简主义内饰搭配霓虹灯光，与地面废墟形成极端反差", "src": "Push Square 8/10", "url": "https://www.pushsquare.com/reviews/ps5/stellar-blade"}
+        {
+          "text": "<b>角色动作流畅度</b>在动作游戏中名列前茅——EVE的闪避、格挡、空中连招形成了独特的\"芭蕾式战斗\"视觉节奏",
+          "src": "IGN 8/10",
+          "url": "https://www.ign.com/articles/stellar-blade-review"
+        },
+        {
+          "text": "<b>末世荒原的环境美术</b>极具电影感——被沙尘覆盖的首尔废墟、破损的高楼、铁锈色天空，营造出令人窒息的末日氛围",
+          "src": "GameSpot 8/10",
+          "url": "https://www.gamespot.com/reviews/stellar-blade-review/1900-6418225/"
+        },
+        {
+          "text": "XION空间站的<b>赛博朋克美学</b>——全白极简主义内饰搭配霓虹灯光，与地面废墟形成极端反差",
+          "src": "Push Square 8/10",
+          "url": "https://www.pushsquare.com/reviews/ps5/stellar-blade"
+        }
       ],
       "excitement": [
-        {"text": "Boss战的<b>视觉震撼力</b>是绝对卖点——巨型Naytiba造型融合生物恐怖与机械美学，每场Boss都像在打一座会动的雕塑", "src": "IGN", "url": "https://www.ign.com/articles/stellar-blade-review"},
-        {"text": "EVE的<b>服装系统</b>极其丰富——从战术紧身衣到休闲私服超过30套，每套都有独立建模和材质细节", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps5/stellar-blade"},
-        {"text": "获评2024年度<b>最佳动作游戏视觉</b>之一，角色建模精度被认为达到了PS5世代新高", "src": "Game Informer", "url": "https://www.gameinformer.com/review/stellar-blade/stellar-blade-review"}
+        {
+          "text": "Boss战的<b>视觉震撼力</b>是绝对卖点——巨型Naytiba造型融合生物恐怖与机械美学，每场Boss都像在打一座会动的雕塑",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/stellar-blade-review"
+        },
+        {
+          "text": "EVE的<b>服装系统</b>极其丰富——从战术紧身衣到休闲私服超过30套，每套都有独立建模和材质细节",
+          "src": "Push Square",
+          "url": "https://www.pushsquare.com/reviews/ps5/stellar-blade"
+        },
+        {
+          "text": "获评2024年度<b>最佳动作游戏视觉</b>之一，角色建模精度被认为达到了PS5世代新高",
+          "src": "Game Informer",
+          "url": "https://www.gameinformer.com/review/stellar-blade/stellar-blade-review"
+        }
       ],
       "pain": [
-        {"text": "部分<b>场景重复感</b>较强——中后期的地下设施和废墟走廊在视觉上变化不够", "src": "IGN", "url": "https://www.ign.com/articles/stellar-blade-review"},
-        {"text": "非战斗场景的<b>NPC表情动画</b>略显僵硬，与EVE的精细建模形成反差", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/stellar-blade-review/1900-6418225/"}
+        {
+          "text": "部分<b>场景重复感</b>较强——中后期的地下设施和废墟走廊在视觉上变化不够",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/stellar-blade-review"
+        },
+        {
+          "text": "非战斗场景的<b>NPC表情动画</b>略显僵硬，与EVE的精细建模形成反差",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/stellar-blade-review/1900-6418225/"
+        }
       ],
       "churn": [
-        {"text": "开放地图探索的<b>视觉引导</b>不够清晰，容易在相似的废墟场景中迷路", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps5/stellar-blade"},
-        {"text": "后期<b>敌人种类</b>视觉变化有限，色彩换皮感明显", "src": "Steam评测", "url": "https://store.steampowered.com/app/2237550/Stellar_Blade/"}
+        {
+          "text": "开放地图探索的<b>视觉引导</b>不够清晰，容易在相似的废墟场景中迷路",
+          "src": "Push Square",
+          "url": "https://www.pushsquare.com/reviews/ps5/stellar-blade"
+        },
+        {
+          "text": "后期<b>敌人种类</b>视觉变化有限，色彩换皮感明显",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2237550/Stellar_Blade/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "EVE的<b>角色设计</b>引发全网讨论——Shift Up将手游角色建模的精细度成功移植到主机3A级别", "src": "Reddit r/StellarBlade", "url": "https://www.reddit.com/r/StellarBlade/"},
-        {"text": "Photo Mode的<b>使用率极高</b>，社区产出大量EVE造型截图，证明角色视觉本身就是核心卖点", "src": "Twitter/X", "url": "https://x.com/search?q=stellar%20blade%20photo%20mode"},
-        {"text": "<b>韩国审美</b>在3A主机市场的首次大规模成功——面部比例、身材设计、服装风格都带有鲜明的K-美学标签", "src": "Eurogamer", "url": "https://www.eurogamer.net/stellar-blade-review"}
+        {
+          "text": "EVE的<b>角色设计</b>引发全网讨论——Shift Up将手游角色建模的精细度成功移植到主机3A级别",
+          "src": "Reddit r/StellarBlade",
+          "url": "https://www.reddit.com/r/StellarBlade/"
+        },
+        {
+          "text": "Photo Mode的<b>使用率极高</b>，社区产出大量EVE造型截图，证明角色视觉本身就是核心卖点",
+          "src": "Twitter/X",
+          "url": "https://x.com/search?q=stellar%20blade%20photo%20mode"
+        },
+        {
+          "text": "<b>韩国审美</b>在3A主机市场的首次大规模成功——面部比例、身材设计、服装风格都带有鲜明的K-美学标签",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/stellar-blade-review"
+        }
       ],
       "excitement": [
-        {"text": "每次更新新服装的<b>社区讨论热度</b>堪比时装发布会，证明Shift Up在角色商业化视觉上的能力", "src": "Reddit", "url": "https://www.reddit.com/r/StellarBlade/"},
-        {"text": "DLC预告中的<b>新区域美术</b>引发期待——雪地和海洋场景的色调与本篇沙漠形成互补", "src": "PlayStation Blog", "url": "https://blog.playstation.com/"}
+        {
+          "text": "每次更新新服装的<b>社区讨论热度</b>堪比时装发布会，证明Shift Up在角色商业化视觉上的能力",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/StellarBlade/"
+        },
+        {
+          "text": "DLC预告中的<b>新区域美术</b>引发期待——雪地和海洋场景的色调与本篇沙漠形成互补",
+          "src": "PlayStation Blog",
+          "url": "https://blog.playstation.com/"
+        }
       ],
       "pain": [
-        {"text": "部分玩家反映<b>UI信息层级</b>不够清晰——装备对比、技能树的可读性有提升空间", "src": "Reddit", "url": "https://www.reddit.com/r/StellarBlade/"},
-        {"text": "地图标记系统的<b>视觉密度</b>过高，图标互相重叠", "src": "Steam评测", "url": "https://store.steampowered.com/app/2237550/Stellar_Blade/"}
+        {
+          "text": "部分玩家反映<b>UI信息层级</b>不够清晰——装备对比、技能树的可读性有提升空间",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/StellarBlade/"
+        },
+        {
+          "text": "地图标记系统的<b>视觉密度</b>过高，图标互相重叠",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2237550/Stellar_Blade/"
+        }
       ],
       "churn": [
-        {"text": "通关后缺乏<b>视觉变化</b>的持续驱动力——除了Photo Mode截图，后期内容的视觉新鲜感不足", "src": "Reddit", "url": "https://www.reddit.com/r/StellarBlade/"}
+        {
+          "text": "通关后缺乏<b>视觉变化</b>的持续驱动力——除了Photo Mode截图，后期内容的视觉新鲜感不足",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/StellarBlade/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "星刃女主演员曝光，身材火辣一线超模。将在2024年独占登录ps5！",
+        "bvid": "BV1Fp4y1d7Vh",
+        "views": "194万"
+      },
+      {
+        "title": "新补丁制作中！通关《黑神话悟空》可终生免费游玩灵岩寺！游戏人数破235万！英特尔13/14代处理器将影响黑神话！《星刃》PC版销量更为强劲！天国拯救2开启预购！",
+        "bvid": "BV1Bi421r7kC",
+        "views": "186万"
+      },
+      {
+        "title": "【剑星】4K 最高画质 全结局 全剧情流程通关攻略 韩国科幻类魂动作游戏 星刃 正式版 - Stellar Blade【完结】",
+        "bvid": "BV1QD421J72a",
+        "views": "185万"
+      },
+      {
+        "title": "纯黑《剑星(星刃)》迅猛无伤完虐BOSS攻略解说",
+        "bvid": "BV1dJ4m1L7rN",
+        "views": "115万"
+      },
+      {
+        "title": "【ACG周讯】亚洲游戏涩爆了！欧美玩家冲爆了？韩国油腻师姐，暴打政治正确！",
+        "bvid": "BV1ij421o7eE",
+        "views": "84万"
+      }
+    ]
   },
   "story": {
     "title": "末日地球 · 人类回归之战",
     "dims": [
-      {"label": "时间", "value": "<b>远未来</b>末日时代，人类被迫离开地球后数百年"},
-      {"label": "发生地", "value": "<b>废墟首尔</b>为核心，从沙漠荒原到地下设施，最终回到空间站<b>XION</b>"},
-      {"label": "角色", "value": "EVE——第七空降部队的<b>精英战士</b>，外表精致但身手致命；搭档Adam（人类幸存者）与Lily（机械工程师）"},
-      {"label": "科技水平", "value": "<b>超高科技</b>——纳米战斗服、等离子武器、空间站文明，但地面已退化为原始废墟"},
-      {"label": "对抗关系", "value": "<b>人类回归军（EVE）</b> vs <b>Naytiba（异形生物）</b>——核心是夺回家园，视觉上是优雅人形 vs 恐怖异形的对比"},
-      {"label": "地图", "value": "<b>荒原</b>（沙漠+残垣）、<b>废墟首尔</b>（高楼残骸）、<b>地下设施</b>（工业管道）、<b>XION空间站</b>（极简白色美学）"},
-      {"label": "元素", "value": "<b>纳米战斗服</b>、<b>等离子刀刃</b>、<b>Naytiba异形</b>、<b>空间站</b>、<b>沙尘暴</b>、<b>废墟霓虹</b>"}
+      {
+        "label": "时间",
+        "value": "<b>远未来</b>末日时代，人类被迫离开地球后数百年"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>废墟首尔</b>为核心，从沙漠荒原到地下设施，最终回到空间站<b>XION</b>"
+      },
+      {
+        "label": "角色",
+        "value": "EVE——第七空降部队的<b>精英战士</b>，外表精致但身手致命；搭档Adam（人类幸存者）与Lily（机械工程师）"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>超高科技</b>——纳米战斗服、等离子武器、空间站文明，但地面已退化为原始废墟"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>人类回归军（EVE）</b> vs <b>Naytiba（异形生物）</b>——核心是夺回家园，视觉上是优雅人形 vs 恐怖异形的对比"
+      },
+      {
+        "label": "地图",
+        "value": "<b>荒原</b>（沙漠+残垣）、<b>废墟首尔</b>（高楼残骸）、<b>地下设施</b>（工业管道）、<b>XION空间站</b>（极简白色美学）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>纳米战斗服</b>、<b>等离子刀刃</b>、<b>Naytiba异形</b>、<b>空间站</b>、<b>沙尘暴</b>、<b>废墟霓虹</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -75,10 +195,22 @@
       "value": "宣发策略<b>以EVE为绝对中心</b>——几乎所有物料都聚焦角色本身而非世界观。Key Art构图以<b>角色特写+末世背景</b>为标准模板。宣发中的服装展示频率极高，每次新服装公布都能引发社交媒体讨论。围绕角色设计的<b>审美争议</b>（审查/反审查）本身成为了最大的免费营销。品牌色以<b>白+橙</b>为主调。"
     },
     "rivals": [
-      {"id": 214, "reason": "同为<b>开放世界动作RPG</b>，赛博朋克2077的西方赛博美学 vs 星刃的韩式末日美学——角色设计哲学的东西方对比"},
-      {"id": 101, "reason": "同为<b>PS5动作游戏标杆</b>，黑神话的东方神话美术 vs 星刃的科幻末世美术——两种3A视觉路线的对比"},
-      {"id": 212, "reason": "同为<b>第三人称动作恐怖</b>混合类型，生化危机村庄的哥特恐怖 vs 星刃的科幻异形——怪物设计语言对比"},
-      {"id": 113, "reason": "同为<b>魂系战斗节奏</b>的动作游戏，艾尔登法环的中世纪黑暗奇幻 vs 星刃的科幻末世——场景规模与Boss设计对比"}
+      {
+        "id": 214,
+        "reason": "同为<b>开放世界动作RPG</b>，赛博朋克2077的西方赛博美学 vs 星刃的韩式末日美学——角色设计哲学的东西方对比"
+      },
+      {
+        "id": 101,
+        "reason": "同为<b>PS5动作游戏标杆</b>，黑神话的东方神话美术 vs 星刃的科幻末世美术——两种3A视觉路线的对比"
+      },
+      {
+        "id": 212,
+        "reason": "同为<b>第三人称动作恐怖</b>混合类型，生化危机村庄的哥特恐怖 vs 星刃的科幻异形——怪物设计语言对比"
+      },
+      {
+        "id": 113,
+        "reason": "同为<b>魂系战斗节奏</b>的动作游戏，艾尔登法环的中世纪黑暗奇幻 vs 星刃的科幻末世——场景规模与Boss设计对比"
+      }
     ]
   }
 }

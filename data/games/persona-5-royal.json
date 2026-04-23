@@ -4,48 +4,148 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>UI设计教科书</b>——每一个菜单转场、每一个战斗指令都有独特的动态排版和色彩爆发，是游戏UI设计的最高标杆", "src": "IGN 10/10", "url": "https://www.ign.com/articles/persona-5-royal-review"},
-        {"text": "战斗界面的<b>红黑配色+漫画分格</b>——将回合制JRPG从\"等待选择\"变成了\"视觉演出\"", "src": "GameSpot 10/10", "url": "https://www.gamespot.com/reviews/persona-5-royal-review/1900-6417440/"},
-        {"text": "<b>All-Out Attack</b>的定格画面——全队成员以漫画构图定格+泼墨效果，是JRPG史上最酷的战斗终结动画", "src": "Eurogamer", "url": "https://www.eurogamer.net/persona-5-royal-review"}
+        {
+          "text": "<b>UI设计教科书</b>——每一个菜单转场、每一个战斗指令都有独特的动态排版和色彩爆发，是游戏UI设计的最高标杆",
+          "src": "IGN 10/10",
+          "url": "https://www.ign.com/articles/persona-5-royal-review"
+        },
+        {
+          "text": "战斗界面的<b>红黑配色+漫画分格</b>——将回合制JRPG从\"等待选择\"变成了\"视觉演出\"",
+          "src": "GameSpot 10/10",
+          "url": "https://www.gamespot.com/reviews/persona-5-royal-review/1900-6417440/"
+        },
+        {
+          "text": "<b>All-Out Attack</b>的定格画面——全队成员以漫画构图定格+泼墨效果，是JRPG史上最酷的战斗终结动画",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/persona-5-royal-review"
+        }
       ],
       "excitement": [
-        {"text": "每次<b>觉醒Persona</b>的视觉表现——面具撕裂+蓝色火焰+哥特风召唤兽出现的一系列动画炸裂感拉满", "src": "IGN", "url": "https://www.ign.com/articles/persona-5-royal-review"},
-        {"text": "<b>殿堂（Palace）</b>的视觉概念设计——每个反派的认知殿堂都是独立的视觉世界（赌场/博物馆/太空站/邮轮）", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/persona-5-royal-review/1900-6417440/"}
+        {
+          "text": "每次<b>觉醒Persona</b>的视觉表现——面具撕裂+蓝色火焰+哥特风召唤兽出现的一系列动画炸裂感拉满",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/persona-5-royal-review"
+        },
+        {
+          "text": "<b>殿堂（Palace）</b>的视觉概念设计——每个反派的认知殿堂都是独立的视觉世界（赌场/博物馆/太空站/邮轮）",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/persona-5-royal-review/1900-6417440/"
+        }
       ],
       "pain": [
-        {"text": "日常生活部分的<b>场景复用</b>严重——学校/车站/涩谷的3D场景精度与殿堂部分差距很大", "src": "多媒体综合", "url": "https://www.ign.com/articles/persona-5-royal-review"},
-        {"text": "<b>Mementos地牢</b>的随机生成关卡视觉单调——与精心设计的殿堂形成强烈反差", "src": "PC Gamer", "url": "https://www.pcgamer.com/persona-5-royal-pc-review/"}
+        {
+          "text": "日常生活部分的<b>场景复用</b>严重——学校/车站/涩谷的3D场景精度与殿堂部分差距很大",
+          "src": "多媒体综合",
+          "url": "https://www.ign.com/articles/persona-5-royal-review"
+        },
+        {
+          "text": "<b>Mementos地牢</b>的随机生成关卡视觉单调——与精心设计的殿堂形成强烈反差",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/persona-5-royal-pc-review/"
+        }
       ],
       "churn": [
-        {"text": "游戏流程过长（100+小时），后期<b>日常对话场景</b>的视觉新鲜感逐渐衰减", "src": "Polygon", "url": "https://www.polygon.com/reviews/2022/10/17/23407786/persona-5-royal-review-pc-steam"}
+        {
+          "text": "游戏流程过长（100+小时），后期<b>日常对话场景</b>的视觉新鲜感逐渐衰减",
+          "src": "Polygon",
+          "url": "https://www.polygon.com/reviews/2022/10/17/23407786/persona-5-royal-review-pc-steam"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "P5的<b>UI设计</b>在设计师社区中被封神——大量设计教程/解构文章分析其转场动画和排版逻辑", "src": "Reddit r/Persona5", "url": "https://www.reddit.com/r/Persona5/"},
-        {"text": "<b>酸爵士(Acid Jazz)</b>配乐与视觉的完美同步——音乐的节奏感渗透进了每一个UI动画", "src": "Steam评测", "url": "https://store.steampowered.com/app/1687950/Persona_5_Royal/"}
+        {
+          "text": "P5的<b>UI设计</b>在设计师社区中被封神——大量设计教程/解构文章分析其转场动画和排版逻辑",
+          "src": "Reddit r/Persona5",
+          "url": "https://www.reddit.com/r/Persona5/"
+        },
+        {
+          "text": "<b>酸爵士(Acid Jazz)</b>配乐与视觉的完美同步——音乐的节奏感渗透进了每一个UI动画",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1687950/Persona_5_Royal/"
+        }
       ],
       "excitement": [
-        {"text": "PC版<b>4K分辨率</b>下的UI锐度提升巨大——原本为PS3/PS4设计的矢量UI在高分辨率下依然完美", "src": "PC Gamer", "url": "https://www.pcgamer.com/persona-5-royal-pc-review/"}
+        {
+          "text": "PC版<b>4K分辨率</b>下的UI锐度提升巨大——原本为PS3/PS4设计的矢量UI在高分辨率下依然完美",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/persona-5-royal-pc-review/"
+        }
       ],
       "pain": [
-        {"text": "<b>文字量</b>过大时的阅读疲劳——长对话场景的视觉节奏偏平", "src": "Steam评测", "url": "https://store.steampowered.com/app/1687950/Persona_5_Royal/"}
+        {
+          "text": "<b>文字量</b>过大时的阅读疲劳——长对话场景的视觉节奏偏平",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1687950/Persona_5_Royal/"
+        }
       ],
       "churn": [
-        {"text": "部分玩家认为<b>日系动漫美术</b>的门槛高——不接受这种画风就完全无法享受游戏", "src": "Steam评测", "url": "https://store.steampowered.com/app/1687950/Persona_5_Royal/"}
+        {
+          "text": "部分玩家认为<b>日系动漫美术</b>的门槛高——不接受这种画风就完全无法享受游戏",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1687950/Persona_5_Royal/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "《女神异闻录5皇家版/P5R》一周目全coop完美流程白金攻略实况（完结）",
+        "bvid": "BV15t4y1u7kK",
+        "views": "817万"
+      },
+      {
+        "title": "一款把“代入感”做到极致的游戏！刷新了我对角色扮演游戏的认知【这才叫游戏24】女神异闻录5R·篇 P5R",
+        "bvid": "BV19V4y1W7Fw",
+        "views": "222万"
+      },
+      {
+        "title": "【女神异闻录5皇家版】拓海的新手入坑指南",
+        "bvid": "BV1Sa4y1978L",
+        "views": "212万"
+      },
+      {
+        "title": "【P5R】人气高的像邪教一样",
+        "bvid": "BV1etHreHEWh",
+        "views": "204万"
+      },
+      {
+        "title": "【玛露塔】女神异闻录5皇家版 P5R全流程+吐槽（完结撒花，大型情感连续剧第二弹！求三连！）",
+        "bvid": "BV1A7411w7Fu",
+        "views": "148万"
+      }
+    ]
   },
   "story": {
     "title": "东京 · 心之怪盗团的正义反叛",
     "dims": [
-      {"label": "时间", "value": "<b>现代东京</b>，20XX年的日本高中生活"},
-      {"label": "发生地", "value": "<b>涩谷/新宿/秋叶原</b>等真实东京地标 + 反派的<b>认知殿堂</b>（超现实异空间）"},
-      {"label": "角色", "value": "<b>Joker</b>（代号）——转学生，组建<b>心之怪盗团</b>，潜入腐败者的内心世界窃取其欲望"},
-      {"label": "科技水平", "value": "<b>现代都市 + 超自然Persona</b>——手机导航APP进入异世界，Persona是内心力量的具象化"},
-      {"label": "对抗关系", "value": "<b>心之怪盗团（反叛的年轻人）</b> vs <b>腐败的成人社会</b>——视觉上体现为<b>时尚叛逆</b> vs <b>灰色权威</b>"},
-      {"label": "地图", "value": "<b>秀尽学园</b>（日常）、<b>勒布朗咖啡</b>（据点）、<b>殿堂</b>（赌场/美术馆/太空站/游轮/金字塔）、<b>Mementos</b>（地铁深层）"},
-      {"label": "元素", "value": "<b>面具</b>（Persona觉醒）、<b>红+黑</b>双色母题、<b>扑克牌</b>、<b>锁链</b>（束缚与解放）、<b>星星</b>（Confidant系统）、<b>全员突击定格画</b>"}
+      {
+        "label": "时间",
+        "value": "<b>现代东京</b>，20XX年的日本高中生活"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>涩谷/新宿/秋叶原</b>等真实东京地标 + 反派的<b>认知殿堂</b>（超现实异空间）"
+      },
+      {
+        "label": "角色",
+        "value": "<b>Joker</b>（代号）——转学生，组建<b>心之怪盗团</b>，潜入腐败者的内心世界窃取其欲望"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>现代都市 + 超自然Persona</b>——手机导航APP进入异世界，Persona是内心力量的具象化"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>心之怪盗团（反叛的年轻人）</b> vs <b>腐败的成人社会</b>——视觉上体现为<b>时尚叛逆</b> vs <b>灰色权威</b>"
+      },
+      {
+        "label": "地图",
+        "value": "<b>秀尽学园</b>（日常）、<b>勒布朗咖啡</b>（据点）、<b>殿堂</b>（赌场/美术馆/太空站/游轮/金字塔）、<b>Mementos</b>（地铁深层）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>面具</b>（Persona觉醒）、<b>红+黑</b>双色母题、<b>扑克牌</b>、<b>锁链</b>（束缚与解放）、<b>星星</b>（Confidant系统）、<b>全员突击定格画</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -70,10 +170,22 @@
       "value": "宣发走<b>时尚文化输出</b>路线——P5的美术不仅是游戏，更成为了时尚/音乐/亚文化的标志。Key Art以<b>全员怪盗装束</b>动态构图为核心，红黑配色识别度爆表。预告片剪辑<b>与酸爵士音乐节奏精确同步</b>——每个转场都踩在节拍上。品牌色<b>红+黑+白</b>。PC移植宣发强调\"终于\"登陆PC的情感牌。"
     },
     "rivals": [
-      {"id": 153, "reason": "同为<b>Atlus JRPG</b>，Metaphor是Atlus最新的<b>UI设计</b>挑战——能否超越P5的UI天花板"},
-      {"id": 201, "reason": "同为<b>RPG年度标杆</b>，BG3的<b>西方CRPG写实UI</b> vs P5R的<b>日式风格化UI</b>——两种RPG视觉哲学的极端对比"},
-      {"id": 117, "reason": "同为<b>东方文化</b>RPG，黑神话的<b>中国神话3D写实</b> vs P5R的<b>日本都市2D风格化</b>——东亚美学的两种表达"},
-      {"id": 206, "reason": "同为<b>风格化美术标杆</b>，Hades的<b>希腊神话插画</b> vs P5R的<b>东京波普漫画</b>——两种手绘动画美学"}
+      {
+        "id": 153,
+        "reason": "同为<b>Atlus JRPG</b>，Metaphor是Atlus最新的<b>UI设计</b>挑战——能否超越P5的UI天花板"
+      },
+      {
+        "id": 201,
+        "reason": "同为<b>RPG年度标杆</b>，BG3的<b>西方CRPG写实UI</b> vs P5R的<b>日式风格化UI</b>——两种RPG视觉哲学的极端对比"
+      },
+      {
+        "id": 117,
+        "reason": "同为<b>东方文化</b>RPG，黑神话的<b>中国神话3D写实</b> vs P5R的<b>日本都市2D风格化</b>——东亚美学的两种表达"
+      },
+      {
+        "id": 206,
+        "reason": "同为<b>风格化美术标杆</b>，Hades的<b>希腊神话插画</b> vs P5R的<b>东京波普漫画</b>——两种手绘动画美学"
+      }
     ]
   }
 }

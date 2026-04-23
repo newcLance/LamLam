@@ -248,6 +248,10 @@ document.addEventListener('alpine:init', function() {
                 :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
                 class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
         
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
       </div>
 
       
@@ -472,6 +476,58 @@ document.addEventListener('alpine:init', function() {
       </div>
 
       
+      
+      <div x-show="tab==='bili'" x-cloak class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1fv4y1H7e7/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【散人】变异鱼群 神秘海怪 克苏鲁钓鱼  《渔帆暗涌》（完结共6P）</span>
+          <span class="text-xs text-neutral-500 shrink-0">289万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1fT411s7ee/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">渔夫好奇触摸神秘祭坛，带来毁灭灾难【鱼帆暗涌】Dredge</span>
+          <span class="text-xs text-neutral-500 shrink-0">276万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1iN411N7aL/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【风笑试玩】钓上来这种东西掉SAN值啊！(完结)丨渔帆暗涌 Dredge 全流程解说</span>
+          <span class="text-xs text-neutral-500 shrink-0">201万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1Eh411L7qC/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">深海之下，多少怪物正虎视眈眈！〖游戏不止〗</span>
+          <span class="text-xs text-neutral-500 shrink-0">171万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1de4y1J7aJ/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【风笑试玩】在这里捕鱼掉SAN值啊！丨Dredge Chapter One（Demo）试玩</span>
+          <span class="text-xs text-neutral-500 shrink-0">90万播放</span>
+        </a>
+        
+      </div>
       
     </div>
   </section>

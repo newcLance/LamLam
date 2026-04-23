@@ -100,9 +100,29 @@
     },
     "biliVideos": [
       {
+        "title": "【CS:GO】欢迎CSGO分部新成员! G2.jks＆G2.HooXi",
+        "bvid": "BV1fS4y1p7hf",
+        "views": "244万"
+      },
+      {
+        "title": "【白给杯】如果5位CS2博主vs3位CS1.6老兵？",
+        "bvid": "BV1pusfzUEYd",
+        "views": "225万"
+      },
+      {
+        "title": "史上最沙雕【真人CS:GO】  第2集",
+        "bvid": "BV18a4y147AN",
+        "views": "209万"
+      },
+      {
         "title": "《反恐精英2》正式公开！基于《CSGO》免费升级 画面、音效、体验全面翻新",
         "bvid": "BV1em4y1k7Vy",
         "views": "195万"
+      },
+      {
+        "title": "M249——“无用之枪”【CS2】",
+        "bvid": "BV1mZp2eFEY3",
+        "views": "170万"
       }
     ]
   },

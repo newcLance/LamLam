@@ -4,53 +4,173 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>荡蛛丝穿越曼哈顿</b>的流畅感是游戏史上最佳移动体验之一——每次摆荡都伴随完美的动量模拟和镜头跟随", "src": "IGN 8.7/10", "url": "https://www.ign.com/articles/marvels-spider-man-remastered-pc-review"},
-        {"text": "Insomniac对<b>纽约曼哈顿</b>的还原度极高——街道尺度、建筑密度、天际线轮廓都高度可信，但又加入了漫威元素（复仇者大厦等）", "src": "GameSpot 9/10", "url": "https://www.gamespot.com/reviews/marvels-spider-man-review/1900-6416984/"},
-        {"text": "<b>战斗动画</b>的流畅度和打击感——蜘蛛侠的翻转、拉丝、空中连击形成了舞蹈般的视觉节奏", "src": "Eurogamer", "url": "https://www.eurogamer.net/marvels-spider-man-review"}
+        {
+          "text": "<b>荡蛛丝穿越曼哈顿</b>的流畅感是游戏史上最佳移动体验之一——每次摆荡都伴随完美的动量模拟和镜头跟随",
+          "src": "IGN 8.7/10",
+          "url": "https://www.ign.com/articles/marvels-spider-man-remastered-pc-review"
+        },
+        {
+          "text": "Insomniac对<b>纽约曼哈顿</b>的还原度极高——街道尺度、建筑密度、天际线轮廓都高度可信，但又加入了漫威元素（复仇者大厦等）",
+          "src": "GameSpot 9/10",
+          "url": "https://www.gamespot.com/reviews/marvels-spider-man-review/1900-6416984/"
+        },
+        {
+          "text": "<b>战斗动画</b>的流畅度和打击感——蜘蛛侠的翻转、拉丝、空中连击形成了舞蹈般的视觉节奏",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/marvels-spider-man-review"
+        }
       ],
       "excitement": [
-        {"text": "日落时分从<b>帝国大厦顶端</b>纵身跃下的自由落体——城市天际线+光影渲染+速度感的组合是全游戏最佳视觉时刻", "src": "IGN", "url": "https://www.ign.com/articles/marvels-spider-man-remastered-pc-review"},
-        {"text": "<b>战衣系统</b>极其丰富——从经典红蓝到暗夜蜘蛛侠、从钢铁蜘蛛到2099未来战衣，超过40套解锁", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps5/marvels-spider-man-remastered"},
-        {"text": "Boss战的<b>场景破坏力</b>——与章鱼博士在摩天楼侧面打斗、城市环境实时变化的演出级设计", "src": "Game Informer 9/10", "url": "https://www.gameinformer.com/review/marvels-spider-man"}
+        {
+          "text": "日落时分从<b>帝国大厦顶端</b>纵身跃下的自由落体——城市天际线+光影渲染+速度感的组合是全游戏最佳视觉时刻",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/marvels-spider-man-remastered-pc-review"
+        },
+        {
+          "text": "<b>战衣系统</b>极其丰富——从经典红蓝到暗夜蜘蛛侠、从钢铁蜘蛛到2099未来战衣，超过40套解锁",
+          "src": "Push Square",
+          "url": "https://www.pushsquare.com/reviews/ps5/marvels-spider-man-remastered"
+        },
+        {
+          "text": "Boss战的<b>场景破坏力</b>——与章鱼博士在摩天楼侧面打斗、城市环境实时变化的演出级设计",
+          "src": "Game Informer 9/10",
+          "url": "https://www.gameinformer.com/review/marvels-spider-man"
+        }
       ],
       "pain": [
-        {"text": "室内任务（MJ潜行/Miles潜行）的<b>视觉节奏</b>与城市荡蛛丝的畅快感形成断裂", "src": "IGN", "url": "https://www.ign.com/articles/marvels-spider-man-remastered-pc-review"},
-        {"text": "部分<b>街道层面NPC</b>的行为和建模精度明显低于空中视角——落地后沉浸感有所下降", "src": "Eurogamer", "url": "https://www.eurogamer.net/marvels-spider-man-review"}
+        {
+          "text": "室内任务（MJ潜行/Miles潜行）的<b>视觉节奏</b>与城市荡蛛丝的畅快感形成断裂",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/marvels-spider-man-remastered-pc-review"
+        },
+        {
+          "text": "部分<b>街道层面NPC</b>的行为和建模精度明显低于空中视角——落地后沉浸感有所下降",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/marvels-spider-man-review"
+        }
       ],
       "churn": [
-        {"text": "开放世界<b>活动点</b>的重复——犯罪事件和基地清理的场景变化有限", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/marvels-spider-man-review/1900-6416984/"},
-        {"text": "收集品（背包/地标）的<b>游戏性</b>偏弱——虽然提供了城市导览但缺少视觉奖励惊喜", "src": "Steam评测", "url": "https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/"}
+        {
+          "text": "开放世界<b>活动点</b>的重复——犯罪事件和基地清理的场景变化有限",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/marvels-spider-man-review/1900-6416984/"
+        },
+        {
+          "text": "收集品（背包/地标）的<b>游戏性</b>偏弱——虽然提供了城市导览但缺少视觉奖励惊喜",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "<b>Photo Mode</b>是社区核心——纽约天际线+蜘蛛战衣的组合产出了海量高质量截图", "src": "Reddit r/SpidermanPS4", "url": "https://www.reddit.com/r/SpidermanPS4/"},
-        {"text": "社区最热讨论之一是<b>最佳战衣排名</b>——每套战衣的设计历史和漫画出处都能引发深度讨论", "src": "Reddit", "url": "https://www.reddit.com/r/SpidermanPS4/"},
-        {"text": "PC版Mod社区极其活跃——<b>自定义战衣</b>成为最热门Mod类别，从电影版到粉丝创作全覆盖", "src": "NexusMods", "url": "https://www.nexusmods.com/marvelsspidermanremastered"}
+        {
+          "text": "<b>Photo Mode</b>是社区核心——纽约天际线+蜘蛛战衣的组合产出了海量高质量截图",
+          "src": "Reddit r/SpidermanPS4",
+          "url": "https://www.reddit.com/r/SpidermanPS4/"
+        },
+        {
+          "text": "社区最热讨论之一是<b>最佳战衣排名</b>——每套战衣的设计历史和漫画出处都能引发深度讨论",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/SpidermanPS4/"
+        },
+        {
+          "text": "PC版Mod社区极其活跃——<b>自定义战衣</b>成为最热门Mod类别，从电影版到粉丝创作全覆盖",
+          "src": "NexusMods",
+          "url": "https://www.nexusmods.com/marvelsspidermanremastered"
+        }
       ],
       "excitement": [
-        {"text": "每次新战衣DLC公布都引发<b>社交媒体狂欢</b>——蜘蛛侠的服装文化本身就是传播力极强的内容", "src": "Twitter/X", "url": "https://x.com/search?q=spider-man%20new%20suit"},
-        {"text": "与<b>电影宇宙</b>联动的特别战衣引发跨圈讨论——游戏与MCU的视觉互相借鉴", "src": "PlayStation Blog", "url": "https://blog.playstation.com/"}
+        {
+          "text": "每次新战衣DLC公布都引发<b>社交媒体狂欢</b>——蜘蛛侠的服装文化本身就是传播力极强的内容",
+          "src": "Twitter/X",
+          "url": "https://x.com/search?q=spider-man%20new%20suit"
+        },
+        {
+          "text": "与<b>电影宇宙</b>联动的特别战衣引发跨圈讨论——游戏与MCU的视觉互相借鉴",
+          "src": "PlayStation Blog",
+          "url": "https://blog.playstation.com/"
+        }
       ],
       "pain": [
-        {"text": "城市内<b>室内场景</b>的可探索性不足——社区期望更多可进入的建筑和地铁站", "src": "Reddit", "url": "https://www.reddit.com/r/SpidermanPS4/"},
-        {"text": "<b>切换战衣</b>需要进入菜单——社区持续请求快速切换功能", "src": "Reddit", "url": "https://www.reddit.com/r/SpidermanPS4/"}
+        {
+          "text": "城市内<b>室内场景</b>的可探索性不足——社区期望更多可进入的建筑和地铁站",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/SpidermanPS4/"
+        },
+        {
+          "text": "<b>切换战衣</b>需要进入菜单——社区持续请求快速切换功能",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/SpidermanPS4/"
+        }
       ],
       "churn": [
-        {"text": "100%完成后缺少<b>持续视觉驱动</b>——New Game+的视觉新鲜感有限", "src": "Steam评测", "url": "https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/"}
+        {
+          "text": "100%完成后缺少<b>持续视觉驱动</b>——New Game+的视觉新鲜感有限",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "【PS5】漫威蜘蛛侠 重制版 试玩 演示4KHDR Marvel's Spider Man Remastered PlayStation 5",
+        "bvid": "BV1KR4y177LH",
+        "views": "2万"
+      },
+      {
+        "title": "我买成纵横宇宙了？？？（Marvel’s Spider-Man Remastered - 2025-12-02 15-38-51）",
+        "bvid": "BV1bVSxBVEaE",
+        "views": "2万"
+      },
+      {
+        "title": "《漫威蜘蛛侠重制版》官方PC功能预告丨Marvel's Spider-Man Remastered - Official PC Features Trailer",
+        "bvid": "BV1fW4y117Tp",
+        "views": "1万"
+      },
+      {
+        "title": "蜘蛛侠重置版【下载地址在简介】《Marvel’s Spider-Man Remastered》",
+        "bvid": "BV1r14y147d6",
+        "views": "1万"
+      },
+      {
+        "title": "PC《Marvel's Spider-Man Remastered》I PC功能篇預告",
+        "bvid": "BV1Ka411U7W5",
+        "views": "1万"
+      }
+    ]
   },
   "story": {
     "title": "纽约曼哈顿 · 蜘蛛侠的英雄旅程",
     "dims": [
-      {"label": "时间", "value": "<b>当代</b>纽约——一个超级英雄已存在8年的世界"},
-      {"label": "发生地", "value": "<b>纽约曼哈顿</b>——从时代广场到哈莱姆，从中央公园到金融区的完整岛屿"},
-      {"label": "角色", "value": "Peter Parker——<b>经验丰富的蜘蛛侠</b>（23岁），在英雄职责与个人生活之间挣扎，对抗前导师章鱼博士的堕落"},
-      {"label": "科技水平", "value": "<b>当代科技 + 超级英雄科技</b>——Oscorp和Octavius Industries的黑科技、蜘蛛战衣的纳米技术"},
-      {"label": "对抗关系", "value": "<b>蜘蛛侠</b> vs <b>邪恶六人组</b>——核心是师生情谊的破裂（Peter vs Otto），视觉上是敏捷蜘蛛 vs 机械触手的对抗"},
-      {"label": "地图", "value": "<b>曼哈顿全岛</b>——时代广场、中央公园、金融区、中国城、地狱厨房、哈莱姆区，每区各有街区美术特色"},
-      {"label": "元素", "value": "<b>蜘蛛丝</b>、<b>战衣</b>（40+套）、<b>蜘蛛感应</b>（慢动作光效）、<b>复仇者大厦</b>、<b>Daily Bugle大楼</b>、<b>Oscorp标志</b>"}
+      {
+        "label": "时间",
+        "value": "<b>当代</b>纽约——一个超级英雄已存在8年的世界"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>纽约曼哈顿</b>——从时代广场到哈莱姆，从中央公园到金融区的完整岛屿"
+      },
+      {
+        "label": "角色",
+        "value": "Peter Parker——<b>经验丰富的蜘蛛侠</b>（23岁），在英雄职责与个人生活之间挣扎，对抗前导师章鱼博士的堕落"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>当代科技 + 超级英雄科技</b>——Oscorp和Octavius Industries的黑科技、蜘蛛战衣的纳米技术"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>蜘蛛侠</b> vs <b>邪恶六人组</b>——核心是师生情谊的破裂（Peter vs Otto），视觉上是敏捷蜘蛛 vs 机械触手的对抗"
+      },
+      {
+        "label": "地图",
+        "value": "<b>曼哈顿全岛</b>——时代广场、中央公园、金融区、中国城、地狱厨房、哈莱姆区，每区各有街区美术特色"
+      },
+      {
+        "label": "元素",
+        "value": "<b>蜘蛛丝</b>、<b>战衣</b>（40+套）、<b>蜘蛛感应</b>（慢动作光效）、<b>复仇者大厦</b>、<b>Daily Bugle大楼</b>、<b>Oscorp标志</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -75,10 +195,22 @@
       "value": "宣发策略以<b>IP联动+城市体验</b>为核心——\"做蜘蛛侠，荡纽约\"的核心卖点简单直接。预告片大量使用<b>城市俯瞰+蛛丝摆荡</b>的长镜头，配合动感配乐。每次新战衣公布都作为<b>独立营销事件</b>——与电影上映同步推出联动战衣。品牌色以<b>蜘蛛红+城市蓝</b>为主调。PS独占身份下的<b>品质感营销</b>——\"Only on PlayStation\"的高端定位与游戏视觉质量相匹配。"
     },
     "rivals": [
-      {"id": 214, "reason": "同为<b>开放世界城市</b>的极致还原，赛博朋克的夜之城 vs 蜘蛛侠的纽约——科幻虚构城市 vs 现实城市的美术策略对比"},
-      {"id": 210, "reason": "同为<b>城市探索</b>主题且视角独特，Stray的猫咪低视角 vs 蜘蛛侠的空中高视角——两种极端空间体验"},
-      {"id": 202, "reason": "同为<b>PS独占动作大作</b>，战神的线性叙事 vs 蜘蛛侠的开放世界——Sony第一方两种制作策略的视觉对比"},
-      {"id": 213, "reason": "同为<b>IP改编开放世界</b>，霍格沃茨的魔法世界 vs 蜘蛛侠的纽约——两种超级IP的世界还原策略对比"}
+      {
+        "id": 214,
+        "reason": "同为<b>开放世界城市</b>的极致还原，赛博朋克的夜之城 vs 蜘蛛侠的纽约——科幻虚构城市 vs 现实城市的美术策略对比"
+      },
+      {
+        "id": 210,
+        "reason": "同为<b>城市探索</b>主题且视角独特，Stray的猫咪低视角 vs 蜘蛛侠的空中高视角——两种极端空间体验"
+      },
+      {
+        "id": 202,
+        "reason": "同为<b>PS独占动作大作</b>，战神的线性叙事 vs 蜘蛛侠的开放世界——Sony第一方两种制作策略的视觉对比"
+      },
+      {
+        "id": 213,
+        "reason": "同为<b>IP改编开放世界</b>，霍格沃茨的魔法世界 vs 蜘蛛侠的纽约——两种超级IP的世界还原策略对比"
+      }
     ]
   }
 }

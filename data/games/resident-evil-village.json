@@ -4,53 +4,173 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>迪米特雷斯库城堡</b>的哥特美术达到系列巅峰——巴洛克吊灯、血红帷幔、暗金雕花，每个房间都像走进维多利亚时代恐怖画廊", "src": "IGN 8/10", "url": "https://www.ign.com/articles/resident-evil-village-review"},
-        {"text": "<b>四领主区域</b>的风格跨度极大——从城堡哥特到水库工业、从人偶屋恐怖到机械要塞，一款游戏做出了4种美术风格", "src": "GameSpot 9/10", "url": "https://www.gamespot.com/reviews/resident-evil-village-review/1900-6417651/"},
-        {"text": "RE Engine的<b>面部表情捕捉</b>在Lady Dimitrescu身上达到新高度——微笑时嘴角的弧度变化令人不寒而栗", "src": "Eurogamer", "url": "https://www.eurogamer.net/resident-evil-village-review"}
+        {
+          "text": "<b>迪米特雷斯库城堡</b>的哥特美术达到系列巅峰——巴洛克吊灯、血红帷幔、暗金雕花，每个房间都像走进维多利亚时代恐怖画廊",
+          "src": "IGN 8/10",
+          "url": "https://www.ign.com/articles/resident-evil-village-review"
+        },
+        {
+          "text": "<b>四领主区域</b>的风格跨度极大——从城堡哥特到水库工业、从人偶屋恐怖到机械要塞，一款游戏做出了4种美术风格",
+          "src": "GameSpot 9/10",
+          "url": "https://www.gamespot.com/reviews/resident-evil-village-review/1900-6417651/"
+        },
+        {
+          "text": "RE Engine的<b>面部表情捕捉</b>在Lady Dimitrescu身上达到新高度——微笑时嘴角的弧度变化令人不寒而栗",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/resident-evil-village-review"
+        }
       ],
       "excitement": [
-        {"text": "<b>Lady Dimitrescu</b>成为游戏史上最具传播力的角色设计之一——2.9米身高、白色长裙、宽檐帽的组合打破了恐怖游戏角色的固有印象", "src": "IGN", "url": "https://www.ign.com/articles/resident-evil-village-review"},
-        {"text": "Beneviento人偶屋的<b>心理恐怖</b>美术设计——剥夺武器、昏暗光线、婴儿怪物，是近年恐怖游戏最令人不安的段落", "src": "Game Informer 9.5/10", "url": "https://www.gameinformer.com/review/resident-evil-village"},
-        {"text": "<b>雪景开放村庄</b>的美术是系列首次——白雪覆盖的东欧小镇搭配远山城堡剪影，首次将RE带入了\"美丽的恐怖\"领域", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps5/resident-evil-village"}
+        {
+          "text": "<b>Lady Dimitrescu</b>成为游戏史上最具传播力的角色设计之一——2.9米身高、白色长裙、宽檐帽的组合打破了恐怖游戏角色的固有印象",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/resident-evil-village-review"
+        },
+        {
+          "text": "Beneviento人偶屋的<b>心理恐怖</b>美术设计——剥夺武器、昏暗光线、婴儿怪物，是近年恐怖游戏最令人不安的段落",
+          "src": "Game Informer 9.5/10",
+          "url": "https://www.gameinformer.com/review/resident-evil-village"
+        },
+        {
+          "text": "<b>雪景开放村庄</b>的美术是系列首次——白雪覆盖的东欧小镇搭配远山城堡剪影，首次将RE带入了\"美丽的恐怖\"领域",
+          "src": "Push Square",
+          "url": "https://www.pushsquare.com/reviews/ps5/resident-evil-village"
+        }
       ],
       "pain": [
-        {"text": "Moreau水库区域的<b>视觉质量</b>明显低于其他区域——灰绿色调单一，场景细节密度下降", "src": "IGN", "url": "https://www.ign.com/articles/resident-evil-village-review"},
-        {"text": "最终工厂区域过于<b>标准FPS走廊</b>，与前三个区域的创意美术形成落差", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/resident-evil-village-review/1900-6417651/"}
+        {
+          "text": "Moreau水库区域的<b>视觉质量</b>明显低于其他区域——灰绿色调单一，场景细节密度下降",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/resident-evil-village-review"
+        },
+        {
+          "text": "最终工厂区域过于<b>标准FPS走廊</b>，与前三个区域的创意美术形成落差",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/resident-evil-village-review/1900-6417651/"
+        }
       ],
       "churn": [
-        {"text": "<b>商人系统UI</b>（公爵商店）的界面设计相对简陋，与环境美术的精致程度不匹配", "src": "Steam评测", "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"},
-        {"text": "额佣兵模式的<b>视觉单调</b>——重复使用主线场景，缺少专属美术", "src": "Steam评测", "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"}
+        {
+          "text": "<b>商人系统UI</b>（公爵商店）的界面设计相对简陋，与环境美术的精致程度不匹配",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"
+        },
+        {
+          "text": "额佣兵模式的<b>视觉单调</b>——重复使用主线场景，缺少专属美术",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "Lady Dimitrescu的<b>二次创作量</b>打破游戏角色记录——角色公布后72小时内同人创作量超过此前所有RE角色总和", "src": "Reddit r/residentevil", "url": "https://www.reddit.com/r/residentevil/"},
-        {"text": "社区将Village评为<b>系列最美一作</b>——雪景村庄的截图在Steam社区和社交媒体上的传播率极高", "src": "Steam社区", "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"},
-        {"text": "Shadows of Rose DLC的<b>第三人称视角</b>获得视觉层面好评——角色模型终于能在游戏内完整展示", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps5/resident-evil-village-shadows-of-rose"}
+        {
+          "text": "Lady Dimitrescu的<b>二次创作量</b>打破游戏角色记录——角色公布后72小时内同人创作量超过此前所有RE角色总和",
+          "src": "Reddit r/residentevil",
+          "url": "https://www.reddit.com/r/residentevil/"
+        },
+        {
+          "text": "社区将Village评为<b>系列最美一作</b>——雪景村庄的截图在Steam社区和社交媒体上的传播率极高",
+          "src": "Steam社区",
+          "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"
+        },
+        {
+          "text": "Shadows of Rose DLC的<b>第三人称视角</b>获得视觉层面好评——角色模型终于能在游戏内完整展示",
+          "src": "Push Square",
+          "url": "https://www.pushsquare.com/reviews/ps5/resident-evil-village-shadows-of-rose"
+        }
       ],
       "excitement": [
-        {"text": "VR版本的<b>沉浸感</b>被评为PSVR2最佳体验之一——城堡的空间尺度和恐怖氛围在VR中成倍放大", "src": "Upload VR", "url": "https://www.uploadvr.com/resident-evil-village-vr-review/"},
-        {"text": "Mod社区为PC版带来的<b>视觉增强</b>极其丰富——4K材质包、光追Reshade、角色模型替换", "src": "NexusMods", "url": "https://www.nexusmods.com/residentevilvillage"}
+        {
+          "text": "VR版本的<b>沉浸感</b>被评为PSVR2最佳体验之一——城堡的空间尺度和恐怖氛围在VR中成倍放大",
+          "src": "Upload VR",
+          "url": "https://www.uploadvr.com/resident-evil-village-vr-review/"
+        },
+        {
+          "text": "Mod社区为PC版带来的<b>视觉增强</b>极其丰富——4K材质包、光追Reshade、角色模型替换",
+          "src": "NexusMods",
+          "url": "https://www.nexusmods.com/residentevilvillage"
+        }
       ],
       "pain": [
-        {"text": "地图系统的<b>层级标注</b>不够直观——城堡内多层楼层的导航体验不如RE2重制版", "src": "Reddit", "url": "https://www.reddit.com/r/residentevil/"},
-        {"text": "物品栏的<b>公文包管理</b>UI虽然致敬RE4但在现代交互标准下略显笨拙", "src": "Steam评测", "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"}
+        {
+          "text": "地图系统的<b>层级标注</b>不够直观——城堡内多层楼层的导航体验不如RE2重制版",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/residentevil/"
+        },
+        {
+          "text": "物品栏的<b>公文包管理</b>UI虽然致敬RE4但在现代交互标准下略显笨拙",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"
+        }
       ],
       "churn": [
-        {"text": "主线流程仅<b>8-10小时</b>，部分玩家认为以精致美术的开发成本计，内容量偏少", "src": "Reddit", "url": "https://www.reddit.com/r/residentevil/"}
+        {
+          "text": "主线流程仅<b>8-10小时</b>，部分玩家认为以精致美术的开发成本计，内容量偏少",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/residentevil/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "【完结】某幻《生化危机8》大汗淋漓精剪版",
+        "bvid": "BV1ho4y127Vb",
+        "views": "205万"
+      },
+      {
+        "title": "【生化危机8】无伤主线剧情最佳观影流程（完结）",
+        "bvid": "BV1Cf4y1a7Ag",
+        "views": "163万"
+      },
+      {
+        "title": "【生化危机8：村庄UP独家专访】母神米兰达真人脸模VILLAGE萝丝魅影黄金DLCMother Miranda蒂米斯特雷库夫人SafeNestBIOHAZARD",
+        "bvid": "BV1mB4y1K7xp",
+        "views": "47万"
+      },
+      {
+        "title": "__re8 (1)__Resident Evil  Village Biohazard Village 2021.11.25 - 21.14.28.25",
+        "bvid": "BV1t44y1Y7fn",
+        "views": "44万"
+      },
+      {
+        "title": "《Resident Evil Village》Announce Trailer  RE系列新作正式公开！",
+        "bvid": "BV1jZ4y1W7EX",
+        "views": "43万"
+      }
+    ]
   },
   "story": {
     "title": "东欧暗村 · 四领主之谜",
     "dims": [
-      {"label": "时间", "value": "<b>当代</b>（RE7事件数年后），约2020年代"},
-      {"label": "发生地", "value": "<b>东欧山区</b>隐秘村庄——被四位领主分割统治的封闭区域，涵盖城堡、水库、人偶屋和工厂"},
-      {"label": "角色", "value": "Ethan Winters——<b>普通父亲</b>为救女儿深入未知恐惧；对手是Mother Miranda和四位各具特色的领主"},
-      {"label": "科技水平", "value": "<b>当代科技 + 生物变异</b>——表面是古老村庄，底层是菌根（Megamycete）驱动的生物科技"},
-      {"label": "对抗关系", "value": "<b>父亲（Ethan）</b> vs <b>Mother Miranda及四领主</b>——核心是父爱 vs 神权控制，视觉上是普通人 vs 超自然怪物的力量悬殊"},
-      {"label": "地图", "value": "<b>雪景村庄</b>（中心hub）、<b>迪米特雷斯库城堡</b>（哥特巴洛克）、<b>Beneviento人偶屋</b>（心理恐怖）、<b>Moreau水库</b>（沼泽工业）、<b>Heisenberg工厂</b>（蒸汽朋克机械）"},
-      {"label": "元素", "value": "<b>吸血鬼</b>（城堡）、<b>人偶</b>（恐怖谷）、<b>狼人</b>（Lycan）、<b>机械怪物</b>（工厂）、<b>菌根</b>、<b>纹章钥匙</b>"}
+      {
+        "label": "时间",
+        "value": "<b>当代</b>（RE7事件数年后），约2020年代"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>东欧山区</b>隐秘村庄——被四位领主分割统治的封闭区域，涵盖城堡、水库、人偶屋和工厂"
+      },
+      {
+        "label": "角色",
+        "value": "Ethan Winters——<b>普通父亲</b>为救女儿深入未知恐惧；对手是Mother Miranda和四位各具特色的领主"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>当代科技 + 生物变异</b>——表面是古老村庄，底层是菌根（Megamycete）驱动的生物科技"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>父亲（Ethan）</b> vs <b>Mother Miranda及四领主</b>——核心是父爱 vs 神权控制，视觉上是普通人 vs 超自然怪物的力量悬殊"
+      },
+      {
+        "label": "地图",
+        "value": "<b>雪景村庄</b>（中心hub）、<b>迪米特雷斯库城堡</b>（哥特巴洛克）、<b>Beneviento人偶屋</b>（心理恐怖）、<b>Moreau水库</b>（沼泽工业）、<b>Heisenberg工厂</b>（蒸汽朋克机械）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>吸血鬼</b>（城堡）、<b>人偶</b>（恐怖谷）、<b>狼人</b>（Lycan）、<b>机械怪物</b>（工厂）、<b>菌根</b>、<b>纹章钥匙</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -75,10 +195,22 @@
       "value": "Village的宣发策略被证明是天才级的——<b>Lady Dimitrescu的角色公布</b>在正式发售前6个月就引爆社交媒体，成为游戏营销史上最成功的\"意外走红\"。Key Art以<b>城堡雪景</b>为标准构图，冷色调主导。预告片剪辑节奏在恐怖与动作之间切换，配乐使用<b>东欧民族风+管弦乐</b>。品牌色以<b>灰白+暗金</b>为主调，呼应村庄与城堡的双重调性。"
     },
     "rivals": [
-      {"id": 204, "reason": "同为<b>恐怖游戏标杆</b>，寂静岭2的心理恐怖 vs Village的动作恐怖——两种恐怖美学路线的对比"},
-      {"id": 211, "reason": "同为<b>第三人称动作</b>且有鲜明女性角色设计，星刃的科幻 vs Village的哥特——角色魅力驱动的营销策略对比"},
-      {"id": 203, "reason": "同为<b>PS5时代</b>的视觉标杆，对马岛的东方写实 vs Village的西方哥特——环境美术哲学对比"},
-      {"id": 128, "reason": "同属<b>开放世界+恐怖</b>混合类型，S.T.A.L.K.E.R.2的切尔诺贝利废土 vs Village的东欧暗村——末世恐怖的不同表达"}
+      {
+        "id": 204,
+        "reason": "同为<b>恐怖游戏标杆</b>，寂静岭2的心理恐怖 vs Village的动作恐怖——两种恐怖美学路线的对比"
+      },
+      {
+        "id": 211,
+        "reason": "同为<b>第三人称动作</b>且有鲜明女性角色设计，星刃的科幻 vs Village的哥特——角色魅力驱动的营销策略对比"
+      },
+      {
+        "id": 203,
+        "reason": "同为<b>PS5时代</b>的视觉标杆，对马岛的东方写实 vs Village的西方哥特——环境美术哲学对比"
+      },
+      {
+        "id": 128,
+        "reason": "同属<b>开放世界+恐怖</b>混合类型，S.T.A.L.K.E.R.2的切尔诺贝利废土 vs Village的东欧暗村——末世恐怖的不同表达"
+      }
     ]
   }
 }

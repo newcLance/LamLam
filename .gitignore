@@ -23,3 +23,9 @@ build-log.txt
 # Temp
 *.tmp
 *.bak
+
+# Ad-hoc pipeline scripts (not part of main codebase)
+_*.py
+_*.json
+scripts/screenshot_fix*.py
+scripts/screenshot_cotl.py

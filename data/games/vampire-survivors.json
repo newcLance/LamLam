@@ -4,51 +4,163 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>像素弹幕地狱</b>的视觉混沌美学——屏幕上同时存在数千个敌人和投射物，信息过载本身就是游戏体验", "src": "IGN 8/10", "url": "https://www.ign.com/articles/vampire-survivors-review"},
-        {"text": "美术预算<b>接近于零</b>却创造了史上最成功的独立游戏之一——证明玩法的视觉反馈可以完全替代美术投入", "src": "PC Gamer 90/100", "url": "https://www.pcgamer.com/vampire-survivors-review/"},
-        {"text": "角色<b>全屏AOE</b>技能的视觉满足感——从弱小单体到覆盖全屏的成长曲线，每次进化都有极强的视觉冲击", "src": "Eurogamer", "url": "https://www.eurogamer.net/vampire-survivors-review"}
+        {
+          "text": "<b>像素弹幕地狱</b>的视觉混沌美学——屏幕上同时存在数千个敌人和投射物，信息过载本身就是游戏体验",
+          "src": "IGN 8/10",
+          "url": "https://www.ign.com/articles/vampire-survivors-review"
+        },
+        {
+          "text": "美术预算<b>接近于零</b>却创造了史上最成功的独立游戏之一——证明玩法的视觉反馈可以完全替代美术投入",
+          "src": "PC Gamer 90/100",
+          "url": "https://www.pcgamer.com/vampire-survivors-review/"
+        },
+        {
+          "text": "角色<b>全屏AOE</b>技能的视觉满足感——从弱小单体到覆盖全屏的成长曲线，每次进化都有极强的视觉冲击",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/vampire-survivors-review"
+        }
       ],
       "excitement": [
-        {"text": "30分钟时技能<b>全面进化</b>后的全屏清场——数千敌人同时消失伴随的金币/经验值喷射是纯粹的视觉爽快", "src": "IGN", "url": "https://www.ign.com/articles/vampire-survivors-review"},
-        {"text": "发现<b>隐藏角色和关卡</b>的惊喜——彩蛋密度极高，社区称之为\"永远挖不完的内容\"", "src": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/vampire-survivors-review"},
-        {"text": "获得2022年BAFTA<b>最佳游戏</b>——证明\"丑但好玩\"也能获得最高行业认可", "src": "BAFTA", "url": "https://www.bafta.org/games/awards"}
+        {
+          "text": "30分钟时技能<b>全面进化</b>后的全屏清场——数千敌人同时消失伴随的金币/经验值喷射是纯粹的视觉爽快",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/vampire-survivors-review"
+        },
+        {
+          "text": "发现<b>隐藏角色和关卡</b>的惊喜——彩蛋密度极高，社区称之为\"永远挖不完的内容\"",
+          "src": "Rock Paper Shotgun",
+          "url": "https://www.rockpapershotgun.com/vampire-survivors-review"
+        },
+        {
+          "text": "获得2022年BAFTA<b>最佳游戏</b>——证明\"丑但好玩\"也能获得最高行业认可",
+          "src": "BAFTA",
+          "url": "https://www.bafta.org/games/awards"
+        }
       ],
       "pain": [
-        {"text": "后期<b>全屏特效</b>密度过高——投射物、敌人、掉落物互相覆盖，有时完全看不到角色位置", "src": "IGN", "url": "https://www.ign.com/articles/vampire-survivors-review"},
-        {"text": "美术风格<b>故意简陋</b>——部分玩家无法跨过初始视觉门槛", "src": "Steam评测", "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"}
+        {
+          "text": "后期<b>全屏特效</b>密度过高——投射物、敌人、掉落物互相覆盖，有时完全看不到角色位置",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/vampire-survivors-review"
+        },
+        {
+          "text": "美术风格<b>故意简陋</b>——部分玩家无法跨过初始视觉门槛",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"
+        }
       ],
       "churn": [
-        {"text": "长时间游玩后<b>视觉单调</b>——地图背景变化有限，主要依赖角色和武器组合驱动", "src": "Steam评测", "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"}
+        {
+          "text": "长时间游玩后<b>视觉单调</b>——地图背景变化有限，主要依赖角色和武器组合驱动",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "\"<b>Asset Flip美学</b>\"被社区重新定义——从贬义词变成了\"用最少资源做最大乐趣\"的设计哲学标签", "src": "Reddit r/VampireSurvivors", "url": "https://www.reddit.com/r/VampireSurvivors/"},
-        {"text": "poncle（solo开发者）的<b>持续免费更新</b>策略——每次大更新都带来新角色和新机制的视觉内容", "src": "Steam", "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"},
-        {"text": "催生了<b>整个\"幸存者类\"品类</b>——数十款模仿者证明了这种视觉模式的商业可复制性", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"}
+        {
+          "text": "\"<b>Asset Flip美学</b>\"被社区重新定义——从贬义词变成了\"用最少资源做最大乐趣\"的设计哲学标签",
+          "src": "Reddit r/VampireSurvivors",
+          "url": "https://www.reddit.com/r/VampireSurvivors/"
+        },
+        {
+          "text": "poncle（solo开发者）的<b>持续免费更新</b>策略——每次大更新都带来新角色和新机制的视觉内容",
+          "src": "Steam",
+          "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"
+        },
+        {
+          "text": "催生了<b>整个\"幸存者类\"品类</b>——数十款模仿者证明了这种视觉模式的商业可复制性",
+          "src": "Game Developer",
+          "url": "https://www.gamedeveloper.com/"
+        }
       ],
       "excitement": [
-        {"text": "DLC（Legacy of the Moonspell等）带来的<b>新美术风格</b>——日式妖怪、科幻等主题让视觉有了变化", "src": "Steam", "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"},
-        {"text": "与<b>恶魔城</b>联动DLC的视觉升级——经典恶魔城像素美术注入让画面质量大幅提升", "src": "Nintendo Life", "url": "https://www.nintendolife.com/"}
+        {
+          "text": "DLC（Legacy of the Moonspell等）带来的<b>新美术风格</b>——日式妖怪、科幻等主题让视觉有了变化",
+          "src": "Steam",
+          "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"
+        },
+        {
+          "text": "与<b>恶魔城</b>联动DLC的视觉升级——经典恶魔城像素美术注入让画面质量大幅提升",
+          "src": "Nintendo Life",
+          "url": "https://www.nintendolife.com/"
+        }
       ],
       "pain": [
-        {"text": "手机版的<b>屏幕空间</b>限制——大量同屏元素在小屏上更难辨认", "src": "App Store评测", "url": "https://apps.apple.com/app/vampire-survivors/id6444525702"}
+        {
+          "text": "手机版的<b>屏幕空间</b>限制——大量同屏元素在小屏上更难辨认",
+          "src": "App Store评测",
+          "url": "https://apps.apple.com/app/vampire-survivors/id6444525702"
+        }
       ],
       "churn": [
-        {"text": "解锁完所有内容后<b>缺少endgame视觉目标</b>——成就全达成后动力不足", "src": "Steam评测", "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"}
+        {
+          "text": "解锁完所有内容后<b>缺少endgame视觉目标</b>——成就全达成后动力不足",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1794680/Vampire_Survivors/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "吸血鬼幸存者新手开荒教学攻略，全武器合成表，武器、人物选择。【vampire survivors】",
+        "bvid": "BV1jm4y1R7pC",
+        "views": "157万"
+      },
+      {
+        "title": "《吸血鬼幸存者》steam好评率98% 年度黑马仅1人开发 血赚1个亿？【好评如潮】",
+        "bvid": "BV14e4y1F7j8",
+        "views": "142万"
+      },
+      {
+        "title": "厚颜无耻！与其说是抄袭！不如说是照搬！",
+        "bvid": "BV1uW4y1s7ar",
+        "views": "111万"
+      },
+      {
+        "title": "【吸血鬼幸存者】爽到窒息！最强超武之一，成型的五芒星有多恐怖？秒伤9.1k!",
+        "bvid": "BV1AR4y1K7xh",
+        "views": "106万"
+      },
+      {
+        "title": "【补全】吸血鬼幸存者 |  最详细物品解锁了，看不懂就打死我",
+        "bvid": "BV153411m7HB",
+        "views": "88万"
+      }
+    ]
   },
   "story": {
     "title": "无叙事 · 纯生存循环",
     "dims": [
-      {"label": "时间", "value": "<b>哥特中世纪</b>模糊设定——吸血鬼和恶魔的经典恐怖时代"},
-      {"label": "发生地", "value": "<b>各种哥特场景</b>——森林、图书馆、教堂、月光下的平原"},
-      {"label": "角色", "value": "数十位可解锁角色——从<b>普通猎人</b>到隐藏梗角色，外观简陋但各有特殊技能"},
-      {"label": "科技水平", "value": "<b>中世纪冷兵器 + 魔法</b>——鞭子、十字架、圣水、大蒜等经典吸血鬼猎人装备"},
-      {"label": "对抗关系", "value": "<b>孤身幸存者</b> vs <b>无限涌来的怪物潮</b>——核心是以一敌万的生存幻想"},
-      {"label": "地图", "value": "<b>平坦开阔</b>的2D场景——Mad Forest、Inlaid Library、Dairy Plant等，地形简单但怪物密度极高"},
-      {"label": "元素", "value": "<b>鞭子</b>、<b>十字架</b>、<b>圣水</b>、<b>大蒜</b>、<b>圣经</b>、<b>经验宝石</b>（蓝色）、<b>金箱子</b>"}
+      {
+        "label": "时间",
+        "value": "<b>哥特中世纪</b>模糊设定——吸血鬼和恶魔的经典恐怖时代"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>各种哥特场景</b>——森林、图书馆、教堂、月光下的平原"
+      },
+      {
+        "label": "角色",
+        "value": "数十位可解锁角色——从<b>普通猎人</b>到隐藏梗角色，外观简陋但各有特殊技能"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>中世纪冷兵器 + 魔法</b>——鞭子、十字架、圣水、大蒜等经典吸血鬼猎人装备"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>孤身幸存者</b> vs <b>无限涌来的怪物潮</b>——核心是以一敌万的生存幻想"
+      },
+      {
+        "label": "地图",
+        "value": "<b>平坦开阔</b>的2D场景——Mad Forest、Inlaid Library、Dairy Plant等，地形简单但怪物密度极高"
+      },
+      {
+        "label": "元素",
+        "value": "<b>鞭子</b>、<b>十字架</b>、<b>圣水</b>、<b>大蒜</b>、<b>圣经</b>、<b>经验宝石</b>（蓝色）、<b>金箱子</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -73,10 +185,22 @@
       "value": "Vampire Survivors几乎<b>没有传统宣发</b>——完全依赖Steam EA（早期测试）的自然口碑传播。游戏的\"看起来很廉价但玩起来极度上瘾\"的反差是最强的传播叙事。<b>2-3美元</b>的定价策略本身就是营销——\"反正只要一瓶水的价格\"消除了所有购买犹豫。主播/视频博主的<b>实况视频</b>（全屏弹幕的爽片段）是主要传播渠道。品牌视觉极简——黑底+像素字体+红蓝配色。"
     },
     "rivals": [
-      {"id": 221, "reason": "同为<b>极简设计但极度上瘾</b>的独立游戏，Balatro的CRT扑克 vs VS的像素弹幕——两种\"极简成瘾\"的设计路线"},
-      {"id": 206, "reason": "同为<b>Roguelike</b>但美术投入天壤之别，Hades 2的精致手绘 vs VS的故意简陋——两种制作哲学"},
-      {"id": 223, "reason": "同为<b>独立游戏现象级黑马</b>，咩咩启示录的可爱邪典 vs VS的混沌弹幕——两种独立游戏的美术定位"},
-      {"id": 226, "reason": "同为<b>合作/对抗</b>且美术简陋但极度流行，致命公司的低模恐怖 vs VS的像素弹幕——两种\"丑美学\""}
+      {
+        "id": 221,
+        "reason": "同为<b>极简设计但极度上瘾</b>的独立游戏，Balatro的CRT扑克 vs VS的像素弹幕——两种\"极简成瘾\"的设计路线"
+      },
+      {
+        "id": 206,
+        "reason": "同为<b>Roguelike</b>但美术投入天壤之别，Hades 2的精致手绘 vs VS的故意简陋——两种制作哲学"
+      },
+      {
+        "id": 223,
+        "reason": "同为<b>独立游戏现象级黑马</b>，咩咩启示录的可爱邪典 vs VS的混沌弹幕——两种独立游戏的美术定位"
+      },
+      {
+        "id": 226,
+        "reason": "同为<b>合作/对抗</b>且美术简陋但极度流行，致命公司的低模恐怖 vs VS的像素弹幕——两种\"丑美学\""
+      }
     ]
   }
 }

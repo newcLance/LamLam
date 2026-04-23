@@ -4,48 +4,148 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>CryEngine的真实感光照</b>在中世纪波西米亚场景中达到了照片级真实度——晨雾穿过村庄、午后阳光打在石墙上的质感堪称业界标杆", "src": "IGN 8.5/10", "url": "https://www.ign.com/articles/kingdom-come-deliverance-ii-review"},
-        {"text": "<b>历史考据级</b>的建筑/服装/武器还原——与博物馆级别的中世纪文物对比毫无违和感，是\"教育级\"视觉设计", "src": "GameSpot 8/10", "url": "https://www.gamespot.com/reviews/kingdom-come-deliverance-ii-review/"},
-        {"text": "剑术系统的<b>五方位攻击UI</b>——用星形准星显示攻击方向，将复杂的中世纪剑术可视化", "src": "PC Gamer", "url": "https://www.pcgamer.com/kingdom-come-deliverance-2-review/"}
+        {
+          "text": "<b>CryEngine的真实感光照</b>在中世纪波西米亚场景中达到了照片级真实度——晨雾穿过村庄、午后阳光打在石墙上的质感堪称业界标杆",
+          "src": "IGN 8.5/10",
+          "url": "https://www.ign.com/articles/kingdom-come-deliverance-ii-review"
+        },
+        {
+          "text": "<b>历史考据级</b>的建筑/服装/武器还原——与博物馆级别的中世纪文物对比毫无违和感，是\"教育级\"视觉设计",
+          "src": "GameSpot 8/10",
+          "url": "https://www.gamespot.com/reviews/kingdom-come-deliverance-ii-review/"
+        },
+        {
+          "text": "剑术系统的<b>五方位攻击UI</b>——用星形准星显示攻击方向，将复杂的中世纪剑术可视化",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/kingdom-come-deliverance-2-review/"
+        }
       ],
       "excitement": [
-        {"text": "<b>大规模战役</b>场景——数百士兵混战的中世纪战场，烟尘/旗帜/弓箭密度达到电影级", "src": "IGN", "url": "https://www.ign.com/articles/kingdom-come-deliverance-ii-review"},
-        {"text": "城堡内部的<b>室内光照</b>——烛光/壁炉/彩色玻璃窗投射的光斑极其真实", "src": "PC Gamer", "url": "https://www.pcgamer.com/kingdom-come-deliverance-2-review/"}
+        {
+          "text": "<b>大规模战役</b>场景——数百士兵混战的中世纪战场，烟尘/旗帜/弓箭密度达到电影级",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/kingdom-come-deliverance-ii-review"
+        },
+        {
+          "text": "城堡内部的<b>室内光照</b>——烛光/壁炉/彩色玻璃窗投射的光斑极其真实",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/kingdom-come-deliverance-2-review/"
+        }
       ],
       "pain": [
-        {"text": "<b>NPC面部</b>建模精度参差不齐——重要角色精致但路人NPC偏木讷", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/kingdom-come-deliverance-ii-review/"},
-        {"text": "物品栏UI的<b>信息密度</b>过高——装备属性、耐久度、修复状态、服装搭配层叠在一起", "src": "Eurogamer", "url": "https://www.eurogamer.net/kingdom-come-deliverance-2-review"}
+        {
+          "text": "<b>NPC面部</b>建模精度参差不齐——重要角色精致但路人NPC偏木讷",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/kingdom-come-deliverance-ii-review/"
+        },
+        {
+          "text": "物品栏UI的<b>信息密度</b>过高——装备属性、耐久度、修复状态、服装搭配层叠在一起",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/kingdom-come-deliverance-2-review"
+        }
       ],
       "churn": [
-        {"text": "早期版本<b>性能优化</b>问题——大场景帧率不稳影响视觉体验的流畅度", "src": "Steam评测", "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"}
+        {
+          "text": "早期版本<b>性能优化</b>问题——大场景帧率不稳影响视觉体验的流畅度",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "社区对<b>服装分层系统</b>的热衷——内衣/衬衫/锁甲/外甲/斗篷五层穿着的视觉系统是RPG中最细致的", "src": "Reddit r/kingdomcome", "url": "https://www.reddit.com/r/kingdomcome/"},
-        {"text": "<b>昼夜循环</b>的视觉表现——从清晨薄雾到正午烈日到黄昏金光到深夜星空，每个时段的光照完全不同", "src": "Steam评测", "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"}
+        {
+          "text": "社区对<b>服装分层系统</b>的热衷——内衣/衬衫/锁甲/外甲/斗篷五层穿着的视觉系统是RPG中最细致的",
+          "src": "Reddit r/kingdomcome",
+          "url": "https://www.reddit.com/r/kingdomcome/"
+        },
+        {
+          "text": "<b>昼夜循环</b>的视觉表现——从清晨薄雾到正午烈日到黄昏金光到深夜星空，每个时段的光照完全不同",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"
+        }
       ],
       "excitement": [
-        {"text": "在<b>真实波西米亚</b>景观中骑马漫游——游戏地图与Google Earth实景对比高度吻合", "src": "Reddit", "url": "https://www.reddit.com/r/kingdomcome/"}
+        {
+          "text": "在<b>真实波西米亚</b>景观中骑马漫游——游戏地图与Google Earth实景对比高度吻合",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/kingdomcome/"
+        }
       ],
       "pain": [
-        {"text": "<b>读取时间</b>过长影响探索节奏——频繁的场景切换等待", "src": "Steam评测", "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"}
+        {
+          "text": "<b>读取时间</b>过长影响探索节奏——频繁的场景切换等待",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"
+        }
       ],
       "churn": [
-        {"text": "写实风格的<b>低照度场景</b>（夜间/室内/地牢）时伽马设置不合理，部分玩家反映\"太暗看不清\"", "src": "Steam评测", "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"}
+        {
+          "text": "写实风格的<b>低照度场景</b>（夜间/室内/地牢）时伽马设置不合理，部分玩家反映\"太暗看不清\"",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2611710/Kingdom_Come_Deliverance_II/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "【天国拯救2】保姆式全攻略流程,中世纪战神传奇故事！（已完结）",
+        "bvid": "BV1qpN4e6ESY",
+        "views": "584万"
+      },
+      {
+        "title": "【王老菊】重生之我是骰子王 | 天国拯救2-01",
+        "bvid": "BV1JrNDe1Efo",
+        "views": "233万"
+      },
+      {
+        "title": "完结《天国：拯救2》主线流程剧情讲解，极其丰富的中世纪体验！",
+        "bvid": "BV1v1NAeqExo",
+        "views": "201万"
+      },
+      {
+        "title": "本想找个妹子享受人生，结果只找到一条舔狗【天国拯救2】",
+        "bvid": "BV1rpFgz7EzX",
+        "views": "201万"
+      },
+      {
+        "title": "新补丁制作中！通关《黑神话悟空》可终生免费游玩灵岩寺！游戏人数破235万！英特尔13/14代处理器将影响黑神话！《星刃》PC版销量更为强劲！天国拯救2开启预购！",
+        "bvid": "BV1Bi421r7kC",
+        "views": "186万"
+      }
+    ]
   },
   "story": {
     "title": "波西米亚 · 铁匠之子的复仇与命运",
     "dims": [
-      {"label": "时间", "value": "<b>1403年</b>，波西米亚王国（今捷克），胡斯战争前夕"},
-      {"label": "发生地", "value": "<b>波西米亚乡间</b>——真实历史地理还原，涵盖Trosky城堡、Kuttenberg银矿城等真实地标"},
-      {"label": "角色", "value": "<b>Henry</b>——银匠之子（非骑士/英雄），从一介平民成长为改变历史的关键人物"},
-      {"label": "科技水平", "value": "<b>15世纪中世纪</b>——锻造铁器、十字弓、攻城器械、炼金术（真实科技水平，无魔法）"},
-      {"label": "对抗关系", "value": "<b>Henry（平民/正统王权）</b> vs <b>Sigismund的匈牙利军队（篡位者）</b>——中世纪的封建政治与个人复仇"},
-      {"label": "地图", "value": "<b>波西米亚乡村</b>、<b>森林猎场</b>、<b>修道院</b>、<b>采矿城镇</b>、<b>石头城堡</b>、<b>中世纪城镇</b>"},
-      {"label": "元素", "value": "<b>锻造铁砧</b>、<b>波西米亚狮鹫纹章</b>、<b>哥特式教堂</b>、<b>铠甲五层穿着</b>、<b>中世纪手抄本</b>、<b>十字架/宗教图像</b>"}
+      {
+        "label": "时间",
+        "value": "<b>1403年</b>，波西米亚王国（今捷克），胡斯战争前夕"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>波西米亚乡间</b>——真实历史地理还原，涵盖Trosky城堡、Kuttenberg银矿城等真实地标"
+      },
+      {
+        "label": "角色",
+        "value": "<b>Henry</b>——银匠之子（非骑士/英雄），从一介平民成长为改变历史的关键人物"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>15世纪中世纪</b>——锻造铁器、十字弓、攻城器械、炼金术（真实科技水平，无魔法）"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>Henry（平民/正统王权）</b> vs <b>Sigismund的匈牙利军队（篡位者）</b>——中世纪的封建政治与个人复仇"
+      },
+      {
+        "label": "地图",
+        "value": "<b>波西米亚乡村</b>、<b>森林猎场</b>、<b>修道院</b>、<b>采矿城镇</b>、<b>石头城堡</b>、<b>中世纪城镇</b>"
+      },
+      {
+        "label": "元素",
+        "value": "<b>锻造铁砧</b>、<b>波西米亚狮鹫纹章</b>、<b>哥特式教堂</b>、<b>铠甲五层穿着</b>、<b>中世纪手抄本</b>、<b>十字架/宗教图像</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -70,10 +170,22 @@
       "value": "宣发核心卖点是<b>\"无魔法的真实中世纪\"</b>——在一众奇幻RPG中以写实主义差异化。Key Art以<b>Henry身着铠甲</b>站在波西米亚风景前为经典构图。预告片强调<b>战役规模</b>和<b>历史场景</b>的震撼力。品牌色以<b>金+深褐+暗红</b>为主调，呼应中世纪纹章美学。Deep Silver发行的宣发调性偏<b>硬核写实</b>。"
     },
     "rivals": [
-      {"id": 113, "reason": "同为<b>开放世界RPG</b>但路线完全相反——艾尔登法环的<b>暗黑奇幻</b> vs KCD2的<b>历史写实</b>，魔法 vs 无魔法的对比"},
-      {"id": 201, "reason": "同为<b>沉浸式RPG</b>标杆，BG3的<b>D&D奇幻</b>系统 vs KCD2的<b>历史模拟</b>系统——两种RPG设计哲学"},
-      {"id": 202, "reason": "同为<b>写实风格</b>的叙事动作游戏，战神的<b>神话写实</b> vs KCD2的<b>历史写实</b>——\"可信度\"的不同层级"},
-      {"id": 117, "reason": "同为<b>近年RPG大作</b>，黑神话的<b>东方神话</b> vs KCD2的<b>欧洲历史</b>——两种文化背景的写实冒险"}
+      {
+        "id": 113,
+        "reason": "同为<b>开放世界RPG</b>但路线完全相反——艾尔登法环的<b>暗黑奇幻</b> vs KCD2的<b>历史写实</b>，魔法 vs 无魔法的对比"
+      },
+      {
+        "id": 201,
+        "reason": "同为<b>沉浸式RPG</b>标杆，BG3的<b>D&D奇幻</b>系统 vs KCD2的<b>历史模拟</b>系统——两种RPG设计哲学"
+      },
+      {
+        "id": 202,
+        "reason": "同为<b>写实风格</b>的叙事动作游戏，战神的<b>神话写实</b> vs KCD2的<b>历史写实</b>——\"可信度\"的不同层级"
+      },
+      {
+        "id": 117,
+        "reason": "同为<b>近年RPG大作</b>，黑神话的<b>东方神话</b> vs KCD2的<b>欧洲历史</b>——两种文化背景的写实冒险"
+      }
     ]
   }
 }

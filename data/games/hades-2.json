@@ -4,48 +4,148 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>Supergiant式视觉叙事</b>——每个角色的立绘、动画、战斗特效都达到手绘动画级品质，Jen Zee的美术风格已成为独立游戏天花板", "src": "IGN 9/10", "url": "https://www.ign.com/articles/hades-2-review"},
-        {"text": "<b>双世界</b>（冥界+地表）的美术差异——冥界延续原版暗红金调，地表引入<b>翠绿+天蓝</b>的全新色彩空间", "src": "GameSpot 9/10", "url": "https://www.gamespot.com/reviews/hades-2-review/"},
-        {"text": "梅莉诺厄的<b>巫术视觉系统</b>——月之魔法的银白光效与原版扎格列欧斯的火红形成品牌延续中的差异化", "src": "Eurogamer", "url": "https://www.eurogamer.net/hades-2-review"}
+        {
+          "text": "<b>Supergiant式视觉叙事</b>——每个角色的立绘、动画、战斗特效都达到手绘动画级品质，Jen Zee的美术风格已成为独立游戏天花板",
+          "src": "IGN 9/10",
+          "url": "https://www.ign.com/articles/hades-2-review"
+        },
+        {
+          "text": "<b>双世界</b>（冥界+地表）的美术差异——冥界延续原版暗红金调，地表引入<b>翠绿+天蓝</b>的全新色彩空间",
+          "src": "GameSpot 9/10",
+          "url": "https://www.gamespot.com/reviews/hades-2-review/"
+        },
+        {
+          "text": "梅莉诺厄的<b>巫术视觉系统</b>——月之魔法的银白光效与原版扎格列欧斯的火红形成品牌延续中的差异化",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/hades-2-review"
+        }
       ],
       "excitement": [
-        {"text": "每次清关后的<b>角色对话立绘</b>变化——不同剧情阶段角色的表情、服装、背景都有微妙变化", "src": "IGN", "url": "https://www.ign.com/articles/hades-2-review"},
-        {"text": "<b>Boon选择界面</b>的视觉设计——每位神祇的祝福都有独特的<b>纹章风格图标</b>和颜色编码", "src": "PC Gamer", "url": "https://www.pcgamer.com/hades-2-review/"}
+        {
+          "text": "每次清关后的<b>角色对话立绘</b>变化——不同剧情阶段角色的表情、服装、背景都有微妙变化",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/hades-2-review"
+        },
+        {
+          "text": "<b>Boon选择界面</b>的视觉设计——每位神祇的祝福都有独特的<b>纹章风格图标</b>和颜色编码",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/hades-2-review/"
+        }
       ],
       "pain": [
-        {"text": "早期关卡的<b>视觉信息量</b>爆炸——屏幕上同时出现的弹幕、特效、敌人、地形变化太多", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/hades-2-review/"},
-        {"text": "<b>巫术采集</b>系统的UI引导偏弱——材料获取和配方之间的关联不够直观", "src": "PC Gamer", "url": "https://www.pcgamer.com/hades-2-review/"}
+        {
+          "text": "早期关卡的<b>视觉信息量</b>爆炸——屏幕上同时出现的弹幕、特效、敌人、地形变化太多",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/hades-2-review/"
+        },
+        {
+          "text": "<b>巫术采集</b>系统的UI引导偏弱——材料获取和配方之间的关联不够直观",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/hades-2-review/"
+        }
       ],
       "churn": [
-        {"text": "部分地表关卡的<b>场景重复度</b>高于冥界——自然环境的变化没有冥界建筑风格那么丰富", "src": "Steam评测", "url": "https://store.steampowered.com/app/1145350/Hades_II/"}
+        {
+          "text": "部分地表关卡的<b>场景重复度</b>高于冥界——自然环境的变化没有冥界建筑风格那么丰富",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1145350/Hades_II/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "社区对<b>Jen Zee画风</b>的狂热——角色立绘被大量用作头像/壁纸/二创素材，Supergiant的美术是最强传播力", "src": "Reddit r/HadesTheGame", "url": "https://www.reddit.com/r/HadesTheGame/"},
-        {"text": "<b>梅莉诺厄</b>与扎格列欧斯的视觉对比——月之女巫vs冥界王子，Supergiant在同一美术体系下做出了完美的性别和性格差异化", "src": "Steam评测", "url": "https://store.steampowered.com/app/1145350/Hades_II/"}
+        {
+          "text": "社区对<b>Jen Zee画风</b>的狂热——角色立绘被大量用作头像/壁纸/二创素材，Supergiant的美术是最强传播力",
+          "src": "Reddit r/HadesTheGame",
+          "url": "https://www.reddit.com/r/HadesTheGame/"
+        },
+        {
+          "text": "<b>梅莉诺厄</b>与扎格列欧斯的视觉对比——月之女巫vs冥界王子，Supergiant在同一美术体系下做出了完美的性别和性格差异化",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1145350/Hades_II/"
+        }
       ],
       "excitement": [
-        {"text": "每次更新的<b>新角色立绘</b>曝光都引发社区创作爆发——Supergiant的角色设计是\"自带流量\"的", "src": "Reddit", "url": "https://www.reddit.com/r/HadesTheGame/"}
+        {
+          "text": "每次更新的<b>新角色立绘</b>曝光都引发社区创作爆发——Supergiant的角色设计是\"自带流量\"的",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/HadesTheGame/"
+        }
       ],
       "pain": [
-        {"text": "对比原版的<b>紧凑感</b>，续作的系统复杂度提升但UI空间没有等比扩展", "src": "Steam评测", "url": "https://store.steampowered.com/app/1145350/Hades_II/"}
+        {
+          "text": "对比原版的<b>紧凑感</b>，续作的系统复杂度提升但UI空间没有等比扩展",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1145350/Hades_II/"
+        }
       ],
       "churn": [
-        {"text": "部分Roguelike玩家认为<b>运行变体</b>的视觉差异不如原版明显", "src": "Steam评测", "url": "https://store.steampowered.com/app/1145350/Hades_II/"}
+        {
+          "text": "部分Roguelike玩家认为<b>运行变体</b>的视觉差异不如原版明显",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1145350/Hades_II/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "当女主过于“变态”时，玩家们会有多喜欢？！！",
+        "bvid": "BV1jz421m7k9",
+        "views": "116万"
+      },
+      {
+        "title": "【IGN】PS5及Xbox版《黑帝斯2》发售日预告",
+        "bvid": "BV1YLX8BuES4",
+        "views": "69万"
+      },
+      {
+        "title": "【IGN】10分，《黑帝斯2》正式版评测：代表了开发团队的最高水准",
+        "bvid": "BV1TCHJz3EJV",
+        "views": "69万"
+      },
+      {
+        "title": "【IGN】《黑帝斯2》公布预告 | TGA 2022",
+        "bvid": "BV1mW4y1g7eJ",
+        "views": "55万"
+      },
+      {
+        "title": "上线连肝20小时后，聊一下黑帝斯2是否值108元",
+        "bvid": "BV1NJ4m1T7pp",
+        "views": "43万"
+      }
+    ]
   },
   "story": {
     "title": "时间泰坦 · 月之巫女的复仇",
     "dims": [
-      {"label": "时间", "value": "<b>希腊神话时代</b>，时间泰坦克洛诺斯试图颠覆冥界秩序"},
-      {"label": "发生地", "value": "<b>冥界</b>（塔尔塔罗斯/阿斯福德尔/极乐净土）+ <b>地表</b>（希腊大地/奥林匹斯山脚）双世界交替"},
-      {"label": "角色", "value": "<b>梅莉诺厄</b>——哈迪斯之女，月之巫女，为解放被俘的家人而战斗"},
-      {"label": "科技水平", "value": "<b>神话魔法</b>——巫术、月之魔法、奥林匹斯神力、炼金术"},
-      {"label": "对抗关系", "value": "<b>梅莉诺厄（新生代诸神）</b> vs <b>克洛诺斯（泰坦/时间）</b>——时间控制 vs 意志对抗"},
-      {"label": "地图", "value": "<b>女巫十字路口</b>（营地）、<b>冥界深层</b>、<b>地表草原</b>、<b>奥林匹斯废墟</b>"},
-      {"label": "元素", "value": "<b>月亮</b>、<b>银色魔法纹章</b>、<b>希腊陶器花纹</b>、<b>火把/蜡烛</b>、<b>时间齿轮</b>、<b>冥河水</b>"}
+      {
+        "label": "时间",
+        "value": "<b>希腊神话时代</b>，时间泰坦克洛诺斯试图颠覆冥界秩序"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>冥界</b>（塔尔塔罗斯/阿斯福德尔/极乐净土）+ <b>地表</b>（希腊大地/奥林匹斯山脚）双世界交替"
+      },
+      {
+        "label": "角色",
+        "value": "<b>梅莉诺厄</b>——哈迪斯之女，月之巫女，为解放被俘的家人而战斗"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>神话魔法</b>——巫术、月之魔法、奥林匹斯神力、炼金术"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>梅莉诺厄（新生代诸神）</b> vs <b>克洛诺斯（泰坦/时间）</b>——时间控制 vs 意志对抗"
+      },
+      {
+        "label": "地图",
+        "value": "<b>女巫十字路口</b>（营地）、<b>冥界深层</b>、<b>地表草原</b>、<b>奥林匹斯废墟</b>"
+      },
+      {
+        "label": "元素",
+        "value": "<b>月亮</b>、<b>银色魔法纹章</b>、<b>希腊陶器花纹</b>、<b>火把/蜡烛</b>、<b>时间齿轮</b>、<b>冥河水</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -70,10 +170,22 @@
       "value": "宣发核心是<b>\"Supergiant出品\"</b>的品牌信任+角色美术的视觉吸引力。Key Art以<b>梅莉诺厄动态战斗姿态</b>为中心，银白光效映衬暗色背景。预告片展示<b>快节奏战斗+角色互动</b>双线。品牌色以<b>月白+暗紫+金色</b>为主调。早期访问策略延续原版的\"与社区共同成长\"传播路径，每次更新都是一波传播。"
     },
     "rivals": [
-      {"id": 117, "reason": "同为<b>年度动作</b>标杆，黑神话的<b>3D写实</b> vs 哈迪斯的<b>手绘2.5D</b>——两种截然不同的美术投资策略"},
-      {"id": 153, "reason": "同为<b>风格化美术</b>的RPG，Metaphor的<b>油画风</b> vs 哈迪斯的<b>插画风</b>——Atlus和Supergiant的UI设计哲学对比"},
-      {"id": 152, "reason": "同为<b>快节奏动作</b>游戏，鬼泣5的<b>3D华丽</b> vs 哈迪斯的<b>2.5D密集</b>——战斗视觉信息的不同处理方式"},
-      {"id": 205, "reason": "同为<b>独立游戏美术天花板</b>，丝之歌的<b>纯2D水彩</b> vs 哈迪斯的<b>2.5D插画</b>——两种独立美术极致"}
+      {
+        "id": 117,
+        "reason": "同为<b>年度动作</b>标杆，黑神话的<b>3D写实</b> vs 哈迪斯的<b>手绘2.5D</b>——两种截然不同的美术投资策略"
+      },
+      {
+        "id": 153,
+        "reason": "同为<b>风格化美术</b>的RPG，Metaphor的<b>油画风</b> vs 哈迪斯的<b>插画风</b>——Atlus和Supergiant的UI设计哲学对比"
+      },
+      {
+        "id": 152,
+        "reason": "同为<b>快节奏动作</b>游戏，鬼泣5的<b>3D华丽</b> vs 哈迪斯的<b>2.5D密集</b>——战斗视觉信息的不同处理方式"
+      },
+      {
+        "id": 205,
+        "reason": "同为<b>独立游戏美术天花板</b>，丝之歌的<b>纯2D水彩</b> vs 哈迪斯的<b>2.5D插画</b>——两种独立美术极致"
+      }
     ]
   }
 }

@@ -4,52 +4,168 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>太平洋西北的自然风光</b>是全游戏最大的视觉资产——俄勒冈州的松林、雪山、河流、火山湖在虚幻引擎下呈现出令人屏息的美感", "src": "IGN 6.5/10", "url": "https://www.ign.com/articles/days-gone-review"},
-        {"text": "<b>异变者尸潮</b>（Horde）的视觉冲击力在开放世界丧尸游戏中无出其右——数百个丧尸同屏涌来的画面是真正的恐怖与壮观并存", "src": "GameSpot 5/10", "url": "https://www.gamespot.com/reviews/days-gone-review/1900-6417147/"},
-        {"text": "动态<b>天气和日夜循环</b>对gameplay的影响在视觉上表现极佳——暴风雪中能见度骤降、夜晚丧尸更活跃且更难辨认", "src": "Push Square 7/10", "url": "https://www.pushsquare.com/reviews/ps4/days-gone"}
+        {
+          "text": "<b>太平洋西北的自然风光</b>是全游戏最大的视觉资产——俄勒冈州的松林、雪山、河流、火山湖在虚幻引擎下呈现出令人屏息的美感",
+          "src": "IGN 6.5/10",
+          "url": "https://www.ign.com/articles/days-gone-review"
+        },
+        {
+          "text": "<b>异变者尸潮</b>（Horde）的视觉冲击力在开放世界丧尸游戏中无出其右——数百个丧尸同屏涌来的画面是真正的恐怖与壮观并存",
+          "src": "GameSpot 5/10",
+          "url": "https://www.gamespot.com/reviews/days-gone-review/1900-6417147/"
+        },
+        {
+          "text": "动态<b>天气和日夜循环</b>对gameplay的影响在视觉上表现极佳——暴风雪中能见度骤降、夜晚丧尸更活跃且更难辨认",
+          "src": "Push Square 7/10",
+          "url": "https://www.pushsquare.com/reviews/ps4/days-gone"
+        }
       ],
       "excitement": [
-        {"text": "第一次遭遇<b>大型尸潮</b>——数百丧尸从洞穴/建筑中蜂拥而出的那个瞬间是游戏史上最令人肾上腺素飙升的视觉体验之一", "src": "多媒体综合", "url": "https://www.ign.com/articles/days-gone-review"},
-        {"text": "骑摩托穿越<b>秋色森林</b>的公路感——金色树叶、阳光穿透树冠、引擎声回荡在山谷中", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps4/days-gone"},
-        {"text": "PC版的<b>画质增强</b>——21:9超宽屏+4K+解锁帧率让俄勒冈风光达到了接近纪录片的质感", "src": "Digital Foundry", "url": "https://www.eurogamer.net/digitalfoundry-2021-days-gone-pc-port-review"}
+        {
+          "text": "第一次遭遇<b>大型尸潮</b>——数百丧尸从洞穴/建筑中蜂拥而出的那个瞬间是游戏史上最令人肾上腺素飙升的视觉体验之一",
+          "src": "多媒体综合",
+          "url": "https://www.ign.com/articles/days-gone-review"
+        },
+        {
+          "text": "骑摩托穿越<b>秋色森林</b>的公路感——金色树叶、阳光穿透树冠、引擎声回荡在山谷中",
+          "src": "Push Square",
+          "url": "https://www.pushsquare.com/reviews/ps4/days-gone"
+        },
+        {
+          "text": "PC版的<b>画质增强</b>——21:9超宽屏+4K+解锁帧率让俄勒冈风光达到了接近纪录片的质感",
+          "src": "Digital Foundry",
+          "url": "https://www.eurogamer.net/digitalfoundry-2021-days-gone-pc-port-review"
+        }
       ],
       "pain": [
-        {"text": "人物<b>面部动画</b>质量参差——主角Deacon还行但大量配角的表情僵硬", "src": "IGN", "url": "https://www.ign.com/articles/days-gone-review"},
-        {"text": "营地和人类据点的<b>美术重复</b>——铁丝网+集装箱+帐篷的组合在不同营地间高度相似", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/days-gone-review/1900-6417147/"}
+        {
+          "text": "人物<b>面部动画</b>质量参差——主角Deacon还行但大量配角的表情僵硬",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/days-gone-review"
+        },
+        {
+          "text": "营地和人类据点的<b>美术重复</b>——铁丝网+集装箱+帐篷的组合在不同营地间高度相似",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/days-gone-review/1900-6417147/"
+        }
       ],
       "churn": [
-        {"text": "主线中后期的<b>节奏拖沓</b>——大量驾车赶路的视觉单调消磨了前期的新鲜感", "src": "IGN", "url": "https://www.ign.com/articles/days-gone-review"},
-        {"text": "发售初期<b>大量视觉Bug</b>——NPC穿模、贴图闪烁、帧率骤降（PS4版已大幅改善）", "src": "Push Square", "url": "https://www.pushsquare.com/reviews/ps4/days-gone"}
+        {
+          "text": "主线中后期的<b>节奏拖沓</b>——大量驾车赶路的视觉单调消磨了前期的新鲜感",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/days-gone-review"
+        },
+        {
+          "text": "发售初期<b>大量视觉Bug</b>——NPC穿模、贴图闪烁、帧率骤降（PS4版已大幅改善）",
+          "src": "Push Square",
+          "url": "https://www.pushsquare.com/reviews/ps4/days-gone"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "PC版发售后<b>口碑逆转</b>——社区重新发现了游戏的视觉品质，\"被低估的神作\"成为主流叙事", "src": "Reddit r/DaysGone", "url": "https://www.reddit.com/r/DaysGone/"},
-        {"text": "<b>尸潮对决</b>的视频剪辑是YouTube上最热的Days Gone内容——玩家发明了各种创意方法清潮", "src": "YouTube", "url": "https://www.youtube.com/results?search_query=days+gone+horde"},
-        {"text": "社区对<b>Days Gone 2</b>被取消的持续惋惜——认为Bend Studio的开放世界技术力被浪费了", "src": "Reddit", "url": "https://www.reddit.com/r/DaysGone/"}
+        {
+          "text": "PC版发售后<b>口碑逆转</b>——社区重新发现了游戏的视觉品质，\"被低估的神作\"成为主流叙事",
+          "src": "Reddit r/DaysGone",
+          "url": "https://www.reddit.com/r/DaysGone/"
+        },
+        {
+          "text": "<b>尸潮对决</b>的视频剪辑是YouTube上最热的Days Gone内容——玩家发明了各种创意方法清潮",
+          "src": "YouTube",
+          "url": "https://www.youtube.com/results?search_query=days+gone+horde"
+        },
+        {
+          "text": "社区对<b>Days Gone 2</b>被取消的持续惋惜——认为Bend Studio的开放世界技术力被浪费了",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/DaysGone/"
+        }
       ],
       "excitement": [
-        {"text": "Photo Mode在PC版发挥最大价值——<b>俄勒冈风光+摩托车</b>的公路摄影成为独特的视觉品类", "src": "Steam社区", "url": "https://store.steampowered.com/app/1259420/Days_Gone/"},
-        {"text": "尸潮挑战模式的<b>重玩价值</b>极高——不同策略清潮的视觉多样性", "src": "Reddit", "url": "https://www.reddit.com/r/DaysGone/"}
+        {
+          "text": "Photo Mode在PC版发挥最大价值——<b>俄勒冈风光+摩托车</b>的公路摄影成为独特的视觉品类",
+          "src": "Steam社区",
+          "url": "https://store.steampowered.com/app/1259420/Days_Gone/"
+        },
+        {
+          "text": "尸潮挑战模式的<b>重玩价值</b>极高——不同策略清潮的视觉多样性",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/DaysGone/"
+        }
       ],
       "pain": [
-        {"text": "<b>摩托车外观定制</b>选项有限——社区期望更多涂装和零件", "src": "Reddit", "url": "https://www.reddit.com/r/DaysGone/"}
+        {
+          "text": "<b>摩托车外观定制</b>选项有限——社区期望更多涂装和零件",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/DaysGone/"
+        }
       ],
       "churn": [
-        {"text": "续作被取消导致<b>社区流失</b>——核心粉丝对系列前景感到失望", "src": "Reddit", "url": "https://www.reddit.com/r/DaysGone/"}
+        {
+          "text": "续作被取消导致<b>社区流失</b>——核心粉丝对系列前景感到失望",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/DaysGone/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "【完结】老戴《往日不再 DAYS GONE》电影风精剪剧情流程解说 包含隐藏结局【往日不在】【共32P】",
+        "bvid": "BV1L4411h7sW",
+        "views": "435万"
+      },
+      {
+        "title": "这也算尸潮，看着真可怜",
+        "bvid": "BV1xf4y1L7Xr",
+        "views": "336万"
+      },
+      {
+        "title": "劝退大作？5分钟告诉你《往日不再》到底好不好玩",
+        "bvid": "BV12441147RY",
+        "views": "101万"
+      },
+      {
+        "title": "被媒体评分埋没的丧尸游戏佳作『往日不再』",
+        "bvid": "BV1GPmGY1EAu",
+        "views": "77万"
+      },
+      {
+        "title": "【𝑺𝒕𝒆𝒂𝒎游戏资讯】免费领275元游戏大作！《战地6》或将有日本战场！《往日不再》PC版！腾讯入股柳叶刀工作室！《刺客信条：英灵殿》首个DLC跳票！",
+        "bvid": "BV1S64y1S7jV",
+        "views": "64万"
+      }
+    ]
   },
   "story": {
     "title": "俄勒冈末日 · 公路骑士的求生之路",
     "dims": [
-      {"label": "时间", "value": "<b>近未来末日后</b>约2年——病毒爆发导致文明崩溃"},
-      {"label": "发生地", "value": "<b>俄勒冈州</b>——太平洋西北的松林、火山湖、小镇废墟、高速公路"},
-      {"label": "角色", "value": "Deacon St. John——前<b>飞车党成员</b>，在末世中寻找失散妻子，骑摩托穿越危险荒野"},
-      {"label": "科技水平", "value": "<b>当代科技退化</b>——文明设施崩溃，幸存者依赖拼凑装备和摩托车机械维修"},
-      {"label": "对抗关系", "value": "<b>幸存者（Deacon）</b> vs <b>异变者尸潮/敌对人类营地</b>——核心是在末世中保持人性，同时对抗数以百计的丧尸潮"},
-      {"label": "地图", "value": "<b>瀑布溪谷</b>（松林+农场）、<b>贝尔纳普区</b>（火山熔岩地貌）、<b>火山口湖</b>（高海拔雪景）、<b>小镇废墟</b>、<b>NERO检查站</b>（政府设施）"},
-      {"label": "元素", "value": "<b>摩托车</b>、<b>尸潮</b>（Horde）、<b>NERO注射器</b>、<b>燃烧瓶</b>、<b>飞车党补丁</b>、<b>无线电</b>"}
+      {
+        "label": "时间",
+        "value": "<b>近未来末日后</b>约2年——病毒爆发导致文明崩溃"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>俄勒冈州</b>——太平洋西北的松林、火山湖、小镇废墟、高速公路"
+      },
+      {
+        "label": "角色",
+        "value": "Deacon St. John——前<b>飞车党成员</b>，在末世中寻找失散妻子，骑摩托穿越危险荒野"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>当代科技退化</b>——文明设施崩溃，幸存者依赖拼凑装备和摩托车机械维修"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>幸存者（Deacon）</b> vs <b>异变者尸潮/敌对人类营地</b>——核心是在末世中保持人性，同时对抗数以百计的丧尸潮"
+      },
+      {
+        "label": "地图",
+        "value": "<b>瀑布溪谷</b>（松林+农场）、<b>贝尔纳普区</b>（火山熔岩地貌）、<b>火山口湖</b>（高海拔雪景）、<b>小镇废墟</b>、<b>NERO检查站</b>（政府设施）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>摩托车</b>、<b>尸潮</b>（Horde）、<b>NERO注射器</b>、<b>燃烧瓶</b>、<b>飞车党补丁</b>、<b>无线电</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -74,10 +190,22 @@
       "value": "初始宣发以<b>尸潮技术演示</b>为核心——E3的锯木厂尸潮Demo曾是当年最震撼的实机演示之一。Key Art以<b>Deacon+摩托+荒野</b>为标准构图，传达公路末世的核心卖点。品牌色以<b>荒野绿+黄昏橙</b>为主调。发售后评分偏低但<b>PC版口碑逆转</b>——\"被低估的佳作\"成为二次营销叙事。Bend Studio的<b>续作被取消</b>反而激发了社区的悲情传播。"
     },
     "rivals": [
-      {"id": 212, "reason": "同为<b>第三人称恐怖生存</b>，生化危机村庄的哥特恐怖 vs Days Gone的开放世界末世——封闭 vs 开放的恐怖美术策略"},
-      {"id": 214, "reason": "同为<b>开放世界</b>的城市/荒野对比，赛博朋克的霓虹都市 vs Days Gone的自然荒野——两种截然不同的开放世界美术方向"},
-      {"id": 203, "reason": "同为<b>PS独占开放世界</b>，对马岛的日本自然美景 vs Days Gone的美国西北自然——两种\"自然即美术\"的设计哲学"},
-      {"id": 131, "reason": "同为<b>末世丧尸</b>题材，消逝的光芒的城市跑酷 vs Days Gone的荒野摩托——两种末世机动性的视觉表达"}
+      {
+        "id": 212,
+        "reason": "同为<b>第三人称恐怖生存</b>，生化危机村庄的哥特恐怖 vs Days Gone的开放世界末世——封闭 vs 开放的恐怖美术策略"
+      },
+      {
+        "id": 214,
+        "reason": "同为<b>开放世界</b>的城市/荒野对比，赛博朋克的霓虹都市 vs Days Gone的自然荒野——两种截然不同的开放世界美术方向"
+      },
+      {
+        "id": 203,
+        "reason": "同为<b>PS独占开放世界</b>，对马岛的日本自然美景 vs Days Gone的美国西北自然——两种\"自然即美术\"的设计哲学"
+      },
+      {
+        "id": 131,
+        "reason": "同为<b>末世丧尸</b>题材，消逝的光芒的城市跑酷 vs Days Gone的荒野摩托——两种末世机动性的视觉表达"
+      }
     ]
   }
 }

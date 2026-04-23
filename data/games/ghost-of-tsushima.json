@@ -4,48 +4,148 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>风引导系统</b>——用自然界的风向替代传统UI导航箭头，是开放世界导航设计的革命性创新", "src": "IGN 9.5/10", "url": "https://www.ign.com/articles/ghost-of-tsushima-review"},
-        {"text": "黑�的<b>黑白电影模式（黑�的模式）</b>——致敬黑泽明武士电影的实时滤镜，将游戏体验提升为电影鉴赏", "src": "GameSpot 9/10", "url": "https://www.gamespot.com/reviews/ghost-of-tsushima-review/1900-6417537/"},
-        {"text": "战斗中<b>一刀斩杀</b>的刹那——鲜血飞溅的慢镜头+落叶纷飞的粒子效果，每次对决都像一幅浮世绘", "src": "Polygon", "url": "https://www.polygon.com/reviews/2020/7/14/21322359/ghost-of-tsushima-review-ps4-sucker-punch"}
+        {
+          "text": "<b>风引导系统</b>——用自然界的风向替代传统UI导航箭头，是开放世界导航设计的革命性创新",
+          "src": "IGN 9.5/10",
+          "url": "https://www.ign.com/articles/ghost-of-tsushima-review"
+        },
+        {
+          "text": "黑�的<b>黑白电影模式（黑�的模式）</b>——致敬黑泽明武士电影的实时滤镜，将游戏体验提升为电影鉴赏",
+          "src": "GameSpot 9/10",
+          "url": "https://www.gamespot.com/reviews/ghost-of-tsushima-review/1900-6417537/"
+        },
+        {
+          "text": "战斗中<b>一刀斩杀</b>的刹那——鲜血飞溅的慢镜头+落叶纷飞的粒子效果，每次对决都像一幅浮世绘",
+          "src": "Polygon",
+          "url": "https://www.polygon.com/reviews/2020/7/14/21322359/ghost-of-tsushima-review-ps4-sucker-punch"
+        }
       ],
       "excitement": [
-        {"text": "秋日<b>红叶林</b>中骑马奔驰的场景被玩家称为\"游戏史上最美的截图素材\"——色彩饱和度与自然光的结合登峰造极", "src": "IGN", "url": "https://www.ign.com/articles/ghost-of-tsushima-review"},
-        {"text": "<b>对峙系统</b>的视觉设计——镜头拉远、风声骤起、一击定生死的电影化战斗开场", "src": "多媒体综合", "url": "https://www.gamespot.com/reviews/ghost-of-tsushima-review/1900-6417537/"}
+        {
+          "text": "秋日<b>红叶林</b>中骑马奔驰的场景被玩家称为\"游戏史上最美的截图素材\"——色彩饱和度与自然光的结合登峰造极",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/ghost-of-tsushima-review"
+        },
+        {
+          "text": "<b>对峙系统</b>的视觉设计——镜头拉远、风声骤起、一击定生死的电影化战斗开场",
+          "src": "多媒体综合",
+          "url": "https://www.gamespot.com/reviews/ghost-of-tsushima-review/1900-6417537/"
+        }
       ],
       "pain": [
-        {"text": "敌人AI的<b>视觉表现</b>过于程式化——蒙古兵的巡逻/警觉/搜索状态在动画上缺乏自然过渡", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/ghost-of-tsushima-review/1900-6417537/"},
-        {"text": "支线任务的<b>场景复用</b>较多——营地布局和屋内装饰在多个任务间重复出现", "src": "Polygon", "url": "https://www.polygon.com/reviews/2020/7/14/21322359/ghost-of-tsushima-review-ps4-sucker-punch"}
+        {
+          "text": "敌人AI的<b>视觉表现</b>过于程式化——蒙古兵的巡逻/警觉/搜索状态在动画上缺乏自然过渡",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/ghost-of-tsushima-review/1900-6417537/"
+        },
+        {
+          "text": "支线任务的<b>场景复用</b>较多——营地布局和屋内装饰在多个任务间重复出现",
+          "src": "Polygon",
+          "url": "https://www.polygon.com/reviews/2020/7/14/21322359/ghost-of-tsushima-review-ps4-sucker-punch"
+        }
       ],
       "churn": [
-        {"text": "开放世界后期<b>活动点标记密度</b>过高，地图变成\"图标海洋\"，与极简导航的初衷矛盾", "src": "多媒体综合", "url": "https://www.ign.com/articles/ghost-of-tsushima-review"}
+        {
+          "text": "开放世界后期<b>活动点标记密度</b>过高，地图变成\"图标海洋\"，与极简导航的初衷矛盾",
+          "src": "多媒体综合",
+          "url": "https://www.ign.com/articles/ghost-of-tsushima-review"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "每次吹笛/写俳句时的<b>环境互动</b>——风向改变、花瓣飘落、动物聚集，是最温柔的沉浸设计", "src": "Steam评测", "url": "https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/"},
-        {"text": "<b>照片模式</b>的使用频率极高——对马岛本身就是一个巨大的摄影场景，社区产出海量壁纸级截图", "src": "Reddit r/ghostoftsushima", "url": "https://www.reddit.com/r/ghostoftsushima/"}
+        {
+          "text": "每次吹笛/写俳句时的<b>环境互动</b>——风向改变、花瓣飘落、动物聚集，是最温柔的沉浸设计",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/"
+        },
+        {
+          "text": "<b>照片模式</b>的使用频率极高——对马岛本身就是一个巨大的摄影场景，社区产出海量壁纸级截图",
+          "src": "Reddit r/ghostoftsushima",
+          "url": "https://www.reddit.com/r/ghostoftsushima/"
+        }
       ],
       "excitement": [
-        {"text": "PC版<b>超高分辨率</b>下的花田和竹林细节让人窒息，4K+光追效果下植被密度和光影达到新高度", "src": "PC Gamer", "url": "https://www.pcgamer.com/games/action/ghost-of-tsushima-directors-cut-pc-review/"}
+        {
+          "text": "PC版<b>超高分辨率</b>下的花田和竹林细节让人窒息，4K+光追效果下植被密度和光影达到新高度",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/games/action/ghost-of-tsushima-directors-cut-pc-review/"
+        }
       ],
       "pain": [
-        {"text": "<b>嘴型同步</b>问题——日语配音时口型明显对不上，破坏了极致的和风沉浸感", "src": "Steam评测", "url": "https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/"}
+        {
+          "text": "<b>嘴型同步</b>问题——日语配音时口型明显对不上，破坏了极致的和风沉浸感",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/"
+        }
       ],
       "churn": [
-        {"text": "壹岐岛DLC的<b>地图规模</b>和美术投入与本体相比有明显缩水", "src": "Steam评测", "url": "https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/"}
+        {
+          "text": "壹岐岛DLC的<b>地图规模</b>和美术投入与本体相比有明显缩水",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "【4K完结】老戴《对马岛之魂 壹崎岛》导演剪辑版【最高难度流程攻略】【PS5】",
+        "bvid": "BV1ky4y1V7DH",
+        "views": "107万"
+      },
+      {
+        "title": "《黑神话：悟空》发售时间爆料！免费领取293元游戏大作！《使命召唤18》现已开启预购！《对马岛之魂：导演剪辑版》正式发售！《上古卷轴5》喜迎10周年！",
+        "bvid": "BV1EM4y1V7C4",
+        "views": "56万"
+      },
+      {
+        "title": "什么是导演剪辑版游戏？身为玩家，我们该不该支持这种“新文化”？",
+        "bvid": "BV1ZA411F7h4",
+        "views": "39万"
+      },
+      {
+        "title": "【窝滴鬼鬼】对玩家来说，这个动作说比命都重要",
+        "bvid": "BV1XM4m1k7pr",
+        "views": "35万"
+      },
+      {
+        "title": "【Quin】对马岛之鬼导演剪辑版 壹岐岛 直播集锦",
+        "bvid": "BV1CL41147zb",
+        "views": "34万"
+      }
+    ]
   },
   "story": {
     "title": "元寇入侵 · 最后的武士",
     "dims": [
-      {"label": "时间", "value": "<b>1274年</b>，蒙古帝国第一次入侵日本（文永之役）"},
-      {"label": "发生地", "value": "<b>对马岛</b>——日本九州与朝鲜半岛之间的前线岛屿，涵盖农田、神社、竹林、海崖、温泉等"},
-      {"label": "角色", "value": "<b>境井仁</b>——对马岛武士，在蒙古入侵中从忠诚武士蜕变为\"战鬼\"——一个违背武士道的影子战士"},
-      {"label": "科技水平", "value": "<b>冷兵器时代</b>——日本刀、弓箭、苦无、烟雾弹，蒙古侧有火药和攻城器械"},
-      {"label": "对抗关系", "value": "<b>武士/战鬼</b> vs <b>蒙古帝国</b>——正面对决的武士荣耀 vs 暗杀潜行的生存实用主义"},
-      {"label": "地图", "value": "<b>严原</b>（南部农田平原）、<b>丰玉</b>（中部森林湿地）、<b>上县</b>（北部雪山要塞）、<b>壹岐岛</b>（DLC海岛）"},
-      {"label": "元素", "value": "<b>日本刀</b>、<b>家紋</b>、<b>鸟居</b>、<b>狐狸/稻荷</b>、<b>落叶/花瓣粒子</b>、<b>风</b>（核心导航符号）、<b>面具</b>（战鬼象征）"}
+      {
+        "label": "时间",
+        "value": "<b>1274年</b>，蒙古帝国第一次入侵日本（文永之役）"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>对马岛</b>——日本九州与朝鲜半岛之间的前线岛屿，涵盖农田、神社、竹林、海崖、温泉等"
+      },
+      {
+        "label": "角色",
+        "value": "<b>境井仁</b>——对马岛武士，在蒙古入侵中从忠诚武士蜕变为\"战鬼\"——一个违背武士道的影子战士"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>冷兵器时代</b>——日本刀、弓箭、苦无、烟雾弹，蒙古侧有火药和攻城器械"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>武士/战鬼</b> vs <b>蒙古帝国</b>——正面对决的武士荣耀 vs 暗杀潜行的生存实用主义"
+      },
+      {
+        "label": "地图",
+        "value": "<b>严原</b>（南部农田平原）、<b>丰玉</b>（中部森林湿地）、<b>上县</b>（北部雪山要塞）、<b>壹岐岛</b>（DLC海岛）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>日本刀</b>、<b>家紋</b>、<b>鸟居</b>、<b>狐狸/稻荷</b>、<b>落叶/花瓣粒子</b>、<b>风</b>（核心导航符号）、<b>面具</b>（战鬼象征）"
+      }
     ]
   },
   "aesthetic": {
@@ -70,10 +170,22 @@
       "value": "宣发走<b>和风史诗电影</b>路线，Key Art以<b>逆光武士剪影</b>为经典构图。预告片大量使用<b>黑泽明式</b>镜头语言——横移、仰角、沉默对峙。品牌色以<b>金色+深红+墨黑</b>为主调。PC版宣发强调<b>技术升级</b>但视觉核心不变。<b>\"每帧皆壁纸\"</b>成为社区传播的核心hook。"
     },
     "rivals": [
-      {"id": 150, "reason": "同为<b>日本武士题材</b>动作游戏，只狼的<b>战国忍者</b>美学 vs 对马岛的<b>镰仓武士</b>美学——同文化圈不同时代的视觉对比"},
-      {"id": 117, "reason": "同为<b>东方武术</b>开放世界动作，黑神话的中国神话 vs 对马岛的日本历史——两大东亚美术体系的碰撞"},
-      {"id": 202, "reason": "同为<b>PlayStation旗舰→PC移植</b>，战神的北欧世界 vs 对马岛的东方世界——两种\"异文化\"美学"},
-      {"id": 155, "reason": "同为<b>第三人称开放世界冒险</b>，死亡搁浅的科幻荒野 vs 对马岛的自然荒野——极简UI哲学对比"}
+      {
+        "id": 150,
+        "reason": "同为<b>日本武士题材</b>动作游戏，只狼的<b>战国忍者</b>美学 vs 对马岛的<b>镰仓武士</b>美学——同文化圈不同时代的视觉对比"
+      },
+      {
+        "id": 117,
+        "reason": "同为<b>东方武术</b>开放世界动作，黑神话的中国神话 vs 对马岛的日本历史——两大东亚美术体系的碰撞"
+      },
+      {
+        "id": 202,
+        "reason": "同为<b>PlayStation旗舰→PC移植</b>，战神的北欧世界 vs 对马岛的东方世界——两种\"异文化\"美学"
+      },
+      {
+        "id": 155,
+        "reason": "同为<b>第三人称开放世界冒险</b>，死亡搁浅的科幻荒野 vs 对马岛的自然荒野——极简UI哲学对比"
+      }
     ]
   }
 }

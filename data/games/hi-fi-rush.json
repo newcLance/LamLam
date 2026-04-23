@@ -4,48 +4,148 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>整个游戏世界随音乐节拍律动</b>——路灯摇摆、建筑呼吸、机器人踏步、草叶颤动，全部踩在BPM上，是\"节奏可视化\"的极致", "src": "IGN 9/10", "url": "https://www.ign.com/articles/hi-fi-rush-review"},
-        {"text": "<b>卡通渲染(Cel-shading)</b>质量达到了3D卡通动画电影级——描线粗细变化、阴影色块过渡、夸张形变都精准控制", "src": "GameSpot 9/10", "url": "https://www.gamespot.com/reviews/hi-fi-rush-review/1900-6418025/"},
-        {"text": "Shadow Drop发售方式——<b>零预告直接发售</b>在Xbox发布会上公布即可玩，营销策略本身就是\"节奏感\"的体现", "src": "多媒体综合", "url": "https://www.gamespot.com/reviews/hi-fi-rush-review/1900-6418025/"}
+        {
+          "text": "<b>整个游戏世界随音乐节拍律动</b>——路灯摇摆、建筑呼吸、机器人踏步、草叶颤动，全部踩在BPM上，是\"节奏可视化\"的极致",
+          "src": "IGN 9/10",
+          "url": "https://www.ign.com/articles/hi-fi-rush-review"
+        },
+        {
+          "text": "<b>卡通渲染(Cel-shading)</b>质量达到了3D卡通动画电影级——描线粗细变化、阴影色块过渡、夸张形变都精准控制",
+          "src": "GameSpot 9/10",
+          "url": "https://www.gamespot.com/reviews/hi-fi-rush-review/1900-6418025/"
+        },
+        {
+          "text": "Shadow Drop发售方式——<b>零预告直接发售</b>在Xbox发布会上公布即可玩，营销策略本身就是\"节奏感\"的体现",
+          "src": "多媒体综合",
+          "url": "https://www.gamespot.com/reviews/hi-fi-rush-review/1900-6418025/"
+        }
       ],
       "excitement": [
-        {"text": "Boss战中<b>音乐动态变化</b>——战斗阶段切换时BGM无缝过渡，视觉特效与音乐高潮完美同步", "src": "IGN", "url": "https://www.ign.com/articles/hi-fi-rush-review"},
-        {"text": "<b>QTE的节奏化改造</b>——传统按键提示被替换为与音乐节拍同步的视觉引导，让QTE变成了享受而非负担", "src": "Eurogamer", "url": "https://www.eurogamer.net/hi-fi-rush-review"}
+        {
+          "text": "Boss战中<b>音乐动态变化</b>——战斗阶段切换时BGM无缝过渡，视觉特效与音乐高潮完美同步",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/hi-fi-rush-review"
+        },
+        {
+          "text": "<b>QTE的节奏化改造</b>——传统按键提示被替换为与音乐节拍同步的视觉引导，让QTE变成了享受而非负担",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/hi-fi-rush-review"
+        }
       ],
       "pain": [
-        {"text": "部分关卡的<b>平台跳跃</b>在卡通渲染下距离判断困难——3D空间感被平面化的描线削弱", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/hi-fi-rush-review/1900-6418025/"},
-        {"text": "<b>战斗评分系统</b>的UI反馈不够及时——打完一套combo后得分延迟显示影响节奏感", "src": "PC Gamer", "url": "https://www.pcgamer.com/hi-fi-rush-review/"}
+        {
+          "text": "部分关卡的<b>平台跳跃</b>在卡通渲染下距离判断困难——3D空间感被平面化的描线削弱",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/hi-fi-rush-review/1900-6418025/"
+        },
+        {
+          "text": "<b>战斗评分系统</b>的UI反馈不够及时——打完一套combo后得分延迟显示影响节奏感",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/hi-fi-rush-review/"
+        }
       ],
       "churn": [
-        {"text": "游戏流程<b>偏短</b>（10-12小时），部分玩家觉得视觉创意还没完全展开就结束了", "src": "多媒体综合", "url": "https://www.ign.com/articles/hi-fi-rush-review"}
+        {
+          "text": "游戏流程<b>偏短</b>（10-12小时），部分玩家觉得视觉创意还没完全展开就结束了",
+          "src": "多媒体综合",
+          "url": "https://www.ign.com/articles/hi-fi-rush-review"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "社区发现<b>连路边的垃圾桶都在踩节拍</b>——这种\"世界随音乐呼吸\"的细节让玩家反复回看惊叹", "src": "Reddit r/HiFiRush", "url": "https://www.reddit.com/r/HiFiRush/"},
-        {"text": "<b>Chai</b>的角色设计成为独立游戏主角的新标杆——废柴摇滚青年+机械手臂+猫猫拍档的组合辨识度极高", "src": "Steam评测", "url": "https://store.steampowered.com/app/1817230/Hi-Fi_RUSH/"}
+        {
+          "text": "社区发现<b>连路边的垃圾桶都在踩节拍</b>——这种\"世界随音乐呼吸\"的细节让玩家反复回看惊叹",
+          "src": "Reddit r/HiFiRush",
+          "url": "https://www.reddit.com/r/HiFiRush/"
+        },
+        {
+          "text": "<b>Chai</b>的角色设计成为独立游戏主角的新标杆——废柴摇滚青年+机械手臂+猫猫拍档的组合辨识度极高",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1817230/Hi-Fi_RUSH/"
+        }
       ],
       "excitement": [
-        {"text": "Krafton接手后的<b>PS5/Switch移植</b>让更多玩家体验到了这款被\"发售即巅峰\"的隐藏神作", "src": "多媒体综合", "url": "https://store.steampowered.com/app/1817230/Hi-Fi_RUSH/"}
+        {
+          "text": "Krafton接手后的<b>PS5/Switch移植</b>让更多玩家体验到了这款被\"发售即巅峰\"的隐藏神作",
+          "src": "多媒体综合",
+          "url": "https://store.steampowered.com/app/1817230/Hi-Fi_RUSH/"
+        }
       ],
       "pain": [
-        {"text": "<b>重复游玩</b>的视觉新鲜感下降快——一旦熟悉了节奏模式，环境律动从\"惊喜\"变成\"背景\"", "src": "Steam评测", "url": "https://store.steampowered.com/app/1817230/Hi-Fi_RUSH/"}
+        {
+          "text": "<b>重复游玩</b>的视觉新鲜感下降快——一旦熟悉了节奏模式，环境律动从\"惊喜\"变成\"背景\"",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1817230/Hi-Fi_RUSH/"
+        }
       ],
       "churn": [
-        {"text": "Tango Gameworks被关闭（后被Krafton收购）的<b>行业事件</b>让玩家对续作前景担忧", "src": "GameSky", "url": "https://www.gamersky.com/news/202405/1741588.shtml"}
+        {
+          "text": "Tango Gameworks被关闭（后被Krafton收购）的<b>行业事件</b>让玩家对续作前景担忧",
+          "src": "GameSky",
+          "url": "https://www.gamersky.com/news/202405/1741588.shtml"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "感谢这游戏，让我知道啥叫从头爽到屁股！",
+        "bvid": "BV1Fp421R7d1",
+        "views": "126万"
+      },
+      {
+        "title": "【风笑试玩】玩了这游戏后满脑子“嘿嘿嘿”丨Hi-Fi RUSH 试玩",
+        "bvid": "BV1ZT411y7Xq",
+        "views": "61万"
+      },
+      {
+        "title": "不抖腿就玩不了，音乐与游戏的完美结合！〖游戏不止〗",
+        "bvid": "BV1kT411s7yi",
+        "views": "60万"
+      },
+      {
+        "title": "老戴试玩《HiFi Rush 完美音浪》好评率98%，三上真司黑马级力作，音游和动作游戏的完美结合",
+        "bvid": "BV1g341197XG",
+        "views": "37万"
+      },
+      {
+        "title": "【Hi-Fi RUSH】4K 最高画质 全流程通关攻略 节奏音乐动作游戏 完美音浪 - Hi Fi RUSH【完结】",
+        "bvid": "BV1Q8411w7Vf",
+        "views": "33万"
+      }
+    ]
   },
   "story": {
     "title": "Vandelay科技 · 废柴摇滚少年 vs 邪恶企业",
     "dims": [
-      {"label": "时间", "value": "<b>近未来</b>，科技企业主导社会的时代"},
-      {"label": "发生地", "value": "<b>Vandelay Technologies</b>——一个巨型科技企业的园区/工厂/总部，每层楼对应不同部门和音乐风格"},
-      {"label": "角色", "value": "<b>Chai</b>——废柴摇滚青年，因手术事故将MP3播放器嵌入心脏，获得\"感应节拍\"的能力"},
-      {"label": "科技水平", "value": "<b>近未来科技</b>——机器人、义肢、全息投影、AI管理系统"},
-      {"label": "对抗关系", "value": "<b>Chai和朋友们（自由/音乐）</b> vs <b>Vandelay高管们（控制/效率）</b>——摇滚反叛 vs 企业压制"},
-      {"label": "地图", "value": "<b>生产线工厂</b>、<b>安保部门</b>、<b>研发实验室</b>、<b>市场营销楼</b>、<b>CEO塔顶</b>"},
-      {"label": "元素", "value": "<b>吉他/音符</b>、<b>节拍圆圈</b>、<b>机械手臂</b>、<b>猫（808）</b>、<b>漫画框线</b>、<b>音量表/波形</b>"}
+      {
+        "label": "时间",
+        "value": "<b>近未来</b>，科技企业主导社会的时代"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>Vandelay Technologies</b>——一个巨型科技企业的园区/工厂/总部，每层楼对应不同部门和音乐风格"
+      },
+      {
+        "label": "角色",
+        "value": "<b>Chai</b>——废柴摇滚青年，因手术事故将MP3播放器嵌入心脏，获得\"感应节拍\"的能力"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>近未来科技</b>——机器人、义肢、全息投影、AI管理系统"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>Chai和朋友们（自由/音乐）</b> vs <b>Vandelay高管们（控制/效率）</b>——摇滚反叛 vs 企业压制"
+      },
+      {
+        "label": "地图",
+        "value": "<b>生产线工厂</b>、<b>安保部门</b>、<b>研发实验室</b>、<b>市场营销楼</b>、<b>CEO塔顶</b>"
+      },
+      {
+        "label": "元素",
+        "value": "<b>吉他/音符</b>、<b>节拍圆圈</b>、<b>机械手臂</b>、<b>猫（808）</b>、<b>漫画框线</b>、<b>音量表/波形</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -70,10 +170,22 @@
       "value": "宣发策略本身就是最大的创意——<b>零预热Shadow Drop</b>，在Xbox发布会上\"公布即发售\"的操作震惊行业。这种\"不废话直接上\"的态度与游戏的摇滚精神完美一致。Key Art以<b>Chai弹吉他</b>的动态姿势为核心，高饱和度配色。预告片节奏极快，<b>剪辑严格踩音乐节拍</b>。品牌色以<b>红+橙+黄</b>暖色系为主，传达能量和活力。"
     },
     "rivals": [
-      {"id": 152, "reason": "同为<b>风格化动作</b>游戏，鬼泣5的<b>哥特华丽</b>战斗 vs Hi-Fi的<b>卡通节奏</b>战斗——两种\"爽\"的视觉路线"},
-      {"id": 208, "reason": "同为<b>卡通渲染</b>风格的动作游戏，在Cel-shading技术路线上的不同解法"},
-      {"id": 117, "reason": "同为<b>线性动作</b>体验，黑神话的<b>写实东方</b> vs Hi-Fi的<b>卡通西方</b>——严肃 vs 欢乐的调性对比"},
-      {"id": 205, "reason": "同为<b>风格化美术</b>标杆且开发团队规模不大，丝之歌的<b>2D手绘</b> vs Hi-Fi的<b>3D卡通渲染</b>"}
+      {
+        "id": 152,
+        "reason": "同为<b>风格化动作</b>游戏，鬼泣5的<b>哥特华丽</b>战斗 vs Hi-Fi的<b>卡通节奏</b>战斗——两种\"爽\"的视觉路线"
+      },
+      {
+        "id": 208,
+        "reason": "同为<b>卡通渲染</b>风格的动作游戏，在Cel-shading技术路线上的不同解法"
+      },
+      {
+        "id": 117,
+        "reason": "同为<b>线性动作</b>体验，黑神话的<b>写实东方</b> vs Hi-Fi的<b>卡通西方</b>——严肃 vs 欢乐的调性对比"
+      },
+      {
+        "id": 205,
+        "reason": "同为<b>风格化美术</b>标杆且开发团队规模不大，丝之歌的<b>2D手绘</b> vs Hi-Fi的<b>3D卡通渲染</b>"
+      }
     ]
   }
 }

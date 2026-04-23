@@ -4,51 +4,163 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>CRT显示器+毛毡牌桌</b>的视觉组合极具辨识度——复古像素渲染+扫描线滤镜让扑克牌游戏看起来像是80年代赌场街机", "src": "IGN 10/10", "url": "https://www.ign.com/articles/balatro-review"},
-        {"text": "<b>小丑卡牌</b>的手绘风格美术——每张Joker都有独特的插画和配色，收集欲极强", "src": "GameSpot 9/10", "url": "https://www.gamespot.com/reviews/balatro-review/1900-6418189/"},
-        {"text": "计分时的<b>数字飙升动画</b>极具视觉爽感——芯片数从个位飙到百万时的粒子特效和屏幕震动设计得恰到好处", "src": "Eurogamer", "url": "https://www.eurogamer.net/balatro-review"}
+        {
+          "text": "<b>CRT显示器+毛毡牌桌</b>的视觉组合极具辨识度——复古像素渲染+扫描线滤镜让扑克牌游戏看起来像是80年代赌场街机",
+          "src": "IGN 10/10",
+          "url": "https://www.ign.com/articles/balatro-review"
+        },
+        {
+          "text": "<b>小丑卡牌</b>的手绘风格美术——每张Joker都有独特的插画和配色，收集欲极强",
+          "src": "GameSpot 9/10",
+          "url": "https://www.gamespot.com/reviews/balatro-review/1900-6418189/"
+        },
+        {
+          "text": "计分时的<b>数字飙升动画</b>极具视觉爽感——芯片数从个位飙到百万时的粒子特效和屏幕震动设计得恰到好处",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/balatro-review"
+        }
       ],
       "excitement": [
-        {"text": "第一次触发<b>超级连锁combo</b>——看着分数在多个Joker效果叠加下指数级爆炸，屏幕闪烁+数字狂跳+芯片喷射", "src": "IGN", "url": "https://www.ign.com/articles/balatro-review"},
-        {"text": "发现某个<b>隐藏Joker组合</b>时的\"欧皇时刻\"——游戏的视觉反馈精准放大了运气带来的快感", "src": "PC Gamer 93/100", "url": "https://www.pcgamer.com/balatro-review/"},
-        {"text": "获得2024年TGA<b>最佳独立游戏</b>和<b>最佳手机游戏</b>——单人开发者创造了年度最具辨识度的视觉品牌", "src": "The Game Awards", "url": "https://thegameawards.com/"}
+        {
+          "text": "第一次触发<b>超级连锁combo</b>——看着分数在多个Joker效果叠加下指数级爆炸，屏幕闪烁+数字狂跳+芯片喷射",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/balatro-review"
+        },
+        {
+          "text": "发现某个<b>隐藏Joker组合</b>时的\"欧皇时刻\"——游戏的视觉反馈精准放大了运气带来的快感",
+          "src": "PC Gamer 93/100",
+          "url": "https://www.pcgamer.com/balatro-review/"
+        },
+        {
+          "text": "获得2024年TGA<b>最佳独立游戏</b>和<b>最佳手机游戏</b>——单人开发者创造了年度最具辨识度的视觉品牌",
+          "src": "The Game Awards",
+          "url": "https://thegameawards.com/"
+        }
       ],
       "pain": [
-        {"text": "高赌注关卡的<b>计分动画等待</b>有时过长——当combo链极长时强制等待分数累加", "src": "Steam评测", "url": "https://store.steampowered.com/app/2379780/Balatro/"},
-        {"text": "商店界面的<b>信息密度</b>在后期提升——多个Joker的效果描述文字需要仔细阅读", "src": "Eurogamer", "url": "https://www.eurogamer.net/balatro-review"}
+        {
+          "text": "高赌注关卡的<b>计分动画等待</b>有时过长——当combo链极长时强制等待分数累加",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2379780/Balatro/"
+        },
+        {
+          "text": "商店界面的<b>信息密度</b>在后期提升——多个Joker的效果描述文字需要仔细阅读",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/balatro-review"
+        }
       ],
       "churn": [
-        {"text": "长期游玩后<b>视觉单调感</b>——牌桌背景变化不够，高频重复导致审美疲劳", "src": "Steam评测", "url": "https://store.steampowered.com/app/2379780/Balatro/"}
+        {
+          "text": "长期游玩后<b>视觉单调感</b>——牌桌背景变化不够，高频重复导致审美疲劳",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2379780/Balatro/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "<b>Joker tier list</b>是社区最热讨论话题——每张小丑的插画风格和强度争论持续不断", "src": "Reddit r/balatro", "url": "https://www.reddit.com/r/balatro/"},
-        {"text": "LocalThunk（单人开发者）的<b>设计决策</b>被行业深度分析——如何用最少的视觉元素创造最大的成瘾性", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"},
-        {"text": "社区自制的<b>Mod Joker卡牌</b>极其丰富——自定义插画和效果扩展了游戏的视觉可能性", "src": "GitHub/Thunderstore", "url": "https://thunderstore.io/c/balatro/"}
+        {
+          "text": "<b>Joker tier list</b>是社区最热讨论话题——每张小丑的插画风格和强度争论持续不断",
+          "src": "Reddit r/balatro",
+          "url": "https://www.reddit.com/r/balatro/"
+        },
+        {
+          "text": "LocalThunk（单人开发者）的<b>设计决策</b>被行业深度分析——如何用最少的视觉元素创造最大的成瘾性",
+          "src": "Game Developer",
+          "url": "https://www.gamedeveloper.com/"
+        },
+        {
+          "text": "社区自制的<b>Mod Joker卡牌</b>极其丰富——自定义插画和效果扩展了游戏的视觉可能性",
+          "src": "GitHub/Thunderstore",
+          "url": "https://thunderstore.io/c/balatro/"
+        }
       ],
       "excitement": [
-        {"text": "官方<b>联动卡牌</b>（The Witcher/Among Us等）每次都引发社交媒体爆发", "src": "Twitter/X", "url": "https://x.com/search?q=balatro%20collab"},
-        {"text": "手机版的<b>便携体验</b>与游戏的\"一局五分钟\"节奏完美匹配", "src": "App Store", "url": "https://apps.apple.com/app/balatro/id6503234181"}
+        {
+          "text": "官方<b>联动卡牌</b>（The Witcher/Among Us等）每次都引发社交媒体爆发",
+          "src": "Twitter/X",
+          "url": "https://x.com/search?q=balatro%20collab"
+        },
+        {
+          "text": "手机版的<b>便携体验</b>与游戏的\"一局五分钟\"节奏完美匹配",
+          "src": "App Store",
+          "url": "https://apps.apple.com/app/balatro/id6503234181"
+        }
       ],
       "pain": [
-        {"text": "部分Joker的<b>效果文字描述</b>不够直观——需要社区整理的wiki来理解精确机制", "src": "Reddit", "url": "https://www.reddit.com/r/balatro/"}
+        {
+          "text": "部分Joker的<b>效果文字描述</b>不够直观——需要社区整理的wiki来理解精确机制",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/balatro/"
+        }
       ],
       "churn": [
-        {"text": "达到高赌注后的<b>难度墙</b>——视觉上没有新内容驱动继续挑战", "src": "Steam评测", "url": "https://store.steampowered.com/app/2379780/Balatro/"}
+        {
+          "text": "达到高赌注后的<b>难度墙</b>——视觉上没有新内容驱动继续挑战",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/2379780/Balatro/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "98%好评如潮！小丑牌为什么这么上瘾？",
+        "bvid": "BV1LW421N71S",
+        "views": "239万"
+      },
+      {
+        "title": "仅有60MB的游戏，却比“赌博”还让人上瘾！？？",
+        "bvid": "BV16yzVBKEeo",
+        "views": "236万"
+      },
+      {
+        "title": "这款仅有60MB的游戏，却比“赌博”还让人上瘾！？？",
+        "bvid": "BV14C6KYuEQm",
+        "views": "225万"
+      },
+      {
+        "title": "《小丑牌》作者公布开发日记：他最初只是为了让简历好看一点",
+        "bvid": "BV1iCQnYRECv",
+        "views": "221万"
+      },
+      {
+        "title": "我总不能跟妈说都输光了吧？！",
+        "bvid": "BV1ht421V7P7",
+        "views": "143万"
+      }
+    ]
   },
   "story": {
     "title": "无叙事 · 纯系统驱动",
     "dims": [
-      {"label": "时间", "value": "<b>无时间设定</b>——抽象的复古赌场空间"},
-      {"label": "发生地", "value": "<b>CRT牌桌</b>——一个存在于老式显示器中的抽象赌博空间"},
-      {"label": "角色", "value": "无角色——玩家直接操作<b>扑克牌和小丑牌</b>，Joker本身是\"角色\""},
-      {"label": "科技水平", "value": "<b>复古数字</b>——CRT显示器、像素渲染、8-bit音效，刻意营造80年代电子游戏厅氛围"},
-      {"label": "对抗关系", "value": "<b>玩家策略</b> vs <b>递增的目标分数</b>——核心是数学与运气的博弈"},
-      {"label": "地图", "value": "<b>无地图</b>——关卡以轮次（Ante）推进，场景仅有牌桌+商店"},
-      {"label": "元素", "value": "<b>扑克牌</b>、<b>Joker小丑</b>、<b>芯片</b>、<b>乘数</b>、<b>标签</b>、<b>优惠券</b>"}
+      {
+        "label": "时间",
+        "value": "<b>无时间设定</b>——抽象的复古赌场空间"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>CRT牌桌</b>——一个存在于老式显示器中的抽象赌博空间"
+      },
+      {
+        "label": "角色",
+        "value": "无角色——玩家直接操作<b>扑克牌和小丑牌</b>，Joker本身是\"角色\""
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>复古数字</b>——CRT显示器、像素渲染、8-bit音效，刻意营造80年代电子游戏厅氛围"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>玩家策略</b> vs <b>递增的目标分数</b>——核心是数学与运气的博弈"
+      },
+      {
+        "label": "地图",
+        "value": "<b>无地图</b>——关卡以轮次（Ante）推进，场景仅有牌桌+商店"
+      },
+      {
+        "label": "元素",
+        "value": "<b>扑克牌</b>、<b>Joker小丑</b>、<b>芯片</b>、<b>乘数</b>、<b>标签</b>、<b>优惠券</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -73,10 +185,22 @@
       "value": "宣发策略极其<b>精准</b>——一句话卖点\"Poker + Roguelike\"就够了。Key Art以<b>Joker面孔+CRT牌桌</b>为核心，红黑配色极具冲击力。单人开发者LocalThunk的<b>\"一人做出年度最佳\"</b>故事是最强传播素材。社交媒体传播以<b>combo视频</b>（分数爆炸的爽片段）为主要物料——\"看看这个分数\"的分享欲极强。品牌色以<b>深红+黑</b>为主调。"
     },
     "rivals": [
-      {"id": 216, "reason": "同为<b>卡牌Roguelike</b>的视觉标杆，Balatro的极简CRT vs Inscryption的手工密室——两种卡牌美学的极端路线"},
-      {"id": 222, "reason": "同为<b>极简设计但极度上瘾</b>，Vampire Survivors的像素极简 vs Balatro的CRT极简——两种\"less is more\"的设计哲学"},
-      {"id": 217, "reason": "同为<b>2023-24年独立游戏黑马</b>，Dave the Diver的丰富像素 vs Balatro的极简CRT——两种独立游戏的美术投入策略"},
-      {"id": 206, "reason": "同为<b>Roguelike美术标杆</b>但方向完全相反，Hades 2的鲜艳动画 vs Balatro的克制CRT——风格化 vs 极简化"}
+      {
+        "id": 216,
+        "reason": "同为<b>卡牌Roguelike</b>的视觉标杆，Balatro的极简CRT vs Inscryption的手工密室——两种卡牌美学的极端路线"
+      },
+      {
+        "id": 222,
+        "reason": "同为<b>极简设计但极度上瘾</b>，Vampire Survivors的像素极简 vs Balatro的CRT极简——两种\"less is more\"的设计哲学"
+      },
+      {
+        "id": 217,
+        "reason": "同为<b>2023-24年独立游戏黑马</b>，Dave the Diver的丰富像素 vs Balatro的极简CRT——两种独立游戏的美术投入策略"
+      },
+      {
+        "id": 206,
+        "reason": "同为<b>Roguelike美术标杆</b>但方向完全相反，Hades 2的鲜艳动画 vs Balatro的克制CRT——风格化 vs 极简化"
+      }
     ]
   }
 }

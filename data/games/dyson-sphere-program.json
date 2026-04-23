@@ -4,49 +4,153 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>戴森球</b>从概念到实物的视觉实现——亲手建造包裹恒星的巨型结构，从第一块太阳帆到完整球壳的过程是游戏史上最壮观的建造体验", "src": "IGN 8/10", "url": "https://www.ign.com/articles/dyson-sphere-program-early-access-review"},
-        {"text": "星际尺度的<b>物流网络</b>视觉——行星间的物流塔发射火箭穿越太空运输物资，缩小视角看到的星际航线网络美如星图", "src": "PC Gamer 85/100", "url": "https://www.pcgamer.com/dyson-sphere-program-early-access-review/"},
-        {"text": "不同星球的<b>地貌多样性</b>——冰冻星球、熔岩星球、气态巨行星、潮汐锁定行星，每颗星球都有独特的视觉个性", "src": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/dyson-sphere-program-review"}
+        {
+          "text": "<b>戴森球</b>从概念到实物的视觉实现——亲手建造包裹恒星的巨型结构，从第一块太阳帆到完整球壳的过程是游戏史上最壮观的建造体验",
+          "src": "IGN 8/10",
+          "url": "https://www.ign.com/articles/dyson-sphere-program-early-access-review"
+        },
+        {
+          "text": "星际尺度的<b>物流网络</b>视觉——行星间的物流塔发射火箭穿越太空运输物资，缩小视角看到的星际航线网络美如星图",
+          "src": "PC Gamer 85/100",
+          "url": "https://www.pcgamer.com/dyson-sphere-program-early-access-review/"
+        },
+        {
+          "text": "不同星球的<b>地貌多样性</b>——冰冻星球、熔岩星球、气态巨行星、潮汐锁定行星，每颗星球都有独特的视觉个性",
+          "src": "Rock Paper Shotgun",
+          "url": "https://www.rockpapershotgun.com/dyson-sphere-program-review"
+        }
       ],
       "excitement": [
-        {"text": "缩放到<b>星系全景</b>看自己建造的戴森球包裹恒星——从工厂微观到宇宙宏观的尺度跨越是纯粹的视觉震撼", "src": "IGN", "url": "https://www.ign.com/articles/dyson-sphere-program-early-access-review"},
-        {"text": "<b>太阳帆群</b>在恒星前飞过的剪影——数千面太阳帆排列成几何图案的画面壮观且诗意", "src": "Steam评测", "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"}
+        {
+          "text": "缩放到<b>星系全景</b>看自己建造的戴森球包裹恒星——从工厂微观到宇宙宏观的尺度跨越是纯粹的视觉震撼",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/dyson-sphere-program-early-access-review"
+        },
+        {
+          "text": "<b>太阳帆群</b>在恒星前飞过的剪影——数千面太阳帆排列成几何图案的画面壮观且诗意",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"
+        }
       ],
       "pain": [
-        {"text": "后期<b>帧率下降</b>严重——数千建筑和物流线路同时运转时性能压力极大", "src": "Steam评测", "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"},
-        {"text": "地面工厂的<b>美观度</b>较难维持——密集建筑和传送带容易视觉混乱", "src": "Reddit r/Dyson_Sphere_Program", "url": "https://www.reddit.com/r/Dyson_Sphere_Program/"}
+        {
+          "text": "后期<b>帧率下降</b>严重——数千建筑和物流线路同时运转时性能压力极大",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"
+        },
+        {
+          "text": "地面工厂的<b>美观度</b>较难维持——密集建筑和传送带容易视觉混乱",
+          "src": "Reddit r/Dyson_Sphere_Program",
+          "url": "https://www.reddit.com/r/Dyson_Sphere_Program/"
+        }
       ],
       "churn": [
-        {"text": "戴森球完成后<b>缺少终局目标</b>——1.0版本前的EA阶段后期内容不足", "src": "Steam评测", "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"}
+        {
+          "text": "戴森球完成后<b>缺少终局目标</b>——1.0版本前的EA阶段后期内容不足",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "<b>国产独立游戏</b>的骄傲——柚子猫工作室5人团队创造了全球畅销的工厂建造游戏", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"},
-        {"text": "社区分享的<b>戴森球设计</b>极其壮观——从简单球壳到复杂几何花纹，玩家的建造创意无限", "src": "Reddit", "url": "https://www.reddit.com/r/Dyson_Sphere_Program/"},
-        {"text": "<b>蓝图系统</b>的社区共享——让新手也能建造复杂工厂", "src": "Steam", "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"}
+        {
+          "text": "<b>国产独立游戏</b>的骄傲——柚子猫工作室5人团队创造了全球畅销的工厂建造游戏",
+          "src": "Game Developer",
+          "url": "https://www.gamedeveloper.com/"
+        },
+        {
+          "text": "社区分享的<b>戴森球设计</b>极其壮观——从简单球壳到复杂几何花纹，玩家的建造创意无限",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/Dyson_Sphere_Program/"
+        },
+        {
+          "text": "<b>蓝图系统</b>的社区共享——让新手也能建造复杂工厂",
+          "src": "Steam",
+          "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"
+        }
       ],
       "excitement": [
-        {"text": "1.0正式版的<b>战斗系统</b>和新内容——EA到正式版的视觉进化显著", "src": "Steam", "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"}
+        {
+          "text": "1.0正式版的<b>战斗系统</b>和新内容——EA到正式版的视觉进化显著",
+          "src": "Steam",
+          "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"
+        }
       ],
       "pain": [
-        {"text": "建筑<b>外观定制</b>选项有限——社区期望更多美化工具", "src": "Reddit", "url": "https://www.reddit.com/r/Dyson_Sphere_Program/"}
+        {
+          "text": "建筑<b>外观定制</b>选项有限——社区期望更多美化工具",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/Dyson_Sphere_Program/"
+        }
       ],
       "churn": [
-        {"text": "学习曲线<b>陡峭</b>——新手初期的视觉信息量偏大", "src": "Steam评测", "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"}
+        {
+          "text": "学习曲线<b>陡峭</b>——新手初期的视觉信息量偏大",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "造个戴森球，人类就可以住恒星上？【司徒之脑洞】",
+        "bvid": "BV12G4y1S7dh",
+        "views": "351万"
+      },
+      {
+        "title": "5分钟带你看懂“戴森球”有多恐怖？又如何改变人类未来？违背认知",
+        "bvid": "BV1NX4y1T7sF",
+        "views": "273万"
+      },
+      {
+        "title": "天鹅座中发现了疑似二级文明建造的戴森球",
+        "bvid": "BV1Mw411F7xr",
+        "views": "192万"
+      },
+      {
+        "title": "当你紧贴黑洞飞行并拉远视角后 我当时是真的被吓到了！",
+        "bvid": "BV1Ev411e7Ce",
+        "views": "162万"
+      },
+      {
+        "title": "【戴森球计划】一周目通关实况合集（已完结）",
+        "bvid": "BV1Cv4y1f7Do",
+        "views": "139万"
+      }
+    ]
   },
   "story": {
     "title": "星际工业 · 建造戴森球",
     "dims": [
-      {"label": "时间", "value": "<b>远未来</b>——人类已掌握星际旅行和恒星工程"},
-      {"label": "发生地", "value": "<b>多星系</b>——从初始星球到整个星簇，尺度从行星到恒星系统"},
-      {"label": "角色", "value": "伊卡洛斯——<b>机械体工程师</b>，被派往宇宙深处建造戴森球为文明提供能源"},
-      {"label": "科技水平", "value": "<b>极端高科技</b>——从手工采矿到恒星级工程的完整科技演化"},
-      {"label": "对抗关系", "value": "<b>工程师</b> vs <b>宇宙距离和资源管理</b>——核心挑战是跨星际物流的优化"},
-      {"label": "地图", "value": "<b>多种行星</b>（冰冻/熔岩/沙漠/海洋/气态）+ <b>恒星系统</b> + <b>星际航线</b>"},
-      {"label": "元素", "value": "<b>戴森球/壳</b>、<b>太阳帆</b>、<b>行星物流塔</b>、<b>星际物流火箭</b>、<b>传送带</b>、<b>伊卡洛斯</b>"}
+      {
+        "label": "时间",
+        "value": "<b>远未来</b>——人类已掌握星际旅行和恒星工程"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>多星系</b>——从初始星球到整个星簇，尺度从行星到恒星系统"
+      },
+      {
+        "label": "角色",
+        "value": "伊卡洛斯——<b>机械体工程师</b>，被派往宇宙深处建造戴森球为文明提供能源"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>极端高科技</b>——从手工采矿到恒星级工程的完整科技演化"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>工程师</b> vs <b>宇宙距离和资源管理</b>——核心挑战是跨星际物流的优化"
+      },
+      {
+        "label": "地图",
+        "value": "<b>多种行星</b>（冰冻/熔岩/沙漠/海洋/气态）+ <b>恒星系统</b> + <b>星际航线</b>"
+      },
+      {
+        "label": "元素",
+        "value": "<b>戴森球/壳</b>、<b>太阳帆</b>、<b>行星物流塔</b>、<b>星际物流火箭</b>、<b>传送带</b>、<b>伊卡洛斯</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -71,10 +175,22 @@
       "value": "宣发以<b>\"建造戴森球\"</b>的宏大幻想为核心卖点——概念本身就自带传播力。Key Art以<b>恒星+戴森球框架</b>为标准构图。国产5人小团队的<b>开发者故事</b>是国内外媒体热点。品牌色以<b>深蓝+恒星橙</b>为主调。Steam EA的<b>\"特别好评\"</b>和持续更新维持了长期关注。"
     },
     "rivals": [
-      {"id": 227, "reason": "同为<b>工厂建造</b>标杆，Satisfactory的第一人称星球级 vs 戴森球的俯视星际级——两种建造尺度"},
-      {"id": 230, "reason": "同为<b>外星开拓</b>题材，The Planet Crafter的星球改造 vs 戴森球的恒星工程——两种宇宙级建造"},
-      {"id": 101, "reason": "同为<b>国产游戏</b>的全球突破，黑神话的3A动作 vs 戴森球的独立建造——国产游戏两种出海路线"},
-      {"id": 221, "reason": "同为<b>系统驱动</b>的极度上瘾游戏，Balatro的数字爆炸 vs 戴森球的产线优化——两种\"工程快感\""}
+      {
+        "id": 227,
+        "reason": "同为<b>工厂建造</b>标杆，Satisfactory的第一人称星球级 vs 戴森球的俯视星际级——两种建造尺度"
+      },
+      {
+        "id": 230,
+        "reason": "同为<b>外星开拓</b>题材，The Planet Crafter的星球改造 vs 戴森球的恒星工程——两种宇宙级建造"
+      },
+      {
+        "id": 101,
+        "reason": "同为<b>国产游戏</b>的全球突破，黑神话的3A动作 vs 戴森球的独立建造——国产游戏两种出海路线"
+      },
+      {
+        "id": 221,
+        "reason": "同为<b>系统驱动</b>的极度上瘾游戏，Balatro的数字爆炸 vs 戴森球的产线优化——两种\"工程快感\""
+      }
     ]
   }
 }

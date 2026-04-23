@@ -4,51 +4,163 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>像素美术+3D海洋</b>的混搭风格独一无二——2D像素角色在实时渲染的海底世界中潜水，光影和粒子效果营造了出乎意料的美感", "src": "IGN 9/10", "url": "https://www.ign.com/articles/dave-the-diver-review"},
-        {"text": "海底场景的<b>生物多样性</b>视觉表现极佳——从发光水母到巨型鱿鱼，每次潜水都能遇到新的海洋奇观", "src": "GameSpot 9/10", "url": "https://www.gamespot.com/reviews/dave-the-diver-review/1900-6418103/"},
-        {"text": "<b>寿司店经营</b>的UI极其精致——食材颜色、摆盘动画、顾客表情，每一帧都透着日式匠心", "src": "Eurogamer", "url": "https://www.eurogamer.net/dave-the-diver-review"}
+        {
+          "text": "<b>像素美术+3D海洋</b>的混搭风格独一无二——2D像素角色在实时渲染的海底世界中潜水，光影和粒子效果营造了出乎意料的美感",
+          "src": "IGN 9/10",
+          "url": "https://www.ign.com/articles/dave-the-diver-review"
+        },
+        {
+          "text": "海底场景的<b>生物多样性</b>视觉表现极佳——从发光水母到巨型鱿鱼，每次潜水都能遇到新的海洋奇观",
+          "src": "GameSpot 9/10",
+          "url": "https://www.gamespot.com/reviews/dave-the-diver-review/1900-6418103/"
+        },
+        {
+          "text": "<b>寿司店经营</b>的UI极其精致——食材颜色、摆盘动画、顾客表情，每一帧都透着日式匠心",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/dave-the-diver-review"
+        }
       ],
       "excitement": [
-        {"text": "第一次遇到<b>巨型Boss海洋生物</b>——从常规潜水突然切换为弹幕射击的视觉冲击极强", "src": "IGN", "url": "https://www.ign.com/articles/dave-the-diver-review"},
-        {"text": "深海区域的<b>光线衰减</b>设计——越深越暗，手电筒光束成为唯一可视范围，恐惧感油然而生", "src": "PC Gamer 88/100", "url": "https://www.pcgamer.com/dave-the-diver-review/"},
-        {"text": "获得2023年TGA<b>最佳独立游戏</b>——证明像素+3D混搭的美术路线具有行业认可度", "src": "The Game Awards", "url": "https://thegameawards.com/"}
+        {
+          "text": "第一次遇到<b>巨型Boss海洋生物</b>——从常规潜水突然切换为弹幕射击的视觉冲击极强",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/dave-the-diver-review"
+        },
+        {
+          "text": "深海区域的<b>光线衰减</b>设计——越深越暗，手电筒光束成为唯一可视范围，恐惧感油然而生",
+          "src": "PC Gamer 88/100",
+          "url": "https://www.pcgamer.com/dave-the-diver-review/"
+        },
+        {
+          "text": "获得2023年TGA<b>最佳独立游戏</b>——证明像素+3D混搭的美术路线具有行业认可度",
+          "src": "The Game Awards",
+          "url": "https://thegameawards.com/"
+        }
       ],
       "pain": [
-        {"text": "后期游戏内容的<b>玩法跨度过大</b>——突然出现的农场、赛马等迷你游戏在美术风格上显得杂乱", "src": "GameSpot", "url": "https://www.gamespot.com/reviews/dave-the-diver-review/1900-6418103/"},
-        {"text": "<b>夜间寿司店</b>的操作界面在忙碌时段信息层叠，菜品图标辨识度下降", "src": "Steam评测", "url": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/"}
+        {
+          "text": "后期游戏内容的<b>玩法跨度过大</b>——突然出现的农场、赛马等迷你游戏在美术风格上显得杂乱",
+          "src": "GameSpot",
+          "url": "https://www.gamespot.com/reviews/dave-the-diver-review/1900-6418103/"
+        },
+        {
+          "text": "<b>夜间寿司店</b>的操作界面在忙碌时段信息层叠，菜品图标辨识度下降",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/"
+        }
       ],
       "churn": [
-        {"text": "通关后<b>海洋探索</b>的新鲜感递减——深层稀有鱼类的出现率下降导致潜水变得例行化", "src": "Steam评测", "url": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/"}
+        {
+          "text": "通关后<b>海洋探索</b>的新鲜感递减——深层稀有鱼类的出现率下降导致潜水变得例行化",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "<b>戴夫的胖子形象</b>成为社区吉祥物——一个体型圆润的大叔在海底灵活穿梭的反差萌极具亲和力", "src": "Reddit r/DaveTheDiver", "url": "https://www.reddit.com/r/DaveTheDiver/"},
-        {"text": "社区自发整理的<b>鱼类图鉴</b>和最佳菜谱——将游戏内的收集系统延伸为现实中的美食话题", "src": "Reddit", "url": "https://www.reddit.com/r/DaveTheDiver/"},
-        {"text": "MINTROCKET（Nexon子工作室）以<b>独立游戏品质</b>打入市场——打破了\"大厂不会做独立游戏\"的偏见", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"}
+        {
+          "text": "<b>戴夫的胖子形象</b>成为社区吉祥物——一个体型圆润的大叔在海底灵活穿梭的反差萌极具亲和力",
+          "src": "Reddit r/DaveTheDiver",
+          "url": "https://www.reddit.com/r/DaveTheDiver/"
+        },
+        {
+          "text": "社区自发整理的<b>鱼类图鉴</b>和最佳菜谱——将游戏内的收集系统延伸为现实中的美食话题",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/DaveTheDiver/"
+        },
+        {
+          "text": "MINTROCKET（Nexon子工作室）以<b>独立游戏品质</b>打入市场——打破了\"大厂不会做独立游戏\"的偏见",
+          "src": "Game Developer",
+          "url": "https://www.gamedeveloper.com/"
+        }
       ],
       "excitement": [
-        {"text": "联动更新（哥斯拉/Dredge等）每次都带来<b>独特的视觉内容</b>——社区对联动活动的期待度极高", "src": "Steam", "url": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/"},
-        {"text": "Switch版的<b>便携体验</b>与游戏轻松调性完美匹配——\"通勤路上潜个水\"成为社区日常", "src": "Nintendo Life", "url": "https://www.nintendolife.com/reviews/nintendo-switch/dave-the-diver"}
+        {
+          "text": "联动更新（哥斯拉/Dredge等）每次都带来<b>独特的视觉内容</b>——社区对联动活动的期待度极高",
+          "src": "Steam",
+          "url": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/"
+        },
+        {
+          "text": "Switch版的<b>便携体验</b>与游戏轻松调性完美匹配——\"通勤路上潜个水\"成为社区日常",
+          "src": "Nintendo Life",
+          "url": "https://www.nintendolife.com/reviews/nintendo-switch/dave-the-diver"
+        }
       ],
       "pain": [
-        {"text": "后期的<b>重复潜水</b>节奏变慢——社区期望更多深海区域和稀有物种", "src": "Reddit", "url": "https://www.reddit.com/r/DaveTheDiver/"}
+        {
+          "text": "后期的<b>重复潜水</b>节奏变慢——社区期望更多深海区域和稀有物种",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/DaveTheDiver/"
+        }
       ],
       "churn": [
-        {"text": "100%完成图鉴后<b>缺少持续目标</b>——寿司店运营缺乏Endgame挑战", "src": "Steam评测", "url": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/"}
+        {
+          "text": "100%完成图鉴后<b>缺少持续目标</b>——寿司店运营缺乏Endgame挑战",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "潜水员戴夫：深入三百米水下，只为带回一具陌生人的尸体",
+        "bvid": "BV1c64y1J74R",
+        "views": "222万"
+      },
+      {
+        "title": "【潜水员戴夫】拓海的新手入坑指南",
+        "bvid": "BV1pW4y1Z7Mi",
+        "views": "218万"
+      },
+      {
+        "title": "几十人打捞一具10年前的遗体，结果又搭上一条命，《潜水员戴夫》的原型故事，南非布须曼洞穴事件",
+        "bvid": "BV1aWB9Y6Euq",
+        "views": "206万"
+      },
+      {
+        "title": "这才是游戏，应该有的模样。",
+        "bvid": "BV1oP411e7sc",
+        "views": "201万"
+      },
+      {
+        "title": "一个美丽的误会，竟跨越时间变相成就无数玩家心目中的必玩神作！",
+        "bvid": "BV1n7qrBkEB2",
+        "views": "183万"
+      }
+    ]
   },
   "story": {
     "title": "蓝洞深海 · 寿司店奇遇",
     "dims": [
-      {"label": "时间", "value": "<b>当代</b>——一个普通人的夏日海洋冒险"},
-      {"label": "发生地", "value": "<b>神秘蓝洞</b>——一个每天地形变化的深海洞穴，以及海面上的<b>班乔寿司店</b>"},
-      {"label": "角色", "value": "Dave——<b>体型圆润的普通潜水员</b>，被朋友拉来帮忙经营寿司店，意外卷入海洋神秘事件"},
-      {"label": "科技水平", "value": "<b>当代科技 + 轻奇幻</b>——潜水装备和寿司料理是现实基础，海底古代文明是奇幻元素"},
-      {"label": "对抗关系", "value": "<b>Dave</b> vs <b>海底威胁（Boss鱼类/非法组织）</b>——核心是探索与保护海洋，搭配轻松的寿司店经营日常"},
-      {"label": "地图", "value": "<b>浅海珊瑚区</b>（彩色热带鱼）、<b>中层海域</b>（大型鱼类）、<b>深海黑暗区</b>（发光生物）、<b>海底遗迹</b>（古代文明）、<b>寿司店</b>（夜间经营）"},
-      {"label": "元素", "value": "<b>寿司/刺身</b>、<b>潜水装备</b>、<b>鱼枪</b>、<b>海洋生物图鉴</b>、<b>蓝洞</b>、<b>海人族</b>"}
+      {
+        "label": "时间",
+        "value": "<b>当代</b>——一个普通人的夏日海洋冒险"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>神秘蓝洞</b>——一个每天地形变化的深海洞穴，以及海面上的<b>班乔寿司店</b>"
+      },
+      {
+        "label": "角色",
+        "value": "Dave——<b>体型圆润的普通潜水员</b>，被朋友拉来帮忙经营寿司店，意外卷入海洋神秘事件"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>当代科技 + 轻奇幻</b>——潜水装备和寿司料理是现实基础，海底古代文明是奇幻元素"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>Dave</b> vs <b>海底威胁（Boss鱼类/非法组织）</b>——核心是探索与保护海洋，搭配轻松的寿司店经营日常"
+      },
+      {
+        "label": "地图",
+        "value": "<b>浅海珊瑚区</b>（彩色热带鱼）、<b>中层海域</b>（大型鱼类）、<b>深海黑暗区</b>（发光生物）、<b>海底遗迹</b>（古代文明）、<b>寿司店</b>（夜间经营）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>寿司/刺身</b>、<b>潜水装备</b>、<b>鱼枪</b>、<b>海洋生物图鉴</b>、<b>蓝洞</b>、<b>海人族</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -73,10 +185,22 @@
       "value": "宣发走<b>\"看起来简单但内容极深\"</b>的路线——初始印象是像素潜水小游戏，实际内容量远超预期。Key Art以<b>Dave在海中+寿司店</b>的双场景构图为标准，传达\"白天潜水晚上做菜\"的核心循环。宣发色调以<b>海洋蓝+食物暖色</b>为主调。MINTROCKET巧妙利用了\"大厂子工作室做独立游戏\"的话题性。社交媒体上以<b>食物GIF</b>和搞笑海洋生物片段为主要传播物料。"
     },
     "rivals": [
-      {"id": 225, "reason": "同为<b>海洋探索</b>题材的独立游戏，DREDGE的克苏鲁恐怖海洋 vs Dave的治愈海洋——同一题材的两极美术表达"},
-      {"id": 221, "reason": "同为<b>2023年最佳独立游戏</b>竞争者，Balatro的极简牌桌 vs Dave的丰富像素世界——两种独立游戏的美术投入策略"},
-      {"id": 210, "reason": "同为<b>治愈冒险</b>类型的视觉标杆，Stray的赛博猫咪 vs Dave的海洋潜水员——动物/非传统主角的设计策略对比"},
-      {"id": 223, "reason": "同为<b>轻松管理+冒险</b>混合类型，咩咩启示录的可爱邪典 vs Dave的海洋治愈——两种\"反差萌\"的美术路线"}
+      {
+        "id": 225,
+        "reason": "同为<b>海洋探索</b>题材的独立游戏，DREDGE的克苏鲁恐怖海洋 vs Dave的治愈海洋——同一题材的两极美术表达"
+      },
+      {
+        "id": 221,
+        "reason": "同为<b>2023年最佳独立游戏</b>竞争者，Balatro的极简牌桌 vs Dave的丰富像素世界——两种独立游戏的美术投入策略"
+      },
+      {
+        "id": 210,
+        "reason": "同为<b>治愈冒险</b>类型的视觉标杆，Stray的赛博猫咪 vs Dave的海洋潜水员——动物/非传统主角的设计策略对比"
+      },
+      {
+        "id": 223,
+        "reason": "同为<b>轻松管理+冒险</b>混合类型，咩咩启示录的可爱邪典 vs Dave的海洋治愈——两种\"反差萌\"的美术路线"
+      }
     ]
   }
 }

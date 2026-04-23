@@ -4,51 +4,163 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>小木屋密室</b>的沉浸感是独立游戏中的天花板——昏暗烛光、对面阴影中的神秘人、手工质感的卡牌，每个细节都在构建恐怖氛围", "src": "IGN 10/10", "url": "https://www.ign.com/articles/inscryption-review"},
-        {"text": "游戏在<b>第二幕</b>突然切换美术风格——从3D密室变成复古像素RPG，这种meta-narrative的视觉颠覆令人震惊", "src": "PC Gamer 92/100", "url": "https://www.pcgamer.com/inscryption-review/"},
-        {"text": "卡牌上动物的<b>手绘木刻风</b>美术极具辨识度——粗糙线条、不对称构图，每张卡都像从诡异的博物学手稿中撕下来的", "src": "Eurogamer", "url": "https://www.eurogamer.net/inscryption-review"}
+        {
+          "text": "<b>小木屋密室</b>的沉浸感是独立游戏中的天花板——昏暗烛光、对面阴影中的神秘人、手工质感的卡牌，每个细节都在构建恐怖氛围",
+          "src": "IGN 10/10",
+          "url": "https://www.ign.com/articles/inscryption-review"
+        },
+        {
+          "text": "游戏在<b>第二幕</b>突然切换美术风格——从3D密室变成复古像素RPG，这种meta-narrative的视觉颠覆令人震惊",
+          "src": "PC Gamer 92/100",
+          "url": "https://www.pcgamer.com/inscryption-review/"
+        },
+        {
+          "text": "卡牌上动物的<b>手绘木刻风</b>美术极具辨识度——粗糙线条、不对称构图，每张卡都像从诡异的博物学手稿中撕下来的",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/inscryption-review"
+        }
       ],
       "excitement": [
-        {"text": "第一次打开<b>保险箱</b>发现游戏内的游戏——meta层级嵌套的视觉叙事让人头皮发麻", "src": "IGN", "url": "https://www.ign.com/articles/inscryption-review"},
-        {"text": "将自己的<b>角色头像</b>做成卡牌的那个瞬间——打破第四面墙的视觉冲击", "src": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/inscryption-review"},
-        {"text": "获得2022年GDC<b>最佳独立游戏</b>和<b>最佳叙事</b>双料大奖——证明视觉叙事不需要3A预算", "src": "GDC Awards", "url": "https://gdconf.com/awards"}
+        {
+          "text": "第一次打开<b>保险箱</b>发现游戏内的游戏——meta层级嵌套的视觉叙事让人头皮发麻",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/inscryption-review"
+        },
+        {
+          "text": "将自己的<b>角色头像</b>做成卡牌的那个瞬间——打破第四面墙的视觉冲击",
+          "src": "Rock Paper Shotgun",
+          "url": "https://www.rockpapershotgun.com/inscryption-review"
+        },
+        {
+          "text": "获得2022年GDC<b>最佳独立游戏</b>和<b>最佳叙事</b>双料大奖——证明视觉叙事不需要3A预算",
+          "src": "GDC Awards",
+          "url": "https://gdconf.com/awards"
+        }
       ],
       "pain": [
-        {"text": "第二幕的<b>像素风格</b>转变让部分玩家产生视觉落差——相比第一幕的3D密室精致度下降明显", "src": "Steam评测", "url": "https://store.steampowered.com/app/1092790/Inscryption/"},
-        {"text": "第三幕的<b>简陋美术</b>是故意为之的meta叙事但仍然影响了部分玩家的视觉体验", "src": "PC Gamer", "url": "https://www.pcgamer.com/inscryption-review/"}
+        {
+          "text": "第二幕的<b>像素风格</b>转变让部分玩家产生视觉落差——相比第一幕的3D密室精致度下降明显",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1092790/Inscryption/"
+        },
+        {
+          "text": "第三幕的<b>简陋美术</b>是故意为之的meta叙事但仍然影响了部分玩家的视觉体验",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/inscryption-review/"
+        }
       ],
       "churn": [
-        {"text": "一次通关后<b>重玩驱动</b>偏弱——核心惊喜是一次性的，视觉上缺少新鲜感维持", "src": "Steam评测", "url": "https://store.steampowered.com/app/1092790/Inscryption/"}
+        {
+          "text": "一次通关后<b>重玩驱动</b>偏弱——核心惊喜是一次性的，视觉上缺少新鲜感维持",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1092790/Inscryption/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "社区围绕<b>ARG（替代现实游戏）</b>线索的集体解谜——游戏内外的视觉线索交织创造了独特的社区事件", "src": "Reddit r/inscryption", "url": "https://www.reddit.com/r/inscryption/"},
-        {"text": "<b>Leshy</b>（第一幕对手）成为独立游戏界最具辨识度的角色设计之一——阴影中的两只发光眼睛成为梗图素材", "src": "Twitter/X", "url": "https://x.com/search?q=inscryption%20leshy"},
-        {"text": "Daniel Mullins的<b>meta-game设计哲学</b>引发大量设计分析文章——\"游戏作为介质\"的视觉叙事方法论", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"}
+        {
+          "text": "社区围绕<b>ARG（替代现实游戏）</b>线索的集体解谜——游戏内外的视觉线索交织创造了独特的社区事件",
+          "src": "Reddit r/inscryption",
+          "url": "https://www.reddit.com/r/inscryption/"
+        },
+        {
+          "text": "<b>Leshy</b>（第一幕对手）成为独立游戏界最具辨识度的角色设计之一——阴影中的两只发光眼睛成为梗图素材",
+          "src": "Twitter/X",
+          "url": "https://x.com/search?q=inscryption%20leshy"
+        },
+        {
+          "text": "Daniel Mullins的<b>meta-game设计哲学</b>引发大量设计分析文章——\"游戏作为介质\"的视觉叙事方法论",
+          "src": "Game Developer",
+          "url": "https://www.gamedeveloper.com/"
+        }
       ],
       "excitement": [
-        {"text": "Kaycee's Mod（官方Roguelike更新）的<b>永久重玩</b>价值——社区终于获得了可以反复游玩的第一幕模式", "src": "Steam", "url": "https://store.steampowered.com/app/1092790/Inscryption/"},
-        {"text": "玩家自制的<b>实体卡牌</b>和木屋模型——游戏的手工美学激发了实物创作欲", "src": "Reddit", "url": "https://www.reddit.com/r/inscryption/"}
+        {
+          "text": "Kaycee's Mod（官方Roguelike更新）的<b>永久重玩</b>价值——社区终于获得了可以反复游玩的第一幕模式",
+          "src": "Steam",
+          "url": "https://store.steampowered.com/app/1092790/Inscryption/"
+        },
+        {
+          "text": "玩家自制的<b>实体卡牌</b>和木屋模型——游戏的手工美学激发了实物创作欲",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/inscryption/"
+        }
       ],
       "pain": [
-        {"text": "后两幕的<b>卡牌策略深度</b>不如第一幕——视觉风格变化也伴随了玩法精度的下降", "src": "Reddit", "url": "https://www.reddit.com/r/inscryption/"}
+        {
+          "text": "后两幕的<b>卡牌策略深度</b>不如第一幕——视觉风格变化也伴随了玩法精度的下降",
+          "src": "Reddit",
+          "url": "https://www.reddit.com/r/inscryption/"
+        }
       ],
       "churn": [
-        {"text": "作为<b>叙事驱动</b>游戏的固有限制——知道结局后视觉惊喜不可复制", "src": "Steam评测", "url": "https://store.steampowered.com/app/1092790/Inscryption/"}
+        {
+          "text": "作为<b>叙事驱动</b>游戏的固有限制——知道结局后视觉惊喜不可复制",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1092790/Inscryption/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "游戏人物杀死玩家？史上最强ARG！《邪恶冥刻》究竟讲述了什么故事？？？",
+        "bvid": "BV12dvyBxEe6",
+        "views": "1千万"
+      },
+      {
+        "title": "邪恶冥刻14：王牌归来！",
+        "bvid": "BV1bx4y1C72b",
+        "views": "400万"
+      },
+      {
+        "title": "【邪恶冥刻】我被困在邪恶小屋，和怪人玩黑暗游戏！",
+        "bvid": "BV1Sv411M7XE",
+        "views": "330万"
+      },
+      {
+        "title": "B站视频首发！破解游戏中的“旧数据”！将它公之于众！【邪恶冥刻·下】",
+        "bvid": "BV1sS4y197kk",
+        "views": "294万"
+      },
+      {
+        "title": "不管输赢都会死？steam爆火的卡牌解谜神作！《邪恶冥刻》全流程讲解！",
+        "bvid": "BV1XF411e7nF",
+        "views": "266万"
+      }
+    ]
   },
   "story": {
     "title": "诅咒卡牌 · 打破第四面墙",
     "dims": [
-      {"label": "时间", "value": "<b>多重时间线</b>——从像素时代到现代，时间本身是被解构的叙事元素"},
-      {"label": "发生地", "value": "<b>小木屋密室</b>（第一幕）→ <b>像素RPG世界</b>（第二幕）→ <b>程序化空间</b>（第三幕），场景本身是meta叙事的载体"},
-      {"label": "角色", "value": "玩家身份在三幕中不断被解构——从被困的<b>冒险者</b>到游戏内角色再到\"真正的玩家\"，对手是四位<b>Scrybes</b>（卡牌守护者）"},
-      {"label": "科技水平", "value": "<b>低科技魔法</b>（第一幕木屋）→ <b>像素科技</b>（第二幕）→ <b>数字化</b>（第三幕），科技水平本身是meta层级的隐喻"},
-      {"label": "对抗关系", "value": "<b>玩家</b> vs <b>四位Scrybes</b>（Leshy/Grimora/Magnificus/P03）——核心是创作者 vs 受造物的控制权之争"},
-      {"label": "地图", "value": "<b>暗色小木屋</b>（桌面+密室探索）、<b>像素世界</b>（城镇+野外）、<b>数字空间</b>（程序化环境）"},
-      {"label": "元素", "value": "<b>木刻卡牌</b>、<b>烛光</b>、<b>天平</b>（伤害计算）、<b>图腾</b>、<b>软盘</b>、<b>OLD_DATA</b>、<b>发光眼睛</b>"}
+      {
+        "label": "时间",
+        "value": "<b>多重时间线</b>——从像素时代到现代，时间本身是被解构的叙事元素"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>小木屋密室</b>（第一幕）→ <b>像素RPG世界</b>（第二幕）→ <b>程序化空间</b>（第三幕），场景本身是meta叙事的载体"
+      },
+      {
+        "label": "角色",
+        "value": "玩家身份在三幕中不断被解构——从被困的<b>冒险者</b>到游戏内角色再到\"真正的玩家\"，对手是四位<b>Scrybes</b>（卡牌守护者）"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>低科技魔法</b>（第一幕木屋）→ <b>像素科技</b>（第二幕）→ <b>数字化</b>（第三幕），科技水平本身是meta层级的隐喻"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>玩家</b> vs <b>四位Scrybes</b>（Leshy/Grimora/Magnificus/P03）——核心是创作者 vs 受造物的控制权之争"
+      },
+      {
+        "label": "地图",
+        "value": "<b>暗色小木屋</b>（桌面+密室探索）、<b>像素世界</b>（城镇+野外）、<b>数字空间</b>（程序化环境）"
+      },
+      {
+        "label": "元素",
+        "value": "<b>木刻卡牌</b>、<b>烛光</b>、<b>天平</b>（伤害计算）、<b>图腾</b>、<b>软盘</b>、<b>OLD_DATA</b>、<b>发光眼睛</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -73,10 +185,22 @@
       "value": "宣发策略极度<b>克制</b>——只展示第一幕的小木屋场景，绝不透露后续的风格颠覆。这种\"少即是多\"的策略让每个通关玩家都成为自发传播者。Key Art以<b>烛光卡牌桌</b>为核心构图，传达恐怖卡牌游戏的基础定位。Daniel Mullins的个人品牌（前作Pony Island和Hex的meta-game基因）是核心信任背书。品牌色以<b>暗棕+烛光橙</b>为主调。"
     },
     "rivals": [
-      {"id": 221, "reason": "同为<b>卡牌Roguelike</b>的视觉标杆，Balatro的极简扑克美学 vs Inscryption的手工恐怖美学——两种卡牌视觉哲学"},
-      {"id": 218, "reason": "同为<b>独立恐怖</b>领域的美术标杆，SIGNALIS的复古科幻 vs Inscryption的木刻密室——两种低成本高氛围的美术策略"},
-      {"id": 206, "reason": "同为<b>独立游戏美术标杆</b>，Hades 2的希腊神话绚丽 vs Inscryption的暗色极简——两种截然不同的独立游戏美术路线"},
-      {"id": 207, "reason": "同为<b>打破常规</b>的UI设计范例，女神异闻录5的风格化菜单 vs Inscryption的叙事性实物UI——两种\"UI即游戏\"的设计哲学"}
+      {
+        "id": 221,
+        "reason": "同为<b>卡牌Roguelike</b>的视觉标杆，Balatro的极简扑克美学 vs Inscryption的手工恐怖美学——两种卡牌视觉哲学"
+      },
+      {
+        "id": 218,
+        "reason": "同为<b>独立恐怖</b>领域的美术标杆，SIGNALIS的复古科幻 vs Inscryption的木刻密室——两种低成本高氛围的美术策略"
+      },
+      {
+        "id": 206,
+        "reason": "同为<b>独立游戏美术标杆</b>，Hades 2的希腊神话绚丽 vs Inscryption的暗色极简——两种截然不同的独立游戏美术路线"
+      },
+      {
+        "id": 207,
+        "reason": "同为<b>打破常规</b>的UI设计范例，女神异闻录5的风格化菜单 vs Inscryption的叙事性实物UI——两种\"UI即游戏\"的设计哲学"
+      }
     ]
   }
 }

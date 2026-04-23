@@ -4,50 +4,158 @@
   "playerExp": {
     "media": {
       "memory": [
-        {"text": "<b>PS1风格低模恐怖</b>的极致——刻意的低分辨率纹理、简陋的3D模型、昏暗的手电筒光源，用最少的美术预算创造了最强的恐怖氛围", "src": "PC Gamer 85/100", "url": "https://www.pcgamer.com/lethal-company-review/"},
-        {"text": "设施内部的<b>工业恐怖</b>美术——锈蚀管道、闪烁灯光、无尽走廊，每次进入都不知道会遇到什么", "src": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/lethal-company-review"},
-        {"text": "<b>怪物设计</b>的低保真恐怖——Bracken的黑色人形、Coil-Head的弹簧脑袋、Jester的音乐盒，每种怪物都用最简单的造型传达最大的恐惧", "src": "Eurogamer", "url": "https://www.eurogamer.net/lethal-company-review"}
+        {
+          "text": "<b>PS1风格低模恐怖</b>的极致——刻意的低分辨率纹理、简陋的3D模型、昏暗的手电筒光源，用最少的美术预算创造了最强的恐怖氛围",
+          "src": "PC Gamer 85/100",
+          "url": "https://www.pcgamer.com/lethal-company-review/"
+        },
+        {
+          "text": "设施内部的<b>工业恐怖</b>美术——锈蚀管道、闪烁灯光、无尽走廊，每次进入都不知道会遇到什么",
+          "src": "Rock Paper Shotgun",
+          "url": "https://www.rockpapershotgun.com/lethal-company-review"
+        },
+        {
+          "text": "<b>怪物设计</b>的低保真恐怖——Bracken的黑色人形、Coil-Head的弹簧脑袋、Jester的音乐盒，每种怪物都用最简单的造型传达最大的恐惧",
+          "src": "Eurogamer",
+          "url": "https://www.eurogamer.net/lethal-company-review"
+        }
       ],
       "excitement": [
-        {"text": "与队友<b>对讲机沟通</b>时突然听到背后的脚步声——多人合作的恐怖体验远超单人", "src": "IGN", "url": "https://www.ign.com/articles/lethal-company-early-access-review"},
-        {"text": "<b>船只回传战利品</b>的紧张倒计时——从设施逃出到登船的最后一刻是纯粹的肾上腺素体验", "src": "PC Gamer", "url": "https://www.pcgamer.com/lethal-company-review/"}
+        {
+          "text": "与队友<b>对讲机沟通</b>时突然听到背后的脚步声——多人合作的恐怖体验远超单人",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/lethal-company-early-access-review"
+        },
+        {
+          "text": "<b>船只回传战利品</b>的紧张倒计时——从设施逃出到登船的最后一刻是纯粹的肾上腺素体验",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/lethal-company-review/"
+        }
       ],
       "pain": [
-        {"text": "EA阶段的<b>内容量</b>有限——怪物种类和关卡在反复游玩后视觉新鲜感下降", "src": "Steam评测", "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"},
-        {"text": "室外星球表面的<b>美术精度</b>明显低于室内——地形简陋、植被稀疏", "src": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/lethal-company-review"}
+        {
+          "text": "EA阶段的<b>内容量</b>有限——怪物种类和关卡在反复游玩后视觉新鲜感下降",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"
+        },
+        {
+          "text": "室外星球表面的<b>美术精度</b>明显低于室内——地形简陋、植被稀疏",
+          "src": "Rock Paper Shotgun",
+          "url": "https://www.rockpapershotgun.com/lethal-company-review"
+        }
       ],
       "churn": [
-        {"text": "长期游玩后<b>恐怖感递减</b>——熟悉怪物行为后紧张感下降", "src": "Steam评测", "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"}
+        {
+          "text": "长期游玩后<b>恐怖感递减</b>——熟悉怪物行为后紧张感下降",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"
+        }
       ]
     },
     "community": {
       "memory": [
-        {"text": "<b>多人搞笑恐怖</b>视频是最大传播内容——队友被怪物追杀时的惨叫和混乱是天然的直播素材", "src": "YouTube/Twitch", "url": "https://www.youtube.com/results?search_query=lethal+company"},
-        {"text": "Mod社区<b>极其活跃</b>——自定义怪物、地图、道具、角色皮肤大幅延长了游戏生命周期", "src": "Thunderstore", "url": "https://thunderstore.io/c/lethal-company/"},
-        {"text": "Zeekerss（<b>solo开发者</b>）以一人之力创造了2023年末最火的多人游戏", "src": "Game Developer", "url": "https://www.gamedeveloper.com/"}
+        {
+          "text": "<b>多人搞笑恐怖</b>视频是最大传播内容——队友被怪物追杀时的惨叫和混乱是天然的直播素材",
+          "src": "YouTube/Twitch",
+          "url": "https://www.youtube.com/results?search_query=lethal+company"
+        },
+        {
+          "text": "Mod社区<b>极其活跃</b>——自定义怪物、地图、道具、角色皮肤大幅延长了游戏生命周期",
+          "src": "Thunderstore",
+          "url": "https://thunderstore.io/c/lethal-company/"
+        },
+        {
+          "text": "Zeekerss（<b>solo开发者</b>）以一人之力创造了2023年末最火的多人游戏",
+          "src": "Game Developer",
+          "url": "https://www.gamedeveloper.com/"
+        }
       ],
       "excitement": [
-        {"text": "每次<b>版本更新</b>加入新怪物和新月球都引发社区集体探索热潮", "src": "Steam", "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"},
-        {"text": "<b>自定义Mod</b>的创意——从Among Us联动到恐怖版Mario，社区创作力惊人", "src": "Thunderstore", "url": "https://thunderstore.io/c/lethal-company/"}
+        {
+          "text": "每次<b>版本更新</b>加入新怪物和新月球都引发社区集体探索热潮",
+          "src": "Steam",
+          "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"
+        },
+        {
+          "text": "<b>自定义Mod</b>的创意——从Among Us联动到恐怖版Mario，社区创作力惊人",
+          "src": "Thunderstore",
+          "url": "https://thunderstore.io/c/lethal-company/"
+        }
       ],
       "pain": [
-        {"text": "匹配<b>随机队友</b>时体验不稳定——缺少内置语音匹配系统", "src": "Steam评测", "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"}
+        {
+          "text": "匹配<b>随机队友</b>时体验不稳定——缺少内置语音匹配系统",
+          "src": "Steam评测",
+          "url": "https://store.steampowered.com/app/1966720/Lethal_Company/"
+        }
       ],
       "churn": [
-        {"text": "EA更新节奏<b>间隔较长</b>——核心玩家在内容干旱期流失", "src": "Reddit r/lethalcompany", "url": "https://www.reddit.com/r/lethalcompany/"}
+        {
+          "text": "EA更新节奏<b>间隔较长</b>——核心玩家在内容干旱期流失",
+          "src": "Reddit r/lethalcompany",
+          "url": "https://www.reddit.com/r/lethalcompany/"
+        }
       ]
-    }
+    },
+    "biliVideos": [
+      {
+        "title": "我们的员工说没就没！致命公司，鲤鱼Ace解说",
+        "bvid": "BV1oN411G7Eu",
+        "views": "1千万"
+      },
+      {
+        "title": "《致障公司》",
+        "bvid": "BV12i4y187Sn",
+        "views": "1千万"
+      },
+      {
+        "title": "四傻大闹致命公司！",
+        "bvid": "BV1yC4y1C7Ep",
+        "views": "1千万"
+      },
+      {
+        "title": "“不要惊吓队友”",
+        "bvid": "BV1ue411m7o6",
+        "views": "974万"
+      },
+      {
+        "title": "再见！致命公司！",
+        "bvid": "BV1Vm41197Wc",
+        "views": "673万"
+      }
+    ]
   },
   "story": {
     "title": "深空打工 · 企业恐怖",
     "dims": [
-      {"label": "时间", "value": "<b>未来</b>——企业统治的太空殖民时代"},
-      {"label": "发生地", "value": "<b>废弃工业星球</b>——荒凉的行星表面+昏暗的地下设施"},
-      {"label": "角色", "value": "4人<b>底层打工人</b>——为了完成公司配额在危险星球上捡拾废品的苦逼员工"},
-      {"label": "科技水平", "value": "<b>粗糙太空工业</b>——对讲机、手电筒、铲子，设备简陋到令人绝望"},
-      {"label": "对抗关系", "value": "<b>打工人</b> vs <b>设施内怪物 + 公司配额</b>——双重压迫：怪物要命，公司要KPI"},
-      {"label": "地图", "value": "多个<b>废弃月球/星球</b>——各有不同设施布局和怪物组合，室外荒凉+室内恐怖"},
-      {"label": "元素", "value": "<b>对讲机</b>、<b>手电筒</b>、<b>废品</b>（各种荒诞物品）、<b>飞船</b>、<b>配额终端</b>、<b>怪物剪影</b>"}
+      {
+        "label": "时间",
+        "value": "<b>未来</b>——企业统治的太空殖民时代"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>废弃工业星球</b>——荒凉的行星表面+昏暗的地下设施"
+      },
+      {
+        "label": "角色",
+        "value": "4人<b>底层打工人</b>——为了完成公司配额在危险星球上捡拾废品的苦逼员工"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>粗糙太空工业</b>——对讲机、手电筒、铲子，设备简陋到令人绝望"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>打工人</b> vs <b>设施内怪物 + 公司配额</b>——双重压迫：怪物要命，公司要KPI"
+      },
+      {
+        "label": "地图",
+        "value": "多个<b>废弃月球/星球</b>——各有不同设施布局和怪物组合，室外荒凉+室内恐怖"
+      },
+      {
+        "label": "元素",
+        "value": "<b>对讲机</b>、<b>手电筒</b>、<b>废品</b>（各种荒诞物品）、<b>飞船</b>、<b>配额终端</b>、<b>怪物剪影</b>"
+      }
     ]
   },
   "aesthetic": {
@@ -72,10 +180,22 @@
       "value": "Lethal Company几乎<b>没有传统宣发</b>——完全靠EA早期测试的直播口碑自然爆发。多人恐怖的<b>惨叫+搞笑</b>片段是最强传播物料——\"看朋友被怪物追\"是病毒式内容。solo开发者Zeekerss的故事本身是话题。品牌视觉极简——黑底+绿色终端文字。<b>低价策略</b>（约￥50）消除了多人组队的购买门槛。"
     },
     "rivals": [
-      {"id": 222, "reason": "同为<b>低美术预算但极度流行</b>，Vampire Survivors的像素弹幕 vs Lethal Company的低模恐怖——两种\"丑美学\""},
-      {"id": 218, "reason": "同为<b>低保真恐怖</b>，SIGNALIS的复古科幻恐怖 vs Lethal Company的合作工业恐怖——单人 vs 多人恐怖体验"},
-      {"id": 212, "reason": "同为<b>恐怖游戏</b>但预算天壤之别，RE Village的3A哥特 vs Lethal Company的低模极简——恐怖氛围不依赖美术预算"},
-      {"id": 227, "reason": "同为<b>合作类</b>工业题材，Satisfactory的建造乌托邦 vs Lethal Company的打工地狱——同为工业场景的正反两面"}
+      {
+        "id": 222,
+        "reason": "同为<b>低美术预算但极度流行</b>，Vampire Survivors的像素弹幕 vs Lethal Company的低模恐怖——两种\"丑美学\""
+      },
+      {
+        "id": 218,
+        "reason": "同为<b>低保真恐怖</b>，SIGNALIS的复古科幻恐怖 vs Lethal Company的合作工业恐怖——单人 vs 多人恐怖体验"
+      },
+      {
+        "id": 212,
+        "reason": "同为<b>恐怖游戏</b>但预算天壤之别，RE Village的3A哥特 vs Lethal Company的低模极简——恐怖氛围不依赖美术预算"
+      },
+      {
+        "id": 227,
+        "reason": "同为<b>合作类</b>工业题材，Satisfactory的建造乌托邦 vs Lethal Company的打工地狱——同为工业场景的正反两面"
+      }
     ]
   }
 }
