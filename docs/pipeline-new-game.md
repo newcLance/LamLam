@@ -204,13 +204,42 @@ screenshots/{game-slug}/
 
 ### B站视频采集专项规则
 
+> **🚨 关键约束：B站视频数据 100% 必须通过脚本采集，严禁 AI 自行编造 bvid/播放量。**
+
 | 规则 | 说明 |
 |------|------|
-| 搜索关键词 | 游戏中文名 + 游戏英文名（各搜一次，合并去重） |
+| **采集工具** | **必须使用 `python scripts/fetch-bili-videos.py --slug {slug}`**，禁止手动编写 biliVideos 数据 |
+| 搜索关键词 | 脚本自动从 games.json 读取中文名 + 英文名 + 别名，各搜一次合并去重 |
 | 排序方式 | 按播放量降序 |
 | 筛选门槛 | 播放量 > 1万 |
 | 取前 5 条 | 标题 + BV号 + 播放量 |
+| **逐条验证** | 脚本自动调用 B站 view API 验证每条视频的真实性（存在性 + 标题相关性 + 时长 > 10s） |
 | **内容相关性** | 必须是该游戏的实机/评测/解说内容，排除：合集混剪、无关蹭标签、纯音乐/壁纸搬运 |
+
+#### B站采集脚本用法
+
+```bash
+# 单款游戏采集（正式写入 JSON）
+python scripts/fetch-bili-videos.py --slug {slug}
+
+# 预览模式（不写入文件，仅查看结果）
+python scripts/fetch-bili-videos.py --slug {slug} --dry-run
+
+# 批量采集所有游戏
+python scripts/fetch-bili-videos.py
+
+# 仅验证现有数据正确性
+python scripts/fetch-bili-videos.py --verify-only
+
+# 跳过指定游戏
+python scripts/fetch-bili-videos.py --skip phantom-blade-zero,black-myth-wukong
+```
+
+#### 为什么必须用脚本？
+
+2026-04-23 全面审计发现：31 款游戏中 30 款的 biliVideos 数据为 AI 幻觉编造（假 bvid 指向无关视频），
+仅影之刃零（手工维护）数据正确。此次事故的根因是 Phase 3 采集阶段未强制调用 B站 API，
+AI 凭记忆生成了看似合理但 100% 虚假的数据。**脚本是唯一可靠的数据来源。**
 
 ---
 
@@ -408,24 +437,34 @@ Step 5: 检查 4 款竞品是否都在 data/games.json 中
     - community.memory[3]: 页面已更新，原文可能已被编辑
 ```
 
-#### 5.3 B站视频专项验证（最严格）
+#### 5.3 B站视频专项验证（最严格 · 脚本自动化）
 
+> **🚨 此步骤必须由脚本执行，不接受 AI 自行判断"数据看起来没问题"。**
+
+```bash
+# 验证单款游戏
+python scripts/fetch-bili-videos.py --verify-only --slug {slug}
+
+# 验证所有游戏
+python scripts/fetch-bili-videos.py --verify-only
+```
+
+脚本验证逻辑：
 ```
 对 biliVideos 数组中每条：
-  ├── 用 BV号 调用 B站 API 验证视频存在性
-  │   GET https://api.bilibili.com/x/web-interface/view?bvid=BVxxxxxxxxxx
-  ├── 检查视频状态：正常 / 已删除 / 已下架 / 仅限会员
-  │   └── 非正常状态 → FAIL
-  ├── 检查视频标题是否包含游戏名（中文或英文）
+  ├── 检查 bvid 是否为占位符 → FAIL
+  ├── 调用 B站 view API 验证视频存在性
+  │   └── API 错误 → FAIL
+  ├── 检查视频真实标题是否包含游戏名（中/英/别名）
   │   └── 标题完全不相关 → FAIL
-  ├── 检查视频分区（tname）是否属于游戏相关分区
-  │   └── 属于音乐/舞蹈/生活/时尚等无关分区 → WARN
-  ├── 验证播放量数量级：与记录值误差 > 50% → WARN
-  └── 快速内容判断：读取视频简介(desc)，确认是实机/评测/解说
-      └── 简介全是无关内容或空 → WARN
+  ├── 检查视频时长 > 10秒
+  │   └── 过短 → FAIL
+  └── 输出验证报告
 
-FAIL 项必须替换或移除，WARN 项人工复核。
+FAIL 项 → 重新运行 fetch-bili-videos.py 采集替换
 ```
+
+**发布前必须确保 `--verify-only` 输出 0 个 FAIL。**
 
 #### 5.4 数据完整性检查
 
@@ -529,9 +568,10 @@ Phase 6 (一次性构建 + 部署)
 | 立项审核 | AI（web_fetch + 规则引擎） | 自动准入判定 |
 | 截图 | agent-browser | 自动化浏览器截图 |
 | 图片压缩 | `scripts/optimize-images.py` | PNG/JPG → WebP 标准化 |
+| **B站视频采集** | **`scripts/fetch-bili-videos.py`** | **搜索API采集 + view API验证，严禁手写** |
 | 数据生成 | `generate-all-data.py` | 批量生成 playerExp + story + aesthetic |
 | 心愿单处理 | `scripts/process-wishlist.py` | 读取问卷导出 → 过滤新游戏 → 触发管线 |
-| 验真 | AI（HTTP 请求 + B站 API + 语义匹配） | 逐条数据验证 |
+| 验真 | AI（HTTP 请求 + B站脚本验证 + 语义匹配） | 逐条数据验证 |
 | 站点构建 | `build.py` (Jinja2 SSG) | 渲染 HTML 静态页 |
 | 本地预览 | `serve.py`（多线程） | 本地 HTTP 服务器 (port 8096) |
 | 部署 | GitHub → Cloudflare Pages | 自动部署 CDN |
