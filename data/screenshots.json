@@ -1105,9 +1105,16 @@
           "title": "明末：渊虚之羽 - 官网",
           "url": "https://wuchanggame.com/sc/",
           "date": "2026-04-24",
-          "tag": "最新",
+          "tag": "长图",
           "imgs": [
-            "screenshots/wuchang/home-1.webp"
+            "screenshots/wuchang/home-full.webp",
+            "screenshots/wuchang/home-1.webp",
+            "screenshots/wuchang/home-2.webp",
+            "screenshots/wuchang/home-3.webp",
+            "screenshots/wuchang/home-4.webp",
+            "screenshots/wuchang/home-5.webp",
+            "screenshots/wuchang/home-6.webp",
+            "screenshots/wuchang/home-7.webp"
           ]
         }
       ]
