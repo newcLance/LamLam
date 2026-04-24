@@ -788,10 +788,11 @@
       "screens": [
         {
           "title": "黑神话：悟空 - 游戏科学官网",
-          "url": "https://www.heishenhua.com/",
-          "date": "2026-04-13",
-          "tag": "最新",
+          "url": "https://gamesci.cn/wukong/",
+          "date": "2026-04-24",
+          "tag": "长图",
           "imgs": [
+            "screenshots/black-myth-wukong/home-full.webp",
             "screenshots/black-myth-wukong/home-1.webp",
             "screenshots/black-myth-wukong/home-2.webp",
             "screenshots/black-myth-wukong/home-3.webp",
@@ -810,10 +811,11 @@
       "screens": [
         {
           "title": "艾尔登法环 - Bandai Namco 官网",
-          "url": "https://www.bandainamcoent.com/games/elden-ring",
-          "date": "2026-04-10",
-          "tag": "最新",
+          "url": "https://eldenring.bn-ent.net/sc/",
+          "date": "2026-04-24",
+          "tag": "长图",
           "imgs": [
+            "screenshots/elden-ring/home-full.webp",
             "screenshots/elden-ring/home-1.webp",
             "screenshots/elden-ring/home-2.webp",
             "screenshots/elden-ring/home-3.webp",
@@ -908,13 +910,17 @@
       "module": "官网首页",
       "screens": [
         {
-          "title": "Death Stranding 2 - Kojima Productions",
+          "title": "死亡搁浅2：冥滩之上 - Kojima Productions",
           "url": "https://www.kojimaproductions.jp/en/death-stranding-2",
-          "date": "2026-04-10",
-          "tag": "最新",
+          "date": "2026-04-24",
+          "tag": "长图",
           "imgs": [
+            "screenshots/death-stranding-2/home-full.webp",
             "screenshots/death-stranding-2/home-1.webp",
-            "screenshots/death-stranding-2/home-2.webp"
+            "screenshots/death-stranding-2/home-2.webp",
+            "screenshots/death-stranding-2/home-3.webp",
+            "screenshots/death-stranding-2/home-4.webp",
+            "screenshots/death-stranding-2/home-5.webp"
           ]
         }
       ]
@@ -1096,9 +1102,9 @@
       "module": "官网首页",
       "screens": [
         {
-          "title": "明末：渊虚之羽 - B站游戏专题页",
-          "url": "https://game.bilibili.com/wuchang/",
-          "date": "2026-04-22",
+          "title": "明末：渊虚之羽 - 官网",
+          "url": "https://wuchanggame.com/sc/",
+          "date": "2026-04-24",
           "tag": "最新",
           "imgs": [
             "screenshots/wuchang/home-1.webp"
@@ -1457,11 +1463,12 @@
       "module": "官网首页",
       "screens": [
         {
-          "title": "影之刃零 - S-GAME 中文官网",
-          "url": "https://pbz.s-game.cn/",
-          "date": "2026-04-13",
-          "tag": "最新",
+          "title": "影之刃零 - S-GAME 官网",
+          "url": "https://pbz.s-game.com/",
+          "date": "2026-04-24",
+          "tag": "长图",
           "imgs": [
+            "screenshots/phantom-blade-zero/home-full.webp",
             "screenshots/phantom-blade-zero/home-1.webp",
             "screenshots/phantom-blade-zero/home-2.webp",
             "screenshots/phantom-blade-zero/home-3.webp",
