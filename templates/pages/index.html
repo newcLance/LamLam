@@ -43,16 +43,15 @@
   </div>
 
   {# ===== GAME SECTIONS BY GENRE ===== #}
-  {% set genre_order = ["FPS","Action","Action RPG","RPG","Action-Adventure","Open World Action RPG","Platformer","TPS"] %}
+  {% set genre_order = ["Shooter","Action","Action RPG","RPG","Adventure","Survival","Simulation"] %}
   {% set genre_labels = {
-    "FPS":"FPS 第一人称射击",
+    "Shooter":"Shooter 射击",
     "Action":"Action 动作",
     "Action RPG":"Action RPG 动作角色扮演",
     "RPG":"RPG 角色扮演",
-    "Action-Adventure":"Action-Adventure 动作冒险",
-    "Open World Action RPG":"Open World 开放世界",
-    "Platformer":"Platformer 平台跳跃",
-    "TPS":"TPS 第三人称射击"
+    "Adventure":"Adventure 冒险叙事",
+    "Survival":"Survival 生存探索",
+    "Simulation":"Simulation 模拟策略"
   } %}
 
   {% for genre in genre_order %}
@@ -75,12 +74,9 @@
 
   {# ===== PLATFORMS SECTION ===== #}
   {% set platform_groups = {
-    "综合平台": [],
     "PC平台": [],
-    "主机平台": [],
     "移动平台": [],
-    "云游戏": [],
-    "游戏社区": []
+    "游戏厂商官网": []
   } %}
   {% for p in products %}
     {% if p.category in platform_groups %}
@@ -88,7 +84,7 @@
     {% endif %}
   {% endfor %}
 
-  {% for cat_name in ["综合平台","PC平台","主机平台","移动平台","云游戏","游戏社区"] %}
+  {% for cat_name in ["PC平台","移动平台","游戏厂商官网"] %}
   {% set cat_items = platform_groups[cat_name] %}
   {% if cat_items %}
   <section class="game-section mb-16">

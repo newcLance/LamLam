@@ -6,7 +6,7 @@
     "alias": "Steam商店",
     "icon": "🎮",
     "company": "Valve Corporation",
-    "category": "综合平台",
+    "category": "PC平台",
     "region": "国际",
     "platforms": [
       "Windows",
@@ -103,7 +103,7 @@
     "alias": "PS商店,PS Store",
     "icon": "🎯",
     "company": "Sony Interactive Entertainment",
-    "category": "主机平台",
+    "category": "PC平台",
     "region": "国际",
     "platforms": [
       "Console",
@@ -150,7 +150,7 @@
     "alias": "微软商店,Xbox",
     "icon": "🟢",
     "company": "Microsoft",
-    "category": "主机平台",
+    "category": "PC平台",
     "region": "国际",
     "platforms": [
       "Console",
@@ -198,7 +198,7 @@
     "alias": "任天堂商店,NS商店,eshop",
     "icon": "🍄",
     "company": "Nintendo",
-    "category": "主机平台",
+    "category": "PC平台",
     "region": "国际",
     "platforms": [
       "Console",
@@ -422,7 +422,7 @@
     "alias": "GFN,英伟达云游戏",
     "icon": "💚",
     "company": "NVIDIA",
-    "category": "云游戏",
+    "category": "PC平台",
     "region": "国际",
     "platforms": [
       "Windows",
@@ -466,7 +466,7 @@
     "alias": "xCloud",
     "icon": "☁️",
     "company": "Microsoft",
-    "category": "云游戏",
+    "category": "PC平台",
     "region": "国际",
     "platforms": [
       "Web",
@@ -592,7 +592,7 @@
     "alias": "SD掌机,掌机",
     "icon": "🕹️",
     "company": "Valve + 第三方",
-    "category": "综合平台",
+    "category": "PC平台",
     "region": "国际",
     "platforms": [
       "Linux",
@@ -633,7 +633,7 @@
     "alias": "DC,discord",
     "icon": "💬",
     "company": "Discord Inc.",
-    "category": "游戏社区",
+    "category": "游戏厂商官网",
     "region": "国际",
     "platforms": [
       "Windows",
@@ -679,7 +679,7 @@
     "alias": "米哈游,hoyoverse,MHY",
     "icon": "⭐",
     "company": "miHoYo",
-    "category": "综合平台",
+    "category": "游戏厂商官网",
     "region": "国内",
     "platforms": [
       "Windows",

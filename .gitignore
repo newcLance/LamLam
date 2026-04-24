@@ -18,7 +18,9 @@ desktop.ini
 
 # Logs
 *.log
+build_log.txt
 build-log.txt
+capture_log.txt
 
 # Temp
 *.tmp
@@ -29,3 +31,5 @@ _*.py
 _*.json
 scripts/screenshot_fix*.py
 scripts/screenshot_cotl.py
+scripts/_capture*.mjs
+scripts/_capture*.mjs

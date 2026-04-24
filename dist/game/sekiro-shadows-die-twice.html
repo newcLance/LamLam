@@ -867,14 +867,559 @@ document.addEventListener('alpine:init', function() {
 
   
   
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+      </div>
+
+      
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>弹反系统</b>（打铁）颠覆了魂系回避为主的战斗范式，刀刃碰撞的音效令人上瘾
+    
+      <a href="https://www.ign.com/articles/sekiro-shadows-die-twice-review" target="_blank" rel="noopener" class="src-link">— IGN 9.5分 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>架势条</b>机制让 Boss 战变成「攻守节奏对决」而非消耗战
+    
+      <span class="text-xs text-neutral-600 ml-1">— GameSpot 9分</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>忍义手</b>工具切换带来多样化解题思路
+    
+      <span class="text-xs text-neutral-600 ml-1">— Eurogamer</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>TGA 2019 年度游戏</b>——FromSoftware 首次获得最高荣誉
+    
+      <span class="text-xs text-neutral-600 ml-1">— TGA 官方</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>苇名弦一郎</b>被誉为史上最佳教学 Boss——逼迫玩家学会弹反
+    
+      <span class="text-xs text-neutral-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>垂直探索</b>（钩索）带来前所未有的魂系移动自由度
+    
+      <a href="https://www.ign.com/articles/sekiro-shadows-die-twice-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>无等级碾压</b>——不能通过刷级降低难度，纯操作门槛高
+    
+      <span class="text-xs text-neutral-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Build 多样性不足</b>——单武器+固定技能树，缺乏 RPG 自由度
+    
+      <span class="text-xs text-neutral-600 ml-1">— GameSpot</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>回生机制</b>对 NPC 的龙咳影响让部分玩家有负罪感
+    
+      <span class="text-xs text-neutral-600 ml-1">— Eurogamer</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>只有一个难度</b>，对不擅长动作游戏的玩家非常不友好
+    
+      <span class="text-xs text-neutral-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>后期 Boss</b>（剑圣一心）劝退率极高
+    
+      <span class="text-xs text-neutral-600 ml-1">— 多平台综合</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>犹豫就会败北</b>」成为全球游戏梗文化的一部分
+    
+      <span class="text-xs text-neutral-600 ml-1">— 全平台</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>打铁音效 ASMR</b>被社区广泛传播——弹反的声音设计教科书级
+    
+      <span class="text-xs text-neutral-600 ml-1">— B站 / YouTube</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>完美弹反</b>连续打铁的成就感被社区称为「最优雅的魂系体验」
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA / Reddit</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>无伤速通</b>社区极度活跃——高手操作像武侠电影
+    
+      <span class="text-xs text-neutral-600 ml-1">— B站 / YouTube</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>新手墙</b>——前期蝴蝶夫人+赤鬼连续劝退，社区称为「弃坑双煞」
+    
+      <span class="text-xs text-neutral-600 ml-1">— Steam 评论 / NGA</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>缺乏多人</b>功能让部分魂系玩家不满
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>通关一次后缺乏回玩动力</b>——没有 Build 变化，二周目体验雷同
+    
+      <span class="text-xs text-neutral-600 ml-1">— 多平台综合</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>DLC 一直未推出</b>让社区期待落空
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit / NGA</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" x-cloak class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1Nb41177ja/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【完结】【苦手专用】老戴《只狼》《只狼：影逝二度》全剧情，BOSS，全结局，流程攻略解说 手残，逃课，旷课</span>
+          <span class="text-xs text-neutral-500 shrink-0">3千万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1Db411s7Ri/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">紫雨carol《只狼：影逝二度》只狼全流程全收集全结局攻略合集【已完结】</span>
+          <span class="text-xs text-neutral-500 shrink-0">3千万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV154411W7ez/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【学徒】只狼 影逝二度地毯式攻略解说（合集）</span>
+          <span class="text-xs text-neutral-500 shrink-0">680万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1Gf421o792/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">暴力拆解游戏数据！揭秘《只狼》只有开发者才知道的秘密</span>
+          <span class="text-xs text-neutral-500 shrink-0">384万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1RE41147PL/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【已完结】【逃学威狼】全网最全的只狼逃课教材《只狼》《只狼：影逝二度》手把手教你通过只狼 手残逃学玩家的福音</span>
+          <span class="text-xs text-neutral-500 shrink-0">345万播放</span>
+        </a>
+        
+      </div>
+      
+    </div>
+  </section>
+  
 
   
   
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">IP / STORY</div>
+  <div class="text-sm font-bold text-white mb-4">世界观与叙事</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>日本战国末期</b>——苇名之国被内府围攻的末日黄昏，武士道与不死之力交织</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">「<b>苇名</b>」——以日本中世纪城郭为核心，从城下街巷、苇名城天守阁到坠落之谷、源之宫仙乡</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">「<b>狼/独臂忍</b>」——为守护不死之血的皇子而战的忍者，在忠义与不死的诅咒之间抉择；4 个结局</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>日本战国时代</b>——冷兵器为主，但融入了超自然元素（不死之力、仙乡法术），整体写实+暗奇幻</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>苇名军 vs 内府 vs 不死者</b>——苇名军用传统武士铠甲+日式城郭，内府以重火力/精英忍者呈现，变若之子/不死者用苍白肤色+异形设计</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>半开放箱庭</b>：苇名城（垂直立体城郭）→ 坠落之谷（峡谷+蛇窟）→ 金刚山仙峰寺（佛寺+猿猴）→ 源之宫（水中仙乡）；<b>钩索系统</b>带来强烈的垂直探索感</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>日本战国 × 暗奇幻 × 忍者美学</b>；视觉标识为「枯山水+樱花+铁与血」——暗沉的战国灰调中点缀鲜红血花与粉色樱瓣；受黑泽明电影、忍者外传、天诛系列启发</div>
+  </div>
+  
+</div>
+
+  </section>
+  
 
   
   
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3">枯山水灰调 x 樱花血色 - 黑泽明式影像</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">整体以<b>日本战国灰调</b>为基底，天空常呈暮色/阴天，建筑用<b>风化木材</b>和<b>苔藓石墙</b>呈现岁月感；关键场景中<b>樱花飘落</b>与<b>鲜血飞溅</b>形成标志性对比；源之宫以<b>水中仙乡</b>的梦幻蓝白调打破全程灰暗，制造强烈反差；光照偏自然写实，无夸张后处理</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3">写实战国武士 x 异形不死者</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">狼以<b>破旧忍者装束+义手</b>为标志，服装磨损感强烈、色调暗沉；苇名军穿<b>标准日式铠甲+足轻头盔</b>，写实度极高；不死者/变若之子以<b>苍白肤色+异形增生</b>呈现超自然恐怖；弦一郎等 Boss 的铠甲细节参考了真实<b>室町/战国时代甲胄</b></div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3">极简日式 - 危字标记成为品类符号</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">HUD 仅有左下角<b>HP+义手道具</b>和右下角<b>残影数</b>；最具辨识度的 UI 设计是<b>「危」字弹反/突刺警告</b>——一个红色日文汉字成为整个魂系品类的符号级 UI 元素；菜单采用<b>日式手账/卷轴</b>风格，字体使用<b>毛笔楷书</b>；死亡画面的<b>「死」</b>字同样是标志性设计</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3">樱花 x 不死 x 义手 x 危</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">核心视觉符号：<b>樱花</b>（日本武士道的无常/美与死亡）、<b>不死蜈蚣/龙胤之血</b>（诅咒与超自然力量的载体）、<b>义手/忍义手</b>（工具性与残缺美的结合）、<b>「危」字</b>（已超越游戏本身成为文化符号）；色彩母题为<b>灰+红</b>——枯寂战场中的鲜血与樱瓣</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3">FromSoftware 硬核忍者 - 死即宣传</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发核心是<b>难度即卖点</b>——Shadows Die Twice 标题本身就是宣传语；预告片剪辑突出<b>弹反瞬间</b>和<b>Boss 演出</b>的峰值时刻；Key Art 固定为<b>狼的剪影+血红月亮/樱花</b>构图；TGA 首曝和年度最佳的双重节点让只狼成为硬核动作游戏的代名词；<b>「死」字</b>被做成了表情包和文化梗</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
 
   
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        <a href="phantom-blade-zero.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">影之刃零 <span class="text-xs text-neutral-500 font-normal ml-1">S-GAME</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为弹反核心 + 暗黑东方美学 + 高精度读招战斗，体验/美术三维最接近</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="elden-ring-shadow-of-the-erdtree.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">艾尔登法环：黄金树幽影 <span class="text-xs text-neutral-500 font-normal ml-1">FromSoftware</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为 FromSoftware 出品 + 高难 Boss 战 + 碎片化叙事</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="nioh-3.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">仁王3 <span class="text-xs text-neutral-500 font-normal ml-1">Team Ninja / Koei Tecmo</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为日本战国背景 + 高难动作 + 武器深度系统</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="black-myth-wukong.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">黑神话：悟空 <span class="text-xs text-neutral-500 font-normal ml-1">游戏科学 (Game Science)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为东方题材 3A 动作 + Boss 战核心 + UE 级画面</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=153,117,102,152,101','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 5 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
   
 
 </div>
