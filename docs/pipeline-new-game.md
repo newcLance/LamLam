@@ -1,7 +1,7 @@
 # 新游戏接入生产管线 v2.0
 
 > Game Design Tracker 内容生产标准化流程
-> 最后更新：2026-04-22
+> 最后更新：2026-04-27
 
 ---
 
@@ -299,7 +299,17 @@ AI 凭记忆生成了看似合理但 100% 虚假的数据。**脚本是唯一可
 | **术语** | 用设计/美术圈通行术语，不需要解释 | "赛博朋克 + 和风浮世绘的混搭调性" | "融合了未来科技和日本传统文化的风格" |
 | **颗粒度** | 具体到能指导设计方向的程度 | "角色设计走写实比例，护甲造型参考晚明制式" | "角色设计很好" |
 | **态度** | 有观点、有判断，允许主观 | "敌方阵营美术辨识度不够，boss 和杂兵视觉层级没拉开" | "敌人设计有待提升" |
-| **高亮** | 核心设计关键词用 `<b>` 标注 | "主打<b>低多边形</b>+<b>手绘贴图</b>的独立美术风格" | 全文无重点 |
+| **高亮** | 核心设计关键词用 `<b>` 标注，**每段文案至少 1 个、不超过 3 个** | "主打<b>低多边形</b>+<b>手绘贴图</b>的独立美术风格" | 全文无重点 |
+
+> **🚨 高亮硬性约束（2026-04-27 起强制执行）：**
+> 
+> 以下所有文本字段**必须**包含至少 1 个 `<b>` 高亮标签，否则不得进入 Phase 5：
+> - `playerExp.media.*` 和 `playerExp.community.*` 的每一条 `text`
+> - `story.dims[]` 的每一条 `value`
+> - `aesthetic.{scene,costume,ui,symbol,promo}` 的每一条 `value`
+> - `aesthetic.rivals[]` 的每一条 `reason`
+> 
+> 高亮目标：**核心设计概念、差异化关键词、专业术语**。加粗内容长度控制在 4-20 个字符以内，禁止整句加粗。
 
 ### 4A. 玩家体验清单（playerExp）
 
@@ -515,7 +525,39 @@ FAIL 项 → 重新运行 fetch-bili-videos.py 采集替换
   └── 所有 text 字段非空，所有 url 字段格式合法
 ```
 
-#### 5.5 基础信息交叉验证
+#### 5.5 高亮覆盖率验证（2026-04-27 新增 · 必检项）
+
+> **🚨 此步骤为自动化硬卡点，FAIL 则不允许进入 Phase 6。**
+
+```
+对 data/games/{slug}.json 中以下字段逐条检查 <b> 标签：
+
+  ├── playerExp.media.{memory,excitement,pain,churn}[*].text
+  │   └── 每条必须包含至少 1 个 <b>...</b> → 无则 FAIL
+  ├── playerExp.community.{memory,excitement,pain,churn}[*].text
+  │   └── 每条必须包含至少 1 个 <b>...</b> → 无则 FAIL
+  ├── story.dims[*].value
+  │   └── 每条必须包含至少 1 个 <b>...</b> → 无则 FAIL
+  ├── aesthetic.{scene,costume,ui,symbol,promo}.value
+  │   └── 每条必须包含至少 1 个 <b>...</b> → 无则 FAIL
+  ├── aesthetic.rivals[*].reason
+  │   └── 每条必须包含至少 1 个 <b>...</b> → 无则 FAIL
+  └── 加粗内容长度检查
+      └── 单个 <b> 标签内文字 > 30 字符 → WARN（疑似整句加粗）
+
+输出：
+  ✓ 47/47 fields have bold highlights
+  ⚠ 0 overlong bold tags
+  
+或：
+  ✗ 3 fields missing bold:
+    - playerExp.media.memory[0]
+    - aesthetic.scene
+    - aesthetic.rivals[2]
+  → 退回 Phase 4 补充高亮后重验
+```
+
+#### 5.6 基础信息交叉验证
 
 ```
   ├── 游戏名、开发商 与 Wikipedia/官网 核对
@@ -677,6 +719,7 @@ Step 4: 生成处理报告
 7. **审核通过后才能发布**，AI 验真 + Lance 二审双重兜底
 8. **一款游戏一个独立 JSON 文件**，不混写
 9. **竞品推荐零死链**，所有 rivals 中的游戏必须在数据库中有对应详情页
+10. **所有文案必须有 `<b>` 高亮划重点**——playerExp 每条 text、story 每条 value、aesthetic 每张卡片 value、rivals 每条 reason 至少包含 1 个 `<b>` 标签；加粗内容长度 ≤ 30 字符，禁止整句加粗
 
 ---
 
