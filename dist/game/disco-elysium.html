@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>极乐迪斯科：最终剪辑版 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/disco-elysium/home-full.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+      
+      <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[.06] hover:bg-white/10 text-neutral-400 hover:text-white text-sm transition mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回列表
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">极乐迪斯科：最终剪辑版</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">ZA/UM · RPG · 2021.3</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">开创性等距视角侦探 RPG，以独特的思维内阁系统和文学级写作闻名，获 4 项 TGA 大奖。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">侦探RPG</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">思维内阁系统</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">纯文本无战斗</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">油画风美术</span>
+        
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="shrink-0 hidden md:block">
+      <a href="https://discoelysium.com" target="_blank" rel="noopener"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded bg-white text-black font-bold text-sm hover:bg-neutral-200 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        访问官网
+        <span class="opacity-50 group-hover:opacity-100 transition">↗</span>
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+
+  
+  
+  <section id="sec-screenshots" class="mb-14">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-lg font-bold flex items-center gap-2">
+        <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+        官网截图
+      </h2>
+      
+      <a href="https://discoelysium.com" target="_blank" rel="noopener"
+         class="md:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded bg-white text-black text-xs font-bold hover:bg-neutral-200 transition">
+        访问官网 ↗
+      </a>
+      
+    </div>
+
+    
+    
+    
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <h3 class="text-sm font-semibold text-neutral-300">Disco Elysium - The Final Cut - Official</h3>
+        
+        <span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-500 border border-white/[.06]">最新</span>
+        
+        
+        <span class="text-[11px] text-neutral-600">2026-04-27</span>
+        
+        
+        <a href="https://discoelysium.com" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1 px-3 py-1 rounded text-[11px] font-semibold bg-white/[.06] text-neutral-400 hover:bg-white/10 hover:text-white border border-white/10 transition ml-auto shrink-0">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          访问页面 ↗
+        </a>
+        
+      </div>
+
+      
+      
+      
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+             data-lightbox-src="../screenshots/disco-elysium/home-full.webp"
+             x-on:click="$store.lightbox.show('../screenshots/disco-elysium/home-full.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/disco-elysium/home-full.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+             data-lightbox-src="../screenshots/disco-elysium/home-1.webp"
+             x-on:click="$store.lightbox.show('../screenshots/disco-elysium/home-1.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/disco-elysium/home-1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+    
+    
+  </section>
+  
+
+  
+  
+  <section id="sec-timeline" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      设计变化时间线
+    </h2>
+    <div class="relative pl-6 border-l-2 border-bdr space-y-5">
+      
+      <div class="relative">
+        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
+        <div class="text-xs text-white font-bold tracking-wide">2019-10</div>
+        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">PC 首发，获多项年度游戏
+          
+        </div>
+      </div>
+      
+      <div class="relative">
+        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
+        <div class="text-xs text-white font-bold tracking-wide">2021-03</div>
+        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">Final Cut 全语音版发售
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>24 条<b>内在技能</b>化身你脑中的独立人格参与对话，Inland Empire 会突然告诉你墙壁在哭泣，Electrochemistry 怂恿你吸毒——这是 RPG 史上最具颠覆性的<b>技能叙事融合</b>设计
+    
+      <a href="https://www.ign.com/articles/disco-elysium-the-final-cut-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>思想柜</b>（Thought Cabinet）系统让抽象观念变成可装备的心智物品，"内化"一个想法需要时间并带来临时debuff，完成后永久改变角色属性和对话选项，是<b>角色扮演机制</b>的极致表达
+    
+      <a href="https://www.rockpapershotgun.com/disco-elysium-thought-cabinet-the-thoughts-system-explained" target="_blank" rel="noopener" class="src-link">— Rock Paper Shotgun ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>整座 Revachol 城虽然地图不大，却在<b>叙事密度</b>上比肩巫师3和荒野大镖客2——每个 NPC、每面墙壁、每件垃圾都携带政治隐喻和世界观信息
+    
+      <a href="https://www.ign.com/articles/disco-elysium-the-final-cut-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>游戏没有任何战斗系统，所有冲突通过<b>骰子检定对话</b>解决——从说服证人到试图唱卡拉OK，失败同样推进故事并产生独特后果，颠覆了 RPG 对"成功"的定义
+    
+      <a href="https://www.ign.com/articles/disco-elysium-the-final-cut-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>政治视野任务（Political Vision Quest）让你在共产主义、法西斯、超自由主义、道德主义之间选择<b>意识形态路线</b>，每条路线提供 20-30 分钟独占内容，极大提升重玩价值
+    
+      <a href="https://www.ign.com/articles/disco-elysium-the-final-cut-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>超过<b>100万字</b>的对话文本，从革命散文到卡夫卡式精神分析无缝切换——写作质量达到了电子游戏中文学性的巅峰
+    
+      <a href="https://www.ign.com/articles/disco-elysium-the-final-cut-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>服装与药物系统缺乏<b>难度压力</b>驱动——评测者几乎不需要频繁更换装备或使用药物就能通过大部分检定，这两个系统沦为未被充分利用的摆设
+    
+      <a href="https://www.ign.com/articles/disco-elysium-the-final-cut-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>技能点获取频率偏低，尽管不至于让人感到漫长的等待，但在需要特定高难度检定时<b>缺乏灵活的补救手段</b>，可能导致关键对话锁死
+    
+      <a href="https://www.ign.com/articles/disco-elysium-the-final-cut-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>开局 15 分钟内就可能因角色精神崩溃而<b>Game Over</b>——极端的叙事实验性让习惯传统 RPG 的玩家完全找不到抓手
+    
+      <a href="https://www.ign.com/articles/disco-elysium-the-final-cut-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>Revachol 充满种族主义、法西斯主义与存在主义危机的<b>沉重基调</b>，绝非"轻松愉快"的体验——对叙事压抑感的耐受度成为最大的玩家筛选器
+    
+      <a href="https://www.ign.com/articles/disco-elysium-the-final-cut-review" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>"当 Inland Empire 技能检定成功、你真的听到了<b>挂在衣架上的领带跟你说话</b>的那一刻，我意识到这是一款前所未有的游戏"——思想柜与技能人格化设计创造了无数只属于个人的荒诞记忆
+    
+      <a href="https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/" target="_blank" rel="noopener" class="src-link">— Steam 社区 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>"走到海边废弃教堂那段，所有技能同时开口、音乐响起的<b>宗教体验式高潮</b>让我哭了出来"——玩家社区反复提及这段作为游戏史上最伟大的叙事时刻之一
+    
+      <a href="https://www.reddit.com/r/DiscoElysium/" target="_blank" rel="noopener" class="src-link">— Reddit r/DiscoElysium ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>"你可以扮演一个<b>完全疯癫的警探</b>——对着垃圾桶演讲、相信自己是共产主义革命领袖、用拳头解决一切——而游戏世界完美接住了你的每一个选择"
+    
+      <a href="https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/" target="_blank" rel="noopener" class="src-link">— Steam 社区 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>"每次重玩选不同技能组合，NPC 的反应、可用对话和事件走向完全不同——这是我见过<b>重玩价值</b>最高的叙事游戏"
+    
+      <a href="https://www.reddit.com/r/DiscoElysium/" target="_blank" rel="noopener" class="src-link">— Reddit r/DiscoElysium ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>"某些关键骰子检定失败后整条<b>支线被永久锁死</b>、没有二次机会——对完美主义者来说是折磨，特别是不知道哪些是一次性检定"
+    
+      <a href="https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/" target="_blank" rel="noopener" class="src-link">— Steam 社区 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>"30小时的纯文字冒险对<b>非英语母语</b>玩家是巨大挑战——大量文学典故、政治术语和双关语让理解门槛极高"
+    
+      <a href="https://www.reddit.com/r/DiscoElysium/" target="_blank" rel="noopener" class="src-link">— Reddit r/DiscoElysium ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>"完全没有战斗、没有装备升级、没有地牢探索——如果你期待的是传统 CRPG 体验，这游戏<b>第一小时就会劝退</b>你"
+    
+      <a href="https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/" target="_blank" rel="noopener" class="src-link">— Steam 社区 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>"ZA/UM 工作室解散后<b>不会有续作</b>——知道这一点后重玩反而更感伤，但也让很多潜在新玩家觉得没必要入坑了"
+    
+      <a href="https://www.reddit.com/r/DiscoElysium/" target="_blank" rel="noopener" class="src-link">— Reddit r/DiscoElysium ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">IP / STORY</div>
+  <div class="text-sm font-bold text-white mb-4"></div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1"></div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"></div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1"></div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"></div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1"></div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"></div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1"></div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"></div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1"></div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"></div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1"></div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"></div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1"></div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"></div>
+  </div>
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3">表现主义油画构建的后革命废墟城市</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">Revachol 的每一帧画面都像一幅弗朗西斯科·戈雅晚期"黑色绘画"——残破公寓楼在雪地中倾斜、废弃车辆被积雪半埋、昏暗的旅馆走廊堆满垃圾。等距视角下的环境用厚重笔触和脏污色调营造出一种"曾经辉煌但已腐朽"的帝国末日感，每个场景都是政治寓言的视觉表达</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3">侦探着装即人格表达系统</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">每件衣服不仅是外观而是技能修正器——破烂的迪斯科衬衫提升 Electrochemistry（放纵），警察制服增强 Authority（权威）。NPC 肖像画风模仿弗朗西斯·培根的扭曲肖像风格，面部特征夸张变形，暗示每个人物的心理扭曲。角色设计刻意避开美型化，呈现疲惫、粗粝、真实的人物面貌</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3">文学手稿式极简交互界面</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">界面以大量文字为核心，对话占据屏幕主体，24种技能以不同颜色的文字出现在对话流中，模拟"脑内多声部"的阅读体验。任务日志清晰直白，Tab 键高亮可交互物品的设计降低了点击冒险的寻找门槛。整体 UI 风格克制内敛，让文学叙事而非界面元素成为绝对焦点</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3">领带、淡色与挂尸——存在主义的符号网络</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">开场的挂尸是对主角堕落人生的隐喻镜像；那条能说话的领带成为玩家最熟知的游戏符号，代表着荒诞与温情的统一；"淡色"（The Pale）作为吞噬现实的虚无之力，是对意识形态失败后精神废墟的终极隐喻；整部作品的符号系统在荒诞与哲学之间精确平衡</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3">油画质感的文艺独立游戏调性宣传</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发材料沿用游戏内的表现主义油画风格，以 Harry 站在 Revachol 街头的孤独剪影为主视觉。Final Cut 版本的宣传片通过全语音演出的精彩片段展示写作深度。营销定位精准瞄准"文学性RPG"受众，以 Game Awards 和各大媒体满分评价作为核心传播素材，避开大众化推广路线</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        
+        
+        
+        <a href="persona-5-royal.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">女神异闻录5：皇家版 <span class="text-xs text-neutral-500 font-normal ml-1">Atlus / SEGA</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">P5R 与极乐迪斯科都创造了<b>日常生活模拟与角色内心世界</b>的深度融合——前者通过 Confidant 系统和天鹅绒房间，后者通过思想柜和脑内技能人格</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="hades-2.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">哈迪斯2 <span class="text-xs text-neutral-500 font-normal ml-1">Supergiant Games</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">Metaphor 与极乐迪斯科都试图将<b>政治哲学</b>编织进 RPG 核心机制——前者用职业系统隐喻社会偏见，后者用意识形态路线直接构建角色世界观</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=231,115,207,206','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 4 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-timeline',    label:'时间线'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-rivals',      label:'竞品推荐'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>

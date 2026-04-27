@@ -2103,5 +2103,161 @@
         }
       ]
     }
+  ],
+  "Disco Elysium - The Final Cut": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Disco Elysium - The Final Cut - Official",
+          "url": "https://discoelysium.com",
+          "date": "2026-04-27",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/disco-elysium/home-full.webp",
+            "screenshots/disco-elysium/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Eggy Party": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Eggy Party - Official",
+          "url": "https://www.eggyparty.com/",
+          "date": "2026-04-27",
+          "tag": "长图",
+          "imgs": [
+            "screenshots/eggy-party/home-full.webp",
+            "screenshots/eggy-party/home-1.webp",
+            "screenshots/eggy-party/home-2.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Fall Guys: Ultimate Knockout": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Fall Guys: Ultimate Knockout - Official",
+          "url": "https://www.fallguys.com/zh-CN",
+          "date": "2026-04-27",
+          "tag": "长图",
+          "imgs": [
+            "screenshots/fall-guys/home-full.webp",
+            "screenshots/fall-guys/home-1.webp",
+            "screenshots/fall-guys/home-2.webp",
+            "screenshots/fall-guys/home-3.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Genshin Impact": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Genshin Impact - Official",
+          "url": "https://ys.mihoyo.com/main/",
+          "date": "2026-04-27",
+          "tag": "长图",
+          "imgs": [
+            "screenshots/genshin-impact/home-full.webp",
+            "screenshots/genshin-impact/home-1.webp",
+            "screenshots/genshin-impact/home-2.webp",
+            "screenshots/genshin-impact/home-3.webp",
+            "screenshots/genshin-impact/home-4.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Honkai: Star Rail": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Honkai: Star Rail - Official",
+          "url": "https://sr.mihoyo.com/main",
+          "date": "2026-04-27",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/honkai-star-rail/home-full.webp",
+            "screenshots/honkai-star-rail/home-1.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Zenless Zone Zero": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Zenless Zone Zero - Official",
+          "url": "https://zzz.mihoyo.com/main/",
+          "date": "2026-04-27",
+          "tag": "长图",
+          "imgs": [
+            "screenshots/zenless-zone-zero/home-full.webp",
+            "screenshots/zenless-zone-zero/home-1.webp",
+            "screenshots/zenless-zone-zero/home-2.webp",
+            "screenshots/zenless-zone-zero/home-3.webp",
+            "screenshots/zenless-zone-zero/home-4.webp",
+            "screenshots/zenless-zone-zero/home-5.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Neverness to Everness": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Neverness to Everness - Official",
+          "url": "https://nte.perfectworld.com/cn/index.html",
+          "date": "2026-04-27",
+          "tag": "长图",
+          "imgs": [
+            "screenshots/neverness-to-everness/home-full.webp",
+            "screenshots/neverness-to-everness/home-1.webp",
+            "screenshots/neverness-to-everness/home-2.webp",
+            "screenshots/neverness-to-everness/home-3.webp",
+            "screenshots/neverness-to-everness/home-4.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Ananta": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "Ananta - Official",
+          "url": "https://ananta.163.com",
+          "date": "2026-04-27",
+          "tag": "长图",
+          "imgs": [
+            "screenshots/ananta/home-full.webp",
+            "screenshots/ananta/home-1.webp",
+            "screenshots/ananta/home-2.webp",
+            "screenshots/ananta/home-3.webp",
+            "screenshots/ananta/home-4.webp",
+            "screenshots/ananta/home-5.webp",
+            "screenshots/ananta/home-6.webp",
+            "screenshots/ananta/home-7.webp",
+            "screenshots/ananta/home-8.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

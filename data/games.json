@@ -2153,5 +2153,339 @@
     "changes": [],
     "lastUpdate": "2026-04-23",
     "slug": "the-planet-crafter"
+  },
+  {
+    "id": 231,
+    "name": "Disco Elysium - The Final Cut",
+    "nameCN": "极乐迪斯科：最终剪辑版",
+    "alias": "Disco Elysium,DE,极乐迪斯科",
+    "icon": "🕵️",
+    "company": "ZA/UM",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox",
+      "Switch"
+    ],
+    "model": "买断制",
+    "genre": "RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2019.10",
+    "releaseDate": "2021.3",
+    "desc": "开创性等距视角侦探 RPG，以独特的思维内阁系统和文学级写作闻名，获 4 项 TGA 大奖。",
+    "features": [
+      "侦探RPG",
+      "思维内阁系统",
+      "纯文本无战斗",
+      "油画风美术"
+    ],
+    "changes": [
+      {
+        "date": "2019-10",
+        "text": "PC 首发，获多项年度游戏"
+      },
+      {
+        "date": "2021-03",
+        "text": "Final Cut 全语音版发售"
+      }
+    ],
+    "lastUpdate": "2026-04-27",
+    "slug": "disco-elysium"
+  },
+  {
+    "id": 232,
+    "name": "Eggy Party",
+    "nameCN": "蛋仔派对",
+    "alias": "蛋仔,Eggy",
+    "icon": "🥚",
+    "company": "网易游戏 (NetEase)",
+    "category": "已发售",
+    "region": "国产",
+    "platforms": [
+      "iOS",
+      "Android",
+      "PC"
+    ],
+    "model": "免费+内购",
+    "genre": "Party",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2022.12",
+    "releaseDate": "2022.12",
+    "desc": "网易旗舰休闲竞技手游，累计注册超 5 亿，UGC 地图创作生态为核心驱动力。",
+    "features": [
+      "休闲派对竞技",
+      "UGC地图创作",
+      "潮玩IP联动",
+      "多人社交"
+    ],
+    "changes": [
+      {
+        "date": "2022-12",
+        "text": "公测上线"
+      },
+      {
+        "date": "2024-01",
+        "text": "全球累计注册突破 5 亿"
+      }
+    ],
+    "lastUpdate": "2026-04-27",
+    "slug": "eggy-party"
+  },
+  {
+    "id": 233,
+    "name": "Fall Guys: Ultimate Knockout",
+    "nameCN": "糖豆人：终极淘汰赛",
+    "alias": "糖豆人,Fall Guys",
+    "icon": "🫘",
+    "company": "Mediatonic / Epic Games",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox",
+      "Switch"
+    ],
+    "model": "免费",
+    "genre": "Party",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2020.8",
+    "releaseDate": "2020.8",
+    "desc": "大规模多人派对闯关游戏，以果冻质感的糖豆人角色和综艺化赛制闻名。",
+    "features": [
+      "60人大乱斗",
+      "综艺闯关",
+      "跨平台",
+      "赛季制"
+    ],
+    "changes": [
+      {
+        "date": "2020-08",
+        "text": "PS4/PC 首发"
+      },
+      {
+        "date": "2022-06",
+        "text": "转免费+全平台发售"
+      }
+    ],
+    "lastUpdate": "2026-04-27",
+    "slug": "fall-guys"
+  },
+  {
+    "id": 234,
+    "name": "Genshin Impact",
+    "nameCN": "原神",
+    "alias": "原神,Genshin,GI",
+    "icon": "🌟",
+    "company": "米哈游 (miHoYo/HoYoverse)",
+    "category": "已发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "iOS",
+      "Android"
+    ],
+    "model": "免费+内购",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2020.9",
+    "releaseDate": "2020.9",
+    "desc": "米哈游旗舰开放世界动作 RPG，全球年收入数十亿美元，开创性的二次元开放世界标杆。",
+    "features": [
+      "开放世界",
+      "元素反应系统",
+      "七国探索",
+      "角色池抽卡"
+    ],
+    "changes": [
+      {
+        "date": "2020-09",
+        "text": "全球公测"
+      },
+      {
+        "date": "2024-08",
+        "text": "纳塔（第六国）版本上线"
+      }
+    ],
+    "lastUpdate": "2026-04-27",
+    "slug": "genshin-impact"
+  },
+  {
+    "id": 235,
+    "name": "Honkai: Star Rail",
+    "nameCN": "崩坏：星穹铁道",
+    "alias": "星铁,星穹铁道,HSR,崩铁",
+    "icon": "🚂",
+    "company": "米哈游 (miHoYo/HoYoverse)",
+    "category": "已发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5",
+      "iOS",
+      "Android"
+    ],
+    "model": "免费+内购",
+    "genre": "Turn-based RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2023.4",
+    "releaseDate": "2023.4",
+    "desc": "米哈游回合制策略 RPG，银河铁道叙事 + 箱庭关卡设计，首年收入突破 15 亿美元。",
+    "features": [
+      "回合制RPG",
+      "银河铁道主题",
+      "箱庭探索",
+      "模拟宇宙"
+    ],
+    "changes": [
+      {
+        "date": "2023-04",
+        "text": "全球公测"
+      },
+      {
+        "date": "2024-05",
+        "text": "2.0 匹诺康尼版本上线"
+      }
+    ],
+    "lastUpdate": "2026-04-27",
+    "slug": "honkai-star-rail"
+  },
+  {
+    "id": 236,
+    "name": "Zenless Zone Zero",
+    "nameCN": "绝区零",
+    "alias": "绝区零,ZZZ,绝零",
+    "icon": "⚡",
+    "company": "米哈游 (miHoYo/HoYoverse)",
+    "category": "已发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5",
+      "iOS",
+      "Android"
+    ],
+    "model": "免费+内购",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024.7",
+    "releaseDate": "2024.7",
+    "desc": "米哈游都市潮流动作 RPG，以街头文化+赛博涂鸦美术风格和流畅连招战斗为核心卖点。",
+    "features": [
+      "都市潮流动作",
+      "空洞探索",
+      "连招战斗",
+      "代理人系统"
+    ],
+    "changes": [
+      {
+        "date": "2024-07",
+        "text": "全球公测"
+      },
+      {
+        "date": "2025-01",
+        "text": "1.4 版本——外环地图解锁"
+      }
+    ],
+    "lastUpdate": "2026-04-27",
+    "slug": "zenless-zone-zero"
+  },
+  {
+    "id": 237,
+    "name": "Neverness to Everness",
+    "nameCN": "异环",
+    "alias": "异环,NtE",
+    "icon": "🔮",
+    "company": "Hotta Studio / 完美世界",
+    "category": "已发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5",
+      "iOS",
+      "Android"
+    ],
+    "model": "免费+内购",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2026.4",
+    "releaseDate": "2026.4",
+    "desc": "完美世界旗下 Hotta Studio 超自然都市开放世界 RPG，UE5 打造异象猎人冒险。",
+    "features": [
+      "超自然都市",
+      "开放世界",
+      "UE5",
+      "异能战斗"
+    ],
+    "changes": [
+      {
+        "date": "2026-04",
+        "text": "全平台公测上线"
+      }
+    ],
+    "lastUpdate": "2026-04-27",
+    "slug": "neverness-to-everness"
+  },
+  {
+    "id": 238,
+    "name": "Ananta",
+    "nameCN": "无限大",
+    "alias": "无限大,Ananta",
+    "icon": "🌆",
+    "company": "网易游戏 (NetEase)",
+    "category": "即将发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5",
+      "iOS",
+      "Android"
+    ],
+    "model": "免费+内购",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2026",
+    "releaseDate": "2026",
+    "desc": "网易都市开放世界 RPG，以现代都市为舞台的超自然冒险，UE5 打造。",
+    "features": [
+      "都市开放世界",
+      "超自然冒险",
+      "UE5",
+      "多人协作"
+    ],
+    "changes": [
+      {
+        "date": "2025-01",
+        "text": "技术性线下测试"
+      },
+      {
+        "date": "2025-09",
+        "text": "TGS 2025 首次公开实机演示"
+      }
+    ],
+    "lastUpdate": "2026-04-27",
+    "slug": "ananta"
   }
 ]

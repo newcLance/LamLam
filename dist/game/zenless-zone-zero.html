@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>绝区零 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/zenless-zone-zero/home-full.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+      
+      <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[.06] hover:bg-white/10 text-neutral-400 hover:text-white text-sm transition mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回列表
+      </a>
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">绝区零</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">米哈游 (miHoYo/HoYoverse) · Action RPG · 2024.7</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">米哈游都市潮流动作 RPG，以街头文化+赛博涂鸦美术风格和流畅连招战斗为核心卖点。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">都市潮流动作</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">空洞探索</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">连招战斗</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">代理人系统</span>
+        
+      </div>
+      
+    </div>
+
+    
+    
+    <div class="shrink-0 hidden md:block">
+      <a href="https://zzz.mihoyo.com/main/" target="_blank" rel="noopener"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded bg-white text-black font-bold text-sm hover:bg-neutral-200 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        访问官网
+        <span class="opacity-50 group-hover:opacity-100 transition">↗</span>
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+
+  
+  
+  <section id="sec-screenshots" class="mb-14">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-lg font-bold flex items-center gap-2">
+        <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+        官网截图
+      </h2>
+      
+      <a href="https://zzz.mihoyo.com/main/" target="_blank" rel="noopener"
+         class="md:hidden inline-flex items-center gap-1.5 px-4 py-2 rounded bg-white text-black text-xs font-bold hover:bg-neutral-200 transition">
+        访问官网 ↗
+      </a>
+      
+    </div>
+
+    
+    
+    
+    <div class="mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <h3 class="text-sm font-semibold text-neutral-300">Zenless Zone Zero - Official</h3>
+        
+        <span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/10 text-neutral-300 border border-white/10">长图</span>
+        
+        
+        <span class="text-[11px] text-neutral-600">2026-04-27</span>
+        
+        
+        <a href="https://zzz.mihoyo.com/main/" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-1 px-3 py-1 rounded text-[11px] font-semibold bg-white/[.06] text-neutral-400 hover:bg-white/10 hover:text-white border border-white/10 transition ml-auto shrink-0">
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          访问页面 ↗
+        </a>
+        
+      </div>
+
+      
+      
+      
+      
+      
+      <div class="mb-4 group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+           data-lightbox-src="../screenshots/zenless-zone-zero/home-full.webp"
+           x-on:click="$store.lightbox.show('../screenshots/zenless-zone-zero/home-full.webp')">
+        <div class="relative" style="max-height:600px; overflow:hidden;">
+          <img src="../screenshots/zenless-zone-zero/home-full.webp" loading="lazy" class="w-full object-cover object-top group-hover:scale-[1.01] transition-transform duration-300">
+          
+          <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-surface-0 to-transparent pointer-events-none"></div>
+        </div>
+        <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur-sm text-[10px] font-bold text-white/80 tracking-wide">
+          全页长图
+        </div>
+        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center transition-all duration-200">
+          <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+             data-lightbox-src="../screenshots/zenless-zone-zero/home-1.webp"
+             x-on:click="$store.lightbox.show('../screenshots/zenless-zone-zero/home-1.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/zenless-zone-zero/home-1.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/50 backdrop-blur-sm text-[9px] font-medium text-white/60">
+            1/5
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+             data-lightbox-src="../screenshots/zenless-zone-zero/home-2.webp"
+             x-on:click="$store.lightbox.show('../screenshots/zenless-zone-zero/home-2.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/zenless-zone-zero/home-2.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/50 backdrop-blur-sm text-[9px] font-medium text-white/60">
+            2/5
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+             data-lightbox-src="../screenshots/zenless-zone-zero/home-3.webp"
+             x-on:click="$store.lightbox.show('../screenshots/zenless-zone-zero/home-3.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/zenless-zone-zero/home-3.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/50 backdrop-blur-sm text-[9px] font-medium text-white/60">
+            3/5
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+             data-lightbox-src="../screenshots/zenless-zone-zero/home-4.webp"
+             x-on:click="$store.lightbox.show('../screenshots/zenless-zone-zero/home-4.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/zenless-zone-zero/home-4.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/50 backdrop-blur-sm text-[9px] font-medium text-white/60">
+            4/5
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+             data-lightbox-src="../screenshots/zenless-zone-zero/home-5.webp"
+             x-on:click="$store.lightbox.show('../screenshots/zenless-zone-zero/home-5.webp')">
+          <div class="relative pt-[56.25%]">
+            <img src="../screenshots/zenless-zone-zero/home-5.webp" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+          </div>
+          <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/50 backdrop-blur-sm text-[9px] font-medium text-white/60">
+            5/5
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      
+    </div>
+    
+    
+    
+  </section>
+  
+
+  
+  
+  <section id="sec-timeline" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      设计变化时间线
+    </h2>
+    <div class="relative pl-6 border-l-2 border-bdr space-y-5">
+      
+      <div class="relative">
+        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
+        <div class="text-xs text-white font-bold tracking-wide">2024-07</div>
+        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">全球公测
+          
+        </div>
+      </div>
+      
+      <div class="relative">
+        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
+        <div class="text-xs text-white font-bold tracking-wide">2025-01</div>
+        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">1.4 版本——外环地图解锁
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'media' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+      </div>
+
+      
+      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>极致风格化</b>的街头涂鸦美术——Persona 5、Jet Set Radio、Hi-Fi Rush的精神续作
+    
+      <a href="https://www.eurogamer.net/zenless-zone-zero-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>角色信赖事件</b>将Persona的Confidant系统移植到动作游戏，NPC比可操作角色更有个性
+    
+      <a href="https://www.eurogamer.net/zenless-zone-zero-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>完美闪避+连携技</b>的操作手感被评为HoYoverse系最佳——慢动作切人的决策感极强
+    
+      <a href="https://www.gamespot.com/games/zenless-zone-zero/" target="_blank" rel="noopener" class="src-link">— GameSpot ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>连携技+终结技</b>的动画演出华丽至极，S级评分系统让战斗充满街机爽感
+    
+      <a href="https://www.eurogamer.net/zenless-zone-zero-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>新艾利都的<b>小尺度都市探索</b>反而比大世界更有沉浸感——每家店铺都有人情味
+    
+      <a href="https://www.eurogamer.net/zenless-zone-zero-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>五大职业定位</b>（强攻/支援/击破/异常/防御）让队伍搭配策略丰富
+    
+      <a href="https://www.gamespot.com/games/zenless-zone-zero/" target="_blank" rel="noopener" class="src-link">— GameSpot ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>空洞关卡视觉重复</b>——废墟风格的战斗场景看多了审美疲劳
+    
+      <a href="https://www.eurogamer.net/zenless-zone-zero-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Inter-Knot等级锁</b>将主线剧情截断在不相关的任务墙后，节奏极差
+    
+      <a href="https://www.eurogamer.net/zenless-zone-zero-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>驱动盘</b>（装备）系统需要大量日常farming刷词条，数值体验碎片化
+    
+      <a href="https://www.eurogamer.net/zenless-zone-zero-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>HDD电视模式的<b>俯视角棋盘探索</b>在前期枯燥乏味，缺乏变化
+    
+      <a href="https://www.eurogamer.net/zenless-zone-zero-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Gacha机制</b>与原神/星铁无本质区别，抽卡疲劳在三款游戏中叠加
+    
+      <a href="https://www.eurogamer.net/zenless-zone-zero-review" target="_blank" rel="noopener" class="src-link">— Eurogamer ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>最潮的二次元动作游戏</b>」——街头涂鸦+赛博朋克+漫画分镜的视觉冲击成为社区共识
+    
+      <span class="text-xs text-neutral-600 ml-1">— 全平台热议</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>柏妮思</b>等角色凭借性感设计和人格魅力成为现象级同人创作素材
+    
+      <span class="text-xs text-neutral-600 ml-1">— Twitter / Pixiv</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>动作手感</b>被核心玩家评为免费游戏天花板——完美闪避的打击反馈媲美鬼泣
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA / Reddit</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>每次版本更新的<b>新角色PV</b>都刷屏——柏妮思EP播放量破千万
+    
+      <span class="text-xs text-neutral-600 ml-1">— B站 / YouTube</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Endgame内容不足</b>——式舆防卫战难度低、深渊层数少，硬核玩家缺目标
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA / Reddit</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>版本更新曾引发<b>角色模型修改争议</b>，社区对审查问题反应强烈
+    
+      <a href="https://peacedoorball.blog/en/zenless-zone-zero-community-voices-discontent-over-alleged-censorship/" target="_blank" rel="noopener" class="src-link">— 多平台综合 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>每日任务机械化</b>——清体力、刷驱动盘、做委托的循环缺少惊喜
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit / NGA</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>角色养成资源</b>获取渠道单一，新角色练度压力与抽卡压力叠加
+    
+      <span class="text-xs text-neutral-600 ml-1">— HoYoLAB</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" x-cloak class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1pg411g7Tb/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">原神代肝代练，另接三角洲行动，绝区零，鸣潮，星铁等，有需要的板板可以私聊详谈，同行点赞即可</span>
+          <span class="text-xs text-neutral-500 shrink-0">2千万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1vy411B7cd/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《绝区零》公测PV | 您拨打的用户正在空洞中</span>
+          <span class="text-xs text-neutral-500 shrink-0">1千万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1tUycYNEo5/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《绝区零》柏妮思EP丨Burning Desires 绝望吧台</span>
+          <span class="text-xs text-neutral-500 shrink-0">1千万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1xT4y1B7gg/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《绝区零》首曝PV | 世界全剧终，欢迎来到新艾利都！</span>
+          <span class="text-xs text-neutral-500 shrink-0">1千万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1vNmjYhES4/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《绝区零》柏妮思角色展示 | 伤心的人来杯特调</span>
+          <span class="text-xs text-neutral-500 shrink-0">1千万播放</span>
+        </a>
+        
+      </div>
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">IP / STORY</div>
+  <div class="text-sm font-bold text-white mb-4">世界观与叙事</div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>近未来末世后重建期</b>——「空洞灾变」摧毁了大部分文明，人类在残存都市中艰难重建</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>新艾利都</b>——空洞灾变后唯一繁荣的都市，地表是充满活力的街区，地下连通着危险的「空洞」异空间</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">「<b>绳匠</b>」（Belle/Wise）——经营录像店为掩护，实际是引导雇佣兵深入空洞完成委托的幕后操盘手</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>近未来都市科技+空洞超自然力量</b>——城市有便利店、街机厅等现代设施，空洞内则存在违反物理法则的异常能量</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>人类势力（各阵营帮派）vs 空洞异兽「以太人」</b>——城市内各帮派（白色牙犬、奥波斯小队等）各有立场，共同面对空洞中的超自然威胁</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>小尺度箱庭都市</b>：新艾利都城区（可探索街道、商店、NPC互动）+ 空洞关卡（程序生成的战斗副本）；城市小而精，每条街都有故事</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>街头文化 × 赛博朋克 × 漫画分镜 × 街机美学</b>；美术标识为「都市潮流涂鸦风」——将Jet Set Radio的涂鸦自由、Persona 5的UI哲学、Hi-Fi Rush的节奏感融入HoYo的角色设计体系</div>
+  </div>
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3">潮流涂鸦赛博朋克 - 最有态度的都市废墟美学</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">新艾利都地表是<b>霓虹灯+涂鸦墙+便利店</b>的潮流都市，色彩饱和度极高，招牌和海报无处不在；空洞内是<b>几何扭曲+荧光色+废墟</b>的异空间，与地表的温暖形成强烈对比；光照设计偏<b>高对比度+强烈色彩滤镜</b>，每个场景都像一张涂鸦海报；整体氛围在<b>末世感与街头潮流</b>之间取得独特平衡</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3">街头潮牌 x 帮派符号 x 职业标签</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">角色服装以<b>街头潮牌改良</b>为核心——短款夹克、破洞裤、工装靴、大logo等元素频繁出现；每个帮派有专属<b>色彩系统</b>：白色牙犬偏白银灰、奥波斯小队偏军绿、维多利亚管家偏黑红；角色造型极度夸张——<b>超大武器+不合常理的身材比例+华丽发色</b>，追求第一眼冲击力；武器设计与角色性格深度绑定</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3">漫画分镜 x 街机计分板 - UI即游戏体验</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI设计是绝区零最独特的竞争力之一：战斗评分用<b>街机式S/A/B等级</b>实时反馈；连携技切换用<b>漫画分格过渡</b>；主界面是<b>手机/电视屏幕</b>隐喻的嵌套设计；字体大量使用<b>涂鸦手写体+赛博感无衬线</b>混搭；颜色方案为<b>亮黄+荧光绿+深灰底</b>的高对比组合；整套UI系统本身就是游戏美术风格的核心载体</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3">空洞 x 录像带 x 邦布 x 涂鸦标签</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">核心视觉符号：<b>空洞裂缝</b>（荧光色的空间撕裂，代表危险与机遇）、<b>VHS录像带</b>（绳匠的操控媒介，复古科技感）、<b>邦布</b>（圆形机器人伙伴，吉祥物+功能性角色）、<b>涂鸦Tag</b>（帮派势力的视觉标记）；色彩母题为<b>亮黄/荧光色 vs 深灰黑</b>的强烈对比；完美闪避时的<b>慢动作灰屏+荧光闪烁</b>是战斗中最具辨识度的视觉瞬间</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3">最潮的MV工厂 - 用音乐+涂鸦定义品牌调性</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发核心策略是<b>音乐MV+角色态度</b>——每个角色PV都是完整的音乐作品，涵盖电子、爵士、摇滚等多种曲风；公测PV「您拨打的用户正在空洞中」用<b>电话忙音+街头涂鸦动画</b>创造病毒式传播；Key Art必带<b>涂鸦元素+荧光色+街头pose</b>；品牌调性定位为<b>「HoYo最酷的孩子」</b>，与原神的仙侠美、星铁的浪漫美形成差异</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        <a href="genshin-impact.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">原神 <span class="text-xs text-neutral-500 font-normal ml-1">米哈游 (miHoYo/HoYoverse)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>HoYoverse旗舰产品</b>，绝区零用都市箱庭+动作战斗差异化对标原神的开放世界+元素反应体系</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="honkai-star-rail.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">崩坏：星穹铁道 <span class="text-xs text-neutral-500 font-normal ml-1">米哈游 (miHoYo/HoYoverse)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>HoYoverse系产品</b>，三者共享用户池和抽卡系统，绝区零的动作定位与星铁的回合制形成互补</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="s-t-a-l-k-e-r-2-heart-of-chornobyl.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">潜行者2：切尔诺贝利之心 <span class="text-xs text-neutral-500 font-normal ml-1">GSC Game World</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>节奏感极强的风格化动作游戏</b>，Hi-Fi Rush的音乐节拍战斗与绝区零的街机评分系统在体验层对标</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=236,234,235,128,119','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 5 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-timeline',    label:'时间线'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-rivals',      label:'竞品推荐'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
