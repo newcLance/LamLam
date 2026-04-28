@@ -13,6 +13,15 @@
 
 {% block content %}
 
+{# ===== FIXED BACK BUTTON ===== #}
+<a href="../index.html" id="back-btn"
+   class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-2/90 backdrop-blur-sm border border-white/[.08] hover:bg-surface-3 hover:border-white/[.15] text-neutral-300 hover:text-white text-sm font-medium transition-all shadow-lg shadow-black/30">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  返回
+  <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
+</a>
+<script>document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!e.target.closest('input,textarea,[contenteditable]')){window.location.href='../index.html';}});</script>
+
 {# ===== HERO BANNER ===== #}
 <div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
   {# Blurred background screenshot #}
@@ -31,11 +40,6 @@
   <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
     {# Left: Game info #}
     <div class="flex-1 min-w-0">
-      {# Back button above game name #}
-      <a href="../index.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[.06] hover:bg-white/10 text-neutral-400 hover:text-white text-sm transition mb-5">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-        返回列表
-      </a>
 
       <div class="flex items-center gap-3 mb-4">
                 <div>
