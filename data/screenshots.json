@@ -1210,19 +1210,13 @@
       "module": "官网首页",
       "screens": [
         {
-          "title": "COD MW3 2023 - 动视中文官网",
-          "url": "https://www.callofduty.com/cn/zh/modernwarfare3/home",
+          "title": "COD MW3 2023 - 动视官网",
+          "url": "https://www.callofduty.com/modernwarfare3",
           "date": "2026-04-13",
           "tag": "最新",
           "imgs": [
             "screenshots/cod-mw3-2023/home-1.webp",
-            "screenshots/cod-mw3-2023/home-2.webp",
-            "screenshots/cod-mw3-2023/home-3.webp",
-            "screenshots/cod-mw3-2023/home-4.webp",
-            "screenshots/cod-mw3-2023/home-5.webp",
-            "screenshots/cod-mw3-2023/home-6.webp",
-            "screenshots/cod-mw3-2023/home-7.webp",
-            "screenshots/cod-mw3-2023/home-8.webp"
+            "screenshots/cod-mw3-2023/home-2.webp"
           ]
         }
       ]
