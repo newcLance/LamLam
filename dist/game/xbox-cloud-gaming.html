@@ -107,7 +107,17 @@ document.addEventListener('alpine:init', function() {
   返回
   <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
 </a>
-<script>document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!e.target.closest('input,textarea,[contenteditable]')){window.location.href='../index.html';}});</script>
+<script>
+(function(){
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable]')) return;
+    // Don't navigate if lightbox is open (Alpine handles that)
+    try { if (window.Alpine && Alpine.store('lightbox') && Alpine.store('lightbox').open) return; } catch(x){}
+    window.location.href = '../index.html';
+  });
+})();
+</script>
 
 
 <div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
