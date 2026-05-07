@@ -1710,15 +1710,15 @@
       "module": "Official",
       "screens": [
         {
-          "title": "星刃 - Official",
-          "url": "https://www.playstation.com/games/stellar-blade/",
-          "date": "2026-04-23",
-          "tag": "长图",
+          "title": "Stellar Blade - 官网",
+          "url": "https://www.stellar-blade.com/",
+          "date": "2026-05-07",
+          "tag": "最新",
           "imgs": [
-            "screenshots/stellar-blade/home-full.webp",
             "screenshots/stellar-blade/home-1.webp",
             "screenshots/stellar-blade/home-2.webp",
-            "screenshots/stellar-blade/home-3.webp"
+            "screenshots/stellar-blade/home-3.webp",
+            "screenshots/stellar-blade/home-4.webp"
           ]
         }
       ]
