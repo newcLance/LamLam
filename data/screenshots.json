@@ -2253,5 +2253,23 @@
         }
       ]
     }
+  ],
+  "crossfire-hong": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "穿越火线：虹 - 官网",
+          "url": "https://cfh.qq.com",
+          "date": "2026-05-07",
+          "tag": "最新",
+          "imgs": [
+            "screenshots/crossfire-hong/home-1.webp",
+            "screenshots/crossfire-hong/home-2.webp",
+            "screenshots/crossfire-hong/home-3.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

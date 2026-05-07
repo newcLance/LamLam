@@ -2487,5 +2487,49 @@
     ],
     "lastUpdate": "2026-04-27",
     "slug": "ananta"
+  },
+  {
+    "id": 239,
+    "name": "CrossFire: Hong",
+    "nameCN": "穿越火线：虹",
+    "alias": "穿越火线虹,CF虹,CrossFire Hong,CFH",
+    "icon": "🔴",
+    "company": "琳琅天上 (腾讯)",
+    "category": "即将发售",
+    "region": "国产",
+    "platforms": [
+      "PC"
+    ],
+    "model": "免费+内购",
+    "genre": "PvPvE Horror Shooter",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2026",
+    "releaseDate": "2026",
+    "desc": "CF系列UE5次世代新作，非对称PvPvE微恐射击，琳琅天上开发。克苏鲁暗调风格，调查员vs玩家操控怪物的多方博弈。",
+    "features": [
+      "非对称PvPvE",
+      "微恐射击",
+      "UE5次世代",
+      "理智值系统",
+      "CF IP重生"
+    ],
+    "changes": [
+      {
+        "date": "2024-12",
+        "text": "CF嘉年华首曝实机演示"
+      },
+      {
+        "date": "2025-08",
+        "text": "科隆游戏展剧情前瞻视频"
+      },
+      {
+        "date": "2025-12",
+        "text": "非对称玩法实机预告"
+      }
+    ],
+    "lastUpdate": "2026-05-07",
+    "slug": "crossfire-hong"
   }
 ]
