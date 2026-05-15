@@ -318,5 +318,52 @@
         "reason": "同为<b>高速动作</b> + 多武器 Build + Capcom/Team Ninja 日系动作传承"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 背景", "source": "Steam", "url": "https://store.steampowered.com/app/601150/"},
+          {"title": "PlayStation Store — Special Edition", "source": "PlayStation", "url": "https://store.playstation.com/en-us/concept/227315"},
+          {"title": "IGDB 游戏页 — 评分 + 媒体素材", "source": "IGDB", "url": "https://www.igdb.com/games/devil-may-cry-5"},
+          {"title": "Capcom 官方页面 — DMC5 公式サイト", "source": "官网", "url": "https://www.devilmaycry.com/5/"},
+          {"title": "Steam 背景图直链", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/601150/page_bg_raw.jpg"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "ArtStation 搜索「Devil May Cry 5 official concept」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Devil%20May%20Cry%205%20official%20concept"},
+          {"title": "小红书搜索「鬼泣5 角色设计」", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E9%AC%BC%E6%B3%A35+%E8%A7%92%E8%89%B2%E8%AE%BE%E8%AE%A1"},
+          {"title": "X/Twitter 官方账号 @DevilMayCry", "source": "X/Twitter", "url": "https://x.com/DevilMayCry"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "ArtStation 搜索「Devil May Cry 5 concept art」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Devil%20May%20Cry%205%20concept%20art"},
+          {"title": "Pinterest 搜索「Devil May Cry 5 concept art」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Devil%20May%20Cry%205%20concept%20art"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "ArtStation 搜索「Devil May Cry 5 character Dante Vergil」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Devil%20May%20Cry%205%20character%20Dante%20Vergil"},
+          {"title": "Pinterest 搜索「Devil May Cry 5 character design」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Devil%20May%20Cry%205%20character%20design"},
+          {"title": "Behance 搜索「Devil May Cry」", "source": "Behance", "url": "https://www.behance.net/search/projects?search=Devil%20May%20Cry"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "Dribbble 搜索「Devil May Cry UI」", "source": "Dribbble", "url": "https://dribbble.com/search/Devil-May-Cry-UI"},
+          {"title": "ArtStation 搜索「Devil May Cry 5 texture material」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Devil%20May%20Cry%205%20texture%20material"},
+          {"title": "Pinterest 搜索「Devil May Cry texture」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Devil%20May%20Cry%20texture%20environment"}
+        ]
+      }
+    ]
   }
 }

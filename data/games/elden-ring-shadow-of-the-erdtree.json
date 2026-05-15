@@ -316,5 +316,52 @@
         "reason": "同为<b>魂系动作 RPG</b>，DLC 难度争议与明末的难度定位有共鸣"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 背景（本体 + DLC）", "source": "Steam", "url": "https://store.steampowered.com/app/1245620/"},
+          {"title": "PlayStation Store 商店页", "source": "PlayStation", "url": "https://www.playstation.com/en-us/games/elden-ring/"},
+          {"title": "IGDB 游戏页 — Shadow of the Erdtree", "source": "IGDB", "url": "https://www.igdb.com/games/elden-ring-shadow-of-the-erdtree"},
+          {"title": "Bandai Namco 官方页面", "source": "官网", "url": "https://www.bandainamcoent.com/games/elden-ring"},
+          {"title": "Steam 背景图直链", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/page_bg_raw.jpg"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "ArtStation 搜索「Elden Ring Shadow of the Erdtree official」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Elden%20Ring%20Shadow%20of%20the%20Erdtree%20official"},
+          {"title": "小红书搜索「艾尔登法环 黄金树幽影 概念设定」", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%89%BE%E5%B0%94%E7%99%BB%E6%B3%95%E7%8E%AF+%E9%BB%84%E9%87%91%E6%A0%91%E5%B9%BD%E5%BD%B1+%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"},
+          {"title": "X/Twitter 官方账号 @ELDENRING", "source": "X/Twitter", "url": "https://x.com/ELDENRING"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "ArtStation 搜索「Elden Ring concept art」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Elden%20Ring%20concept%20art"},
+          {"title": "Pinterest 搜索「Elden Ring Shadow of the Erdtree concept art」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Elden%20Ring%20Shadow%20of%20the%20Erdtree%20concept%20art"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "ArtStation 搜索「Elden Ring character design」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Elden%20Ring%20character%20design"},
+          {"title": "Pinterest 搜索「Elden Ring character design Messmer Miquella」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Elden%20Ring%20character%20design%20Messmer%20Miquella"},
+          {"title": "Behance 搜索「Elden Ring」", "source": "Behance", "url": "https://www.behance.net/search/projects?search=Elden%20Ring"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "Dribbble 搜索「Elden Ring UI」", "source": "Dribbble", "url": "https://dribbble.com/search/Elden-Ring-UI"},
+          {"title": "ArtStation 搜索「Elden Ring texture material」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Elden%20Ring%20texture%20material"},
+          {"title": "Pinterest 搜索「Elden Ring texture」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Elden%20Ring%20texture"}
+        ]
+      }
+    ]
   }
 }

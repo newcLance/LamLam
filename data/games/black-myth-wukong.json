@@ -322,5 +322,55 @@
         "reason": "同为<b>国产魂系动作 RPG</b> + 中国历史题材 + UE 引擎"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 背景", "source": "Steam", "url": "https://store.steampowered.com/app/2358720/"},
+          {"title": "PlayStation Store 商店页", "source": "PlayStation", "url": "https://store.playstation.com/en-us/concept/10007144"},
+          {"title": "Epic Games Store 商店页", "source": "Epic", "url": "https://store.epicgames.com/p/black-myth-wukong-87a72b"},
+          {"title": "IGDB 游戏页 — 评分 + 媒体素材", "source": "IGDB", "url": "https://www.igdb.com/games/black-myth-wukong"},
+          {"title": "官方网站 — 宣传图 + KV", "source": "官网", "url": "https://www.heishenhua.com"},
+          {"title": "Steam 背景图直链", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2358720/page_bg_raw.jpg"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "ArtStation — 飞龙宝杖武器设计（游戏科学概念设计师）", "source": "ArtStation", "url": "https://www.artstation.com/artwork/vbDVzY"},
+          {"title": "ArtStation — 部分关卡前期草稿场景概念", "source": "ArtStation", "url": "https://www.artstation.com/artwork/eRDENX"},
+          {"title": "ArtStation — 玄铁套装角色设计", "source": "ArtStation", "url": "https://www.artstation.com/artwork/XJg4on"},
+          {"title": "小红书搜索「黑神话悟空 概念设定」", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E9%BB%91%E7%A5%9E%E8%AF%9D%E6%82%9F%E7%A9%BA+%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"},
+          {"title": "X/Twitter 官方账号 @BlackMythGame", "source": "X/Twitter", "url": "https://x.com/BlackMythGame"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "ArtStation 搜索「Black Myth Wukong concept art」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Black%20Myth%20Wukong%20concept%20art"},
+          {"title": "Pinterest 搜索「Black Myth Wukong concept art」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Black%20Myth%20Wukong%20concept%20art"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "ArtStation 搜索「Black Myth Wukong character」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Black%20Myth%20Wukong%20character"},
+          {"title": "Pinterest 搜索「Black Myth Wukong character design」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Black%20Myth%20Wukong%20character%20design"},
+          {"title": "Behance 搜索「Black Myth Wukong」", "source": "Behance", "url": "https://www.behance.net/search/projects?search=Black%20Myth%20Wukong"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "Dribbble 搜索「Black Myth Wukong UI」", "source": "Dribbble", "url": "https://dribbble.com/search/Black-Myth-Wukong-UI"},
+          {"title": "ArtStation 搜索「Black Myth Wukong texture material」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Black%20Myth%20Wukong%20texture%20material"},
+          {"title": "Pinterest 搜索「Black Myth Wukong texture」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Black%20Myth%20Wukong%20texture"}
+        ]
+      }
+    ]
   }
 }

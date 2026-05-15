@@ -318,5 +318,52 @@
         "reason": "同为<b>东方题材 3A 动作</b> + Boss 战核心 + UE 级画面"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 背景", "source": "Steam", "url": "https://store.steampowered.com/app/814380/"},
+          {"title": "PlayStation Store — GOTY Edition", "source": "PlayStation", "url": "https://store.playstation.com/en-us/concept/232898"},
+          {"title": "IGDB 游戏页 — 评分 + 媒体素材", "source": "IGDB", "url": "https://www.igdb.com/games/sekiro-shadows-die-twice"},
+          {"title": "官方网站", "source": "官网", "url": "https://www.sekirothegame.com/"},
+          {"title": "Steam 背景图直链", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/814380/page_bg_raw.jpg"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "ArtStation 搜索「Sekiro Shadows Die Twice official concept」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Sekiro%20Shadows%20Die%20Twice%20official%20concept"},
+          {"title": "小红书搜索「只狼 概念设定图」", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%8F%AA%E7%8B%BC+%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A%E5%9B%BE"},
+          {"title": "X/Twitter 官方账号 @SekiroTheGame", "source": "X/Twitter", "url": "https://x.com/SekiroTheGame"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "ArtStation 搜索「Sekiro concept art」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Sekiro%20concept%20art"},
+          {"title": "Pinterest 搜索「Sekiro Shadows Die Twice concept art」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Sekiro%20Shadows%20Die%20Twice%20concept%20art"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "ArtStation 搜索「Sekiro character design」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Sekiro%20character%20design"},
+          {"title": "Pinterest 搜索「Sekiro character design wolf prosthetic」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Sekiro%20character%20design%20wolf%20prosthetic"},
+          {"title": "Behance 搜索「Sekiro」", "source": "Behance", "url": "https://www.behance.net/search/projects?search=Sekiro"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "Dribbble 搜索「Sekiro UI」", "source": "Dribbble", "url": "https://dribbble.com/search/Sekiro-UI"},
+          {"title": "ArtStation 搜索「Sekiro texture material」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Sekiro%20texture%20material"},
+          {"title": "Pinterest 搜索「Sekiro texture」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Sekiro%20texture%20environment"}
+        ]
+      }
+    ]
   }
 }

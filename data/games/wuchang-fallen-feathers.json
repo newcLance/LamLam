@@ -322,5 +322,52 @@
         "reason": "同为<b>东方历史架空</b> + 魂系 RPG + 妖怪/超自然元素"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 背景", "source": "Steam", "url": "https://store.steampowered.com/app/2238070/"},
+          {"title": "PlayStation Store 商店页", "source": "PlayStation", "url": "https://www.playstation.com/en-us/games/wuchang-fallen-feathers/"},
+          {"title": "Epic Games Store 商店页", "source": "Epic", "url": "https://store.epicgames.com/p/wuchang-fallen-feathers-b73462"},
+          {"title": "IGDB 游戏页 — 评分 + 媒体素材", "source": "IGDB", "url": "https://www.igdb.com/games/wuchang-fallen-feathers"},
+          {"title": "Steam 背景图直链", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2238070/page_bg_raw.jpg"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "ArtStation 搜索「Wuchang Fallen Feathers official concept」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Wuchang%20Fallen%20Feathers%20official%20concept"},
+          {"title": "小红书搜索「明末渊虚之羽 概念设定」", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%98%8E%E6%9C%AB%E6%B8%8A%E8%99%9A%E4%B9%8B%E7%BE%BD+%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"},
+          {"title": "X/Twitter 官方账号 @playWUCHANG", "source": "X/Twitter", "url": "https://x.com/playWUCHANG"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "ArtStation 搜索「Wuchang Fallen Feathers concept art」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Wuchang%20Fallen%20Feathers%20concept%20art"},
+          {"title": "Pinterest 搜索「Wuchang Fallen Feathers concept art」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Wuchang%20Fallen%20Feathers%20concept%20art"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "ArtStation 搜索「Wuchang Fallen Feathers character」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Wuchang%20Fallen%20Feathers%20character"},
+          {"title": "Pinterest 搜索「Wuchang Fallen Feathers character design」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Wuchang%20Fallen%20Feathers%20character%20design"},
+          {"title": "Behance 搜索「Wuchang Fallen Feathers」", "source": "Behance", "url": "https://www.behance.net/search/projects?search=Wuchang%20Fallen%20Feathers"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "Dribbble 搜索「Wuchang Fallen Feathers UI」", "source": "Dribbble", "url": "https://dribbble.com/search/Wuchang-Fallen-Feathers-UI"},
+          {"title": "ArtStation 搜索「Wuchang Fallen Feathers texture material」", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=Wuchang%20Fallen%20Feathers%20texture%20material"},
+          {"title": "Pinterest 搜索「Ming Dynasty texture」", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=Ming%20Dynasty%20game%20texture%20environment"}
+        ]
+      }
+    ]
   }
 }
