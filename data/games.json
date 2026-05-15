@@ -2531,5 +2531,70 @@
     ],
     "lastUpdate": "2026-05-07",
     "slug": "crossfire-hong"
+  },
+  {
+    "id": 240,
+    "name": "Out of Control",
+    "nameCN": "失控进化",
+    "alias": "失控进化,Out of Control,SKJH",
+    "icon": "🧬",
+    "company": "腾讯天美",
+    "category": "即将发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "Mobile"
+    ],
+    "model": "免费+内购",
+    "genre": "Shooter",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025",
+    "releaseDate": "2025",
+    "desc": "天美工作室群开发的第三人称生存射击游戏，融合变异进化机制，支持多人合作与对抗。",
+    "features": [
+      "第三人称射击",
+      "变异进化",
+      "多人合作",
+      "生存",
+      "天美出品"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-05-15",
+    "slug": "out-of-control"
+  },
+  {
+    "id": 241,
+    "name": "Rainbow Six Siege X",
+    "nameCN": "彩虹六号：围攻X",
+    "alias": "彩虹六号围攻X,R6 Siege X,Rainbow Six X,R6X,Siege X",
+    "icon": "🛡️",
+    "company": "Ubisoft Montreal",
+    "category": "已运营",
+    "region": "海外",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series"
+    ],
+    "model": "买断+内购",
+    "genre": "Shooter",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2015",
+    "releaseDate": "2025",
+    "desc": "《彩虹六号：围攻》Y11赛季品牌焕新版本，10周年重大更新，全新视觉系统与战术深度。",
+    "features": [
+      "5v5战术射击",
+      "可破坏环境",
+      "干员系统",
+      "Y11品牌焕新",
+      "10周年"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-05-15",
+    "slug": "rainbow-six-siege-x"
   }
 ]
