@@ -312,5 +312,52 @@
         "reason": "同为高评分RPG新作——<b>中国水墨vs法式油画</b>的东西方风格化差异"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 胶囊图 + 背景", "source": "Steam", "url": "https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/"},
+          {"title": "Epic Games Store — Key Art / 封面 / 截图", "source": "Epic", "url": "https://store.epicgames.com/en-US/p/expedition-33-b3240d"},
+          {"title": "PlayStation Store — 封面 / 背景 / 截图", "source": "PlayStation", "url": "https://store.playstation.com/en-us/concept/10008503"},
+          {"title": "IGDB — 截图 / 封面 / Artwork 聚合", "source": "IGDB", "url": "https://www.igdb.com/games/clair-obscur-expedition-33"},
+          {"title": "Steam 页面背景（高清直链）", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1903340/page_bg_raw.jpg"},
+          {"title": "搜索「光与影33号远征队」— 玩家壁纸 / 截图", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%85%89%E4%B8%8E%E5%BD%B133%E5%8F%B7%E8%BF%9C%E5%BE%81%E9%98%9F"},
+          {"title": "@expeditionabordd — 官方截图 / 概念图 / 更新", "source": "X", "url": "https://x.com/ExpeditionAbord"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "搜索 Clair Obscur Expedition 33 Art", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=clair%20obscur%20expedition%2033"},
+          {"title": "IGDB Press Kit — Key Art / Logo / 官方截图", "source": "IGDB", "url": "https://www.igdb.com/games/305152/presskit"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "搜索 Clair Obscur Expedition 33 Concept Art", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=clair%20obscur%20expedition%2033%20concept%20art"},
+          {"title": "法式油画风 RPG 场景设计", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=clair%20obscur%20expedition%2033%20concept%20art%20belle%20epoque"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "搜索 Expedition 33 Character Design", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=expedition%2033%20character%20design"},
+          {"title": "Belle Époque 角色设计参考", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=belle%20epoque%20fantasy%20character%20design%20rpg"},
+          {"title": "搜索 Clair Obscur Expedition 33", "source": "Behance", "url": "https://www.behance.net/search/projects?search=clair+obscur+expedition+33"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "搜索油画风格游戏 UI", "source": "Dribbble", "url": "https://dribbble.com/search/oil-painting-game-ui"},
+          {"title": "印象派纹理 / 法式复古材质", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=impressionist%20game%20ui%20texture%20belle%20epoque"}
+        ]
+      }
+    ]
   }
 }

@@ -318,5 +318,52 @@
         "reason": "同为 RPG 品类，<b>回合指令 vs 即时战斗的 UI 设计差异可供参考</b>"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 胶囊图 + 背景", "source": "Steam", "url": "https://store.steampowered.com/app/2909400/FINAL_FANTASY_VII_REBIRTH/"},
+          {"title": "PlayStation Store — 封面 / 背景 / 截图", "source": "PlayStation", "url": "https://store.playstation.com/zh-hant-hk/concept/10003999"},
+          {"title": "IGDB — 截图 / 封面 / Artwork 聚合", "source": "IGDB", "url": "https://www.igdb.com/games/final-fantasy-vii-rebirth"},
+          {"title": "官方网站 — Key Art / 角色插画 / 壁纸", "source": "官网", "url": "https://ffvii.square-enix-games.com/games/rebirth/"},
+          {"title": "Steam 页面背景（高清直链）", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2909400/page_bg_raw.jpg"},
+          {"title": "搜索「最终幻想7重生」— 玩家壁纸 / 角色图", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%9C%80%E7%BB%88%E5%B9%BB%E6%83%B37%E9%87%8D%E7%94%9F"},
+          {"title": "@finalfantasyvii — 官方截图 / Key Art / 预告", "source": "X", "url": "https://x.com/finalfantasyvii"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "IGDB Press Kit — Key Art / Logo / 官方截图", "source": "IGDB", "url": "https://www.igdb.com/games/final-fantasy-vii-rebirth/presskit"},
+          {"title": "搜索 FF7 Rebirth 3D 角色模型", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=final%20fantasy%20vii%20rebirth"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "搜索 Final Fantasy VII Rebirth Concept Art", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=final%20fantasy%20vii%20rebirth%20concept%20art"},
+          {"title": "FF7 Rebirth 场景 / 环境设计", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=final%20fantasy%20vii%20rebirth%20environment%20concept%20art"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "搜索 FF7 Rebirth Character Design", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=final%20fantasy%20vii%20rebirth%20character"},
+          {"title": "FF7 角色设计参考", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=final%20fantasy%207%20rebirth%20character%20design"},
+          {"title": "搜索 Final Fantasy VII Rebirth", "source": "Behance", "url": "https://www.behance.net/search/projects?search=final+fantasy+vii+rebirth"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "搜索 JRPG UI Design", "source": "Dribbble", "url": "https://dribbble.com/search/jrpg-game-ui"},
+          {"title": "JRPG 战斗 HUD / 菜单设计", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=jrpg%20battle%20ui%20hud%20design%20final%20fantasy"}
+        ]
+      }
+    ]
   }
 }

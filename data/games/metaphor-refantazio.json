@@ -313,5 +313,52 @@
         "reason": "同为2024年度大作——<b>中世纪幻想 vs 中国神话</b>的文化美学差异"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 胶囊图 + 背景", "source": "Steam", "url": "https://store.steampowered.com/app/2679460/Metaphor_ReFantazio/"},
+          {"title": "PlayStation Store — 封面 / 背景 / 截图", "source": "PlayStation", "url": "https://store.playstation.com/zh-hant-hk/concept/10001029"},
+          {"title": "IGDB — 截图 / 封面 / Artwork 聚合", "source": "IGDB", "url": "https://www.igdb.com/games/metaphor-refantazio"},
+          {"title": "Steam 页面背景（高清直链）", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2679460/page_bg_raw.jpg"},
+          {"title": "搜索「暗喻幻想」— 玩家壁纸 / UI 截图", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%9A%97%E5%96%BB%E5%B9%BB%E6%83%B3"},
+          {"title": "@Atlus_West — 官方截图 / Key Art / 预告", "source": "X", "url": "https://x.com/Atlus_West"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "搜索 Metaphor ReFantazio 角色 / 概念设计", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=metaphor%20refantazio"},
+          {"title": "副島成記角色设定图——GDC 2025 UI 设计分享", "source": "Game Scanner", "url": "https://game-scanner.com/articles/metaphor-refantazio-s-ui-breaks-free-from-persona-s-influence"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "搜索 Metaphor ReFantazio Concept Art", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=metaphor%20refantazio%20concept%20art"},
+          {"title": "中世纪奇幻 RPG 概念美术", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=metaphor%20refantazio%20concept%20art%20medieval%20fantasy"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "搜索 Metaphor ReFantazio Character Design", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=metaphor%20refantazio%20character"},
+          {"title": "Atlus 风格化角色设计", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=atlus%20metaphor%20refantazio%20character%20design"},
+          {"title": "搜索 Metaphor ReFantazio", "source": "Behance", "url": "https://www.behance.net/search/projects?search=metaphor+refantazio"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "Atlus 风格化 UI 设计参考合集", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=metaphor%20refantazio%20ui%20screenshot%20menu"},
+          {"title": "搜索 Atlus RPG UI Design", "source": "Dribbble", "url": "https://dribbble.com/search/atlus-rpg-ui"},
+          {"title": "Atlus 风格化 UI / 中世纪手抄本纹理", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=atlus%20persona%20metaphor%20ui%20design%20medieval"}
+        ]
+      }
+    ]
   }
 }

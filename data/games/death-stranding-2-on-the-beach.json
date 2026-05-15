@@ -318,5 +318,52 @@
         "reason": "<b>同为末世开放世界——诗意荒凉vs硬核生存的末世美学对比</b>"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 胶囊图", "source": "Steam", "url": "https://store.steampowered.com/app/2444480/DEATH_STRANDING_2_ON_THE_BEACH/"},
+          {"title": "PlayStation 官方游戏页 — 封面 / 截图 / 介绍", "source": "PlayStation", "url": "https://www.playstation.com/en-us/games/death-stranding-2-on-the-beach/"},
+          {"title": "IGDB — 截图 / 封面 / Artwork 聚合", "source": "IGDB", "url": "https://www.igdb.com/games/death-stranding-2-on-the-beach"},
+          {"title": "官方网站 — 首页视觉 / Logo / 角色海报", "source": "官网", "url": "https://www.kojimaproductions.jp/en/death-stranding-2"},
+          {"title": "Steam 头图 Header（高清直链）", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2444480/header.jpg"},
+          {"title": "搜索「死亡搁浅2」— 玩家壁纸 / 截图整理", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%AD%BB%E4%BA%A1%E6%90%81%E6%B5%852"},
+          {"title": "@KojiPro2015_EN — 官方截图 / 海报 / 开发动态", "source": "X", "url": "https://x.com/KojiPro2015_EN"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "搜索 Death Stranding 2 角色 / 概念设计", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=death%20stranding%202"},
+          {"title": "IGDB Press Kit — Key Art / Logo / 官方截图", "source": "IGDB", "url": "https://www.igdb.com/games/death-stranding-2-on-the-beach/presskit"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "搜索 Death Stranding 2 Concept Art", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=death%20stranding%202%20concept%20art"},
+          {"title": "末世诗意 / 冰岛荒野概念美术", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=death%20stranding%202%20concept%20art%20post%20apocalyptic"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "搜索 Death Stranding 2 Character Design", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=death%20stranding%202%20character"},
+          {"title": "科幻功能主义角色设计", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=death%20stranding%20character%20design%20sci-fi%20porter"},
+          {"title": "搜索 Death Stranding 2", "source": "Behance", "url": "https://www.behance.net/search/projects?search=death+stranding+2"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "搜索科幻全息 HUD 设计", "source": "Dribbble", "url": "https://dribbble.com/search/sci-fi-holographic-hud-game-ui"},
+          {"title": "末世科幻 UI / 全息投影纹理", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=death%20stranding%20sci-fi%20holographic%20ui%20design"}
+        ]
+      }
+    ]
   }
 }
