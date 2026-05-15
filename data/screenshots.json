@@ -787,6 +787,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Black Myth: Wukong - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/black-myth-wukong/cover.webp"
+          ]
+        },
+        {
           "title": "黑神话：悟空 - 游戏科学官网",
           "url": "https://gamesci.cn/wukong/",
           "date": "2026-04-24",
@@ -809,6 +816,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Elden Ring: Shadow of the Erdtree - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/elden-ring-shadow-of-the-erdtree/cover.webp"
+          ]
+        },
         {
           "title": "艾尔登法环 - Bandai Namco 官网",
           "url": "https://eldenring.bn-ent.net/sc/",
@@ -834,6 +848,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Astro Bot - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/astro-bot/cover.webp"
+          ]
+        },
+        {
           "title": "Astro Bot - Team Asobi 官网",
           "url": "https://www.teamasobi.com/games/astro-bot",
           "date": "2026-04-10",
@@ -851,6 +872,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Final Fantasy VII Rebirth - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/final-fantasy-vii-rebirth/cover.webp"
+          ]
+        },
         {
           "title": "FF7 Rebirth - Square Enix 官网",
           "url": "https://ffvii.square-enix-games.com/en-us/games/rebirth",
@@ -873,6 +901,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Metaphor: ReFantazio - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/metaphor-refantazio/cover.webp"
+          ]
+        },
+        {
           "title": "Metaphor: ReFantazio - Atlus 官网",
           "url": "https://www.sega.com/metaphor/metaphor-refantazio",
           "date": "2026-04-10",
@@ -888,6 +923,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Clair Obscur: Expedition 33 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/clair-obscur-expedition-33/cover.webp"
+          ]
+        },
         {
           "title": "Clair Obscur - Bandai Namco 官网",
           "url": "https://en.bandainamcoent.eu/clair-obscur/clair-obscur-expedition-33",
@@ -910,6 +952,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Death Stranding 2: On the Beach - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/death-stranding-2-on-the-beach/cover.webp"
+          ]
+        },
+        {
           "title": "死亡搁浅2：冥滩之上 - Kojima Productions",
           "url": "https://www.kojimaproductions.jp/en/death-stranding-2",
           "date": "2026-04-24",
@@ -930,6 +979,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Doom: The Dark Ages - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/doom-the-dark-ages/cover.webp"
+          ]
+        },
         {
           "title": "DOOM: The Dark Ages - Bethesda 官网",
           "url": "https://doom.bethesda.net/en-US/the-dark-ages",
@@ -966,6 +1022,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Nioh 3 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/nioh-3/cover.webp"
+          ]
+        },
+        {
           "title": "仁王3 - Team Ninja 官方产品页",
           "url": "https://teamninja-studio.com/nioh3/us/",
           "date": "2026-04-22",
@@ -988,6 +1051,13 @@
     {
       "module": "官网",
       "screens": [
+        {
+          "title": "Sekiro: Shadows Die Twice - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/sekiro-shadows-die-twice/cover.webp"
+          ]
+        },
         {
           "title": "只狼：影逝二度 - 官网首页",
           "url": "https://www.sekiro.jp/",
@@ -1065,6 +1135,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Devil May Cry 5 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/devil-may-cry-5/cover.webp"
+          ]
+        },
+        {
           "title": "鬼泣5 - Capcom 官网",
           "url": "https://www.devilmaycry.com/5/",
           "date": "2026-04-22",
@@ -1080,6 +1157,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Where Winds Meet - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/where-winds-meet/cover.webp"
+          ]
+        },
         {
           "title": "燕云十六声 - 网易 Everstone 官网",
           "url": "https://www.yysls.cn/",
@@ -1101,6 +1185,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Wuchang: Fallen Feathers - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/wuchang-fallen-feathers/cover.webp"
+          ]
+        },
         {
           "title": "明末：渊虚之羽 - 官网",
           "url": "https://wuchanggame.com/sc/",
@@ -1144,6 +1235,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Counter-Strike 2 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/counter-strike-2/cover.webp"
+          ]
+        },
+        {
           "title": "Counter-Strike 2 - Valve 官网",
           "url": "https://www.counter-strike.net/",
           "date": "2026-04-13",
@@ -1163,6 +1261,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Atomic Heart - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/atomic-heart/cover.webp"
+          ]
+        },
         {
           "title": "原子之心 - Mundfish 官网",
           "url": "https://mundfish.com/en/projects/atomic-heart",
@@ -1186,6 +1291,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Avatar: Frontiers of Pandora - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/avatar-frontiers-of-pandora/cover.webp"
+          ]
+        },
         {
           "title": "阿凡达 - Ubisoft 官网",
           "url": "https://www.ubisoft.com/en-gb/game/avatar/frontiers-of-pandora",
@@ -1227,6 +1339,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Helldivers 2 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/helldivers-2/cover.webp"
+          ]
+        },
+        {
           "title": "绝地潜兵2 - PlayStation 官网",
           "url": "https://www.playstation.com/en-us/games/helldivers-2/",
           "date": "2026-04-13",
@@ -1249,6 +1368,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Call of Duty: Black Ops 6 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/call-of-duty-black-ops-6/cover.webp"
+          ]
+        },
         {
           "title": "COD BO6 - 官网",
           "url": "https://www.callofduty.com/blackops6",
@@ -1319,6 +1445,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Killing Floor 3 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/killing-floor-3/cover.webp"
+          ]
+        },
+        {
           "title": "Killing Floor 3 - 官网",
           "url": "https://killingfloor3.com/",
           "date": "2026-04-13",
@@ -1338,6 +1471,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Indiana Jones and the Great Circle - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/indiana-jones-and-the-great-circle/cover.webp"
+          ]
+        },
+        {
           "title": "Indiana Jones - Bethesda 官网",
           "url": "https://bethesda.net/en/game/indiana-jones",
           "date": "2026-04-14",
@@ -1355,6 +1495,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "S.T.A.L.K.E.R. 2: Heart of Chornobyl - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/s-t-a-l-k-e-r-2-heart-of-chornobyl/cover.webp"
+          ]
+        },
         {
           "title": "S.T.A.L.K.E.R. 2 - GSC Game World 官网",
           "url": "https://www.stalker2.com/",
@@ -1374,6 +1521,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "Atomfall - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/atomfall/cover.webp"
+          ]
+        },
+        {
           "title": "Atomfall - Rebellion 官网",
           "url": "https://www.atomfall.com/",
           "date": "2026-04-14",
@@ -1391,6 +1545,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Dying Light: The Beast - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/dying-light-the-beast/cover.webp"
+          ]
+        },
         {
           "title": "Dying Light: The Beast - Techland 官网",
           "url": "https://dyinglightgame.com/",
@@ -1428,6 +1589,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "High on Life 2 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/high-on-life-2/cover.webp"
+          ]
+        },
+        {
           "title": "High on Life 2 - Squanch Games 官网",
           "url": "https://www.squanchgames.com/",
           "date": "2026-04-23",
@@ -1446,6 +1614,13 @@
       "module": "官网首页",
       "screens": [
         {
+          "title": "The Outer Worlds 2 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/the-outer-worlds-2/cover.webp"
+          ]
+        },
+        {
           "title": "The Outer Worlds 2 - Obsidian 官网",
           "url": "https://outerworlds2.obsidian.net/",
           "date": "2026-04-14",
@@ -1463,6 +1638,13 @@
     {
       "module": "官网首页",
       "screens": [
+        {
+          "title": "Phantom Blade Zero - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/phantom-blade-zero/cover.webp"
+          ]
+        },
         {
           "title": "影之刃零 - S-GAME 官网",
           "url": "https://pbz.s-game.com/",
@@ -1484,6 +1666,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "Baldur's Gate 3 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/baldurs-gate-3/cover.webp"
+          ]
+        },
         {
           "title": "Baldur's Gate 3 - Official",
           "url": "https://baldursgate3.game/",
@@ -1514,6 +1703,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "God of War - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/god-of-war/cover.webp"
+          ]
+        },
+        {
           "title": "God of War - Official",
           "url": "https://www.playstation.com/en-us/god-of-war/",
           "date": "2026-04-23",
@@ -1540,6 +1736,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Ghost of Tsushima DIRECTOR'S CUT - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/ghost-of-tsushima/cover.webp"
+          ]
+        },
+        {
           "title": "Ghost of Tsushima DIRECTOR'S CUT - Official",
           "url": "https://www.playstation.com/en-us/games/ghost-of-tsushima/pc/",
           "date": "2026-04-23",
@@ -1560,6 +1763,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "SILENT HILL 2 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/silent-hill-2/cover.webp"
+          ]
+        },
+        {
           "title": "SILENT HILL 2 - Official",
           "url": "https://www.konami.com/games/silenthill/2r/",
           "date": "2026-04-23",
@@ -1575,6 +1785,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "Hollow Knight: Silksong - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/hollow-knight-silksong/cover.webp"
+          ]
+        },
         {
           "title": "Hollow Knight: Silksong - Official",
           "url": "https://hollowknightsilksong.com/",
@@ -1597,6 +1814,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Hades II - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/hades-2/cover.webp"
+          ]
+        },
+        {
           "title": "Hades II - Official",
           "url": "https://www.supergiantgames.com/games/hades-ii/",
           "date": "2026-04-23",
@@ -1615,6 +1839,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "Persona 5 Royal - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/persona-5-royal/cover.webp"
+          ]
+        },
         {
           "title": "Persona 5 Royal - Official",
           "url": "https://asia.sega.com/persona-remaster/p5r/cn/",
@@ -1639,6 +1870,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "Hi-Fi RUSH - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/hi-fi-rush/cover.webp"
+          ]
+        },
         {
           "title": "Hi-Fi RUSH - Official",
           "url": "https://hifirush.krafton.com/",
@@ -1668,6 +1906,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Kingdom Come: Deliverance II - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/kingdom-come-deliverance-2/cover.webp"
+          ]
+        },
+        {
           "title": "Kingdom Come: Deliverance II - Official",
           "url": "https://www.deepsilver.com/games/kingdom-come-deliverance-ii",
           "date": "2026-04-23",
@@ -1691,6 +1936,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Stray - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/stray/cover.webp"
+          ]
+        },
+        {
           "title": "Stray - Official",
           "url": "https://annapurnainteractive.com/games/stray",
           "date": "2026-04-23",
@@ -1710,6 +1962,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Stellar Blade - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/stellar-blade/cover.webp"
+          ]
+        },
+        {
           "title": "Stellar Blade - 官网",
           "url": "https://www.stellar-blade.com/",
           "date": "2026-05-07",
@@ -1728,6 +1987,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "Resident Evil Village - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/resident-evil-village/cover.webp"
+          ]
+        },
         {
           "title": "生化危机：村庄 - Official",
           "url": "https://www.residentevil.com/village/",
@@ -1758,6 +2024,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Hogwarts Legacy - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/hogwarts-legacy/cover.webp"
+          ]
+        },
+        {
           "title": "霍格沃茨之遗 - Official",
           "url": "https://www.hogwartslegacy.com/",
           "date": "2026-04-23",
@@ -1777,6 +2050,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "Cyberpunk 2077 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/cyberpunk-2077/cover.webp"
+          ]
+        },
         {
           "title": "赛博朋克2077 - Official",
           "url": "https://www.cyberpunk.net",
@@ -1798,6 +2078,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Marvel's Spider-Man Remastered - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/marvels-spider-man-remastered/cover.webp"
+          ]
+        },
+        {
           "title": "漫威蜘蛛侠 - Official",
           "url": "https://insomniac.games/game/marvels-spider-man-remastered/",
           "date": "2026-04-23",
@@ -1814,6 +2101,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Inscryption - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/inscryption/cover.webp"
+          ]
+        },
+        {
           "title": "邪恶冥刻 - Official",
           "url": "https://www.inscryption-game.com",
           "date": "2026-04-23",
@@ -1829,6 +2123,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "DAVE THE DIVER - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/dave-the-diver/cover.webp"
+          ]
+        },
         {
           "title": "潜水员戴夫 - Official",
           "url": "https://www.mintrock.et/en/",
@@ -1851,6 +2152,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "SIGNALIS - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/signalis/cover.webp"
+          ]
+        },
+        {
           "title": "信号 - Official",
           "url": "http://rose-engine.org/signalis/",
           "date": "2026-04-23",
@@ -1872,6 +2180,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Split Fiction - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/split-fiction/cover.webp"
+          ]
+        },
+        {
           "title": "分裂虚构 - Official",
           "url": "https://www.ea.com/games/split-fiction",
           "date": "2026-04-23",
@@ -1890,6 +2205,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "Days Gone - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/days-gone/cover.webp"
+          ]
+        },
         {
           "title": "往日不再 - Official",
           "url": "https://www.playstation.com/games/days-gone/",
@@ -1916,6 +2238,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Balatro - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/balatro/cover.webp"
+          ]
+        },
+        {
           "title": "小丑牌 - Official",
           "url": "https://www.playbalatro.com/",
           "date": "2026-04-23",
@@ -1934,6 +2263,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "Cult of the Lamb - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/cult-of-the-lamb/cover.webp"
+          ]
+        },
         {
           "title": "咩咩启示录 - Official",
           "url": "https://massivemonster.com/games/cult-of-the-lamb",
@@ -1956,6 +2292,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "DREDGE - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/dredge/cover.webp"
+          ]
+        },
         {
           "title": "疏浚 - Official",
           "url": "https://www.dredge.game/",
@@ -1981,6 +2324,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Satisfactory - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/satisfactory/cover.webp"
+          ]
+        },
+        {
           "title": "幸福工厂 - Official",
           "url": "https://www.satisfactorygame.com/",
           "date": "2026-04-23",
@@ -2002,6 +2352,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Teardown - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/teardown/cover.webp"
+          ]
+        },
+        {
           "title": "拆迁 - Official",
           "url": "http://teardowngame.com",
           "date": "2026-04-23",
@@ -2021,6 +2378,13 @@
       "name": "Official Site",
       "screens": [
         {
+          "title": "Vampire Survivors - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/vampire-survivors/cover.webp"
+          ]
+        },
+        {
           "title": "Homepage",
           "imgs": [
             "screenshots/vampire-survivors/home-full.webp",
@@ -2036,6 +2400,13 @@
     {
       "name": "Official Site",
       "screens": [
+        {
+          "title": "Pizza Tower - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/pizza-tower/cover.webp"
+          ]
+        },
         {
           "title": "Homepage",
           "imgs": [
@@ -2054,6 +2425,13 @@
       "name": "Official Site",
       "screens": [
         {
+          "title": "Lethal Company - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/lethal-company/cover.webp"
+          ]
+        },
+        {
           "title": "Homepage",
           "imgs": [
             "screenshots/lethal-company/home-full.webp",
@@ -2070,6 +2448,13 @@
     {
       "name": "Official Site",
       "screens": [
+        {
+          "title": "Dyson Sphere Program - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/dyson-sphere-program/cover.webp"
+          ]
+        },
         {
           "title": "Homepage",
           "imgs": [
@@ -2090,6 +2475,13 @@
       "name": "Official Site",
       "screens": [
         {
+          "title": "The Planet Crafter - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/the-planet-crafter/cover.webp"
+          ]
+        },
+        {
           "title": "Homepage",
           "imgs": [
             "screenshots/the-planet-crafter/home-1.webp"
@@ -2102,6 +2494,13 @@
     {
       "module": "Official",
       "screens": [
+        {
+          "title": "Disco Elysium - The Final Cut - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/disco-elysium/cover.webp"
+          ]
+        },
         {
           "title": "Disco Elysium - The Final Cut - Official",
           "url": "https://discoelysium.com",
@@ -2194,6 +2593,13 @@
       "module": "Official",
       "screens": [
         {
+          "title": "Zenless Zone Zero - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/zenless-zone-zero/cover.webp"
+          ]
+        },
+        {
           "title": "Zenless Zone Zero - Official",
           "url": "https://zzz.mihoyo.com/main/",
           "date": "2026-04-27",
@@ -2276,6 +2682,13 @@
     {
       "module": "官网",
       "screens": [
+        {
+          "title": "Out of Control - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/out-of-control/cover.webp"
+          ]
+        },
         {
           "title": "Out of Control - 官网首页",
           "url": "https://skjh.qq.com/",
