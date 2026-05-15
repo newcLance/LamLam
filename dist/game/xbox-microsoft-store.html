@@ -120,7 +120,7 @@ document.addEventListener('alpine:init', function() {
 </script>
 
 
-<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+<div id="sec-header" class="relative w-full overflow-hidden">
   
   
   <div class="absolute inset-0 z-0">
@@ -183,7 +183,7 @@ document.addEventListener('alpine:init', function() {
 </div>
 
 
-<div x-data class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
 
   
   
@@ -428,6 +428,9 @@ document.addEventListener('alpine:init', function() {
   
   
 
+  
+  
+
 </div>
 
 
@@ -517,9 +520,10 @@ function anchorNav() {
         {id:'sec-header',     label:'基本信息'},
         {id:'sec-screenshots', label:'官网截图'},
         {id:'sec-timeline',    label:'时间线'},
-        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-worldview',   label:'游戏世界观'},
         {id:'sec-story',       label:'IP/故事'},
         {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
         {id:'sec-rivals',      label:'竞品推荐'}
       ];
       this.sections = defs.filter(function(d) {

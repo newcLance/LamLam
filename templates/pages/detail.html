@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros/cards.html" import pex_item, aes_card, story_card %}
+{% from "macros/cards.html" import pex_item, aes_card, story_card, worldview_card %}
 {% set g = game %}
 
 {% block title %}{{ g.nameCN or g.name }} - 游戏竞品分析{% endblock %}
@@ -33,7 +33,7 @@
 </script>
 
 {# ===== HERO BANNER ===== #}
-<div id="sec-header" class="relative w-full overflow-hidden" style="min-height:340px">
+<div id="sec-header" class="relative w-full overflow-hidden">
   {# Blurred background screenshot #}
   {% if hero_bg %}
   <div class="absolute inset-0 z-0">
@@ -84,7 +84,7 @@
 </div>
 
 {# ===== MAIN CONTENT ===== #}
-<div x-data class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
 
   {# ===== SCREENSHOTS ===== #}
   {% if ss %}
@@ -218,6 +218,109 @@
   </section>
   {% endif %}
 
+  {# ===== WORLDVIEW (4 dimensions: background / main story / combat / core loop) ===== #}
+  {% if g.worldview %}
+  <section id="sec-worldview" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      游戏世界观
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {% for key in ["background","mainStory","combat","coreLoop"] %}
+      {% if g.worldview[key] %}
+      {{ worldview_card(key, g.worldview[key]) }}
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {# ===== IP / STORY ===== #}
+  {% if g.story %}
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    {{ story_card(g.story) }}
+  </section>
+  {% endif %}
+
+  {# ===== AESTHETIC PROFILE ===== #}
+  {% if g.aesthetic %}
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+
+    {# === Summary: 美学综述（统领整个模块） === #}
+    {% if g.aesthetic.summary %}
+    {% set s = g.aesthetic.summary %}
+    {% set ref_type_label = {
+      "game": "游戏", "film": "电影", "anime": "动画", "manga": "漫画", "show": "剧集"
+    } %}
+    <div class="rounded-xl border border-white/[.08] bg-white/[.02] p-6 mb-8">
+      {% if s.label %}
+      <div class="flex items-baseline gap-3 mb-5 pb-5 border-b border-white/[.06]">
+        <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">AESTHETIC LABEL</span>
+        <span class="text-[20px] md:text-[22px] font-extrabold text-white tracking-tight">{{ s.label }}</span>
+      </div>
+      {% endif %}
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+        {% if s.definition %}
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q1 · 这是什么美学</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">{{ s.definition }}</p>
+        </div>
+        {% endif %}
+
+        {% if s.evolution %}
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q2 · 共识如何发展</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">{{ s.evolution }}</p>
+        </div>
+        {% endif %}
+      </div>
+
+      {% if s.references %}
+      <div class="mt-6 pt-6 border-t border-white/[.06]">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-3">Q3 · 借鉴谱系（值得美术设计参考的游戏 / 电影 / 动漫 / 剧集）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+          {% for r in s.references %}
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              {{ ref_type_label.get(r.type, r.type|upper) }}
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                {{ r.title }}
+                {% if r.year %}<span class="text-[11px] text-neutral-600 font-normal ml-1">· {{ r.year }}</span>{% endif %}
+              </div>
+              {% if r.note %}
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text">{{ r.note }}</div>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {# === 5 维度原则落地卡片 === #}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {% for key in ["scene","costume","ui","symbol","promo"] %}
+      {% if g.aesthetic[key] %}
+      {{ aes_card(key, g.aesthetic[key]) }}
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   {# ===== PLAYER EXPERIENCE CHECKLIST ===== #}
   {% if g.playerExp %}
   <section id="sec-playerexp" class="mb-14">
@@ -226,11 +329,12 @@
       玩家游戏体验清单
     </h2>
     <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
-         x-data="{ tab: 'media' }">
-      {# Tabs #}
+         x-data="{ tab: '{% if g.playerExp.biliVideos %}bili{% else %}media{% endif %}' }">
+      {# Tabs — bili 优先展示 #}
       <div class="flex border-b border-bdr">
-        {% set tabs = [("media","媒体试玩评测"),("community","玩家社区讨论")] %}
+        {% set tabs = [] %}
         {% if g.playerExp.biliVideos %}{% set tabs = tabs + [("bili","B站试玩视频")] %}{% endif %}
+        {% set tabs = tabs + [("media","媒体试玩评测"),("community","玩家社区讨论")] %}
         {% for key, label in tabs %}
         <button x-on:click="tab='{{ key }}'"
                 :class="tab==='{{ key }}' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
@@ -238,8 +342,27 @@
         {% endfor %}
       </div>
 
+      {# Bili tab — 默认展示 #}
+      {% if g.playerExp.biliVideos %}
+      <div x-show="tab==='bili'" class="p-4">
+        {% for v in g.playerExp.biliVideos %}
+        <a href="https://www.bilibili.com/video/{{ v.bvid }}/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            {% if loop.index == 1 %}bg-white/10 text-white
+            {% elif loop.index == 2 %}bg-white/[.08] text-neutral-300
+            {% elif loop.index == 3 %}bg-white/[.06] text-neutral-400
+            {% else %}bg-surface-2 text-neutral-500{% endif %}">{{ loop.index }}</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">{{ v.title }}</span>
+          <span class="text-xs text-neutral-500 shrink-0">{{ v.views }}播放</span>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
       {# Media tab #}
-      <div x-show="tab==='media'" class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+      <div x-show="tab==='media'" {% if g.playerExp.biliVideos %}x-cloak{% endif %} class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
         {% set dims = [("memory","","记忆点 Memory","bg-white/[.06] text-neutral-400"),
                        ("excitement","","兴奋点 Excitement","bg-white/[.06] text-neutral-400"),
                        ("pain","","痛点 Pain","bg-white/[.06] text-neutral-400"),
@@ -269,53 +392,6 @@
         {% endif %}
         {% endfor %}
       </div>
-
-      {# Bili tab #}
-      {% if g.playerExp.biliVideos %}
-      <div x-show="tab==='bili'" x-cloak class="p-4">
-        {% for v in g.playerExp.biliVideos %}
-        <a href="https://www.bilibili.com/video/{{ v.bvid }}/" target="_blank" rel="noopener"
-           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
-          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
-            {% if loop.index == 1 %}bg-white/10 text-white
-            {% elif loop.index == 2 %}bg-white/[.08] text-neutral-300
-            {% elif loop.index == 3 %}bg-white/[.06] text-neutral-400
-            {% else %}bg-surface-2 text-neutral-500{% endif %}">{{ loop.index }}</span>
-          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
-          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">{{ v.title }}</span>
-          <span class="text-xs text-neutral-500 shrink-0">{{ v.views }}播放</span>
-        </a>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </div>
-  </section>
-  {% endif %}
-
-  {# ===== IP / STORY ===== #}
-  {% if g.story %}
-  <section id="sec-story" class="mb-14">
-    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
-      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
-      IP / 故事剧情
-    </h2>
-    {{ story_card(g.story) }}
-  </section>
-  {% endif %}
-
-  {# ===== AESTHETIC PROFILE ===== #}
-  {% if g.aesthetic %}
-  <section id="sec-aesthetic" class="mb-14">
-    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
-      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
-      玩家审美偏好
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-      {% for key in ["scene","costume","ui","symbol","promo"] %}
-      {% if g.aesthetic[key] %}
-      {{ aes_card(key, g.aesthetic[key]) }}
-      {% endif %}
-      {% endfor %}
     </div>
   </section>
   {% endif %}
@@ -387,9 +463,10 @@ function anchorNav() {
         {id:'sec-header',     label:'基本信息'},
         {id:'sec-screenshots', label:'官网截图'},
         {id:'sec-timeline',    label:'时间线'},
-        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-worldview',   label:'游戏世界观'},
         {id:'sec-story',       label:'IP/故事'},
         {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
         {id:'sec-rivals',      label:'竞品推荐'}
       ];
       this.sections = defs.filter(function(d) {

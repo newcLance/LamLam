@@ -61,23 +61,82 @@
 {# ===== STORY/IP CONCEPT CARD ===== #}
 {% macro story_card(card) %}
 <div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
-  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">IP / STORY</div>
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-{% if card.title %}1{% else %}5{% endif %} text-neutral-500">IP / STORY</div>
+  {% if card.title %}
   <div class="text-sm font-bold text-white mb-4">{{ card.title }}</div>
+  {% endif %}
+
+  {# === Overview: 开篇式世界观长文 === #}
+  {% if card.overview %}
+  <div class="mb-6 pb-6 border-b border-white/[.06]">
+    {% if card.overview.tagline %}
+    <div class="text-[15px] md:text-base font-semibold text-white/90 leading-relaxed mb-5 italic tracking-wide">
+      “{{ card.overview.tagline }}”
+    </div>
+    {% endif %}
+    {% if card.overview.paragraphs %}
+    <div class="space-y-4">
+      {% for p in card.overview.paragraphs %}
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">{{ p }}</p>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {# === Dims: 参数化详情 === #}
+  {% if card.dims %}
+  {% if card.overview %}
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-3 text-neutral-500">DETAILS</div>
+  {% endif %}
   {% for d in card.dims %}
   <div class="py-2 border-b border-white/5 last:border-0">
     <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">{{ d.label }}</div>
     <div class="text-[13.5px] leading-7 text-neutral-400 data-text">{{ d.value }}</div>
   </div>
   {% endfor %}
+  {% endif %}
 </div>
 {% endmacro %}
 
-{# ===== AESTHETIC VISUAL CARD ===== #}
+{# ===== AESTHETIC VISUAL CARD =====
+   注：anchorRule 仅用于内部审核自检（Phase 5.11），不渲染到前端
+#}
 {% macro aes_card(key, card) %}
 {% set labels = {"scene":"SCENE","costume":"COSTUME","ui":"UI","symbol":"SYMBOL","promo":"PROMO"} %}
-<div class="rounded p-5 border border-white/[.08] bg-white/[.02]">
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
   <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">{{ labels.get(key, key|upper) }}</div>
-  <div class="text-sm font-bold text-white mb-3">{{ card.title }}</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">{{ card.title }}</div>
   <div class="text-[13.5px] leading-7 text-neutral-400 data-text">{{ card.value }}</div>
+</div>
+{% endmacro %}
+
+{# ===== WORLDVIEW DIMENSION CARD =====
+   通俗易懂版世界观介绍——四维度（背景/主线/战斗/核心循环）
+   用类似"看故事"的排版而不是表格化排版，强化阅读感
+#}
+{% macro worldview_card(key, card) %}
+{% set labels = {
+  "background": ("BACKGROUND", "游戏背景"),
+  "mainStory":  ("MAIN STORY", "主线剧情"),
+  "combat":     ("COMBAT",      "战斗系统"),
+  "coreLoop":   ("CORE LOOP",   "核心循环")
+} %}
+{% set en, cn = labels.get(key, (key|upper, key)) %}
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">{{ en }}</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">{{ cn }}</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">{{ card.title }}</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">{{ card.value }}</div>
+  {% if card.keywords %}
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    {% for kw in card.keywords %}
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">{{ kw }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
 </div>
 {% endmacro %}

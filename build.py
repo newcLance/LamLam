@@ -69,6 +69,7 @@ def main():
             g["playerExp"] = detail.get("playerExp")
             g["aesthetic"] = detail.get("aesthetic")
             g["story"] = detail.get("story")
+            g["worldview"] = detail.get("worldview")
         games_by_id[g["id"]] = g
 
     # Jinja2 setup
