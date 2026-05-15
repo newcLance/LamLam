@@ -103,97 +103,131 @@
       {% endif %}
     </div>
 
+    {# Flatten all valid screens across modules into one list (for tabs) #}
+    {% set ns = namespace(all_screens=[]) %}
     {% for module in ss %}
-    {% for screen in module.screens %}
-    {% if screen.imgs %}
-    <div class="mb-8">
-      <div class="flex items-center gap-3 mb-3">
-        <h3 class="text-sm font-semibold text-neutral-300">{{ screen.title }}</h3>
-        {% if screen.tag == '长图' %}
-        <span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/10 text-neutral-300 border border-white/10">长图</span>
-        {% elif screen.tag %}
-        <span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-500 border border-white/[.06]">{{ screen.tag }}</span>
+      {% for screen in module.screens %}
+        {% if screen.imgs %}
+          {% set _ = ns.all_screens.append(screen) %}
         {% endif %}
-        {% if screen.date %}
-        <span class="text-[11px] text-neutral-600">{{ screen.date }}</span>
-        {% endif %}
-        {% if screen.url %}
-        <a href="{{ screen.url }}" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-1 px-3 py-1 rounded text-[11px] font-semibold bg-white/[.06] text-neutral-400 hover:bg-white/10 hover:text-white border border-white/10 transition ml-auto shrink-0">
-          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          访问页面
-        </a>
-        {% endif %}
-      </div>
+      {% endfor %}
+    {% endfor %}
 
-      {# === Long screenshot layout: full-width hero + grid slices === #}
-      {% if screen.tag == '长图' and screen.imgs|length > 1 %}
-      {# First image = full-page long screenshot, displayed full-width #}
-      {% set full_img = screen.imgs[0] %}
-      {% set full_url = '../' ~ full_img if not full_img.startswith('http') else full_img %}
-      <div class="mb-4 group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
-           data-lightbox-src="{{ full_url }}"
-           x-on:click="$store.lightbox.show('{{ full_url }}')">
-        <div class="relative" style="max-height:600px; overflow:hidden;">
-          <img src="{{ full_url }}" loading="lazy" class="w-full object-cover object-top group-hover:scale-[1.01] transition-transform duration-300">
-          {# Fade-out at bottom to hint there's more #}
-          <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-surface-0 to-transparent pointer-events-none"></div>
-        </div>
-        <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur-sm text-[10px] font-bold text-white/80 tracking-wide">
-          全页长图
-        </div>
-        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center transition-all duration-200">
-          <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-          </div>
-        </div>
-      </div>
-      {# Remaining images = 16:9 slices in grid #}
-      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
-        {% for img in screen.imgs[1:] %}
-        {% set img_url = '../' ~ img if not img.startswith('http') else img %}
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
-             data-lightbox-src="{{ img_url }}"
-             x-on:click="$store.lightbox.show('{{ img_url }}')">
-          <div class="relative pt-[56.25%]">
-            <img src="{{ img_url }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
-          </div>
-          <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/50 backdrop-blur-sm text-[9px] font-medium text-white/60">
-            {{ loop.index }}/{{ screen.imgs|length - 1 }}
-          </div>
-          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
-            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
+    {% if ns.all_screens %}
+    <div x-data="{ tab: 0 }">
 
-      {% else %}
-      {# === Standard layout: all images in grid === #}
-      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
-        {% for img in screen.imgs %}
-        {% set img_url = '../' ~ img if not img.startswith('http') else img %}
-        <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
-             data-lightbox-src="{{ img_url }}"
-             x-on:click="$store.lightbox.show('{{ img_url }}')">
-          <div class="relative pt-[56.25%]">
-            <img src="{{ img_url }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
-          </div>
-          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
-            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
-            </div>
-          </div>
+      {# ===== TAB BAR (only when there are 2+ screens) ===== #}
+      {% if ns.all_screens|length > 1 %}
+      <div class="mb-6 -mx-1 overflow-x-auto scrollbar-thin">
+        <div role="tablist" class="inline-flex gap-1 p-1 rounded-lg bg-white/[.03] border border-white/[.06] whitespace-nowrap">
+          {% for screen in ns.all_screens %}
+          {# Strip game-name prefix from title for cleaner tab labels #}
+          {% set raw_title = screen.title or ('页面 ' ~ loop.index) %}
+          {% set tab_label = raw_title.split(' - ')[-1] if ' - ' in raw_title else raw_title %}
+          <button type="button"
+                  role="tab"
+                  x-on:click="tab = {{ loop.index0 }}"
+                  x-bind:class="tab === {{ loop.index0 }} ? 'bg-white text-black shadow-sm' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+                  class="px-4 py-2 rounded-md text-[12px] font-semibold tracking-wide transition flex items-center gap-2">
+            <span>{{ tab_label }}</span>
+            <span x-bind:class="tab === {{ loop.index0 }} ? 'bg-black/15 text-black' : 'bg-white/[.06] text-neutral-500'"
+                  class="px-1.5 rounded text-[10px] font-bold tabular-nums transition">{{ screen.imgs|length }}</span>
+          </button>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
       {% endif %}
+
+      {# ===== SCREEN PANELS ===== #}
+      {% for screen in ns.all_screens %}
+      <div role="tabpanel"
+           {% if ns.all_screens|length > 1 %}x-show="tab === {{ loop.index0 }}" x-cloak{% endif %}
+           class="mb-2">
+        <div class="flex items-center gap-3 mb-3">
+          <h3 class="text-sm font-semibold text-neutral-300">{{ screen.title }}</h3>
+          {% if screen.tag == '长图' %}
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/10 text-neutral-300 border border-white/10">长图</span>
+          {% elif screen.tag %}
+          <span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-500 border border-white/[.06]">{{ screen.tag }}</span>
+          {% endif %}
+          {% if screen.date %}
+          <span class="text-[11px] text-neutral-600">{{ screen.date }}</span>
+          {% endif %}
+          {% if screen.url %}
+          <a href="{{ screen.url }}" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-1 px-3 py-1 rounded text-[11px] font-semibold bg-white/[.06] text-neutral-400 hover:bg-white/10 hover:text-white border border-white/10 transition ml-auto shrink-0">
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            访问页面
+          </a>
+          {% endif %}
+        </div>
+
+        {# === Long screenshot layout: full-width hero + grid slices === #}
+        {% if screen.tag == '长图' and screen.imgs|length > 1 %}
+        {% set full_img = screen.imgs[0] %}
+        {% set full_url = '../' ~ full_img if not full_img.startswith('http') else full_img %}
+        <div class="mb-4 group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+             data-lightbox-src="{{ full_url }}"
+             x-on:click="$store.lightbox.show('{{ full_url }}')">
+          <div class="relative" style="max-height:600px; overflow:hidden;">
+            <img src="{{ full_url }}" loading="lazy" class="w-full object-cover object-top group-hover:scale-[1.01] transition-transform duration-300">
+            <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-surface-0 to-transparent pointer-events-none"></div>
+          </div>
+          <div class="absolute top-3 left-3 px-2.5 py-1 rounded bg-black/60 backdrop-blur-sm text-[10px] font-bold text-white/80 tracking-wide">
+            全页长图
+          </div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 flex items-center justify-center transition-all duration-200">
+            <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {% for img in screen.imgs[1:] %}
+          {% set img_url = '../' ~ img if not img.startswith('http') else img %}
+          <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+               data-lightbox-src="{{ img_url }}"
+               x-on:click="$store.lightbox.show('{{ img_url }}')">
+            <div class="relative pt-[56.25%]">
+              <img src="{{ img_url }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+            </div>
+            <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/50 backdrop-blur-sm text-[9px] font-medium text-white/60">
+              {{ loop.index }}/{{ screen.imgs|length - 1 }}
+            </div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+              <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        {% else %}
+        {# === Standard layout: all images in grid === #}
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          {% for img in screen.imgs %}
+          {% set img_url = '../' ~ img if not img.startswith('http') else img %}
+          <div class="group relative rounded-xl overflow-hidden bg-surface-2 cursor-pointer ring-1 ring-white/[.06] hover:ring-white/20 transition-all duration-200"
+               data-lightbox-src="{{ img_url }}"
+               x-on:click="$store.lightbox.show('{{ img_url }}')">
+            <div class="relative pt-[56.25%]">
+              <img src="{{ img_url }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300">
+            </div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition-all duration-200">
+              <div class="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-200 scale-75 group-hover:scale-100">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+
     </div>
     {% endif %}
-    {% endfor %}
-    {% endfor %}
   </section>
   {% endif %}
 
