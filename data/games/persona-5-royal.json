@@ -305,5 +305,95 @@
         "reason": "同为<b>风格化美术标杆</b>，Hades的<b>希腊神话插画</b> vs P5R的<b>东京波普漫画</b>——两种手绘动画美学"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1687950/Persona_5_Royal/"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/persona-5-royal/"
+          },
+          {
+            "title": "官方 X/Twitter (ATLUS West)",
+            "source": "X",
+            "url": "https://x.com/Atlus_West"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/persona-5-royal"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%A5%B3%E7%A5%9E%E5%BC%82%E9%97%BB%E5%BD%955%E7%9A%87%E5%AE%B6%E7%89%88"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Persona 5 Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=persona%205%20concept%20art"
+          },
+          {
+            "title": "P5R 概念美术 / 殿堂设计",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=persona%205%20royal%20concept%20art%20palace"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Persona 5 Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=persona%205%20character%20design%20joker"
+          },
+          {
+            "title": "P5 风格化角色设计参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=persona%205%20character%20design%20stylized%20anime"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Persona 5 UI Design",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/persona-5-ui-design"
+          },
+          {
+            "title": "P5 标志性 UI 设计参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=persona%205%20ui%20design%20menu%20interface"
+          },
+          {
+            "title": "Persona 5 UI / UX 深度分析",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=persona%205%20ui"
+          }
+        ]
+      }
+    ]
   }
 }

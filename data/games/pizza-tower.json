@@ -320,5 +320,101 @@
         "reason": "同为<b>独立游戏爆款</b>且美术风格独特，Vampire Survivors的极简像素 vs Pizza Tower的极致手绘——两种\"低预算高辨识度\"的路线"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/2231450/"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/pizza-tower"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2231450/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「披萨塔 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%8A%AB%E8%90%A8%E5%A1%94%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @PizzaTowergame",
+            "source": "X/Twitter",
+            "url": "https://x.com/PizzaTowergame"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Pizza Tower concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Pizza%20Tower%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Pizza Tower concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Pizza%20Tower%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Pizza Tower character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Pizza%20Tower%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Pizza Tower character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Pizza%20Tower%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Pizza Tower」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Pizza%20Tower"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Pizza Tower UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Pizza-Tower-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Pizza Tower texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Pizza%20Tower%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Pizza Tower texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Pizza%20Tower%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

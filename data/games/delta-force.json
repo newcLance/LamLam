@@ -316,5 +316,95 @@
         "reason": "Helldivers 2 作为现象级合作射击<b>争夺</b> PvE 玩家群体"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "官方网站 (国服)",
+            "source": "腾讯",
+            "url": "https://df.qq.com/"
+          },
+          {
+            "title": "官方网站 (国际服)",
+            "source": "Level Infinite",
+            "url": "https://www.playdeltaforce.com/"
+          },
+          {
+            "title": "Epic Games Store",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/delta-force-acea48"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/delta-force/"
+          },
+          {
+            "title": "官方 X/Twitter",
+            "source": "X",
+            "url": "https://x.com/DeltaForce_Game"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E4%B8%89%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Delta Force Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=delta%20force%20game%20concept%20art"
+          },
+          {
+            "title": "Delta Force / 现代军事射击概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=delta%20force%20game%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Delta Force Character / Operator",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=delta%20force%20operator%20character"
+          },
+          {
+            "title": "现代军事特种兵角色设计参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=modern%20military%20special%20forces%20character%20design%20game"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Military FPS Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/military-fps-game-ui"
+          },
+          {
+            "title": "军事射击游戏 HUD/UI 参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=military%20shooter%20game%20ui%20hud%20design"
+          }
+        ]
+      }
+    ]
   }
 }

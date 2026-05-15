@@ -306,5 +306,101 @@
         "reason": "《燕云十六声》与蛋仔派对都代表了<b>中国厂商在不同品类</b>的突围——NetEase 用 UGC 派对游戏、网易另一团队用开放世界分别验证了不同赛道的可能性"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/eggy-party"
+          },
+          {
+            "title": "官方网站",
+            "source": "官网",
+            "url": "https://egg.163.com"
+          },
+          {
+            "title": "TapTap 游戏页",
+            "source": "TapTap",
+            "url": "https://www.taptap.cn/app/218069"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「蛋仔派对 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%9B%8B%E4%BB%94%E6%B4%BE%E5%AF%B9%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @EggyPartyEN",
+            "source": "X/Twitter",
+            "url": "https://x.com/EggyPartyEN"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Eggy Party concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Eggy%20Party%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Eggy Party concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Eggy%20Party%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Eggy Party character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Eggy%20Party%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Eggy Party character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Eggy%20Party%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Eggy Party」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Eggy%20Party"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Eggy Party UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Eggy-Party-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Eggy Party texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Eggy%20Party%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Eggy Party texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Eggy%20Party%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

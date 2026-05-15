@@ -316,5 +316,111 @@
         "reason": "同为<b>独立游戏现象级</b>，Vampire Survivors的系统设计 vs Teardown的物理引擎——两种\"技术驱动体验\"的路线"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1167630/"
+          },
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10008489"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/teardown"
+          },
+          {
+            "title": "官方网站",
+            "source": "官网",
+            "url": "https://www.teardowngame.com"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1167630/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「拆迁 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%8B%86%E8%BF%81%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @teardowngame",
+            "source": "X/Twitter",
+            "url": "https://x.com/teardowngame"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Teardown concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Teardown%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Teardown concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Teardown%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Teardown character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Teardown%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Teardown character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Teardown%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Teardown」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Teardown"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Teardown UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Teardown-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Teardown texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Teardown%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Teardown texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Teardown%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

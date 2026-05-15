@@ -320,5 +320,106 @@
         "reason": "同为<b>Roguelike美术标杆</b>但方向完全相反，Hades 2的鲜艳动画 vs Balatro的克制CRT——风格化 vs 极简化"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/2379780/"
+          },
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10010334"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/balatro"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2379780/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「小丑牌 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%B0%8F%E4%B8%91%E7%89%8C%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @BalatroGame",
+            "source": "X/Twitter",
+            "url": "https://x.com/BalatroGame"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Balatro concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Balatro%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Balatro concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Balatro%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Balatro character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Balatro%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Balatro character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Balatro%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Balatro」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Balatro"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Balatro UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Balatro-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Balatro texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Balatro%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Balatro texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Balatro%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

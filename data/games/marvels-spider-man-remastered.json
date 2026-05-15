@@ -330,5 +330,85 @@
         "reason": "同为<b>IP改编开放世界</b>，霍格沃茨的魔法世界 vs 蜘蛛侠的纽约——两种超级IP的世界还原策略对比"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1817070/Marvels_SpiderMan_Remastered/"
+          },
+          {
+            "title": "Epic Games Store",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/marvels-spider-man-remastered"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/marvels-spider-man-remastered/"
+          },
+          {
+            "title": "官方 X/Twitter (Insomniac)",
+            "source": "X",
+            "url": "https://x.com/insomniacgames"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/marvels-spider-man-remastered"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%BC%AB%E5%A8%81%E8%9C%98%E8%9B%9B%E4%BE%A0%E9%87%8D%E5%88%B6%E7%89%88"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Spider-Man Game Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=spider-man%20game%20concept%20art%20insomniac"
+          },
+          {
+            "title": "漫威蜘蛛侠概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=marvels%20spider-man%20game%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Spider-Man Suit Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=spider-man%20suit%20design%20game%20insomniac"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Superhero Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/superhero-game-ui"
+          }
+        ]
+      }
+    ]
   }
 }

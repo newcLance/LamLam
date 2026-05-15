@@ -312,5 +312,86 @@
         "reason": "Helldivers 2 的合作 PvE 射击热度——<b>争夺多人合作射击</b>玩家群"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "官方网站",
+            "source": "官网",
+            "url": "https://cfhong.qq.com"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「穿越火线：虹 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%A9%BF%E8%B6%8A%E7%81%AB%E7%BA%BF%EF%BC%9A%E8%99%B9%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「CrossFire: Hong concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=CrossFire%3A%20Hong%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「CrossFire: Hong concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=CrossFire%3A%20Hong%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「CrossFire: Hong character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=CrossFire%3A%20Hong%20character"
+          },
+          {
+            "title": "Pinterest 搜索「CrossFire: Hong character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=CrossFire%3A%20Hong%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「CrossFire: Hong」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=CrossFire%3A%20Hong"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「CrossFire: Hong UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/CrossFire%3A-Hong-UI"
+          },
+          {
+            "title": "ArtStation 搜索「CrossFire: Hong texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=CrossFire%3A%20Hong%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「CrossFire: Hong texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=CrossFire%3A%20Hong%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -316,5 +316,85 @@
         "reason": "同为<b>末世背景</b> + 生存射击 + 探索制造"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1430190/Killing_Floor_3/"
+          },
+          {
+            "title": "Epic Games Store",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/killing-floor-3"
+          },
+          {
+            "title": "官方网站 (Tripwire)",
+            "source": "Tripwire",
+            "url": "https://www.killingfloor3.com/"
+          },
+          {
+            "title": "官方 X/Twitter",
+            "source": "X",
+            "url": "https://x.com/KillingFloor"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/killing-floor-3"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%9D%80%E6%88%AE%E7%A9%BA%E9%97%B43"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Killing Floor 3 Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=killing%20floor%203%20concept%20art"
+          },
+          {
+            "title": "Killing Floor 生物恐怖概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=killing%20floor%20concept%20art%20zed%20creature"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Killing Floor Character Zed",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=killing%20floor%20character%20zed%20design"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Horror FPS Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/horror-fps-game-ui"
+          }
+        ]
+      }
+    ]
   }
 }

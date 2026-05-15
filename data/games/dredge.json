@@ -316,5 +316,106 @@
         "reason": "同为<b>恐怖氛围</b>标杆，寂静岭2的城镇迷雾 vs DREDGE的海上迷雾——迷雾作为恐怖元素的不同空间应用"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1562430/"
+          },
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10006591"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/dredge"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1562430/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「疏浚 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%96%8F%E6%B5%9A%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @BSG_DREDGE",
+            "source": "X/Twitter",
+            "url": "https://x.com/BSG_DREDGE"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「DREDGE concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=DREDGE%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「DREDGE concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=DREDGE%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「DREDGE character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=DREDGE%20character"
+          },
+          {
+            "title": "Pinterest 搜索「DREDGE character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=DREDGE%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「DREDGE」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=DREDGE"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「DREDGE UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/DREDGE-UI"
+          },
+          {
+            "title": "ArtStation 搜索「DREDGE texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=DREDGE%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「DREDGE texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=DREDGE%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

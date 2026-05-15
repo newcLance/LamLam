@@ -305,5 +305,80 @@
         "reason": "同为<b>风格化美术</b>标杆，Metaphor的<b>油画JRPG</b> vs 丝之歌的<b>水彩独立</b>——两种2D美学极致"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/"
+          },
+          {
+            "title": "官方网站 (Team Cherry)",
+            "source": "Team Cherry",
+            "url": "https://www.hollowknightsilksong.com/"
+          },
+          {
+            "title": "官方 X/Twitter",
+            "source": "X",
+            "url": "https://x.com/TeamCherryGames"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/hollow-knight-silksong"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB%E4%B8%9D%E4%B9%8B%E6%AD%8C"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Hollow Knight Silksong Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=hollow%20knight%20silksong%20concept%20art"
+          },
+          {
+            "title": "Hollow Knight 手绘概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=hollow%20knight%20silksong%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Hollow Knight Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=hollow%20knight%20character%20design%20hornet"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Metroidvania Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/metroidvania-game-ui"
+          }
+        ]
+      }
+    ]
   }
 }

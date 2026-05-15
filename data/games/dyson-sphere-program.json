@@ -316,5 +316,101 @@
         "reason": "同为<b>系统驱动</b>的极度上瘾游戏，Balatro的数字爆炸 vs 戴森球的产线优化——两种\"工程快感\""
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1366540/"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/dyson-sphere-program"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1366540/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「戴森球计划 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%88%B4%E6%A3%AE%E7%90%83%E8%AE%A1%E5%88%92%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @DysonProgram",
+            "source": "X/Twitter",
+            "url": "https://x.com/DysonProgram"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Dyson Sphere Program concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Dyson%20Sphere%20Program%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Dyson Sphere Program concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Dyson%20Sphere%20Program%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Dyson Sphere Program character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Dyson%20Sphere%20Program%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Dyson Sphere Program character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Dyson%20Sphere%20Program%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Dyson Sphere Program」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Dyson%20Sphere%20Program"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Dyson Sphere Program UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Dyson-Sphere-Program-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Dyson Sphere Program texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Dyson%20Sphere%20Program%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Dyson Sphere Program texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Dyson%20Sphere%20Program%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

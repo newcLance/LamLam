@@ -321,5 +321,111 @@
         "reason": "同为<b>外星开拓</b>题材，The Planet Crafter的星球改造 vs Satisfactory的星球工业化——两种征服外星的方式"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/526870/"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/satisfactory"
+          },
+          {
+            "title": "Epic Games Store 商店页",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/satisfactory"
+          },
+          {
+            "title": "官方网站",
+            "source": "官网",
+            "url": "https://www.satisfactorygame.com"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/526870/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「幸福工厂 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%B9%B8%E7%A6%8F%E5%B7%A5%E5%8E%82%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @SatisfactoryAF",
+            "source": "X/Twitter",
+            "url": "https://x.com/SatisfactoryAF"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Satisfactory concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Satisfactory%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Satisfactory concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Satisfactory%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Satisfactory character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Satisfactory%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Satisfactory character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Satisfactory%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Satisfactory」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Satisfactory"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Satisfactory UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Satisfactory-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Satisfactory texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Satisfactory%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Satisfactory texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Satisfactory%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

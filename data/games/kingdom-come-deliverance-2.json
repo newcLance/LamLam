@@ -311,5 +311,85 @@
         "reason": "同为<b>近年RPG大作</b>，黑神话的<b>东方神话</b> vs KCD2的<b>欧洲历史</b>——两种文化背景的写实冒险"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1771300/Kingdom_Come_Deliverance_II/"
+          },
+          {
+            "title": "Epic Games Store",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/kingdom-come-deliverance-ii-2b498a"
+          },
+          {
+            "title": "官方网站 (Warhorse)",
+            "source": "Warhorse",
+            "url": "https://www.kingdomcomerpg.com/"
+          },
+          {
+            "title": "官方 X/Twitter",
+            "source": "X",
+            "url": "https://x.com/WarhorseStudios"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/kingdom-come-deliverance-ii"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%A9%E5%9B%BD%E6%8B%AF%E6%95%912"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Kingdom Come Deliverance 2 Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=kingdom%20come%20deliverance%202%20concept%20art"
+          },
+          {
+            "title": "中世纪写实 RPG 概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=kingdom%20come%20deliverance%20medieval%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Medieval Knight Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=medieval%20knight%20realistic%20character%20design"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Medieval RPG Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/medieval-rpg-game-ui"
+          }
+        ]
+      }
+    ]
   }
 }

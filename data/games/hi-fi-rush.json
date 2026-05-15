@@ -305,5 +305,80 @@
         "reason": "同为<b>风格化美术</b>标杆且开发团队规模不大，丝之歌的<b>2D手绘</b> vs Hi-Fi的<b>3D卡通渲染</b>"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1817230/HiFi_RUSH/"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/hi-fi-rush/"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/hi-fi-rush"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%AE%8C%E7%BE%8E%E9%9F%B3%E6%B5%AA"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Hi-Fi Rush Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=hi-fi%20rush%20concept%20art"
+          },
+          {
+            "title": "Hi-Fi Rush 卡通渲染概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=hi-fi%20rush%20concept%20art%20cel%20shading"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Hi-Fi Rush Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=hi-fi%20rush%20character%20design%20chai"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Rhythm Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/rhythm-action-game-ui"
+          },
+          {
+            "title": "Hi-Fi Rush 音乐节奏 UI 参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=hi-fi%20rush%20game%20ui%20rhythm%20action"
+          }
+        ]
+      }
+    ]
   }
 }

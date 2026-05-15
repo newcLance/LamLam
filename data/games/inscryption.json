@@ -326,5 +326,80 @@
         "reason": "同为<b>打破常规</b>的UI设计范例，女神异闻录5的风格化菜单 vs Inscryption的叙事性实物UI——两种\"UI即游戏\"的设计哲学"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1092790/Inscryption/"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/inscryption/"
+          },
+          {
+            "title": "官方 X/Twitter (Daniel Mullins)",
+            "source": "X",
+            "url": "https://x.com/DMullinsGames"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/inscryption"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E9%82%AA%E6%81%B6%E5%86%A5%E5%88%BB"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Inscryption Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=inscryption%20concept%20art"
+          },
+          {
+            "title": "Inscryption 暗黑卡牌概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=inscryption%20concept%20art%20dark%20card%20game"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Inscryption Card Character",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=inscryption%20card%20character%20design"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Card Game UI Dark",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/dark-card-game-ui"
+          }
+        ]
+      }
+    ]
   }
 }

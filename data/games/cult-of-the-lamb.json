@@ -320,5 +320,106 @@
         "reason": "同为<b>2D动作</b>领域的美术标杆，空洞骑士的暗黑手绘 vs 咩咩启示录的可爱邪典——两种独立2D美术的方向"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1313140/"
+          },
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10004792"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/cult-of-the-lamb"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1313140/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「咩咩启示录 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%92%A9%E5%92%A9%E5%90%AF%E7%A4%BA%E5%BD%95%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @cultofthelamb",
+            "source": "X/Twitter",
+            "url": "https://x.com/cultofthelamb"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Cult of the Lamb concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Cult%20of%20the%20Lamb%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Cult of the Lamb concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Cult%20of%20the%20Lamb%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Cult of the Lamb character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Cult%20of%20the%20Lamb%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Cult of the Lamb character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Cult%20of%20the%20Lamb%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Cult of the Lamb」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Cult%20of%20the%20Lamb"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Cult of the Lamb UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Cult-of-the-Lamb-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Cult of the Lamb texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Cult%20of%20the%20Lamb%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Cult of the Lamb texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Cult%20of%20the%20Lamb%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

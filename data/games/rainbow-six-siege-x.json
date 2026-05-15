@@ -140,5 +140,111 @@
         }
       ]
     }
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10000498"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/tom-clancys-rainbow-six-siege"
+          },
+          {
+            "title": "Ubisoft Store 商店页",
+            "source": "Ubisoft",
+            "url": "https://store.ubisoft.com/rainbow-six-siege"
+          },
+          {
+            "title": "Steam 商店页 (Rainbow Six Siege)",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/359550/"
+          },
+          {
+            "title": "官方网站",
+            "source": "官网",
+            "url": "https://www.ubisoft.com/game/rainbow-six/siege"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「彩虹六号：围攻X 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%BD%A9%E8%99%B9%E5%85%AD%E5%8F%B7%EF%BC%9A%E5%9B%B4%E6%94%BBX%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @Rainbow6Game",
+            "source": "X/Twitter",
+            "url": "https://x.com/Rainbow6Game"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Rainbow Six Siege X concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Rainbow%20Six%20Siege%20X%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Rainbow Six Siege X concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Rainbow%20Six%20Siege%20X%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Rainbow Six Siege X character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Rainbow%20Six%20Siege%20X%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Rainbow Six Siege X character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Rainbow%20Six%20Siege%20X%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Rainbow Six Siege X」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Rainbow%20Six%20Siege%20X"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Rainbow Six Siege X UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Rainbow-Six-Siege-X-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Rainbow Six Siege X texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Rainbow%20Six%20Siege%20X%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Rainbow Six Siege X texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Rainbow%20Six%20Siege%20X%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

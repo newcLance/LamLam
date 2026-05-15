@@ -331,5 +331,85 @@
         "reason": "同属<b>开放世界+恐怖</b>混合类型，S.T.A.L.K.E.R.2的切尔诺贝利废土 vs Village的东欧暗村——末世恐怖的不同表达"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1196590/Resident_Evil_Village/"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/resident-evil-village/"
+          },
+          {
+            "title": "官方网站 (CAPCOM)",
+            "source": "CAPCOM",
+            "url": "https://www.residentevil.com/village/"
+          },
+          {
+            "title": "官方 X/Twitter",
+            "source": "X",
+            "url": "https://x.com/RE_Games"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/resident-evil-village"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%94%9F%E5%8C%96%E5%8D%B1%E6%9C%BA%E6%9D%91%E5%BA%84"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 RE Village Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=resident%20evil%20village%20concept%20art"
+          },
+          {
+            "title": "生化危机8 哥特恐怖概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=resident%20evil%20village%20concept%20art%20gothic%20horror"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Lady Dimitrescu Character",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=lady%20dimitrescu%20resident%20evil%20village%20character"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Survival Horror Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/survival-horror-game-ui"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -334,5 +334,106 @@
         "reason": "同为<b>回合制RPG+命途/职业系统+精美角色演出</b>，Metaphor的Archetype系统与星铁的命途设计有结构相似性"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10007852"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/honkai-star-rail"
+          },
+          {
+            "title": "官方网站",
+            "source": "官网",
+            "url": "https://hsr.hoyoverse.com"
+          },
+          {
+            "title": "Epic Games Store 商店页",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/honkai-star-rail"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「崩坏：星穹铁道 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%B4%A9%E5%9D%8F%EF%BC%9A%E6%98%9F%E7%A9%B9%E9%93%81%E9%81%93%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @honaboreal",
+            "source": "X/Twitter",
+            "url": "https://x.com/honaboreal"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Honkai: Star Rail concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Honkai%3A%20Star%20Rail%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Honkai: Star Rail concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Honkai%3A%20Star%20Rail%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Honkai: Star Rail character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Honkai%3A%20Star%20Rail%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Honkai: Star Rail character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Honkai%3A%20Star%20Rail%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Honkai: Star Rail」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Honkai%3A%20Star%20Rail"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Honkai: Star Rail UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Honkai%3A-Star-Rail-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Honkai: Star Rail texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Honkai%3A%20Star%20Rail%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Honkai: Star Rail texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Honkai%3A%20Star%20Rail%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

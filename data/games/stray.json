@@ -311,5 +311,80 @@
         "reason": "同为<b>独特设定</b>的冒险体验，死亡搁浅的<b>末世荒野</b> vs Stray的<b>后人类城市</b>——两种\"人类消失后\"的美学"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1332010/Stray/"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/stray/"
+          },
+          {
+            "title": "官方 X/Twitter (Annapurna)",
+            "source": "X",
+            "url": "https://x.com/HKdevblog"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/stray"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%BF%B7%E5%A4%B1Stray"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Stray Game Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=stray%20game%20concept%20art%20cyberpunk%20cat"
+          },
+          {
+            "title": "Stray 赛博朋克猫城概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=stray%20game%20concept%20art%20cyberpunk%20city"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Stray Cat Robot Character",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=stray%20cat%20robot%20character%20design"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Cyberpunk Adventure Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/cyberpunk-adventure-game-ui"
+          }
+        ]
+      }
+    ]
   }
 }

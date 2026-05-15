@@ -315,5 +315,101 @@
         "reason": "同为<b>合作类</b>工业题材，Satisfactory的建造乌托邦 vs Lethal Company的打工地狱——同为工业场景的正反两面"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1966720/"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/lethal-company"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1966720/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「致命公司 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%87%B4%E5%91%BD%E5%85%AC%E5%8F%B8%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @ZeekerssRBLX",
+            "source": "X/Twitter",
+            "url": "https://x.com/ZeekerssRBLX"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Lethal Company concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Lethal%20Company%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Lethal Company concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Lethal%20Company%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Lethal Company character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Lethal%20Company%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Lethal Company character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Lethal%20Company%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Lethal Company」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Lethal%20Company"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Lethal Company UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Lethal-Company-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Lethal Company texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Lethal%20Company%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Lethal Company texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Lethal%20Company%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

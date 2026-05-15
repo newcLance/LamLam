@@ -326,5 +326,80 @@
         "reason": "同为<b>轻松管理+冒险</b>混合类型，咩咩启示录的可爱邪典 vs Dave的海洋治愈——两种\"反差萌\"的美术路线"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1868140/DAVE_THE_DIVER/"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/dave-the-diver/"
+          },
+          {
+            "title": "官方 X/Twitter",
+            "source": "X",
+            "url": "https://x.com/DaveTheDiver"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/dave-the-diver"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%BD%9C%E6%B0%B4%E5%91%98%E6%88%B4%E5%A4%AB"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Dave the Diver Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=dave%20the%20diver%20concept%20art"
+          },
+          {
+            "title": "像素海洋冒险概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=dave%20the%20diver%20pixel%20art%20ocean"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Dave the Diver Character",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=dave%20the%20diver%20character%20pixel"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Pixel Art Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/pixel-art-game-ui"
+          }
+        ]
+      }
+    ]
   }
 }

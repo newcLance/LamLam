@@ -326,5 +326,85 @@
         "reason": "同为<b>独立游戏美术标杆</b>但路线完全相反，Hades 2的鲜艳希腊神话 vs SIGNALIS的灰暗太空恐怖——色彩策略的两极"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1262350/SIGNALIS/"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/signalis/"
+          },
+          {
+            "title": "官方网站",
+            "source": "rose-engine",
+            "url": "https://rose-engine.org/signalis/"
+          },
+          {
+            "title": "官方 X/Twitter (rose-engine)",
+            "source": "X",
+            "url": "https://x.com/LastStarfarer"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/signalis"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E4%BF%A1%E5%8F%B7Signalis"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Signalis Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=signalis%20concept%20art"
+          },
+          {
+            "title": "Signalis 复古科幻恐怖概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=signalis%20concept%20art%20retro%20sci-fi%20horror"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Signalis Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=signalis%20character%20design%20replika"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Retro Sci-fi Horror UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/retro-sci-fi-horror-ui"
+          }
+        ]
+      }
+    ]
   }
 }

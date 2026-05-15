@@ -306,5 +306,111 @@
         "reason": "Metaphor 与极乐迪斯科都试图将<b>政治哲学</b>编织进 RPG 核心机制——前者用职业系统隐喻社会偏见，后者用意识形态路线直接构建角色世界观"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/632470/"
+          },
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10002292"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/disco-elysium--the-final-cut"
+          },
+          {
+            "title": "官方网站（存档）",
+            "source": "官网",
+            "url": "https://discoelysium.com"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632470/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「极乐迪斯科 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%9E%81%E4%B9%90%E8%BF%AA%E6%96%AF%E7%A7%91%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @studioZAUM",
+            "source": "X/Twitter",
+            "url": "https://x.com/studioZAUM"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Disco Elysium concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Disco%20Elysium%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Disco Elysium concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Disco%20Elysium%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Disco Elysium character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Disco%20Elysium%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Disco Elysium character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Disco%20Elysium%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Disco Elysium」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Disco%20Elysium"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Disco Elysium UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Disco-Elysium-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Disco Elysium texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Disco%20Elysium%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Disco Elysium texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Disco%20Elysium%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

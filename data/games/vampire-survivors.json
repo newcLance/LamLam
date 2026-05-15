@@ -319,5 +319,106 @@
         "reason": "同为<b>合作/对抗</b>且美术简陋但极度流行，致命公司的低模恐怖 vs VS的像素弹幕——两种\"丑美学\""
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1794680/"
+          },
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10004514"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/vampire-survivors"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1794680/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「吸血鬼幸存者 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%90%B8%E8%A1%80%E9%AC%BC%E5%B9%B8%E5%AD%98%E8%80%85%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @poncle_vampire",
+            "source": "X/Twitter",
+            "url": "https://x.com/poncle_vampire"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Vampire Survivors concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Vampire%20Survivors%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Vampire Survivors concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Vampire%20Survivors%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Vampire Survivors character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Vampire%20Survivors%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Vampire Survivors character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Vampire%20Survivors%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Vampire Survivors」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Vampire%20Survivors"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Vampire Survivors UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Vampire-Survivors-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Vampire Survivors texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Vampire%20Survivors%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Vampire Survivors texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Vampire%20Survivors%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

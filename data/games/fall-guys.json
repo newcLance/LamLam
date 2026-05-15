@@ -302,5 +302,106 @@
         "reason": "Hades 2 与 Fall Guys 看似品类迥异，但都在探索<b>Roguelike 式的随机内容组合</b>如何维持重复游玩的新鲜感——前者通过随机 build，后者通过关卡随机轮换"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10003539"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/fall-guys-ultimate-knockout"
+          },
+          {
+            "title": "Epic Games Store 商店页（免费游戏）",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/fall-guys"
+          },
+          {
+            "title": "官方网站",
+            "source": "官网",
+            "url": "https://www.fallguys.com"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「糖豆人 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%B3%96%E8%B1%86%E4%BA%BA%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @FallGuysGame",
+            "source": "X/Twitter",
+            "url": "https://x.com/FallGuysGame"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Fall Guys concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Fall%20Guys%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Fall Guys concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Fall%20Guys%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Fall Guys character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Fall%20Guys%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Fall Guys character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Fall%20Guys%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Fall Guys」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Fall%20Guys"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Fall Guys UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Fall-Guys-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Fall Guys texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Fall%20Guys%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Fall Guys texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Fall%20Guys%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

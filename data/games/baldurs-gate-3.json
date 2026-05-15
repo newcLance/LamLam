@@ -330,5 +330,106 @@
         "reason": "同年发售的<b>年度最佳</b>竞争者，两款游戏的官网和品牌设计在宣发维度有直接可比性"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/"
+          },
+          {
+            "title": "PlayStation Store (US)",
+            "source": "PS Store",
+            "url": "https://store.playstation.com/en-us/concept/10007460"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/baldurs-gate-3/"
+          },
+          {
+            "title": "官方网站 (Larian)",
+            "source": "Larian",
+            "url": "https://baldursgate3.game/"
+          },
+          {
+            "title": "官方 X/Twitter (BG3)",
+            "source": "X",
+            "url": "https://x.com/baldursgate3"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/baldurs-gate-3"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%9A%E5%BE%B7%E4%B9%8B%E9%97%A83"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "Larian Studios 官方 ArtStation",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/larianstudios"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Baldur's Gate 3 Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=baldurs%20gate%203%20concept%20art"
+          },
+          {
+            "title": "BG3 概念美术 / 环境设计",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=baldurs%20gate%203%20concept%20art%20environment"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 BG3 Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=baldurs%20gate%203%20character%20design"
+          },
+          {
+            "title": "D&D 奇幻角色设计参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=dnd%20fantasy%20character%20design%20baldurs%20gate"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 RPG Fantasy Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/rpg-fantasy-game-ui"
+          },
+          {
+            "title": "BG3 / D&D RPG UI 设计参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=baldurs%20gate%203%20game%20ui%20interface"
+          }
+        ]
+      }
+    ]
   }
 }

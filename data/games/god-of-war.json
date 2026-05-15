@@ -305,5 +305,95 @@
         "reason": "同为<b>PlayStation独占→PC移植</b>的东方题材代表，对马岛的<b>日本美学</b> vs 战神的<b>北欧美学</b>"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1593500/God_of_War/"
+          },
+          {
+            "title": "Epic Games Store",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/god-of-war"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/god-of-war/"
+          },
+          {
+            "title": "官方 X/Twitter (Santa Monica)",
+            "source": "X",
+            "url": "https://x.com/SonySantaMonica"
+          },
+          {
+            "title": "IGDB 页面",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/god-of-war--1"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%88%98%E7%A5%9E"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 God of War 2018 Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=god%20of%20war%202018%20concept%20art"
+          },
+          {
+            "title": "God of War 北欧概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=god%20of%20war%202018%20concept%20art%20norse"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Kratos Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=kratos%20god%20of%20war%20character%20design"
+          },
+          {
+            "title": "北欧神话角色设计参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=norse%20mythology%20character%20design%20kratos"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 God of War Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/god-of-war-game-ui"
+          },
+          {
+            "title": "动作 RPG UI 设计参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=action%20rpg%20game%20ui%20god%20of%20war"
+          }
+        ]
+      }
+    ]
   }
 }

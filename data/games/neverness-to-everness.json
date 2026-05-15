@@ -327,5 +327,101 @@
         "reason": "同为<b>日系动漫风格+gacha养成+强角色叙事</b>的F2P产品，星铁的角色PV营销策略和信赖系统是NTE角色设计的直接参照"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/neverness-to-everness"
+          },
+          {
+            "title": "官方网站",
+            "source": "官网",
+            "url": "https://n2e.hotta.com"
+          },
+          {
+            "title": "Epic Games Store 商店页",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/neverness-to-everness"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「异环 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%BC%82%E7%8E%AF%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @N2E_EN",
+            "source": "X/Twitter",
+            "url": "https://x.com/N2E_EN"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Neverness to Everness concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Neverness%20to%20Everness%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Neverness to Everness concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Neverness%20to%20Everness%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Neverness to Everness character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Neverness%20to%20Everness%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Neverness to Everness character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Neverness%20to%20Everness%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Neverness to Everness」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Neverness%20to%20Everness"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Neverness to Everness UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Neverness-to-Everness-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Neverness to Everness texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Neverness%20to%20Everness%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Neverness to Everness texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Neverness%20to%20Everness%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

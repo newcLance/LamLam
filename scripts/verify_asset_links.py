@@ -16,7 +16,7 @@ import json, sys, os, urllib.request, urllib.error, ssl, re
 ANTI_CRAWL_WHITELIST = {
     "artstation.com", "epicgames.com", "igdb.com", 
     "behance.net", "dribbble.com", "x.com", "twitter.com",
-    "gameui.net"
+    "gameui.net", "playstation.com"
 }
 
 # 需要登录 / 搜索功能失效的黑名单

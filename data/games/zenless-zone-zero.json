@@ -328,5 +328,111 @@
         "reason": "同为<b>角色切换式高速动作</b>，鬼泣5的Smokin' Sexy Style评级系统与绝区零的S级评分机制异曲同工"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/4162040/"
+          },
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/en-us/concept/10008540"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/zenless-zone-zero"
+          },
+          {
+            "title": "官方网站",
+            "source": "官网",
+            "url": "https://zenless.hoyoverse.com"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4162040/page_bg_raw.jpg"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "小红书搜索「绝区零 概念设定」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%BB%9D%E5%8C%BA%E9%9B%B6%20%E6%A6%82%E5%BF%B5%E8%AE%BE%E5%AE%9A"
+          },
+          {
+            "title": "X/Twitter 官方账号 @ZZZ_EN",
+            "source": "X/Twitter",
+            "url": "https://x.com/ZZZ_EN"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Zenless Zone Zero concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Zenless%20Zone%20Zero%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Zenless Zone Zero concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Zenless%20Zone%20Zero%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Zenless Zone Zero character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Zenless%20Zone%20Zero%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Zenless Zone Zero character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Zenless%20Zone%20Zero%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Zenless Zone Zero」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Zenless%20Zone%20Zero"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Zenless Zone Zero UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Zenless-Zone-Zero-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Zenless Zone Zero texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Zenless%20Zone%20Zero%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Zenless Zone Zero texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Zenless%20Zone%20Zero%20texture"
+          }
+        ]
+      }
+    ]
   }
 }
