@@ -335,11 +335,6 @@
             "title": "IGDB 游戏页 — 评分 + 媒体素材",
             "source": "IGDB",
             "url": "https://www.igdb.com/games/pizza-tower"
-          },
-          {
-            "title": "Steam 背景图直链",
-            "source": "Steam",
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2231450/page_bg_raw.jpg"
           }
         ]
       },

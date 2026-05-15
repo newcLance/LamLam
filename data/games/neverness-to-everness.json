@@ -341,12 +341,17 @@
           {
             "title": "官方网站",
             "source": "官网",
-            "url": "https://n2e.hotta.com"
+            "url": "https://yh.wanmei.com/main.html"
           },
           {
             "title": "Epic Games Store 商店页",
             "source": "Epic",
             "url": "https://store.epicgames.com/p/neverness-to-everness"
+          },
+          {
+            "title": "官方网站（国际版）",
+            "source": "官网",
+            "url": "https://nte.perfectworld.com/en/"
           }
         ]
       },

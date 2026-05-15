@@ -336,11 +336,6 @@
             "title": "IGDB 游戏页 — 评分 + 媒体素材",
             "source": "IGDB",
             "url": "https://www.igdb.com/games/the-planet-crafter"
-          },
-          {
-            "title": "Steam 背景图直链",
-            "source": "Steam",
-            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1284190/page_bg_raw.jpg"
           }
         ]
       },
