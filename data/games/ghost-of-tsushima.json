@@ -311,5 +311,52 @@
         "reason": "同为<b>第三人称开放世界冒险</b>，死亡搁浅的科幻荒野 vs 对马岛的自然荒野——极简UI哲学对比"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 (Director's Cut)",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/2215430/Ghost_of_Tsushima_DIRECTORS_CUT/"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/ghost-of-tsushima/"
+          },
+          {
+            "title": "官方 X/Twitter (Sucker Punch)",
+            "source": "X",
+            "url": "https://x.com/SuckerPunchProd"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%AF%B9%E9%A9%AC%E5%B2%9B%E4%B9%8B%E9%AD%82"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": []
+      },
+      {
+        "cat": "角色设计",
+        "links": []
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": []
+      }
+    ]
   }
 }

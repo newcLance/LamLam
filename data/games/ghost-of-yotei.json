@@ -318,5 +318,79 @@
         "reason": "<b>同为开放世界探索+视觉盛宴——自然美vs暗黑美的设计哲学对比</b>"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "PlayStation Store (US)",
+            "source": "PS Store",
+            "url": "https://store.playstation.com/en-us/concept/10011498"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/ghost-of-yotei/"
+          },
+          {
+            "title": "官方 X/Twitter (Sucker Punch)",
+            "source": "X",
+            "url": "https://x.com/SuckerPunchProd"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%BE%8A%E8%B9%84%E5%B1%B1%E4%B9%8B%E9%AD%82"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "Yōtei Six 角色头发建模 (Airship)",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/artwork/Ov9mLK"
+          },
+          {
+            "title": "Seedy Inn 环境概念设计 (Terraform Studios)",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/artwork/BkRdw8"
+          },
+          {
+            "title": "Kitsune 决斗场景概念 (Min Guen)",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/artwork/GvN4OV"
+          },
+          {
+            "title": "Undying Samurai 传说插画 (John Powell)",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/artwork/NqvZwD"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "Ghost of Yotei 3D 环境渲染 (Rhiannon Remo)",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/rhiannonremo"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": []
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": []
+      }
+    ]
   }
 }

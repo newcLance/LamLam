@@ -316,5 +316,62 @@
         "reason": "同为<b>东欧/苏联美学背景</b>的FPS——切尔诺贝利末世vs苏联复古未来"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1643320/STALKER_2_Heart_of_Chornobyl/"
+          },
+          {
+            "title": "Epic Games Store",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/stalker-2-heart-of-chornobyl"
+          },
+          {
+            "title": "Xbox Store",
+            "source": "Xbox",
+            "url": "https://www.xbox.com/en-us/games/store/stalker-2-heart-of-chornobyl/9pfnjlp0w2p0"
+          },
+          {
+            "title": "官方网站",
+            "source": "GSC Game World",
+            "url": "https://www.stalker2.com/"
+          },
+          {
+            "title": "官方 X/Twitter",
+            "source": "X",
+            "url": "https://x.com/stalker_thegame"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%BD%9C%E8%A1%8C%E8%80%852"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": []
+      },
+      {
+        "cat": "角色设计",
+        "links": []
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": []
+      }
+    ]
   }
 }

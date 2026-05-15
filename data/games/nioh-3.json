@@ -318,5 +318,57 @@
         "reason": "同为<b>东方历史背景</b> + 魂系动作 + 暗黑美术风格"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/3681010/NIOH_3/"
+          },
+          {
+            "title": "PlayStation Store (HK)",
+            "source": "PS Store",
+            "url": "https://store.playstation.com/zh-hans-hk/concept/10014010"
+          },
+          {
+            "title": "PlayStation 官方页面",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-hk/games/nioh-3/"
+          },
+          {
+            "title": "官方网站 (Team NINJA)",
+            "source": "Team NINJA",
+            "url": "https://teamninja-studio.com/nioh3/"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E4%BB%81%E7%8E%8B3"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": []
+      },
+      {
+        "cat": "角色设计",
+        "links": []
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": []
+      }
+    ]
   }
 }

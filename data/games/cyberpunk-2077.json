@@ -336,5 +336,67 @@
         "reason": "同为<b>开放世界FPS</b>且世界构建密度极高，STALKER2的废土 vs 赛博朋克的霓虹——荒凉 vs 繁华的末世美学对比"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1091500/Cyberpunk_2077/"
+          },
+          {
+            "title": "Epic Games Store",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/cyberpunk-2077"
+          },
+          {
+            "title": "PlayStation Store (US)",
+            "source": "PS Store",
+            "url": "https://store.playstation.com/en-us/concept/10008060"
+          },
+          {
+            "title": "Xbox Store",
+            "source": "Xbox",
+            "url": "https://www.xbox.com/en-us/games/store/cyberpunk-2077/bx3m8l83bbrw"
+          },
+          {
+            "title": "官方网站",
+            "source": "CD Projekt RED",
+            "url": "https://www.cyberpunk.net/"
+          },
+          {
+            "title": "官方 X/Twitter",
+            "source": "X",
+            "url": "https://x.com/CyberpunkGame"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%B5%9B%E5%8D%9A%E6%9C%8B%E5%85%8B2077"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": []
+      },
+      {
+        "cat": "角色设计",
+        "links": []
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": []
+      }
+    ]
   }
 }

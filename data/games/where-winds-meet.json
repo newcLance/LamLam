@@ -316,5 +316,47 @@
         "reason": "同为<b>开放世界</b> + 东方文化背景 + 大型探索 + 写实美术"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/3564740/Where_Winds_Meet/"
+          },
+          {
+            "title": "官方网站",
+            "source": "网易",
+            "url": "https://yysls.cn/"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%87%95%E4%BA%91%E5%8D%81%E5%85%AD%E5%A3%B0"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": []
+      },
+      {
+        "cat": "角色设计",
+        "links": []
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": []
+      }
+    ]
   }
 }

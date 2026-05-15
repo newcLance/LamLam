@@ -318,5 +318,57 @@
         "reason": "同为2024-2025年FPS冒险——<b>3A大制作vs AA精品</b>的规模对比"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/2677660/Indiana_Jones_and_the_Great_Circle/"
+          },
+          {
+            "title": "PlayStation Store (US)",
+            "source": "PS Store",
+            "url": "https://store.playstation.com/en-us/concept/10010378"
+          },
+          {
+            "title": "Xbox Store",
+            "source": "Xbox",
+            "url": "https://www.xbox.com/en-us/games/store/indiana-jones-and-the-great-circle/9nkdg25l2lzd"
+          },
+          {
+            "title": "官方网站",
+            "source": "Bethesda",
+            "url": "https://bethesda.net/en/game/indiana-jones"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%A4%BA%E5%AE%9D%E5%A5%87%E5%85%B5%E5%A4%A7%E5%9C%88"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": []
+      },
+      {
+        "cat": "角色设计",
+        "links": []
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": []
+      }
+    ]
   }
 }

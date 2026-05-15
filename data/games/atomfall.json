@@ -316,5 +316,57 @@
         "reason": "<b>同为探索解谜型FPS——英国乡村vs环球古迹的场景设计对比</b>"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/801800/Atomfall/"
+          },
+          {
+            "title": "Epic Games Store",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/atomfall"
+          },
+          {
+            "title": "PlayStation Store (HK)",
+            "source": "PS Store",
+            "url": "https://store.playstation.com/zh-hans-hk/product/UP4363-PPSA15493_00-ATOMFALLBASEGAME"
+          },
+          {
+            "title": "官方网站",
+            "source": "Rebellion",
+            "url": "https://atomfall.com/"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%8E%9F%E5%AD%90%E9%99%A8%E8%90%BD"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": []
+      },
+      {
+        "cat": "角色设计",
+        "links": []
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": []
+      }
+    ]
   }
 }

@@ -318,5 +318,47 @@
         "reason": "<b>同为PvE合作射击——丧尸末世vs合作生存的设计策略对比</b>"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/3008130/Dying_Light_The_Beast/"
+          },
+          {
+            "title": "官方网站",
+            "source": "Techland",
+            "url": "https://dyinglightgame.com/"
+          },
+          {
+            "title": "小红书搜索",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%B6%88%E9%80%9D%E7%9A%84%E5%85%89%E8%8A%92%E9%87%8E%E5%85%BD"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": []
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": []
+      },
+      {
+        "cat": "角色设计",
+        "links": []
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": []
+      }
+    ]
   }
 }
