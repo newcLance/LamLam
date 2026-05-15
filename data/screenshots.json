@@ -2271,5 +2271,53 @@
         }
       ]
     }
+  ],
+  "Out of Control": [
+    {
+      "module": "官网",
+      "screens": [
+        {
+          "title": "Out of Control - 官网首页",
+          "url": "https://skjh.qq.com/",
+          "date": "2026-05-15",
+          "tag": "长图",
+          "imgs": [
+            "screenshots/out-of-control/home-full.webp",
+            "screenshots/out-of-control/home-2.webp",
+            "screenshots/out-of-control/home-3.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Rainbow Six Siege X": [
+    {
+      "module": "官网",
+      "screens": [
+        {
+          "title": "Rainbow Six Siege X - 官网首页",
+          "url": "https://rainbow6.com/siegex",
+          "date": "2026-05-15",
+          "tag": "长图",
+          "imgs": [
+            "screenshots/rainbow-six-siege-x/home-full.webp",
+            "screenshots/rainbow-six-siege-x/home-2.webp",
+            "screenshots/rainbow-six-siege-x/home-3.webp",
+            "screenshots/rainbow-six-siege-x/home-4.webp",
+            "screenshots/rainbow-six-siege-x/home-5.webp",
+            "screenshots/rainbow-six-siege-x/home-6.webp",
+            "screenshots/rainbow-six-siege-x/home-7.webp",
+            "screenshots/rainbow-six-siege-x/home-8.webp",
+            "screenshots/rainbow-six-siege-x/home-9.webp",
+            "screenshots/rainbow-six-siege-x/home-10.webp",
+            "screenshots/rainbow-six-siege-x/home-11.webp",
+            "screenshots/rainbow-six-siege-x/home-12.webp",
+            "screenshots/rainbow-six-siege-x/home-13.webp",
+            "screenshots/rainbow-six-siege-x/home-14.webp",
+            "screenshots/rainbow-six-siege-x/home-15.webp"
+          ]
+        }
+      ]
+    }
   ]
 }
