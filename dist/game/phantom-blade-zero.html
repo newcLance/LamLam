@@ -162,15 +162,22 @@ document.addEventListener('alpine:init', function() {
     </div>
 
     
-    
-    <div class="shrink-0 hidden md:block">
-      <a href="https://pbz.s-game.com/" target="_blank" rel="noopener"
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      <a href="#sec-assets"
          class="group flex items-center gap-2.5 px-6 py-3 rounded bg-white text-black font-bold text-sm hover:bg-neutral-200 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      
+      
+      <a href="https://pbz.s-game.com/" target="_blank" rel="noopener"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded border border-white/[.15] text-white font-bold text-sm hover:bg-white/[.06] transition-all">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         访问官网
       </a>
+      
     </div>
-    
   </div>
 </div>
 
@@ -347,51 +354,6 @@ document.addEventListener('alpine:init', function() {
 
     </div>
     
-  </section>
-  
-
-  
-  
-  <section id="sec-timeline" class="mb-14">
-    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
-      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
-      设计变化时间线
-    </h2>
-    <div class="relative pl-6 border-l-2 border-bdr space-y-5">
-      
-      <div class="relative">
-        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
-        <div class="text-xs text-white font-bold tracking-wide">2024-05</div>
-        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">首次公开实机演示
-          <a href="https://www.bilibili.com/video/BV14x4y1b77U/" target="_blank" class="text-xs text-neutral-400 ml-2 opacity-70 hover:opacity-100 hover:underline transition">查看详情 ↗</a>
-        </div>
-      </div>
-      
-      <div class="relative">
-        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
-        <div class="text-xs text-white font-bold tracking-wide">2024-09</div>
-        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">TGS 2024 首次公开试玩
-          <a href="https://www.gamersky.com/news/202409/1823200.shtml" target="_blank" class="text-xs text-neutral-400 ml-2 opacity-70 hover:opacity-100 hover:underline transition">查看详情 ↗</a>
-        </div>
-      </div>
-      
-      <div class="relative">
-        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
-        <div class="text-xs text-white font-bold tracking-wide">2025-07</div>
-        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">S-PARTY 北京首钢园 2000 人公测
-          <a href="https://www.gcores.com/articles/200780" target="_blank" class="text-xs text-neutral-400 ml-2 opacity-70 hover:opacity-100 hover:underline transition">查看详情 ↗</a>
-        </div>
-      </div>
-      
-      <div class="relative">
-        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
-        <div class="text-xs text-white font-bold tracking-wide">2025-12</div>
-        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">TGA 定档 2026.9.9 发售
-          <a href="https://www.bilibili.com/video/BV1FNmgB2EA1/" target="_blank" class="text-xs text-neutral-400 ml-2 opacity-70 hover:opacity-100 hover:underline transition">查看详情 ↗</a>
-        </div>
-      </div>
-      
-    </div>
   </section>
   
 
@@ -1328,6 +1290,261 @@ document.addEventListener('alpine:init', function() {
   </section>
   
 
+  
+  
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    
+    
+    <div x-show="assetTab === 'official'" x-cloak>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">商店页 + 官网</h4>
+        <div class="space-y-1">
+          
+          <a href="https://store.steampowered.com/app/4115450/Phantom_Blade_Zero/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Steam 商店页 — 截图 + Header + 胶囊图 + 背景</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Steam</span>
+          </a>
+          
+          <a href="https://store.playstation.com/zh-hans-hk/concept/10017620" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">PlayStation Store — 封面 / 背景 / 截图</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">PlayStation</span>
+          </a>
+          
+          <a href="https://store.epicgames.com/en-US/p/phantom-blade-zero-e78a35" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Epic Games Store — Key Art / 封面 / 截图</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Epic</span>
+          </a>
+          
+          <a href="https://www.igdb.com/games/phantom-blade-zero" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">IGDB — 截图 / 封面 / Artwork 聚合</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">IGDB</span>
+          </a>
+          
+          <a href="https://pbz.s-game.cn/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方网站 — 首页视觉 / Logo / 角色海报</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">官网</span>
+          </a>
+          
+          <a href="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4115450/b7956f90da7ba6590eb97494b092dc38341fa21c/page_bg_raw.jpg" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Steam 页面背景（高清直链）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Steam</span>
+          </a>
+          
+          <a href="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4115450/1617c94f760b2e309d4908720ade9503f70b9f71/header_schinese.jpg" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Steam 头图 Header（高清直链）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Steam</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色建模 / 概念设定图</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/artwork/3EgA1g" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">王琛：主角「魂」超高清角色模型（4k+ 点赞）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.gameres.com/wl?m=ad7d375e219199e7813f1b9f2f9b07d5" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">美术总监 Michael Chang 概念设定图首曝 + 幕后</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">GameRes</span>
+          </a>
+          
+          <a href="https://www.gamersky.com/news/202604/2122008.shtml" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">主角团全新写实建模 + 脸模演员素材</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">游民星空</span>
+          </a>
+          
+          <a href="https://www.163.com/dy/article/K6HLLP230526K1KN.html" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">角色模型合集大赏：毛孔级清晰</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">网易</span>
+          </a>
+          
+          <a href="https://www.xiaohongshu.com/search_result?keyword=%E5%BD%B1%E4%B9%8B%E5%88%83%E9%9B%B6" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索「影之刃零」— 玩家壁纸 / 角色图整理</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">小红书</span>
+          </a>
+          
+          <a href="https://x.com/pbzero_official" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">@pbzero_official — 官方截图 / 概念图 / 预告</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">X</span>
+          </a>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    
+    <div x-show="assetTab === 'inspiration'" x-cloak>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">概念美术 / Concept Art</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=phantom%20blade%20zero" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索 Phantom Blade Zero（英文全量）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=%E5%BD%B1%E4%B9%8B%E5%88%83%E9%9B%B6" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索「影之刃零」（中文补充）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=phantom%20blade%20zero%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">影之刃零 概念美术 / 场景</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色设计</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=phantom%20blade%20zero%20character" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索 PBZ Character Design</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=phantom%20blade%20zero%20character%20design" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">影之刃零 角色设计</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+          <a href="https://www.behance.net/search/projects?search=phantom+blade+zero" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索 Phantom Blade Zero</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Behance</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">UI 界面 / 纹理材质</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.gameui.net/game/13663" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">影之刃零 — 游戏 UI 截图合集</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">GameUI</span>
+          </a>
+          
+          <a href="https://dribbble.com/search/wuxia-game-ui" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索武侠游戏 UI</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Dribbble</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=kungfupunk%20texture" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">功夫朋克风格纹理 / 材质</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=wuxia%20steampunk%20texture%20material" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">武侠 × 蒸汽朋克纹理素材</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+  </section>
+  
+
 </div>
 
 
@@ -1416,12 +1633,12 @@ function anchorNav() {
       var defs = [
         {id:'sec-header',     label:'基本信息'},
         {id:'sec-screenshots', label:'官网截图'},
-        {id:'sec-timeline',    label:'时间线'},
         {id:'sec-worldview',   label:'游戏世界观'},
         {id:'sec-story',       label:'IP/故事'},
         {id:'sec-aesthetic',   label:'审美偏好'},
         {id:'sec-playerexp',   label:'体验清单'},
-        {id:'sec-rivals',      label:'竞品推荐'}
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
       ];
       this.sections = defs.filter(function(d) {
         return document.getElementById(d.id);

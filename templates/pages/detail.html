@@ -70,16 +70,23 @@
       {% endif %}
     </div>
 
-    {# Right: Visit Website CTA #}
-    {% if site_url %}
-    <div class="shrink-0 hidden md:block">
-      <a href="{{ site_url }}" target="_blank" rel="noopener"
+    {# Right: CTAs #}
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      {% if g.assets %}
+      <a href="#sec-assets"
          class="group flex items-center gap-2.5 px-6 py-3 rounded bg-white text-black font-bold text-sm hover:bg-neutral-200 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      {% endif %}
+      {% if site_url %}
+      <a href="{{ site_url }}" target="_blank" rel="noopener"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded border border-white/[.15] text-white font-bold text-sm hover:bg-white/[.06] transition-all">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
         访问官网
       </a>
+      {% endif %}
     </div>
-    {% endif %}
   </div>
 </div>
 
@@ -228,27 +235,6 @@
 
     </div>
     {% endif %}
-  </section>
-  {% endif %}
-
-  {# ===== TIMELINE ===== #}
-  {% if g.changes %}
-  <section id="sec-timeline" class="mb-14">
-    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
-      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
-      设计变化时间线
-    </h2>
-    <div class="relative pl-6 border-l-2 border-bdr space-y-5">
-      {% for c in g.changes %}
-      <div class="relative">
-        <div class="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-accent border-[3px] border-surface-0"></div>
-        <div class="text-xs text-white font-bold tracking-wide">{{ c.date }}</div>
-        <div class="text-sm text-neutral-400 mt-1 leading-relaxed">{{ c.text }}
-          {% if c.url %}<a href="{{ c.url }}" target="_blank" class="text-xs text-neutral-400 ml-2 opacity-70 hover:opacity-100 hover:underline transition">查看详情 ↗</a>{% endif %}
-        </div>
-      </div>
-      {% endfor %}
-    </div>
   </section>
   {% endif %}
 
@@ -466,6 +452,72 @@
   </section>
   {% endif %}
 
+  {# ===== ASSET HUB (找素材) ===== #}
+  {% if g.assets %}
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    {# Tab bar #}
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    {# Panel: Official #}
+    {% if g.assets.official %}
+    <div x-show="assetTab === 'official'" x-cloak>
+      {% for group in g.assets.official %}
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">{{ group.cat }}</h4>
+        <div class="space-y-1">
+          {% for link in group.links %}
+          <a href="{{ link.url }}" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">{{ link.title }}</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">{{ link.source }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {# Panel: Inspiration #}
+    {% if g.assets.inspiration %}
+    <div x-show="assetTab === 'inspiration'" x-cloak>
+      {% for group in g.assets.inspiration %}
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">{{ group.cat }}</h4>
+        <div class="space-y-1">
+          {% for link in group.links %}
+          <a href="{{ link.url }}" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">{{ link.title }}</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">{{ link.source }}</span>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </section>
+  {% endif %}
+
 </div>
 
 {# ===== ANCHOR NAV WIDGET ===== #}
@@ -496,12 +548,12 @@ function anchorNav() {
       var defs = [
         {id:'sec-header',     label:'基本信息'},
         {id:'sec-screenshots', label:'官网截图'},
-        {id:'sec-timeline',    label:'时间线'},
         {id:'sec-worldview',   label:'游戏世界观'},
         {id:'sec-story',       label:'IP/故事'},
         {id:'sec-aesthetic',   label:'审美偏好'},
         {id:'sec-playerexp',   label:'体验清单'},
-        {id:'sec-rivals',      label:'竞品推荐'}
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
       ];
       this.sections = defs.filter(function(d) {
         return document.getElementById(d.id);

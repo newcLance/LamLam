@@ -164,7 +164,10 @@ document.addEventListener('alpine:init', function() {
     </div>
 
     
-    
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      
+    </div>
   </div>
 </div>
 
@@ -237,9 +240,6 @@ document.addEventListener('alpine:init', function() {
     </div>
     
   </section>
-  
-
-  
   
 
   
@@ -1064,6 +1064,9 @@ document.addEventListener('alpine:init', function() {
   </section>
   
 
+  
+  
+
 </div>
 
 
@@ -1152,12 +1155,12 @@ function anchorNav() {
       var defs = [
         {id:'sec-header',     label:'基本信息'},
         {id:'sec-screenshots', label:'官网截图'},
-        {id:'sec-timeline',    label:'时间线'},
         {id:'sec-worldview',   label:'游戏世界观'},
         {id:'sec-story',       label:'IP/故事'},
         {id:'sec-aesthetic',   label:'审美偏好'},
         {id:'sec-playerexp',   label:'体验清单'},
-        {id:'sec-rivals',      label:'竞品推荐'}
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
       ];
       this.sections = defs.filter(function(d) {
         return document.getElementById(d.id);

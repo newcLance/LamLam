@@ -366,5 +366,59 @@
         "reason": "共同美学源头——同为<b>中国神话/武侠IP</b>国产 3A，宣发风格同走<b>全球化东方审美</b>路线，互为玩家心智中的品类坐标"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {"title": "Steam 商店页 — 截图 + Header + 胶囊图 + 背景", "source": "Steam", "url": "https://store.steampowered.com/app/4115450/Phantom_Blade_Zero/"},
+          {"title": "PlayStation Store — 封面 / 背景 / 截图", "source": "PlayStation", "url": "https://store.playstation.com/zh-hans-hk/concept/10017620"},
+          {"title": "Epic Games Store — Key Art / 封面 / 截图", "source": "Epic", "url": "https://store.epicgames.com/en-US/p/phantom-blade-zero-e78a35"},
+          {"title": "IGDB — 截图 / 封面 / Artwork 聚合", "source": "IGDB", "url": "https://www.igdb.com/games/phantom-blade-zero"},
+          {"title": "官方网站 — 首页视觉 / Logo / 角色海报", "source": "官网", "url": "https://pbz.s-game.cn/"},
+          {"title": "Steam 页面背景（高清直链）", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4115450/b7956f90da7ba6590eb97494b092dc38341fa21c/page_bg_raw.jpg"},
+          {"title": "Steam 头图 Header（高清直链）", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4115450/1617c94f760b2e309d4908720ade9503f70b9f71/header_schinese.jpg"}
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {"title": "王琛：主角「魂」超高清角色模型（4k+ 点赞）", "source": "ArtStation", "url": "https://www.artstation.com/artwork/3EgA1g"},
+          {"title": "美术总监 Michael Chang 概念设定图首曝 + 幕后", "source": "GameRes", "url": "https://www.gameres.com/wl?m=ad7d375e219199e7813f1b9f2f9b07d5"},
+          {"title": "主角团全新写实建模 + 脸模演员素材", "source": "游民星空", "url": "https://www.gamersky.com/news/202604/2122008.shtml"},
+          {"title": "角色模型合集大赏：毛孔级清晰", "source": "网易", "url": "https://www.163.com/dy/article/K6HLLP230526K1KN.html"},
+          {"title": "搜索「影之刃零」— 玩家壁纸 / 角色图整理", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%BD%B1%E4%B9%8B%E5%88%83%E9%9B%B6"},
+          {"title": "@pbzero_official — 官方截图 / 概念图 / 预告", "source": "X", "url": "https://x.com/pbzero_official"}
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {"title": "搜索 Phantom Blade Zero（英文全量）", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=phantom%20blade%20zero"},
+          {"title": "搜索「影之刃零」（中文补充）", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=%E5%BD%B1%E4%B9%8B%E5%88%83%E9%9B%B6"},
+          {"title": "影之刃零 概念美术 / 场景", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=phantom%20blade%20zero%20concept%20art"}
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {"title": "搜索 PBZ Character Design", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=phantom%20blade%20zero%20character"},
+          {"title": "影之刃零 角色设计", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=phantom%20blade%20zero%20character%20design"},
+          {"title": "搜索 Phantom Blade Zero", "source": "Behance", "url": "https://www.behance.net/search/projects?search=phantom+blade+zero"}
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {"title": "影之刃零 — 游戏 UI 截图合集", "source": "GameUI", "url": "https://www.gameui.net/game/13663"},
+          {"title": "搜索武侠游戏 UI", "source": "Dribbble", "url": "https://dribbble.com/search/wuxia-game-ui"},
+          {"title": "功夫朋克风格纹理 / 材质", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=kungfupunk%20texture"},
+          {"title": "武侠 × 蒸汽朋克纹理素材", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=wuxia%20steampunk%20texture%20material"}
+        ]
+      }
+    ]
   }
 }
