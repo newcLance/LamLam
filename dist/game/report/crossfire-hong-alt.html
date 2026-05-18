@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>穿越火线：虹 — 宣发视觉分析报告 B版</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'surface-0': '#0c0c0c',
+        'surface-1': '#141414',
+        'surface-2': '#1c1c1c',
+        'surface-3': '#252525',
+        'bdr': 'rgba(255,255,255,0.06)'
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background:#0c0c0c; color:#e5e5e5; }
+  * { scrollbar-width: thin; scrollbar-color:#333 transparent; }
+  .page-content h2 { color:#fff; }
+  .page-content h3 { font-size:16px; font-weight:700; color:#fff; margin:28px 0 12px; }
+  .page-content h4 { font-size:14px; font-weight:600; color:#d4d4d4; margin:20px 0 8px; }
+  .page-content p { font-size:14px; line-height:1.8; color:#a3a3a3; margin:0 0 12px; }
+  .page-content ul { padding-left:20px; margin:0 0 16px; }
+  .page-content li { font-size:13px; line-height:1.7; color:#a3a3a3; margin-bottom:5px; }
+  .page-content li::marker { color:#525252; }
+  .page-content b, .page-content strong { color:#fff; font-weight:600; }
+  .highlight { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:16px; margin:16px 0; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; background:rgba(255,255,255,0.06); color:#737373; border:1px solid rgba(255,255,255,0.06); margin-right:4px; text-decoration:none; }
+  table { width:100%; border-collapse:collapse; margin:12px 0 20px; font-size:13px; }
+  th { text-align:left; padding:8px 12px; font-size:11px; font-weight:600; color:#737373; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  td { padding:9px 12px; color:#a3a3a3; border-bottom:1px solid rgba(255,255,255,0.04); vertical-align:top; }
+  .verdict { background:#141414; border-left:3px solid #fff; padding:16px 20px; margin:20px 0; border-radius:0 6px 6px 0; }
+  .verdict p { color:#d4d4d4; }
+  .creative-card { background:#141414; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; }
+  .creative-card h5 { font-size:15px; font-weight:700; color:#fff; margin:0 0 8px; }
+  .risk-card { background:#141414; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; border-left:3px solid #fff; }
+  .quote { color:#d4d4d4; font-size:18px; line-height:1.6; font-weight:700; letter-spacing:-0.02em; }
+  .muted { color:#737373 !important; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../crossfire-hong.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">穿越火线：虹 — 宣发视觉分析报告 B版</h1>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="crossfire-hong-compare.html" class="text-[11px] text-neutral-500 hover:text-white transition">查看 A/B 对比</a>
+      <span class="text-[11px] text-neutral-600">GAME TRACKER · 2026.05.18</span>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">首测前的机会窗口</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三层用户转化路径</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">核心符号：虹蚀</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉定位：熟悉被污染</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">竞品攻击面</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">首测物料战役</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个新宣发创意</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范速查</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险与反制</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">终审意见</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">首测前的机会窗口</h2>
+      <div class="verdict"><p><b>B版核心判断</b>：线上 A 版把《CF 虹》放在「品类机会」里讲，B 版选择换一个更贴近首测落地的判断：现在最重要的不是证明赛道够大，而是把首曝热度沉淀成「下一次测试必须来」的行动动机。换句话说，B 版服务的是<b>首测前 90 天的宣发作战</b>。</p></div>
+      <h3>机会不是「恐怖游戏增长」，而是「玩家还愿意相信一次」</h3>
+      <p>《CF 虹》已经用首曝完成了第一步破圈：站内数据记录的 B 站首曝实机视频播放为 <b>1488 万</b>，Gamescom 2025 宣传视频为 <b>759 万</b>，非对称玩法实机预告为 <b>180 万</b>，制作人档案「微恐到底是什么恐怖？」为 <b>175 万</b>。<a href="https://game-tracker-6v8.pages.dev/game/crossfire-hong" target="_blank" rel="noopener" class="tag">站内数据 ↗</a> 这组数据说明用户不是没兴趣，而是已经完成了第一次围观。</p>
+      <p><b>So what</b>：围观热度不会自动转化成测试预约。下一阶段宣发要从「你看 CF 变成这样了」切到「你必须亲手验证它到底是不是实机」。如果继续堆概念 PV，用户会把热情转成怀疑；如果及时给出完整对局、失败瞬间和系统复盘，怀疑会变成测试资格争夺。</p>
+      <h3>外部赛道给了窗口，但也给了噪音</h3>
+      <table>
+        <thead><tr><th>外部趋势</th><th>可信信号</th><th>对 CF 虹的意义</th></tr></thead>
+        <tbody>
+          <tr><td><b>微恐多人变成大众内容</b></td><td>《超自然行动组》官方页面对外强调同时在线突破 <b>100 万</b>。<a href="https://games.chaoziran.com/download-pc/index.html" target="_blank" rel="noopener" class="tag">官方 ↗</a></td><td>微恐不再只靠吓人，而是靠组队社交传播；CF 虹应该把「被队友吓到」变成传播素材。</td></tr>
+          <tr><td><b>非对称长线运营已被验证</b></td><td>Behaviour 官方招聘页写明《Dead by Daylight》累计 <b>7000 万玩家</b>、月活 <b>500 万</b>。<a href="https://www.bhvr.com/poste/senior-design-director-senior-game-director-dead-by-daylight/" target="_blank" rel="noopener" class="tag">Behaviour ↗</a></td><td>非对称不是短生命周期玩法，但 CF 虹不能复刻追逃模板，必须打「枪战中的信任崩坏」。</td></tr>
+          <tr><td><b>CF IP 仍有存量调动能力</b></td><td>公开报道显示 CF 手游十周年仍有大体量赛事与用户资产。<a href="https://news.qq.com/rain/a/20251210A07RM800" target="_blank" rel="noopener" class="tag">腾讯新闻 ↗</a></td><td>老玩家不是只要情怀，他们要看到「那张地图变得陌生」；夜幕山庄是最低成本、最高转化的视觉入口。</td></tr>
+        </tbody>
+      </table>
+      <h3>B版的策略前提</h3>
+      <div class="highlight"><p class="quote">不要再把《CF 虹》解释成一款「克苏鲁微恐搜打撤」。要把它包装成一次「老地图被污染后的公开测试事故」。</p><p>这句话决定了 B 版后续全部策略：视觉不以宏大世界观开场，而以「熟悉资产异常化」开场；创意不以大 H5 扩散为先，而以可验证的实机内容、主播事故、对局复盘和地图考古为先。</p></div>
+    </div>
+
+    <div x-show="page === 1" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">三层用户转化路径</h2>
+      <div class="verdict"><p><b>核心判断</b>：A 版用三圈用户模型做市场解释；B 版改成「转化路径」：先让硬核玩家相信深度，再让 CF 老兵被情绪击中，最后让泛微恐用户通过短视频看懂乐趣。顺序不能反。</p></div>
+      <h3>第一层：硬核射击种子用户</h3>
+      <p><b>他们要的不是惊喜，是证据</b>。这些玩家会把 CF 虹和 Hunt、塔科夫、三角洲行动放在一起比较，他们不缺概念，缺的是完整对局证据。站内资料里最明确的痛点是「未公测、只有实机演示，玩家无法验证玩法深度」和「担心三角洲行动前车之鉴」。<a href="https://game-tracker-6v8.pages.dev/game/crossfire-hong" target="_blank" rel="noopener" class="tag">站内数据 ↗</a></p>
+      <p><b>转化动作</b>：先给 8-12 分钟无剪辑对局，再给失败局复盘。剪辑片只能做情绪，不能做信任。硬核玩家一旦认可，后续会主动在论坛和评论区替产品做可信背书。</p>
+      <h3>第二层：CF 老兵用户</h3>
+      <p>老兵用户的第一反应已经被首曝触发：不是「这像不像猎杀」，而是「这还是 CF 吗」。他们的情绪空位是<b>熟悉被污染</b>，不是单纯怀旧。夜幕山庄、奥摩、毛线帽、枪声和地图结构，是他们识别 CF 的锚点；虹蚀、触手、理智值，是让锚点失控的异物。</p>
+      <p><b>转化动作</b>：不要只做旧版新版本画面对比，要做「同一条路线的恐怖回访」：从出生点、转角、二楼、撤离点逐步走一遍，让玩家发现自己记得路，但不敢继续走。</p>
+      <h3>第三层：泛微恐与社交玩家</h3>
+      <p>这层用户不一定懂搜打撤，也不一定关心 CF。他们只关心两个问题：好不好看、好不好笑、能不能和朋友一起制造名场面。《超自然行动组》证明微恐可以通过组队事故和直播切片扩圈；但 CF 虹必须避免被理解成「只能被吓」。</p>
+      <p><b>转化动作</b>：用队友误判、幻觉开枪、怪物玩家伏击等瞬间做短视频模板，核心不是「我被吓到了」，而是「我不知道该不该相信你」。</p>
+      <table>
+        <thead><tr><th>层级</th><th>首触物料</th><th>转化指标</th><th>失败信号</th></tr></thead>
+        <tbody>
+          <tr><td>硬核射击</td><td>无剪辑完整对局 + 失败局复盘</td><td>评论区出现机制讨论、配装讨论、平衡性讨论</td><td>只讨论画质，不讨论玩法</td></tr>
+          <tr><td>CF 老兵</td><td>夜幕山庄恐怖回访</td><td>「这地方我认识」类弹幕高频出现</td><td>只说爷青回，不想预约</td></tr>
+          <tr><td>泛微恐</td><td>队友信任崩坏短切片</td><td>二创、reaction、好友@传播</td><td>被当成普通恐怖游戏跳吓合集</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div x-show="page === 2" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">核心符号：从理智值改为「虹蚀」</h2>
+      <div class="verdict"><p><b>核心判断</b>：A 版把理智值当超级符号，这是对的，但 B 版更进一步：理智值是玩家体内的结果，<b>虹蚀才是世界被改变的原因</b>。如果宣发只打理智值，容易像系统卖点；如果先打虹蚀，再让理智值作为症状爆发，品牌会更完整。</p></div>
+      <h3>为什么「虹蚀」更适合作为 B 版主锚点</h3>
+      <p>「理智值」解释的是玩法压力，「虹蚀」解释的是视觉世界。宣发视觉报告必须优先回答「玩家 0.5 秒看见什么」。玩家第一眼不会看见一条数值，他们会看见：夜幕山庄的墙裂开、月光变色、触手从熟悉的楼梯背后伸出来。这个瞬间就是虹蚀。</p>
+      <p><b>So what</b>：B 版建议把品牌话术从「护好你的理智值」调整为「你熟悉的一切正在被虹蚀」。前者是机制提醒，后者是世界级威胁，更适合 Key Art、预告片、测试倒计时和线下投放。</p>
+      <h3>虹蚀的三层传播结构</h3>
+      <table>
+        <thead><tr><th>层级</th><th>视觉表现</th><th>传播语</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><b>环境层</b></td><td>墙面裂缝、虹彩薄膜、暗红血管状脉络</td><td>「地图先变了」</td><td>首曝海报、官网首屏、地图PV</td></tr>
+          <tr><td><b>角色层</b></td><td>眼球反光、手部污染、装备表面附着虹光</td><td>「队友也变了」</td><td>角色海报、KOL 试玩切片</td></tr>
+          <tr><td><b>系统层</b></td><td>大脑图标碎裂、HUD 扭曲、准星漂移</td><td>「你也快变了」</td><td>对局复盘、结算页分享、短视频模板</td></tr>
+        </tbody>
+      </table>
+      <h3>品牌符号建议</h3>
+      <div class="highlight"><ul><li><b>视觉锤</b>：虹彩裂缝不是彩虹色光效，而是「漂亮但危险」的污染层；面积要小，边缘要脏，中心要亮。</li><li><b>听觉锤</b>：虹蚀出现时使用一个稳定的低频撕裂音，不能每条 PV 都换音色。</li><li><b>文案锤</b>：固定一句可复用话术：「虹蚀不是降临，是从你熟悉的地方长出来。」</li></ul></div>
+    </div>
+
+    <div x-show="page === 3" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">视觉定位：熟悉被污染</h2>
+      <div class="verdict"><p><b>核心判断</b>：CF 虹最强的视觉不是「克苏鲁」，而是「CF 经典资产被克苏鲁污染」。这比单纯做暗黑触手更有传播力，因为它利用了玩家已有记忆。</p></div>
+      <h3>一条必须坚持的视觉原则：80% 可识别，20% 异常</h3>
+      <p>如果画面里全是触手、血雾和黑暗，玩家只会把它归类为普通恐怖游戏。CF 虹必须保留足够多的 CF 识别物：夜幕山庄轮廓、经典角色剪影、枪械反馈、地图路线、UI 信息层级。异常只需要 20%，但这 20% 必须扎在玩家记忆里。</p>
+      <table>
+        <thead><tr><th>视觉对象</th><th>保留的熟悉部分</th><th>污染的异常部分</th><th>宣发用途</th></tr></thead>
+        <tbody>
+          <tr><td>夜幕山庄</td><td>屋顶轮廓、走廊方向、楼梯动线</td><td>墙缝虹彩、吊灯肉芽、镜面反射异常</td><td>地图回访 PV、Key Art 背景</td></tr>
+          <tr><td>奥摩 / 经典角色</td><td>毛线帽、脸部轮廓、战术姿态</td><td>眼底反红、皮肤表面细微污染</td><td>角色海报、老兵向传播</td></tr>
+          <tr><td>HUD</td><td>弹药、血量、道具栏仍保持射击游戏秩序</td><td>理智低时局部错位、噪点、信息误读</td><td>实机切片、低理智状态 GIF</td></tr>
+        </tbody>
+      </table>
+      <h3>美学参照应从「作品引用」转成「问题引用」</h3>
+      <p>A 版列出了《血源诅咒》《心灵杀手 2》《湮灭》等谱系；B 版建议不要只说像谁，而是明确每个参照解决什么问题。</p>
+      <table>
+        <thead><tr><th>问题</th><th>参照</th><th>借鉴点</th><th>CF 虹差异</th></tr></thead>
+        <tbody>
+          <tr><td>如何让建筑变得不可信</td><td>《心灵杀手 2》</td><td>暗处信息、光束切割、现实错位</td><td>必须在多人对局里实时发生，不能只服务单人叙事</td></tr>
+          <tr><td>如何让污染既美又危险</td><td>《湮灭》</td><td>虹彩、生态异变、美丽威胁</td><td>虹蚀要更脏、更工业、更贴近 CF 的金属和枪械质感</td></tr>
+          <tr><td>如何让非对称怪物有压迫</td><td>《Dead by Daylight》</td><td>杀手/幸存者的视觉身份差异</td><td>CF 虹不是追逃，而是枪战中的伏击、误判和撤离压力</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><p><b>设计判断</b>：B 版的 Key Art 不建议再以调查员大脸为主，而建议采用「一条熟悉走廊被虹蚀从远端吞没」的纵深构图。角色只占画面下方 20%，让玩家先认出地方，再意识到地方不对。</p></div>
+    </div>
+
+    <div x-show="page === 4" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold mb-6">竞品攻击面：不抢最大人群，抢最不满足的人群</h2>
+      <div class="verdict"><p><b>核心判断</b>：CF 虹不应该同时向所有竞品宣战。首测前最有效的打法，是针对每个竞品用户的不满点给出一条可验证证据。</p></div>
+      <table>
+        <thead><tr><th>竞品用户</th><th>他们的不满</th><th>CF 虹的攻击证据</th><th>物料形式</th></tr></thead>
+        <tbody>
+          <tr><td><b>Hunt 用户</b></td><td>亚洲用户门槛、内容更新、节奏偏慢</td><td>三方混战更高频，怪物玩家让每局变量更大</td><td>「8分钟一局三次反转」实机视频</td></tr>
+          <tr><td><b>塔科夫用户</b></td><td>硬核但疲惫，成本高，死亡惩罚重</td><td>撤离压力保留，但通过理智值和故事 POI 提供情绪目标</td><td>失败局复盘，不回避死亡成本</td></tr>
+          <tr><td><b>DBD 用户</b></td><td>追逃模板疲劳，不能反击的无力感</td><td>恐怖感来自会不会误判，而不是只能逃</td><td>「我把队友当怪物打了」切片</td></tr>
+          <tr><td><b>CF 老玩家</b></td><td>担心只是套皮、担心失去原味</td><td>枪械手感和经典资产保留，地图被重新解释</td><td>夜幕山庄路线回访</td></tr>
+        </tbody>
+      </table>
+      <h3>差异化壁垒的 B 版表述</h3>
+      <p>A 版强调「理智值 + 非对称 + CF IP」三重壁垒。B 版建议改成更适合传播的三句话：</p>
+      <div class="highlight"><ul><li><b>别人有怪物，CF 虹有一张你认识的地图正在长出怪物。</b></li><li><b>别人有队友，CF 虹让你怀疑队友是不是还可信。</b></li><li><b>别人有撤离，CF 虹让你撤离时不确定带出去的是战利品还是污染。</b></li></ul></div>
+    </div>
+
+    <div x-show="page === 5" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">首测物料战役</h2>
+      <div class="verdict"><p><b>这一版不做泛首发规划，只做首测前 90 天战役。</b>目标是把围观者变成测试申请者，把怀疑者变成监督者，把老玩家变成自来水。</p></div>
+      <h3>战役结构：三段式信任修复</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>时间</th><th>核心问题</th><th>主物料</th><th>KPI</th></tr></thead>
+        <tbody>
+          <tr><td><b>证据期</b></td><td>T-90 至 T-60</td><td>这到底是不是实机？</td><td>完整对局、失败局、开发日志</td><td>核心论坛正向/中性讨论占比提升；B站长评数量增长</td></tr>
+          <tr><td><b>情绪期</b></td><td>T-60 至 T-30</td><td>这和 CF 有什么关系？</td><td>夜幕山庄回访、老地图污染档案</td><td>「夜幕山庄」「老地图」相关二创出现</td></tr>
+          <tr><td><b>抢号期</b></td><td>T-30 至 T-0</td><td>我为什么现在要预约？</td><td>主播异常局、测试资格挑战、理智复盘模板</td><td>测试资格申请转化、预约增长、直播观看峰值</td></tr>
+        </tbody>
+      </table>
+      <h3>P0 物料清单</h3>
+      <div class="highlight"><ul><li><b>无剪辑完整对局</b>：必须出现搜刮、遭遇人类、遭遇怪物、理智值下降、撤离失败或成功。不要剪成爽片，要让玩家看见决策压力。</li><li><b>失败局复盘</b>：用开发者视角复盘一次失败，解释「为什么这不是 Bug，而是玩法」。这是重建信任的关键。</li><li><b>夜幕山庄异常档案</b>：以地图路线为单位，每条 45-60 秒，讲一个点位如何被虹蚀改写。</li><li><b>主播异常局直播规范</b>：不要只找大主播尖叫，要设计任务目标，保证每场都有可切片的信任崩坏瞬间。</li></ul></div>
+    </div>
+
+    <div x-show="page === 6" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">三个新宣发创意</h2>
+      <div class="creative-card">
+        <span class="tag">创意 01</span>
+        <h5>「夜幕山庄异常回访」— 老地图恐怖路线片</h5>
+        <p><b>核心概念</b>：用玩家熟悉的夜幕山庄路线做一支「回访片」。镜头从老 CF 的标准动线出发，每经过一个玩家记忆点，就揭示一处虹蚀异常。核心不是怀旧，而是让玩家说出：「这条路我认识，但我不敢走了。」</p>
+        <table><thead><tr><th>模块</th><th>安排</th></tr></thead><tbody><tr><td>时间线</td><td>T-60 启动素材整理，T-45 发布 3 分钟主片，T-30 拆成 8 条点位短视频</td></tr><tr><td>预算</td><td><b>120-220 万</b>，含实机拍摄、老素材授权整理、后期转场和投放</td></tr><tr><td>KPI</td><td>B站主片播放 <b>800 万+</b>，抖音短切总播放 <b>2500 万+</b>，评论区「认路」类内容超过 20%</td></tr><tr><td>平台</td><td>B站长视频、抖音短切、微博话题、CF 社区</td></tr><tr><td>参考案例</td><td>经典地图重制对比、恐怖片「故地重游」预告片结构</td></tr></tbody></table>
+      </div>
+      <div class="creative-card">
+        <span class="tag">创意 02</span>
+        <h5>「异常对局公开课」— 把失败做成内容</h5>
+        <p><b>核心概念</b>：邀请制作人或战斗设计师复盘一局失败对局：哪里误判、哪里理智值崩溃、哪里队友开错枪。把最容易被玩家质疑的混乱，主动解释成策略深度。</p>
+        <table><thead><tr><th>模块</th><th>安排</th></tr></thead><tbody><tr><td>时间线</td><td>T-80 录制第一期，T-70 发布；之后每两周一期，共 4 期</td></tr><tr><td>预算</td><td><b>80-150 万</b>，制作成本低，重点花在剪辑包装和核心 KOL 二创激励</td></tr><tr><td>KPI</td><td>每期长视频完播率 >35%，硬核评论 >3000 条，NGA/TapTap 机制讨论贴自然增长</td></tr><tr><td>平台</td><td>B站、TapTap、NGA、Steam 新闻页、YouTube</td></tr><tr><td>参考案例</td><td>竞技游戏开发者复盘、战术射击教学栏目、失败局拆解内容</td></tr></tbody></table>
+      </div>
+      <div class="creative-card">
+        <span class="tag">创意 03</span>
+        <h5>「谁被虹蚀了」— 主播信任崩坏直播夜</h5>
+        <p><b>核心概念</b>：不是做综艺棚拍，而是做一晚「测试资格直播事件」。每队主播进入同一张图，系统随机给一名玩家更高虹蚀风险；观众通过弹幕猜谁最先崩溃，猜中抽测试资格。</p>
+        <table><thead><tr><th>模块</th><th>安排</th></tr></thead><tbody><tr><td>时间线</td><td>T-21 官宣，T-14 彩排，T-7 直播夜，T-6 起连续发布切片</td></tr><tr><td>预算</td><td><b>260-420 万</b>，含主播坑位、直播包装、测试资格系统和切片投放</td></tr><tr><td>KPI</td><td>直播峰值观看 <b>80 万+</b>，测试资格申请增长 <b>30 万+</b>，切片总播放 <b>5000 万+</b></td></tr><tr><td>平台</td><td>B站直播、抖音直播、视频号、微博热搜联动</td></tr><tr><td>参考案例</td><td>Among Us 主播局、微恐游戏直播切片、测试资格抽取活动</td></tr></tbody></table>
+      </div>
+      <div class="highlight"><p><b>预算建议</b>：三个创意全做约 <b>460-790 万</b>，比 A 版偏低，更适合首测前验证。它们不是品牌大事件，而是信任修复和测试转化工具。</p></div>
+    </div>
+
+    <div x-show="page === 7" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 03</div>
+      <h2 class="text-2xl font-bold mb-6">视觉规范速查</h2>
+      <h3>B版主视觉公式</h3>
+      <div class="highlight"><p class="quote">一个熟悉地点 + 一个异常源头 + 一个即将误判的人。</p><p>这个公式比「角色站位 + 怪物背景」更适合 CF 虹，因为它把 IP 记忆、世界异变和玩法压力放在同一张图里。</p></div>
+      <table>
+        <thead><tr><th>元素</th><th>建议</th><th>禁忌</th></tr></thead>
+        <tbody>
+          <tr><td><b>构图</b></td><td>纵深走廊、楼梯转角、门缝窥视；人物占比 15-25%</td><td>四人小队横排站桩、怪物正面大特写</td></tr>
+          <tr><td><b>色彩</b></td><td>暗蓝绿做空间底色，虹彩污染做边缘高光，猩红只用于崩溃瞬间</td><td>满屏红、满屏触手、彩虹色过于干净</td></tr>
+          <tr><td><b>字体</b></td><td>标题粗黑、信息等宽、档案文案可用打字机感</td><td>哥特花体、过度玄幻化字体</td></tr>
+          <tr><td><b>UI</b></td><td>理智值是症状仪表，低理智时局部错位即可</td><td>全屏污染导致看不清实机信息</td></tr>
+          <tr><td><b>短视频封面</b></td><td>固定使用「熟悉点位 + 异常一句话」结构</td><td>只放怪物和尖叫表情</td></tr>
+        </tbody>
+      </table>
+      <h3>四句可直接给设计师的执行话</h3>
+      <ul><li><b>不要把虹蚀画得太漂亮</b>：漂亮只是诱饵，边缘必须脏、湿、像正在腐蚀材质。</li><li><b>不要把怪物放太满</b>：CF 虹的恐惧来自「不知道它在哪」，不是一眼看见全身设定。</li><li><b>不要丢掉 CF 识别物</b>：至少保留一个老玩家能认出的地点、角色或枪械。</li><li><b>不要让 UI 像恐怖游戏皮肤</b>：UI 首先要能打枪，其次才是精神污染。</li></ul>
+    </div>
+
+    <div x-show="page === 8" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">风险与反制</h2>
+      <div class="risk-card"><span class="tag">高风险</span><h5>风险 1：B版过度强调实机，暴露产品短板</h5><p>完整对局是信任工具，也是风险放大器。如果节奏、AI、怪物平衡或移动端画质还不稳定，长视频会把问题摊开给玩家逐帧审判。</p><p><b>反制</b>：先发布「失败局复盘」而不是「完美局演示」，用解释权抢先框定问题：这是测试阶段的策略变量，不是成品缺陷。</p></div>
+      <div class="risk-card"><span class="tag">高风险</span><h5>风险 2：老地图回访被误读成只卖情怀</h5><p>如果夜幕山庄内容只做新旧画面对比，会变成普通情怀营销，无法支撑测试转化。</p><p><b>反制</b>：每个点位必须绑定一个玩法变化，例如「这个转角过去是卡点，现在是理智值下降最高的伏击点」。情怀必须落到新玩法。</p></div>
+      <div class="risk-card"><span class="tag">中风险</span><h5>风险 3：虹蚀概念盖过理智值，机制记忆变弱</h5><p>B版主推虹蚀，有可能让玩家记住世界观污染，却没记住理智值玩法。</p><p><b>反制</b>：所有虹蚀物料最后都要落到一条结果：虹蚀影响环境、队友和你自己的判断。结尾必须出现理智值症状。</p></div>
+      <div class="risk-card"><span class="tag">中风险</span><h5>风险 4：直播事故不可控</h5><p>主播局如果没有发生足够强的误判和崩溃，直播夜可能变成普通试玩。</p><p><b>反制</b>：直播前给每队设置任务脚本和高风险路线，确保每局至少有一次理智值事件和一次队内争执节点。</p></div>
+    </div>
+
+    <div x-show="page === 9" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">顾问终审意见</h2>
+      <div class="verdict"><h4 style="color:#fff;margin-top:0;">GO / NO-GO 判断：GO，但只适合作为首测前 B 方案</h4><p>B版不是替代 A 版的总战略，而是更偏执行的首测转化方案。A 版适合给管理层证明「这个方向值得投」，B 版适合给发行团队回答「下周开始发什么」。如果目标是立项汇报，用 A；如果目标是测试预约和社区信任修复，用 B。</p></div>
+      <h3>三个尖锐问题</h3>
+      <div class="highlight"><h4>问题一：敢不敢把失败局拿出来讲？</h4><p>如果团队只愿意放完美剪辑，硬核玩家不会相信。CF 虹的策略深度必须通过失败、误判、撤离失败来证明。</p></div>
+      <div class="highlight"><h4>问题二：夜幕山庄能否承担首测主舞台？</h4><p>如果首测地图不是夜幕山庄，B版情绪打法会失去最强锚点。建议首测至少提供一个足够完整的夜幕山庄 POI。</p></div>
+      <div class="highlight"><h4>问题三：虹蚀是否有统一视觉资产库？</h4><p>如果每条物料里的虹蚀颜色、纹理、音效都不统一，品牌符号无法沉淀。必须先统一虹蚀裂缝、脉络、音效和 UI 症状。</p></div>
+      <h3>第一优先行动清单</h3>
+      <table>
+        <thead><tr><th>周期</th><th>动作</th><th>交付</th></tr></thead>
+        <tbody>
+          <tr><td>本周</td><td>锁定 B 版主线：「熟悉被污染」</td><td>一句话定位、Key Art 草图、夜幕山庄点位清单</td></tr>
+          <tr><td>两周内</td><td>录制 1 条完整对局和 1 条失败局复盘</td><td>长视频粗剪、机制讲解脚本、可公开问题列表</td></tr>
+          <tr><td>一个月内</td><td>制作「夜幕山庄异常回访」主片</td><td>3 分钟主片 + 8 条点位短视频</td></tr>
+          <tr><td>首测前两周</td><td>启动「谁被虹蚀了」直播夜</td><td>主播名单、测试资格抽取机制、切片模板</td></tr>
+        </tbody>
+      </table>
+      <div class="verdict"><p><b>最终建议</b>：保留线上 A 版作为「战略全景版」，新增 B 版作为「首测转化版」。两个版本不是谁对谁错，而是服务对象不同。A 版负责说服决策者，B 版负责调动玩家。</p></div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
