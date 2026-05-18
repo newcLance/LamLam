@@ -1,0 +1,416 @@
+{
+  "id": 245,
+  "slug": "alan-wake-2",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {
+          "text": "<b>双主角平行叙事</b>——Alan 困在黑暗之地写小说改变现实，Saga 在现实世界追踪仪式谋杀案",
+          "src": "IGN"
+        },
+        {
+          "text": "<b>真人影像融合实时渲染</b>——Remedy 标志性的 live-action 手法在本作达到巅峰",
+          "src": "Eurogamer"
+        },
+        {
+          "text": "TGA 2023 三冠王——<b>最佳游戏指导 / 最佳叙事 / 最佳艺术指导</b>同时斩获",
+          "src": "The Verge"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>Remedy 宇宙</b>终于成型——Alan Wake 与 Control 的世界观正式交汇",
+          "src": "GameSpot"
+        },
+        {
+          "text": "大卫·林奇式的<b>迷幻恐怖叙事</b>——前所未有的 3A 心理惊悚体验",
+          "src": "IGN"
+        },
+        {
+          "text": "<b>DLC 夜春镇 + 湖边小屋</b>延续了主线的叙事深度和惊悚氛围",
+          "src": "Eurogamer"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>Epic 独占</b>引发 PC 玩家强烈不满——Steam 用户只能旁观",
+          "src": "Reddit"
+        },
+        {
+          "text": "<b>硬件要求极高</b>——推荐配置需 RTX 4070 才能流畅体验光追效果",
+          "src": "Digital Foundry"
+        },
+        {
+          "text": "前期节奏偏慢，<b>叙事密度</b>对非英语母语玩家造成较大理解压力",
+          "src": "多媒体综合"
+        }
+      ],
+      "churn": [
+        {
+          "text": "一周目通关后<b>重玩动力不足</b>——线性叙事结构限制了反复体验的意愿",
+          "src": "Epic 评价"
+        },
+        {
+          "text": "DLC 体量有限，<b>等待续作</b>的漫长空窗期让社区热度缓慢消散",
+          "src": "Reddit"
+        }
+      ]
+    },
+    "community": {
+      "memory": [
+        {
+          "text": "「<b>2023 年最佳叙事游戏</b>」成为社区共识——剧情解析帖长期霸占讨论区",
+          "src": "NGA"
+        },
+        {
+          "text": "<b>心灵杀手2</b>的恐怖氛围向集锦在 B 站获得极高播放量",
+          "src": "Bilibili"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "剧情线索<b>隐藏彩蛋极多</b>——社区挖掘 Remedy 宇宙关联的热情持续高涨",
+          "src": "Reddit"
+        },
+        {
+          "text": "<b>Musical 音乐剧章节</b>在社交媒体上被反复传播——成为现象级片段",
+          "src": "Bilibili"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>Epic 独占 + 高配置门槛</b>让大量玩家无法体验——只能靠云游戏或看实况",
+          "src": "NGA"
+        },
+        {
+          "text": "结局<b>开放性过强</b>引发争议——部分玩家觉得叙事未给出明确答案",
+          "src": "Reddit"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>单机叙事游戏</b>天然没有长期留存机制——通关即告别",
+          "src": "多媒体综合"
+        },
+        {
+          "text": "等待 Remedy 下一部作品的<b>空窗期过长</b>——社区活跃度逐步回落",
+          "src": "NGA"
+        }
+      ]
+    },
+    "biliVideos": [
+      {
+        "title": "【4KHDR】老戴《心灵杀手2》最高难度流程攻略解说",
+        "bvid": "BV1n34y1u7y5",
+        "views": "122万"
+      },
+      {
+        "title": "随义【心灵杀手2：ALAN WAKE 2】第一章：邀请（上） 猛男全收集攻略流程解说",
+        "bvid": "BV1tu4y1h79L",
+        "views": "19.2万"
+      },
+      {
+        "title": "《心灵杀手2》完全解析：这不是循环，这是螺旋！",
+        "bvid": "BV1FS516qECK",
+        "views": "1.9万"
+      },
+      {
+        "title": "【IGN】9分，《心灵杀手2》评测：优秀得让前作仿佛变成一份粗糙的草稿",
+        "bvid": "BV1f94y1V7bq",
+        "views": "78.5万"
+      },
+      {
+        "title": "史上最烧脑的3A大作，没问题吧？一口气看完《心灵杀手2》",
+        "bvid": "BV1im411D7pr",
+        "views": "16.2万"
+      }
+    ]
+  },
+  "worldview": {
+    "background": {
+      "title": "一个被超自然黑暗吞噬的太平洋西北小镇",
+      "value": "你面前的世界分成两层——表面是华盛顿州<b>Bright Falls 亮瀑镇</b>：寒冷潮湿的太平洋西北森林，松林湖泊加油站，一切像 Twin Peaks 开场般宁静。地表之下存在<b>Dark Place 黑暗之地</b>——一个会读取闯入者心灵恐惧并将之具象化的异世界。这不是僵尸末日——是<b>北欧式心理恐怖</b>：安静森林里有什么在看着你，而那东西可能是你自己写出来的。",
+      "keywords": [
+        "太平洋西北",
+        "Dark Place 黑暗之地",
+        "超自然恐怖",
+        "北欧心理惊悚"
+      ]
+    },
+    "mainStory": {
+      "title": "惊悚小说家困在自己写的恐怖故事里 13 年",
+      "value": "你同时扮演两个人——<b>Alan Wake</b>，被困在黑暗之地 13 年的惊悚小说家，他发现写下的字会在现实成真，于是试图写一篇恐怖小说逃出异世界；<b>Saga Anderson</b>，FBI 探员，来到 Bright Falls 调查仪式谋杀案，发现案件与 Alan 失踪时未完成的手稿完全吻合。两线交错——Alan 每改写一个情节，Saga 就发现新的尸体。<b>谁在写谁的故事？</b>",
+      "keywords": [
+        "双主角叙事",
+        "小说改变现实",
+        "FBI 探员",
+        "元叙事悖论"
+      ]
+    },
+    "combat": {
+      "title": "手电筒撕开黑暗护盾，子弹只是收尾",
+      "value": "你遇到的敌人叫<b>Taken（被侵蚀者）</b>——被黑暗力量寄生的普通人。它们身上包裹着黑暗护盾，子弹打不穿——必须先用手电筒光束<b>消解护盾</b>再开枪击杀。但电池有限弹药稀缺，每次战斗都要权衡：<b>硬打消耗资源，还是关灯逃进下一个安全光源</b>。节奏不是突突突，是资源管理式生存恐怖——永远觉得弹药不够、电池不够、安全感不够。",
+      "keywords": [
+        "光暗机制",
+        "Taken 被侵蚀者",
+        "资源匮乏",
+        "生存恐怖"
+      ]
+    },
+    "coreLoop": {
+      "title": "在两个主角之间切换推进平行剧情",
+      "value": "核心循环是<b>章节制双线叙事</b>——自由选择先推 Alan 还是 Saga。Alan 在黑暗之地用<b>Plot Board 情节板</b>改写小说片段来改变环境地形和触发事件；Saga 在现实世界进入<b>Mind Place 思维宫殿</b>整理线索、做犯罪心理 profiling、推理案件关联。两边穿插探索战斗解谜——但叙事推进才是驱动你前进的真正动力。每推完一章都有新信息颠覆之前的理解。",
+      "keywords": [
+        "双线切换",
+        "Plot Board 情节板",
+        "Mind Place 思维宫殿",
+        "章节制叙事"
+      ]
+    }
+  },
+  "story": {
+    "overview": {
+      "tagline": "<b>作家困在自己的小说里</b>，FBI 探员追踪他笔下的谋杀案。",
+      "paragraphs": [
+        "想象你是一个<b>被困了 13 年的惊悚小说家</b>——四周是永远天黑的超现实纽约，街道根据你的恐惧变形，霓虹灯在雾里一闪一灭。你发现了一个规则：<b>写下的文字会变成现实</b>。于是你开始写恐怖小说——不是为了出版，是为了改写囚禁你的世界。但每写一段你就陷得更深：<b>小说在写你，还是你在写小说？</b>",
+        "千里之外的华盛顿州 Bright Falls，<b>FBI 探员 Saga Anderson</b> 正在调查仪式谋杀案——死者被摆成诡异姿势，现场散落着手稿页。她很快发现这些手稿出自 13 年前失踪的作家 Alan Wake，而<b>案件每个细节都与手稿精确对应</b>。线索板上照片越来越多，但每条都指向一个不可能的结论：<b>凶手是被困在另一维度的人</b>，他正在通过写作杀人。",
+        "两条线交汇时你发现了真正令人不安的东西——Alan 写下「探员走进湖边小屋」，你切到 Saga 视角她确实站在那扇门前。<b>Saga 的调查、Alan 的小说、你手中的控制器</b>三者边界正在模糊。当你操控 Saga 时，是你在玩游戏，还是<b>Alan 在写你</b>？"
+      ]
+    },
+    "dims": [
+      {
+        "label": "时间",
+        "value": "<b>当代</b>——距初代事件 13 年后；Alan 被困 Dark Place 的时间跨度为 2010-2023，Saga 的调查发生在 2023 年秋"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>双重空间并行</b>——现实世界为华盛顿州 Bright Falls / Watery / Cauldron Lake 太平洋西北森林小镇；异世界为 Dark Place 超现实纽约"
+      },
+      {
+        "label": "角色扮演什么",
+        "value": "双主角并行——「<b>惊悚小说家 Alan Wake</b>」试图通过写小说逃离黑暗异世界 +「<b>FBI 探员 Saga Anderson</b>」在现实世界追踪仪式连环谋杀案"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>当代现实叠加超自然力量</b>——没有科幻元素；恐怖来源是 Dark Place 的黑暗实体和被侵蚀的普通人类；武器仅为手电筒与常规枪械，无任何高科技装备"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>人类 vs 黑暗力量</b>——Taken 是被黑暗附身的普通人，构成直接战斗威胁；终极对手是 Dark Place 本身以及 Alan 笔下失控的叙事力量"
+      },
+      {
+        "label": "地图",
+        "value": "<b>开放探索式线性章节</b>——Saga 线为半开放的太平洋西北小镇、森林和湖区场景；Alan 线为不断变形折叠的超现实纽约街区、废弃剧场和无限循环走廊"
+      },
+      {
+        "label": "元素",
+        "value": "<b>心理惊悚 × 双线叙事 × 真人影像融合</b>；美术标识为「北欧黑暗文学 × 大卫·林奇式迷幻」——Northlight 引擎实现真人与实时渲染无缝切换"
+      }
+    ]
+  },
+  "aesthetic": {
+    "summary": {
+      "label": "北欧黑暗叙事 × 大卫·林奇",
+      "definition": "<b>北欧黑暗叙事 × 大卫·林奇</b>，把<b>芬兰式心理恐怖</b>（冷冽、克制、不安）和大卫·林奇的<b>超现实影像语法</b>（梦境逻辑、身份分裂）塞进第三人称生存恐怖。底色是太平洋西北的阴冷自然——松林浓雾、黑水湖泊、霓虹加油站；变异在于随时滑入 Dark Place 的超现实纽约。色彩 DNA 锁定<b>胶片暖黄 + 超自然冷蓝</b>。",
+      "evolution": "心理恐怖视觉演化跨越 30 余年。<b>1990 年</b>《<b>双峰 Twin Peaks</b>》定义了「小镇超自然悬疑」影像母版。<b>2001 年</b>《<b>寂静岭 2</b>》把心理恐怖游戏推向巅峰；同年林奇的《<b>穆赫兰道</b>》以梦境嵌套重定义恐怖。<b>2010 年</b>初代 Alan Wake 将太平洋西北 + 手电筒 + Stephen King 惊悚融为一体。<b>2019 年</b>《<b>Control</b>》用 SCP 式官僚体系建立 Remedy 宇宙视觉基石。Alan Wake 2 是集大成——Northlight 引擎 + 真人影像 + 双线叙事，把 30 年遗产推向新高度。",
+      "references": [
+        {
+          "type": "show",
+          "title": "双峰 Twin Peaks",
+          "year": "1990",
+          "note": "<b>小镇超自然悬疑</b>影像母版；红色窗帘、黑色小屋、松林异世界的视觉源头"
+        },
+        {
+          "type": "film",
+          "title": "闪灵 The Shining",
+          "year": "1980",
+          "note": "<b>封闭空间心理恐怖</b>范式；作家主角 + 超自然力量 + 创作与疯狂的边界"
+        },
+        {
+          "type": "game",
+          "title": "寂静岭 2 Silent Hill 2",
+          "year": "2001",
+          "note": "<b>心理恐怖游戏</b>巅峰；用环境设计外化角色内心创伤的手法"
+        },
+        {
+          "type": "show",
+          "title": "真探 True Detective S1",
+          "year": "2014",
+          "note": "<b>南方哥特侦探叙事</b>；双时间线 + 仪式谋杀 + 哲学独白的结构参考"
+        },
+        {
+          "type": "game",
+          "title": "控制 Control",
+          "year": "2019",
+          "note": "<b>Remedy 宇宙前作</b>；联邦控制局 + SCP 式超自然体系的世界观基础"
+        },
+        {
+          "type": "film",
+          "title": "穆赫兰道 Mulholland Drive",
+          "year": "2001",
+          "note": "<b>林奇超现实叙事</b>典范；梦境嵌套 + 身份分裂 + 不可靠叙述者"
+        },
+        {
+          "type": "game",
+          "title": "Psychonauts 2",
+          "year": "2021",
+          "note": "<b>心灵空间可视化</b>参考；将角色心理状态转化为可探索关卡的设计思路"
+        }
+      ]
+    },
+    "scene": {
+      "title": "太平洋西北森林 × 超现实黑暗纽约 - Northlight 真人融合",
+      "value": "场景在两极切换——Saga 线是<b>太平洋西北阴冷自然</b>：浓雾松林、黑水湖面映月光、路边加油站暖黄灯在雨雾里晕开；Alan 线是<b>Dark Place 超现实纽约</b>：永远深夜、霓虹在水渍路面无限反射、走廊循环折叠、剧场聚光灯打出唯一安全区。两空间用<b>真人影像转场</b>无缝连接——live-action 渐变为实时渲染的瞬间是全作最标志性视觉时刻",
+      "anchorRule": [
+        1,
+        2,
+        4
+      ]
+    },
+    "costume": {
+      "title": "作家西装外套 × FBI 冲锋衣 - 日常着装下的恐怖",
+      "value": "角色设计刻意回避「恐怖主角感」——<b>Alan 穿作家标配</b>：深色西装外套、衬衫、围巾，像从曼哈顿签售会直接掉进噩梦；<b>Saga 穿 FBI 外勤标准</b>：防水冲锋衣、牛仔裤、登山靴。这种「普通人面对超自然恐怖」的反差是恐怖感核心——没有动力甲没有战术背心，<b>你就是穿着日常衣服拿着手电筒走进黑暗的普通人</b>",
+      "anchorRule": [
+        3,
+        4
+      ]
+    },
+    "ui": {
+      "title": "剧内叙事 UI - 手稿页 × 思维宫殿 × 情节板",
+      "value": "UI 高度<b>剧内化（diegetic）</b>——几乎没有传统 HUD。Alan 的 Plot Board 是物理软木板，用<b>手稿页和场景照片</b>标记叙事选择；Saga 的 Mind Place 是完整心灵空间，<b>案件板 / profiling 墙 / 证据柜</b>以第一人称可交互呈现。战斗 HUD 极简仅保留电量和弹药；菜单模拟<b>打字机文档和胶片幻灯片</b>质感",
+      "anchorRule": [
+        5
+      ]
+    },
+    "symbol": {
+      "title": "手电筒光柱 × 螺旋符号 × 打字机 × 黑水湖面",
+      "value": "核心视觉符号：<b>手电筒光柱</b>（光明/安全/武器三位一体）、<b>螺旋标记</b>（Dark Place 的超自然印记，出现在墙壁树干案发现场）、<b>打字机 + 手稿页</b>（文字改变现实的具象化）、<b>Cauldron Lake 黑水湖面</b>（现实与异世界的门户）；色彩母题锁定手电暖黄 + 黑暗冷蓝的永恒对峙",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "promo": {
+      "title": "TGA 三冠王 × Remedy 宇宙 × 真人影像融合",
+      "value": "宣发核心打<b>「2023 叙事之王」</b>——TGA 最佳指导/最佳叙事/最佳美术三冠加冕是最强背书；<b>真人影像和 CG 无缝融合</b>片段是社交媒体传播主力；Remedy 宇宙的<b>跨作品关联</b>吸引老粉入坑；Key Art 以<b>Alan 手持手电独立于黑暗中</b>为标准构图——光暗对峙一眼传达调性",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "rivals": [
+      {
+        "id": 233,
+        "reason": "同为<b>心理恐怖叙事</b>巅峰——Silent Hill 2 重制版争夺恐怖游戏叙事王冠"
+      },
+      {
+        "id": 150,
+        "reason": "同属<b>第三人称生存恐怖 3A</b>——生化危机8的战斗密度和资源管理直接可比"
+      },
+      {
+        "id": 224,
+        "reason": "Signalis 以像素美术实现<b>同级别心理恐怖叙事深度</b>——indie 与 3A 的对照"
+      },
+      {
+        "id": 244,
+        "reason": "Hunt: Showdown 同为<b>暗色调超自然恐怖</b>题材——在恐怖市场争夺玩家时间"
+      }
+    ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Epic Games Store",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/en-US/p/alan-wake-2"
+          },
+          {
+            "title": "官方网站",
+            "source": "Remedy",
+            "url": "https://www.alanwake.com/"
+          },
+          {
+            "title": "Remedy Entertainment",
+            "source": "Remedy",
+            "url": "https://www.remedygames.com/"
+          },
+          {
+            "title": "PlayStation Store",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/alan-wake-2/"
+          },
+          {
+            "title": "Xbox 商店",
+            "source": "Xbox",
+            "url": "https://www.xbox.com/en-us/games/store/alan-wake-2/9PP53DTFXBKV"
+          },
+          {
+            "title": "官方 X / Twitter",
+            "source": "X",
+            "url": "https://x.com/aaborix"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "ArtStation - Alan Wake 2 Key Art (Oliver Odmark)",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/artwork/n01DLX"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Alan Wake 2 Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=alan%20wake%202%20concept%20art"
+          },
+          {
+            "title": "北欧心理恐怖 / Twin Peaks 氛围参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=alan%20wake%202%20concept%20art%20dark%20forest"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Alan Wake Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=alan%20wake%20character%20design"
+          },
+          {
+            "title": "FBI 女探员 / 侦探角色设计参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=fbi%20female%20detective%20character%20design%20game"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Alan Wake 2 UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/horror-game-ui-diegetic"
+          },
+          {
+            "title": "心理恐怖游戏 HUD/UI 参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=psychological%20horror%20game%20ui%20minimal"
+          }
+        ]
+      }
+    ]
+  }
+}

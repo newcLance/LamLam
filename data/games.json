@@ -2693,5 +2693,38 @@
     "changes": [],
     "lastUpdate": "2026-05-18",
     "slug": "hunt-showdown-1896"
+  },
+  {
+    "id": 245,
+    "name": "Alan Wake 2",
+    "nameCN": "心灵杀手 2",
+    "alias": "心灵杀手2,Alan Wake 2,AW2,Alan Wake II,心灵杀手II",
+    "icon": "🔦",
+    "company": "Remedy Entertainment",
+    "category": "已运营",
+    "region": "海外",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series"
+    ],
+    "model": "买断制",
+    "genre": "Horror",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2023",
+    "releaseDate": "2023-10-27",
+    "desc": "Remedy Entertainment 开发的第三人称生存恐怖游戏。惊悚小说家 Alan Wake 困于黑暗之地 13 年后，FBI 探员 Saga Anderson 来到亮瀑镇调查仪式谋杀案，两条平行叙事线交织。TGA 2023 最佳游戏指导/叙事/艺术指导三项大奖。",
+    "features": [
+      "生存恐怖",
+      "双线叙事",
+      "心理惊悚",
+      "TGA 三大奖",
+      "Remedy 宇宙"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-05-18",
+    "slug": "alan-wake-2"
   }
 ]

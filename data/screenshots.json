@@ -2774,5 +2774,19 @@
         }
       ]
     }
+  ],
+  "Alan Wake 2": [
+    {
+      "module": "官网",
+      "screens": [
+        {
+          "title": "Alan Wake 2 - 官方 Key Art",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/alan-wake-2/cover.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

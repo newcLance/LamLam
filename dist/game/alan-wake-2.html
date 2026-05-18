@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>心灵杀手 2 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<a href="../index.html" id="back-btn"
+   class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-2/90 backdrop-blur-sm border border-white/[.08] hover:bg-surface-3 hover:border-white/[.15] text-neutral-300 hover:text-white text-sm font-medium transition-all shadow-lg shadow-black/30">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  返回
+  <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
+</a>
+<script>
+(function(){
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable]')) return;
+    // Don't navigate if lightbox is open (Alpine handles that)
+    try { if (window.Alpine && Alpine.store('lightbox') && Alpine.store('lightbox').open) return; } catch(x){}
+    window.location.href = '../index.html';
+  });
+})();
+</script>
+
+
+<div id="sec-header" class="relative w-full overflow-hidden">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/alan-wake-2/cover.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">心灵杀手 2</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">Remedy Entertainment · Horror · 2023-10-27</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">Remedy Entertainment 开发的第三人称生存恐怖游戏。惊悚小说家 Alan Wake 困于黑暗之地 13 年后，FBI 探员 Saga Anderson 来到亮瀑镇调查仪式谋杀案，两条平行叙事线交织。TGA 2023 最佳游戏指导/叙事/艺术指导三项大奖。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">生存恐怖</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">双线叙事</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">心理惊悚</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">TGA 三大奖</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">Remedy 宇宙</span>
+        
+      </div>
+      
+    </div>
+
+    
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      <a href="#sec-assets"
+         class="group flex items-center gap-2 px-5 py-3 rounded bg-white text-black font-bold hover:bg-neutral-200 text-sm transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
+
+  
+  
+  
+  
+    
+      
+        
+      
+    
+  
+
+  
+
+  
+  
+  <section id="sec-worldview" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      游戏世界观
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">BACKGROUND</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">游戏背景</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">一个被超自然黑暗吞噬的太平洋西北小镇</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你面前的世界分成两层——表面是华盛顿州<b>Bright Falls 亮瀑镇</b>：寒冷潮湿的太平洋西北森林，松林湖泊加油站，一切像 Twin Peaks 开场般宁静。地表之下存在<b>Dark Place 黑暗之地</b>——一个会读取闯入者心灵恐惧并将之具象化的异世界。这不是僵尸末日——是<b>北欧式心理恐怖</b>：安静森林里有什么在看着你，而那东西可能是你自己写出来的。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">太平洋西北</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">Dark Place 黑暗之地</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">超自然恐怖</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">北欧心理惊悚</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">MAIN STORY</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">主线剧情</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">惊悚小说家困在自己写的恐怖故事里 13 年</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你同时扮演两个人——<b>Alan Wake</b>，被困在黑暗之地 13 年的惊悚小说家，他发现写下的字会在现实成真，于是试图写一篇恐怖小说逃出异世界；<b>Saga Anderson</b>，FBI 探员，来到 Bright Falls 调查仪式谋杀案，发现案件与 Alan 失踪时未完成的手稿完全吻合。两线交错——Alan 每改写一个情节，Saga 就发现新的尸体。<b>谁在写谁的故事？</b></div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">双主角叙事</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">小说改变现实</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">FBI 探员</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">元叙事悖论</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">COMBAT</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">战斗系统</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">手电筒撕开黑暗护盾，子弹只是收尾</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你遇到的敌人叫<b>Taken（被侵蚀者）</b>——被黑暗力量寄生的普通人。它们身上包裹着黑暗护盾，子弹打不穿——必须先用手电筒光束<b>消解护盾</b>再开枪击杀。但电池有限弹药稀缺，每次战斗都要权衡：<b>硬打消耗资源，还是关灯逃进下一个安全光源</b>。节奏不是突突突，是资源管理式生存恐怖——永远觉得弹药不够、电池不够、安全感不够。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">光暗机制</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">Taken 被侵蚀者</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">资源匮乏</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">生存恐怖</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">CORE LOOP</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">核心循环</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">在两个主角之间切换推进平行剧情</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">核心循环是<b>章节制双线叙事</b>——自由选择先推 Alan 还是 Saga。Alan 在黑暗之地用<b>Plot Board 情节板</b>改写小说片段来改变环境地形和触发事件；Saga 在现实世界进入<b>Mind Place 思维宫殿</b>整理线索、做犯罪心理 profiling、推理案件关联。两边穿插探索战斗解谜——但叙事推进才是驱动你前进的真正动力。每推完一章都有新信息颠覆之前的理解。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">双线切换</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">Plot Board 情节板</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">Mind Place 思维宫殿</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">章节制叙事</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-5 text-neutral-500">IP / STORY</div>
+  
+
+  
+  
+  <div class="mb-6 pb-6 border-b border-white/[.06]">
+    
+    <div class="text-[15px] md:text-base font-semibold text-white/90 leading-relaxed mb-5 italic tracking-wide">
+      “<b>作家困在自己的小说里</b>，FBI 探员追踪他笔下的谋杀案。”
+    </div>
+    
+    
+    <div class="space-y-4">
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">想象你是一个<b>被困了 13 年的惊悚小说家</b>——四周是永远天黑的超现实纽约，街道根据你的恐惧变形，霓虹灯在雾里一闪一灭。你发现了一个规则：<b>写下的文字会变成现实</b>。于是你开始写恐怖小说——不是为了出版，是为了改写囚禁你的世界。但每写一段你就陷得更深：<b>小说在写你，还是你在写小说？</b></p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">千里之外的华盛顿州 Bright Falls，<b>FBI 探员 Saga Anderson</b> 正在调查仪式谋杀案——死者被摆成诡异姿势，现场散落着手稿页。她很快发现这些手稿出自 13 年前失踪的作家 Alan Wake，而<b>案件每个细节都与手稿精确对应</b>。线索板上照片越来越多，但每条都指向一个不可能的结论：<b>凶手是被困在另一维度的人</b>，他正在通过写作杀人。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">两条线交汇时你发现了真正令人不安的东西——Alan 写下「探员走进湖边小屋」，你切到 Saga 视角她确实站在那扇门前。<b>Saga 的调查、Alan 的小说、你手中的控制器</b>三者边界正在模糊。当你操控 Saga 时，是你在玩游戏，还是<b>Alan 在写你</b>？</p>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-3 text-neutral-500">DETAILS</div>
+  
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>当代</b>——距初代事件 13 年后；Alan 被困 Dark Place 的时间跨度为 2010-2023，Saga 的调查发生在 2023 年秋</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>双重空间并行</b>——现实世界为华盛顿州 Bright Falls / Watery / Cauldron Lake 太平洋西北森林小镇；异世界为 Dark Place 超现实纽约</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">双主角并行——「<b>惊悚小说家 Alan Wake</b>」试图通过写小说逃离黑暗异世界 +「<b>FBI 探员 Saga Anderson</b>」在现实世界追踪仪式连环谋杀案</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>当代现实叠加超自然力量</b>——没有科幻元素；恐怖来源是 Dark Place 的黑暗实体和被侵蚀的普通人类；武器仅为手电筒与常规枪械，无任何高科技装备</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>人类 vs 黑暗力量</b>——Taken 是被黑暗附身的普通人，构成直接战斗威胁；终极对手是 Dark Place 本身以及 Alan 笔下失控的叙事力量</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>开放探索式线性章节</b>——Saga 线为半开放的太平洋西北小镇、森林和湖区场景；Alan 线为不断变形折叠的超现实纽约街区、废弃剧场和无限循环走廊</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>心理惊悚 × 双线叙事 × 真人影像融合</b>；美术标识为「北欧黑暗文学 × 大卫·林奇式迷幻」——Northlight 引擎实现真人与实时渲染无缝切换</div>
+  </div>
+  
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+
+    
+    
+    
+    
+    <div class="rounded-xl border border-white/[.08] bg-white/[.02] p-6 mb-8">
+      
+      <div class="flex items-baseline gap-3 mb-5 pb-5 border-b border-white/[.06]">
+        <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">AESTHETIC LABEL</span>
+        <span class="text-[20px] md:text-[22px] font-extrabold text-white tracking-tight">北欧黑暗叙事 × 大卫·林奇</span>
+      </div>
+      
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q1 · 这是什么美学</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text"><b>北欧黑暗叙事 × 大卫·林奇</b>，把<b>芬兰式心理恐怖</b>（冷冽、克制、不安）和大卫·林奇的<b>超现实影像语法</b>（梦境逻辑、身份分裂）塞进第三人称生存恐怖。底色是太平洋西北的阴冷自然——松林浓雾、黑水湖泊、霓虹加油站；变异在于随时滑入 Dark Place 的超现实纽约。色彩 DNA 锁定<b>胶片暖黄 + 超自然冷蓝</b>。</p>
+        </div>
+        
+
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q2 · 共识如何发展</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">心理恐怖视觉演化跨越 30 余年。<b>1990 年</b>《<b>双峰 Twin Peaks</b>》定义了「小镇超自然悬疑」影像母版。<b>2001 年</b>《<b>寂静岭 2</b>》把心理恐怖游戏推向巅峰；同年林奇的《<b>穆赫兰道</b>》以梦境嵌套重定义恐怖。<b>2010 年</b>初代 Alan Wake 将太平洋西北 + 手电筒 + Stephen King 惊悚融为一体。<b>2019 年</b>《<b>Control</b>》用 SCP 式官僚体系建立 Remedy 宇宙视觉基石。Alan Wake 2 是集大成——Northlight 引擎 + 真人影像 + 双线叙事，把 30 年遗产推向新高度。</p>
+        </div>
+        
+      </div>
+
+      
+      <div class="mt-6 pt-6 border-t border-white/[.06]">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-3">Q3 · 借鉴谱系（值得美术设计参考的游戏 / 电影 / 动漫 / 剧集）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              剧集
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                双峰 Twin Peaks
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1990</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>小镇超自然悬疑</b>影像母版；红色窗帘、黑色小屋、松林异世界的视觉源头</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                闪灵 The Shining
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1980</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>封闭空间心理恐怖</b>范式；作家主角 + 超自然力量 + 创作与疯狂的边界</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                寂静岭 2 Silent Hill 2
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2001</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>心理恐怖游戏</b>巅峰；用环境设计外化角色内心创伤的手法</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              剧集
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                真探 True Detective S1
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2014</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>南方哥特侦探叙事</b>；双时间线 + 仪式谋杀 + 哲学独白的结构参考</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                控制 Control
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2019</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>Remedy 宇宙前作</b>；联邦控制局 + SCP 式超自然体系的世界观基础</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                穆赫兰道 Mulholland Drive
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2001</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>林奇超现实叙事</b>典范；梦境嵌套 + 身份分裂 + 不可靠叙述者</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                Psychonauts 2
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2021</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>心灵空间可视化</b>参考；将角色心理状态转化为可探索关卡的设计思路</div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">太平洋西北森林 × 超现实黑暗纽约 - Northlight 真人融合</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">场景在两极切换——Saga 线是<b>太平洋西北阴冷自然</b>：浓雾松林、黑水湖面映月光、路边加油站暖黄灯在雨雾里晕开；Alan 线是<b>Dark Place 超现实纽约</b>：永远深夜、霓虹在水渍路面无限反射、走廊循环折叠、剧场聚光灯打出唯一安全区。两空间用<b>真人影像转场</b>无缝连接——live-action 渐变为实时渲染的瞬间是全作最标志性视觉时刻</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">作家西装外套 × FBI 冲锋衣 - 日常着装下的恐怖</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">角色设计刻意回避「恐怖主角感」——<b>Alan 穿作家标配</b>：深色西装外套、衬衫、围巾，像从曼哈顿签售会直接掉进噩梦；<b>Saga 穿 FBI 外勤标准</b>：防水冲锋衣、牛仔裤、登山靴。这种「普通人面对超自然恐怖」的反差是恐怖感核心——没有动力甲没有战术背心，<b>你就是穿着日常衣服拿着手电筒走进黑暗的普通人</b></div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">剧内叙事 UI - 手稿页 × 思维宫殿 × 情节板</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI 高度<b>剧内化（diegetic）</b>——几乎没有传统 HUD。Alan 的 Plot Board 是物理软木板，用<b>手稿页和场景照片</b>标记叙事选择；Saga 的 Mind Place 是完整心灵空间，<b>案件板 / profiling 墙 / 证据柜</b>以第一人称可交互呈现。战斗 HUD 极简仅保留电量和弹药；菜单模拟<b>打字机文档和胶片幻灯片</b>质感</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">手电筒光柱 × 螺旋符号 × 打字机 × 黑水湖面</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">核心视觉符号：<b>手电筒光柱</b>（光明/安全/武器三位一体）、<b>螺旋标记</b>（Dark Place 的超自然印记，出现在墙壁树干案发现场）、<b>打字机 + 手稿页</b>（文字改变现实的具象化）、<b>Cauldron Lake 黑水湖面</b>（现实与异世界的门户）；色彩母题锁定手电暖黄 + 黑暗冷蓝的永恒对峙</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">TGA 三冠王 × Remedy 宇宙 × 真人影像融合</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发核心打<b>「2023 叙事之王」</b>——TGA 最佳指导/最佳叙事/最佳美术三冠加冕是最强背书；<b>真人影像和 CG 无缝融合</b>片段是社交媒体传播主力；Remedy 宇宙的<b>跨作品关联</b>吸引老粉入坑；Key Art 以<b>Alan 手持手电独立于黑暗中</b>为标准构图——光暗对峙一眼传达调性</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'bili' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1n34y1u7y5/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【4KHDR】老戴《心灵杀手2》最高难度流程攻略解说</span>
+          <span class="text-xs text-neutral-500 shrink-0">122万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1tu4y1h79L/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">随义【心灵杀手2：ALAN WAKE 2】第一章：邀请（上） 猛男全收集攻略流程解说</span>
+          <span class="text-xs text-neutral-500 shrink-0">19.2万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1FS516qECK/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《心灵杀手2》完全解析：这不是循环，这是螺旋！</span>
+          <span class="text-xs text-neutral-500 shrink-0">1.9万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1f94y1V7bq/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【IGN】9分，《心灵杀手2》评测：优秀得让前作仿佛变成一份粗糙的草稿</span>
+          <span class="text-xs text-neutral-500 shrink-0">78.5万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1im411D7pr/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">史上最烧脑的3A大作，没问题吧？一口气看完《心灵杀手2》</span>
+          <span class="text-xs text-neutral-500 shrink-0">16.2万播放</span>
+        </a>
+        
+      </div>
+      
+
+      
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>双主角平行叙事</b>——Alan 困在黑暗之地写小说改变现实，Saga 在现实世界追踪仪式谋杀案
+    
+      <span class="text-xs text-neutral-600 ml-1">— IGN</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>真人影像融合实时渲染</b>——Remedy 标志性的 live-action 手法在本作达到巅峰
+    
+      <span class="text-xs text-neutral-600 ml-1">— Eurogamer</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>TGA 2023 三冠王——<b>最佳游戏指导 / 最佳叙事 / 最佳艺术指导</b>同时斩获
+    
+      <span class="text-xs text-neutral-600 ml-1">— The Verge</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Remedy 宇宙</b>终于成型——Alan Wake 与 Control 的世界观正式交汇
+    
+      <span class="text-xs text-neutral-600 ml-1">— GameSpot</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>大卫·林奇式的<b>迷幻恐怖叙事</b>——前所未有的 3A 心理惊悚体验
+    
+      <span class="text-xs text-neutral-600 ml-1">— IGN</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>DLC 夜春镇 + 湖边小屋</b>延续了主线的叙事深度和惊悚氛围
+    
+      <span class="text-xs text-neutral-600 ml-1">— Eurogamer</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Epic 独占</b>引发 PC 玩家强烈不满——Steam 用户只能旁观
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>硬件要求极高</b>——推荐配置需 RTX 4070 才能流畅体验光追效果
+    
+      <span class="text-xs text-neutral-600 ml-1">— Digital Foundry</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>前期节奏偏慢，<b>叙事密度</b>对非英语母语玩家造成较大理解压力
+    
+      <span class="text-xs text-neutral-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>一周目通关后<b>重玩动力不足</b>——线性叙事结构限制了反复体验的意愿
+    
+      <span class="text-xs text-neutral-600 ml-1">— Epic 评价</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>DLC 体量有限，<b>等待续作</b>的漫长空窗期让社区热度缓慢消散
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>2023 年最佳叙事游戏</b>」成为社区共识——剧情解析帖长期霸占讨论区
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>心灵杀手2</b>的恐怖氛围向集锦在 B 站获得极高播放量
+    
+      <span class="text-xs text-neutral-600 ml-1">— Bilibili</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>剧情线索<b>隐藏彩蛋极多</b>——社区挖掘 Remedy 宇宙关联的热情持续高涨
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Musical 音乐剧章节</b>在社交媒体上被反复传播——成为现象级片段
+    
+      <span class="text-xs text-neutral-600 ml-1">— Bilibili</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Epic 独占 + 高配置门槛</b>让大量玩家无法体验——只能靠云游戏或看实况
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>结局<b>开放性过强</b>引发争议——部分玩家觉得叙事未给出明确答案
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>单机叙事游戏</b>天然没有长期留存机制——通关即告别
+    
+      <span class="text-xs text-neutral-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>等待 Remedy 下一部作品的<b>空窗期过长</b>——社区活跃度逐步回落
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        <a href="fall-guys.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">糖豆人：终极淘汰赛 <span class="text-xs text-neutral-500 font-normal ml-1">Mediatonic / Epic Games</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>心理恐怖叙事</b>巅峰——Silent Hill 2 重制版争夺恐怖游戏叙事王冠</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="killing-floor-3.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">杀戮空间3 <span class="text-xs text-neutral-500 font-normal ml-1">Tripwire Interactive</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同属<b>第三人称生存恐怖 3A</b>——生化危机8的战斗密度和资源管理直接可比</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="pizza-tower.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">披萨塔 <span class="text-xs text-neutral-500 font-normal ml-1">Tour De Pizza</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">Signalis 以像素美术实现<b>同级别心理恐怖叙事深度</b>——indie 与 3A 的对照</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="hunt-showdown-1896.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">猎杀：对决 1896 <span class="text-xs text-neutral-500 font-normal ml-1">Crytek</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">Hunt: Showdown 同为<b>暗色调超自然恐怖</b>题材——在恐怖市场争夺玩家时间</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=245,233,150,224,244','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 5 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    
+    
+    <div x-show="assetTab === 'official'" x-cloak x-ref="panelOfficial">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">商店页 + 官网</h4>
+        <div class="space-y-1">
+          
+          <a href="https://store.epicgames.com/en-US/p/alan-wake-2" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Epic Games Store</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Epic</span>
+          </a>
+          
+          <a href="https://www.alanwake.com/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方网站</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Remedy</span>
+          </a>
+          
+          <a href="https://www.remedygames.com/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Remedy Entertainment</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Remedy</span>
+          </a>
+          
+          <a href="https://www.playstation.com/en-us/games/alan-wake-2/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">PlayStation Store</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">PlayStation</span>
+          </a>
+          
+          <a href="https://www.xbox.com/en-us/games/store/alan-wake-2/9PP53DTFXBKV" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Xbox 商店</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Xbox</span>
+          </a>
+          
+          <a href="https://x.com/aaborix" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方 X / Twitter</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">X</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色建模 / 概念设定图</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/artwork/n01DLX" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation - Alan Wake 2 Key Art (Oliver Odmark)</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelOfficial.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+    
+    
+    <div x-show="assetTab === 'inspiration'" x-cloak x-ref="panelInspiration">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">概念美术 / Concept Art</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=alan%20wake%202%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索 Alan Wake 2 Concept Art</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=alan%20wake%202%20concept%20art%20dark%20forest" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">北欧心理恐怖 / Twin Peaks 氛围参考</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色设计</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=alan%20wake%20character%20design" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索 Alan Wake Character Design</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=fbi%20female%20detective%20character%20design%20game" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">FBI 女探员 / 侦探角色设计参考</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">UI 界面 / 纹理材质</h4>
+        <div class="space-y-1">
+          
+          <a href="https://dribbble.com/search/horror-game-ui-diegetic" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索 Alan Wake 2 UI</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Dribbble</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=psychological%20horror%20game%20ui%20minimal" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">心理恐怖游戏 HUD/UI 参考</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelInspiration.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-worldview',   label:'游戏世界观'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+
+// Track visit for "近期热门" module
+(function() {
+  var slug = 'alan-wake-2';
+  var key = 'game_visits';
+  var dedup_key = 'game_visit_dedup';
+  var now = Date.now();
+
+  // Dedup: same game only counts once within 30 minutes
+  var dedup = JSON.parse(localStorage.getItem(dedup_key) || '{}');
+  if (dedup[slug] && (now - dedup[slug]) < 30 * 60 * 1000) return;
+  dedup[slug] = now;
+  // Clean dedup entries older than 24 hours
+  Object.keys(dedup).forEach(function(k) {
+    if (now - dedup[k] > 24 * 60 * 60 * 1000) delete dedup[k];
+  });
+  localStorage.setItem(dedup_key, JSON.stringify(dedup));
+
+  // Record visit
+  var visits = JSON.parse(localStorage.getItem(key) || '{}');
+  visits[slug] = (visits[slug] || 0) + 1;
+  localStorage.setItem(key, JSON.stringify(visits));
+})();
+</script>
+
+</body>
+</html>
