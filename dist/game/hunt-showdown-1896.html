@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>猎杀：对决 1896 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<a href="../index.html" id="back-btn"
+   class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-2/90 backdrop-blur-sm border border-white/[.08] hover:bg-surface-3 hover:border-white/[.15] text-neutral-300 hover:text-white text-sm font-medium transition-all shadow-lg shadow-black/30">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  返回
+  <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
+</a>
+<script>
+(function(){
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable]')) return;
+    // Don't navigate if lightbox is open (Alpine handles that)
+    try { if (window.Alpine && Alpine.store('lightbox') && Alpine.store('lightbox').open) return; } catch(x){}
+    window.location.href = '../index.html';
+  });
+})();
+</script>
+
+
+<div id="sec-header" class="relative w-full overflow-hidden">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/hunt-showdown-1896/cover.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">猎杀：对决 1896</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">Crytek · Shooter · 2024-08-15</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">Crytek 的第一人称 PvPvE 撤离恐怖射击。19世纪末美国南方湿地，赏金猎人对抗克苏鲁腐化怪物。永久死亡、CryEngine 大气感、紧张的Bounty争夺撤离博弈。2024年8月升级为 1896 版本。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">PvPvE 撤离恐怖</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">永久死亡</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">美国西部克苏鲁</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">CryEngine 氛围</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">Bounty 撤离博弈</span>
+        
+      </div>
+      
+    </div>
+
+    
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      <a href="#sec-assets"
+         class="group flex items-center gap-2.5 px-6 py-3 rounded bg-white text-black font-bold text-sm hover:bg-neutral-200 transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
+
+  
+  
+  
+  
+    
+      
+        
+      
+    
+  
+
+  
+
+  
+  
+  <section id="sec-worldview" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      游戏世界观
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">BACKGROUND</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">游戏背景</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">1896 的美国南方湿地，神秘腐化从地下涌出</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">故事时间锁在<b>1896 年的路易斯安那 Bayou</b>——一片被夕阳染成血色的沼泽，雾气贴着水面，煤气灯只能照亮三米。神秘的<b>「黑暗腐化」</b>从地下溢出来，把人和动物变成怪物。被诅咒的世界里，赏金猎人组织 Hunt 雇你这种亡命徒进湿地清理它们。1896 升级把世界扩到了科罗拉多山区<b>Mammon's Gulch</b>——废弃矿镇、雪线下的木屋、铁路尽头的瘟疫村。比如此刻的湿地，远处枪声响一发，意味着同图另一队人也找到了 Boss——你今晚是猎人，也是猎物。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">1896 美国南方</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">克苏鲁腐化</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">Bayou 湿地</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">Mammon's Gulch</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">MAIN STORY</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">主线剧情</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">你是被赏金组织雇来杀怪物的亡命猎人</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你扮演的是<b>组织 Hunt 旗下的赏金猎人</b>——出身不明、来历不问，只要你愿意拎着温彻斯特进沼泽，组织就给你子弹和地图。每次进图最多 12 人同场，你和你 1-2 个队友靠<b>Dark Sight 暗视</b>感知线索，一步步锁定四只 Boss 之一：<b>The Butcher 屠夫、The Spider 蜘蛛、The Assassin 刺客、The Scrapbeak 破碎喙鸟</b>。比如你刚发现屠夫在西北谷仓——下一秒，另一队的脚步声从你背后传来。你不是英雄，你只是个为了赏金不要命的人。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">亡命猎人</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">Dark Sight 暗视</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">12 人同图</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">四只 Boss</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">COMBAT</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">战斗系统</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">19 世纪老枪打 19 世纪怪物，一发定生死</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">战斗用的是<b>真实历史武器</b>——温彻斯特步枪、纳甘左轮、马蒂尼·亨利、十字弓、投掷斧。没有瞄准镜，没有红点，<b>子弹要算下坠和后坐力</b>，老枪一次只能上一发。爆头几乎是必杀，但被人发现就是反向爆头。你还能扔火把烧尸体（防止 Boss 同伙复活）、用<b>留声机歌声</b>暴露敌人位置、用沼泽的泥水掩盖脚步。比如远处一声枪响，你蹲下三秒不动，靠声音判断对方距离——这种<b>「靠耳朵作战」</b>的硬核手感是猎杀的灵魂。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">19 世纪老枪</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">一发定生死</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">声音定位</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">火把烧尸</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">CORE LOOP</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">核心循环</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">选猎人 → 找线索 → 杀 Boss → 撤离时全图追杀</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">玩起来就是<b>一场押上所有的赏金博弈</b>：你先在大厅选一名猎人（带着上一局的所有装备），进图找线索 → 锁定 Boss → 击杀 → 拿到 Bounty 赏金。<b>关键陷阱在最后一步</b>——拿到赏金那一刻，全图所有玩家都看到你的位置！其他猎人会从四面八方扑来。你得撑过 5 分钟跑到撤离点。打赢了：经验、金币、新装备。打输了：<b>这个猎人永远消失</b>，你养的 50 小时全归零。比如刚刚那个用了 30 局的精英猎人，撤离前 20 米被一颗远程子弹打穿——什么都没了。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">Bounty 赏金</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">撤离博弈</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">永久死亡</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">Bloodline 血脉</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-5 text-neutral-500">IP / STORY</div>
+  
+
+  
+  
+  <div class="mb-6 pb-6 border-b border-white/[.06]">
+    
+    <div class="text-[15px] md:text-base font-semibold text-white/90 leading-relaxed mb-5 italic tracking-wide">
+      “<b>西部 × 克苏鲁 × 永久死亡</b>——你养的猎人，一颗子弹就没了”
+    </div>
+    
+    
+    <div class="space-y-4">
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">想象一片你只在恐怖小说里读到过的世界——<b>1896 年的路易斯安那 Bayou</b>，雾气贴着水面，煤气灯只能照亮三米；夕阳把整片沼泽染成血色，远处的瘟疫村传来留声机的女声哭腔。神秘的<b>「黑暗腐化」</b>从地下涌出，把人和动物拧成怪物。这里没有警长，没有军队，只有<b>组织 Hunt 雇来的亡命猎人</b>——你这种人。1896 升级又把世界扩到了科罗拉多的废弃矿镇<b>Mammon's Gulch</b>，雪线下的木屋里，腐化已经蔓延了五年。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">你扮演的是<b>组织 Hunt 旗下的赏金猎人</b>——一个连真名都被组织抹掉的人。可你不是被剧情牵着走的英雄。你面前是一张被诅咒的湿地地图，一把<b>1873 年款温彻斯特</b>，一个十字弓，和两个跟你一样亡命的队友。你已经在这名猎人身上投入了<b>50 小时</b>——他的等级、装备、专属技能、甚至那把绑着红绳的左轮都是你一局一局攒下来的。可在这片沼泽里，<b>一颗子弹就能让这一切归零</b>。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text"><b>替你掩护过 Boss 战的队友</b>，下一局就在另一个房间举枪等你；<b>那把陪你打了 30 场的温彻斯特</b>，会因为你在撤离前 20 米中弹彻底归零；<b>头顶留声机里那首走调的女声</b>，是哀歌，也是暴露你位置的诱饵。每一发子弹都在问你同一个问题：你是为了赏金而来，还是为了不让自己消失而来？组织还会记得你的名字，但这名猎人——他还能撑过下一颗子弹吗……？</p>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-3 text-neutral-500">DETAILS</div>
+  
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>1896 年</b>——19 世纪末，美国南方与西部蛮荒交界，工业与神秘并存</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>路易斯安那 Bayou + 科罗拉多 Mammon's Gulch</b>——湿地、矿镇、瘟疫村</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">「<b>组织 Hunt 的亡命赏金猎人</b>」——为赏金踏入被诅咒的腐化之地</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>19 世纪末真实武器</b>——温彻斯特、纳甘左轮、马蒂尼·亨利、火把与十字弓</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>猎人 vs 腐化生物 + 猎人 vs 猎人</b>——同图最多 12 人争夺 Bounty</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>大型开放湿地</b>——单图最大 1km²，多 Boss 据点 + 撤离点博弈</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">元素</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>美国西部 × 克苏鲁神秘学 × 永久死亡撤离</b>；美术标识为「南方哥特 + CryEngine 大气感」——以氛围与声音设计为竞争力的硬核 PvPvE</div>
+  </div>
+  
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+
+    
+    
+    
+    
+    <div class="rounded-xl border border-white/[.08] bg-white/[.02] p-6 mb-8">
+      
+      <div class="flex items-baseline gap-3 mb-5 pb-5 border-b border-white/[.06]">
+        <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">AESTHETIC LABEL</span>
+        <span class="text-[20px] md:text-[22px] font-extrabold text-white tracking-tight">美国西部 × 克苏鲁哥特</span>
+      </div>
+      
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q1 · 这是什么美学</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text"><b>美国西部 × 克苏鲁哥特</b>，是把<b>19 世纪末南方湿地的潮湿衰败</b>与<b>洛夫克拉夫特式神秘恐怖</b>熔在同一帧画面里。底色是熟悉的西部赏金题材——破旧木屋、煤气灯、左轮与温彻斯特；变异在于把腐化怪物、留声机哀歌、瘟疫教派塞进每一片沼泽。色彩 DNA 锁定<b>沼泽暖橙 + 暗夜墨蓝</b>双色调，再用<b>煤气灯黄</b>与<b>雾气灰</b>作高光与低光过渡，构成猎杀辨识度最高的招牌色。</p>
+        </div>
+        
+
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q2 · 共识如何发展</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">南方哥特与西部恐怖的视觉共识跨越了一个多世纪。<b>1920 年代</b>洛夫克拉夫特小说《<b>克苏鲁的呼唤</b>》定型了「沼泽 + 古老邪神 + 渔村瘟疫」的视觉母题。<b>1948 年</b>福克纳的南方哥特小说为湿地腐败之美奠定文学基调。<b>2004 年</b> HBO 剧集《<b>Deadwood</b>》把脏乱写实的西部小镇推到电视巅峰。<b>2014 年</b>《<b>True Detective 真探</b>第一季》用路易斯安那湿地把南方哥特拍成了影像范本。同期《<b>Bloodborne</b>》（2015）把哥特恐怖与狩猎仪式合流为游戏视觉范式。猎杀走的是这条线的合流——CryEngine 把湿地的<b>湿气、雾、煤气灯反射</b>渲染到极致，再叠加 19 世纪武器的金属磨损质感。</p>
+        </div>
+        
+      </div>
+
+      
+      <div class="mt-6 pt-6 border-t border-white/[.06]">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-3">Q3 · 借鉴谱系（值得美术设计参考的游戏 / 电影 / 动漫 / 剧集）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                True Detective 真探 第一季
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2014</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>南方哥特湿地氛围范本</b>；可借鉴雾气夕阳下的腐败之美与镜头节奏</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                Bloodborne 血源诅咒
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2015</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>哥特恐怖 + 狩猎仪式</b>视觉合流；可借鉴猎人装束与受害者-加害者切换</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                荒野大镖客 救赎 2
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2018</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>19 世纪末美国西部</b>视觉百科；可借鉴武器质感、马匹光影、衣物磨损</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              剧集
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                Deadwood 朽木镇
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2004</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>脏乱真实的西部小镇</b>剧集范本；可借鉴泥泞街道与煤油灯室内光</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                克苏鲁的呼唤 Call of Cthulhu
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1928 / 2005</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>洛夫克拉夫特神秘学</b>母本；可借鉴腐化象征与渔村-瘟疫教派造型</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                生化奇兵 无限
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2013</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>哥特蒸汽朋克</b>视觉参考；可借鉴 19 世纪 UI 与宗教符号化的反派</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                刺客信条 枭雄
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2015</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>维多利亚晚期工业美学</b>参考；可借鉴煤气灯街道与时代武器细节</div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">南方湿地夕阳血色 - CryEngine 雾气与煤气灯</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">整体场景走<b>南方哥特湿地</b>路线——Bayou 沼泽水面贴着浓雾，<b>夕阳把天空染成血橙</b>，远处只剩煤气灯一两点黄；CryEngine 的湿气、积水反射、雾气体积感是核心招牌；新地图 Mammon's Gulch 走<b>科罗拉多雪线矿镇</b>——废弃木屋、铁轨尽头、瘟疫教派遗迹；色调主要是<b>暖橙夕阳 + 墨蓝暗夜</b>双色 DNA，室内用<b>煤气灯黄 + 雾气灰</b>过渡</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">19 世纪末赏金猎人剪影 - 帽檐风衣与皮革靴</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">角色装束以<b>1896 年真实赏金猎人</b>为蓝本——宽檐毡帽、长摆风衣、皮革手套、马刺靴；剪影锁定<b>「帽檐 + 风衣 + 长枪侧影」</b>这一标志性轮廓，远远一眼就知道是猎人；衣物磨损极致——<b>泥渍、血斑、火药灼痕</b>覆盖每件外套；女性猎人也走同样硬核路线，束腰外搭男装风衣；付费皮肤多走<b>瘟疫医生面具、教派祭袍、传奇老兵</b>路线</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">牛皮纸 + 煤气灯字符 - 1896 升级 UI 引战</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI 整体走<b>19 世纪末手绘文档</b>风——羊皮纸底、墨水手写体、烛光烫金边；HUD 极简，<b>只保留血量、子弹、Dark Sight 暗视计量条</b>；线索通过暗视触发时屏幕泛蓝紫光；Bounty 拿到瞬间出现<b>哥特字体烙印动画</b>。<b>1896 升级把这套 UI 重做</b>——大厅扁平化、菜单流被推翻，老玩家集体抗议「失去了 19 世纪文档感」，社区请愿至今未停</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">Dark Sight 蓝光 x 牛头骨 x 留声机 x 火把</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">核心视觉符号：<b>Dark Sight 暗视的蓝紫色光雾</b>（线索定位 + 玩家辨识度第一）、<b>牛头骨与十字图腾</b>（Boss 据点与瘟疫教派）、<b>留声机黑胶</b>（暴露位置的环境陷阱）、<b>火把与火焰</b>（烧尸防复活的关键交互）；色彩母题为<b>沼泽暖橙 + 暗夜墨蓝</b>，整体识别度在撤离品类中独此一家</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">氛围感拉满 x 老枪 montage x CryEngine 大气感</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发核心打<b>「氛围 + 永久死亡」</b>差异化——预告片几乎全是<b>夕阳血色湿地 + 留声机哀歌 + 一发爆头</b>的镜头组合；B 站 / YouTube 主流是<b>温彻斯特老枪 montage</b>与<b>双人配合极限撤离</b>；1896 升级宣传把 CryEngine 大气感放在第一位；Key Art 标准构图为<b>猎人剪影 + 沼泽夕阳 + 远处煤气灯</b></div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'bili' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1QBiiYJEJZ/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【猎杀对决1896】萌新从零入坑教学图文并茂，十九世纪5星猎人魔教你美国西部生存</span>
+          <span class="text-xs text-neutral-500 shrink-0">10.8万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1E7411w7b3/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【猎杀对决】给萌新的新手教程—从入门到入土 低清终极重置版</span>
+          <span class="text-xs text-neutral-500 shrink-0">32.6万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1qEzMBSE67/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">死了全白玩？等级装备都清零！这款硬核游戏为何至今仍无替代品？《猎杀：对决》的独特魅力到底是什么？</span>
+          <span class="text-xs text-neutral-500 shrink-0">25.1万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1rg411v76b/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【4K猎杀对决】「宠妾」DLC 游戏内演示+评测——沙马兰（Sparks LRR 步枪）、姊妹之苦（手弩）、傲</span>
+          <span class="text-xs text-neutral-500 shrink-0">4.0万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1ow4m1k72c/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【IGN】《猎杀：对决 1896》上线宣传视频</span>
+          <span class="text-xs text-neutral-500 shrink-0">6.0万播放</span>
+        </a>
+        
+      </div>
+      
+
+      
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>声音设计封神</b>——脚步、留声机、远处枪声都是关键情报，戴耳机才是入场券
+    
+      <span class="text-xs text-neutral-600 ml-1">— IGN</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>永久死亡机制</b>把每一发子弹都变成心跳——猎人死了，等级装备全归零
+    
+      <span class="text-xs text-neutral-600 ml-1">— Eurogamer</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>CryEngine 5 的湿地氛围</b>——雾气、煤气灯、夕阳，氛围感拉到天花板
+    
+      <span class="text-xs text-neutral-600 ml-1">— GameSpot</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>1896 重制升级</b>免费送给老玩家——CryEngine 升级 + 新地图 Mammon's Gulch
+    
+      <span class="text-xs text-neutral-600 ml-1">— PC Gamer</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>美国西部 × 克苏鲁恐怖</b>的奇异融合——市场上独此一家
+    
+      <span class="text-xs text-neutral-600 ml-1">— Rock Paper Shotgun</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>1-3 人小队 vs 12 名玩家</b>同图博弈——打 Boss 抢赏金的紧张博弈
+    
+      <span class="text-xs text-neutral-600 ml-1">— 多媒体综合</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>1896 升级后 UI 重做</b>遭老玩家集体吐槽——信息密度和操作流被推翻重做
+    
+      <span class="text-xs text-neutral-600 ml-1">— Steam 评论</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>升级后优化下降</b>——帧数和加载时间在中端机上有明显回退
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>新人门槛极高</b>——永久死亡机制 + 高死亡率劝退新玩家
+    
+      <span class="text-xs text-neutral-600 ml-1">— Steam / Eurogamer</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Crytek 财务问题</b>让玩家担心后续更新节奏与服务器投入
+    
+      <span class="text-xs text-neutral-600 ml-1">— GamesIndustry</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>服务器稳定性</b>持续是社区讨论焦点——撤离瞬间掉线最致命
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit / Steam</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>戴耳机的恐怖片</b>」是社区最爱的形容——脚步声比子弹更让人冒冷汗
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA / Reddit</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>「养了 50 小时的猎人一枪没了」</b>是 B站长盛不衰的钓鱼标题
+    
+      <span class="text-xs text-neutral-600 ml-1">— Bilibili</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>温彻斯特连续爆头</b>类老枪 montage 在 B 站和 YouTube 持续高播放
+    
+      <span class="text-xs text-neutral-600 ml-1">— Bilibili / YouTube</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>双人 / 三人配合</b>语音通话的紧张感被誉为最佳直播题材之一
+    
+      <span class="text-xs text-neutral-600 ml-1">— Twitch / Bilibili</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>UI 重做引发的老玩家抗议</b>持续刷屏——社区提交大量回滚请愿
+    
+      <span class="text-xs text-neutral-600 ml-1">— Reddit / Steam</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>外挂和延迟问题</b>在 1896 升级后被反复提及——撤离点最容易遇雷
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA / Reddit</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>永久死亡的精神负担</b>让一部分玩家间歇性脱坑——回归门槛随之升高
+    
+      <span class="text-xs text-neutral-600 ml-1">— Steam</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>与 Tarkov / ARC Raiders 的<b>撤离品类竞争</b>分流了部分核心受众
+    
+      <span class="text-xs text-neutral-600 ml-1">— 行业分析</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        <a href="arc-raiders.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">ARC 奇袭者 <span class="text-xs text-neutral-500 font-normal ml-1">Embark Studios</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">ARC Raiders 是<b>新世代撤离同侪</b>——氛围派 vs 科幻派的玩家分流</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="escape-from-tarkov.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">逃离塔科夫 <span class="text-xs text-neutral-500 font-normal ml-1">Battlestate Games</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">Tarkov 是<b>撤离品类鼻祖</b>——硬核装备管理直接对标</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="delta-force.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">三角洲行动 <span class="text-xs text-neutral-500 font-normal ml-1">琳琅天上 / 腾讯</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">三角洲行动的<b>撤离模式</b>以 F2P 形式分流核心受众</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        <a href="helldivers-2.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">绝地潜兵2 <span class="text-xs text-neutral-500 font-normal ml-1">Arrowhead Game Studios / SIE</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">Helldivers 2 作为现象级 PvE 合作射击<b>争夺射击日活</b></div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        <button onclick="window.open('../compare.html?ids=244,242,243,147,145','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 5 款游戏
+        </button>
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    
+    
+    <div x-show="assetTab === 'official'" x-cloak>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">商店页 + 官网</h4>
+        <div class="space-y-1">
+          
+          <a href="https://store.steampowered.com/app/594650/Hunt_Showdown_1896/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Steam 商店页</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Steam</span>
+          </a>
+          
+          <a href="https://www.huntshowdown.com/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方网站</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Crytek</span>
+          </a>
+          
+          <a href="https://www.crytek.com/games/hunt-showdown" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Crytek 工作室页面</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Crytek</span>
+          </a>
+          
+          <a href="https://www.playstation.com/en-us/games/hunt-showdown/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">PlayStation Store</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">PlayStation</span>
+          </a>
+          
+          <a href="https://www.xbox.com/en-us/games/store/hunt-showdown/c1lj0gzwdpn8" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Xbox 商店</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Xbox</span>
+          </a>
+          
+          <a href="https://x.com/HuntShowdown" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方 X / Twitter</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">X</span>
+          </a>
+          
+          <a href="https://www.youtube.com/@HuntShowdownOfficial" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方 YouTube</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">YouTube</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色建模 / 概念设定图</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=hunt%20showdown" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation - Hunt Showdown</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    
+    <div x-show="assetTab === 'inspiration'" x-cloak>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">概念美术 / Concept Art</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=hunt%20showdown%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索 Hunt Showdown Concept</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=american%20western%20gothic%20horror%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">美国西部 / 哥特恐怖概念美术</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色设计</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=hunt%20showdown%20character" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索 Hunt Showdown Character</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=western%20bounty%20hunter%20character%20design" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">西部赏金猎人角色设计</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">UI 界面 / 纹理材质</h4>
+        <div class="space-y-1">
+          
+          <a href="https://dribbble.com/search/horror-shooter-game-ui" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">搜索 Hunt Showdown UI</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Dribbble</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=gothic%20horror%20game%20ui%20hud%20design" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">哥特恐怖游戏 HUD/UI 参考</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-worldview',   label:'游戏世界观'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+
+// Track visit for "近期热门" module
+(function() {
+  var slug = 'hunt-showdown-1896';
+  var key = 'game_visits';
+  var dedup_key = 'game_visit_dedup';
+  var now = Date.now();
+
+  // Dedup: same game only counts once within 30 minutes
+  var dedup = JSON.parse(localStorage.getItem(dedup_key) || '{}');
+  if (dedup[slug] && (now - dedup[slug]) < 30 * 60 * 1000) return;
+  dedup[slug] = now;
+  // Clean dedup entries older than 24 hours
+  Object.keys(dedup).forEach(function(k) {
+    if (now - dedup[k] > 24 * 60 * 60 * 1000) delete dedup[k];
+  });
+  localStorage.setItem(dedup_key, JSON.stringify(dedup));
+
+  // Record visit
+  var visits = JSON.parse(localStorage.getItem(key) || '{}');
+  visits[slug] = (visits[slug] || 0) + 1;
+  localStorage.setItem(key, JSON.stringify(visits));
+})();
+</script>
+
+</body>
+</html>

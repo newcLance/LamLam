@@ -2596,5 +2596,102 @@
     "changes": [],
     "lastUpdate": "2026-05-15",
     "slug": "rainbow-six-siege-x"
+  },
+  {
+    "id": 242,
+    "name": "ARC Raiders",
+    "nameCN": "ARC 奇袭者",
+    "alias": "ARC Raiders,奇袭者,Arc Raiders,ARC",
+    "icon": "🤖",
+    "company": "Embark Studios",
+    "category": "已运营",
+    "region": "海外",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series"
+    ],
+    "model": "买断+内购",
+    "genre": "Shooter",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025",
+    "releaseDate": "2025-10-30",
+    "desc": "Embark Studios 开发的第三人称撤离冒险射击。近未来地球被神秘机器ARC摧残，玩家从地下避难所Speranza出击搜刮地表，与机器和其他奇袭者周旋。",
+    "features": [
+      "撤离冒险射击",
+      "三人小队 PvPvE",
+      "ARC 机器威胁",
+      "工坊建造改装",
+      "技能树构筑"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-05-18",
+    "slug": "arc-raiders"
+  },
+  {
+    "id": 243,
+    "name": "Escape from Tarkov",
+    "nameCN": "逃离塔科夫",
+    "alias": "逃离塔科夫,塔科夫,EFT,Tarkov",
+    "icon": "🎯",
+    "company": "Battlestate Games",
+    "category": "已运营",
+    "region": "海外",
+    "platforms": [
+      "PC"
+    ],
+    "model": "买断+扩展包",
+    "genre": "Shooter",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2017",
+    "releaseDate": "2025-11-15",
+    "desc": "Battlestate Games 的硬核生存撤离射击鼻祖。俄罗斯雇佣兵公司 USEC 与 BEAR 在被封锁的塔科夫城内为利益厮杀。永久装备风险、真实弹道、复杂改装，2025年11月正式登陆 Steam。",
+    "features": [
+      "硬核撤离射击",
+      "永久装备风险",
+      "真实弹道系统",
+      "Hideout 工坊",
+      "100+小时学习曲线"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-05-18",
+    "slug": "escape-from-tarkov"
+  },
+  {
+    "id": 244,
+    "name": "Hunt: Showdown 1896",
+    "nameCN": "猎杀：对决 1896",
+    "alias": "猎杀对决,猎杀1896,Hunt Showdown,Hunt 1896",
+    "icon": "🩸",
+    "company": "Crytek",
+    "category": "已运营",
+    "region": "海外",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series"
+    ],
+    "model": "买断+内购",
+    "genre": "Shooter",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2019",
+    "releaseDate": "2024-08-15",
+    "desc": "Crytek 的第一人称 PvPvE 撤离恐怖射击。19世纪末美国南方湿地，赏金猎人对抗克苏鲁腐化怪物。永久死亡、CryEngine 大气感、紧张的Bounty争夺撤离博弈。2024年8月升级为 1896 版本。",
+    "features": [
+      "PvPvE 撤离恐怖",
+      "永久死亡",
+      "美国西部克苏鲁",
+      "CryEngine 氛围",
+      "Bounty 撤离博弈"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-05-18",
+    "slug": "hunt-showdown-1896"
   }
 ]

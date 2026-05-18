@@ -2732,5 +2732,47 @@
         }
       ]
     }
+  ],
+  "ARC Raiders": [
+    {
+      "module": "官网",
+      "screens": [
+        {
+          "title": "ARC Raiders - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/arc-raiders/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Escape from Tarkov": [
+    {
+      "module": "官网",
+      "screens": [
+        {
+          "title": "Escape from Tarkov - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/escape-from-tarkov/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Hunt: Showdown 1896": [
+    {
+      "module": "官网",
+      "screens": [
+        {
+          "title": "Hunt: Showdown 1896 - Steam 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/hunt-showdown-1896/cover.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

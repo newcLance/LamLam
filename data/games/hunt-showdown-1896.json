@@ -1,0 +1,421 @@
+{
+  "id": 244,
+  "slug": "hunt-showdown-1896",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {
+          "text": "<b>声音设计封神</b>——脚步、留声机、远处枪声都是关键情报，戴耳机才是入场券",
+          "src": "IGN"
+        },
+        {
+          "text": "<b>永久死亡机制</b>把每一发子弹都变成心跳——猎人死了，等级装备全归零",
+          "src": "Eurogamer"
+        },
+        {
+          "text": "<b>CryEngine 5 的湿地氛围</b>——雾气、煤气灯、夕阳，氛围感拉到天花板",
+          "src": "GameSpot"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>1896 重制升级</b>免费送给老玩家——CryEngine 升级 + 新地图 Mammon's Gulch",
+          "src": "PC Gamer"
+        },
+        {
+          "text": "<b>美国西部 × 克苏鲁恐怖</b>的奇异融合——市场上独此一家",
+          "src": "Rock Paper Shotgun"
+        },
+        {
+          "text": "<b>1-3 人小队 vs 12 名玩家</b>同图博弈——打 Boss 抢赏金的紧张博弈",
+          "src": "多媒体综合"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>1896 升级后 UI 重做</b>遭老玩家集体吐槽——信息密度和操作流被推翻重做",
+          "src": "Steam 评论"
+        },
+        {
+          "text": "<b>升级后优化下降</b>——帧数和加载时间在中端机上有明显回退",
+          "src": "Reddit"
+        },
+        {
+          "text": "<b>新人门槛极高</b>——永久死亡机制 + 高死亡率劝退新玩家",
+          "src": "Steam / Eurogamer"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>Crytek 财务问题</b>让玩家担心后续更新节奏与服务器投入",
+          "src": "GamesIndustry"
+        },
+        {
+          "text": "<b>服务器稳定性</b>持续是社区讨论焦点——撤离瞬间掉线最致命",
+          "src": "Reddit / Steam"
+        }
+      ]
+    },
+    "community": {
+      "memory": [
+        {
+          "text": "「<b>戴耳机的恐怖片</b>」是社区最爱的形容——脚步声比子弹更让人冒冷汗",
+          "src": "NGA / Reddit"
+        },
+        {
+          "text": "<b>「养了 50 小时的猎人一枪没了」</b>是 B站长盛不衰的钓鱼标题",
+          "src": "Bilibili"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>温彻斯特连续爆头</b>类老枪 montage 在 B 站和 YouTube 持续高播放",
+          "src": "Bilibili / YouTube"
+        },
+        {
+          "text": "<b>双人 / 三人配合</b>语音通话的紧张感被誉为最佳直播题材之一",
+          "src": "Twitch / Bilibili"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>UI 重做引发的老玩家抗议</b>持续刷屏——社区提交大量回滚请愿",
+          "src": "Reddit / Steam"
+        },
+        {
+          "text": "<b>外挂和延迟问题</b>在 1896 升级后被反复提及——撤离点最容易遇雷",
+          "src": "NGA / Reddit"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>永久死亡的精神负担</b>让一部分玩家间歇性脱坑——回归门槛随之升高",
+          "src": "Steam"
+        },
+        {
+          "text": "与 Tarkov / ARC Raiders 的<b>撤离品类竞争</b>分流了部分核心受众",
+          "src": "行业分析"
+        }
+      ]
+    },
+    "biliVideos": [
+      {
+        "title": "【猎杀对决1896】萌新从零入坑教学图文并茂，十九世纪5星猎人魔教你美国西部生存",
+        "bvid": "BV1QBiiYJEJZ",
+        "views": "10.8万"
+      },
+      {
+        "title": "【猎杀对决】给萌新的新手教程—从入门到入土 低清终极重置版",
+        "bvid": "BV1E7411w7b3",
+        "views": "32.6万"
+      },
+      {
+        "title": "死了全白玩？等级装备都清零！这款硬核游戏为何至今仍无替代品？《猎杀：对决》的独特魅力到底是什么？",
+        "bvid": "BV1qEzMBSE67",
+        "views": "25.1万"
+      },
+      {
+        "title": "【4K猎杀对决】「宠妾」DLC 游戏内演示+评测——沙马兰（Sparks LRR 步枪）、姊妹之苦（手弩）、傲",
+        "bvid": "BV1rg411v76b",
+        "views": "4.0万"
+      },
+      {
+        "title": "【IGN】《猎杀：对决 1896》上线宣传视频",
+        "bvid": "BV1ow4m1k72c",
+        "views": "6.0万"
+      }
+    ]
+  },
+  "worldview": {
+    "background": {
+      "title": "1896 的美国南方湿地，神秘腐化从地下涌出",
+      "value": "故事时间锁在<b>1896 年的路易斯安那 Bayou</b>——一片被夕阳染成血色的沼泽，雾气贴着水面，煤气灯只能照亮三米。神秘的<b>「黑暗腐化」</b>从地下溢出来，把人和动物变成怪物。被诅咒的世界里，赏金猎人组织 Hunt 雇你这种亡命徒进湿地清理它们。1896 升级把世界扩到了科罗拉多山区<b>Mammon's Gulch</b>——废弃矿镇、雪线下的木屋、铁路尽头的瘟疫村。比如此刻的湿地，远处枪声响一发，意味着同图另一队人也找到了 Boss——你今晚是猎人，也是猎物。",
+      "keywords": [
+        "1896 美国南方",
+        "克苏鲁腐化",
+        "Bayou 湿地",
+        "Mammon's Gulch"
+      ]
+    },
+    "mainStory": {
+      "title": "你是被赏金组织雇来杀怪物的亡命猎人",
+      "value": "你扮演的是<b>组织 Hunt 旗下的赏金猎人</b>——出身不明、来历不问，只要你愿意拎着温彻斯特进沼泽，组织就给你子弹和地图。每次进图最多 12 人同场，你和你 1-2 个队友靠<b>Dark Sight 暗视</b>感知线索，一步步锁定四只 Boss 之一：<b>The Butcher 屠夫、The Spider 蜘蛛、The Assassin 刺客、The Scrapbeak 破碎喙鸟</b>。比如你刚发现屠夫在西北谷仓——下一秒，另一队的脚步声从你背后传来。你不是英雄，你只是个为了赏金不要命的人。",
+      "keywords": [
+        "亡命猎人",
+        "Dark Sight 暗视",
+        "12 人同图",
+        "四只 Boss"
+      ]
+    },
+    "combat": {
+      "title": "19 世纪老枪打 19 世纪怪物，一发定生死",
+      "value": "战斗用的是<b>真实历史武器</b>——温彻斯特步枪、纳甘左轮、马蒂尼·亨利、十字弓、投掷斧。没有瞄准镜，没有红点，<b>子弹要算下坠和后坐力</b>，老枪一次只能上一发。爆头几乎是必杀，但被人发现就是反向爆头。你还能扔火把烧尸体（防止 Boss 同伙复活）、用<b>留声机歌声</b>暴露敌人位置、用沼泽的泥水掩盖脚步。比如远处一声枪响，你蹲下三秒不动，靠声音判断对方距离——这种<b>「靠耳朵作战」</b>的硬核手感是猎杀的灵魂。",
+      "keywords": [
+        "19 世纪老枪",
+        "一发定生死",
+        "声音定位",
+        "火把烧尸"
+      ]
+    },
+    "coreLoop": {
+      "title": "选猎人 → 找线索 → 杀 Boss → 撤离时全图追杀",
+      "value": "玩起来就是<b>一场押上所有的赏金博弈</b>：你先在大厅选一名猎人（带着上一局的所有装备），进图找线索 → 锁定 Boss → 击杀 → 拿到 Bounty 赏金。<b>关键陷阱在最后一步</b>——拿到赏金那一刻，全图所有玩家都看到你的位置！其他猎人会从四面八方扑来。你得撑过 5 分钟跑到撤离点。打赢了：经验、金币、新装备。打输了：<b>这个猎人永远消失</b>，你养的 50 小时全归零。比如刚刚那个用了 30 局的精英猎人，撤离前 20 米被一颗远程子弹打穿——什么都没了。",
+      "keywords": [
+        "Bounty 赏金",
+        "撤离博弈",
+        "永久死亡",
+        "Bloodline 血脉"
+      ]
+    }
+  },
+  "story": {
+    "overview": {
+      "tagline": "<b>西部 × 克苏鲁 × 永久死亡</b>——你养的猎人，一颗子弹就没了",
+      "paragraphs": [
+        "想象一片你只在恐怖小说里读到过的世界——<b>1896 年的路易斯安那 Bayou</b>，雾气贴着水面，煤气灯只能照亮三米；夕阳把整片沼泽染成血色，远处的瘟疫村传来留声机的女声哭腔。神秘的<b>「黑暗腐化」</b>从地下涌出，把人和动物拧成怪物。这里没有警长，没有军队，只有<b>组织 Hunt 雇来的亡命猎人</b>——你这种人。1896 升级又把世界扩到了科罗拉多的废弃矿镇<b>Mammon's Gulch</b>，雪线下的木屋里，腐化已经蔓延了五年。",
+        "你扮演的是<b>组织 Hunt 旗下的赏金猎人</b>——一个连真名都被组织抹掉的人。可你不是被剧情牵着走的英雄。你面前是一张被诅咒的湿地地图，一把<b>1873 年款温彻斯特</b>，一个十字弓，和两个跟你一样亡命的队友。你已经在这名猎人身上投入了<b>50 小时</b>——他的等级、装备、专属技能、甚至那把绑着红绳的左轮都是你一局一局攒下来的。可在这片沼泽里，<b>一颗子弹就能让这一切归零</b>。",
+        "<b>替你掩护过 Boss 战的队友</b>，下一局就在另一个房间举枪等你；<b>那把陪你打了 30 场的温彻斯特</b>，会因为你在撤离前 20 米中弹彻底归零；<b>头顶留声机里那首走调的女声</b>，是哀歌，也是暴露你位置的诱饵。每一发子弹都在问你同一个问题：你是为了赏金而来，还是为了不让自己消失而来？组织还会记得你的名字，但这名猎人——他还能撑过下一颗子弹吗……？"
+      ]
+    },
+    "dims": [
+      {
+        "label": "时间",
+        "value": "<b>1896 年</b>——19 世纪末，美国南方与西部蛮荒交界，工业与神秘并存"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>路易斯安那 Bayou + 科罗拉多 Mammon's Gulch</b>——湿地、矿镇、瘟疫村"
+      },
+      {
+        "label": "角色扮演什么",
+        "value": "「<b>组织 Hunt 的亡命赏金猎人</b>」——为赏金踏入被诅咒的腐化之地"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>19 世纪末真实武器</b>——温彻斯特、纳甘左轮、马蒂尼·亨利、火把与十字弓"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>猎人 vs 腐化生物 + 猎人 vs 猎人</b>——同图最多 12 人争夺 Bounty"
+      },
+      {
+        "label": "地图",
+        "value": "<b>大型开放湿地</b>——单图最大 1km²，多 Boss 据点 + 撤离点博弈"
+      },
+      {
+        "label": "元素",
+        "value": "<b>美国西部 × 克苏鲁神秘学 × 永久死亡撤离</b>；美术标识为「南方哥特 + CryEngine 大气感」——以氛围与声音设计为竞争力的硬核 PvPvE"
+      }
+    ]
+  },
+  "aesthetic": {
+    "summary": {
+      "label": "美国西部 × 克苏鲁哥特",
+      "definition": "<b>美国西部 × 克苏鲁哥特</b>，是把<b>19 世纪末南方湿地的潮湿衰败</b>与<b>洛夫克拉夫特式神秘恐怖</b>熔在同一帧画面里。底色是熟悉的西部赏金题材——破旧木屋、煤气灯、左轮与温彻斯特；变异在于把腐化怪物、留声机哀歌、瘟疫教派塞进每一片沼泽。色彩 DNA 锁定<b>沼泽暖橙 + 暗夜墨蓝</b>双色调，再用<b>煤气灯黄</b>与<b>雾气灰</b>作高光与低光过渡，构成猎杀辨识度最高的招牌色。",
+      "evolution": "南方哥特与西部恐怖的视觉共识跨越了一个多世纪。<b>1920 年代</b>洛夫克拉夫特小说《<b>克苏鲁的呼唤</b>》定型了「沼泽 + 古老邪神 + 渔村瘟疫」的视觉母题。<b>1948 年</b>福克纳的南方哥特小说为湿地腐败之美奠定文学基调。<b>2004 年</b> HBO 剧集《<b>Deadwood</b>》把脏乱写实的西部小镇推到电视巅峰。<b>2014 年</b>《<b>True Detective 真探</b>第一季》用路易斯安那湿地把南方哥特拍成了影像范本。同期《<b>Bloodborne</b>》（2015）把哥特恐怖与狩猎仪式合流为游戏视觉范式。猎杀走的是这条线的合流——CryEngine 把湿地的<b>湿气、雾、煤气灯反射</b>渲染到极致，再叠加 19 世纪武器的金属磨损质感。",
+      "references": [
+        {
+          "type": "film",
+          "title": "True Detective 真探 第一季",
+          "year": "2014",
+          "note": "<b>南方哥特湿地氛围范本</b>；可借鉴雾气夕阳下的腐败之美与镜头节奏"
+        },
+        {
+          "type": "game",
+          "title": "Bloodborne 血源诅咒",
+          "year": "2015",
+          "note": "<b>哥特恐怖 + 狩猎仪式</b>视觉合流；可借鉴猎人装束与受害者-加害者切换"
+        },
+        {
+          "type": "game",
+          "title": "荒野大镖客 救赎 2",
+          "year": "2018",
+          "note": "<b>19 世纪末美国西部</b>视觉百科；可借鉴武器质感、马匹光影、衣物磨损"
+        },
+        {
+          "type": "show",
+          "title": "Deadwood 朽木镇",
+          "year": "2004",
+          "note": "<b>脏乱真实的西部小镇</b>剧集范本；可借鉴泥泞街道与煤油灯室内光"
+        },
+        {
+          "type": "film",
+          "title": "克苏鲁的呼唤 Call of Cthulhu",
+          "year": "1928 / 2005",
+          "note": "<b>洛夫克拉夫特神秘学</b>母本；可借鉴腐化象征与渔村-瘟疫教派造型"
+        },
+        {
+          "type": "game",
+          "title": "生化奇兵 无限",
+          "year": "2013",
+          "note": "<b>哥特蒸汽朋克</b>视觉参考；可借鉴 19 世纪 UI 与宗教符号化的反派"
+        },
+        {
+          "type": "game",
+          "title": "刺客信条 枭雄",
+          "year": "2015",
+          "note": "<b>维多利亚晚期工业美学</b>参考；可借鉴煤气灯街道与时代武器细节"
+        }
+      ]
+    },
+    "scene": {
+      "title": "南方湿地夕阳血色 - CryEngine 雾气与煤气灯",
+      "value": "整体场景走<b>南方哥特湿地</b>路线——Bayou 沼泽水面贴着浓雾，<b>夕阳把天空染成血橙</b>，远处只剩煤气灯一两点黄；CryEngine 的湿气、积水反射、雾气体积感是核心招牌；新地图 Mammon's Gulch 走<b>科罗拉多雪线矿镇</b>——废弃木屋、铁轨尽头、瘟疫教派遗迹；色调主要是<b>暖橙夕阳 + 墨蓝暗夜</b>双色 DNA，室内用<b>煤气灯黄 + 雾气灰</b>过渡",
+      "anchorRule": [
+        1,
+        2,
+        4
+      ]
+    },
+    "costume": {
+      "title": "19 世纪末赏金猎人剪影 - 帽檐风衣与皮革靴",
+      "value": "角色装束以<b>1896 年真实赏金猎人</b>为蓝本——宽檐毡帽、长摆风衣、皮革手套、马刺靴；剪影锁定<b>「帽檐 + 风衣 + 长枪侧影」</b>这一标志性轮廓，远远一眼就知道是猎人；衣物磨损极致——<b>泥渍、血斑、火药灼痕</b>覆盖每件外套；女性猎人也走同样硬核路线，束腰外搭男装风衣；付费皮肤多走<b>瘟疫医生面具、教派祭袍、传奇老兵</b>路线",
+      "anchorRule": [
+        3,
+        4
+      ]
+    },
+    "ui": {
+      "title": "牛皮纸 + 煤气灯字符 - 1896 升级 UI 引战",
+      "value": "UI 整体走<b>19 世纪末手绘文档</b>风——羊皮纸底、墨水手写体、烛光烫金边；HUD 极简，<b>只保留血量、子弹、Dark Sight 暗视计量条</b>；线索通过暗视触发时屏幕泛蓝紫光；Bounty 拿到瞬间出现<b>哥特字体烙印动画</b>。<b>1896 升级把这套 UI 重做</b>——大厅扁平化、菜单流被推翻，老玩家集体抗议「失去了 19 世纪文档感」，社区请愿至今未停",
+      "anchorRule": [
+        5
+      ]
+    },
+    "symbol": {
+      "title": "Dark Sight 蓝光 x 牛头骨 x 留声机 x 火把",
+      "value": "核心视觉符号：<b>Dark Sight 暗视的蓝紫色光雾</b>（线索定位 + 玩家辨识度第一）、<b>牛头骨与十字图腾</b>（Boss 据点与瘟疫教派）、<b>留声机黑胶</b>（暴露位置的环境陷阱）、<b>火把与火焰</b>（烧尸防复活的关键交互）；色彩母题为<b>沼泽暖橙 + 暗夜墨蓝</b>，整体识别度在撤离品类中独此一家",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "promo": {
+      "title": "氛围感拉满 x 老枪 montage x CryEngine 大气感",
+      "value": "宣发核心打<b>「氛围 + 永久死亡」</b>差异化——预告片几乎全是<b>夕阳血色湿地 + 留声机哀歌 + 一发爆头</b>的镜头组合；B 站 / YouTube 主流是<b>温彻斯特老枪 montage</b>与<b>双人配合极限撤离</b>；1896 升级宣传把 CryEngine 大气感放在第一位；Key Art 标准构图为<b>猎人剪影 + 沼泽夕阳 + 远处煤气灯</b>",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "rivals": [
+      {
+        "id": 242,
+        "reason": "ARC Raiders 是<b>新世代撤离同侪</b>——氛围派 vs 科幻派的玩家分流"
+      },
+      {
+        "id": 243,
+        "reason": "Tarkov 是<b>撤离品类鼻祖</b>——硬核装备管理直接对标"
+      },
+      {
+        "id": 147,
+        "reason": "三角洲行动的<b>撤离模式</b>以 F2P 形式分流核心受众"
+      },
+      {
+        "id": 145,
+        "reason": "Helldivers 2 作为现象级 PvE 合作射击<b>争夺射击日活</b>"
+      }
+    ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/594650/Hunt_Showdown_1896/"
+          },
+          {
+            "title": "官方网站",
+            "source": "Crytek",
+            "url": "https://www.huntshowdown.com/"
+          },
+          {
+            "title": "Crytek 工作室页面",
+            "source": "Crytek",
+            "url": "https://www.crytek.com/games/hunt-showdown"
+          },
+          {
+            "title": "PlayStation Store",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/hunt-showdown/"
+          },
+          {
+            "title": "Xbox 商店",
+            "source": "Xbox",
+            "url": "https://www.xbox.com/en-us/games/store/hunt-showdown/c1lj0gzwdpn8"
+          },
+          {
+            "title": "官方 X / Twitter",
+            "source": "X",
+            "url": "https://x.com/HuntShowdown"
+          },
+          {
+            "title": "官方 YouTube",
+            "source": "YouTube",
+            "url": "https://www.youtube.com/@HuntShowdownOfficial"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "ArtStation - Hunt Showdown",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=hunt%20showdown"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 Hunt Showdown Concept",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=hunt%20showdown%20concept%20art"
+          },
+          {
+            "title": "美国西部 / 哥特恐怖概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=american%20western%20gothic%20horror%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 Hunt Showdown Character",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=hunt%20showdown%20character"
+          },
+          {
+            "title": "西部赏金猎人角色设计",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=western%20bounty%20hunter%20character%20design"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 Hunt Showdown UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/horror-shooter-game-ui"
+          },
+          {
+            "title": "哥特恐怖游戏 HUD/UI 参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=gothic%20horror%20game%20ui%20hud%20design"
+          }
+        ]
+      }
+    ]
+  }
+}

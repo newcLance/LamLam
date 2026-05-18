@@ -1,0 +1,427 @@
+{
+  "id": 242,
+  "slug": "arc-raiders",
+  "playerExp": {
+    "media": {
+      "memory": [
+        {
+          "text": "<b>第三人称撤离射击</b>把 PvE 机器威胁与 PvP 玩家博弈缝在同一张地图——撤离类的新答卷",
+          "src": "IGN"
+        },
+        {
+          "text": "<b>Embark Studios</b>第二款作品延续 THE FINALS 的物理破坏与音效质感——出手就是顶级",
+          "src": "GameSpot"
+        },
+        {
+          "text": "Steam <b>「特别好评」84%</b>（278077 评测）——撤离品类近年口碑最稳的一作",
+          "src": "Steam"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>ARC 机器</b>（无人机、巨兽）作为环境压力源——和其他玩家一起被它们追着跑反而更刺激",
+          "src": "PC Gamer"
+        },
+        {
+          "text": "<b>地下避难所 Speranza → 地表废土</b>的循环——撤离类首次把基地建得像家",
+          "src": "Eurogamer"
+        },
+        {
+          "text": "买断 39.99 美元<b>无内购抽卡</b>——在 F2P 撤离类红海中走的是反向定位",
+          "src": "多媒体综合"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>新手保护机制</b>偏弱——前 20 小时被老 Raider 反复堵撤离点的劝退率不低",
+          "src": "Steam 评论"
+        },
+        {
+          "text": "撤离瞬间的<b>服务器抖动</b>偶发——心跳时刻被网络问题打断的负面记忆很深",
+          "src": "Reddit"
+        },
+        {
+          "text": "长草期的<b>物资同质化</b>——刷到第三周后罐头与子弹的循环略显单调",
+          "src": "GameSpot"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>赛季内容深度</b>能否撑住半年——撤离类用户对地图与敌人新意要求极高",
+          "src": "行业分析"
+        },
+        {
+          "text": "正面对决<b>逃离塔科夫</b>与<b>Hunt 1896</b>——硬核老玩家是否愿意迁移仍是问号",
+          "src": "Steam 社区"
+        }
+      ]
+    },
+    "community": {
+      "memory": [
+        {
+          "text": "「<b>能和好友一起玩的塔科夫</b>」是社区最常用的口头定位——门槛低于硬核但紧张感不打折",
+          "src": "NGA / Reddit"
+        },
+        {
+          "text": "<b>Buried City 埋藏之城</b>那张图的废墟氛围被反复截图——「最像末日的地图」",
+          "src": "Bilibili / NGA"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>Bilibili 攻略与精彩集锦</b>密度极高——「ARC奇袭者」标签下日均上百条视频",
+          "src": "Bilibili"
+        },
+        {
+          "text": "<b>巨型 ARC</b>降临瞬间敌我玩家临时停火合作——撤离类罕见的「世界事件」",
+          "src": "Reddit / Bilibili"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>独狼模式</b>资源压力陡增——单排玩家被三人小队碾压的怨念在社区高频出现",
+          "src": "NGA / Steam"
+        },
+        {
+          "text": "<b>工坊改装</b>解锁曲线偏慢——前期想试新枪要先肝几十次撤离",
+          "src": "TapTap / Reddit"
+        }
+      ],
+      "churn": [
+        {
+          "text": "撤离类玩家的<b>PvP 焦虑</b>是天然流失源——一晚连死三次就关游戏的现象普遍",
+          "src": "Steam"
+        },
+        {
+          "text": "与<b>Helldivers 2 / Delta Force</b>的同时段在线时间竞争——撤离没情绪的晚上容易被替代",
+          "src": "行业分析"
+        }
+      ]
+    },
+    "biliVideos": [
+      {
+        "title": "【ARC Raiders】准星优缺点分析——圆形菱形篇，有手就会用",
+        "bvid": "BV18dUyBYEt4",
+        "views": "6千"
+      },
+      {
+        "title": "【ARC Raiders】更好的用途：从呼叫站请求空投补给掠夺空投补给品",
+        "bvid": "BV1JqGBzREXj",
+        "views": "9千"
+      },
+      {
+        "title": "ARC raiders物资攻略：柠檬，杏子，橄榄，掉落位置",
+        "bvid": "BV12F1VBfEz3",
+        "views": "2.8万"
+      },
+      {
+        "title": "【ARC Raiders】掩埋废城J.科兹马创投公司的员工门禁卡》》》》》弧光劫掠者",
+        "bvid": "BV1VvyaBREKN",
+        "views": "1.8万"
+      },
+      {
+        "title": "【ARC Raiders】太空港地面控制塔钥匙》》》》》弧光劫掠者",
+        "bvid": "BV1GXGBzyE6M",
+        "views": "5千"
+      }
+    ]
+  },
+  "worldview": {
+    "background": {
+      "title": "末日地表被机器统治，你从地下钻出来搜废墟",
+      "value": "近未来地球被一种叫<b>ARC 的神秘机器</b>清扫了一遍——城市塌了一半，太空港的飞船永远不会再起飞，水坝边的金属废铁堆成山。人类没死光，只是缩进了地下避难所「<b>Speranza</b>」苟着。你抬头看的不是天，是钢筋混凝土。整体调性像看一部<b>「末日纪录片混搭机器战争」</b>的短片——废墟是哑沉的灰褐，远处偶尔有金属反光闪一下，那不是希望，是又一架 ARC 无人机在巡逻。瑞典 Embark Studios 把<b>THE FINALS 那套物理破坏</b>带了过来，每一面墙、每一根柱子都能被打穿。",
+      "keywords": [
+        "近未来废土",
+        "ARC 机器威胁",
+        "地下避难所",
+        "物理破坏环境"
+      ]
+    },
+    "mainStory": {
+      "title": "你是 Raider 奇袭者，从避难所爬上去搜物资",
+      "value": "你扮演的是<b>Raider 奇袭者</b>——避难所派出去地表搜刮的那批人。每次出击你要在<b>三人小队或独狼</b>之间选——三人安全但分赃要谈，独狼自由但被堵就完蛋。地图分四张主区：<b>Buried City 埋藏之城</b>是塌了一半的都市废墟，<b>Spaceport 太空港</b>有报废的太空货舱，<b>Dam Battlegrounds 水坝战场</b>是开放视野的远程地形，<b>Stella Montis 雪山矿区</b>积雪盖住一切痕迹。你不是为了拯救世界——你只是想<b>带够罐头活到下周</b>。",
+      "keywords": [
+        "Raider 奇袭者",
+        "三人小队/独狼",
+        "四大地图",
+        "搜刮回家"
+      ]
+    },
+    "combat": {
+      "title": "PvPvE 紧张感——同时被人和机器追",
+      "value": "战斗最特别的地方是<b>「双重威胁」</b>——你可能在屋顶蹲一支敌方小队，结果背后一架 ARC 无人机锁定了你；也可能正在和一头<b>巨型 ARC 巨兽</b>对射，对面玩家从侧面把你冷枪了。武器走<b>近未来改造</b>路线——回收的二战老枪、自制冲锋枪、电磁步枪都有，工坊里换<b>枪管、瞄具、弹匣</b>都能改属性。第三人称越肩视角让你能<b>提前看到墙角后面的鞋尖</b>，但对方也能看到你的——这种「双方都心虚」的对峙是核心爽点。",
+      "keywords": [
+        "PvPvE 双重威胁",
+        "ARC 机器敌人",
+        "工坊改装",
+        "第三人称越肩"
+      ]
+    },
+    "coreLoop": {
+      "title": "搜刮 → 战斗 → 撤离 → 工坊升级 → 再下一次",
+      "value": "玩起来就是<b>「搜→打→跑→改」</b>的四段式循环：从避难所电梯下去，地表上搜罐头、零件、稀有蓝图；遇到敌人或机器就打，能跑就跑；地图边缘有<b>撤离点</b>，呼叫电梯倒计时三十秒——这三十秒是全游戏心跳最快的时刻；活着回来就把战利品塞进工坊，给下次出门那把枪装个新瞄具，或者解锁一项新技能。比如这周你攒了二十块电路板，<b>解锁了夜视仪和减震握把</b>——下次进 Buried City 你就有底气夜里搜地下室了。",
+      "keywords": [
+        "搜战跑改",
+        "撤离倒计时",
+        "工坊改装",
+        "技能树构筑"
+      ]
+    }
+  },
+  "story": {
+    "overview": {
+      "tagline": "<b>避难所 × 机器废土</b>——只想活着带罐头回家",
+      "paragraphs": [
+        "想象一颗被<b>叫做 ARC 的机器军团</b>清扫过的地球。城市的钢筋骨架还立着，飞机停在跑道上锈成一片橘红，水坝裂了一道缝但没倒，雪山顶上的矿井还在缓慢渗水。人类没灭绝——只是缩进了地下避难所「<b>Speranza</b>」苟活。这不是辐射尘飘满天的核灾，也不是僵尸啃咬的瘟疫——这是一场<b>「机器赢了、人类躲了」</b>的安静末日。瑞典 Embark Studios 用<b>THE FINALS 同款物理破坏引擎</b>把废墟做活：每一面墙都能被打穿，每一根柱子塌下来你都能听见混凝土碎裂的回声。",
+        "你扮演的是<b>Raider 奇袭者</b>——避难所派去地表搜刮物资的那批人。出门时你只有三种选择：和两个陌生人组队、和好友约一支三人小队、或者一个人独狼。每次出击身上能背的不多——<b>背包里二十格、口袋三件、武器两把</b>。死了就什么都没了。地表上还有别的玩家、还有<b>无人机和巨型 ARC 巨兽</b>，活着撤回来你才能把这趟收获兑换成下次出门的筹码。这不是「英雄拯救世界」的故事，是「<b>普通人想多活一周</b>」的故事——而你已经为今晚这趟冒险准备了三天。",
+        "<b>那个上一局帮你撤离的队友</b>，今晚可能就在 Buried City 的转角等你；<b>你刚搜到的那张稀有改装蓝图</b>，会因为你死在撤离电梯门口三米外彻底归零；<b>头顶那只巨型 ARC 巨兽</b>，是阻止你撤离的死神，也可能是逼对面玩家暴露位置的天降救星。这不是一个关于<b>「打败机器」</b>的故事——ARC 你打不完，避难所也救不了人类——这只是一个关于「<b>下一次撤离你能不能回来</b>」的故事。今晚你要去哪张图？带几个人？带哪把枪？如果只算一个问题——<b>你还敢出门吗</b>？"
+      ]
+    },
+    "dims": [
+      {
+        "label": "时间",
+        "value": "<b>近未来末日</b>——具体年份未明，机器军团 ARC 已统治地表多年"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>地球废土</b>——地下避难所 Speranza 与四张地表地图"
+      },
+      {
+        "label": "角色扮演什么",
+        "value": "「<b>Raider 奇袭者</b>」——避难所派出去地表搜刮物资的雇佣猎手"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>近未来 + 拼装</b>——回收旧世界武器、自制改装、对抗高科技 ARC 机器"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>Raider vs Raider × Raider vs ARC</b>——同图既要躲玩家也要躲机器"
+      },
+      {
+        "label": "地图",
+        "value": "<b>四大主区</b>：Buried City 埋藏之城 / Spaceport 太空港 / Dam Battlegrounds 水坝战场 / Stella Montis 雪山矿区"
+      },
+      {
+        "label": "元素",
+        "value": "<b>撤离循环 × 机器废土 × 物理破坏</b>——以 PvPvE 双重威胁与撤离倒计时心跳为核心情绪"
+      }
+    ]
+  },
+  "aesthetic": {
+    "summary": {
+      "label": "末日机器废土 × 撤离心跳",
+      "definition": "<b>末日机器废土 × 撤离心跳</b>，是把<b>《机器战警》《终结者》《尼尔机械纪元》</b>那种「人类已经输给机器」的视觉哀感，和<b>逃离塔科夫</b>式的撤离博弈装在一台引擎里。底色是<b>哑沉的钢灰 + 锈蚀橘红</b>——废墟主导的暗哑色彩里，只有 ARC 机器的<b>蓝白指示灯</b>和撤离电梯的<b>红色警示光</b>是高饱和的色彩刺客。Embark 把<b>THE FINALS 的物理破坏</b>叠到了写实材质里，让每一面被打穿的墙都成为视觉记忆点。",
+      "evolution": "「机器废土」美学的发展跨越了 40 多年。<b>1984 年</b>《<b>终结者</b>》定型了「钢铁机器猎杀人类」的银幕母题——红色目镜、骨架结构、金属反光至今是 AI 反派的视觉模板。<b>1999 年</b>《<b>黑客帝国</b>》把「机器统治世界、人类躲在地底」的设定推到大众文化主流。<b>2010 年</b>《<b>地铁 2033</b>》用游戏的方式表达了「地下避难所 × 地表危险」的双层空间。<b>2017 年</b>《<b>尼尔：机械纪元</b>》把「机器废土 + 哀感美学」做成了独立美学流派；同年<b>《逃离塔科夫》</b>把撤离循环作为新玩法立稳。<b>2023 年</b>《<b>THE FINALS</b>》（Embark 自家）把物理破坏做成视觉奇观。ARC Raiders 是这条线的合流：<b>机器废土视觉 × 撤离循环 × 物理破坏</b>，一次打包成自己的美学签名。",
+      "references": [
+        {
+          "type": "film",
+          "title": "终结者 The Terminator",
+          "year": "1984",
+          "note": "<b>机器猎杀人类</b>的银幕原型；ARC 无人机的红蓝目镜与骨架结构可追溯至此"
+        },
+        {
+          "type": "film",
+          "title": "黑客帝国 The Matrix",
+          "year": "1999",
+          "note": "<b>机器统治地表 / 人类躲地下</b>的世界结构母版；避难所概念的精神来源"
+        },
+        {
+          "type": "anime",
+          "title": "天空之城 / 风之谷",
+          "year": "1986 / 1984",
+          "note": "<b>巨型机器残骸 + 自然回收</b>的视觉哀感；废墟里长出植物的镜头语法可借鉴"
+        },
+        {
+          "type": "game",
+          "title": "地铁 2033 Metro 2033",
+          "year": "2010",
+          "note": "<b>地下避难所 × 地表危险</b>的双层空间结构；昏暗压抑的氛围参考"
+        },
+        {
+          "type": "game",
+          "title": "尼尔：机械纪元 NieR: Automata",
+          "year": "2017",
+          "note": "<b>机器废土 + 哀感美学</b>的当代标杆；锈蚀色彩与机器寂寞感的视觉处理"
+        },
+        {
+          "type": "game",
+          "title": "逃离塔科夫 Escape from Tarkov",
+          "year": "2017",
+          "note": "<b>撤离循环 + 物资博弈</b>玩法的鼻祖；硬核装备管理与紧张氛围的核心参考"
+        },
+        {
+          "type": "game",
+          "title": "THE FINALS",
+          "year": "2023",
+          "note": "<b>Embark 自家物理破坏</b>引擎与音效语言的直接复用；同社「视觉签名」的延续"
+        },
+        {
+          "type": "show",
+          "title": "辐射 Fallout",
+          "year": "2024",
+          "note": "<b>避难所 vs 地表废土</b>的视觉范式；锈橘 + 哑灰色调的影像参照"
+        }
+      ]
+    },
+    "scene": {
+      "title": "机器废土 × 物理破坏 - 钢灰锈橘的撤离场",
+      "value": "整体场景走<b>「机器赢了的地球」</b>路线——Buried City 是塌成废墟的现代都市，玻璃幕墙碎成片片刀刃；Spaceport 太空港停着锈死的运输舰，锈橘色把整个跑道染成铜板；Dam Battlegrounds 水坝战场视野开阔，<b>远射程心理压力</b>巨大；Stella Montis 雪山矿区用<b>白雪反差</b>突出黑色机器轮廓。色调锁定<b>钢灰 + 锈橘 + 机器蓝白指示灯</b>三色——前两色压住整张图，蓝白只在 ARC 机器和撤离点出现",
+      "anchorRule": [
+        1,
+        2,
+        4
+      ]
+    },
+    "costume": {
+      "title": "拼装末日装 × Raider 个体识别",
+      "value": "Raider 装备走<b>「拾荒拼装」</b>美学——头盔可能是消防头盔加焊金属面罩，背心是凯夫拉拼旧战术背心，背包绑着饭盒和工具；每一件装备都有<b>磨损、补丁、绑带</b>的视觉信息；远距离剪影上，玩家与 ARC 机器要做出<b>极端反差</b>——人是不规则轮廓、机器是几何冷硬；付费皮肤提供<b>避难所制服 / 早期军用 / 限定联动</b>等差异化外观，但整体克制不喧宾",
+      "anchorRule": [
+        3,
+        4
+      ]
+    },
+    "ui": {
+      "title": "避难所终端 × 撤离倒计时 - HUD 即世界",
+      "value": "UI 把<b>「Speranza 避难所终端」</b>作为统一视觉母题——大厅菜单做成避难所电脑屏，工坊界面是金属台面 + 老 CRT 显示器；HUD 在战斗中只保留<b>血量、弹药、小地图</b>三件套；最关键的<b>撤离倒计时</b>用红色巨大数字直接砸在屏幕中央——这一刻 UI 不再是 UI，是世界压力的可视化；ARC 机器锁定时屏幕边缘出现<b>红色目镜光晕</b>，让你不看小地图也知道有麻烦",
+      "anchorRule": [
+        5
+      ]
+    },
+    "symbol": {
+      "title": "ARC 红蓝目镜 × 撤离电梯 × Speranza 标志 × 巨兽剪影",
+      "value": "核心视觉符号：<b>ARC 无人机的红蓝目镜</b>（机器威胁的最小辨识单位）、<b>撤离电梯红色警示灯</b>（心跳时刻的视觉锚点——安全/危险临界）、<b>Speranza 避难所标志</b>（人类一方的 IP 锚点）、<b>巨型 ARC 巨兽剪影</b>（地图世界事件的视觉名片）；色彩母题为<b>钢灰 + 锈橘 + 蓝白机器光</b>",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "promo": {
+      "title": "买断撤离 × 机器废土差异化",
+      "value": "宣发核心打<b>「买断 39.99 美元、无 P2W」</b>差异化——在塔科夫硬核 / Delta Force 免费的两端之间切出中间地带；<b>巨型 ARC 巨兽</b>是社交平台病毒传播的视觉素材；Bilibili / Reddit 的<b>撤离反杀集锦</b>是社区自发宣发主力；Key Art 以<b>Raider 背影 + 远处 ARC 巨兽 + 撤离电梯</b>为标准三元素构图",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "rivals": [
+      {
+        "id": 243,
+        "reason": "塔科夫是<b>撤离类祖师爷</b>——硬核老玩家是否迁移决定 ARC 上限"
+      },
+      {
+        "id": 244,
+        "reason": "Hunt 1896 是<b>撤离类同侪</b>——争夺中度撤离玩家时段"
+      },
+      {
+        "id": 147,
+        "reason": "Delta Force <b>Havoc 撤离模式直接对标</b>——免费 vs 买断的路线之争"
+      },
+      {
+        "id": 145,
+        "reason": "Helldivers 2 <b>争夺三人合作 PvE 玩家</b>的晚间在线时间"
+      }
+    ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/1808500"
+          },
+          {
+            "title": "官方网站",
+            "source": "Embark Studios",
+            "url": "https://www.playarcraiders.com/"
+          },
+          {
+            "title": "PlayStation Store",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/arc-raiders/"
+          },
+          {
+            "title": "Xbox 商店",
+            "source": "Xbox",
+            "url": "https://www.xbox.com/en-us/games/store/arc-raiders/9NJ3QFTNKJBT"
+          },
+          {
+            "title": "Embark Studios 项目页",
+            "source": "Embark",
+            "url": "https://www.embark-studios.com/arc-raiders"
+          },
+          {
+            "title": "官方 X / Twitter",
+            "source": "X",
+            "url": "https://x.com/ARC_Raiders"
+          },
+          {
+            "title": "官方 Discord",
+            "source": "Discord",
+            "url": "https://discord.com/invite/arcraiders"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "ArtStation - ARC Raiders Concept",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=arc%20raiders"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "搜索 ARC Raiders Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=arc%20raiders%20concept%20art"
+          },
+          {
+            "title": "ARC Raiders / 后启示录机器战概念美术",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=arc%20raiders%20concept%20art%20post-apocalyptic%20robots"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "搜索 ARC Raiders Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=arc%20raiders%20character"
+          },
+          {
+            "title": "撤离类角色 / Wasteland Scavenger Design",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=wasteland%20scavenger%20character%20design"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "搜索 ARC Raiders UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/extraction-shooter-game-ui"
+          },
+          {
+            "title": "撤离射击 HUD/UI 参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=extraction%20shooter%20game%20ui%20hud"
+          }
+        ]
+      }
+    ]
+  }
+}
