@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>影之刃零 — WeGame与启动器宣发设计（阵地定制视角）</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-1':'#141414','surface-2':'#1c1c1c','surface-3':'#252525','bdr':'rgba(255,255,255,0.06)' } } }
+}
+</script>
+<style>
+  [x-cloak]{display:none!important}
+  body{background:#0c0c0c;color:#e5e5e5}
+  *{scrollbar-width:thin;scrollbar-color:#333 transparent}
+  .page-content h3{font-size:16px;font-weight:700;color:#fff;margin:28px 0 12px}
+  .page-content h4{font-size:14px;font-weight:600;color:#d4d4d4;margin:20px 0 8px}
+  .page-content p{font-size:14px;line-height:1.8;color:#a3a3a3;margin:0 0 12px}
+  .page-content ul{padding-left:20px;margin:0 0 16px}
+  .page-content li{font-size:13px;line-height:1.7;color:#a3a3a3;margin-bottom:4px}
+  .page-content li::marker{color:#525252}
+  .page-content strong,.page-content b{color:#fff;font-weight:600}
+  .page-content .highlight{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:16px;margin:16px 0}
+  .page-content .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(255,255,255,0.06);color:#737373;border:1px solid rgba(255,255,255,0.06);margin-right:4px;text-decoration:none}
+  .page-content .tag:hover{color:#fff;border-color:rgba(255,255,255,0.2)}
+  .page-content table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:13px}
+  .page-content th{text-align:left;padding:8px 12px;font-size:11px;font-weight:600;color:#737373;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .page-content td{padding:8px 12px;color:#a3a3a3;border-bottom:1px solid rgba(255,255,255,0.04)}
+  .creative-card{background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:20px;margin:16px 0}
+  .creative-card h5{font-size:14px;font-weight:700;color:#fff;margin:0 0 8px}
+  .verdict{background:#141414;border-left:3px solid #fff;padding:16px 20px;margin:20px 0;border-radius:0 6px 6px 0}
+  .verdict p{color:#d4d4d4}
+  .risk-card{background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:20px;margin:16px 0;border-left:3px solid #c43c3c}
+  .risk-card h5{font-size:14px;font-weight:700;color:#fff;margin:0 0 8px}
+  .risk-card .mitigation{border-top:1px solid rgba(255,255,255,0.06);margin-top:12px;padding-top:12px}
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../phantom-blade-zero.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">影之刃零 — WeGame与启动器宣发设计</h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="phantom-blade-zero.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
+      <a href="phantom-blade-zero-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">运营阶段</a>
+      <a href="phantom-blade-zero-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">阵地定制</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="phantom-blade-zero-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page=0" :class="page===0?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三大阵地的功能定位</button>
+      <button x-on:click="page=1" :class="page===1?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">各阵地用户画像与行为</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page=2" :class="page===2?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">核心设计语言：武侠渗透</button>
+      <button x-on:click="page=3" :class="page===3?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">WeGame 商店页设计策略</button>
+      <button x-on:click="page=4" :class="page===4?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">游戏专区与启动器策略</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page=5" :class="page===5?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个阵地定制转化创意</button>
+      <button x-on:click="page=6" :class="page===6?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范速查</button>
+      <button x-on:click="page=7" :class="page===7?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">执行排期与预算</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page=8" :class="page===8?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警与应对</button>
+      <button x-on:click="page=9" :class="page===9?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">顾问终审意见</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+
+    <!-- PAGE 0 -->
+    <div x-show="page===0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三大阵地的功能定位</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：影之刃零在腾讯生态内的线上宣发阵地固定为三个——WeGame 商店页、WeGame 游戏专区、自研启动器。三者的功能边界清晰但协同互补：商店页负责"第一印象+购买转化"，游戏专区负责"长期运营+社区粘性"，启动器负责"每日触达+氛围预热"。</p>
+      </div>
+      <h3>三大阵地定义</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>核心功能</th><th>用户停留时长</th><th>宣发角色</th></tr></thead>
+        <tbody>
+          <tr><td><b>WeGame 商店页</b></td><td>游戏信息展示 + 购买/预约入口</td><td>45-90 秒</td><td>第一印象 → 预约转化</td></tr>
+          <tr><td><b>WeGame 游戏专区</b></td><td>启动游戏 + 战绩 + 攻略 + 百科 + 社区</td><td>3-10 分钟（每次使用）</td><td>长期运营 → 社区信任 → 活跃度</td></tr>
+          <tr><td><b>自研启动器</b></td><td>游戏启动 + 更新 + 公告 + 活动入口</td><td>5-15 秒（启动过渡）</td><td>每日触达 → 氛围预热 → 习惯养成</td></tr>
+        </tbody>
+      </table>
+      <h3>三者的协同关系</h3>
+      <ul>
+        <li><b>商店页 → 专区</b>：玩家在商店页预约/购买后，自动进入游戏专区——专区是"预约后到开服前"维系期待感的核心阵地</li>
+        <li><b>专区 → 启动器</b>：玩家通过专区"启动"入口打开启动器——启动器是每次开始游戏的必经之路，曝光确定性 100%</li>
+        <li><b>启动器 → 商店页</b>：启动器的活动/公告可以引导回商店页（如新 DLC/联名活动）形成闭环</li>
+      </ul>
+      <div class="highlight">
+        <p><b>设计哲学</b>：三个阵地 = 三层漏斗。商店页做<b>获取</b>（让路人变成预约者），专区做<b>养成</b>（让预约者变成活跃社区成员），启动器做<b>唤醒</b>（让每天打开电脑的人想起"影之刃零快来了"）。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div x-show="page===1" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">各阵地用户画像与行为</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：三个阵地的用户虽然有高度重合，但他们在不同阵地的<b>心智模式</b>完全不同——在商店页是"决策者"，在专区是"社区居民"，在启动器是"过路人"。设计策略必须匹配每种心智模式。</p>
+      </div>
+      <h3>WeGame 商店页用户（决策者心智）</h3>
+      <ul>
+        <li><b>行为模式</b>：主动搜索或被推荐位吸引 → 扫描 Banner → 看截图 → 看标签/评分 → 决定是否预约</li>
+        <li><b>核心诉求</b>：3 秒内回答"这游戏是什么、好不好玩、值不值得预约"</li>
+        <li><b>设计目标</b>：用视觉冲击力打断浏览惯性，用信息密度消除决策疑虑</li>
+      </ul>
+      <h3>WeGame 游戏专区用户（社区居民心智）</h3>
+      <ul>
+        <li><b>行为模式</b>：预约/购买后进入 → 浏览攻略/百科 → 查看战绩 → 参与社区讨论 → 定期回访</li>
+        <li><b>核心诉求</b>：获取有用信息（攻略/更新）+ 找到同好社区 + 展示自己的成就</li>
+        <li><b>设计目标</b>：建立"这里是影之刃零玩家的根据地"的归属感；预热期用内容填充保持专区活跃</li>
+      </ul>
+      <h3>自研启动器用户（过路人心智）</h3>
+      <ul>
+        <li><b>行为模式</b>：点击桌面图标 → 看一眼启动器主屏（5-15秒）→ 点击"开始游戏" → 进入游戏</li>
+        <li><b>核心诉求</b>：快速进入游戏，不被打扰；但如果有吸引力的新信息会多停留几秒</li>
+        <li><b>设计目标</b>：在 5 秒的"等待窗口"中植入品牌记忆；不打扰但有存在感</li>
+      </ul>
+      <h3>跨阵地用户旅程</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>阵地</th><th>用户行为</th><th>设计触点</th></tr></thead>
+        <tbody>
+          <tr><td>发现</td><td>WeGame 商店页</td><td>被 Banner/推荐位吸引，点击进入</td><td>Hero 图 + 截图轮播</td></tr>
+          <tr><td>预约</td><td>WeGame 商店页</td><td>决定预约，点击按钮</td><td>CTA 按钮 + 预约特典说明</td></tr>
+          <tr><td>等待</td><td>游戏专区</td><td>定期回来看攻略/社区/更新公告</td><td>攻略 Tab + 社区动态 + 倒计时</td></tr>
+          <tr><td>预热</td><td>启动器</td><td>每天打开启动器看到预热内容</td><td>主屏动态视觉 + 通知推送</td></tr>
+          <tr><td>首发</td><td>启动器 → 游戏</td><td>点击"开始游戏"进入</td><td>首发仪式感过渡动画</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div x-show="page===2" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">核心设计语言：武侠渗透</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：影之刃零在三大阵地的统一设计语言是「武侠渗透」——让功夫朋克的视觉元素如同墨水渗透宣纸一样，从浅到深地"染"入每一个界面。预热期克制（只有暗示），发售临近时浓烈（视觉全面接管）。</p>
+      </div>
+      <h3>「武侠渗透」的三层递进</h3>
+      <table>
+        <thead><tr><th>层级</th><th>时间</th><th>视觉表现</th><th>设计原则</th></tr></thead>
+        <tbody>
+          <tr><td><b>浅渗透</b></td><td>T-90 ~ T-30</td><td>界面中出现少量功夫朋克元素（纹理/图标/配色微调），不破坏原有界面框架</td><td>像"不小心沾上了一点墨"——克制、暗示</td></tr>
+          <tr><td><b>中渗透</b></td><td>T-30 ~ T-7</td><td>界面背景/装饰/过渡动画开始明显武侠化，但功能区保持清晰</td><td>像"墨迹开始蔓延"——有存在感但不遮挡功能</td></tr>
+          <tr><td><b>深渗透</b></td><td>T-7 ~ T-0</td><td>界面被功夫朋克美学全面接管，进入"沉浸模式"</td><td>像"整张纸都被墨染透了"——这就是影之刃零的世界</td></tr>
+        </tbody>
+      </table>
+      <h3>渗透的视觉元素清单</h3>
+      <ul>
+        <li><b>色彩渗透</b>：界面配色从 WeGame 默认主题逐步向「墨黑灰青 × 锈红」双色 DNA 偏移</li>
+        <li><b>纹理渗透</b>：背景逐步出现水墨晕染纹理、齿轮暗纹、红色丝线装饰</li>
+        <li><b>字体渗透</b>：标题字从系统默认字体逐步切换为书法风格/毛笔体</li>
+        <li><b>动效渗透</b>：过渡动画从简单 Fade 逐步变为刀光划过/墨迹晕开</li>
+        <li><b>音效渗透</b>：启动器加入环境音（古琴泛音 + 远处打斗回响 + 蒸汽嘶嘶声）</li>
+      </ul>
+      <div class="highlight">
+        <p><b>核心约束</b>：渗透的前提是<b>不损害功能可用性</b>。任何视觉元素都不能遮挡按钮、文字、操作热区。美学是为了增强氛围，不是为了炫技——用户找不到"开始游戏"按钮的设计就是失败的设计。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div x-show="page===3" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
+      <h2 class="text-2xl font-bold text-white mb-6">WeGame 商店页设计策略</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：WeGame 商店页是影之刃零在腾讯生态内的"门面"。它要在 WeGame 月活数千万用户的浏览列表中，用视觉差异化打断滚动惯性，并在进入详情后用情绪递进截图建立"功夫朋克"品类认知。</p>
+      </div>
+      <h3>Hero Banner（1920×600）</h3>
+      <ul>
+        <li><b>构图</b>：主角「魂」飞身出刀的斜切动势 + 背景从左侧古塔过渡到右侧蒸汽废墟</li>
+        <li><b>色彩</b>：严格双色——暗蓝灰底 + 刀光弧线用锈红渐变到白色</li>
+        <li><b>文案</b>：Logo 左下 + 右上角小字「功夫朋克 · 2026.09.08」</li>
+        <li><b>动效</b>：如支持，刀光弧线做 2s 循环闪烁</li>
+        <li><b>差异化</b>：WeGame 上多数游戏的 Banner 是角色正面站姿——影之刃零用斜线动势打破对称，在列表中"弹跳出来"</li>
+      </ul>
+      <h3>截图轮播（5 张情绪递进）</h3>
+      <table>
+        <thead><tr><th>序号</th><th>情绪</th><th>画面</th><th>目的</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>华丽</b></td><td>最帅的 Boss 战斩杀瞬间（全画面刀光弧线）</td><td>0.5 秒内证明动作够猛</td></tr>
+          <tr><td>2</td><td><b>深度</b></td><td>三种武器切换连招（拼图展示）</td><td>证明系统有深度</td></tr>
+          <tr><td>3</td><td><b>世界</b></td><td>功夫朋克场景全景（古塔+蒸汽裂隙并存）</td><td>建立世界观认知</td></tr>
+          <tr><td>4</td><td><b>恐惧</b></td><td>「怪面」Boss 的全身特写（金属义肢+面具）</td><td>展示敌人设计的震撼</td></tr>
+          <tr><td>5</td><td><b>成长</b></td><td>武器架 + 近 40 种武器一览</td><td>证明内容量</td></tr>
+        </tbody>
+      </table>
+      <h3>文字描述区</h3>
+      <ul>
+        <li><b>一句话卖点</b>：「功夫朋克 — 真人动捕暗黑武侠 ACT，近 40 种武器，命仅余 66 天」</li>
+        <li><b>三个核心标签</b>：#功夫朋克 #暗黑武侠 #高速连招ACT</li>
+        <li><b>简介风格</b>：不用营销体，用短句 + 加粗关键词，像在跟朋友安利</li>
+      </ul>
+      <h3>CTA 按钮设计</h3>
+      <ul>
+        <li>主按钮：「立即预约」（白色实心，最大视觉权重）</li>
+        <li>次按钮：「加入游戏专区」（透明边框，引导进入长期运营阵地）</li>
+      </ul>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div x-show="page===4" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
+      <h2 class="text-2xl font-bold text-white mb-6">游戏专区与启动器策略</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：游戏专区是"预约后到开服前"的核心养成阵地——用攻略/百科/社区内容让预约者保持期待；启动器是"每日必过"的曝光确定性阵地——用渐进式视觉变化制造"每天打开都有新东西"的打卡感。</p>
+      </div>
+
+      <h3>WeGame 游戏专区设计</h3>
+      <h4>专区 Tab 结构</h4>
+      <table>
+        <thead><tr><th>Tab</th><th>预热期内容</th><th>设计策略</th></tr></thead>
+        <tbody>
+          <tr><td><b>启动</b></td><td>预热期显示倒计时 + 预约状态 + "查看最新动态"入口</td><td>倒计时用功夫朋克风格设计（水墨数字 + 红色脉冲边框）</td></tr>
+          <tr><td><b>攻略</b></td><td>发售前：武器图鉴（每周解锁一把）+ 战斗机制教学预热</td><td>用"武学秘籍"的世界观包装攻略内容（如"双蛇剑心法"）</td></tr>
+          <tr><td><b>百科</b></td><td>世界观条目逐步解锁：角色/势力/地点/武器/术语</td><td>档案体排版 + 红色丝线装饰，每周解锁新条目保持回访</td></tr>
+          <tr><td><b>社区</b></td><td>官方讨论区 + 玩家投稿（COS/二创/预测） + 官方问答</td><td>置顶"制作人日志"专栏，每两周一期</td></tr>
+          <tr><td><b>战绩</b></td><td>预热期预留，发售后展示：通关时长/武器使用率/Boss击杀数</td><td>预留位展示"即将开放"占位图，暗示发售后的丰富功能</td></tr>
+        </tbody>
+      </table>
+
+      <h4>专区视觉氛围</h4>
+      <ul>
+        <li><b>背景</b>：从 WeGame 默认灰底 → 逐步替换为功夫朋克暗色场景（T-30 开始）</li>
+        <li><b>装饰元素</b>：Tab 分隔线用红色丝线替代；标题区出现水墨晕染纹理</li>
+        <li><b>功能保障</b>：所有功能模块的操作区严格保持清晰——美学渗透只在装饰层，不入侵功能层</li>
+      </ul>
+
+      <h3>自研启动器设计</h3>
+      <h4>主屏动态演进（1280×720）</h4>
+      <ul>
+        <li><b>T-90 ~ T-30</b>：主屏下方出现一道极细的锈红色水平线，每周缓慢增粗（从 1px → 3px）——暗示"有什么正在酝酿"</li>
+        <li><b>T-30 ~ T-7</b>：红线上方开始出现水墨晕染效果，逐步扩大为主屏 30% 面积的功夫朋克场景画</li>
+        <li><b>T-7 ~ T-0</b>：全屏被影之刃零主视觉接管，中心是「魂」的剪影 + 发售倒计时 + "开始游戏"按钮</li>
+      </ul>
+
+      <h4>系统通知策略</h4>
+      <ul>
+        <li>通知调性：<b>世界观沉浸式</b>而非营销式——"[影门密报] 新武器情报已解密" 而非 "影之刃零新视频发布了！"</li>
+        <li>频率：每 5 天 1 次（不像 CF 虹每 3 天，因为影之刃零预热期更长需要节奏更缓）</li>
+        <li>点击落地：跳转到游戏专区对应内容页（攻略/百科/社区帖）</li>
+      </ul>
+
+      <h4>好友状态展示</h4>
+      <ul>
+        <li>预约了影之刃零的玩家，在好友列表中名字后出现小图标「⚔」</li>
+        <li>鼠标悬停显示："已加入影门 · 等待 66 天后的真相"</li>
+        <li>好友中预约比例超过 30% 时，弹出提醒："你的 X 位好友已预约，一起踏入江湖？"</li>
+      </ul>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div x-show="page===5" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三个阵地定制转化创意</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：三个创意分别服务三个阵地的核心任务——商店页做"即时转化"，专区做"内容粘性"，启动器做"每日曝光"。</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意一：「武学秘籍解锁」—— 游戏专区的长期内容引擎</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>在游戏专区的攻略/百科 Tab 中，以"武学秘籍"的世界观包装每周解锁一把武器的深度教学内容。每期包含：武术原型（真实功夫流派）+ 招式拆解动图 + 推荐搭配 + "师兄留言"（制作组幕后花絮）。预约用户可提前 24 小时解锁下一期。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>T-60 ~ T-0，每周四解锁一期，共 8 期</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 60-100 万（8 期内容制作 + 前端开发 + 运营）</td></tr>
+            <tr><td><b>KPI</b></td><td>专区周活跃 UV 20 万+；每期攻略阅读量 10 万+；通过专区引导的新预约 5 万+</td></tr>
+            <tr><td><b>落地平台</b></td><td>WeGame 游戏专区 · 攻略 Tab</td></tr>
+            <tr><td><b>参考案例</b></td><td>《原神》"旅行者札记"系列；《怪猎》武器使用教学系列</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意二：「墨染倒计时」—— 启动器的渐进式视觉接管</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>启动器主屏从一条 1px 红线开始，每天"墨染"面积扩大一点点，直到发售日全屏被功夫朋克视觉接管。玩家每天打开启动器都能看到"又多了一点"——制造截图分享欲和日常打卡习惯。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>T-90 启动（极微变化）→ T-30 加速（明显日更）→ T-0 全屏爆发</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 120-180 万（90 天渐进视觉资源制作 + 前端动效 + 每日资源推送系统）</td></tr>
+            <tr><td><b>KPI</b></td><td>启动器日打开率提升 20%+；玩家自发截图分享 5000+ 条；"影之刃零启动器"相关搜索量翻 3 倍</td></tr>
+            <tr><td><b>落地平台</b></td><td>自研启动器</td></tr>
+            <tr><td><b>参考案例</b></td><td>《堡垒之夜》黑洞事件的渐进视觉变化；CF虹的启动器污染进度方案</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意三：「影门江湖榜」—— 商店页的社交竞争驱动预约</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>在 WeGame 商店页底部展示一个"影门江湖榜"——统计各地区/好友圈的预约人数排行。每个预约者获得"影门弟子"称号和专属编号，编号越靠前代表"入门越早"。制造稀缺感和社交竞争动力。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>T-60 上线 → 持续运行至发售</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 30-50 万（排行榜前端 + 称号系统 + 后端统计）</td></tr>
+            <tr><td><b>KPI</b></td><td>榜单互动率（查看/分享）≥ 15%；通过社交竞争驱动的新预约 ≥ 总预约 20%</td></tr>
+            <tr><td><b>落地平台</b></td><td>WeGame 商店页</td></tr>
+            <tr><td><b>参考案例</b></td><td>Steam 愿望单里程碑公告的社区狂欢效应；《永劫无间》预约排行活动</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAGE 6 -->
+    <div x-show="page===6" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
+      <h2 class="text-2xl font-bold text-white mb-6">视觉规范速查</h2>
+      <h3>色彩系统</h3>
+      <table>
+        <thead><tr><th>Token</th><th>用途</th><th>色值</th></tr></thead>
+        <tbody>
+          <tr><td><b>墨底</b></td><td>启动器/专区深渗透背景</td><td>#0A0F14</td></tr>
+          <tr><td><b>灰青</b></td><td>次级背景/浅渗透</td><td>#1A2530</td></tr>
+          <tr><td><b>锈红</b></td><td>强调/警告/丝线/CTA</td><td>#B71C1C → #FF1744</td></tr>
+          <tr><td><b>暖金</b></td><td>齿轮装饰/低频使用</td><td>#8D6E00</td></tr>
+          <tr><td><b>文字白</b></td><td>标题</td><td>#E8EAED</td></tr>
+          <tr><td><b>文字灰</b></td><td>正文</td><td>#8B9199</td></tr>
+        </tbody>
+      </table>
+      <h3>字体规范</h3>
+      <table>
+        <thead><tr><th>场景</th><th>字体</th><th>字号</th></tr></thead>
+        <tbody>
+          <tr><td>启动器大标题/倒计时</td><td>书法体（水墨风毛笔）</td><td>36-48px</td></tr>
+          <tr><td>专区标题</td><td>思源黑体 CN Bold</td><td>20-24px</td></tr>
+          <tr><td>正文内容</td><td>思源黑体 CN Regular</td><td>14px</td></tr>
+          <tr><td>世界观档案/密报</td><td>等宽字体（JetBrains Mono）</td><td>12-13px</td></tr>
+        </tbody>
+      </table>
+      <h3>设计红线</h3>
+      <div class="highlight">
+        <ul>
+          <li><b>功能优先</b>——所有渗透视觉不得遮挡按钮/文字/操作区</li>
+          <li><b>禁止大面积纯红</b>——锈红只做线条/渐变/点缀，面积 ≤ 20%</li>
+          <li><b>圆角 ≤ 6px</b>——保持硬朗武侠感</li>
+          <li><b>动效克制</b>——duration ≤ 2s，easing ease-out，不做弹跳/旋转</li>
+          <li><b>低配降级</b>——启动器动态视觉必须有静态图+CSS动画回退方案</li>
+          <li><b>通知不超频</b>——最多每 5 天 1 次，世界观调性，不用感叹号</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PAGE 7 -->
+    <div x-show="page===7" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
+      <h2 class="text-2xl font-bold text-white mb-6">执行排期与预算</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：三阵地全套设计+开发总预算约 <b>¥ 280-400 万</b>。核心支出在启动器的 90 天渐进视觉资源和游戏专区的 8 期内容制作上。</p>
+      </div>
+      <h3>执行排期</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>时间</th><th>产出</th><th>预算</th></tr></thead>
+        <tbody>
+          <tr><td><b>Phase 0：设计定稿</b></td><td>T-100 ~ T-80</td><td>三阵地视觉方向确认 + 渗透分级标准 + 组件设计</td><td>¥ 40-60 万</td></tr>
+          <tr><td><b>Phase 1：商店页上架</b></td><td>T-80 ~ T-60</td><td>WeGame 商店页全套素材 + CTA + 江湖榜上线</td><td>¥ 50-70 万</td></tr>
+          <tr><td><b>Phase 2：专区+启动器</b></td><td>T-60 ~ T-30</td><td>游戏专区搭建 + 启动器渐进视觉启动 + 武学秘籍首期</td><td>¥ 120-180 万</td></tr>
+          <tr><td><b>Phase 3：深渗透</b></td><td>T-30 ~ T-0</td><td>视觉全面接管 + 高频更新 + 首发仪式</td><td>¥ 70-90 万</td></tr>
+        </tbody>
+      </table>
+      <h3>预算对比</h3>
+      <div class="highlight">
+        <p>影之刃零三阵地方案总预算 <b>280-400 万</b>，对比全渠道宣发预算（宏观视角报告中三个大创意合计 650-1070 万），阵地定制方案的成本只占<b>全渠道预算的 37-40%</b>，但覆盖的是<b>已锁定的腾讯生态用户</b>（WeGame 月活数千万 + 启动器装机量），ROI 确定性远高于站外买量。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 8 -->
+    <div x-show="page===8" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
+      <h2 class="text-2xl font-bold text-white mb-6">风险预警与应对</h2>
+      <div class="risk-card">
+        <h5>风险一：90 天启动器视觉资源的制作瓶颈（高风险）</h5>
+        <p>90 天每天有变化意味着 90 份不同阶段的视觉资源。如果制作进度跟不上推送节奏，会出现"今天跟昨天一样"的断更尴尬。</p>
+        <div class="mitigation">
+          <p><b>应对</b>：不是 90 张独立图——设计一套"参数化渐变系统"：底层是一张高清场景图，通过调整覆盖层 opacity/位移/色彩参数实现每日微变。实际只需制作 5-8 个关键帧 + 参数补间脚本。</p>
+        </div>
+      </div>
+      <div class="risk-card">
+        <h5>风险二：游戏专区预热期内容不够填满（中风险）</h5>
+        <p>发售前 60 天，游戏还没上线，攻略/战绩 Tab 没有真实数据可展示。如果专区太空，用户来一次就不会再来。</p>
+        <div class="mitigation">
+          <p><b>应对</b>：预热期用"预告式内容"填充——武学秘籍（攻略预热）、世界观百科（逐步解锁）、制作人日志（社区活跃）、玩家二创征集（UGC 填充）。确保每周至少有 2 条新内容。</p>
+        </div>
+      </div>
+      <div class="risk-card">
+        <h5>风险三：WeGame 平台推荐位获取不确定（中风险）</h5>
+        <p>WeGame 首页推荐位是有限资源，影之刃零可能需要与同期其他腾讯游戏竞争曝光。</p>
+        <div class="mitigation">
+          <p><b>应对</b>：提前与 WeGame 运营团队确认推荐位排期；准备"无推荐位版本"的转化方案（依靠搜索SEO+好友推荐+社区口碑）；江湖榜的社交裂变机制可部分弥补推荐位缺失。</p>
+        </div>
+      </div>
+      <div class="risk-card" style="border-left-color:#a16207">
+        <h5>风险四：好友状态功能需要平台接口支持（低风险）</h5>
+        <p>启动器的好友状态展示需要调用平台好友关系链和预约数据接口，技术对接可能存在周期风险。</p>
+        <div class="mitigation">
+          <p><b>应对</b>：提前在 T-100 启动接口对接 POC；如果接口不可用，降级为"仅展示预约总人数"而非好友级别的个人状态。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 9 -->
+    <div x-show="page===9" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
+      <h2 class="text-2xl font-bold text-white mb-6">顾问终审意见</h2>
+      <div class="verdict">
+        <p><b>终审判断：GO</b></p>
+        <p>影之刃零的三阵地方案（WeGame 商店页 + 游戏专区 + 启动器）构成了一个完整的"获取→养成→唤醒"闭环。核心亮点是「武侠渗透」这套三层递进的视觉策略——它让预热期不是"干等"，而是"每天都能感受到功夫朋克世界在逼近"。280-400 万的预算换来的是腾讯生态内数千万用户的高确定性触达。</p>
+      </div>
+      <h3>三个尖锐问题</h3>
+      <div class="highlight">
+        <p><b>1. 影之刃零真的会上 WeGame 吗？</b><br>目前已确认的平台是 PS5/Steam/Epic。如果最终不上 WeGame，本方案的前提就不成立。<b>建议</b>：尽快确认 WeGame 上架计划；如果确认不上 WeGame，本方案需要整体转向 Steam+Epic 商店页设计（另一套逻辑）。</p>
+        <p><b>2. "武侠渗透"的 90 天变化会不会太慢让人感知不到？</b><br>如果每天变化只有 1px 的差异，多数玩家根本不会注意到——失去了"打卡感"。<b>建议</b>：每周设置一个"跳变节点"（明显的视觉阶段升级），让玩家每周一看到"哦，又升级了"；日间微变作为彩蛋给细心玩家发现。</p>
+        <p><b>3. 游戏专区的"百科"内容会不会提前剧透太多世界观？</b><br>如果百科在发售前把所有势力/角色/地点都讲完了，玩家进入游戏后的探索惊喜会降低。<b>建议</b>：百科只解锁"表层信息"（角色名+阵营+外观描述），核心剧情信息用 [数据加密] 占位，发售后才逐步解锁完整内容。</p>
+      </div>
+      <h3>第一优先行动清单</h3>
+      <table>
+        <thead><tr><th>周次</th><th>行动</th><th>负责人</th></tr></thead>
+        <tbody>
+          <tr><td><b>本周</b></td><td>确认影之刃零是否上架 WeGame——这决定本方案是否执行</td><td>发行/BD</td></tr>
+          <tr><td><b>本周</b></td><td>启动器"参数化渐变系统"技术 POC，验证每日微变的工程可行性</td><td>前端 Tech Lead</td></tr>
+          <tr><td><b>下周</b></td><td>游戏专区 Tab 结构设计定稿 + 百科条目大纲（哪些发售前可开，哪些加密）</td><td>产品 + 策划</td></tr>
+          <tr><td><b>第三周</b></td><td>WeGame 商店页全套视觉素材方向确认（Hero Banner + 5 张截图）</td><td>视觉设计</td></tr>
+          <tr><td><b>第四周</b></td><td>武学秘籍第一期内容制作 + 好友状态接口对接启动</td><td>内容 + 前端</td></tr>
+        </tbody>
+      </table>
+      <div class="verdict">
+        <p><b>最终建议</b>：本方案的执行前提是确认 WeGame 上架。如果确认上架，立即启动三阵地并行设计；如果不上架，请回退到宏观视角报告中的全渠道方案（Steam/PS/Epic），阵地定制视角需要另起一版。</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>

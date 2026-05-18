@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>影之刃零 — 发售前运营节奏（运营阶段视角）</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-1':'#141414','surface-2':'#1c1c1c','surface-3':'#252525','bdr':'rgba(255,255,255,0.06)' } } }
+}
+</script>
+<style>
+  [x-cloak]{display:none!important}
+  body{background:#0c0c0c;color:#e5e5e5}
+  *{scrollbar-width:thin;scrollbar-color:#333 transparent}
+  .page-content h3{font-size:16px;font-weight:700;color:#fff;margin:28px 0 12px}
+  .page-content h4{font-size:14px;font-weight:600;color:#d4d4d4;margin:20px 0 8px}
+  .page-content p{font-size:14px;line-height:1.8;color:#a3a3a3;margin:0 0 12px}
+  .page-content ul{padding-left:20px;margin:0 0 16px}
+  .page-content li{font-size:13px;line-height:1.7;color:#a3a3a3;margin-bottom:4px}
+  .page-content li::marker{color:#525252}
+  .page-content strong,.page-content b{color:#fff;font-weight:600}
+  .page-content .highlight{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:16px;margin:16px 0}
+  .page-content .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:rgba(255,255,255,0.06);color:#737373;border:1px solid rgba(255,255,255,0.06);margin-right:4px;text-decoration:none}
+  .page-content .tag:hover{color:#fff;border-color:rgba(255,255,255,0.2)}
+  .page-content table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:13px}
+  .page-content th{text-align:left;padding:8px 12px;font-size:11px;font-weight:600;color:#737373;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .page-content td{padding:8px 12px;color:#a3a3a3;border-bottom:1px solid rgba(255,255,255,0.04)}
+  .creative-card{background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:20px;margin:16px 0}
+  .creative-card h5{font-size:14px;font-weight:700;color:#fff;margin:0 0 8px}
+  .verdict{background:#141414;border-left:3px solid #fff;padding:16px 20px;margin:20px 0;border-radius:0 6px 6px 0}
+  .verdict p{color:#d4d4d4}
+  .risk-card{background:#141414;border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:20px;margin:16px 0;border-left:3px solid #c43c3c}
+  .risk-card h5{font-size:14px;font-weight:700;color:#fff;margin:0 0 8px}
+  .risk-card .mitigation{border-top:1px solid rgba(255,255,255,0.06);margin-top:12px;padding-top:12px}
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../phantom-blade-zero.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">影之刃零 — 发售前运营节奏</h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="phantom-blade-zero.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
+      <a href="phantom-blade-zero-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">运营阶段</a>
+      <a href="phantom-blade-zero-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">阵地定制</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="phantom-blade-zero-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page=0" :class="page===0?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">当前运营阶段诊断</button>
+      <button x-on:click="page=1" :class="page===1?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">目标用户行为路径</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page=2" :class="page===2?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">阶段核心钩子：可操作的电影</button>
+      <button x-on:click="page=3" :class="page===3?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">内容节奏与发布日历</button>
+      <button x-on:click="page=4" :class="page===4?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">社区信任修复策略</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page=5" :class="page===5?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个阶段性转化创意</button>
+      <button x-on:click="page=6" :class="page===6?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">转化漏斗设计</button>
+      <button x-on:click="page=7" :class="page===7?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">KOL 与内容矩阵</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page=8" :class="page===8?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警与应对</button>
+      <button x-on:click="page=9" :class="page===9?'bg-white/[.06] text-white border-white/10':'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">顾问终审意见</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+
+    <!-- PAGE 0 -->
+    <div x-show="page===0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">当前运营阶段诊断</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：影之刃零正处于「品牌认知已建立 → 购买决策未完成」的关键转化窗口。Steam 百万愿望单证明了"知道"，但从"知道"到"首发日掏 268 元买"之间，还差一层「信任」——信任战斗体验如预告片所示、信任优化不翻车、信任值回票价。接下来 113 天（距 9.8 发售）的运营，核心命题只有一个：<b>把"期待"转化为"信任"</b>。</p>
+      </div>
+
+      <h3>阶段定位：T-113（今天）→ T-0（9月8日）</h3>
+      <table>
+        <thead><tr><th>时间段</th><th>阶段名</th><th>核心任务</th><th>关键交付物</th></tr></thead>
+        <tbody>
+          <tr><td>T-113 ~ T-66</td><td><b>蓄水期</b></td><td>稳定输出内容，维持热度但不过度消耗</td><td>开发幕后/武器深度展示/世界观碎片</td></tr>
+          <tr><td>T-66 ~ T-30</td><td><b>引爆期</b></td><td>66天倒计时启动，封测开放，口碑种子建立</td><td>66天日志/封测内容/UP主深度评测</td></tr>
+          <tr><td>T-30 ~ T-7</td><td><b>收网期</b></td><td>最后一波购买犹豫者转化</td><td>故事向预告片/预购特典公布/评测解禁</td></tr>
+          <tr><td>T-7 ~ T-0</td><td><b>爆发期</b></td><td>发售周的声量最大化</td><td>全面解禁/首日补丁/社区活动</td></tr>
+        </tbody>
+      </table>
+
+      <h3>当前资产盘点</h3>
+      <p>在制定节奏之前，先盘一下手上有什么牌：</p>
+      <ul>
+        <li><b>Steam 愿望单 100 万+</b>（2025.12 数据，当前预估已超 200 万）</li>
+        <li><b>B站预告片累计播放超 3000 万</b>（5 条核心预告片加总）</li>
+        <li><b>2000 人公测资格</b>尚未发放——这是一张未打出的王牌</li>
+        <li><b>全球巡回试玩</b>已完成多站（TGS/科隆/ChinaJoy），媒体评价整体正面</li>
+        <li><b>Denuvo 争议</b>——待处理的负面因素</li>
+        <li><b>"信号灯游戏"争议</b>——部分核心玩家对红蓝提示的看法两极化</li>
+      </ul>
+
+      <div class="highlight">
+        <p><b>诊断结论</b>：手上的牌足够好——高热度、正面媒体评价、未发放的封测王牌。但<b>两个争议点（Denuvo + 信号灯）如果不在发售前主动化解，可能在发售日被放大为口碑炸弹</b>。运营节奏的优先级应该是：先修信任 → 再冲转化。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div x-show="page===1" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">目标用户行为路径</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：从"加入愿望单"到"首发日付款"之间，玩家需要经过四个心理门槛——认知→兴趣→信任→行动。目前大部分愿望单用户卡在"信任"这一层：他们觉得游戏很酷，但还没有足够信心掏 268 元首发购买。</p>
+      </div>
+
+      <h3>转化漏斗分析</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>用户心理</th><th>目前转化率估算</th><th>卡点</th></tr></thead>
+        <tbody>
+          <tr><td><b>认知</b></td><td>"听说过这个游戏"</td><td>~5000万（B站/社媒曝光）</td><td>—</td></tr>
+          <tr><td><b>兴趣</b></td><td>"看起来挺酷"</td><td>~200万（愿望单）</td><td>约 4% 转化率，正常水平</td></tr>
+          <tr><td><b>信任</b></td><td>"确定值得买"</td><td>~???（尚未可知）</td><td><b>这是当前最大的黑箱</b></td></tr>
+          <tr><td><b>行动</b></td><td>"首发日付款"</td><td>行业基准：愿望单 → 首周购买约 10-15%</td><td>如果信任层做好，首周 20-30 万份可期</td></tr>
+        </tbody>
+      </table>
+
+      <h3>信任层的三个子门槛</h3>
+      <p>玩家在"信任"这一层需要跨过三个心理关卡：</p>
+      <ul>
+        <li><b>信任①：体验真实性</b> — "预告片那么帅，我玩的时候也能这样吗？"<br>→ 解法：无剪辑完整对局视频 + 封测玩家一手反馈</li>
+        <li><b>信任②：技术可靠性</b> — "PC 版会不会卡？PS5 版帧率稳吗？Denuvo 拖不拖？"<br>→ 解法：提前公开性能数据 + 邀请 DF 等技术媒体测试</li>
+        <li><b>信任③：内容量值回票价</b> — "268 元能玩多久？会不会 10 小时通关？"<br>→ 解法：公布流程时长（预估 25-40 小时）+ 多周目/武器养成等重复游玩要素</li>
+      </ul>
+
+      <h3>不同圈层的行为路径差异</h3>
+      <table>
+        <thead><tr><th>用户圈层</th><th>决策依据</th><th>关键触达渠道</th><th>转化时机</th></tr></thead>
+        <tbody>
+          <tr><td>ACT 硬核玩家</td><td>操作深度/连招上限/难度设计</td><td>YouTube 深度测评 / NGA 讨论</td><td>封测内容释放后（T-30）</td></tr>
+          <tr><td>国产 3A 拥护者</td><td>品质感/文化骄傲/口碑共识</td><td>B站 UP 主 / 微博 / 知乎</td><td>评测解禁后（T-7）</td></tr>
+          <tr><td>武侠审美泛群体</td><td>视觉冲击/社交话题/跟风</td><td>抖音/小红书/朋友圈</td><td>发售日社交爆炸时（T-0）</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>运营启示</b>：三圈用户的转化时机依次是 T-30 → T-7 → T-0。内容排期应该<b>由内向外扩散</b>——先满足最核心的 ACT 硬核玩家（用封测和深度内容），再扩展到国产 3A 群体（用评测和口碑），最后在发售日制造社交爆炸覆盖泛群体。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div x-show="page===2" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">阶段核心钩子：可操作的电影</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：在发售前运营阶段，影之刃零的核心情感钩子不是"功夫朋克"（那是品牌层的），而是更直接的一句话——<b>「你操作的每一招，都像电影里的动作戏」</b>。这是从"期待"到"信任"的桥梁：不是在告诉玩家"我们很酷"，而是在证明"你玩起来也会很酷"。</p>
+      </div>
+
+      <h3>为什么是"可操作的电影"而不是"画面好"</h3>
+      <p>"画面好"已经不是卖点——2026 年的 3A 画面都好。真正能让影之刃零在发售前打动犹豫者的，是一个更具体的承诺：</p>
+      <ul>
+        <li>Game Informer 记者说："<b>预告片中看到的华丽战斗，就是你实际操作能打出来的效果</b>"</li>
+        <li>Inverse 记者说："<b>战斗满足感可比肩《鬼泣5》</b>"</li>
+        <li>这意味着——宣发素材和实际体验之间<b>零落差</b></li>
+      </ul>
+      <p>在一个"CG 演出骗了我"的行业常态下，"所见即所得"反而成了最大的差异化卖点。运营阶段的一切内容都应该围绕<b>反复证明"你看到的 = 你能打出来的"</b>这个核心信息。</p>
+
+      <h3>三种内容证明手段</h3>
+      <table>
+        <thead><tr><th>手段</th><th>内容形式</th><th>证明了什么</th></tr></thead>
+        <tbody>
+          <tr><td><b>无剪辑完整对局</b></td><td>10-15 分钟从探索到 Boss 战的完整流程录像</td><td>证明"不是精选镜头拼接，打起来全程都这样"</td></tr>
+          <tr><td><b>封测玩家第一人称</b></td><td>普通玩家（非官方/非 KOL）的真实游戏录屏</td><td>证明"不是高手才能打出来，普通人也能"</td></tr>
+          <tr><td><b>技术幕后揭秘</b></td><td>动捕花絮/谷垣健治武术指导过程</td><td>证明"华丽不是特效堆出来的，是真功夫"</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>一句话传播公式</b>：所有运营内容的底层信息都应该可以被提炼为——<b>「影之刃零：你打出来的每一招，都是谷垣健治亲手编排的动作戏」</b>。这句话同时满足了真实性（动捕/武术指导）和升级感（像电影），是跨越信任门槛的钥匙。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div x-show="page===3" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
+      <h2 class="text-2xl font-bold text-white mb-6">内容节奏与发布日历</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：113 天的运营不能匀速投放，必须有明确的节奏曲线——蓄水期低调但持续、引爆期密集且硬核、收网期感性且紧迫。节奏错了比内容差更致命。</p>
+      </div>
+
+      <h3>四阶段内容日历</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>时间</th><th>发布频率</th><th>内容类型</th><th>调性</th></tr></thead>
+        <tbody>
+          <tr><td><b>蓄水期</b></td><td>5月→7月初</td><td>每周 1-2 条</td><td>武器深度展示 / 开发日志 / 世界观碎片 / 角色介绍</td><td>克制、专业、"我们在认真做"</td></tr>
+          <tr><td><b>引爆期</b></td><td>7月初→8月初</td><td>每天 1 条（66天日志）</td><td>66天倒计时 / 封测开放 / UP主深度测评 / 无剪辑对局</td><td>密集、硬核、"实锤来了"</td></tr>
+          <tr><td><b>收网期</b></td><td>8月初→9月1日</td><td>每 2-3 天 1 条重磅</td><td>故事预告片 / 预购特典 / 评测解禁 / 最终配置公布</td><td>感性、紧迫、"最后机会"</td></tr>
+          <tr><td><b>爆发期</b></td><td>9月1日→9月8日</td><td>每天多条</td><td>倒计时 / 首日补丁说明 / 解锁时间 / 发售庆典</td><td>狂欢、社交传播、"一起来"</td></tr>
+        </tbody>
+      </table>
+
+      <h3>蓄水期（T-113 ~ T-66）关键动作</h3>
+      <ul>
+        <li><b>武器深度展示系列</b>（每周一把）：8 把主武器逐一展示，每把配 60s 战斗片段 + 招式解析</li>
+        <li><b>开发幕后日志</b>（每两周一期）：动捕花絮、武术指导、美术制作、性能优化</li>
+        <li><b>世界观碎片</b>：每周在社媒放出一张带隐藏信息的设定图/场景图，培养社区解读习惯</li>
+        <li><b>Denuvo 性能报告</b>（T-90）：主动公布测试数据，化解争议</li>
+      </ul>
+
+      <h3>引爆期（T-66 ~ T-30）关键动作</h3>
+      <ul>
+        <li><b>66 天倒计时日志</b>启动——每天一条内容（概念图/短文案/动态壁纸/音频碎片）</li>
+        <li><b>2000 人封测开放</b>（T-60）——"影门试炼"筛选机制上线</li>
+        <li><b>封测内容管控</b>：允许发布战斗片段（≤3分钟），禁止剧透后半段剧情</li>
+        <li><b>头部 UP 主邀请试玩</b>（T-45）——5-10 个国内/海外头部游戏 UP 到 S-GAME 工作室实机体验</li>
+      </ul>
+
+      <h3>收网期（T-30 ~ T-7）关键动作</h3>
+      <ul>
+        <li><b>故事向预告片</b>（T-14）——首次大规模揭示 66 天倒计时叙事、核心角色关系、多结局暗示</li>
+        <li><b>预购正式开放 + 特典公布</b>（T-21）</li>
+        <li><b>评测解禁</b>（T-7）——给媒体足够时间写深度评测，但不提前太多避免泄漏</li>
+        <li><b>最终 PC 配置公布 + PS5 性能保证声明</b>（T-10）</li>
+      </ul>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div x-show="page===4" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
+      <h2 class="text-2xl font-bold text-white mb-6">社区信任修复策略</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：影之刃零的社区信任面临两个具体威胁——Denuvo 引发的"反消费者"标签，以及"信号灯游戏"引发的"深度不够"质疑。这两个问题如果不在发售前主动处理，会成为首日差评的引爆点。</p>
+      </div>
+
+      <h3>威胁一：Denuvo 争议</h3>
+      <p><b>现状</b>：Steam Curator 已有明确的"因 Denuvo 不推荐"评价。Reddit/NGA 上相关讨论热度中等但情绪激烈。</p>
+      <p><b>修复策略（T-90 执行）</b>：</p>
+      <ul>
+        <li>发布官方技术博文：「我们为什么选择 Denuvo，以及它的实际性能影响」</li>
+        <li>公开测试数据：有 Denuvo vs 无 Denuvo 的帧率对比（1080p/4K），证明影响 ≤ 2%</li>
+        <li>设定承诺：「发售 6 个月后根据社区反馈评估是否移除」</li>
+        <li>态度：不回避、不辩解、用数据说话</li>
+      </ul>
+
+      <h3>威胁二："信号灯游戏"质疑</h3>
+      <p><b>现状</b>：部分硬核玩家认为红蓝气劲提示是"降低难度的偷懒设计"，担心战斗只是"看颜色按按钮"。百度贴吧有专门的争论帖。</p>
+      <p><b>修复策略（T-60 封测期配合）</b>：</p>
+      <ul>
+        <li>在封测中开放"无提示模式"选项，让硬核玩家体验纯读招战斗</li>
+        <li>通过封测玩家口碑传达：红蓝提示只是辅助，高手不看提示照样打——重点是<b>招式的多样性和读招的深度</b>，不是看灯</li>
+        <li>发布一支"高手对局"视频：完全不看红蓝提示，纯靠动作预判的流畅连招——证明操作天花板不受提示限制</li>
+      </ul>
+
+      <h3>主动信任建设（非修复性）</h3>
+      <ul>
+        <li><b>制作人公开信</b>（T-45）：梁其伟发一封诚恳的公开信，讲开发历程、对品质的坚持、对玩家的期待管理</li>
+        <li><b>"拒绝 AI"承诺的持续强化</b>：这一点在 TapTap 获得广泛好感，继续用开发花絮证明"每一帧都是人工打磨"</li>
+        <li><b>Bug 修复透明度</b>：封测期间快速响应 Bug 报告，公开修复进度——让玩家看到团队的执行力</li>
+      </ul>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div x-show="page===5" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三个阶段性转化创意</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：三个创意分别服务三个阶段——蓄水期"保持温度"、引爆期"建立信任"、收网期"推动行动"。它们是线性推进关系。</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意一：「武器图鉴周刊」—— 蓄水期的持续心跳</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>每周深度展示一把武器——不是简单的数据介绍，而是"这把武器的前世今生"：武术原型（真实功夫流派对应）、动捕花絮（演员如何演绎这把武器）、实战片段（60s 无剪辑）。8 周 8 把主武器，形成可追踪的系列内容。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>T-113 ~ T-66（5月下旬→7月初），每周四固定发布</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 80-120 万（8 期视频制作 + 概念图 + 社媒运营）</td></tr>
+            <tr><td><b>KPI</b></td><td>单期 B站播放 100 万+；系列完整追看率 ≥ 60%；期间愿望单周增 3 万+</td></tr>
+            <tr><td><b>落地平台</b></td><td>B站（3-5min 深度版）+ 抖音/短视频（15s 动作精华版）</td></tr>
+            <tr><td><b>参考案例</b></td><td>《怪物猎人》每周武器教学系列；《战神》幕后开发日志系列</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意二：「影门试炼」—— 引爆期的封测筛选事件</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>将 2000 人封测资格包装为"影门入门试炼"——通过一套线上 H5 互动（武术知识问答 + 反应速度小游戏 + 社区贡献度积分），从报名者中筛选出 2000 名"合格者"。这不是抽奖，而是"证明自己配得上"的仪式感。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>T-66 公布规则 → T-60 开启报名 → T-55 公布结果 → T-50 封测启动</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 150-200 万（H5 开发 + 封测运维 + 社群管理 + 奖品）</td></tr>
+            <tr><td><b>KPI</b></td><td>报名参与 50 万+；H5 页面 UV 200 万+；封测期间 UP 主自发内容 500+ 条</td></tr>
+            <tr><td><b>落地平台</b></td><td>官网 H5 + 社媒同步传播</td></tr>
+            <tr><td><b>参考案例</b></td><td>《原神》初期封测的"稀缺感"策略；《暗黑4》阶梯式测试资格</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意三：「最后七天·每日解锁」—— 收网期的购买冲刺</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>发售前 7 天，每天解锁一段之前从未公开的游戏内容——Day 7 新武器首曝 / Day 6 隐藏 Boss 剪影 / Day 5 多结局暗示 / Day 4 彩蛋预告 / Day 3 最终预告片 / Day 2 解锁时间公布 / Day 1 制作人寄语。制造"每天都有新信息"的倒计时热潮。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>T-7 ~ T-1（9月1日→9月7日）</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 50-80 万（7 天物料制作 + 社媒加推 + KOL 联动）</td></tr>
+            <tr><td><b>KPI</b></td><td>7 天期间预购转化率 ≥ 5%（愿望单→购买）；社媒日均讨论量翻 3 倍</td></tr>
+            <tr><td><b>落地平台</b></td><td>全平台同步</td></tr>
+            <tr><td><b>参考案例</b></td><td>《赛博朋克2077》发售前每日信息解锁；《艾尔登法环》最后一周的碎片式剧透</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAGE 6 -->
+    <div x-show="page===6" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
+      <h2 class="text-2xl font-bold text-white mb-6">转化漏斗设计</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：每个触达渠道都应该有清晰的"下一步行动"指引。不能只做曝光不做转化——每条内容的终点都应该是一个可追踪的 CTA。</p>
+      </div>
+
+      <h3>全渠道 CTA 矩阵</h3>
+      <table>
+        <thead><tr><th>渠道</th><th>内容类型</th><th>CTA</th><th>落地页</th></tr></thead>
+        <tbody>
+          <tr><td>B站</td><td>预告片/武器展示</td><td>"加入愿望单"按钮（置顶评论）</td><td>Steam 商店页</td></tr>
+          <tr><td>抖音</td><td>15s 战斗精华</td><td>"点击预约"组件</td><td>官网预约页</td></tr>
+          <tr><td>小红书</td><td>美术设定图/壁纸</td><td>"收藏+关注官号"</td><td>官号主页（后续推送预购信息）</td></tr>
+          <tr><td>X/Twitter</td><td>战斗 GIF + #Kungfupunk</td><td>"Wishlist Now"链接</td><td>Steam 商店页（英文）</td></tr>
+          <tr><td>官网</td><td>66天日志/封测报名</td><td>"Steam 愿望单 / PS 预购"双按钮</td><td>对应商店页</td></tr>
+        </tbody>
+      </table>
+
+      <h3>预购转化的三个加速器</h3>
+      <ul>
+        <li><b>限时特典</b>：预购玩家获得独占武器外观"墨染双蛇剑"——让犹豫者有"现在买比之后买更值"的理由</li>
+        <li><b>好友联动</b>：邀请 3 位好友加入愿望单，双方均获得额外壁纸包——利用社交关系降低决策门槛</li>
+        <li><b>封测特权</b>：所有预购玩家自动进入下一轮公测——把"封测稀缺性"转化为预购动力</li>
+      </ul>
+
+      <h3>关键数据追踪点</h3>
+      <table>
+        <thead><tr><th>指标</th><th>目标值</th><th>追踪工具</th></tr></thead>
+        <tbody>
+          <tr><td>Steam 愿望单总量（发售日前）</td><td>≥ 300 万</td><td>Steamworks 后台</td></tr>
+          <tr><td>愿望单→首周购买转化率</td><td>≥ 15%（45 万首周）</td><td>Steamworks + 财务</td></tr>
+          <tr><td>预购占首周销量比例</td><td>≥ 30%</td><td>各平台后台</td></tr>
+          <tr><td>B站预告片→愿望单追踪</td><td>每万播放→50 愿望单新增</td><td>UTM + 转化归因</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PAGE 7 -->
+    <div x-show="page===7" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
+      <h2 class="text-2xl font-bold text-white mb-6">KOL 与内容矩阵</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：影之刃零的 KOL 策略不应该是"发钱让人说好话"，而是"给真正的 ACT 高手一个展示自己的舞台"。核心 ACT 玩家的可信度远高于商业化 KOL。</p>
+      </div>
+
+      <h3>KOL 分层策略</h3>
+      <table>
+        <thead><tr><th>层级</th><th>人选标准</th><th>合作方式</th><th>数量</th><th>预算</th></tr></thead>
+        <tbody>
+          <tr><td><b>T0：头部深度</b></td><td>芒果冰/黑桐谷歌/Maximilian Dood 等 ACT 品类顶流</td><td>提前 2 周独家试玩 + 深度视频</td><td>5-8 人</td><td>¥ 200-300 万</td></tr>
+          <tr><td><b>T1：中腰评测</b></td><td>B站/YouTube 10-50 万粉的动作游戏专精 UP</td><td>提供评测码 + 轻度合作费</td><td>20-30 人</td><td>¥ 100-150 万</td></tr>
+          <tr><td><b>T2：社区种子</b></td><td>贴吧/NGA/Reddit 的活跃玩家/版主</td><td>封测资格 + 社区大使头衔</td><td>100-200 人</td><td>¥ 20-30 万</td></tr>
+          <tr><td><b>T3：泛娱乐破圈</b></td><td>武术/功夫/COS 领域的非游戏 KOL</td><td>联名内容（如武术博主复刻游戏招式）</td><td>10-15 人</td><td>¥ 80-120 万</td></tr>
+        </tbody>
+      </table>
+
+      <h3>内容矩阵规划</h3>
+      <table>
+        <thead><tr><th>内容类型</th><th>产出方</th><th>频率</th><th>核心价值</th></tr></thead>
+        <tbody>
+          <tr><td>官方开发日志</td><td>S-GAME</td><td>每两周 1 期</td><td>专业感+透明度</td></tr>
+          <tr><td>武器图鉴周刊</td><td>S-GAME</td><td>每周 1 期</td><td>持续心跳+收藏欲</td></tr>
+          <tr><td>深度评测/试玩</td><td>T0 KOL</td><td>引爆期集中</td><td>可信度+操作上限展示</td></tr>
+          <tr><td>连招集锦/速杀</td><td>T2 社区玩家</td><td>封测后爆发</td><td>UGC 生态+社交传播</td></tr>
+          <tr><td>武术复刻/COS</td><td>T3 泛娱乐</td><td>收网期 3-5 条</td><td>破圈+话题性</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>关键原则</b>：所有 KOL 合作内容必须保留<b>真实表达权</b>——允许他们说缺点、说难度太高、说某些设计不满意。因为真实的评价比一片好评更有可信度。影之刃零的产品底子足够硬，不需要买好话。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 8 -->
+    <div x-show="page===8" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
+      <h2 class="text-2xl font-bold text-white mb-6">风险预警与应对</h2>
+
+      <div class="risk-card">
+        <h5>风险一：封测内容管控失败，剧情大规模泄露（高风险）</h5>
+        <p>2000 人封测规模不小，如果剧情后半段被泄露，会严重损害首发体验的新鲜感，且可能引发"玩都没玩到就被剧透"的社区愤怒。</p>
+        <div class="mitigation">
+          <p><b>应对</b>：封测版本物理截断后半段内容（只开放前 30% 流程）；签署 NDA 协议；设置水印追踪泄露源；社区快速响应删帖机制。</p>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险二：66 天日志的内容疲劳（中风险）</h5>
+        <p>每天发一条内容持续 66 天，如果质量下降或内容重复，可能从"期待"变成"烦人"。</p>
+        <div class="mitigation">
+          <p><b>应对</b>：提前备好 66 天的完整素材库（不允许现做现发）；内容类型轮换（概念图→文案→动图→音频→互动→壁纸）；设置"跳过日"机制——每周有 1 天只发一句话/一张图，给粉丝"喘息空间"。</p>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险三：评测解禁后口碑不及预期（中风险）</h5>
+        <p>如果 T-7 媒体评测分数低于 80/100 或出现一致性差评（如"重复度高""后期拉胯"），会严重冲击预购转化。</p>
+        <div class="mitigation">
+          <p><b>应对</b>：评测解禁前确保 Day 1 Patch 已准备就绪；如果内部评估后期内容有风险，考虑延后评测解禁至 T-3（减少负面发酵时间）；准备"制作人回应"预案，24 小时内针对核心批评给出修复承诺。</p>
+        </div>
+      </div>
+
+      <div class="risk-card" style="border-left-color:#a16207">
+        <h5>风险四：PS5 版技术表现被放大（低风险）</h5>
+        <p>Digital Foundry 等技术媒体会第一时间分析帧率/分辨率。如果 PS5 版不稳 60fps，可能被扣"优化差"帽子。</p>
+        <div class="mitigation">
+          <p><b>应对</b>：提前邀请 DF 进行技术预览（T-14）；PS5 版提供 Performance/Quality 双模式；如果无法稳定 60fps，主动公布"首发后优化路线图"。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 9 -->
+    <div x-show="page===9" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
+      <h2 class="text-2xl font-bold text-white mb-6">顾问终审意见</h2>
+
+      <div class="verdict">
+        <p><b>终审判断：GO</b></p>
+        <p>影之刃零在发售前 113 天的运营窗口内，拥有足够的弹药和正确的节奏框架来完成"从期待到信任"的关键转化。核心优势是：产品底子扎实（媒体试玩普遍正面）、品牌符号清晰（功夫朋克）、传播基础已建立（千万级播放预告片）。只要把两个争议点（Denuvo + 信号灯）主动化解、封测王牌打好，首发日的口碑爆发是大概率事件。</p>
+      </div>
+
+      <h3>三个尖锐问题</h3>
+      <div class="highlight">
+        <p><b>1. 66 天日志的 66 份素材真的准备好了吗？</b><br>这是一个巨大的内容生产挑战——66 份不重复、高质量、有叙事连贯性的每日内容。如果到 T-66 时素材库不满，宁可不启动也不要中途断更。<b>建议</b>：立刻成立 4 人专项小组，T-80 前完成全部素材预制。</p>
+        <p><b>2. "信号灯"争议如果封测后反而放大了怎么办？</b><br>封测玩家中必然有人公开批评红蓝提示系统。如果负面声量超过正面，是坚持设计还是出补丁修改？<b>建议</b>：提前准备两个方案——① "无提示模式"作为 Day 1 选项 ② 如果极端情况，准备"提示可完全关闭 + 纯读招模式"的后续更新承诺。</p>
+        <p><b>3. 首发定价 268 元还是 298 元？</b><br>268 元对标《黑神话》会被认为"体量应该也差不多"，如果实际流程只有 20-25 小时可能引发"不值"争议。298 元则需要更强的内容量支撑。<b>建议</b>：如果流程确实短于 25 小时，考虑 268 元定价 + 明确后续免费更新计划（新 Boss/新武器/New Game+），管理预期。</p>
+      </div>
+
+      <h3>第一优先行动清单</h3>
+      <table>
+        <thead><tr><th>周次</th><th>行动</th><th>负责人</th></tr></thead>
+        <tbody>
+          <tr><td><b>本周</b></td><td>启动 66 天日志素材库预制，确认 4 人专项小组</td><td>品牌内容</td></tr>
+          <tr><td><b>本周</b></td><td>确认 Denuvo 性能测试方案，排期 T-90 前公布</td><td>技术 / QA</td></tr>
+          <tr><td><b>下周</b></td><td>武器图鉴周刊第一期制作完成，确认 8 周发布排期</td><td>市场 + 美术</td></tr>
+          <tr><td><b>第三周</b></td><td>"影门试炼"H5 交互设计定稿，进入开发</td><td>市场 + 前端</td></tr>
+          <tr><td><b>第四周</b></td><td>T0 KOL 名单确认 + 试玩邀请排期</td><td>BD / 市场</td></tr>
+        </tbody>
+      </table>
+
+      <div class="verdict">
+        <p><b>最终建议</b>：运营阶段的核心只有一件事——<b>反复证明"你看到的 = 你能打出来的"</b>。所有内容、创意、KOL 合作都应该服务于这个单一信息。当 9 月 8 日来临时，每一个犹豫者都应该已经被"无剪辑实机 + 封测玩家口碑 + 媒体深度评测"三重验证说服——信任已建立，只需要最后点击"购买"。</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
