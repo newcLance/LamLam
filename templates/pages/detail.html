@@ -94,7 +94,19 @@
 <div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
 
   {# ===== SCREENSHOTS ===== #}
+  {# Pre-compute non-cover screens so we can skip the entire section when empty #}
+  {% set ns = namespace(all_screens=[]) %}
   {% if ss %}
+    {% for module in ss %}
+      {% for screen in module.screens %}
+        {% if screen.imgs and screen.tag != '封面' %}
+          {% set _ = ns.all_screens.append(screen) %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+
+  {% if ns.all_screens %}
   <section id="sec-screenshots" class="mb-14">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-lg font-bold flex items-center gap-2">
@@ -110,17 +122,6 @@
       {% endif %}
     </div>
 
-    {# Flatten all valid screens across modules into one list (for tabs) #}
-    {% set ns = namespace(all_screens=[]) %}
-    {% for module in ss %}
-      {% for screen in module.screens %}
-        {% if screen.imgs %}
-          {% set _ = ns.all_screens.append(screen) %}
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
-
-    {% if ns.all_screens %}
     <div x-data="{ tab: 0 }">
 
       {# ===== TAB BAR (only when there are 2+ screens) ===== #}
@@ -234,7 +235,6 @@
       {% endfor %}
 
     </div>
-    {% endif %}
   </section>
   {% endif %}
 
