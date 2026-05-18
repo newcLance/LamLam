@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>穿越火线：虹 — 宣发设计分析报告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'surface-0': '#0c0c0c',
+        'surface-1': '#141414',
+        'surface-2': '#1c1c1c',
+        'surface-3': '#252525',
+        'bdr': 'rgba(255,255,255,0.06)',
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background: #0c0c0c; color: #e5e5e5; }
+  * { scrollbar-width: thin; scrollbar-color: #333 transparent; }
+  .page-content h3 { font-size: 16px; font-weight: 700; color: #fff; margin: 28px 0 12px; }
+  .page-content h4 { font-size: 14px; font-weight: 600; color: #d4d4d4; margin: 20px 0 8px; }
+  .page-content p { font-size: 14px; line-height: 1.8; color: #a3a3a3; margin: 0 0 12px; }
+  .page-content ul { padding-left: 20px; margin: 0 0 16px; }
+  .page-content li { font-size: 13px; line-height: 1.7; color: #a3a3a3; margin-bottom: 4px; }
+  .page-content li::marker { color: #525252; }
+  .page-content strong, .page-content b { color: #fff; font-weight: 600; }
+  .page-content .highlight { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 16px; margin: 16px 0; }
+  .page-content .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.06); color: #737373; border: 1px solid rgba(255,255,255,0.06); margin-right: 4px; }
+  .page-content table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
+  .page-content th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #737373; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .page-content td { padding: 8px 12px; color: #a3a3a3; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .creative-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; }
+  .creative-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .verdict { background: #141414; border-left: 3px solid #fff; padding: 16px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; }
+  .verdict p { color: #d4d4d4; }
+  .risk-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; border-left: 3px solid #c43c3c; }
+  .risk-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .risk-card .mitigation { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 12px; padding-top: 12px; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../crossfire-hong.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">穿越火线：虹 — 宣发设计分析报告</h1>
+    </div>
+    <span class="text-[11px] text-neutral-600">GAME TRACKER · 2026.05.15</span>
+  </div>
+</header>
+
+<!-- MAIN: Left nav + Right content -->
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+
+  <!-- LEFT: Page Navigation -->
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">市场背景与品类机会</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">玩家画像与情绪地图</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">核心记忆符号：理智值</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉定位与美学谱系</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">竞品象限与差异化壁垒</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">宣发核心物料清单</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个杀手级宣发创意</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范速查</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警与应对</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">顾问终审意见</button>
+    </div>
+  </nav>
+
+  <!-- RIGHT: Content Area -->
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+
+    <!-- ========== PAGE 0: 市场背景与品类机会 ========== -->
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">市场背景与品类机会</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：CF 虹踩在三条正在爆发的品类趋势的交叉点上——非对称恐怖多人、撤离射击、老 IP 次世代重生。这不是巧合，而是经过计算的品类卡位。问题不是"这个方向对不对"，而是"窗口期还剩多久"。</p>
+      </div>
+
+      <h3>趋势一：恐怖/微恐游戏市场正在指数级扩张</h3>
+      <p>恐怖游戏不再是小众品类。根据 Future Data Stats 的研究，<b>2025 年全球经典恐怖游戏市场规模约 30 亿美元</b>，预计到 2033 年增长至 <b>75 亿美元</b>，复合年均增长率 <b>12%</b>。<a href="https://www.futuredatastats.com/classic-horror-game-market" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">Future Data Stats ↗</a> 360iResearch 给出了更激进的数字：沉浸式恐怖游戏 2024 年市场规模约 <b>87.7 亿美元</b>，2025 年预计达 <b>98.1 亿美元</b>，到 2030 年更可达 <b>176.4 亿美元</b>。<a href="http://www.gii.tw/report/ires1809827-immersive-horror-games-market-by-game-platform.html" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">360iResearch ↗</a></p>
+      <p>这意味着什么？恐怖品类的年增速是整个游戏行业平均增速的<b>两到三倍</b>。更关键的是，品类标杆《Dead by Daylight》已经证明了长线运营的可行性——<b>累计 7000 万玩家，月活 500 万，2025 年是上线以来最好的一年，终身收入突破 10 亿美元，年化收入稳定在 2 亿美元</b>。<a href="https://www.bhvr.com/poste/senior-design-director-senior-game-director-dead-by-daylight/" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">Behaviour Interactive 官方 ↗</a> 一款 2016 年上线的独立游戏，十年后仍在增长——这个赛道的天花板远未见顶。</p>
+      <p>国内市场同样验证了这一趋势。巨人网络的《超自然行动组》2025 年同时在线人数<b>突破 100 万</b>，成为过去几年微恐类新游戏的全球第一。<a href="https://games.chaoziran.com/download-pc/index.html" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">超自然行动组官方 ↗</a> 网易《第五人格》2024 年流水创历史新高，女性用户占比从 2018 年的 34% 提升至 65%。<a href="https://www.10100.com/article/71019093" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">中信建投 / Mobdata ↗</a></p>
+
+      <h3>趋势二：撤离射击品类已被验证，但头部格局未定</h3>
+      <p>撤离射击（搜打撤）在 2025 年完成了从硬核小众到大众主流的跨越。数据说明一切：</p>
+      <table>
+        <thead><tr><th>产品</th><th>关键数据</th><th>现状</th></tr></thead>
+        <tbody>
+          <tr><td><b>ARC Raiders</b></td><td>上线三个月收入超 <b>5 亿美元</b>，销量约 1500 万</td><td>品类新王，获 TGA 年度最佳多人 <a href="https://www.videogamer.com/news/arc-raiders-15-million-sales/" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">VideoGamer / Nexon ↗</a></td></tr>
+          <tr><td><b>逃离塔科夫</b></td><td>累计收入超 <b>2 亿美元</b>（2021 年前），2025 年中 DAU 约 53 万</td><td>Steam 好评率仅 37%（首发），老化严重，MAU 持续下滑 <a href="https://grokipedia.com/page/Escape_from_Tarkov" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">Grokipedia / Steambase ↗</a></td></tr>
+          <tr><td><b>Hunt: Showdown 1896</b></td><td>Steam 收入约 <b>1.56 亿美元</b>，670 万销量</td><td>Steam 月均在线约 1.5 万，用户粘性高但增量有限 <a href="https://app.sensortower.com/vgi/game/hunt-showdown-1896" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">Sensor Tower VGI ↗</a></td></tr>
+          <tr><td><b>三角洲行动</b></td><td>2026 年 1 月登顶 iOS 畅销总榜</td><td>腾讯射击矩阵的平台化入口产品 <a href="https://news.17173.com/content/01302026/173239262.shtml" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">17173 ↗</a></td></tr>
+        </tbody>
+      </table>
+      <p><b>So what</b>：这张表告诉我们两件事。第一，品类已被大众接受（ARC Raiders 三个月 5 亿美元证明了上限）。第二，老玩家正在流失（塔科夫 MAU 从约 154 万跌至约 68 万），市场空出了一个"中等硬核 + 叙事驱动"的空位——CF 虹恰好可以填上。</p>
+
+      <h3>趋势三：克苏鲁美学进入主流化拐点</h3>
+      <p>克苏鲁不再是桌游和独立游戏的专利。<b>近年克苏鲁题材游戏全球销量增长迅猛</b>。从《暗黑地牢 2》到《Dredge》到《幽闭求生》，Lovecraft 系美学已经从独立游戏走向主流——而 2025 年被媒体称为"克苏鲁游戏最好的一年"，《The Sinking City 2》《The Mound: Omen of Cthulhu》等重磅作品密集发布。<a href="https://www.cgames.com/contents/2/10621.html" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">竞核 ↗</a></p>
+      <p>但国内市场更值得关注的是<b>"中式新怪谈"</b>的崛起。不是西方满屏触手的传统克苏鲁，而是"民俗恐怖 + 日常中的异常"——从《明末：渊虚之羽》的三星堆民俗异变，到"伪人""规则怪谈"的社交传播，微恐正在成为 Z 世代最热门的内容语言之一。CF 虹的"虹蚀"设定——熟悉的 CF 世界被不可名状之物侵蚀——本质上就是这套"日常中的异常"逻辑的射击游戏版本。</p>
+
+      <h3>三大趋势的交汇点：CF 虹的品类卡位</h3>
+      <div class="highlight">
+        <p>CF 虹不是在追赶某一条趋势，而是站在三条趋势的<b>交叉点</b>上：</p>
+        <ul>
+          <li><b>非对称恐怖多人</b>（DBD 验证的模型） + <b>撤离射击</b>（塔科夫/猎杀验证的循环） + <b>老 IP 次世代重生</b>（寂静岭 2 重制版验证的路线）</li>
+          <li>全球范围内，没有任何一款产品同时占据这三个位置</li>
+          <li>最接近的竞品——猎杀对决有撤离射击+超自然，但没有非对称和 IP 底盘；DBD 有非对称+恐怖，但没有射击和撤离循环</li>
+        </ul>
+        <p><b>窗口期判断</b>：KRAFTON 的《灰境行者》、Frogwares 的《沉没之城 2》等竞品正在逼近同一赛道。CF 虹的先发窗口大约在 <b>12-18 个月</b>——2026 年下半年公测是最佳时机，再晚就可能变成追赶者。</p>
+      </div>
+
+      <h3>CF IP 的底盘：不是从零开始</h3>
+      <p>CF 系列的用户基数是任何竞品都无法复制的护城河。CF 端游<b>注册用户超 11 亿</b>（含全球），CF 手游<b>注册用户突破 4.5 亿，2025 年 8 月 DAU 达 1200 万</b>，电竞赛事累计观看人数突破 <b>10 亿次</b>。<a href="https://news.qq.com/rain/a/20251210A07RM800" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">CFM十周年盛典 / 腾讯官方 ↗</a></p>
+      <p>更重要的是，CF 系列在非对称对抗上有<b>真实的玩法积累</b>——生化模式是 CF 十七年来最受欢迎的玩法之一，2019 年 CF 手游的"最终 12 小时"模式就已经包含了 SAN 值、微恐题材和合成系统的原型。CF 虹不是凭空造一个新品类，而是把十年前玩家就在要求的东西做到了 3A 级别。<a href="https://new.qq.com/rain/a/20250824A06MPK00" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">竞核 ↗</a></p>
+    </div>
+
+    <!-- ========== PAGE 1: 玩家画像与情绪地图 ========== -->
+    <div x-show="page === 1" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">玩家画像与情绪地图</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：CF 虹的目标用户不是一个圆，而是三个圆的交叠区。每个圆有不同的驱动力、不同的痛点、不同的引爆点。宣发不能用一套话术打三圈人——必须分层击穿。</p>
+      </div>
+
+      <h3>三圈用户模型</h3>
+
+      <div class="highlight">
+        <h4>圈层 A：CF 存量用户（情怀驱动型）</h4>
+        <p><b>画像</b>：22-35 岁男性为主，端游时代的 CF 老玩家，现在可能已不玩 CF 但对 IP 有强烈情感连接。规模参考：CF 手游 DAU <b>1200 万</b>，端游+手游总注册 <b>15.5 亿</b>。<a href="https://news.qq.com/rain/a/20251207A0732100" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">腾讯官方 ↗</a></p>
+        <p><b>他们现在在玩什么</b>：三角洲行动、和平精英、无畏契约，或已进入"射击游戏倦怠期"。</p>
+        <p><b>痛点</b>：射击游戏同质化严重，"又一个突突突"。对 CF 品牌有感情但觉得 CF 已经"老了"。</p>
+        <p><b>CF 虹切入的情绪空位</b>：<b>"我认识的 CF 居然能做出这种东西？"</b> 首曝 PV 在 B 站破 <b>1470 万播放</b>，弹幕高频词是"这是 CF？""近视突然好了""CF 十年老玩家这是给我干哪来了"。<a href="https://news.qq.com/rain/a/20260208A064GL00" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">GameLook ↗</a> 关键情绪不是"好想玩"，而是<b>惊讶和重新认知</b>——这正是老 IP 重生最有价值的情绪。</p>
+      </div>
+
+      <div class="highlight">
+        <h4>圈层 B：猎杀对决 / 塔科夫硬核用户（品质驱动型）</h4>
+        <p><b>画像</b>：20-30 岁男性，PC 为主，追求战术深度和生存紧张感的硬核射击玩家。</p>
+        <p><b>他们现在在玩什么</b>：Hunt: Showdown（月均在线 <b>1.5 万</b>），逃离塔科夫（Steam 月均 <b>1.2 万</b>，持续下滑），ARC Raiders，三角洲行动。<a href="https://app.sensortower.com/vgi/game/hunt-showdown-1896" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">Sensor Tower VGI ↗</a></p>
+        <p><b>痛点</b>：塔科夫口碑崩坏（Steam 好评率 <b>37%</b>），猎杀对决内容更新放缓，ARC Raiders 偏科幻 PvE 缺乏 PvP 紧张感。硬核玩家在寻找下一个"精神塔科夫"。</p>
+        <p><b>CF 虹切入的情绪空位</b>：<b>"终于有人把撤离射击做出新花样了。"</b> CF 虹的三方博弈（人类 vs 人类 vs 怪物）和理智值系统给搜打撤循环加入了传统竞品没有的<b>心理博弈维度</b>——这不只是搜刮和枪法，而是"你身边的人随时可能不是你以为的那个人"。</p>
+      </div>
+
+      <div class="highlight">
+        <h4>圈层 C：恐怖游戏爱好者（体验驱动型）</h4>
+        <p><b>画像</b>：18-28 岁，男女比例相对均衡（DBD 女性玩家占比约 40%），跨平台，追求氛围和叙事体验。近年来女性微恐玩家群体增长尤为突出——《第五人格》女性用户占比已达 <b>65%</b>，《超自然行动组》女性用户占比 <b>57%</b>。<a href="https://finance.sina.com.cn/wm/2025-07-31/doc-infiiimz3069400.shtml" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">中信建投 / Mobdata / QuestMobile ↗</a></p>
+        <p><b>他们现在在玩什么</b>：Dead by Daylight、Phasmophobia、Lethal Company、超自然行动组、第五人格。</p>
+        <p><b>痛点</b>：DBD 十年不变的追逐模板已经审美疲劳。Phasmophobia/Lethal Company 有氛围但缺射击快感。想要"恐怖 + 能打枪 + 有对抗深度"的产品，但市面上找不到。</p>
+        <p><b>CF 虹切入的情绪空位</b>：<b>"恐怖游戏终于不只是跑和躲了。"</b> CF 虹提供的是恐怖品类从未有过的战术射击维度——你可以手搓燃烧瓶反杀触手怪，可以用简易消音器偷袭其他小队——恐怖感不是来自"你什么都做不了"，而是来自"你能做很多但不知道该信任谁"。</p>
+      </div>
+
+      <h3>三圈交叠的黄金区域</h3>
+      <p>三个圈层的交叠区就是 CF 虹的<b>超级核心用户</b>——同时满足"对 CF 有感情""玩过撤离射击""喜欢恐怖氛围"三个条件的玩家。这个交叠区规模不大，但他们将成为种子用户和核心内容创作者。</p>
+      <p><b>宣发策略指引</b>：不同圈层需要不同的首触物料：</p>
+      <table>
+        <thead><tr><th>圈层</th><th>首触物料</th><th>核心话术</th><th>投放渠道</th></tr></thead>
+        <tbody>
+          <tr><td>A 情怀型</td><td>夜幕山庄 2007→2026 对比视频</td><td>"你还认得这张地图吗？"</td><td>B站 / 抖音 / 朋友圈</td></tr>
+          <tr><td>B 硬核型</td><td>完整对局实机演示（无解说纯操作）</td><td>"搜打撤 + 理智值 = 全新维度"</td><td>Steam / YouTube / NGA</td></tr>
+          <tr><td>C 体验型</td><td>怪物视角实机（幽影操控演示）</td><td>"这一次，你就是恐惧本身"</td><td>小红书 / TikTok / Twitch</td></tr>
+        </tbody>
+      </table>
+
+      <h3>传播数据：市场已经给出了信号</h3>
+      <table>
+        <thead><tr><th>事件</th><th>平台</th><th>数据</th><th>意味着什么</th></tr></thead>
+        <tbody>
+          <tr><td>CF 嘉年华首曝实机</td><td>B站</td><td><b>1470 万+</b> 播放</td><td>FPS 品类及腾讯新游首曝历史新高 <a href="https://news.qq.com/rain/a/20260208A064GL00" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">GameLook ↗</a></td></tr>
+          <tr><td>嘉年华首曝</td><td>抖音</td><td><b>全站热榜 #1</b>，超 4000 万围观</td><td>非硬核游戏用户大量围观 <a href="https://wap.gamersky.com/gl/Content-1979630.html" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">游民星空 ↗</a></td></tr>
+          <tr><td>Gamescom 科隆展</td><td>现场</td><td>巫师3团队当面称赞<b>"Spectrum Is REALLY GOOD!"</b></td><td>海外媒体闭门演示后主动要求了解更多 <a href="https://new.qq.com/rain/a/20250824A06MPK00" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">竞核 ↗</a></td></tr>
+          <tr><td>制作人档案 PV（2026.2）</td><td>多平台</td><td>时隔半年仍维持讨论热度</td><td>证明 IP 有持续关注力而非一次性流量 <a href="https://www.sohu.com/a/983720090_121885030" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">搜狐 ↗</a></td></tr>
+        </tbody>
+      </table>
+      <p><b>So what</b>：这些数据显示 CF 虹的首曝已经成功穿透了圈层 A（CF 老玩家）和部分圈层 C（好奇型泛玩家）。但圈层 B（硬核射击玩家）的触达仍然不足——他们需要看到完整的对局深度，而不只是 CG 和短片段实机。<b>下一支预告片必须是一场完整的、无剪辑的对局演示。</b></p>
+    </div>
+
+    <!-- ========== PAGE 2: 核心记忆符号：理智值 ========== -->
+    <div x-show="page === 2" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">核心记忆符号：理智值</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：理智值不只是一个游戏机制。它是 CF 虹能否在全球市场建立品牌辨识度的<b>唯一超级符号</b>。如果做对了，它会像《只狼》的"死"字一样，成为全互联网的文化 meme。如果只当成一个 HUD 数值来做，那 CF 虹就只是"又一个撤离射击"。</p>
+      </div>
+
+      <h3>为什么理智值是超级符号，而不只是玩法机制？</h3>
+      <p>先看事实：克苏鲁体系中，理智值（SAN 值）是一个有 <b>100 年文化积淀</b>的概念——从洛夫克拉夫特 1926 年的小说，到 1981 年的 TRPG《克苏鲁的呼唤》，到 2015 年的《血源诅咒》，再到 2025 年《The Mound》预告片中的"测试小队栽在幻觉误判"引发的讨论。</p>
+      <p>但在射击游戏领域，<b>没有任何一款产品把理智值做成品牌符号</b>。CF 虹有机会成为第一个。</p>
+
+      <h3>理智值如何产生品牌叙事？</h3>
+      <p>理智值的核心叙事不是"你的血量在降"——那是每个游戏都有的东西。理智值的核心叙事是：<b>"你身边的人随时可能崩溃，而你不知道那个人会不会是你自己。"</b></p>
+      <p>这个叙事天然产生三层传播价值：</p>
+      <div class="highlight">
+        <h4>第一层：短视频天然素材</h4>
+        <p>当一个玩家理智值归零，开始对着空气开枪、误杀队友——这个瞬间在抖音/TikTok 上的传播力是核弹级别的。不需要任何解说，画面本身就是内容。对比：《只狼》的"死"字之所以成为 meme，不是因为游戏好玩，而是因为"被一个字嘲讽"这个瞬间天然适合短视频传播。理智值崩溃的瞬间有同样的病毒传播基因。</p>
+      </div>
+      <div class="highlight">
+        <h4>第二层：社交信任博弈的放大器</h4>
+        <p>CF 虹的对局结构是"4 人小队 + 其他小队 + 怪物"的三方博弈。理智值系统意味着你的队友可能在任何时刻变成不可靠的变量——准星开始抖、看见不存在的敌人、突然向你开枪。这不是 Bug，这是设计。这种"信任危机"叙事在 Among Us 爆红时已被验证为<b>全球最强的社交游戏传播引擎</b>之一。</p>
+      </div>
+      <div class="highlight">
+        <h4>第三层：跨媒体符号化潜力</h4>
+        <p>"你的理智值还剩多少？"这句话可以脱离游戏语境单独存在——就像"大吉大利今晚吃鸡"跳出了 PUBG 变成日常用语。它可以出现在考试周的朋友圈（"论文写到第三稿理智值归零"）、职场吐槽（"周五下班前理智值还剩 5%"）、恋爱社交（"你让我的理智值直接清零"）。<b>一个能脱离游戏语境传播的概念，就是超级符号。</b></p>
+      </div>
+
+      <h3>如何把理智值打造成"死"字级别的文化符号</h3>
+      <table>
+        <thead><tr><th>维度</th><th>《只狼》的"死"</th><th>CF 虹的"理智值"（建议）</th></tr></thead>
+        <tbody>
+          <tr><td>视觉锤</td><td>全屏血红大字"死"</td><td>理智值归零时全屏渗血 + 大脑图标碎裂 + 独特音效<b>（必须有一个全网能识别的声音签名）</b></td></tr>
+          <tr><td>发生频率</td><td>极高（每 5 分钟死一次）</td><td>中高（每局至少 1-2 次理智值危机时刻）——频率够高才能产生足够的内容素材</td></tr>
+          <tr><td>社交传播性</td><td>"我已经死了 50 次"</td><td>"我的理智值在第 3 分钟就崩了"——对局结算页需要显示<b>理智值曲线图</b>，让玩家截图分享</td></tr>
+          <tr><td>文化出圈</td><td>"死"字 T 恤/表情包</td><td>"理智值 0%"主题周边/表情包——<b>上线前就要准备好</b></td></tr>
+        </tbody>
+      </table>
+
+      <h3>给制作团队的三个关键建议</h3>
+      <ul>
+        <li><b>理智值归零必须有一个全网统一的"签名时刻"</b>——视觉+音效组合要像"死"字一样一眼/一耳识别。不能只是"屏幕变红"这种通用处理。建议：全屏出现大脑碎裂的 glitch 效果 + 一个独创的低频嗡鸣音（类似《盗梦空间》的号角音，但更阴郁）。</li>
+        <li><b>对局结算必须有"理智值高光/低光时刻回放"</b>——类似 PUBG 的击杀回放但聚焦理智值事件（谁在什么时刻崩溃了、误杀了谁），为短视频传播提供原料。</li>
+        <li><b>不要把理智值做成可被完全管控的数值</b>——如果玩家可以用道具轻松把理智值回满，它就不再产生紧张感和传播内容。理智值应该像《暗黑地牢》的压力系统一样，<b>可以缓解但永远有失控风险</b>。</li>
+      </ul>
+    </div>
+
+    <!-- ========== PAGE 3: 视觉定位与美学谱系 ========== -->
+    <div x-show="page === 3" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">视觉定位：双色 DNA 与美学谱系</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：暗蓝绿 + 猩红不只是配色方案，而是"信任 vs 背叛"的情绪编码。暗蓝绿 = 虹蚀世界的基底色调 = 理智尚存时的冷静与未知；猩红 = 虹蚀侵蚀 = 理智崩溃 = 信任断裂。所有宣发物料的色彩策略应服务于这个情绪二元结构。</p>
+      </div>
+
+      <h3>双色 DNA：不是配色，是情绪编码</h3>
+      <div style="display:flex;gap:12px;margin:16px 0;">
+        <div style="flex:1;background:#1a2e3a;border-radius:6px;padding:20px;text-align:center;">
+          <div style="font-size:24px;font-weight:700;color:#4a8fad;">暗蓝绿</div>
+          <div style="font-size:12px;color:#6b9fb8;margin-top:4px;">信任 · 冷静 · 未知</div>
+          <div style="font-size:11px;color:#537a8c;margin-top:2px;">#1a2e3a → #4a8fad</div>
+          <div style="font-size:11px;color:#537a8c;margin-top:6px;">月色 · 哥特长廊 · 虹蚀区基调</div>
+        </div>
+        <div style="flex:1;background:#3a1a1a;border-radius:6px;padding:20px;text-align:center;">
+          <div style="font-size:24px;font-weight:700;color:#c43c3c;">猩红</div>
+          <div style="font-size:12px;color:#d46b6b;margin-top:4px;">背叛 · 崩溃 · 危险</div>
+          <div style="font-size:11px;color:#8c5353;margin-top:2px;">#3a1a1a → #c43c3c</div>
+          <div style="font-size:11px;color:#8c5353;margin-top:6px;">理智崩溃 · 虹蚀脉络 · 触手怪物</div>
+        </div>
+      </div>
+      <p>为什么是这两个颜色？因为它们在情绪上是互补对立的：暗蓝绿是深海和月光的颜色，代表未知中的冷静；猩红是血液和火焰的颜色，代表失控和危险。CF 虹的每一帧画面都应该在这两极之间摇摆——<b>当理智值从高到低变化时，画面的主导色应该从暗蓝绿逐渐向猩红偏移</b>。这不只是美术效果，而是让玩家在色彩层面"感知"自己的精神状态。</p>
+
+      <h3>美学谱系：CF 虹站在哪里</h3>
+      <p>CF 虹的视觉定位不是凭空发明，而是站在一条清晰的美学谱系上：</p>
+      <table>
+        <thead><tr><th>参照作品</th><th>借鉴了什么</th><th>CF 虹如何差异化</th></tr></thead>
+        <tbody>
+          <tr><td><b>血源诅咒</b></td><td>克苏鲁 + 哥特式建筑的视觉融合，"熟悉轮廓 + 不可名状细节"的恐怖谷</td><td>血源是黑暗奇幻/动作RPG；CF 虹是<b>当代写实射击</b>——恐怖感来自"这是你认识的世界在崩坏"</td></tr>
+          <tr><td><b>心灵杀手 2</b></td><td>3A 级暗调恐怖的视觉标准，光影叙事的电影语言</td><td>心灵杀手是单人叙事；CF 虹的恐怖需要在<b>多人实时对抗</b>中保持——技术难度更高但传播价值更大</td></tr>
+          <tr><td><b>湮灭（电影）</b></td><td>"虹彩"色泽下的生态异变——美丽但致命的变异</td><td>CF 虹的"虹蚀"名字本身就暗示了这种审美："虹"是彩虹/美丽，"蚀"是腐蚀/恐怖——<b>美丽与恐怖的统一体</b></td></tr>
+          <tr><td><b>地铁系列</b></td><td>苏联末世废墟的粗粝写实感，手工武器的生存质感</td><td>CF 虹的自制装备系统（瓶子+破布=燃烧瓶）直接继承了地铁的手工感，但将场景从末世地铁换成<b>被虹蚀侵蚀的中式日常</b></td></tr>
+        </tbody>
+      </table>
+
+      <h3>美学三层结构</h3>
+      <div class="highlight">
+        <h4>基底层：CF 经典（80%）</h4>
+        <p>枪械手感、经典角色轮廓（奥摩的毛线帽）、夜幕山庄的建筑结构——这些是老玩家的"安全锚点"。<b>原则：识别度优先，让人一眼认出这是 CF</b>。</p>
+        <h4>异变层：克苏鲁入侵（15%）</h4>
+        <p>墙缝渗出的黑色脉络、吊灯变肉芽、触手从阴影中伸出——这些是"入侵者"。<b>原则：克制比堆砌更恐怖，一根触手比满屏触手更有效</b>。制作人王林提到怪物不是"一见人就扑上来"而是"先判断"——视觉上也应该如此，虹蚀的入侵应该是渐进的、克制的、几乎优雅的。</p>
+        <h4>气氛层：技术驱动（5%）</h4>
+        <p>UE5 Lumen 全局光照、粒子雾气、超自然气象——这是"调味料"。<b>原则：不炫技但技术力必须让人感知到</b>。手电筒光柱在潮湿墙面上的反射、雨水打在金属枪身上的微反光——这些细节是玩家在 B 站弹幕里写"这画面不真实"的原因。</p>
+      </div>
+
+      <h3>去军事化：最关键的审美决策</h3>
+      <p>CF 虹做了一个大胆的决策：<b>主角不是军人</b>。不是制式军装的特种兵，而是穿户外便装的平民调查员——上一份工作可能是厨子或跑社会新闻的记者。<a href="https://news.qq.com/rain/a/20250821A06FPF00" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">制作人王林访谈 / 游戏日报 ↗</a></p>
+      <p>这个决策的视觉影响是深远的：没有统一制服意味着角色外观更多样化（利于付费皮肤差异化）；自制武器的"粗糙手工感"成为区别于所有军事射击的独特视觉语言；角色不是"去执行任务"的超级战士，而是"被迫求生"的普通人——<b>恐怖感因为主角的脆弱而被放大了十倍</b>。</p>
+    </div>
+
+    <!-- ========== PAGE 4: 竞品象限与差异化壁垒 ========== -->
+    <div x-show="page === 4" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">竞品象限与差异化壁垒</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：在"写实←→风格化"和"军事←→超自然"的二维象限中，CF 虹占据了一个<b>无人区</b>——写实超自然射击。每个竞品都有可被攻击的侧翼，而 CF 虹的差异化壁垒由"理智值 + 非对称 + CF IP"三重因素构成，短期内不可复制。</p>
+      </div>
+
+      <h3>竞品象限图</h3>
+      <div class="highlight">
+        <p style="font-size:12px;color:#737373;text-align:center;margin-bottom:12px;"><b>Y 轴</b>：军事 ←→ 超自然 &nbsp;&nbsp;|&nbsp;&nbsp; <b>X 轴</b>：写实 ←→ 风格化</p>
+        <table>
+          <thead><tr><th>象限</th><th>位置</th><th>代表产品</th></tr></thead>
+          <tbody>
+            <tr><td>写实 × 军事</td><td>左下</td><td>三角洲行动、战地、COD</td></tr>
+            <tr><td>写实 × 超自然</td><td><b>左上（CF 虹）</b></td><td><b>CF 虹（唯一占位者）</b></td></tr>
+            <tr><td>风格化 × 军事</td><td>右下</td><td>无畏契约、Apex Legends</td></tr>
+            <tr><td>风格化 × 超自然</td><td>右上</td><td>DBD、第五人格、Fortnite</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px;color:#737373;margin-top:8px;">注：猎杀对决位于"写实偏左 × 超自然偏中"，是最接近 CF 虹的竞品，但它缺少非对称维度和 IP 底盘。</p>
+      </div>
+
+      <h3>逐竞品拆解：弱点与 CF 虹的攻击角度</h3>
+
+      <div class="creative-card">
+        <h5>Dead by Daylight — 品类之王的老化危机</h5>
+        <table>
+          <thead><tr><th>维度</th><th>DBD</th><th>CF 虹的优势</th></tr></thead>
+          <tbody>
+            <tr><td>收入</td><td>年化 <b>2 亿美元</b>，终身 <b>10 亿美元</b></td><td>F2P 模型 + 腾讯发行 = 更低进入门槛</td></tr>
+            <tr><td>玩法</td><td>1v4 追逐模板，十年未变</td><td>PvPvE 三方博弈 + FPS 射击 = <b>全新维度</b></td></tr>
+            <tr><td>画面</td><td>UE4，2016 年水准</td><td>UE5 Lumen，<b>画质代差明显</b></td></tr>
+            <tr><td>弱点</td><td colspan="2">追逐模板审美疲劳、新手友好度差、缺乏射击快感。CF 虹可直接从 DBD 的"想要射击反抗"的用户群体中截流。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>Hunt: Showdown 1896 — 最近的竞品，但增量见顶</h5>
+        <table>
+          <thead><tr><th>维度</th><th>Hunt: Showdown</th><th>CF 虹的优势</th></tr></thead>
+          <tbody>
+            <tr><td>品类</td><td>撤离射击 + 超自然怪物</td><td>+非对称（玩家操控怪物） +理智值系统</td></tr>
+            <tr><td>用户量</td><td>Steam 月均 <b>1.5 万</b>，增量停滞</td><td>CF IP 底盘 <b>15.5 亿注册</b>（端游+手游），F2P 无门槛</td></tr>
+            <tr><td>画面</td><td>CryEngine，老化明显</td><td>UE5，<b>代际领先</b></td></tr>
+            <tr><td>弱点</td><td colspan="2">上手门槛极高、亚洲服务器延迟高、内容更新速度慢。CF 虹可承接猎杀对决"想要但门槛太高"的潜在用户。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>逃离塔科夫 — 口碑崩坏的先行者</h5>
+        <table>
+          <thead><tr><th>维度</th><th>逃离塔科夫</th><th>CF 虹的优势</th></tr></thead>
+          <tbody>
+            <tr><td>口碑</td><td>Steam 好评率 <b>37%</b>（差评如潮）</td><td>腾讯服务器基建 + F2P = 更稳定的服务</td></tr>
+            <tr><td>趋势</td><td>MAU 从约 154 万跌至 <b>68 万</b></td><td>塔科夫流失用户是 CF 虹的目标获取池</td></tr>
+            <tr><td>体验</td><td>纯硬核、无剧情驱动</td><td>理智值叙事 + 世界观深度 = <b>情感挂钩</b></td></tr>
+            <tr><td>弱点</td><td colspan="2">服务器质量差、开发商信誉崩塌、对新手极不友好。CF 虹应定位为"塔科夫的精神续作，但人性化了十倍"。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>超自然行动组 — 国内微恐黑马，但非直接竞品</h5>
+        <table>
+          <thead><tr><th>维度</th><th>超自然行动组</th><th>关系判断</th></tr></thead>
+          <tbody>
+            <tr><td>品类</td><td>微恐 + 多人合作（PvE）</td><td>CF 虹是 PvPvE，<b>竞争维度不同</b></td></tr>
+            <tr><td>用户</td><td>同时在线 <b>100 万+</b>，女性占比 57%</td><td>超自然的用户可以是 CF 虹的导流来源 <a href="https://www.taptap.cn/moment/768030181754405421" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">TapTap / QuestMobile ↗</a></td></tr>
+            <tr><td>定位</td><td>非直接竞品，但证明了微恐品类在中国的爆发力</td><td>CF 虹应视超自然为<b>品类教育者</b>——它把"微恐"从小众推向了大众认知</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>差异化壁垒：为什么竞品无法快速复制</h3>
+      <ul>
+        <li><b>壁垒一 · IP 底盘</b>：CF 系列 15.5 亿注册用户（端游+手游）+ 十七年情怀积累。没有任何竞品有这样的存量池可以激活。</li>
+        <li><b>壁垒二 · 三方博弈结构</b>：人类小队 vs 人类小队 vs 玩家操控怪物的三角关系，技术复杂度和平衡难度极高，不是加个"怪物模式"就能抄走的。</li>
+        <li><b>壁垒三 · 理智值系统的网络效应</b>：理智值的传播价值需要足够大的玩家基数来产生足够多的"名场面"内容。CF 的用户规模是启动这个飞轮的前提条件。</li>
+      </ul>
+    </div>
+
+    <!-- ========== PAGE 5: 宣发核心物料清单 ========== -->
+    <div x-show="page === 5" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">宣发核心物料清单</h2>
+
+      <div class="verdict">
+        <p><b>这一页回答一个问题</b>：发行团队拿到这份报告后，第一周要做什么？以下是按优先级排列的物料清单，每个物料附带交付标准。</p>
+      </div>
+
+      <h3>P0：Key Art（核心主视觉）</h3>
+      <div class="highlight">
+        <p><b>交付要求</b>：一张可以打满所有渠道（Steam 头图、App Store 特色图、B 站首页推荐图、线下海报）的核心 Key Art。</p>
+        <p><b>构图要求</b>：</p>
+        <ul>
+          <li>画面中心不是角色全身像，而是<b>一个处于理智崩溃边缘的调查员面部特写</b>——一只眼睛正常，另一只眼睛瞳孔中反射出猩红色的触手</li>
+          <li>背景：夜幕山庄的轮廓被暗蓝绿月色笼罩，一侧被猩红虹蚀侵蚀</li>
+          <li>画面底部 1/3：其他调查员的模糊身影，暗示你无法确定他们是否还"正常"</li>
+          <li><b>色彩</b>：画面从左到右，暗蓝绿过渡到猩红——一张图就讲完"信任→背叛"的品牌故事</li>
+        </ul>
+        <p><b>不是</b>：四个角色站一排 + logo 的标准射击游戏海报。<b>是</b>：一张让人不舒服但忍不住多看两秒的心理恐怖海报。</p>
+      </div>
+
+      <h3>P0：预告片矩阵</h3>
+      <table>
+        <thead><tr><th>预告片</th><th>时长</th><th>目标受众</th><th>节奏</th><th>核心交付</th></tr></thead>
+        <tbody>
+          <tr><td><b>概念预告</b></td><td>90 秒</td><td>全量用户</td><td>慢→爆发：前 60 秒建立氛围，最后 30 秒密集剪辑理智崩溃/怪物出现/枪战</td><td>已有（嘉年华 PV），但需重剪辑强化"理智值"符号</td></tr>
+          <tr><td><b>完整对局演示</b></td><td>8-12 分钟</td><td>圈层 B 硬核玩家</td><td>无剪辑完整对局：搜刮→遭遇→理智下降→三方混战→撤离/死亡</td><td><b>最优先制作</b>——硬核玩家需要看到完整循环的深度</td></tr>
+          <tr><td><b>怪物视角预告</b></td><td>2 分钟</td><td>圈层 C 体验玩家</td><td>全程怪物第一人称：触手伸展/攀爬/伏击/追杀</td><td>展示非对称的独特体验——"你就是恐惧本身"</td></tr>
+          <tr><td><b>IP 情怀短片</b></td><td>3 分钟</td><td>圈层 A CF 老玩家</td><td>2007 夜幕山庄 → 2026 UE5 重制的时光穿梭</td><td>情怀激活——详见创意方案 #2</td></tr>
+        </tbody>
+      </table>
+
+      <h3>P1：社交媒体首发策略</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>时间节点</th><th>动作</th><th>KPI</th></tr></thead>
+        <tbody>
+          <tr><td><b>预热</b></td><td>公测前 90 天</td><td>每周释放一张"虹蚀档案"概念图（场景/怪物/武器设定稿），配悬念文案</td><td>单条微博/B站动态互动 >5 万</td></tr>
+          <tr><td><b>引爆</b></td><td>公测前 30 天</td><td>同时投放完整对局演示（YouTube/B站）+ 怪物视角预告（抖音/TikTok）+ IP 情怀短片（朋友圈/微博）</td><td>三条视频总播放 >5000 万</td></tr>
+          <tr><td><b>裂变</b></td><td>公测前 14 天</td><td>上线"理智值挑战"H5 + "调查员档案"UGC 工具——详见创意方案</td><td>UGC 内容 >10 万条</td></tr>
+          <tr><td><b>转化</b></td><td>公测当周</td><td>KOL/主播首日试玩直播矩阵（100+ 主播同时开播），配合 Steam 预购/预注册冲量</td><td>首日下载 >500 万 / Steam 愿望单 >100 万</td></tr>
+        </tbody>
+      </table>
+
+      <h3>P1：KOL 策略</h3>
+      <p>不是找"游戏区 UP 主"就够了。CF 虹的 KOL 矩阵应该跨三个垂类：</p>
+      <ul>
+        <li><b>射击游戏主播</b>（硬核对局内容）：PDD、各竞技赛事解说、塔科夫/猎杀主播——核心目标是圈层 B 的信任背书</li>
+        <li><b>恐怖游戏 UP 主</b>（氛围体验内容）：花少北、黑桐谷歌等恐怖游戏内容创作者——核心目标是圈层 C 的品类认知</li>
+        <li><b>泛娱乐 KOL</b>（社交裂变内容）：组队开黑的"理智值崩溃"名场面——核心目标是出圈传播到非游戏用户</li>
+      </ul>
+    </div>
+
+    <!-- ========== PAGE 6: 三个杀手级宣发创意 ========== -->
+    <div x-show="page === 6" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三个杀手级宣发创意</h2>
+
+      <div class="creative-card">
+        <div class="tag" style="margin-bottom:12px;">创意 01 · 核弹级传播</div>
+        <h5>「理智值挑战」— 全网社交裂变事件</h5>
+        <p><b>核心洞察</b>：理智值是 CF 虹的品牌符号。我们需要在游戏上线前就让"理智值"成为社交平台上的通用语言——不是等玩家玩到了再自然传播，而是<b>先于产品建立概念认知</b>。</p>
+
+        <h4>执行方案</h4>
+        <p>开发一款 H5 互动体验（手机陀螺仪 + WebGL）：用户在黑暗中用手机"手电筒"探索一个迷你虹蚀场景。每遇到触手、异响、幻觉，屏幕出现 CF 虹标志性的理智崩溃视效（血色噪点、画面 glitch、低频嗡鸣）。用户的理智值从 100% 持续下降。归零时：</p>
+        <ul>
+          <li>生成个人定制海报："你的理智在 XX 秒后崩溃"，背景为用户探索路径的热力图</li>
+          <li>全网排行榜："理智坚持时长 TOP 100"</li>
+          <li>分享按钮一键挑战好友："看看你的理智能撑多久？"</li>
+        </ul>
+
+        <h4>执行时间线</h4>
+        <table>
+          <thead><tr><th>阶段</th><th>周期</th><th>交付物</th></tr></thead>
+          <tbody>
+            <tr><td>开发</td><td>公测前 60-90 天</td><td>H5 产品开发 + 后端排行榜 + 分享海报模板</td></tr>
+            <tr><td>KOL 预埋</td><td>公测前 30 天</td><td>50 位 KOL 提前体验并发布"理智值挑战"视频</td></tr>
+            <tr><td>全网上线</td><td>公测前 14 天</td><td>微信/微博/抖音全渠道投放</td></tr>
+          </tbody>
+        </table>
+
+        <h4>预算与 KPI</h4>
+        <table>
+          <thead><tr><th>项目</th><th>预算</th><th>KPI</th></tr></thead>
+          <tbody>
+            <tr><td>H5 开发</td><td>80-120 万</td><td>技术达标、兼容 95%+ 机型</td></tr>
+            <tr><td>KOL 投放</td><td>200-300 万</td><td>KOL 内容总播放 >3000 万</td></tr>
+            <tr><td>渠道投放</td><td>150-200 万</td><td>H5 参与人数 >500 万，分享率 >30%</td></tr>
+            <tr><td><b>总计</b></td><td><b>430-620 万</b></td><td><b>"理智值"百度指数周峰值 >5 万</b></td></tr>
+          </tbody>
+        </table>
+        <p><b>参考案例</b>：《赛博朋克 2077》"夜之城身份证"生成器（百万级 UGC）；《只狼》"死亡次数"社交挑战；《Among Us》的"谁是叛徒"社交传播模型。</p>
+      </div>
+
+      <div class="creative-card">
+        <div class="tag" style="margin-bottom:12px;">创意 02 · IP 情怀核弹</div>
+        <h5>「夜幕山庄 17 年」— IP 考古纪录片</h5>
+        <p><b>核心洞察</b>：CF 虹的首曝 PV 在 B 站弹幕中最高频的内容不是"画面好"，而是"不是，你跟我说这俩是一个地儿？"<a href="https://sports.sohu.com/a/985628718_122562377" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">搜狐 / 游讯先锋 ↗</a> 夜幕山庄从 2007 到 2026 的视觉进化，本身就是最好的内容——不需要编故事，历史就是故事。</p>
+
+        <h4>执行方案</h4>
+        <p>制作 3 分钟短纪录片（B 站长版 5 分钟 / 抖音竖版 90 秒）：</p>
+        <ul>
+          <li><b>开场</b>（0-30秒）：2007 年 CF 经典夜幕山庄的原始画面——像素级的谷仓二楼、室内阳台。配上当年的 CF 登录音乐。弹幕预期："爷青回"</li>
+          <li><b>中段</b>（30-120秒）：琳琅天上美术团队的幕后访谈——"我们在决定这面墙上要不要长出触手的时候吵了三天""吊灯变肉芽的第一版做出来我们自己都觉得太恶心了后来调了六版"。配合 UE5 编辑器的实机操作画面。</li>
+          <li><b>高潮</b>（120-150秒）：同一个摄像机角度的夜幕山庄——2007 版画面突然"碎裂"，露出底下的 2026 UE5 版本。触手从像素碎片中伸出。</li>
+          <li><b>结尾</b>（150-180秒）：黑屏白字——"你还认得这张地图吗？" Logo + 预注册入口。</li>
+        </ul>
+
+        <h4>执行时间线与预算</h4>
+        <table>
+          <thead><tr><th>项目</th><th>周期</th><th>预算</th></tr></thead>
+          <tbody>
+            <tr><td>团队采访拍摄</td><td>2 周</td><td>30-50 万</td></tr>
+            <tr><td>后期制作（含 2007→2026 特效转场）</td><td>4 周</td><td>80-120 万</td></tr>
+            <tr><td>多平台分发（B站/抖音/YouTube/推特）</td><td>1 周</td><td>100-150 万（含推广费）</td></tr>
+            <tr><td><b>总计</b></td><td><b>7 周</b></td><td><b>210-320 万</b></td></tr>
+          </tbody>
+        </table>
+        <p><b>KPI</b>：B 站播放 >1000 万 / 抖音播放 >3000 万 / "夜幕山庄"登上至少一个平台热搜</p>
+        <p><b>参考案例</b>：《最终幻想 7 重制版》经典 vs 重制对比视频（YouTube 千万播放）；《光环》"铭记 Reach"短片营销。</p>
+      </div>
+
+      <div class="creative-card">
+        <div class="tag" style="margin-bottom:12px;">创意 03 · UGC 飞轮</div>
+        <h5>「调查员档案」— 全民身份生成器</h5>
+        <p><b>核心洞察</b>：CF 虹的角色设定是"平民调查员"——厨师、记者、程序员、外卖骑手，任何人都可能被征召进入虹蚀区。这不是一个游戏设定，这是一个<b>UGC 引擎</b>：每个真实职业都可以变成一个虹蚀调查员身份。</p>
+
+        <h4>执行方案</h4>
+        <p>开发在线"调查员档案生成器"（小程序 / H5）：</p>
+        <ul>
+          <li>用户选择真实职业 → 系统生成"虹蚀封锁区调查员身份证"</li>
+          <li>身份证包含：CF 虹风格头像框、理智值评估（"基于你的职业，你的初始理智值为 XX"）、专属技能（程序员："黑入虹蚀监控系统 +15%"；厨师："制造燃烧瓶速度 +20%"；教师："队友理智恢复速率 +10%"）</li>
+          <li>稀有彩蛋：特定职业组合触发隐藏档案（如"美食评论家"触发"在虹蚀区找到了一家还在营业的面馆"）</li>
+          <li>分享到社交平台生成长图海报，可@好友挑战</li>
+        </ul>
+
+        <h4>时间线与预算</h4>
+        <table>
+          <thead><tr><th>项目</th><th>周期</th><th>预算</th></tr></thead>
+          <tbody>
+            <tr><td>小程序/H5 开发（含 200+ 职业数据库）</td><td>4 周</td><td>50-80 万</td></tr>
+            <tr><td>视觉设计（身份证模板、头像框、海报模板）</td><td>2 周</td><td>20-30 万</td></tr>
+            <tr><td>KOL 首批种草（100 位 KOL 晒自己的调查员档案）</td><td>2 周</td><td>100-150 万</td></tr>
+            <tr><td><b>总计</b></td><td><b>6 周</b></td><td><b>170-260 万</b></td></tr>
+          </tbody>
+        </table>
+        <p><b>KPI</b>：档案生成 >200 万份 / UGC 内容（含截图分享）>30 万条 / "你是什么调查员"话题阅读量 >1 亿</p>
+        <p><b>参考案例</b>：《赛博朋克 2077》"夜之城身份证"生成器；《原神》角色生日贺图 UGC 机制；网易云音乐年度报告的"人格化"分享模板。</p>
+      </div>
+
+      <h3>三个创意的优先级</h3>
+      <div class="highlight">
+        <table>
+          <thead><tr><th>创意</th><th>传播潜力</th><th>执行难度</th><th>预算</th><th>优先级</th></tr></thead>
+          <tbody>
+            <tr><td>理智值挑战</td><td>极高（社交裂变）</td><td>中高</td><td>430-620 万</td><td><b>P0 — 必做</b></td></tr>
+            <tr><td>夜幕山庄 17 年</td><td>高（情怀引爆）</td><td>中</td><td>210-320 万</td><td><b>P0 — 必做</b></td></tr>
+            <tr><td>调查员档案</td><td>高（UGC 长尾）</td><td>低</td><td>170-260 万</td><td><b>P1 — 强烈建议</b></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px;"><b>总预算区间</b>：三个创意全做约 <b>810-1200 万</b>。相对于一款预期 DAU 百万级的 F2P 产品的首发宣发预算，这个投入是非常合理的。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 7: 视觉规范速查 ========== -->
+    <div x-show="page === 7" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">视觉规范速查</h2>
+
+      <p style="color:#525252;">本页面供设计师快速参考。只放结论，不放推导过程。完整设计哲学见"视觉定位与美学谱系"。</p>
+
+      <h3>配色规范</h3>
+      <table>
+        <thead><tr><th>色彩角色</th><th>色值</th><th>使用场景</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td><b>暗蓝绿（主色）</b></td><td>#1a2e3a → #4a8fad</td><td>场景底色、UI 背景、"安全"状态</td><td>占画面面积 60-70%</td></tr>
+          <tr><td><b>猩红（情绪色）</b></td><td>#3a1a1a → #c43c3c</td><td>虹蚀区域、理智下降、危险标识、Logo "虹"字发光</td><td>克制使用——面积 <20% 时冲击力最大</td></tr>
+          <tr><td><b>CF 经典橙</b></td><td>#FF6600 系</td><td>UI 交互态（按钮 hover/active）</td><td>保留品牌记忆连续性，仅用于交互而非场景</td></tr>
+          <tr><td><b>军事灰绿</b></td><td>#3d4a3a → #5c6b57</td><td>自制装备、弹药、背包界面</td><td>呼应 CF 军事基因，搭配暗蓝绿使用</td></tr>
+          <tr><td><b>纯黑/深灰</b></td><td>#0c0c0c → #1c1c1c</td><td>菜单背景、信息层级底色</td><td>提供"深渊"感，与发光元素形成最大对比</td></tr>
+        </tbody>
+      </table>
+
+      <h3>图形纹样系统</h3>
+      <table>
+        <thead><tr><th>纹样</th><th>形态</th><th>使用场景</th></tr></thead>
+        <tbody>
+          <tr><td><b>虹蚀脉络</b></td><td>黑色/暗红色血管状不规则纹路</td><td>被侵蚀的墙面/物体/UI 背景渗透</td></tr>
+          <tr><td><b>虹光裂隙</b></td><td>不规则发光裂缝，边缘有彩虹色散</td><td>世界观核心符号——传送门/侵蚀源/关键场景</td></tr>
+          <tr><td><b>理智仪表</b></td><td>大脑轮廓 + 裂痕扩展动画</td><td>HUD 核心元素——理智值可视化</td></tr>
+          <tr><td><b>手电光柱</b></td><td>圆锥形光束切割黑暗</td><td>安全感的视觉锚点——人类视角的核心 UI 元素</td></tr>
+        </tbody>
+      </table>
+
+      <h3>字体规范</h3>
+      <table>
+        <thead><tr><th>用途</th><th>字体</th><th>规格</th></tr></thead>
+        <tbody>
+          <tr><td><b>品牌标题</b></td><td>Noto Sans CJK SC Heavy（中文）+ 定制几何无衬线（英文）</td><td>粗壮、几何感、军事基因</td></tr>
+          <tr><td><b>HUD/数据</b></td><td>等宽数字字体（如 JetBrains Mono 或定制）</td><td>弹药数/理智值/倒计时需要严格对齐</td></tr>
+          <tr><td><b>叙事/日志</b></td><td>手写体或打字机体</td><td>强化"调查员笔记"沉浸感</td></tr>
+          <tr><td><b>虹蚀区环境文字</b></td><td>标准字体的扭曲/腐蚀变体</td><td>墙上涂鸦、警告标语——字体本身成为恐怖叙事</td></tr>
+        </tbody>
+      </table>
+
+      <h3>造型语言</h3>
+      <div class="highlight">
+        <p><b>核心对立：有机 vs 几何</b></p>
+        <ul>
+          <li><b>人类阵营 = 几何</b>：直角建筑、金属枪械、格子背包、方形 UI 面板</li>
+          <li><b>怪物阵营 = 有机</b>：触手曲线、肉质膨胀、不规则裂隙、流动的热感 UI</li>
+          <li><b>碰撞区 = 虹蚀侵蚀</b>：几何建筑上长出有机触手——两种语言的碰撞就是虹蚀入侵的视觉具象</li>
+        </ul>
+      </div>
+
+      <h3>宣发物料色彩比例速查</h3>
+      <table>
+        <thead><tr><th>物料类型</th><th>暗蓝绿</th><th>猩红</th><th>其他</th></tr></thead>
+        <tbody>
+          <tr><td>Key Art / 海报</td><td>50%</td><td>30%</td><td>20%（黑色/白色文字）</td></tr>
+          <tr><td>预告片色调</td><td>60%（前半段）</td><td>40%（后半段高潮）</td><td>—</td></tr>
+          <tr><td>社交媒体图</td><td>40%</td><td>20%</td><td>40%（黑色底 + 白色信息）</td></tr>
+          <tr><td>Steam 商店页</td><td>55%</td><td>25%</td><td>20%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ========== PAGE 8: 风险预警与应对 ========== -->
+    <div x-show="page === 8" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">风险预警与应对</h2>
+
+      <p style="color:#525252;">以下五个风险按严重程度从高到低排列。每个风险附发生概率评估、影响范围和具体应对策略。</p>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(196,60,60,0.15);color:#c43c3c;border-color:rgba(196,60,60,0.3);">风险等级：极高</div>
+        <h5>风险 1：品质落差——"又一个三角洲行动"</h5>
+        <p>CF 虹首曝的 B 站弹幕和 NGA 讨论中，"三角洲行动前车之鉴"是最高频的担忧。社区已经形成"腾讯射击游戏宣传片好看但上手大失所望"的认知框架。如果公测体验不及预告片预期，口碑反噬会比从零开始的新 IP 更猛烈。</p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li><b>预告片必须标注"实机演示"并严格执行</b>——任何画质缩水都会被弹幕逐帧对比</li>
+            <li><b>公测前安排至少两轮小规模封闭测试</b>（邀请 NGA/TapTap 核心用户），让"玩过的人"在论坛为产品背书</li>
+            <li><b>宣发节奏上"少说多做"</b>——与其发十条预告不如放一段完整无剪辑对局，让产品力自己说话</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(196,60,60,0.15);color:#c43c3c;border-color:rgba(196,60,60,0.3);">风险等级：高</div>
+        <h5>风险 2：非对称平衡性——怪物太强或太弱</h5>
+        <p>非对称对抗的平衡是行业公认的地狱级难题。DBD 做了十年仍然无法让杀手和逃生者双方都满意。CF 虹的三方博弈（人类 vs 人类 vs 怪物）比二元非对称更复杂一个数量级——任何一方过强或过弱都会导致另两方的游戏体验崩溃。</p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li><b>封测阶段大量收集三方胜率数据</b>——怪物胜率应控制在 30-40%（太高人类玩家流失，太低怪物玩家无体验）</li>
+            <li><b>宣发上不要过度承诺"完美平衡"</b>——改为强调"每局都是不同的混沌体验"，把不确定性包装成卖点而非 Bug</li>
+            <li><b>准备好快速迭代节奏</b>——公测首月每周出一次平衡补丁，向社区传递"我们在听"的信号</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(196,60,60,0.15);color:#c43c3c;border-color:rgba(196,60,60,0.3);">风险等级：高</div>
+        <h5>风险 3：商业化争议——"腾讯又要卖数值了"</h5>
+        <p>作为腾讯旗下的 F2P 产品，社区对付费策略的敏感度极高。CF 系列历史上的"花钱买强武器"模式已经被玩家形成条件反射般的警惕。如果 CF 虹的商业化设计影响公平性，所有宣发努力都会被一条"Pay to Win"的差评摧毁。</p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li><b>公测前明确宣布"纯装饰付费"承诺</b>——任何影响数值的付费都是红线</li>
+            <li><b>宣发物料中主动回应商业化问题</b>——制作人访谈中直接说"我们知道大家在担心什么，CF 虹不卖数值"</li>
+            <li><b>首发通行证设计必须极其克制</b>——以角色皮肤/武器外观/理智值崩溃动画特效为主，严禁任何数值相关道具</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(255,255,255,0.06);color:#737373;border-color:rgba(255,255,255,0.06);">风险等级：中</div>
+        <h5>风险 4：窗口期被抢——竞品密集发布</h5>
+        <p>KRAFTON 的《灰境行者》、Frogwares 的《沉没之城 2》、ACE Team 的《The Mound》等竞品都在瞄准"恐怖 + 多人"赛道。<a href="https://www.cgames.com/contents/2/9192.html" target="_blank" rel="noopener" class="tag" style="cursor:pointer;text-decoration:none;">竞核 ↗</a> 如果 CF 虹的公测时间被推迟到 2027 年，品类红利期可能已经被瓜分殆尽。</p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li><b>2026 年 Q3-Q4 是最佳公测窗口</b>——避开暑期档 3A 大作扎堆，又在圣诞前抓住消费高峰</li>
+            <li><b>即使产品未完全就绪，也应先推"抢先体验"或"限时测试"</b>——先占用户心智再慢慢打磨，比等到完美再上线更安全</li>
+            <li><b>密切监控竞品动态</b>——如果《灰境行者》提前上线且口碑好，CF 虹需要调整宣发话术强调差异化而非品类竞争</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(255,255,255,0.06);color:#737373;border-color:rgba(255,255,255,0.06);">风险等级：中</div>
+        <h5>风险 5：恐怖元素审核——国内版本被迫降级</h5>
+        <p>国内游戏审核对恐怖内容的限制是现实约束。如果 CF 虹为过审而大幅削弱恐怖氛围（减少血腥、削弱触手怪视觉、弱化理智崩溃表现），将直接伤害产品的核心卖点和品牌承诺。</p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li><b>从立项阶段就做好"双版本"规划</b>——国内版和国际版可以在恐怖程度上有差异，但核心玩法机制（理智值、三方博弈）必须一致</li>
+            <li><b>在"微恐"而非"硬恐"上做文章</b>——CF 虹的恐怖感核心来自信任危机和氛围压迫，而非 gore（血浆横飞），这条路线本身就更容易过审</li>
+            <li><b>参考《超自然行动组》的审核经验</b>——同为国内微恐产品，已证明这条路线可以走通</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 9: 顾问终审意见 ========== -->
+    <div x-show="page === 9" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">顾问终审意见</h2>
+      <p style="color:#737373;margin-bottom:20px;">审核角色：资深游戏宣发顾问 &nbsp;|&nbsp; 审核日期：2026.05.15</p>
+
+      <div class="verdict" style="border-left-color:#4a8fad;">
+        <h4 style="color:#fff;margin-top:0;">GO / NO-GO 判断：GO —— 强烈建议推进</h4>
+        <p>CF 虹站在三条正在爆发的品类趋势的交叉点上，背靠 15.5 亿注册用户（端游+手游）的 IP 底盘，拥有一个可以成为文化级符号的核心机制（理智值），并且在科隆展上已经获得了海外行业的初步认可。这些条件的组合在当前全球游戏市场中是<b>独一无二的</b>。错过这个窗口期的代价远大于提前上线的风险。</p>
+      </div>
+
+      <h3>三个不可回避的尖锐问题</h3>
+
+      <div class="highlight">
+        <h4>问题一：CF 这个品牌，到底是资产还是负债？</h4>
+        <p>坦白说，<b>两者皆是</b>。CF 品牌在 25-35 岁男性中的情怀价值是真实的——首曝 PV 的 1470 万播放中，很大一部分是"CF 居然能做出这种东西"的惊讶驱动。但在 18-24 岁的年轻用户和海外市场中，CF 品牌要么等于"中国网吧游戏"要么压根没有认知。</p>
+        <p><b>建议</b>：国内市场打"CF 虹"，强化 IP 连接；海外市场打"Spectrum"（穿越火线：虹的英文名），弱化 CF 关联。不是隐瞒出身，而是让产品先被认知，再让玩家发现"原来这是 CF 的"——那个发现本身就是第二波传播。</p>
+      </div>
+
+      <div class="highlight">
+        <h4>问题二：理智值系统做错了会怎样？</h4>
+        <p>如果理智值只是一个"血量第二条"——掉了就补，补了就满——那它毫无品牌价值，CF 虹就只是"微恐皮肤的撤离射击"。理智值<b>必须</b>是不可控的、令人焦虑的、会改变对局走向的。它应该像《暗黑地牢》的压力系统一样，让玩家在"我该继续探索还是赶紧撤"之间痛苦抉择。</p>
+        <p><b>建议</b>：在封测阶段做 A/B 测试——一组理智值可以轻松回满，一组理智值恢复极慢。对比两组的留存率、对局时长和短视频内容产出量。我赌后者的内容产出量至少是前者的 <b>3 倍</b>。</p>
+      </div>
+
+      <div class="highlight">
+        <h4>问题三：腾讯能忍住不做成大 DAU 快餐吗？</h4>
+        <p>这是最不客气但最重要的问题。CF 虹的品类定位（微恐 + 搜打撤 + 非对称）天然是<b>中等 DAU、高粘性、高 LTV</b> 的产品——它的天花板不是和平精英的 5000 万 DAU，而是猎杀对决/DBD 级别的 <b>百万级稳定 DAU + 极高的 ARPU</b>。如果内部 KPI 被设定为 3000 万 DAU，那产品会被迫简化到失去灵魂。</p>
+        <p><b>建议</b>：向管理层清晰沟通——CF 虹的成功标准不是 DAU，而是<b>品牌价值 + 全球化潜力 + LTV</b>。它在腾讯射击矩阵中的角色是"品类拓荒者"和"品牌升级者"，不是"流量机器"。三角洲行动负责大 DAU，CF 虹负责品牌高度和海外市场——两者的 KPI 体系不应该相同。</p>
+      </div>
+
+      <h3>第一优先行动（本周内）</h3>
+      <div class="verdict">
+        <p><b>立即启动"完整对局无剪辑演示视频"的制作</b>。这是当前宣发链条中最大的缺环——硬核玩家（圈层 B）需要看到完整的对局循环才会形成购买意愿，而不是更多的 CG 和片段剪辑。这条视频 8-12 分钟，全程实机无剪辑，展示：搜刮→理智下降→遭遇怪物→三方混战→撤离或死亡的完整循环。它应该同时投放 YouTube / B站 / Steam 商店页。这一条视频的转化价值超过十条 90 秒预告片。</p>
+      </div>
+
+      <h3>第二优先行动（两周内）</h3>
+      <div class="verdict">
+        <p><b>确认理智值归零的"签名时刻"视觉方案</b>。找美术总监和音效总监开一个专项会，确定理智值归零时的视觉效果（全屏 glitch + 大脑碎裂图标）和音效签名（独创的低频嗡鸣）。这个"签名时刻"将成为所有宣发物料的核心视觉锤——从预告片到 Key Art 到社交媒体 GIF，所有人看到这个效果就知道"这是 CF 虹"。做不做得出这个签名时刻，决定了 CF 虹是一款好游戏还是一个文化现象。</p>
+      </div>
+
+      <h3>第三优先行动（一个月内）</h3>
+      <div class="verdict">
+        <p><b>启动"理智值挑战"H5 和"调查员档案"UGC 工具的开发</b>。两个产品可以并行推进，目标是在公测前 14 天同时上线。这两个工具的目的不是直接转化下载量，而是让"理智值"和"调查员"这两个概念在游戏上线前就成为社交平台上的通用语言。先建认知，再做转化。</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

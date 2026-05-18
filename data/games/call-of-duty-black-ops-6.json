@@ -316,5 +316,116 @@
         "reason": "三角洲行动作为新晋军事 FPS 与 BO6 <b>争夺</b>市场份额"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/2933620/"
+          },
+          {
+            "title": "Battle.net 官方页面",
+            "source": "Battle.net",
+            "url": "https://www.callofduty.com/blackops6"
+          },
+          {
+            "title": "Call of Duty 官方网站",
+            "source": "官网",
+            "url": "https://www.callofduty.com/"
+          },
+          {
+            "title": "X/Twitter 官方账号 @CallofDuty",
+            "source": "X/Twitter",
+            "url": "https://x.com/CallofDuty"
+          },
+          {
+            "title": "Treyarch 工作室主页",
+            "source": "Treyarch",
+            "url": "https://www.treyarch.com/"
+          },
+          {
+            "title": "小红书搜索「黑色行动6」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E9%BB%91%E8%89%B2%E8%A1%8C%E5%8A%A86"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Black Ops 6」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Black%20Ops%206"
+          },
+          {
+            "title": "Pinterest 搜索「Black Ops 6 art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Black%20Ops%206%20art"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Call of Duty: Black Ops 6 concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Call%20of%20Duty%3A%20Black%20Ops%206%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Call of Duty: Black Ops 6 concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Call%20of%20Duty%3A%20Black%20Ops%206%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Call of Duty: Black Ops 6 character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Call%20of%20Duty%3A%20Black%20Ops%206%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Call of Duty: Black Ops 6 character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Call%20of%20Duty%3A%20Black%20Ops%206%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Call of Duty: Black Ops 6」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Call%20of%20Duty%3A%20Black%20Ops%206"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Call of Duty: Black Ops 6 UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Call-of-Duty%3A-Black-Ops-6-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Call of Duty: Black Ops 6 texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Call%20of%20Duty%3A%20Black%20Ops%206%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Call of Duty: Black Ops 6 texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Call%20of%20Duty%3A%20Black%20Ops%206%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

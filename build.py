@@ -71,6 +71,7 @@ def main():
             g["story"] = detail.get("story")
             g["worldview"] = detail.get("worldview")
             g["assets"] = detail.get("assets")
+            g["report"] = detail.get("report")
         games_by_id[g["id"]] = g
 
     # Jinja2 setup
@@ -164,6 +165,15 @@ def main():
     if STATIC.exists():
         shutil.copytree(STATIC, DIST / "static", dirs_exist_ok=True)
     print(f"  [OK] static/")
+
+    # 4b. Report pages (static HTML in static/report/)
+    report_src = STATIC / "report"
+    if report_src.exists():
+        report_dst = DIST / "game" / "report"
+        report_dst.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(str(report_src), str(report_dst), dirs_exist_ok=True)
+        n = sum(1 for _ in report_dst.rglob("*.html"))
+        print(f"  [OK] report/ ({n} pages)")
 
     # 5. Screenshots
     if SCREENSHOTS_SRC.exists():

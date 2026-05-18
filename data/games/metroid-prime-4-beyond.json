@@ -318,5 +318,106 @@
         "reason": "同为<b>孤独探索型FPS</b>——外星密闭空间vs末世开放世界的空间设计对比"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Nintendo 官方商店页 (Switch 2 Edition)",
+            "source": "Nintendo",
+            "url": "https://www.nintendo.com/us/store/products/metroid-prime-4-beyond-nintendo-switch-2-edition-switch-2/"
+          },
+          {
+            "title": "Nintendo 官方商店页 (Switch)",
+            "source": "Nintendo",
+            "url": "https://www.nintendo.com/us/store/products/metroid-prime-4-beyond-switch/"
+          },
+          {
+            "title": "X/Twitter 官方账号 @MetroidPrime",
+            "source": "X/Twitter",
+            "url": "https://x.com/MetroidPrime"
+          },
+          {
+            "title": "小红书搜索「银河战士Prime 4」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E9%93%B6%E6%B2%B3%E6%88%98%E5%A3%ABPrime%204"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Metroid Prime 4」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Metroid%20Prime%204"
+          },
+          {
+            "title": "Pinterest 搜索「Metroid Prime concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Metroid%20Prime%20concept%20art"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Metroid Prime 4 Beyond concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Metroid%20Prime%204%20Beyond%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Metroid Prime 4 Beyond concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Metroid%20Prime%204%20Beyond%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Metroid Prime 4 Beyond character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Metroid%20Prime%204%20Beyond%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Metroid Prime 4 Beyond character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Metroid%20Prime%204%20Beyond%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Metroid Prime 4 Beyond」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Metroid%20Prime%204%20Beyond"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Metroid Prime 4 Beyond UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Metroid-Prime-4-Beyond-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Metroid Prime 4 Beyond texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Metroid%20Prime%204%20Beyond%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Metroid Prime 4 Beyond texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Metroid%20Prime%204%20Beyond%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

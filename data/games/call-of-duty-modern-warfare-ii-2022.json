@@ -316,5 +316,111 @@
         "reason": "同为现代军事 FPS——<b>三角洲行动定位直接对标 COD</b>"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/3595230/_II_2022/"
+          },
+          {
+            "title": "Battle.net 官方页面",
+            "source": "Battle.net",
+            "url": "https://www.callofduty.com/modernwarfare2"
+          },
+          {
+            "title": "Call of Duty 官方网站",
+            "source": "官网",
+            "url": "https://www.callofduty.com/"
+          },
+          {
+            "title": "X/Twitter 官方账号 @CallofDuty",
+            "source": "X/Twitter",
+            "url": "https://x.com/CallofDuty"
+          },
+          {
+            "title": "小红书搜索「现代战争2」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%8E%B0%E4%BB%A3%E6%88%98%E4%BA%892"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Modern Warfare 2」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Modern%20Warfare%202"
+          },
+          {
+            "title": "Pinterest 搜索「Modern Warfare 2 concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Modern%20Warfare%202%20concept%20art"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Call of Duty: Modern Warfare II concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Call of Duty: Modern Warfare II concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Call of Duty: Modern Warfare II character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Call of Duty: Modern Warfare II character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Call of Duty: Modern Warfare II」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Call%20of%20Duty%3A%20Modern%20Warfare%20II"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Call of Duty: Modern Warfare II UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Call-of-Duty%3A-Modern-Warfare-II-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Call of Duty: Modern Warfare II texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Call of Duty: Modern Warfare II texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

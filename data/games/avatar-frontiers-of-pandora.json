@@ -316,5 +316,111 @@
         "reason": "同为<b>开放世界 FPS</b> + 自然环境探索 + 大型地图"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/2840770/Avatar_Frontiers_of_Pandora/"
+          },
+          {
+            "title": "Steam Library Hero 大图",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2840770/library_hero.jpg"
+          },
+          {
+            "title": "Ubisoft 官方游戏页",
+            "source": "Ubisoft",
+            "url": "https://www.ubisoft.com/en-us/game/avatar/frontiers-of-pandora"
+          },
+          {
+            "title": "X/Twitter 官方账号 @officialavatar",
+            "source": "X/Twitter",
+            "url": "https://x.com/officialavatar"
+          },
+          {
+            "title": "小红书搜索「阿凡达 潘多拉边境」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E9%98%BF%E5%87%A1%E8%BE%BE%20%E6%BD%98%E5%A4%9A%E6%8B%89%E8%BE%B9%E5%A2%83"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Avatar Frontiers of Pandora」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Avatar%20Frontiers%20of%20Pandora"
+          },
+          {
+            "title": "Pinterest 搜索「Avatar Pandora concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Avatar%20Pandora%20concept%20art"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Avatar: Frontiers of Pandora concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Avatar%3A%20Frontiers%20of%20Pandora%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Avatar: Frontiers of Pandora concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Avatar%3A%20Frontiers%20of%20Pandora%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Avatar: Frontiers of Pandora character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Avatar%3A%20Frontiers%20of%20Pandora%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Avatar: Frontiers of Pandora character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Avatar%3A%20Frontiers%20of%20Pandora%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Avatar: Frontiers of Pandora」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Avatar%3A%20Frontiers%20of%20Pandora"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Avatar: Frontiers of Pandora UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Avatar%3A-Frontiers-of-Pandora-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Avatar: Frontiers of Pandora texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Avatar%3A%20Frontiers%20of%20Pandora%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Avatar: Frontiers of Pandora texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Avatar%3A%20Frontiers%20of%20Pandora%20texture"
+          }
+        ]
+      }
+    ]
   }
 }

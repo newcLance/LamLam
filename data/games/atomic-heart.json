@@ -316,5 +316,116 @@
         "reason": "同为<b>第一人称冒险</b> + 强叙事 + 独特年代感美术风格"
       }
     ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/668580/Atomic_Heart/"
+          },
+          {
+            "title": "Steam 背景图直链",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/668580/page_bg_raw.jpg"
+          },
+          {
+            "title": "Atomic Heart 官方网站",
+            "source": "Mundfish",
+            "url": "https://atomic.mundfish.com/"
+          },
+          {
+            "title": "Mundfish 工作室主页 (英文)",
+            "source": "Mundfish",
+            "url": "https://mundfish.com/en/"
+          },
+          {
+            "title": "X/Twitter 官方账号 @mundfish",
+            "source": "X/Twitter",
+            "url": "https://x.com/mundfish"
+          },
+          {
+            "title": "小红书搜索「原子之心」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%8E%9F%E5%AD%90%E4%B9%8B%E5%BF%83"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Atomic Heart」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Atomic%20Heart"
+          },
+          {
+            "title": "Pinterest 搜索「Atomic Heart concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Atomic%20Heart%20concept%20art"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Atomic Heart concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Atomic%20Heart%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Atomic Heart concept art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Atomic%20Heart%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Atomic Heart character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Atomic%20Heart%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Atomic Heart character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Atomic%20Heart%20character%20design"
+          },
+          {
+            "title": "Behance 搜索「Atomic Heart」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=Atomic%20Heart"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Dribbble 搜索「Atomic Heart UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/Atomic-Heart-UI"
+          },
+          {
+            "title": "ArtStation 搜索「Atomic Heart texture material」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Atomic%20Heart%20texture%20material"
+          },
+          {
+            "title": "Pinterest 搜索「Atomic Heart texture」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Atomic%20Heart%20texture"
+          }
+        ]
+      }
+    ]
   }
 }
