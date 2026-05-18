@@ -132,6 +132,31 @@
   {% endif %}
   {% endfor %}
 
+  {# ===== 自动收集未归入已知分类的游戏（防止新 genre 遗漏） ===== #}
+  {% set uncategorized_genres = [] %}
+  {% for g in games %}
+    {% if g.genre and g.genre not in genre_order and g.genre not in uncategorized_genres %}
+      {% set _ = uncategorized_genres.append(g.genre) %}
+    {% endif %}
+  {% endfor %}
+  {% for genre in uncategorized_genres %}
+  {% set genre_games = [] %}
+  {% for g in games %}{% if g.genre == genre %}{% set _ = genre_games.append(g) %}{% endif %}{% endfor %}
+  {% if genre_games %}
+  <section class="game-section mb-16">
+    <div class="flex items-baseline gap-3 mb-5">
+      <h2 class="text-lg font-bold text-white">{{ genre }}</h2>
+      <span class="text-xs text-neutral-600">{{ genre_games|length }} games</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      {% for g in genre_games %}
+      {{ game_card(g, screenshots) }}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+  {% endfor %}
+
   {# ===== PLATFORMS SECTION ===== #}
   {% set platform_groups = {
     "PC平台": [],
