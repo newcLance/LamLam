@@ -116,7 +116,7 @@
 
   {% for genre in genre_order %}
   {% set genre_games = [] %}
-  {% for g in games %}{% if g.genre == genre %}{% set _ = genre_games.append(g) %}{% endif %}{% endfor %}
+  {% for g in games %}{% if (g.genre is string and g.genre == genre) or (g.genre is iterable and g.genre is not string and genre in g.genre) %}{% set _ = genre_games.append(g) %}{% endif %}{% endfor %}
   {% if genre_games %}
   <section class="game-section mb-16">
     <div class="flex items-baseline gap-3 mb-5">
@@ -135,13 +135,21 @@
   {# ===== 自动收集未归入已知分类的游戏（防止新 genre 遗漏） ===== #}
   {% set uncategorized_genres = [] %}
   {% for g in games %}
-    {% if g.genre and g.genre not in genre_order and g.genre not in uncategorized_genres %}
-      {% set _ = uncategorized_genres.append(g.genre) %}
+    {% if g.genre is string %}
+      {% if g.genre and g.genre not in genre_order and g.genre not in uncategorized_genres %}
+        {% set _ = uncategorized_genres.append(g.genre) %}
+      {% endif %}
+    {% elif g.genre is iterable %}
+      {% for gg in g.genre %}
+        {% if gg not in genre_order and gg not in uncategorized_genres %}
+          {% set _ = uncategorized_genres.append(gg) %}
+        {% endif %}
+      {% endfor %}
     {% endif %}
   {% endfor %}
   {% for genre in uncategorized_genres %}
   {% set genre_games = [] %}
-  {% for g in games %}{% if g.genre == genre %}{% set _ = genre_games.append(g) %}{% endif %}{% endfor %}
+  {% for g in games %}{% if (g.genre is string and g.genre == genre) or (g.genre is iterable and g.genre is not string and genre in g.genre) %}{% set _ = genre_games.append(g) %}{% endif %}{% endfor %}
   {% if genre_games %}
   <section class="game-section mb-16">
     <div class="flex items-baseline gap-3 mb-5">

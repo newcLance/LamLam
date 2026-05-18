@@ -1291,7 +1291,10 @@
       "PS5"
     ],
     "model": "买断制",
-    "genre": "Adventure",
+    "genre": [
+      "Horror",
+      "Adventure"
+    ],
     "scale": "—",
     "mau": "—",
     "games": "—",
@@ -1550,7 +1553,10 @@
       "Xbox"
     ],
     "model": "买断制",
-    "genre": "RPG",
+    "genre": [
+      "Action",
+      "Horror"
+    ],
     "scale": "—",
     "mau": "—",
     "games": "—",
@@ -2501,7 +2507,10 @@
       "PC"
     ],
     "model": "免费+内购",
-    "genre": "Shooter",
+    "genre": [
+      "Shooter",
+      "Horror"
+    ],
     "scale": "—",
     "mau": "—",
     "games": "—",
@@ -2676,7 +2685,10 @@
       "Xbox Series"
     ],
     "model": "买断+内购",
-    "genre": "Shooter",
+    "genre": [
+      "Shooter",
+      "Horror"
+    ],
     "scale": "—",
     "mau": "—",
     "games": "—",
