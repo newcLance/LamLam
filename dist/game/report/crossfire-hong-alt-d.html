@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>穿越火线：虹 — 平台与启动器宣发设计策略 (D版)</title>
+<title>穿越火线：虹 — 平台阵地运营方案</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script>
@@ -15,7 +15,7 @@ tailwind.config = {
         'surface-1': '#141414',
         'surface-2': '#1c1c1c',
         'surface-3': '#252525',
-        'bdr': 'rgba(255,255,255,0.06)',
+        'bdr': 'rgba(255,255,255,0.06)'
       }
     }
   }
@@ -23,32 +23,31 @@ tailwind.config = {
 </script>
 <style>
   [x-cloak] { display: none !important; }
-  body { background: #0c0c0c; color: #e5e5e5; }
-  * { scrollbar-width: thin; scrollbar-color: #333 transparent; }
-  .page-content h3 { font-size: 16px; font-weight: 700; color: #fff; margin: 28px 0 12px; }
-  .page-content h4 { font-size: 14px; font-weight: 600; color: #d4d4d4; margin: 20px 0 8px; }
-  .page-content p { font-size: 14px; line-height: 1.8; color: #a3a3a3; margin: 0 0 12px; }
-  .page-content ul { padding-left: 20px; margin: 0 0 16px; }
-  .page-content li { font-size: 13px; line-height: 1.7; color: #a3a3a3; margin-bottom: 4px; }
-  .page-content li::marker { color: #525252; }
-  .page-content strong, .page-content b { color: #fff; font-weight: 600; }
-  .page-content .highlight { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 16px; margin: 16px 0; }
-  .page-content .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.06); color: #737373; border: 1px solid rgba(255,255,255,0.06); margin-right: 4px; }
-  .page-content table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
-  .page-content th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #737373; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .page-content td { padding: 8px 12px; color: #a3a3a3; border-bottom: 1px solid rgba(255,255,255,0.04); }
-  .creative-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; }
-  .creative-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
-  .verdict { background: #141414; border-left: 3px solid #fff; padding: 16px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; }
-  .verdict p { color: #d4d4d4; }
-  .risk-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; border-left: 3px solid #c43c3c; }
-  .risk-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
-  .risk-card .mitigation { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 12px; padding-top: 12px; }
+  body { background:#0c0c0c; color:#e5e5e5; }
+  * { scrollbar-width: thin; scrollbar-color:#333 transparent; }
+  .page-content h2 { color:#fff; }
+  .page-content h3 { font-size:16px; font-weight:700; color:#fff; margin:28px 0 12px; }
+  .page-content h4 { font-size:14px; font-weight:600; color:#d4d4d4; margin:20px 0 8px; }
+  .page-content p { font-size:14px; line-height:1.8; color:#a3a3a3; margin:0 0 12px; }
+  .page-content ul { padding-left:20px; margin:0 0 16px; }
+  .page-content li { font-size:13px; line-height:1.7; color:#a3a3a3; margin-bottom:5px; }
+  .page-content li::marker { color:#525252; }
+  .page-content b, .page-content strong { color:#fff; font-weight:600; }
+  .highlight { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:16px; margin:16px 0; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; background:rgba(255,255,255,0.06); color:#737373; border:1px solid rgba(255,255,255,0.06); margin-right:4px; text-decoration:none; }
+  table { width:100%; border-collapse:collapse; margin:12px 0 20px; font-size:13px; }
+  th { text-align:left; padding:8px 12px; font-size:11px; font-weight:600; color:#737373; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  td { padding:9px 12px; color:#a3a3a3; border-bottom:1px solid rgba(255,255,255,0.04); vertical-align:top; }
+  .verdict { background:#141414; border-left:3px solid #fff; padding:16px 20px; margin:20px 0; border-radius:0 6px 6px 0; }
+  .verdict p { color:#d4d4d4; }
+  .creative-card { background:#141414; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; }
+  .creative-card h5 { font-size:15px; font-weight:700; color:#fff; margin:0 0 8px; }
+  .risk-card { background:#141414; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; border-left:3px solid #fff; }
+  .quote { color:#d4d4d4; font-size:18px; line-height:1.6; font-weight:700; letter-spacing:-0.02em; }
+  .muted { color:#737373 !important; }
 </style>
 </head>
 <body class="min-h-screen antialiased" x-data="{ page: 0 }">
-
-<!-- HEADER -->
 <header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
   <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
     <div class="flex items-center gap-4">
@@ -57,538 +56,349 @@ tailwind.config = {
         返回详情页
       </a>
       <div class="h-4 w-px bg-white/10"></div>
-      <h1 class="text-sm font-bold text-white">穿越火线：虹 — 平台与启动器宣发设计策略 (D版)</h1>
+      <h1 class="text-sm font-bold text-white">穿越火线：虹 — 平台阵地运营方案</h1>
     </div>
     <div class="flex items-center gap-1">
       <a href="crossfire-hong.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
-      <a href="crossfire-hong-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">运营阶段</a>
-      <a href="crossfire-hong-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">阵地定制</a>
+      <a href="crossfire-hong-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">首测转化</a>
+      <a href="crossfire-hong-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">阵地运营</a>
       <div class="w-px h-4 bg-white/10 mx-1"></div>
       <a href="crossfire-hong-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
     </div>
   </div>
 </header>
 
-<!-- MAIN: Left nav + Right content -->
 <div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
-
-  <!-- LEFT: Page Navigation -->
   <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
     <div class="mb-6">
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
-      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">封闭渠道的结构性优势</button>
-      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">平台用户画像与行为路径</button>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">线上阵地全景图</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">用户平台行为特征</button>
     </div>
     <div class="mb-6">
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
-      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">核心设计语言：渐进式污染</button>
-      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">WeGame 商店页视觉策略</button>
-      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">启动器视觉策略与交互</button>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">官网 + H5 活动页</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">B站阵地</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">抖音 + 短视频阵地</button>
     </div>
     <div class="mb-6">
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
-      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个核心转化创意</button>
-      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范速查</button>
-      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">执行时间线与预算</button>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">微博/小红书/社区</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">直播阵地</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">移动端 H5 + 小程序</button>
     </div>
     <div>
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
-      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警与应对</button>
-      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">顾问终审意见</button>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">全阵地 KPI 仪表盘</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">终审与预算分配</button>
     </div>
   </nav>
 
-  <!-- RIGHT: Content Area -->
   <main class="flex-1 py-8 px-10 max-w-4xl">
-
-    <!-- ========== PAGE 0: 封闭渠道的结构性优势 ========== -->
     <div x-show="page === 0" class="page-content">
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
-      <h2 class="text-2xl font-bold text-white mb-6">封闭渠道的结构性优势</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：当宣发阵地限定为 WeGame 商店页和自研启动器时，竞争逻辑从"在噪音中抢注意力"变为"在已锁定的用户面前做极致转化"。这不是限制，而是一种降维打击——你的每一个像素都不会浪费在无效曝光上。</p>
-      </div>
-
-      <h3>为什么封闭渠道 ≠ 劣势</h3>
-      <p>开放市场宣发（B站/抖音/微博）的本质是<b>与所有娱乐内容竞争注意力</b>。一支 15 秒的信息流广告，对手不是其他游戏，而是搞笑短视频、美食探店和明星八卦。转化漏斗从"看到"到"预约"之间隔着 5-7 步跳转，每步流失 60-80%。</p>
-      <p>而 WeGame + 启动器的逻辑截然不同：</p>
-
+      <h2 class="text-2xl font-bold mb-6">线上阵地全景图</h2>
+      <div class="verdict"><p><b>核心判断</b>：《穿越火线：虹》的线上阵地不是「哪里都发一遍」，而是每个平台承担不同角色——有的负责建立信任，有的负责情绪扩散，有的负责转化收割。本方案为运营团队回答：各阵地怎么搭建、发什么、KPI 是什么。</p></div>
+      <h3>六大阵地角色定位</h3>
       <table>
-        <thead><tr><th>维度</th><th>开放市场（信息流）</th><th>封闭渠道（WeGame/启动器）</th></tr></thead>
+        <thead><tr><th>阵地</th><th>核心角色</th><th>内容类型</th><th>用户动作目标</th></tr></thead>
         <tbody>
-          <tr><td><b>用户心智</b></td><td>娱乐消遣模式（随时划走）</td><td>游戏时间模式（主动寻找内容）</td></tr>
-          <tr><td><b>平均注意力</b></td><td>1.5-3 秒</td><td>45-90 秒（商店页）/ 5-15 秒（启动器主屏）</td></tr>
-          <tr><td><b>转化路径</b></td><td>看到→记住→搜索→下载→打开→预约（5-7步）</td><td>看到→点击预约（1-2步）</td></tr>
-          <tr><td><b>竞品干扰</b></td><td>所有内容都是竞品</td><td>同一页面内无竞品（启动器）或有限竞品（WeGame）</td></tr>
-          <tr><td><b>成本结构</b></td><td>CPM ¥30-80，CPA ¥15-40</td><td>零边际曝光成本，仅需设计制作费</td></tr>
+          <tr><td><b>官网 + H5</b></td><td>转化中枢</td><td>品牌展示、预约漏斗、测试资格申请</td><td>注册 / 预约 / 资格申请</td></tr>
+          <tr><td><b>B站</b></td><td>信任建设</td><td>长视频实机、开发日志、UP主合作</td><td>深度观看 / 弹幕讨论 / 关注</td></tr>
+          <tr><td><b>抖音 + 短视频</b></td><td>情绪引爆</td><td>竖屏短切片、挑战赛、信息流广告</td><td>点赞 / 转发 / 评论 / 进入 H5</td></tr>
+          <tr><td><b>微博 + 小红书</b></td><td>话题发酵</td><td>话题运营、图文内容、UGC 催化</td><td>话题参与 / 二创 / 搜索</td></tr>
+          <tr><td><b>直播间</b></td><td>事件转化</td><td>主播合作、首测直播、预约抽奖</td><td>观看 / 弹幕互动 / 即时预约</td></tr>
+          <tr><td><b>移动端 H5 + 小程序</b></td><td>社交裂变</td><td>邀请机制、朋友圈广告、测试资格分享</td><td>分享 / 邀请 / 组队预约</td></tr>
         </tbody>
       </table>
-
-      <p><b>So what</b>：在封闭渠道里，<b>视觉设计本身就是转化引擎</b>。不需要靠 3 秒钩子和洗脑口播抢人，需要的是在已经打开你产品环境的玩家面前，用界面的<b>氛围力</b>和<b>行为引导</b>完成最后一击。</p>
-
-      <h3>WeGame 与启动器的流量池有多大</h3>
-      <p>这两个阵地并不小众：</p>
-      <ul>
-        <li><b>WeGame 月活跃用户约 3000-5000 万</b>（腾讯游戏 PC 端核心入口之一），其中射击品类偏好用户占比超过 40%</li>
-        <li><b>CF 系启动器装机量数亿</b>（覆盖全部 CF/CFHD 活跃玩家），每次启动游戏必经</li>
-        <li>这两个渠道的用户与 CF 虹的目标人群高度重合——射击偏好、PC 端活跃、对腾讯生态有信任基础</li>
-      </ul>
-
-      <div class="highlight">
-        <p><b>结论</b>：封闭渠道不是"没钱的权宜之计"，而是"在最精准的人群面前用最短路径转化"的高效策略。接下来要解决的问题是——如何让这些已经"在门口"的用户，被我们的界面设计<b>勾进来</b>。</p>
-      </div>
+      <h3>阵地协同链路</h3>
+      <div class="highlight"><p class="quote">抖音引爆注意力 → B站建立信任 → 官网/H5 完成转化 → 小程序实现裂变 → 微博/小红书维持话题热度 → 直播间完成最终收割。</p><p>每个阵地不是孤立运营，而是链路中的一环。运营团队必须确保各环节之间有明确的跳转入口和数据追踪。</p></div>
+      <h3>阵地搭建优先级</h3>
+      <table>
+        <thead><tr><th>优先级</th><th>阵地</th><th>搭建时间</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td><b>P0</b></td><td>官网 + 预约 H5</td><td>T-90 前完成</td><td>所有流量的最终承接点，必须先于内容投放就位</td></tr>
+          <tr><td><b>P0</b></td><td>B站官方号</td><td>T-90 前完成</td><td>硬核用户第一信任来源，证据期内容需要承载</td></tr>
+          <tr><td><b>P1</b></td><td>抖音官方号</td><td>T-75 前完成</td><td>情绪期核心阵地，需要提前养号建立初始粉丝</td></tr>
+          <tr><td><b>P1</b></td><td>小程序 + 裂变 H5</td><td>T-60 前完成</td><td>情绪期开始后需要社交裂变承接</td></tr>
+          <tr><td><b>P2</b></td><td>微博/小红书</td><td>T-60 前完成</td><td>话题运营辅助，可与情绪期同步启动</td></tr>
+          <tr><td><b>P2</b></td><td>直播阵地</td><td>T-30 前完成</td><td>抢号期核心工具，提前锁定主播资源即可</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- ========== PAGE 1: 平台用户画像与行为路径 ========== -->
-    <div x-show="page === 1" class="page-content">
+    <div x-show="page === 1" x-cloak class="page-content">
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
-      <h2 class="text-2xl font-bold text-white mb-6">平台用户画像与行为路径</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：WeGame 用户和启动器用户不是同一批人。WeGame 用户是"在货架逛街的人"，启动器用户是"已经买了票的人"。两种人需要完全不同的说服策略。</p>
-      </div>
-
-      <h3>用户圈层一：WeGame 浏览者（探索型）</h3>
-      <p>这是在 WeGame 商店里闲逛、浏览新游推荐的用户。他们的核心行为模式：</p>
-      <ul>
-        <li><b>扫视式浏览</b>——快速滚动列表，用 0.5 秒判断一个游戏值不值得点进去</li>
-        <li><b>截图先行</b>——点进商店页后，第一眼看的是截图轮播，而不是文字介绍</li>
-        <li><b>社交验证</b>——看评分、看好友在玩、看预约人数，用从众心理降低决策风险</li>
-        <li><b>低承诺预约</b>——预约是免费的，门槛极低，但也意味着预约≠真实期待</li>
-      </ul>
-      <p><b>设计启示</b>：对这类用户，WeGame 商店页的<b>首屏 Hero Banner</b> 和<b>前两张截图</b>是生死线。如果这两样东西不能在 3 秒内传递"这不是你见过的普通射击游戏"，他就走了。</p>
-
-      <h3>用户圈层二：启动器用户（目的型）</h3>
-      <p>这是已经安装了启动器的存量 CF/CFHD 玩家。他们的核心行为模式：</p>
-      <ul>
-        <li><b>启动即目标</b>——打开启动器是为了"开始玩"，注意力窗口只有 5-15 秒</li>
-        <li><b>对广告免疫</b>——见多了启动器里的活动 Banner，默认跳过一切"营销感"内容</li>
-        <li><b>情感绑定</b>——老 CF 玩家对 IP 有深厚感情，看到"CF"二字的条件反射是亲切而非警惕</li>
-        <li><b>同伴驱动</b>——"兄弟们都在玩"比任何文案都有效</li>
-      </ul>
-      <p><b>设计启示</b>：启动器的宣发不能"像广告"——一旦看起来像常规活动推送，就会被条件反射跳过。必须做到<b>让用户困惑 0.5 秒</b>（"这是什么？"）然后<b>在 3 秒内给出答案</b>（"原来是 CF 虹的新东西"）。</p>
-
-      <h3>用户圈层三：重合人群（高价值种子）</h3>
-      <p>同时使用 WeGame 和启动器的玩家，是最高价值的种子用户：</p>
-      <ul>
-        <li>他们会在 WeGame 看到商店页 → 预约 → 回到启动器再次看到预热内容 → 形成双触点强化</li>
-        <li>设计时必须确保<b>两端视觉语言统一</b>但<b>内容不重复</b>——商店页给"全貌"，启动器给"日更悬念"</li>
-      </ul>
-
-      <h3>行为路径总结</h3>
+      <h2 class="text-2xl font-bold mb-6">用户在各平台的行为特征与内容消费习惯</h2>
+      <div class="verdict"><p><b>核心判断</b>：同一个用户在不同平台上是「不同的人」。他在 B站 是严肃鉴定者，在抖音是情绪消费者，在微信是社交裂变节点。运营内容必须按平台用户心态定制，而非一套素材多平台分发。</p></div>
+      <h3>各平台用户画像对比</h3>
       <table>
-        <thead><tr><th>触点</th><th>用户状态</th><th>设计目标</th><th>成功指标</th></tr></thead>
+        <thead><tr><th>平台</th><th>用户心态</th><th>内容消费偏好</th><th>互动方式</th><th>决策路径</th></tr></thead>
         <tbody>
-          <tr><td><b>WeGame 列表页</b></td><td>扫视中</td><td>0.5秒内打断滚动</td><td>点击率（CTR）</td></tr>
-          <tr><td><b>WeGame 商店页</b></td><td>初步好奇</td><td>45秒内建立"这游戏不一般"认知</td><td>预约转化率</td></tr>
-          <tr><td><b>启动器主屏</b></td><td>准备玩别的游戏</td><td>5秒内植入"有新东西在发生"意识</td><td>主屏点击率</td></tr>
-          <tr><td><b>启动器通知</b></td><td>系统打断</td><td>制造"必须点开"的悬念</td><td>通知打开率</td></tr>
-          <tr><td><b>好友状态</b></td><td>社交浏览</td><td>制造从众压力（FOMO）</td><td>裂变预约率</td></tr>
+          <tr><td><b>B站</b></td><td>「我要判断这值不值得玩」</td><td>8-15 分钟深度视频、图文专栏、弹幕实时评论</td><td>弹幕、长评、收藏、三连</td><td>看完完整内容 → 评论区验证 → 搜索更多 → 预约</td></tr>
+          <tr><td><b>抖音</b></td><td>「滑到什么有趣就停」</td><td>15-60 秒竖屏强刺激、音乐/特效驱动</td><td>点赞、转发、评论、@好友</td><td>被首帧吸引 → 看完 → 评论区看反馈 → 点链接</td></tr>
+          <tr><td><b>微博</b></td><td>「吃瓜 + 参与热门话题」</td><td>图文九宫格、话题短文、热搜/超话</td><td>转发、评论、超话签到</td><td>热搜/推荐 → 话题浏览 → 官博主页 → 外链跳转</td></tr>
+          <tr><td><b>小红书</b></td><td>「好看/有趣值得收藏分享」</td><td>精致图文、攻略笔记、美术欣赏</td><td>收藏、分享、评论求攻略</td><td>搜索/推荐 → 收藏 → 后续多次浏览 → 行动</td></tr>
+          <tr><td><b>微信/QQ</b></td><td>「朋友推荐的我信」</td><td>H5 互动页、小程序、朋友圈图文</td><td>分享、邀请、组队</td><td>朋友分享 → 打开体验 → 觉得有趣 → 继续分享/预约</td></tr>
+          <tr><td><b>直播间</b></td><td>「实时参与 + 即时决策」</td><td>实况互动、弹幕竞猜、即时抽奖</td><td>弹幕、送礼、点链接</td><td>看主播玩 → 被氛围带动 → 弹幕互动 → 即时预约</td></tr>
         </tbody>
       </table>
+      <h3>内容适配原则</h3>
+      <div class="highlight"><ul><li><b>B站</b>：允许长、允许深、允许争议——用户来这里就是为了做判断。</li><li><b>抖音</b>：0.3 秒定生死——首帧必须有视觉钩子，3 秒内必须出现冲突。</li><li><b>微博</b>：话题即内容——不是发完博等互动，是制造可参与的话题结构。</li><li><b>小红书</b>：美术即正义——画面精致度决定是否被收藏，攻略价值决定是否被分享。</li><li><b>微信</b>：信任即传播——用户只分享他觉得「不会让朋友觉得我在发广告」的内容。</li><li><b>直播</b>：参与即转化——观众不是被说服的，是被氛围裹挟的。</li></ul></div>
     </div>
 
-    <!-- ========== PAGE 2: 核心设计语言：渐进式污染 ========== -->
-    <div x-show="page === 2" class="page-content">
+    <div x-show="page === 2" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">官网 + H5 活动页设计策略</h2>
+      <div class="verdict"><p><b>核心判断</b>：官网不是品牌展示馆，是<b>预约转化漏斗</b>。每一屏、每个按钮都必须服务于一个目标：让用户从「看看」变成「预约」或「申请测试资格」。</p></div>
+      <h3>官网结构设计</h3>
+      <table>
+        <thead><tr><th>模块</th><th>位置</th><th>内容</th><th>转化目标</th></tr></thead>
+        <tbody>
+          <tr><td><b>首屏</b></td><td>第 1 屏</td><td>Key Art + 虹蚀动效 + 一句话定位 + 预约按钮</td><td>3 秒内让用户知道这是什么 + 预约入口可见</td></tr>
+          <tr><td><b>实机视频区</b></td><td>第 2 屏</td><td>嵌入 B站 最新完整对局视频 + 文字简介</td><td>建立信任——让用户看到真实游戏</td></tr>
+          <tr><td><b>世界观简介</b></td><td>第 3 屏</td><td>虹蚀概念 + 3 张环境概念图 + 地图预览</td><td>激发好奇——「这个世界发生了什么」</td></tr>
+          <tr><td><b>玩法概览</b></td><td>第 4 屏</td><td>搜打撤流程图 + 理智值机制 + 角色展示</td><td>降低理解门槛</td></tr>
+          <tr><td><b>预约/资格区</b></td><td>第 5 屏（固定底部 Bar 也有）</td><td>预约表单 + 测试资格申请 + 社交分享按钮</td><td>终极转化——完成注册或预约动作</td></tr>
+        </tbody>
+      </table>
+      <h3>预约漏斗设计</h3>
+      <table>
+        <thead><tr><th>步骤</th><th>用户动作</th><th>设计要点</th><th>KPI</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>进入官网</td><td>加载 &lt;3 秒、首屏即见预约按钮</td><td>跳出率 &lt;40%</td></tr>
+          <tr><td>2</td><td>浏览内容</td><td>视频自动播放、滚动触发虹蚀动效</td><td>平均停留 &gt;90 秒</td></tr>
+          <tr><td>3</td><td>点击预约</td><td>表单极简（手机号/微信一键）、填写 &lt;15 秒</td><td>点击→完成转化率 &gt;60%</td></tr>
+          <tr><td>4</td><td>分享获加速</td><td>预约成功后弹出分享卡——邀请好友可提前解锁资格</td><td>分享率 &gt;20%</td></tr>
+        </tbody>
+      </table>
+      <h3>测试资格申请流程</h3>
+      <div class="creative-card"><h5>两种资格获取路径</h5><p><b>路径 A — 直接申请</b>：填写游戏经验问卷（5 题，&lt;60 秒），系统根据答案打分筛选优先级。硬核射击玩家和 CF 老兵获得更高优先权。</p><p><b>路径 B — 社交加速</b>：通过 H5/小程序邀请好友，每邀请 3 人提升一级优先权。上限 5 级（15 人）。这条路径同时完成社交裂变 KPI。</p></div>
+      <h3>H5 活动页技术要求</h3>
+      <div class="highlight"><ul><li><b>加载性能</b>：首屏渲染 &lt;2 秒（移动端 4G 环境），总资源 &lt;3MB</li><li><b>适配</b>：iOS Safari / Android Chrome / 微信内置浏览器 / QQ 浏览器</li><li><b>防刷</b>：手机号验证 + 设备指纹 + 频率限制</li><li><b>数据埋点</b>：每屏曝光、按钮点击、表单各步完成率、分享触发率</li></ul></div>
+    </div>
+
+    <div x-show="page === 3" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">B站阵地运营方案</h2>
+      <div class="verdict"><p><b>核心判断</b>：B站是《CF 虹》的<b>信任主阵地</b>。这里的用户不看广告看证据，不听宣传看对局。B站运营的唯一目标是：让硬核用户在评论区自发说出「这真的能玩」。</p></div>
+      <h3>账号定位与人设</h3>
+      <table>
+        <thead><tr><th>维度</th><th>建议</th></tr></thead>
+        <tbody>
+          <tr><td><b>账号名</b></td><td>穿越火线：虹 官方 / CF虹制作组</td></tr>
+          <tr><td><b>人设</b></td><td>不是品牌官方号调性，是「制作组直面玩家」——说人话、回应质疑、敢放失败局</td></tr>
+          <tr><td><b>头像/Banner</b></td><td>虹蚀视觉风格，暗色调 + 微虹彩高光</td></tr>
+          <tr><td><b>简介</b></td><td>一句话定位 + 预约链接 + 更新日期</td></tr>
+        </tbody>
+      </table>
+      <h3>内容矩阵（周更计划）</h3>
+      <table>
+        <thead><tr><th>内容类型</th><th>频率</th><th>时长</th><th>目标</th><th>KPI</th></tr></thead>
+        <tbody>
+          <tr><td><b>完整对局实况</b></td><td>每周 1 条</td><td>8-12 分钟</td><td>证明玩法深度</td><td>完播率 &gt;30%，评论 &gt;2000</td></tr>
+          <tr><td><b>失败局/复盘</b></td><td>每两周 1 条</td><td>5-8 分钟</td><td>建立坦诚信任</td><td>弹幕正向占比 &gt;60%</td></tr>
+          <tr><td><b>开发日志</b></td><td>每月 2 条</td><td>3-5 分钟</td><td>展示制作态度</td><td>三连率 &gt;8%</td></tr>
+          <tr><td><b>短切片（动态）</b></td><td>每周 3-5 条</td><td>15-60 秒</td><td>维持曝光频次</td><td>单条播放 &gt;50 万</td></tr>
+          <tr><td><b>专栏图文</b></td><td>每月 2 篇</td><td>—</td><td>深度设定/机制解读</td><td>阅读 &gt;10 万，收藏 &gt;5000</td></tr>
+        </tbody>
+      </table>
+      <h3>UP主合作策略</h3>
+      <table>
+        <thead><tr><th>UP主类型</th><th>合作形式</th><th>预算/人</th><th>期望产出</th></tr></thead>
+        <tbody>
+          <tr><td><b>头部射击游戏 UP</b>（粉丝 200 万+）</td><td>首批试玩实况 + 真实评价</td><td>30-80 万</td><td>定义「这游戏到底怎么样」的行业口碑</td></tr>
+          <tr><td><b>中腰部恐怖/微恐 UP</b>（粉丝 30-100 万）</td><td>多人实况 + 切片传播</td><td>5-15 万</td><td>产出大量可二次传播的名场面</td></tr>
+          <tr><td><b>知识区/设计向 UP</b>（粉丝 50 万+）</td><td>美术分析、玩法解读专题</td><td>8-20 万</td><td>覆盖泛游戏用户，拉升品类认知</td></tr>
+        </tbody>
+      </table>
+      <h3>弹幕营销技巧</h3>
+      <div class="highlight"><ul><li><b>埋设弹幕钩子</b>：在视频关键时间点设计「让用户忍不住发弹幕的瞬间」——队友被虹蚀的转折、理智值归零、撤离失败。</li><li><b>官方弹幕互动</b>：用官方号在评论区/弹幕回应玩家质疑，但不删负面——坦诚比删评更有信任价值。</li><li><b>弹幕数据监控</b>：追踪高频弹幕词，发现用户真实关注点和误解点，反哺下期内容选题。</li></ul></div>
+    </div>
+
+    <div x-show="page === 4" x-cloak class="page-content">
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
-      <h2 class="text-2xl font-bold text-white mb-6">核心设计语言：渐进式污染</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：D版的超级符号不是一个 Logo 或一句 Slogan，而是一种<b>视觉状态的渐进变化</b>——"虹蚀污染在你面前一点一点蔓延"。这套语言贯穿 WeGame 商店页和启动器的所有触点，形成统一但不重复的视觉叙事。</p>
-      </div>
-
-      <h3>设计语言定义</h3>
-      <p>「渐进式污染」的本质是<b>用时间维度做设计</b>。不是一张静态海报，而是一套<b>随倒计时演变的视觉系统</b>：</p>
-      <ul>
-        <li><b>T-30 天</b>：几乎正常，只有极细微的异常暗示（1px 红线、像素噪点）</li>
-        <li><b>T-15 天</b>：异常开始可见，裂隙出现，红色渗出</li>
-        <li><b>T-7 天</b>：大面积蔓延，建筑扭曲，文字 Glitch</li>
-        <li><b>T-1 天</b>：全面沦陷，只剩最后的行动按钮</li>
-      </ul>
-
-      <h3>为什么用"污染蔓延"而不是"常规倒计时"</h3>
-      <p>传统的倒计时设计（大数字 + 进度条）是纯功能性的，玩家看一眼就知道"哦，还有 X 天"，然后关掉。而"污染蔓延"把倒计时变成了<b>一场正在发生的视觉事件</b>：</p>
-      <ul>
-        <li>每天打开都有变化 → 制造<b>打卡习惯</b></li>
-        <li>变化是视觉性的而非数字性的 → 适合<b>截图传播</b></li>
-        <li>与游戏世界观强绑定（虹蚀侵蚀） → <b>提前建立品牌记忆</b></li>
-        <li>让玩家产生"如果不赶紧预约，一切就来不及了"的<b>紧迫感</b></li>
-      </ul>
-
-      <h3>污染度分级标准</h3>
+      <h2 class="text-2xl font-bold mb-6">抖音 + 短视频阵地运营方案</h2>
+      <div class="verdict"><p><b>核心判断</b>：抖音是情绪引爆器，不是深度内容场。在这里成功的标准不是「用户理解了游戏」，而是「用户被某个瞬间击中，然后去别的地方找答案」。</p></div>
+      <h3>账号矩阵</h3>
       <table>
-        <thead><tr><th>阶段</th><th>污染度</th><th>视觉表现</th><th>交互行为</th></tr></thead>
+        <thead><tr><th>账号</th><th>定位</th><th>内容方向</th><th>更新频率</th></tr></thead>
         <tbody>
-          <tr><td>Phase 0 (T-30~T-21)</td><td>5-10%</td><td>画面正常，仅个别像素闪烁红色；角落有极细裂纹</td><td>鼠标悬停裂纹区域才会触发微弱的虹蚀动效</td></tr>
-          <tr><td>Phase 1 (T-20~T-11)</td><td>10-30%</td><td>裂隙扩大，红色脉络沿墙壁蔓延；文字偶尔 Glitch 闪烁</td><td>点击裂隙区域弹出"异常报告碎片"</td></tr>
-          <tr><td>Phase 2 (T-10~T-4)</td><td>30-60%</td><td>画面明显异化，建筑轮廓扭曲；背景出现低频脉冲</td><td>滚动页面时画面会有轻微扭曲跟随</td></tr>
-          <tr><td>Phase 3 (T-3~T-0)</td><td>60-100%</td><td>全屏虹蚀红覆盖，只有 CTA 按钮区域是"净土"</td><td>按钮文案变为「最后机会：加入撤离」</td></tr>
+          <tr><td><b>CF虹官方号</b></td><td>品牌主号</td><td>官方 PV 短版、重要节点公告、挑战赛发起</td><td>每周 2-3 条</td></tr>
+          <tr><td><b>CF虹实况号</b></td><td>内容号</td><td>对局切片、名场面、失误合集</td><td>每日 1-2 条</td></tr>
         </tbody>
       </table>
-
-      <div class="highlight">
-        <p><b>设计原则</b>：污染永远是"从边缘向中心蔓延"——CTA 按钮区域是最后被覆盖的位置。这确保了<b>功能可用性</b>不会被氛围设计破坏，同时制造出"这个按钮是最后的净土"的视觉暗示。</p>
-      </div>
-    </div>
-
-    <!-- ========== PAGE 3: WeGame 商店页视觉策略 ========== -->
-    <div x-show="page === 3" class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
-      <h2 class="text-2xl font-bold text-white mb-6">WeGame 商店页视觉策略</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：WeGame 商店页是一块"恐怖美学货架"。它要在竞品林立的列表中用视觉冲击力打断用户的滚动惯性，进入后用情绪递进的截图序列建立"这不是普通射击游戏"的认知，最后用档案体文案完成世界观沉浸和预约转化。</p>
-      </div>
-
-      <h3>Hero Banner（1920×600）</h3>
-      <p><b>策略：不展示全貌，只给一个"不对劲"的瞬间。</b></p>
-      <p>参照恐怖电影海报逻辑——观众不需要知道剧情，只需要感受到"这里有什么不对"。</p>
-      <ul>
-        <li><b>画面内容</b>：一个熟悉的 CF 经典场景（沙漠灰/运输船），但 20% 的区域被不自然的虹色光晕侵蚀。远处有一个模糊的人形轮廓站在不该有人的位置。</li>
-        <li><b>构图公式</b>：80% 熟悉资产 + 20% 不可解释的异常</li>
-        <li><b>色彩</b>：整体暗蓝灰（HSB 210/15/20），异常区域用高饱和虹蚀红（#FF1744, 10% opacity 渐变蔓延）</li>
-        <li><b>文案层</b>：不放 Slogan，只放游戏 Logo + 一行等宽字体：<code>[异常报告 #0071] 夜幕山庄区域已封锁</code></li>
-        <li><b>动效</b>：若支持 WebM，虹蚀区域做 2s 循环微动（热浪扭曲效果）</li>
-      </ul>
-
-      <h3>截图轮播策略（5 张）</h3>
-      <p><b>不按"展示功能"逻辑排列，按"情绪递进"逻辑排列：</b></p>
+      <h3>内容策略：0.3 秒法则</h3>
+      <p>抖音用户平均判断一条视频的时间是 0.3 秒。所有内容必须遵循：</p>
       <table>
-        <thead><tr><th>序号</th><th>情绪节点</th><th>画面内容</th><th>设计要点</th></tr></thead>
+        <thead><tr><th>时间点</th><th>必须完成的事</th><th>执行要点</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td><b>安全感</b></td><td>三人小队装备整齐，在明亮走廊推进</td><td>高光主调，展示团队战术质感</td></tr>
-          <tr><td>2</td><td><b>异样感</b></td><td>同一走廊，墙壁出现红色脉络</td><td>色温骤降，HUD 上理智值指示器首次出现</td></tr>
-          <tr><td>3</td><td><b>压迫感</b></td><td>队友倒地，四周虹蚀蔓延</td><td>景深模糊，暗示"视野正在崩坏"</td></tr>
-          <tr><td>4</td><td><b>恐惧感</b></td><td>独自一人，手电照到墙角异形轮廓</td><td>大量负空间，极低亮度</td></tr>
-          <tr><td>5</td><td><b>释放感</b></td><td>撤离直升机舱门打开，光线涌入</td><td>高对比逆光，"活着出去"的奖励感</td></tr>
+          <tr><td><b>0-0.3 秒</b></td><td>视觉钩子</td><td>异常画面/冲突画面/文字悬念做首帧</td></tr>
+          <tr><td><b>0.3-3 秒</b></td><td>建立期待</td><td>出现冲突或转折的预兆</td></tr>
+          <tr><td><b>3-15 秒</b></td><td>爆发 + 情绪高点</td><td>队友误判/怪物出现/理智崩溃</td></tr>
+          <tr><td><b>15-30 秒</b></td><td>留下悬念或反转</td><td>「然后我才发现……」式结尾</td></tr>
         </tbody>
       </table>
-
-      <h3>文字介绍区：用档案体代替营销体</h3>
-      <p>把文字描述区变成一份<b>"泄露的内部档案"</b>：</p>
-      <ul>
-        <li><b>标题</b>：「[已解密] 穿越火线特别行动组 · 虹蚀事件概述」</li>
-        <li><b>字体</b>：等宽字体 + 删除线标记"涂改痕迹" + [数据删除] 占位符</li>
-        <li><b>信息密度</b>：300 字内传递三个卖点——① 克苏鲁恐怖+撤离射击混搭品类 ② 理智值核心机制 ③ CF 宇宙正统续作</li>
-        <li><b>CTA 按钮</b>：页面底部唯一白色按钮「申请特别行动许可」（即预约），保持世界观沉浸</li>
-      </ul>
-
-      <h3>列表页缩略图（460×215）</h3>
-      <p>这是用户在 WeGame 商店列表中看到的第一眼：</p>
-      <ul>
-        <li><b>画面</b>：纯黑背景 + 一只戴着战术手套的手从画面底部伸出 + 手上理智值手表显示红色警告</li>
-        <li><b>为什么这样做</b>：在一堆明亮、热闹的游戏封面中，一张几乎全黑的图反而最抓眼球——对比度就是注意力</li>
-      </ul>
-    </div>
-
-    <!-- ========== PAGE 4: 启动器视觉策略与交互 ========== -->
-    <div x-show="page === 4" class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
-      <h2 class="text-2xl font-bold text-white mb-6">启动器视觉策略与交互</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：启动器是"你自己家的门脸"——没有竞品干扰，所有像素都属于 CF 虹。我们要把启动器从一个"等待加载的过渡页"变成"游戏体验的前奏"。玩家每天打开启动器，都应该感受到"有什么正在发生"。</p>
-      </div>
-
-      <h3>主屏设计：动态污染进度（1280×720）</h3>
-      <p><b>核心创意：启动器的视觉状态随上线倒计时变化。</b>距首测越近，画面的"污染程度"越深。</p>
-      <ul>
-        <li><b>T-30</b>：主屏是宁静的夜幕山庄全景，几乎看不出异常。右下角有极细的红色 1px 线条。</li>
-        <li><b>T-15</b>：全景图出现裂隙，红色虹蚀从裂隙渗出。背景增加低频脉冲音效。</li>
-        <li><b>T-7</b>：画面 40% 被虹蚀覆盖，建筑变形扭曲。Glitch 文字："你的理智值正在下降"。</li>
-        <li><b>T-1</b>：全屏虹蚀，只剩中心一个白色按钮：「进入」。</li>
-      </ul>
-
-      <h4>技术规格</h4>
+      <h3>挑战赛设计</h3>
+      <div class="creative-card"><h5>#夜幕山庄变了 挑战赛</h5><p><b>机制</b>：官方提供抖音特效模板（虹蚀裂缝 + 环境变异），用户用模板拍摄「自己熟悉的地方也被虹蚀了」。</p><table><thead><tr><th>阶段</th><th>动作</th><th>预算</th></tr></thead><tbody><tr><td>种子期（W1）</td><td>官方 8 条标杆 + 5 个 KOL 带动</td><td>80-120 万</td></tr><tr><td>扩散期（W2-3）</td><td>流量加热 + 评论区互动运营</td><td>100-150 万</td></tr><tr><td>收割期（W4）</td><td>精选合集 + 预约入口曝光</td><td>30-50 万</td></tr></tbody></table><p><b>总预算</b>：210-320 万 | <b>KPI</b>：总播放 5 亿+，UGC 投稿 10 万+</p></div>
+      <h3>信息流广告投放策略</h3>
       <table>
-        <thead><tr><th>参数</th><th>规格</th></tr></thead>
+        <thead><tr><th>投放阶段</th><th>素材类型</th><th>定向人群</th><th>出价策略</th><th>日预算</th></tr></thead>
         <tbody>
-          <tr><td>主视觉区尺寸</td><td>1280×720 + 底部 80px 操作栏</td></tr>
-          <tr><td>动效帧率</td><td>30fps 循环（WebM/序列帧）</td></tr>
-          <tr><td>更新频率</td><td>每日 0:00 推送新阶段资源包（2-5MB/次）</td></tr>
-          <tr><td>低配回退</td><td>静态渐进图 + CSS 动画替代视频</td></tr>
+          <tr><td>测试期（W1-2）</td><td>5 组素材 AB 测试</td><td>射击游戏玩家 + 恐怖内容爱好者</td><td>oCPM 优化点击</td><td>2-5 万/天</td></tr>
+          <tr><td>放量期（W3-6）</td><td>胜出素材 + 新变体</td><td>扩展至游戏兴趣人群</td><td>oCPM 优化转化（预约）</td><td>8-15 万/天</td></tr>
+          <tr><td>冲刺期（最后 2 周）</td><td>直播切片 + 倒计时素材</td><td>全游戏人群 + 相似人群扩展</td><td>oCPM 优化转化</td><td>15-30 万/天</td></tr>
         </tbody>
       </table>
-
-      <h3>系统通知：伪异常推送</h3>
-      <p><b>核心策略：通知不像营销推送，而像系统报错。</b></p>
-      <ul>
-        <li>标题不写「CF 虹即将上线！」，而是写「[警告] 检测到异常数据流入 — 查看详情」</li>
-        <li>图标从 CF Logo 变为红色闪烁的警告三角</li>
-        <li>点击后跳转启动器内"事件日志"页面——终端风格逐行展示污染进度和情报碎片</li>
-        <li>每 3 天推送一次，共 10 次，构成完整的"异常报告"叙事线</li>
-      </ul>
-
-      <h3>好友状态污染：社交裂变层</h3>
-      <p><b>核心创意：预约了 CF 虹的玩家，其头像会被"虹蚀"。</b></p>
-      <ul>
-        <li>预约成功 → 好友列表中该玩家头像边缘出现红色脉动光环</li>
-        <li>鼠标悬停显示：「[已感染] 该特工已加入虹蚀特别行动」</li>
-        <li>好友列表 50% 以上被感染时，弹出：「你的战友都已就位，只剩你了」</li>
-        <li><b>零成本病毒裂变</b>——不需要玩家主动分享，他们的存在本身就是广告</li>
-      </ul>
-
-      <h3>进入游戏的仪式感</h3>
-      <p>当首测真正开启时，启动器的"进入"按钮不应该是简单的点击跳转。设计一个 3 秒的过渡动画：</p>
-      <ul>
-        <li>按钮点击后，全屏虹蚀像碎玻璃一样从中心向外碎裂</li>
-        <li>碎裂后露出干净的游戏加载画面</li>
-        <li>暗示"你打破了污染，进入了干净的世界" → 给予进入游戏的仪式感和成就感</li>
-      </ul>
     </div>
 
-    <!-- ========== PAGE 5: 三个核心转化创意 ========== -->
-    <div x-show="page === 5" class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
-      <h2 class="text-2xl font-bold text-white mb-6">三个核心转化创意</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：三个创意分别解决三个不同的转化难题——"打断注意力"、"制造紧迫感"、"激发从众心理"。它们共同构成一个闭环：吸引→养成→转化。</p>
-      </div>
-
-      <div class="creative-card">
-        <h5>创意一：「理智值倒计时」—— 启动器每日视觉递进</h5>
-        <table>
-          <tbody>
-            <tr><td style="width:100px"><b>核心概念</b></td><td>把 30 天倒计时变成一场"肉眼可见的灾难蔓延"——每天打开启动器画面都在恶化，制造"如果再不预约就来不及了"的紧迫感</td></tr>
-            <tr><td><b>执行时间线</b></td><td>T-45 设计定稿 → T-35 开发完成 → T-30 上线推送 → T-0 全屏爆发收束</td></tr>
-            <tr><td><b>预算区间</b></td><td>¥ 150,000 - 200,000（视觉资源 5 阶段 × 1280×720 + 动效制作 + 前端开发）</td></tr>
-            <tr><td><b>KPI</b></td><td>启动器日打开率提升 30%+；预约用户中"因好奇打开启动器而触发预约"占比 ≥ 40%</td></tr>
-            <tr><td><b>落地平台</b></td><td>CF 虹自研启动器</td></tr>
-            <tr><td><b>参考案例</b></td><td>《Fortnite》赛季末"黑洞事件"（全屏黑洞，游戏不可进入，引发全网讨论）；《堡垒之夜》Chapter 5 倒计时地图渐变</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="creative-card">
-        <h5>创意二：「好友感染裂变」—— 零成本社交预约引擎</h5>
-        <table>
-          <tbody>
-            <tr><td style="width:100px"><b>核心概念</b></td><td>预约的玩家在好友列表中被"虹蚀标记"，未预约玩家每天看到越来越多好友"感染"，FOMO 心理驱动自发预约</td></tr>
-            <tr><td><b>执行时间线</b></td><td>T-40 方案确认 → T-30 前端上线（与预约通道同步开放） → 持续运行至首测开服</td></tr>
-            <tr><td><b>预算区间</b></td><td>¥ 80,000 - 120,000（前端开发 + 好友状态接口对接 + 视觉资源）</td></tr>
-            <tr><td><b>KPI</b></td><td>裂变预约率（通过好友感染触发的新预约占总预约比例）≥ 25%；日均新增预约环比增长 15%+</td></tr>
-            <tr><td><b>落地平台</b></td><td>CF 虹自研启动器好友系统</td></tr>
-            <tr><td><b>参考案例</b></td><td>《瘟疫公司》的"传播地图"视觉设计；《Among Us》角色状态标记的社交心理机制</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="creative-card">
-        <h5>创意三：「异常档案商店页」—— WeGame 恐怖美学货架</h5>
-        <table>
-          <tbody>
-            <tr><td style="width:100px"><b>核心概念</b></td><td>将 WeGame 商店页设计为一份"泄露的机密档案"——用情绪递进截图 + 档案体文案 + 伪系统报错 CTA 构成沉浸式恐怖购物体验</td></tr>
-            <tr><td><b>执行时间线</b></td><td>T-45 设计 → T-35 与 WeGame 对接上线 → T-30 正式开放预约</td></tr>
-            <tr><td><b>预算区间</b></td><td>¥ 100,000 - 150,000（5张定制截图拍摄/渲染 + Hero Banner 含动效 + 文案策划 + WeGame 合作费）</td></tr>
-            <tr><td><b>KPI</b></td><td>商店页点击率（从列表到详情页）≥ 行业平均 2 倍；详情页预约转化率 ≥ 35%</td></tr>
-            <tr><td><b>落地平台</b></td><td>WeGame 商店</td></tr>
-            <tr><td><b>参考案例</b></td><td>《心灵杀手 2》Steam 商店页的"暗黑侦探档案"设计风格；《层层恐惧》的情绪递进截图排列</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- ========== PAGE 6: 视觉规范速查 ========== -->
-    <div x-show="page === 6" class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
-      <h2 class="text-2xl font-bold text-white mb-6">视觉规范速查</h2>
-
-      <h3>色彩系统</h3>
+    <div x-show="page === 5" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">微博 / 小红书 / 社区阵地运营方案</h2>
+      <div class="verdict"><p><b>核心判断</b>：微博做热度、小红书做美感、NGA/TapTap 做口碑。三个阵地联动，覆盖「热搜曝光 → 精致种草 → 深度讨论」全链路。</p></div>
+      <h3>微博运营策略</h3>
       <table>
-        <thead><tr><th>Token</th><th>用途</th><th>色值</th></tr></thead>
+        <thead><tr><th>内容类型</th><th>频率</th><th>目标</th><th>执行要点</th></tr></thead>
         <tbody>
-          <tr><td><b>Base Dark</b></td><td>启动器/商店页主背景</td><td>#0A0E14 (HSB 210/30/8)</td></tr>
-          <tr><td><b>Surface</b></td><td>卡片/面板/弹层</td><td>#12171F (HSB 212/25/12)</td></tr>
-          <tr><td><b>Text Primary</b></td><td>标题/关键信息</td><td>#E8EAED (纯白偏冷)</td></tr>
-          <tr><td><b>Text Secondary</b></td><td>正文/次要信息</td><td>#8B9199</td></tr>
-          <tr><td><b>虹蚀红 (Accent)</b></td><td>异常区域/CTA/警告</td><td>#FF1744 (使用时 opacity 10-60%，禁止大面积纯色)</td></tr>
-          <tr><td><b>虹蚀渐变</b></td><td>蔓延效果</td><td>linear-gradient(135deg, #FF1744 0%, #D50000 40%, transparent 100%)</td></tr>
-          <tr><td><b>安全蓝绿</b></td><td>正常状态/信任感</td><td>#0D47A1 → #1B5E20 (低饱和度，仅在"未污染"区域出现)</td></tr>
+          <tr><td><b>话题博文</b></td><td>每日 1-2 条</td><td>维持话题活跃度</td><td>配合热点/节点，引导讨论（#穿越火线虹# #夜幕山庄变了#）</td></tr>
+          <tr><td><b>九宫格图文</b></td><td>每周 2-3 组</td><td>视觉传播</td><td>概念图、角色图、地图对比图——每组 9 张必须有叙事线</td></tr>
+          <tr><td><b>互动投票/问答</b></td><td>每周 1 次</td><td>用户参与感</td><td>「你最想回访哪张地图」「你觉得谁会先被虹蚀」</td></tr>
+          <tr><td><b>热搜冲榜</b></td><td>关键节点 3-5 次</td><td>破圈曝光</td><td>配合 PV 发布 / 直播事件 / 测试开启做热搜话题</td></tr>
         </tbody>
       </table>
-
-      <h3>字体规范</h3>
+      <p><b>微博预算</b>：话题运营 + KOL 转发 + 热搜资源，90 天合计 <b>120-200 万</b>。</p>
+      <h3>小红书运营策略</h3>
       <table>
-        <thead><tr><th>场景</th><th>字体</th><th>字号/字重</th></tr></thead>
+        <thead><tr><th>内容类型</th><th>频率</th><th>目标</th><th>执行要点</th></tr></thead>
         <tbody>
-          <tr><td>启动器大标题</td><td>思源黑体 CN Bold</td><td>36px / 700</td></tr>
-          <tr><td>档案体文案/代码风格</td><td>JetBrains Mono / Consolas</td><td>13px / 400</td></tr>
-          <tr><td>HUD 数据/倒计时</td><td>DIN Condensed / Barlow Condensed</td><td>14-18px / 600</td></tr>
-          <tr><td>正文描述</td><td>思源黑体 CN Regular</td><td>14px / 400</td></tr>
-          <tr><td>WeGame 商店页标题</td><td>思源黑体 CN Heavy</td><td>28-32px / 900</td></tr>
+          <tr><td><b>美术设定图文</b></td><td>每周 2-3 篇</td><td>收藏 + 种草</td><td>高清概念图 + 设计解读文案，突出视觉品质</td></tr>
+          <tr><td><b>游戏攻略笔记</b></td><td>测试期每日</td><td>搜索占位</td><td>「CF虹新手指南」「理智值机制详解」等 SEO 关键词布局</td></tr>
+          <tr><td><b>KOC 种草</b></td><td>每周 5-10 篇</td><td>真实口碑</td><td>找游戏/二次元/恐怖向博主做体验笔记，不做硬广</td></tr>
         </tbody>
       </table>
-
-      <h3>图形语言</h3>
-      <ul>
-        <li><b>裂隙纹理</b>：用 Voronoi 碎裂 + 红色发光边缘，模拟"现实被撕裂"</li>
-        <li><b>虹蚀蔓延</b>：从边缘向中心的渐进式渐变覆盖，使用 10%-60% opacity，禁止纯色大块</li>
-        <li><b>Glitch 文字</b>：位移 2-4px 的 RGB 色差分离 + 随机行偏移，触发频率不超过 3s 一次</li>
-        <li><b>异常报告框</b>：等宽字体 + 绿色终端光标 + 逐行打字动效 + 偶尔闪烁</li>
-      </ul>
-
-      <h3>设计红线</h3>
-      <div class="highlight">
-        <ul>
-          <li><b>禁止大面积纯红</b>——虹蚀红永远是"渗透"而非"覆盖"，最大面积不超过画面 30%</li>
-          <li><b>禁止传统营销体文案</b>——所有文字保持"内部档案/系统报告"调性，不说"快来预约"</li>
-          <li><b>禁止多余 UI 元素</b>——每个画面只有一个 CTA，减少决策成本</li>
-          <li><b>动效克制</b>——所有动画 duration ≤ 2s，easing 用 ease-out，不做弹跳/旋转</li>
-          <li><b>圆角 ≤ 6px</b>——保持硬朗军事感，拒绝圆润可爱</li>
-          <li><b>禁止暖色调</b>——除了虹蚀红以外，所有颜色保持冷色调（蓝灰/青灰/纯灰）</li>
-        </ul>
-      </div>
+      <p><b>小红书预算</b>：KOC 合作 + 薯条加热 + 搜索广告，90 天合计 <b>80-150 万</b>。</p>
+      <h3>NGA / TapTap 社区运营</h3>
+      <div class="highlight"><ul><li><b>NGA</b>：开设专区，安排社区经理每日回帖。主动发起机制讨论帖、平衡性征求意见帖——让硬核玩家觉得自己的意见被听到。</li><li><b>TapTap</b>：维护官方页面评分、及时回应差评、定期发布开发进展。目标：首测前维持评分 &gt;8.0（基于预期分）。</li><li><b>UGC 催化</b>：设置「最佳讨论奖」每周评选，奖励测试资格或周边数字权益，引导高质量内容产出。</li></ul></div>
     </div>
 
-    <!-- ========== PAGE 7: 执行时间线与预算 ========== -->
-    <div x-show="page === 7" class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
-      <h2 class="text-2xl font-bold text-white mb-6">执行时间线与预算</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：全套方案总预算约 <b>45 万元</b>，不到 A版预算的 6%。这不是"省钱版"，而是"精准版"——每一分钱都花在已锁定用户的最短转化路径上。</p>
-      </div>
-
-      <h3>四阶段执行排期</h3>
+    <div x-show="page === 6" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">直播阵地运营方案</h2>
+      <div class="verdict"><p><b>核心判断</b>：直播不是内容分发渠道，是<b>事件制造工厂</b>。每场直播必须产出至少 5 条可二次传播的切片，才有投入价值。否则直播只是一次性消耗。</p></div>
+      <h3>主播合作分层</h3>
       <table>
-        <thead><tr><th>阶段</th><th>时间</th><th>产出物</th><th>预算</th><th>负责方</th></tr></thead>
+        <thead><tr><th>层级</th><th>粉丝量级</th><th>合作模式</th><th>坑位费</th><th>核心价值</th></tr></thead>
         <tbody>
-          <tr><td><b>Phase 0：设计定稿</b></td><td>T-45 ~ T-35</td><td>WeGame 全套素材（Banner+5截图+缩略图）+ 启动器 4 阶段视觉稿 + 好友感染视觉资源</td><td>¥ 150,000</td><td>内部美术 / 外包供应商</td></tr>
-          <tr><td><b>Phase 1：WeGame 上架</b></td><td>T-35 ~ T-30</td><td>商店页上线，开启预约通道</td><td>¥ 50,000</td><td>WeGame 运营对接</td></tr>
-          <tr><td><b>Phase 2：启动器预热</b></td><td>T-30 ~ T-4</td><td>每日资源包推送 + 10 次异常通知 + 好友感染上线</td><td>¥ 200,000</td><td>前端开发 + 运营</td></tr>
-          <tr><td><b>Phase 3：倒计时爆发</b></td><td>T-3 ~ T-0</td><td>全屏虹蚀 + 最后通牒推送 + 预约冲刺 + 进入游戏碎裂动画</td><td>¥ 50,000</td><td>前端 + QA</td></tr>
+          <tr><td><b>S 级</b></td><td>500 万+</td><td>独家首播 + 深度体验（2-3 小时）</td><td>50-120 万/场</td><td>定义行业口碑、热搜话题</td></tr>
+          <tr><td><b>A 级</b></td><td>100-500 万</td><td>多人联机局（4 人组队）</td><td>15-40 万/场</td><td>产出大量名场面切片</td></tr>
+          <tr><td><b>B 级</b></td><td>30-100 万</td><td>常规试玩 + 评价</td><td>3-10 万/场</td><td>覆盖细分品类用户</td></tr>
+          <tr><td><b>C 级（长尾）</b></td><td>5-30 万</td><td>测试资格激励自发直播</td><td>0-2 万（资格+流量扶持）</td><td>填充日常内容量</td></tr>
         </tbody>
       </table>
+      <h3>首测直播事件设计</h3>
+      <div class="creative-card"><h5>「谁被虹蚀了」— 直播事件夜</h5><p>邀请 8 组主播（每组 4 人）进入同一张图，系统随机给一名玩家更高虹蚀风险。观众弹幕竞猜谁最先崩溃，猜中抽测试资格。</p><table><thead><tr><th>时间线</th><th>动作</th></tr></thead><tbody><tr><td>T-21</td><td>B站/微博官宣直播夜 + 主播阵容悬念</td></tr><tr><td>T-14</td><td>公布 32 人主播名单 + 开放弹幕竞猜预注册</td></tr><tr><td>T-7</td><td>直播夜正式执行（B站主会场 + 抖音分会场）</td></tr><tr><td>T-6 至 T-0</td><td>连续 7 天发布精选切片 + 每日抽取测试资格</td></tr></tbody></table><p><b>预算</b>：300-480 万（含主播坑位、技术包装、资格系统）| <b>KPI</b>：峰值在线 80 万+，资格申请增长 30 万+</p></div>
+      <h3>直播间预约转化设计</h3>
+      <div class="highlight"><ul><li><b>直播间组件</b>：B站直播间置顶预约卡片，抖音直播间小风车跳转 H5。</li><li><b>实时激励</b>：观看满 10 分钟解锁抽奖资格，弹幕互动增加中签概率。</li><li><b>切片二次分发</b>：直播结束后 2 小时内完成 10 条切片剪辑，投放抖音/微博/B站动态，长尾转化 72 小时。</li></ul></div>
+    </div>
 
-      <h3>预算对比</h3>
+    <div x-show="page === 7" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 03</div>
+      <h2 class="text-2xl font-bold mb-6">移动端 H5 + 小程序（社交裂变）</h2>
+      <div class="verdict"><p><b>核心判断</b>：微信/QQ 生态是裂变发动机。用户不是来消费内容的，是来「帮朋友/被朋友拉」的。这里的设计目标不是停留时长，而是<b>分享率和邀请转化率</b>。</p></div>
+      <h3>小程序功能架构</h3>
       <table>
-        <thead><tr><th>方案</th><th>总预算</th><th>核心渠道</th><th>ROI 逻辑</th></tr></thead>
+        <thead><tr><th>模块</th><th>功能</th><th>裂变机制</th><th>KPI</th></tr></thead>
         <tbody>
-          <tr><td>A版（战略全景）</td><td>810-1200 万</td><td>全渠道</td><td>用高预算建品牌，证明项目值得投入</td></tr>
-          <tr><td>B版（首测执行）</td><td>460-790 万</td><td>B站/社区/直播</td><td>用实机内容建立信任，稳扎稳打</td></tr>
-          <tr><td><b>D版（平台&启动器）</b></td><td><b>~45 万</b></td><td><b>WeGame + 启动器</b></td><td><b>零边际曝光成本，极致路径转化</b></td></tr>
+          <tr><td><b>预约中心</b></td><td>一键预约 + 查看排队进度</td><td>邀请好友可提升优先级</td><td>预约转化率 &gt;70%</td></tr>
+          <tr><td><b>资格邀请</b></td><td>生成专属邀请码/海报</td><td>每邀 3 人升 1 级优先权（上限 5 级）</td><td>人均邀请 &gt;2.5 人</td></tr>
+          <tr><td><b>虹蚀档案</b></td><td>每日解锁一张监控异常截图</td><td>分享到朋友圈/群可加速解锁</td><td>日均回访率 &gt;40%</td></tr>
+          <tr><td><b>组队预约</b></td><td>拉满 4 人组队预约获额外奖励</td><td>组队成功全员提升优先级</td><td>组队完成率 &gt;50%</td></tr>
         </tbody>
       </table>
-
-      <div class="highlight">
-        <p><b>预算效率说明</b>：D版总预算 45 万，假设覆盖 WeGame 商店页浏览用户 500 万+启动器推送到达 2000 万装机用户，有效 CPM 低于 ¥0.2——<b>这是任何外部买量渠道都不可能达到的效率</b>。</p>
-      </div>
-
-      <h3>关键里程碑</h3>
-      <ul>
-        <li><b>T-45</b>：设计 Kick-off，确认视觉方向和污染分级标准</li>
-        <li><b>T-35</b>：第一轮视觉稿内审通过</li>
-        <li><b>T-30</b>：WeGame 商店页正式上线 + 启动器 Phase 0 推送</li>
-        <li><b>T-15</b>：中期数据回收，优化通知推送文案和频率</li>
-        <li><b>T-7</b>：进入高强度推送阶段，好友感染达到临界规模</li>
-        <li><b>T-0</b>：首测开服，启动器碎裂动画上线，完成闭环</li>
-      </ul>
+      <h3>朋友圈广告投放</h3>
+      <table>
+        <thead><tr><th>素材类型</th><th>定向</th><th>落地页</th><th>日预算</th><th>优化目标</th></tr></thead>
+        <tbody>
+          <tr><td>视频卡片（15 秒虹蚀预告）</td><td>游戏兴趣标签 + CF 历史玩家</td><td>小程序预约页</td><td>5-10 万/天</td><td>预约完成</td></tr>
+          <tr><td>图文卡片（Key Art + 一句话）</td><td>18-35 岁男性 + 射击/恐怖兴趣</td><td>H5 互动页</td><td>3-8 万/天</td><td>H5 参与</td></tr>
+          <tr><td>互动式广告（虹蚀特效试玩）</td><td>广泛覆盖 + oCPM 优化</td><td>小程序邀请页</td><td>8-15 万/天</td><td>邀请分享</td></tr>
+        </tbody>
+      </table>
+      <h3>裂变防薅机制</h3>
+      <div class="highlight"><ul><li><b>设备指纹 + 手机号去重</b>：每个用户只能被邀请一次计入有效邀请。</li><li><b>质量分过滤</b>：被邀请用户必须完成预约动作才算有效（非仅点击链接）。</li><li><b>频率限制</b>：同一用户 24 小时内最多分享 10 次（避免机器人刷量）。</li><li><b>异常监控</b>：实时监控邀请链路，发现批量异常 IP/设备立即冻结。</li></ul></div>
+      <h3>社交裂变预估模型</h3>
+      <div class="creative-card"><h5>保守估算（K 因子 = 1.8）</h5><p>假设种子用户 50 万（从官网/B站/抖音导入），每人平均邀请 1.8 人有效预约：</p><ul><li>第 1 轮：50 万 × 1.8 = 90 万新增</li><li>第 2 轮：90 万 × 30%活跃 × 1.8 = 48.6 万新增</li><li>第 3 轮递减……</li><li><b>预计总裂变新增：150-200 万预约</b>（21 天周期内）</li></ul></div>
     </div>
 
-    <!-- ========== PAGE 8: 风险预警与应对 ========== -->
-    <div x-show="page === 8" class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
-      <h2 class="text-2xl font-bold text-white mb-6">风险预警与应对</h2>
-
-      <div class="risk-card">
-        <h5>风险一：触达天花板低（高风险）</h5>
-        <p>D版仅依赖 WeGame 和启动器两个渠道，无法覆盖不使用这两个平台的潜在用户（如纯 Steam 玩家、移动端用户）。如果目标首测预约量很大，可能仅靠这两个渠道不够。</p>
-        <div class="mitigation">
-          <p><b>应对策略</b>：</p>
-          <ul>
-            <li>将 D 版视为"基本盘保障"，而非唯一手段——先用 D 版锁定自有流量池，再决定是否追加 B 版的站外内容扩散</li>
-            <li>设置 T-15 的数据检查点：如果预约增速低于目标 50%，启动 B 版的 B站/社区内容矩阵作为补充</li>
-            <li>好友感染机制本身可以突破启动器边界——被感染的好友在微信/QQ 也能看到预约提醒</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <h5>风险二：用户对"伪异常"反感（中风险）</h5>
-        <p>系统级推送使用"伪报错"文案，部分用户可能真的以为系统出了问题而产生焦虑或反感。尤其是对 UI 不太敏感的年龄偏大用户。</p>
-        <div class="mitigation">
-          <p><b>应对策略</b>：</p>
-          <ul>
-            <li>所有伪异常通知在点开后 1 秒内必须明确展示 CF 虹 Logo 和"这是游戏预热活动"的说明文字</li>
-            <li>通知文案保持"警告"调性但不模仿真实系统错误格式（不使用系统字体/系统图标）</li>
-            <li>提供"不再显示此类通知"的关闭入口，避免骚扰不感兴趣的用户</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <h5>风险三：每日更新资源包的技术稳定性（中风险）</h5>
-        <p>启动器主屏每日推送新视觉资源（2-5MB），如果 CDN 出问题或玩家网络较差，可能导致白屏或加载失败。</p>
-        <div class="mitigation">
-          <p><b>应对策略</b>：</p>
-          <ul>
-            <li>所有阶段资源在 T-30 时一次性全量下发到本地缓存，每日只推一个"解锁信号"（<1KB）</li>
-            <li>设计完整的降级方案：动效→静态图→纯色背景+文字，确保任何情况下功能不受影响</li>
-            <li>资源预加载完成率低于 95% 时，自动回退为静态方案</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="risk-card">
-        <h5>风险四：好友感染机制引发隐私担忧（低风险）</h5>
-        <p>部分玩家可能不希望自己的预约行为被好友看到，认为这是"暴露隐私"。</p>
-        <div class="mitigation">
-          <p><b>应对策略</b>：</p>
-          <ul>
-            <li>预约时明确告知"你的好友将看到你已加入行动"，并提供"隐身预约"选项</li>
-            <li>好友感染的显示仅限于 CF 虹启动器内，不扩散到其他社交平台</li>
-          </ul>
-        </div>
-      </div>
+    <div x-show="page === 8" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">全阵地 KPI 仪表盘与数据埋点建议</h2>
+      <div class="verdict"><p><b>核心判断</b>：没有数据追踪的运营就是盲投。每个阵地必须有明确的北极星指标、过程指标和健康度指标，且全部可通过数据埋点实时监控。</p></div>
+      <h3>全阵地 KPI 总览</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>北极星指标</th><th>过程指标</th><th>健康度指标</th></tr></thead>
+        <tbody>
+          <tr><td><b>官网/H5</b></td><td>预约完成数</td><td>UV、停留时长、各步转化率</td><td>跳出率 &lt;40%、加载 &lt;3 秒</td></tr>
+          <tr><td><b>B站</b></td><td>评论区正向讨论占比</td><td>播放量、完播率、三连率</td><td>负面评论占比 &lt;15%</td></tr>
+          <tr><td><b>抖音</b></td><td>预约跳转点击</td><td>播放量、完播率、互动率</td><td>ROI &gt;1:3（信息流）</td></tr>
+          <tr><td><b>微博</b></td><td>话题阅读量</td><td>互动量、转发量、热搜排名</td><td>话题正向情感占比 &gt;70%</td></tr>
+          <tr><td><b>小红书</b></td><td>搜索排名</td><td>笔记曝光、收藏、评论</td><td>互动率 &gt;5%</td></tr>
+          <tr><td><b>直播</b></td><td>直播期间预约增长</td><td>峰值在线、弹幕量、礼物</td><td>切片产出数 &gt;10 条/场</td></tr>
+          <tr><td><b>小程序/H5 裂变</b></td><td>裂变新增预约数</td><td>分享率、邀请完成率、K 因子</td><td>作弊率 &lt;5%</td></tr>
+        </tbody>
+      </table>
+      <h3>数据埋点规范</h3>
+      <table>
+        <thead><tr><th>埋点类型</th><th>触发时机</th><th>必须上报字段</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><b>页面曝光</b></td><td>每屏/每页进入视口 50%</td><td>page_id, timestamp, source, device</td><td>流量来源分析</td></tr>
+          <tr><td><b>按钮点击</b></td><td>用户点击 CTA</td><td>btn_id, page_id, user_id</td><td>转化漏斗分析</td></tr>
+          <tr><td><b>视频播放</b></td><td>播放开始/25%/50%/75%/完成</td><td>video_id, progress, platform</td><td>完播率监控</td></tr>
+          <tr><td><b>分享事件</b></td><td>用户触发分享</td><td>share_target, content_id, user_id</td><td>裂变效率分析</td></tr>
+          <tr><td><b>预约完成</b></td><td>提交预约成功</td><td>user_id, source_channel, invite_code</td><td>归因分析</td></tr>
+        </tbody>
+      </table>
+      <h3>实时监控仪表盘建议</h3>
+      <div class="highlight"><ul><li><b>大屏看板</b>：总预约数（实时）、各渠道预约增量（按小时）、裂变 K 因子（按天）、信息流 ROI（按天）。</li><li><b>异常告警</b>：预约转化率突降 &gt;20% 告警、负面舆情突增告警、裂变异常 IP 告警、直播间技术故障告警。</li><li><b>日报/周报模板</b>：各阵地北极星指标达成率 + 本周 Top 3 内容 + 下周优化建议，每周一上午 10:00 自动推送。</li></ul></div>
     </div>
 
-    <!-- ========== PAGE 9: 顾问终审意见 ========== -->
-    <div x-show="page === 9" class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
-      <h2 class="text-2xl font-bold text-white mb-6">顾问终审意见</h2>
-
-      <div class="verdict">
-        <p><b>终审判断：GO</b></p>
-        <p>D 版方案在"上线前仅 WeGame + 启动器"这个约束条件下，给出了一套高完成度、高 ROI、低风险的解决方案。核心亮点在于：把"渠道限制"重新定义为"精准优势"，并通过渐进式视觉变化制造了传统静态商店页无法提供的时间维度叙事。</p>
-      </div>
-
-      <h3>方案优势总结</h3>
-      <ul>
-        <li><b>预算效率极高</b>：45 万总预算覆盖 2000万+ 装机用户，CPM 低于 ¥0.2</li>
-        <li><b>路径最短</b>：从曝光到预约只有 1-2 步，无外部跳转流失</li>
-        <li><b>自驱传播</b>：好友感染 + 每日变化截图分享，零成本突破启动器边界</li>
-        <li><b>与产品调性高度一致</b>：整套"污染蔓延"视觉叙事本身就是游戏体验的预演</li>
-        <li><b>可控风险</b>：所有风险都有明确的降级方案和检查点</li>
-      </ul>
-
+    <div x-show="page === 9" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">终审与预算分配建议</h2>
+      <div class="verdict"><h4 style="color:#fff;margin-top:0;">GO / NO-GO 判断：GO</h4><p>本方案是一份面向运营团队的平台阵地搭建与运营手册。它回答的核心问题是：各主要线上阵地怎么搭建、发什么内容、考核什么 KPI。全部预算为纯线上投入。</p></div>
+      <h3>90 天全阵地预算分配</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>内容制作</th><th>投放/合作</th><th>技术/工具</th><th>合计</th></tr></thead>
+        <tbody>
+          <tr><td><b>官网 + H5</b></td><td>30-50 万</td><td>—</td><td>40-80 万（开发+运维）</td><td><b>70-130 万</b></td></tr>
+          <tr><td><b>B站</b></td><td>60-100 万</td><td>150-300 万（UP主）</td><td>10-20 万</td><td><b>220-420 万</b></td></tr>
+          <tr><td><b>抖音 + 短视频</b></td><td>80-120 万</td><td>300-600 万（投放+KOL）</td><td>20-40 万（特效模板）</td><td><b>400-760 万</b></td></tr>
+          <tr><td><b>微博 + 小红书</b></td><td>40-60 万</td><td>120-200 万（热搜+KOC）</td><td>—</td><td><b>160-260 万</b></td></tr>
+          <tr><td><b>直播</b></td><td>30-50 万</td><td>200-400 万（主播坑位）</td><td>50-80 万（直播技术）</td><td><b>280-530 万</b></td></tr>
+          <tr><td><b>小程序 + 裂变 H5</b></td><td>—</td><td>100-200 万（朋友圈投放）</td><td>60-100 万（开发+防刷）</td><td><b>160-300 万</b></td></tr>
+          <tr><td colspan="4"><b>全阵地 90 天总预算</b></td><td><b>1290-2400 万</b></td></tr>
+        </tbody>
+      </table>
+      <h3>预算分配原则</h3>
+      <div class="highlight"><ul><li><b>前重后轻</b>：证据期（T-90 至 T-60）花 30% 预算建信任，抢号期（T-30 至 T-0）花 50% 预算做转化，中间情绪期花 20% 做扩散。</li><li><b>效果优先</b>：所有投放类预算（信息流/KOL/朋友圈）必须可追踪 ROI，每周复盘调整。ROI &lt;1:2 的渠道立即停投。</li><li><b>应急储备</b>：预留总预算 10% 作为应急资金（舆情公关/突发加热/技术修复）。</li></ul></div>
       <h3>三个尖锐问题</h3>
-      <div class="highlight">
-        <p><b>1. 好友感染的"临界规模"能达到吗？</b><br>好友感染机制的威力取决于初始种子用户数量。如果首批预约量不够（比如前 7 天只有 5 万），好友列表里"被感染"的比例太低，FOMO 效应不会被触发。<b>建议</b>：配合 T-30 上架时的一波站内精准推送（WeGame 首页 Banner 位），确保首周预约量突破 20 万。</p>
-        <p><b>2. WeGame 商店页的"异常感"会不会被平台审核砍掉？</b><br>WeGame 有自己的商店页规范，过于另类的设计（如 Glitch 文字、伪报错）可能被审核认为"不符合规范"。<b>建议</b>：提前与 WeGame 运营团队沟通，争取"创新商店页"的特批审核通道，必要时准备一版"合规但克制"的备选方案。</p>
-        <p><b>3. "仅 WeGame + 启动器"的策略是否需要一个 Plan B 触发点？</b><br>如果 T-15 时预约数据大幅低于目标，是继续坚持封闭渠道还是启动 B 版站外扩散？<b>建议</b>：在方案执行前，与管理层确认"如果 T-15 预约量低于 X 万，则启动 B 版补充计划"的决策机制，避免到时候临时拍脑袋。</p>
-      </div>
-
+      <div class="highlight"><h4>问题一：团队人力是否支撑 6 个阵地同时运营？</h4><p>建议最少配置：B站专人 ×2、抖音专人 ×2、微博/小红书 ×1、直播 ×1、H5/小程序 ×1、数据分析 ×1。如果人力不足，优先保 B站 + 抖音 + H5 三条线。</p></div>
+      <div class="highlight"><h4>问题二：各阵地素材是否能复用？</h4><p>答案是<b>不能简单复用</b>。B站需要横屏长视频、抖音需要竖屏短切片、小红书需要精致图文、H5 需要交互动效。必须在源素材阶段就规划多画幅/多格式输出，而非后期裁切。</p></div>
+      <div class="highlight"><h4>问题三：如何避免各阵地运营「各自为战」？</h4><p>每周一次跨阵地同步会（30 分钟）：对齐本周物料排期、共享数据发现、协调跨平台联动节点。设置统一内容日历工具（推荐 Notion/飞书多维表格），所有阵地运营同步更新。</p></div>
       <h3>第一优先行动清单</h3>
       <table>
-        <thead><tr><th>周次</th><th>行动</th><th>负责人</th></tr></thead>
+        <thead><tr><th>周期</th><th>动作</th><th>交付物</th><th>负责方</th></tr></thead>
         <tbody>
-          <tr><td><b>本周</b></td><td>确认启动器技术方案可行性（动态资源推送 + 好友状态接口），输出技术 POC</td><td>前端 Tech Lead</td></tr>
-          <tr><td><b>本周</b></td><td>与 WeGame 运营对接"创新商店页"审核规则，确认哪些元素可以做、哪些需要变通</td><td>发行运营</td></tr>
-          <tr><td><b>下周</b></td><td>输出 4 阶段视觉 Sketch（线框级），内部评审确认情绪递进节奏和污染分级标准</td><td>视觉设计</td></tr>
-          <tr><td><b>第三周</b></td><td>完成首阶段高保真视觉稿（Phase 0 + Phase 3 两端），进入开发阶段</td><td>视觉设计 + 前端</td></tr>
-          <tr><td><b>第四周</b></td><td>启动器 MVP 可交互原型完成，内部体验测试</td><td>前端 + QA</td></tr>
+          <tr><td>本周</td><td>完成官网 + H5 预约页上线</td><td>官网上线、埋点就位、预约通路测试</td><td>产品 + 前端</td></tr>
+          <tr><td>本周</td><td>B站官方号装修 + 首批内容排期</td><td>账号上线、4 周内容排期表</td><td>内容 + 运营</td></tr>
+          <tr><td>两周内</td><td>抖音号开通 + 首批种子内容上线</td><td>账号装修、5 条种子视频、信息流测试计划</td><td>短视频 + 投放</td></tr>
+          <tr><td>一个月内</td><td>小程序开发 + 裂变机制上线</td><td>小程序上线、朋友圈投放测试</td><td>技术 + 运营</td></tr>
+          <tr><td>首测前三周</td><td>锁定直播事件主播名单 + 彩排</td><td>主播合同、技术方案、切片模板</td><td>市场 + 直播</td></tr>
         </tbody>
       </table>
-
-      <div class="verdict">
-        <p><b>最终建议</b>：D 版作为上线前的"基本盘保障方案"执行。同时预留 B 版作为 Plan B——如果 T-15 数据不及预期，B 版的社区实机内容可以在 1 周内启动。两套方案不冲突，D 版做好了反而能让 B 版的站外内容有更好的"着陆页"可以承接。</p>
-      </div>
+      <div class="verdict"><p><b>最终建议</b>：本方案全阵地纯线上预算区间 <b>1290-2400 万</b>。建议首期先保障 P0 阵地（官网 + B站），验证内容模型后再扩展 P1/P2 阵地。数据驱动迭代，每周复盘调整预算分配，不追求一次性全铺开。</p></div>
     </div>
-
   </main>
 </div>
-
 </body>
 </html>
