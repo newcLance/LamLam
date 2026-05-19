@@ -52,12 +52,21 @@ def audit(slug, d):
     if missing_cards:
         issues.append(f"aesthetic 五维卡片缺: {missing_cards}")
 
-    # playerExp: 应有 biliVideos
+    # playerExp: 应有 media + community 各 4 子字段（memory/excitement/pain/churn） + biliVideos
     pe = d.get("playerExp") or {}
     if not pe:
         issues.append("playerExp 整个缺")
-    elif not pe.get("biliVideos"):
-        issues.append("playerExp.biliVideos 缺")
+    else:
+        for top in ("media", "community"):
+            sub = pe.get(top) or {}
+            if not sub:
+                issues.append(f"playerExp.{top} 整个缺")
+                continue
+            for field in ("memory", "excitement", "pain", "churn"):
+                if not sub.get(field) or len(sub.get(field) or []) == 0:
+                    issues.append(f"playerExp.{top}.{field} 缺/空")
+        if not pe.get("biliVideos"):
+            issues.append("playerExp.biliVideos 缺")
 
     # assets: 应有 official/inspiration
     assets = d.get("assets") or {}
