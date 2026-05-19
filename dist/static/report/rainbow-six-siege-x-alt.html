@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>彩虹六号：攻势 — 首测外围引流方案</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'surface-0': '#0c0c0c',
+        'surface-1': '#141414',
+        'surface-2': '#1c1c1c',
+        'surface-3': '#252525',
+        'bdr': 'rgba(255,255,255,0.06)'
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background:#0c0c0c; color:#e5e5e5; }
+  * { scrollbar-width: thin; scrollbar-color:#333 transparent; }
+  .page-content h2 { color:#fff; }
+  .page-content h3 { font-size:16px; font-weight:700; color:#fff; margin:28px 0 12px; }
+  .page-content h4 { font-size:14px; font-weight:600; color:#d4d4d4; margin:20px 0 8px; }
+  .page-content p { font-size:14px; line-height:1.8; color:#a3a3a3; margin:0 0 12px; }
+  .page-content ul { padding-left:20px; margin:0 0 16px; }
+  .page-content li { font-size:13px; line-height:1.7; color:#a3a3a3; margin-bottom:5px; }
+  .page-content li::marker { color:#525252; }
+  .page-content b, .page-content strong { color:#fff; font-weight:600; }
+  .highlight { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:16px; margin:16px 0; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; background:rgba(255,255,255,0.06); color:#737373; border:1px solid rgba(255,255,255,0.06); margin-right:4px; text-decoration:none; }
+  table { width:100%; border-collapse:collapse; margin:12px 0 20px; font-size:13px; }
+  th { text-align:left; padding:8px 12px; font-size:11px; font-weight:600; color:#737373; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  td { padding:9px 12px; color:#a3a3a3; border-bottom:1px solid rgba(255,255,255,0.04); vertical-align:top; }
+  .verdict { background:#141414; border-left:3px solid #fff; padding:16px 20px; margin:20px 0; border-radius:0 6px 6px 0; }
+  .verdict p { color:#d4d4d4; }
+  .creative-card { background:#141414; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; }
+  .creative-card h5 { font-size:15px; font-weight:700; color:#fff; margin:0 0 8px; }
+  .risk-card { background:#141414; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; border-left:3px solid #fff; }
+  .quote { color:#d4d4d4; font-size:18px; line-height:1.6; font-weight:700; letter-spacing:-0.02em; }
+  .muted { color:#737373 !important; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../rainbow-six-siege-x.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">《彩虹六号：攻势》— 首测外围引流方案<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-05-19</span></h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="rainbow-six-siege-x.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
+      <a href="rainbow-six-siege-x-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">首测引流</a>
+      <a href="rainbow-six-siege-x-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">主战场阵地</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="rainbow-six-siege-x-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">首测前传播环境</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">外围平台角色定位</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">传播钩子设计</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉语言外围适配</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">竞品外围声量对比</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">90 天物料排期</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个外围引流创意</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">外围物料视觉规范</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险与反制</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">终审与主战场配合</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">首测前 90 天传播环境</h2>
+      <div class="verdict"><p><b>核心判断</b>：《彩虹六号：攻势》国服首测定档 2026-06，先遣资格招募已于 2026-04-16 启动。<a href="https://r6.qq.com/" target="_blank" rel="noopener" class="tag">官网 r6.qq.com ↗</a> 国际服十年口碑沉淀让国服自带流量底座，但这股流量目前散落在 NGA / TapTap / B站 加速器讨论里——本报告的唯一目标是<b>把外围平台用户引到 r6.qq.com 完成预约填问卷</b>。</p></div>
+      <h3>用户从「围观」到「预约」的真实路径</h3>
+      <p>R6 国际服全球玩家已破 1 亿，Steam 月活峰值 13.9 万（2026-03），历史峰值 20.2 万（2024-05），围攻 X 大版本（2025-06）上线日峰值 14.2 万。<a href="https://steamdb.info/app/359550/charts/" target="_blank" rel="noopener" class="tag">SteamDB ↗</a> 国服开测话题在 NGA / TapTap / B站 长期高热——加速器玩国际服的玩家是天然种子用户。<a href="https://game-tracker-6v8.pages.dev/game/rainbow-six-siege-x" target="_blank" rel="noopener" class="tag">站内详情页 ↗</a></p>
+      <p><b>So what</b>：和那些「需要从 0 教育用户」的新 IP 不同，R6 国服外围引流的难点不是「让人知道」，而是「让人相信国服值得回归」。每一条外围内容必须明确回答两个问题——「这是不是我熟悉的彩六」「腾讯运营的国服会不会变味」。回答好了，r6.qq.com 预约才会真正发生。</p>
+      <h3>用户行为路径模型</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>用户心理</th><th>外围平台动作</th><th>r6.qq.com 承接动作</th></tr></thead>
+        <tbody>
+          <tr><td><b>围观（已发生）</b></td><td>「腾讯代理彩六？真的假的？」</td><td>3-29 育碧上海闭门体验流出物料、官宣 PV</td><td>预约页+问卷上线</td></tr>
+          <tr><td><b>验证（当前 T-90 至 T-30）</b></td><td>「干员是不是和国际服一样」「中文配音怎么样」</td><td>B站实机长视频、抖音名场面切片、配音预告</td><td>预约页更新干员/配音/福利</td></tr>
+          <tr><td><b>行动（T-30 至首测）</b></td><td>「我要拿到先遣资格」</td><td>全平台 CTA 导向 r6.qq.com 预约+填问卷</td><td>资格筛选名单+墨冰涂装10选3发放</td></tr>
+        </tbody>
+      </table>
+      <h3>当前外围平台基线声量分布</h3>
+      <table>
+        <thead><tr><th>平台</th><th>R6 国服当前内容量</th><th>用户互动特征</th><th>导向 r6.qq.com 的障碍</th></tr></thead>
+        <tbody>
+          <tr><td><b>B站</b></td><td>官方账号+加速器玩家二创视频持续更新</td><td>评论深度讨论干员/地图/赛事</td><td>视频描述未统一挂预约链接，多数仍指向国际服</td></tr>
+          <tr><td><b>抖音</b></td><td>「彩虹六号」相关短视频长期高活，国服切片散乱</td><td>名场面完播率高但无固定承接</td><td>缺少官方挑战赛话题统一收口</td></tr>
+          <tr><td><b>微博</b></td><td>官方蓝 V 已建，话题热度依赖物料事件</td><td>讨论集中在「先遣资格」「福利」</td><td>超话+话题页未做预约入口聚合</td></tr>
+          <tr><td><b>小红书</b></td><td>近乎空白——干员美术/穿搭联想未被开发</td><td>女性向射击玩家有零散表达</td><td>平台属性偏生活方式，需重新构造内容</td></tr>
+          <tr><td><b>X / 微信社群</b></td><td>X 主要承接国际服老玩家信息回流</td><td>微信社群（公会、加速器群、电竞群）讨论密度高</td><td>X 国服信息缺失，社群未被官方激活</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><p class="quote">外围平台不是终点，是引水渠。每一条内容的尽头，都必须是 r6.qq.com 的「预约」按钮。</p><p>国服首测的窗口期只有 90 天。如果一条短视频播放过百万却没有指向 r6.qq.com 的动作，它就只是一次品牌曝光，不是预约转化。</p></div>
+    </div>
+
+    <div x-show="page === 1" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">外围平台角色定位</h2>
+      <div class="verdict"><p><b>核心判断</b>：六个外围阵地各司其职——<b>B站</b>负责深度种草和教学补课、<b>抖音</b>负责名场面破圈、<b>微博</b>负责事件话题、<b>小红书</b>负责氛围渗透、<b>X</b>承接国际服老玩家信任回流、<b>微信社群+直播</b>负责高密度社交转化。所有内容统一指向 <b>r6.qq.com 预约+填问卷</b>。</p></div>
+      <h3>B站 = 深度种草 + 教学补课阵地</h3>
+      <p><b>平台特征</b>：长视频 + 高浓度游戏用户 + 弹幕文化。R6 在 B站 拥有十年沉淀，加速器玩家、教学 UP 主、赛事二创已经形成完整内容生态。</p>
+      <p><b>角色定位</b>：负责「证据型 + 教学型」内容——干员一击集锦、可破坏环境演示、中文配音首发听感、新人速成攻略。让硬核回归玩家在这里建立「国服能玩」的信任，让新玩家在这里完成入门。</p>
+      <p><b>导流设计</b>：视频简介首行 = r6.qq.com 预约链接；置顶评论 = 「先遣资格抢码入口」；视频末屏 3 秒 = 预约二维码全屏动画；UP 主合作内容附带专属追踪短链。</p>
+      <h3>抖音 = 名场面破圈引擎</h3>
+      <p><b>平台特征</b>：算法推荐 + 竖屏短视频 + 用户决策快。R6 的「干员一击」「破墙瞬间」「神级反杀」是天然的 15 秒内容富矿。</p>
+      <p><b>角色定位</b>：负责「情绪型」内容——干员一击集锦、破墙骚操作、中文配音名梗、墨冰涂装预约展示。把泛射击用户在 0.5 秒内抓住，引导到主页 r6.qq.com 链接。</p>
+      <p><b>导流设计</b>：抖音主页置顶组件跳转 r6.qq.com；每条视频评论区置顶预约链接；信息流广告直接「立即预约」深度转化目标。</p>
+      <h3>微博 = 事件话题放大器</h3>
+      <p><b>平台特征</b>：热搜驱动 + KOL 联动 + 事件传播效率高。腾讯系 IP 微博话题运营经验密集。</p>
+      <p><b>角色定位</b>：负责「事件型」内容——先遣资格倒计时、墨冰涂装 10 选 3 抽奖、企鹅大兵饰品晒单、闭门体验后的 KOL 集中发声。微博不做深度，做广度和速度。</p>
+      <p><b>导流设计</b>：超话顶部挂 r6.qq.com 入口；每条官博末尾固定「r6.qq.com 预约」短链；话题页置顶帖引导预约。</p>
+      <h3>小红书 = 氛围渗透 + 女性向破圈</h3>
+      <p><b>平台特征</b>：图文 + 短视频混合 + 女性用户占比高 + 搜索驱动。</p>
+      <p><b>角色定位</b>：负责「氛围型 + 设定型」内容——干员美术海报、墨冰武器涂装美图、企鹅大兵饰品穿搭联想、地图建筑欣赏。吸引对视觉敏感但未必是核心 FPS 玩家的泛用户。</p>
+      <p><b>导流设计</b>：笔记末尾统一文案「打开 r6.qq.com 即可预约+领涂装」；评论区置顶预约指引。</p>
+      <h3>X / 微信社群 / 直播 = 老玩家回流 + 高密度社交转化</h3>
+      <p><b>X 角色</b>：承接国际服老玩家的「国服动态」信息流——以英文 + 中文双语物料发布国服节奏，回应「国服会不会变味」的核心担忧，把国际服回归玩家拉回 r6.qq.com。</p>
+      <p><b>微信社群角色</b>：作为「最后一公里」——加速器群、彩六公会群、电竞群、KOL 粉丝群是预约转化最高效的私域。每个社群分发预约引导卡片+「邀请好友送固态硬盘」福利。<a href="https://r6.qq.com/" target="_blank" rel="noopener" class="tag">官网福利 ↗</a></p>
+      <p><b>直播角色</b>：B站 / 斗鱼 / 虎牙的 R6 主播是老玩家信任锚点——首测启动当晚集中开播 + 主播间预约二维码常驻 + 「带着主播一起申请先遣资格」话题。</p>
+      <table>
+        <thead><tr><th>平台</th><th>核心角色</th><th>内容类型</th><th>目标用户</th><th>导流方式</th></tr></thead>
+        <tbody>
+          <tr><td><b>B站</b></td><td>深度种草+教学</td><td>干员一击/破坏环境/教学</td><td>硬核+回归+新人</td><td>简介首行+末屏+置顶评论</td></tr>
+          <tr><td><b>抖音</b></td><td>名场面破圈</td><td>15-60秒切片/挑战</td><td>泛射击用户</td><td>主页组件+评论区+信息流</td></tr>
+          <tr><td><b>微博</b></td><td>事件话题</td><td>资格/福利/热搜</td><td>泛娱乐+腾讯系老用户</td><td>超话+官博末尾+话题页</td></tr>
+          <tr><td><b>小红书</b></td><td>氛围渗透</td><td>美术图文/设定/穿搭</td><td>视觉敏感+泛用户</td><td>笔记末尾+评论区</td></tr>
+          <tr><td><b>X</b></td><td>老玩家回流</td><td>双语物料/国服节奏</td><td>国际服回归玩家</td><td>双语链接+置顶推文</td></tr>
+          <tr><td><b>微信社群+直播</b></td><td>高密度社交转化</td><td>预约卡片/直播间二维码</td><td>已激活私域用户</td><td>社群分发+直播间常驻</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><p><b>铁律</b>：六个阵地内容形式不同，但终点必须相同——<b>r6.qq.com 预约+填问卷</b>。任何没有预约出口的内容发布都是资源浪费。</p></div>
+    </div>
+
+    <div x-show="page === 2" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold mb-6">传播钩子设计</h2>
+      <div class="verdict"><p><b>核心判断</b>：R6 在外围平台传播的双钩子——<b>视觉记忆点 = 「干员一击 + 可破坏环境」</b>，<b>社交破圈点 = 「中文配音预告」</b>。视觉钩子负责吸引硬核 FPS 用户，社交钩子负责破圈到泛娱乐用户。两条钩子在所有内容中并行，CTA 统一指向 r6.qq.com。</p></div>
+      <h3>为什么「干员一击 + 可破坏环境」是最强视觉钩子</h3>
+      <p>R6 的硬核 FPS 标签靠两件事建立——<b>干员独有技能瞬间扭转战局</b>、<b>可破坏环境带来的位置博弈</b>。围攻 X 大版本上线日 Steam 峰值 14.2 万 <a href="https://steamdb.info/app/359550/charts/" target="_blank" rel="noopener" class="tag">SteamDB ↗</a>，证明这两个核心机制在玩家心智中地位稳固。在抖音/B站 信息流中，「一发烟雷消磁烟干员」「一面墙被炸开新通道」是 0.3 秒内就能传递信息密度的内容形式。</p>
+      <p><b>So what</b>：所有外围视觉物料的首帧/封面必须是「干员一击瞬间」或「破墙瞬间」。文案可以变化，视觉锤不变。每个钩子画面后 2 秒内必须跟随 r6.qq.com 预约 CTA。</p>
+      <h3>为什么「中文配音预告」是最强社交破圈点</h3>
+      <p>玩家长期通过加速器玩国际服时，最大的体验断点是中文缺失——干员台词靠记忆、战术沟通靠快捷键。国服中文配音从「功能点」升级为「情怀点」：「Ash 用中文喊『准备爆破』是什么感觉」自带社交话题潜力。腾讯系类似 IP（守望先锋国服中文配音、CS2 国服中文电台）历史经验显示，配音首发可以在 24h 内拉起话题热度。</p>
+      <p><b>So what</b>：在 T-60 节点单独发布「中文配音首发预告」物料，并配套微博话题 #彩虹六号攻势中文配音# + 抖音「我用中文喊干员台词」挑战赛。社交破圈的尽头依然是 r6.qq.com 预约。</p>
+      <h3>双钩子在各平台的执行公式</h3>
+      <table>
+        <thead><tr><th>平台</th><th>视觉钩子（干员一击/破墙）执行</th><th>社交钩子（中文配音）执行</th><th>CTA</th></tr></thead>
+        <tbody>
+          <tr><td><b>B站</b></td><td>10 分钟「干员一击集锦」+「可破坏地图全解」</td><td>「中文配音 vs 国际服配音」对比长视频</td><td>r6.qq.com 预约</td></tr>
+          <tr><td><b>抖音</b></td><td>15 秒一击瞬间 / 破墙骚操作切片</td><td>「中文喊干员台词」挑战赛 UGC 模板</td><td>r6.qq.com 预约</td></tr>
+          <tr><td><b>微博</b></td><td>「本周最佳一击」票选话题</td><td>#彩虹六号攻势中文配音# 话题冲榜</td><td>r6.qq.com 预约</td></tr>
+          <tr><td><b>小红书</b></td><td>干员立绘+技能动态图文</td><td>「我心中的中文配音 CV」氛围推荐</td><td>r6.qq.com 预约</td></tr>
+          <tr><td><b>X</b></td><td>双语干员一击 GIF（面向国际服回归玩家）</td><td>双语「中文配音首发听感」短片</td><td>r6.qq.com 预约</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><ul><li><b>视觉锤</b>：干员一击 + 破墙瞬间 = R6 不可替代的硬核身份证明。</li><li><b>听觉锤</b>：中文配音 = 国服身份的情感证明。</li><li><b>行动锤</b>：每次双钩子出现后 2 秒内必须出现 r6.qq.com 预约 CTA。</li></ul></div>
+    </div>
+
+    <div x-show="page === 3" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
+      <h2 class="text-2xl font-bold mb-6">围攻 X 视觉语言在外围平台的适配</h2>
+      <div class="verdict"><p><b>核心判断</b>：围攻 X 大版本（2025-06）确立了「零圆角 / 战术极简 / 高对比信息层」的视觉语言体系。这套语言在外围平台的竖屏 / 信息流物料上需要重写——<b>保留 80% 战术信息感 + 20% 国服身份点缀</b>，避免直接搬运国际服 KV 导致的「水土不服」。</p></div>
+      <h3>为什么不能直接搬运国际服素材</h3>
+      <p>国际服围攻 X 视觉以「极简 + 横屏 + 英文标签」为核心，落到抖音竖屏信息流时，关键信息（干员名、技能图标、CTA）会被裁切或压缩到不可读。同时国际服素材缺少「腾讯运营 + 国服身份」的视觉锚点——用户看到一张纯英文 R6 海报会本能归类为「国际服内容」，跳过 r6.qq.com 预约动作。</p>
+      <p><b>So what</b>：外围物料必须从国际服资产中提取设计原语（零圆角、战术等宽字体、信息层高对比），但用国服信息架构重新排版（干员中文名、中文配音标签、墨冰涂装、企鹅大兵饰品）。</p>
+      <h3>各形态物料适配规则</h3>
+      <table>
+        <thead><tr><th>形态</th><th>规格</th><th>构图要求</th><th>国服身份点缀</th></tr></thead>
+        <tbody>
+          <tr><td><b>抖音/小红书竖屏</b></td><td>9:16（1080×1920）</td><td>顶部 1/4 = 干员立绘半身；中部 = 一击/破墙瞬间；底部 = CTA 安全区</td><td>底部「腾讯游戏出品 · r6.qq.com 预约」固定条</td></tr>
+          <tr><td><b>B站横屏视频封面</b></td><td>16:9（1920×1080）</td><td>左 2/3 战术场景 + 右 1/3 干员特写</td><td>右下角「先遣资格招募中」中文标签</td></tr>
+          <tr><td><b>信息流广告（微博/朋友圈）</b></td><td>1:1 / 3:4</td><td>中心干员一击姿态 + 四周战术 HUD 边框</td><td>底部 CTA 按钮「立即预约」直跳 r6.qq.com</td></tr>
+          <tr><td><b>X 双语物料</b></td><td>16:9 / 1:1</td><td>左侧英文 + 右侧中文双层信息</td><td>左下角双语「Tencent · r6.qq.com」</td></tr>
+          <tr><td><b>直播 OBS 边框</b></td><td>自适应</td><td>左下战术 HUD 风格主播信息条 + 右上预约二维码</td><td>底部信息条「先遣资格倒计时 / r6.qq.com」</td></tr>
+        </tbody>
+      </table>
+      <h3>禁忌与红线</h3>
+      <table>
+        <thead><tr><th>禁忌</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td>满屏干员合影 KV 直搬竖屏</td><td>关键干员被裁切，信息密度损失</td></tr>
+          <tr><td>纯英文 UI 截图作为外围物料</td><td>用户归类为「国际服内容」</td></tr>
+          <tr><td>过度强调血腥击杀</td><td>抖音/小红书审核风险高，且偏离「战术」标签</td></tr>
+          <tr><td>使用与赛事赞助商冲突的视觉色</td><td>影响后续电竞合作链路</td></tr>
+          <tr><td>用大圆角/手写字体破坏极简战术感</td><td>损害硬核 FPS 用户的品牌识别</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><p class="quote">外围平台的物料不是国际服素材的翻译，是国服身份的重写。</p><p>每一张图都要让用户在 0.5 秒内同时认出三件事：这是彩虹六号、这是国服、这里可以预约。</p></div>
+    </div>
+
+    <div x-show="page === 4" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
+      <h2 class="text-2xl font-bold mb-6">竞品在外围平台的声量对比</h2>
+      <div class="verdict"><p><b>核心判断</b>：在外围平台，R6 国服需要明确区分两类竞品——<b>同品类硬核 FPS</b>（CS2、瓦罗兰特国服化讨论）与 <b>同流量池战术射击</b>（三角洲行动、CF）。前者比「硬核厚度」，后者比「内容生态厚度」。R6 的差异化锚点是「干员独有技能 + 可破坏环境」——这是其它任何战术射击都给不了的体验。</p></div>
+      <h3>四大竞品在外围平台的策略拆解</h3>
+      <table>
+        <thead><tr><th>竞品</th><th>B站策略</th><th>抖音策略</th><th>微博/小红书</th><th>核心内容形式</th></tr></thead>
+        <tbody>
+          <tr><td><b>CS2</b></td><td>赛事高光 + 职业选手第一视角，赛事生态成熟<a href="https://www.counter-strike.net/" target="_blank" rel="noopener" class="tag">官方 ↗</a></td><td>1 秒爆头集锦模板</td><td>赛事话题驱动</td><td>赛事 + 职业选手 IP</td></tr>
+          <tr><td><b>三角洲行动</b></td><td>「撤离玩法」深度教学 + KOL 直播<a href="https://df.qq.com/" target="_blank" rel="noopener" class="tag">官方 ↗</a></td><td>「跑刀成功 / 失败」名场面切片</td><td>战利品晒单话题</td><td>撤离搜打 + 利益驱动</td></tr>
+          <tr><td><b>瓦罗兰特国服化讨论</b></td><td>国际服回流玩家讨论为主，无国服正式物料</td><td>角色技能切片二创</td><td>「会不会国服」常驻话题</td><td>等待 + 期待</td></tr>
+          <tr><td><b>CF（穿越火线）</b></td><td>新版本 + 名枪回归长视频</td><td>名枪手感 + 团队竞技切片</td><td>怀旧 + IP 老用户激活</td><td>怀旧 + 长青 IP</td></tr>
+        </tbody>
+      </table>
+      <h3>R6 国服的差异化攻击点</h3>
+      <p>四大竞品的共同弱点：<b>没有「干员独有技能 + 可破坏环境」这双重维度</b>。CS2 是经典战术但地图固定；三角洲行动有撤离玩法但没有干员体系；瓦罗兰特有干员但地图不可破坏；CF 是怀旧 IP 但战术深度不及 R6。R6 的传播差异点正在这个交集——<b>「拆墙打洞 + 一发烟雷反杀」是只有彩六能给的体验</b>。</p>
+      <table>
+        <thead><tr><th>攻击方向</th><th>竞品弱点</th><th>R6 国服证据</th><th>外围内容形式</th><th>终端 CTA</th></tr></thead>
+        <tbody>
+          <tr><td><b>vs CS2</b></td><td>地图固定，缺少环境改造</td><td>可破坏墙体 + 干员部署</td><td>B站：「同一防守点位 R6 vs CS2 战术对比」</td><td>r6.qq.com 预约</td></tr>
+          <tr><td><b>vs 三角洲行动</b></td><td>无干员独有技能体系</td><td>40+ 干员各自独有装备</td><td>抖音：「一个干员一种打法」15 秒系列</td><td>r6.qq.com 预约</td></tr>
+          <tr><td><b>vs 瓦罗兰特国服化讨论</b></td><td>悬而未决，玩家观望疲劳</td><td>R6 国服已定档 2026-06 首测，先遣资格招募中</td><td>微博：「国服来了」对照话题</td><td>r6.qq.com 预约</td></tr>
+          <tr><td><b>vs CF</b></td><td>战术深度有限</td><td>切角 / 听声辨位 / 干员协同三层博弈</td><td>B站：「30 秒解释 R6 为什么硬核」</td><td>r6.qq.com 预约</td></tr>
+        </tbody>
+      </table>
+      <h3>开拓者计划是 R6 在内容生态上的第二张牌</h3>
+      <p>1 亿元预算的「开拓者」计划（KOL 流量扶持 + 创作者训练 + 商业化通路）<a href="https://r6.qq.com/" target="_blank" rel="noopener" class="tag">官网 ↗</a>，本质是把竞品「自然生长」的内容生态<b>提前 90 天用资源催化出来</b>。在抖音/B站的内容供给侧，R6 国服首测前可以做到与三角洲行动同等密度的 KOL 覆盖。</p>
+      <div class="highlight"><ul><li><b>核心差异化传播语</b>：「别人的战术射击是地图记点位，R6 的战术射击是地图自己改墙。」</li><li><b>外围执行原则</b>：每条竞品对比内容只做差异化证据呈现，不贬低竞品。所有对比尾部统一指向「想亲自验证 → r6.qq.com 预约」。</li></ul></div>
+    </div>
+
+    <div x-show="page === 5" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
+      <h2 class="text-2xl font-bold mb-6">90 天物料排期表</h2>
+      <div class="verdict"><p><b>目标</b>：90 天分四段战役（先遣资格期 / 资格筛选期 / 测试启动期 / 测试反馈期），每段对应不同的内容密度与 CTA 强度。所有内容终点统一指向 <b>r6.qq.com 预约+填问卷</b>。</p></div>
+      <h3>四段战役总览（对应国服 2026 节奏）</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>时间</th><th>核心任务</th><th>B站</th><th>抖音</th><th>微博</th><th>小红书</th><th>X+社群</th></tr></thead>
+        <tbody>
+          <tr><td><b>先遣资格期</b></td><td>T-90→T-60（约 4-16 起）</td><td>建立信任 + 拉新预约</td><td>干员一击集锦/破坏环境全解</td><td>15 秒名场面 ×3/周</td><td>资格招募倒计时 + 福利官博</td><td>干员立绘 + 涂装美图</td><td>X 双语预告 + 加速器群分发</td></tr>
+          <tr><td><b>资格筛选期</b></td><td>T-60→T-30</td><td>话题升温 + 情感破圈</td><td>中文配音长视频/教学补课</td><td>中文配音挑战赛 UGC</td><td>#彩虹六号攻势中文配音# 冲榜</td><td>角色穿搭联想 + 企鹅饰品晒</td><td>X 配音 reaction + 公会群预热</td></tr>
+          <tr><td><b>测试启动期</b></td><td>T-30→T-0（首测前）</td><td>声量峰值 + 预约转化</td><td>主播首测 Day0 直播</td><td>每日切片不间断 + 信息流</td><td>热搜话题 + 名场面票选</td><td>预约教程图文 + 福利领取</td><td>X 国际服老玩家回归仪式 + 直播间二维码</td></tr>
+          <tr><td><b>测试反馈期</b></td><td>T0→T+30</td><td>口碑回收 + 二次预约</td><td>玩家实测 vlog + UP 主测评</td><td>「我打了首测」UGC 短视频</td><td>问卷反馈话题 + 改进官宣</td><td>测试日记图文</td><td>X 双语「玩家说」+ 社群下次测试预约</td></tr>
+        </tbody>
+      </table>
+      <h3>先遣资格期周节奏（T-90→T-60 示例）</h3>
+      <table>
+        <thead><tr><th>周</th><th>周一 B站</th><th>周三 抖音</th><th>周五 B站</th><th>周末 微博+小红书</th><th>X+社群</th></tr></thead>
+        <tbody>
+          <tr><td><b>W1</b></td><td>「30 秒解释 R6 为什么硬核」</td><td>干员一击切片 ×3</td><td>10 分钟可破坏地图全解</td><td>微博：先遣资格招募官宣 / 小红书：干员立绘合集</td><td>X 国服定档双语推文 + 加速器群预约卡片</td></tr>
+          <tr><td><b>W2</b></td><td>「老玩家国服回归攻略」</td><td>破墙骚操作切片 ×3</td><td>干员图鉴 #1（前 10 个）</td><td>微博：墨冰涂装 10 选 3 预热 / 小红书：涂装美图</td><td>X 干员图鉴双语 + 公会群分发</td></tr>
+          <tr><td><b>W3</b></td><td>「闭门体验后玩家说」（KOL 实录）</td><td>「中文配音预告」前导切片</td><td>干员图鉴 #2（中 10 个）</td><td>微博：闭门体验现场记录 / 小红书：干员穿搭联想</td><td>X 闭门体验 reaction + 直播主播群联动</td></tr>
+          <tr><td><b>W4</b></td><td>「中文配音首发」长视频</td><td>「我用中文喊台词」挑战赛上线</td><td>干员图鉴 #3（后 20 个）</td><td>微博：#彩虹六号攻势中文配音# 话题冲榜 / 小红书：配音 CV 联想</td><td>X 配音双语短片 + 全社群挑战赛海报分发</td></tr>
+        </tbody>
+      </table>
+      <h3>测试启动期周节奏（T-30→T-0 示例）</h3>
+      <table>
+        <thead><tr><th>周</th><th>B站</th><th>抖音</th><th>微博</th><th>小红书</th><th>X+社群+直播</th></tr></thead>
+        <tbody>
+          <tr><td><b>W9</b></td><td>主播 Day0 直播预告长视频</td><td>每日干员一击切片不间断</td><td>「邀请好友送固态硬盘」官博</td><td>预约教程图文 ×3</td><td>X 双语倒计时 + 直播主播群联动</td></tr>
+          <tr><td><b>W10</b></td><td>多 UP 主联合首测预热</td><td>信息流广告深度转化目标</td><td>悬念热搜 D-7</td><td>福利领取手把手图文</td><td>全直播间预约二维码常驻</td></tr>
+          <tr><td><b>W11</b></td><td>首测 Day0 主播实况</td><td>「我拿到先遣资格了」UGC</td><td>热搜话题 #我的彩六国服首测#</td><td>测试日记 vlog</td><td>X 国际服回归仪式 + 全社群「带朋友来」</td></tr>
+          <tr><td><b>W12</b></td><td>首测高光合集 + 玩家访谈</td><td>名场面票选合集</td><td>问卷反馈引导</td><td>测试体验图文回收</td><td>X 双语「玩家说」+ 社群下一波预约准备</td></tr>
+        </tbody>
+      </table>
+      <h3>所有内容的 CTA 规范</h3>
+      <div class="highlight"><ul><li><b>B站</b>：视频简介首行 = r6.qq.com 预约链接；视频末尾 3 秒 = 预约全屏动画；置顶评论 = 预约引导</li><li><b>抖音</b>：主页置顶组件跳转 r6.qq.com；每条视频评论区置顶预约链接；信息流广告以「立即预约」为深度转化目标</li><li><b>微博</b>：每条官博末尾固定「r6.qq.com 预约」短链；超话顶部横幅；话题页置顶帖</li><li><b>小红书</b>：笔记末尾统一「打开 r6.qq.com 预约+领涂装」；评论区置顶</li><li><b>X / 微信社群 / 直播</b>：双语 / 社群卡片 / 直播间二维码三种形式同步分发</li></ul></div>
+    </div>
+
+    <div x-show="page === 6" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
+      <h2 class="text-2xl font-bold mb-6">三个外围引流创意提案</h2>
+      <div class="verdict"><p><b>铁律</b>：三个创意的最终落点都是 r6.qq.com 预约+填问卷。创意是手段，预约数是唯一 KPI。</p></div>
+      <div class="creative-card">
+        <span class="tag">创意 01</span>
+        <h5>「中文配音首发挑战」— 抖音 + 微博联动 UGC 挑战赛</h5>
+        <p><b>核心概念</b>：T-60 节点放出 8 段干员中文配音首发片段（每段 5-10 秒）作为种子素材。开放抖音 UGC 模板「我用中文喊干员台词」，用户对口型/再演绎/二创混剪。微博同步话题 #彩虹六号攻势中文配音#。挑战赛页顶部固定 r6.qq.com 预约入口，参与抽奖需先完成预约。</p>
+        <table><thead><tr><th>模块</th><th>安排</th></tr></thead><tbody>
+          <tr><td>时间线</td><td>T-60 发布种子片段，T-58 开放 UGC 模板，T-45 公布最佳二创+r6.qq.com 预约抽奖</td></tr>
+          <tr><td>传播路径</td><td>抖音官方号 → 配音/游戏 KOL 带动 → UGC 裂变 → 挑战赛页 r6.qq.com 预约按钮</td></tr>
+          <tr><td>预算</td><td><b>180-300 万</b>（含配音物料制作、特效模板、KOL 坑位、流量加热、抽奖墨冰涂装奖池）</td></tr>
+          <tr><td>KPI</td><td>挑战赛总播放 <b>4 亿+</b>，UGC 投稿 <b>8 万+</b>，经挑战赛页引导的 r6.qq.com 预约 <b>15 万+</b></td></tr>
+          <tr><td>r6.qq.com 导流</td><td>挑战赛页顶部横幅 + 每条种子视频评论区 + 抽奖资格 = 必须完成预约+填问卷</td></tr>
+          <tr><td>参考案例</td><td>守望先锋国服中文配音首发话题（24h 内话题阅读破亿） / CS2 国服中文电台二创生态</td></tr>
+        </tbody></table>
+      </div>
+      <div class="creative-card">
+        <span class="tag">创意 02</span>
+        <h5>「干员一击集锦联动 KOL」— B站 + 直播深度内容矩阵</h5>
+        <p><b>核心概念</b>：依托「开拓者」计划 1 亿元预算 <a href="https://r6.qq.com/" target="_blank" rel="noopener" class="tag">官网 ↗</a>，签约 30 位 R6 头部 UP 主+主播，统一在 T-75→T-30 期间产出「我心中的最强一击」长视频系列。每位 UP 主选择 3 个干员，用 10 分钟长视频深度解析其独有技能 + 实战集锦。视频末屏统一接入 r6.qq.com 预约 30 秒动画。直播端配合「我带你拿先遣资格」专题直播。</p>
+        <table><thead><tr><th>模块</th><th>安排</th></tr></thead><tbody>
+          <tr><td>时间线</td><td>T-75 启动 KOL 签约+脚本对齐，T-60→T-30 持续产出（每周 3-5 条），T-30 直播专题集中爆发</td></tr>
+          <tr><td>传播路径</td><td>B站 KOL 视频 → 弹幕讨论扩散 → 直播间专题 → 视频/直播间统一指向 r6.qq.com 预约</td></tr>
+          <tr><td>预算</td><td><b>500-800 万</b>（含 KOL 签约费、视频制作补贴、B站推荐位采买、直播专题资源、追踪短链系统）</td></tr>
+          <tr><td>KPI</td><td>30 位 UP 主合计长视频播放 <b>5000 万+</b>，专题直播总场观 <b>1500 万+</b>，KOL 短链引导预约 <b>25 万+</b></td></tr>
+          <tr><td>r6.qq.com 导流</td><td>每位 UP 主获得专属追踪短链（utm 参数）；视频简介首行 + 末屏 30 秒动画 + 直播间二维码常驻</td></tr>
+          <tr><td>参考案例</td><td>三角洲行动开测前期 KOL 矩阵（B站头部 FPS 主播集中产出撤离玩法解析）</td></tr>
+        </tbody></table>
+      </div>
+      <div class="creative-card">
+        <span class="tag">创意 03</span>
+        <h5>「国际服回归玩家邀请仪式」— X + 微信社群 + B站三平台联动</h5>
+        <p><b>核心概念</b>：面向「长期通过加速器玩国际服」的存量老玩家，发起「回家仪式」——T-45 至首测期间，X 双语推文 + B站长视频 + 微信加速器/公会社群同步发布「老玩家国服回归礼包」。核心机制：老玩家凭国际服游戏内截图（含 ID/段位/总时长），通过 r6.qq.com 专属通道预约，获得专属的「老玩家回归徽章」+ 优先先遣资格审核 + 5x 补给包翻倍。利用「邀请好友送固态硬盘」福利 <a href="https://r6.qq.com/" target="_blank" rel="noopener" class="tag">官网 ↗</a> 让老玩家带新玩家，形成裂变。</p>
+        <table><thead><tr><th>模块</th><th>安排</th></tr></thead><tbody>
+          <tr><td>时间线</td><td>T-45 启动专属通道，T-30 老玩家代表仪式直播（B站+X 双平台），T-0 首测当日「老玩家集结日」</td></tr>
+          <tr><td>传播路径</td><td>X 双语推文 → 国际服老玩家圈层扩散 → 加速器/公会社群分发 → B站直播仪式 → 专属预约通道转化</td></tr>
+          <tr><td>预算</td><td><b>120-220 万</b>（含 X 双语物料、徽章/固态硬盘奖池、加速器渠道合作、仪式直播制作）</td></tr>
+          <tr><td>KPI</td><td>老玩家专属通道预约 <b>10 万+</b>，邀请裂变带来的二级预约 <b>8 万+</b>，仪式直播总场观 <b>500 万+</b></td></tr>
+          <tr><td>r6.qq.com 导流</td><td>X / 社群 / B站 三入口统一指向 r6.qq.com 老玩家专属页（独立 utm）；预约即生效徽章</td></tr>
+          <tr><td>参考案例</td><td>暴雪经典 IP 国服回归（《魔兽世界》怀旧服老玩家回归仪式机制） / Steam 国际服 IP 国服化常用打法</td></tr>
+        </tbody></table>
+      </div>
+      <div class="highlight"><p><b>三案总预算</b>：<b>800-1320 万</b>。三个创意分别覆盖：抖音 UGC 破圈（创意 01 · 中文配音）、B站深度种草（创意 02 · KOL 矩阵）、X+社群 老玩家回流（创意 03 · 回归仪式）。三条路径终点统一：<b>r6.qq.com 预约+填问卷</b>。</p></div>
+    </div>
+
+    <div x-show="page === 7" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
+      <h2 class="text-2xl font-bold mb-6">外围物料视觉规范</h2>
+      <div class="verdict"><p><b>核心判断</b>：外围物料必须满足两个标准——视觉上一眼识别「这是彩虹六号 · 国服」，行动上每张图/每条视频都植入 r6.qq.com 预约二维码或链接。视觉规范和导流规范同等重要。</p></div>
+      <h3>主视觉公式</h3>
+      <div class="highlight"><p class="quote">一个干员一击姿态 + 一处可破坏环境痕迹 + 一个 r6.qq.com 预约入口。</p><p>该公式适用于所有外围平台物料。如果一张图没有 r6.qq.com 预约入口，它就不是「引流物料」，只是「品牌展示」。</p></div>
+      <h3>各渠道物料规范</h3>
+      <table>
+        <thead><tr><th>渠道/物料</th><th>尺寸</th><th>构图要求</th><th>r6.qq.com 预约植入位置</th></tr></thead>
+        <tbody>
+          <tr><td><b>社交图（微博/朋友圈）</b></td><td>1080×1080 / 1080×1350</td><td>中心干员特写 + 一击姿态 + 战术 HUD 边框</td><td>右下角 r6.qq.com 预约二维码（80×80px）+「先遣资格招募」标签</td></tr>
+          <tr><td><b>B站视频封面</b></td><td>1920×1080</td><td>左 2/3 战术对局场景 + 右 1/3 干员特写</td><td>右下角「r6.qq.com 预约中」白底标签</td></tr>
+          <tr><td><b>抖音竖屏封面</b></td><td>1080×1920</td><td>顶部 1/4 干员立绘 + 中部一击瞬间 + 底部 CTA</td><td>底部安全区「r6.qq.com 预约」固定文字条</td></tr>
+          <tr><td><b>信息流广告</b></td><td>1080×1080 / 720×1280</td><td>干员一击姿态 + 战术 HUD 边框</td><td>底部 CTA 按钮「立即预约」直跳 r6.qq.com</td></tr>
+          <tr><td><b>小红书图文封面</b></td><td>1080×1440（3:4）</td><td>干员立绘+涂装美图，氛围感优先</td><td>左下角 r6.qq.com Logo 水印 + 末尾笔记 CTA</td></tr>
+          <tr><td><b>X 双语物料</b></td><td>16:9 / 1:1</td><td>左侧英文+右侧中文双层信息</td><td>左下角双语「Tencent · r6.qq.com」</td></tr>
+          <tr><td><b>直播间 OBS 边框</b></td><td>自适应</td><td>战术 HUD 风格信息条 + 主播个人 logo</td><td>底部信息条右侧「r6.qq.com 预约」+ 二维码常驻</td></tr>
+        </tbody>
+      </table>
+      <h3>r6.qq.com 预约入口设计规范</h3>
+      <table>
+        <thead><tr><th>入口形式</th><th>使用场景</th><th>设计要求</th></tr></thead>
+        <tbody>
+          <tr><td><b>二维码</b></td><td>静态图片（社交图/海报/直播框）</td><td>白底黑码，80×80px 起，右下角加「r6.qq.com」文字标签</td></tr>
+          <tr><td><b>文字短链</b></td><td>视频简介/评论区/笔记末尾</td><td>统一格式：「先遣资格招募中：r6.qq.com（预约+填问卷）」</td></tr>
+          <tr><td><b>CTA 按钮</b></td><td>信息流广告/H5 落地页</td><td>深色底+白色文字「立即预约」，点击跳转 r6.qq.com 商品落地页</td></tr>
+          <tr><td><b>视频末屏</b></td><td>B站/抖音视频最后 3 秒</td><td>全屏动画：干员剪影→预约二维码→r6.qq.com Logo</td></tr>
+          <tr><td><b>置顶评论</b></td><td>B站/抖音/微博/小红书</td><td>统一文案：「先遣资格招募中 → r6.qq.com 预约+填问卷」</td></tr>
+          <tr><td><b>福利钩子</b></td><td>所有平台</td><td>明确写出「墨冰涂装 10 选 3 + 企鹅大兵饰品 + 5x 补给包」福利清单</td></tr>
+        </tbody>
+      </table>
+      <h3>色彩与字体规范</h3>
+      <table>
+        <thead><tr><th>元素</th><th>规范</th><th>禁忌</th></tr></thead>
+        <tbody>
+          <tr><td><b>主色调</b></td><td>战术深灰（#1a1a1a 附近）+ 墨冰高光蓝白</td><td>过度饱和的霓虹色 / 满屏红</td></tr>
+          <tr><td><b>点缀色</b></td><td>墨冰涂装的冷蓝白渐变（仅用于焦点元素）</td><td>大面积铺满做背景色</td></tr>
+          <tr><td><b>字体</b></td><td>标题：等宽战术体；正文：现代无衬线；CTA：白色加粗</td><td>圆体/手写体/过度装饰</td></tr>
+          <tr><td><b>Logo</b></td><td>R6 攻势中文 Logo + 腾讯游戏出品标识同时存在</td><td>缺一不可，单独使用国际服 Logo 视为违规</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><p><b>视觉规范执行红线</b>：</p><ul><li>每张物料必须包含「彩虹六号：攻势 · 国服」明确身份标识</li><li>每张物料必须包含 r6.qq.com 预约入口（二维码/文字链/CTA 按钮之一）</li><li>每张物料必须包含「先遣资格 / 墨冰涂装 / 企鹅大兵」福利钩子之一</li><li>禁止直接搬运纯英文国际服 KV 作为外围物料</li></ul></div>
+    </div>
+
+    <div x-show="page === 8" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
+      <h2 class="text-2xl font-bold mb-6">风险与反制</h2>
+      <div class="verdict"><p><b>核心判断</b>：外围引流的最大风险不是「没声量」，而是「热度高但 r6.qq.com 转化率低」「老玩家不信任」「与三角洲行动 KOL 池重叠」。所有反制策略的核心是确保外围流量准确到达 r6.qq.com 预约页。</p></div>
+      <div class="risk-card"><span class="tag">高风险</span><h5>风险 1：外围热度高但 r6.qq.com 预约转化率低</h5><p>抖音播放过亿、B站弹幕刷屏，但 r6.qq.com 预约数不动。原因：用户在外围平台完成情绪消费（看完即走），没有被有效引导到 r6.qq.com 完成预约+问卷。</p><p><b>反制</b>：每条内容前 3 秒和最后 3 秒同时植入 r6.qq.com 提示。前 3 秒用「先遣资格招募中」角标建立预约关联；最后 3 秒用全屏 CTA 动画推动行动。投放端设置深度转化目标（按预约+问卷完成计费而非按播放计费）。每个 KOL/平台分配独立追踪短链，每周对比转化率剔除低效渠道。</p></div>
+      <div class="risk-card"><span class="tag">高风险</span><h5>风险 2：国际服老玩家对国服信任问题</h5><p>长期加速器玩国际服的硬核玩家对「国服会不会变味」「会不会和谐」「会不会延迟更新」高度敏感。一旦外围内容里出现「过度本土化」「弱化战术深度」的暗示，老玩家会公开抵制，并在 NGA / TapTap 形成负面舆论。</p><p><b>反制</b>：（1）创意 03「老玩家回归仪式」专属通道+徽章+优先资格 = 用机制证明「国服重视老玩家」；（2）X 双语物料保持与国际服内容生态的对话感，主动回应 reddit / X 的国际服老玩家声音；（3）外围所有内容明确标注「与国际服同步运营节奏」，禁止使用「中国特供版」之类词汇；（4）官方蓝 V 设立「国服动态周报」，把版本更新节奏可视化。</p></div>
+      <div class="risk-card"><span class="tag">高风险</span><h5>风险 3：与三角洲行动 KOL 池重叠</h5><p>R6 国服与三角洲行动均为腾讯系战术射击，B站 / 抖音头部 FPS UP 主在两个 IP 之间高度重叠。如果两个 IP 在同一时间窗口集中签约同一批 KOL，要么内容相互稀释，要么 KOL 出现「品牌混淆」（粉丝分不清这条视频在推哪款游戏）。</p><p><b>反制</b>：（1）「开拓者」计划与三角洲行动的 KOL 签约表对齐，避免同一 KOL 在 30 天内同时为两款游戏产出付费内容；（2）从 KOL 内容定位上做差异化——三角洲行动 = 撤离玩法，R6 = 干员战术，签约 brief 中明确锁定 R6 KOL 必须以「干员独有技能 + 可破坏环境」为内容母题；（3）开拓 R6 独有 KOL 池——签约欧美 R6 内容创作者中文化，建立 R6 国服专有内容供给。</p></div>
+      <div class="risk-card"><span class="tag">中风险</span><h5>风险 4：先遣资格筛选机制引发不满</h5><p>资格招募会引发「我填了问卷为什么没拿到资格」的不满，外围平台一旦出现负面话题，会反向打击预约转化。</p><p><b>反制</b>：（1）资格筛选规则在 r6.qq.com 预约页前置透明告知（基于问卷质量+设备适配+地区分布）；（2）未拿到首测资格的用户自动进入「下一波测试优先池」并发短信告知；（3）外围创作者预先获得资格，确保首测当日内容供给不断；（4）官方蓝 V 设立「资格答疑」专题，公开回应。</p></div>
+      <div class="risk-card"><span class="tag">中风险</span><h5>风险 5：各平台导流链路被技术限制</h5><p>微信封外链、抖音限制跳转、小红书不支持直接链接跳转——平台规则可能阻断 r6.qq.com 导流路径。</p><p><b>反制</b>：每个平台准备两套方案。主方案：直接链接/跳转组件；备用方案：「打开浏览器搜索 r6.qq.com」。文案模板统一：「打开 r6.qq.com，预约+填问卷，领墨冰涂装+企鹅饰品」。微信端用小程序卡片承接，避免外链封锁。</p></div>
+      <div class="risk-card"><span class="tag">中风险</span><h5>风险 6：闭门体验内容物料二次发酵失控</h5><p>3-29 育碧上海办的「入职国服 48 小时」邀请活动 <a href="https://r6.qq.com/" target="_blank" rel="noopener" class="tag">官网 ↗</a> 涉及到场玩家自发拍摄/直播。如果未签约的到场玩家在外围平台传出未授权画面，会与官方传播节奏冲突。</p><p><b>反制</b>：闭门体验所有到场玩家签署 NDA + 体验后 48 小时内官方放出统一物料 + 优先与到场玩家达成 reaction 视频合作（变私域内容为公域 KOL 资产）。</p></div>
+    </div>
+
+    <div x-show="page === 9" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
+      <h2 class="text-2xl font-bold mb-6">终审 + 与主战场（WeGame）的配合节奏</h2>
+      <div class="verdict"><h4 style="color:#fff;margin-top:0;">GO / NO-GO 判断：GO</h4><p>本方案是面向发行运营、社区经理、内容团队的<b>外围平台引流作战手册</b>。它回答的核心问题是：如何在 90 天内通过 B站/抖音/微博/小红书/X/微信社群/直播 制造声量，并把每一份声量转化为 r6.qq.com 预约+问卷数。所有内容终点只有一个——<b>r6.qq.com 预约页</b>，并最终承接到主战场（WeGame/官网启动器）。</p></div>
+      <h3>本方案与主战场（WeGame）的配合关系</h3>
+      <table>
+        <thead><tr><th>外围平台动作</th><th>主战场（WeGame）承接</th><th>配合要求</th></tr></thead>
+        <tbody>
+          <tr><td>先遣资格期 B站 干员一击集锦发布</td><td>WeGame 商店页 + 游戏专区同步上线干员图鉴</td><td>B站视频上线 24h 内 WeGame 必须更新对应内容</td></tr>
+          <tr><td>资格筛选期抖音中文配音挑战赛上线</td><td>WeGame 商店页增加「中文配音预览」专区</td><td>挑战赛页 CTA 跳转的落地页需 WeGame 定制</td></tr>
+          <tr><td>测试启动期主播直播预约洪峰</td><td>WeGame 商店页实时显示预约数 + 先遣资格倒计时</td><td>需 WeGame 技术团队提前 14 天对接实时数据展示</td></tr>
+          <tr><td>测试反馈期玩家 vlog 回流</td><td>WeGame 游戏专区开放 UGC 攻略板块</td><td>玩家测试日记可一键导入 WeGame 专区</td></tr>
+        </tbody>
+      </table>
+      <h3>三个尖锐问题</h3>
+      <div class="highlight"><h4>问题一：r6.qq.com 预约页和 WeGame 商店页的承接力是否就绪？</h4><p>外围平台引来的用户到达 r6.qq.com 后，如果页面加载慢/问卷过长/福利说明不清，所有引流投入归零。建议首批 B站 内容上线前 2 周完成 r6.qq.com 全面体验优化（参见主战场方案 alt-d）。WeGame 端商店页+游戏专区+启动器三件套需同步完成承接准备。</p></div>
+      <div class="highlight"><h4>问题二：各平台导流数据能否实时追踪？</h4><p>如果无法区分「从 B站 来的预约」「从抖音来的预约」「从 X 老玩家来的预约」，后续就无法优化预算分配。建议每个平台、每位 KOL 使用独立追踪短链（utm 参数区分来源）。每周一个数据复盘例会，剔除转化率低于阈值的 KOL/渠道。</p></div>
+      <div class="highlight"><h4>问题三：外围团队和 WeGame 主战场团队的协作节奏是否对齐？</h4><p>外围团队发了一条视频，结尾说「去 r6.qq.com 预约」，但 r6.qq.com 还没更新对应内容——这会直接损害转化。建议两个团队使用同一份 90 天排期表，每周对齐一次内容上线节奏，关键节点（先遣资格招募启动 / 中文配音预告 / 闭门体验物料 / 首测启动）需 WeGame 端提前 7-14 天完成承接准备。</p></div>
+      <h3>第一优先行动清单</h3>
+      <table>
+        <thead><tr><th>周期</th><th>动作</th><th>交付物</th><th>负责方</th></tr></thead>
+        <tbody>
+          <tr><td>本周</td><td>确认 r6.qq.com 预约链接 + 各平台/KOL 追踪短链体系</td><td>短链列表、UTM 规范文档、数据看板</td><td>运营+数据</td></tr>
+          <tr><td>两周内</td><td>完成首批 B站 内容（干员一击集锦 + 可破坏地图全解）+ X 双语启动物料</td><td>视频成片 + r6.qq.com 末屏动画模板 + X 推文模板</td><td>内容+品牌</td></tr>
+          <tr><td>一个月内</td><td>启动「中文配音首发挑战」抖音/微博联动 + 「开拓者」KOL 矩阵签约</td><td>种子素材 + UGC 模板 + 30 位 KOL 合约</td><td>市场+品牌</td></tr>
+          <tr><td>首测前 6 周</td><td>启动「国际服回归玩家邀请仪式」专属通道 + 直播主播专题对齐</td><td>r6.qq.com 老玩家通道 + 徽章/固态硬盘奖池 + 主播档期表</td><td>品牌+电竞+WeGame</td></tr>
+        </tbody>
+      </table>
+      <h3>预算总览</h3>
+      <table>
+        <thead><tr><th>模块</th><th>预算区间</th></tr></thead>
+        <tbody>
+          <tr><td>日常内容制作（90 天 × 6 平台）</td><td>400-650 万</td></tr>
+          <tr><td>投放采买（信息流 + 加热 + 热搜）</td><td>500-850 万</td></tr>
+          <tr><td>「开拓者」KOL/主播专项（外围引流部分，从 1 亿总池中划拨）</td><td>800-1500 万</td></tr>
+          <tr><td>三个创意提案（中文配音挑战赛 + KOL 矩阵 + 老玩家回归仪式）</td><td>800-1320 万</td></tr>
+          <tr><td colspan="1"><b>外围引流总预算</b></td><td><b>2500-4320 万</b></td></tr>
+        </tbody>
+      </table>
+      <div class="verdict"><p><b>最终建议</b>：本方案是「引水渠」，主战场方案（WeGame 商店页 + 游戏专区 + 自研启动器，参见 alt-d 报告）是「蓄水池」。引水渠修得再好，蓄水池漏水也白搭。建议两份方案<b>同步启动</b>，外围引流和主战场建设同一天开工，确保首批流量到达时 r6.qq.com 与 WeGame 已完成承接准备。<b>R6 国服十年 IP 沉淀的转化机会窗口只有一次——这 90 天必须把外围每一份声量都精准滴灌到 r6.qq.com 预约页。</b></p></div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《彩虹六号：攻势》— 国服宣发战略报告</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'surface-0': '#0c0c0c',
+        'surface-1': '#141414',
+        'surface-2': '#1c1c1c',
+        'surface-3': '#252525',
+        'bdr': 'rgba(255,255,255,0.06)',
+      },
+      fontFamily: {
+        sans: ['"Noto Sans CJK SC"', 'Inter', 'system-ui', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background: #0c0c0c; color: #e5e5e5; font-family: "Noto Sans CJK SC", Inter, system-ui, sans-serif; }
+  * { scrollbar-width: thin; scrollbar-color: #333 transparent; }
+  .page-content h3 { font-size: 16px; font-weight: 700; color: #fff; margin: 28px 0 12px; }
+  .page-content h4 { font-size: 14px; font-weight: 600; color: #d4d4d4; margin: 20px 0 8px; }
+  .page-content p { font-size: 14px; line-height: 1.8; color: #a3a3a3; margin: 0 0 12px; }
+  .page-content ul { padding-left: 20px; margin: 0 0 16px; }
+  .page-content li { font-size: 13px; line-height: 1.7; color: #a3a3a3; margin-bottom: 4px; }
+  .page-content li::marker { color: #525252; }
+  .page-content strong, .page-content b { color: #fff; font-weight: 600; }
+  .page-content .highlight { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 16px; margin: 16px 0; }
+  .page-content .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.06); color: #737373; border: 1px solid rgba(255,255,255,0.06); margin-right: 4px; }
+  .page-content table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
+  .page-content th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #737373; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .page-content td { padding: 8px 12px; color: #a3a3a3; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .creative-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; }
+  .creative-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .verdict { background: #141414; border-left: 3px solid #fff; padding: 16px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; }
+  .verdict p { color: #d4d4d4; }
+  .risk-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; border-left: 3px solid #c43c3c; }
+  .risk-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .risk-card .mitigation { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 12px; padding-top: 12px; }
+  .quote { border-left: 2px solid rgba(255,255,255,0.15); padding: 4px 14px; margin: 14px 0; color: #d4d4d4; font-style: italic; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../rainbow-six-siege-x.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">《彩虹六号：攻势》— 国服宣发战略报告<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-05-19</span></h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="rainbow-six-siege-x.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">宏观视角</a>
+      <a href="rainbow-six-siege-x-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">运营阶段</a>
+      <a href="rainbow-six-siege-x-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">主战场阵地</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="rainbow-six-siege-x-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN: Left nav + Right content -->
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+
+  <!-- LEFT: Page Navigation -->
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">市场机会与品类卡位</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">玩家画像与三圈模型</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">核心记忆符号</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉定位与中文落地</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">竞品象限与生态位</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">宣发物料三段式清单</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个杀手级创意</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范速查</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警与反制</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">顾问终审意见</button>
+    </div>
+  </nav>
+
+  <!-- RIGHT: Content Area -->
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+
+    <!-- ========== PAGE 0: 市场机会 ========== -->
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">市场机会与品类卡位：10 年老 IP 国服化为什么是现在</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：R6 国服上线的窗口不是「IP 复兴」，而是「国内战术射击空白 + 国际服回归玩家解禁 + 腾讯射击矩阵补位」三条线在 2026 年同时收口。这是一次<b>产品没换、市场换了</b>的国服化机会。</p>
+      </div>
+
+      <h3>关键事实：国服已经过审，2026 年 6 月首测</h3>
+      <p>2026-01-26，国家新闻出版署进口网络游戏审批信息显示，育碧《彩虹六号：攻势》获批版号 <b>国新出审〔2026〕269 号</b>，运营单位为<b>上海纳原信息技术有限公司</b>（注册地：徐汇区），出版单位与代理发行为<b>腾讯游戏</b>。<a href="https://www.nppa.gov.cn/bsfw/jggs/jkyx/" target="_blank" rel="noopener" class="tag">国家新闻出版署 ↗</a> 国服中文名定版为《彩虹六号：攻势》——与国际版「围攻」一字之差，但已经定义了国服自己的品牌资产。</p>
+      <p>2026-04-16，国服官方启动「先遣资格招募」计划，2026 年 6 月将开启国服<b>首次删档测试</b>。<a href="https://www.tencent.com/zh-cn/media/news.html" target="_blank" rel="noopener" class="tag">腾讯游戏官方 ↗</a> 这意味着报告读者拿到这份文件时，距离首测开服只剩<b>约 30 天</b>——所有创意、KOL 排期、Key Art 终稿都必须在两周内拍板。</p>
+
+      <h3>趋势一：国内战术射击有 5v5 攻防的真空</h3>
+      <p>把"国内主流 FPS"摊开看，每条赛道都已被占满，<b>唯独「5v5 慢节奏战术对抗 + 可破坏环境」这一格是空的</b>：</p>
+      <table>
+        <thead><tr><th>赛道</th><th>占位产品</th><th>核心特征</th><th>是否可被 R6 攻势直接抢占</th></tr></thead>
+        <tbody>
+          <tr><td>大 DAU 国民射击</td><td>CF / 和平精英</td><td>快节奏、低门槛</td><td>否，定位完全不同</td></tr>
+          <tr><td>战术竞技 PvP</td><td>CS2 / 无畏契约</td><td>5v5 攻防，但场景<b>不可破坏</b></td><td>—— R6 攻势的"破坏 + 干员"是差异化壁垒</td></tr>
+          <tr><td>搜打撤</td><td>三角洲行动 / PUBG</td><td>大地图、撤离循环</td><td>否，玩家心智不重叠</td></tr>
+          <tr><td>5v5 慢节奏战术 + 破坏</td><td><b>空位</b></td><td>—</td><td><b>是 — R6 攻势独占</b></td></tr>
+        </tbody>
+      </table>
+      <p>无畏契约迟迟没有国服（仅有腾讯代理的港澳台），CS2 在国内长期是"加速器游戏"，CF 已经走向轻量化娱乐——<b>"硬战术 + 强对抗 + 慢节奏"是国内战术射击玩家长期被压抑的需求</b>。R6 攻势不是来抢 DAU 的，是来做"国内一部分FPS玩家想要却一直没有的那个产品"。</p>
+
+      <h3>趋势二：R6 国际版基本盘还在，但需要新增量</h3>
+      <p>2026-04-26，腾讯新闻报道援引官方数据：<b>R6 全球玩家数破 1 亿</b>。<a href="https://news.qq.com/" target="_blank" rel="noopener" class="tag">腾讯新闻 ↗</a> Steambase 数据显示 R6 在 Steam 累计评测约 <b>149 万条，好评率 83%</b>。<a href="https://steambase.io/" target="_blank" rel="noopener" class="tag">Steambase ↗</a></p>
+      <p>但 Steam 月均同时在线呈现一个有意思的曲线：</p>
+      <ul>
+        <li>2024-05 历史峰值约 <b>20.2 万</b>（围攻 X 公布前夕）</li>
+        <li>2025-06 围攻 X 上线日峰值 <b>14.2 万</b>，月均回落到 7-9 万区间</li>
+        <li>2026-03 月均同时在线约 <b>6.9 万</b>，峰值 <b>13.9 万</b><a href="https://steamdb.info/app/359550/" target="_blank" rel="noopener" class="tag">SteamDB ↗</a></li>
+      </ul>
+      <p>主机端（PS/Xbox）日活通常比 PC 端高约 <b>10%</b>（公开报道显示）。但毋庸讳言：<b>2024-2025 国际服整体玩家数处于下滑通道</b>，这正是育碧选择此时与腾讯启动国服化的关键内因——R6 需要中国市场，作为一款 10 年老游戏的"二次曲线"。</p>
+      <p><b>So what</b>：R6 国服不是 IP 顺风车，而是 IP 自救之战。这给了国服宣发一个微妙的杠杆——讲"国际服回归"故事的同时，必须避免让玩家联想"国际服都凉了我为啥还要玩"。话术应该聚焦「<b>原汁原味的玩法 + 中国玩家终于有了原生服务器</b>」，而不是「老 IP 第二春」。</p>
+
+      <h3>趋势三：腾讯射击矩阵需要 R6 攻势补"硬战术"位</h3>
+      <p>把腾讯射击矩阵摊开：CF / CFM 占大 DAU 娱乐位，和平精英占战术竞技 + 大逃杀位，三角洲行动占搜打撤位（2026-01 登顶 iOS 畅销总榜）<a href="https://news.17173.com/" target="_blank" rel="noopener" class="tag">17173 ↗</a>。但「<b>5v5 硬核战术 + 全球电竞生态</b>」这一格是空的——这正是腾讯需要 R6 攻势来填的缺口。</p>
+      <p>这条信息对宣发的意义：<b>R6 攻势在腾讯内部不是"流量产品"，而是"品类拓荒者 + 电竞资产 + 海外对标桥头堡"</b>。这意味着首测期 KPI 的合理设定不应是"DAU 数字"，而应是"核心玩家留存 + KOL 信任口碑 + 反作弊形象建立"。</p>
+
+      <h3>三趋势交汇：R6 攻势的国服窗口</h3>
+      <div class="highlight">
+        <p>三条线在 2026 年中同时收口：</p>
+        <ul>
+          <li><b>国内战术射击空白</b>：5v5 攻防 + 可破坏环境的赛道无人占领</li>
+          <li><b>国际服存量待激活</b>：国内长期通过加速器玩国际服的硬核用户群——NGA 和 TapTap 长期有热帖讨论"R6 国服哪一天能来"——这批人是<b>付费意愿最强、内容产出最积极的种子用户</b></li>
+          <li><b>腾讯矩阵补位需求</b>：硬战术位 + 电竞位的空缺，意味着 R6 攻势会获得腾讯生态最高优先级的资源（电竞、内容、社区）</li>
+        </ul>
+        <p><b>窗口期判断</b>：6 月首测到正式公测之间约 <b>9-12 个月</b>。再晚，国际服老用户对国服的耐心会耗尽（他们已经等了 10 年）；再早，国服本地化质量未达标——2026 年 6 月这个时间点是各方约束下的最优解，必须打满。</p>
+      </div>
+
+      <h3>这个 10 年老 IP 现在还有机会的根本原因</h3>
+      <p>不是"R6 在中国还是新的"——它不是。是"<b>R6 想要的中国用户，从来没有被一个本地服务器认真对待过</b>"。这批用户存在了十年，在加速器、海外服、外挂洪流中坚持了十年。R6 攻势国服不是开拓市场，是<b>把已经存在的市场，第一次做合规化、本地化、长期化的承接</b>。这就是项目的根本叙事——它不是新游，但它是一次新的开始。</p>
+    </div>
+
+    <!-- ========== PAGE 1: 玩家画像 ========== -->
+    <div x-show="page === 1" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">玩家画像：三圈用户与情绪入口</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：R6 攻势的目标用户不是一个画像，而是三个差异极大的圈层。每个圈层有自己已经在用的"替代品"和已经在听的"声音渠道"。宣发不能用一套 KV、一套话术、一套 KOL 列表打三圈人——必须分层制作首触物料。</p>
+      </div>
+
+      <h3>三圈用户模型</h3>
+
+      <div class="highlight">
+        <h4>圈层 A：国际服回归玩家（情怀+忠诚驱动）</h4>
+        <p><b>画像</b>：22-35 岁男性为主，PC 端为主，已经通过加速器玩了 1-5 年国际服 R6，账号有干员皮肤、年通行证记录、Steam 时长几百到几千小时不等。</p>
+        <p><b>规模估算</b>：公开报道与 NGA / TapTap / 贴吧长期热帖显示，国内国际服 R6 活跃用户大致在<b>百万量级</b>（行业估计），其中重度玩家约 20-30 万。</p>
+        <p><b>痛点</b>：加速器延迟波动 / 国际服外挂泛滥（这正是国服 ACE 反作弊承诺最直接的命中点）/ 中文社区分散、没有官方支持。</p>
+        <p><b>R6 攻势切入的情绪空位</b>：<b>"我等了 10 年的国服，终于来了。"</b> 国服已经明确将给"国际服回归玩家"提供<b>专属标识与福利</b>——这一动作本身就是给这批种子用户的"忠诚奖章"。情绪关键词不是"快来玩"，而是"<b>欢迎回家</b>"。</p>
+      </div>
+
+      <div class="highlight">
+        <h4>圈层 B：CS / 三角洲老 FPS 用户（品质 + 战术驱动）</h4>
+        <p><b>画像</b>：20-30 岁男性，PC 端为主，CS2 / 三角洲 / 无畏契约的核心玩家，追求战术深度、对抗硬度和操作上限。</p>
+        <p><b>规模参考</b>：CS2 在国内有相当规模的玩家基本盘，三角洲行动 2026-01 登顶 iOS 畅销总榜——这两条流量池里都有大量"想要更硬核战术"的用户。<a href="https://news.17173.com/" target="_blank" rel="noopener" class="tag">17173 ↗</a></p>
+        <p><b>痛点</b>：CS2 没有可破坏环境、没有干员系统，玩法 20 年没动；三角洲偏搜打撤，缺乏 5v5 攻防的战术对抗；无畏契约没有国服。</p>
+        <p><b>R6 攻势切入的情绪空位</b>：<b>"5v5 战术射击的天花板，原来在这里。"</b> R6 的"<b>干员 × 攻防 × 一发爆头</b>"组合 + 可破坏环境的物理交互，是 CS / VAL 玩家进阶后能直接吃到的"新维度"。这一圈的关键不是煽情，而是<b>让他们看到一场完整的、未剪辑的对局</b>。</p>
+      </div>
+
+      <div class="highlight">
+        <h4>圈层 C：R6 内容圈 KOL / 职业选手粉丝（社群驱动）</h4>
+        <p><b>画像</b>：18-28 岁，男女比例相对均衡（女性观众在 R6 国际赛事中占比可观），跨平台（B 站 / 抖音 / Twitch / YouTube）。他们可能从来没玩过 R6，但看了几年的 R6 比赛集锦、KOL 实况、干员剧情 CG。</p>
+        <p><b>规模参考</b>：Twitch 慕尼黑 Major 决赛峰值观众 <b>20.6 万</b>（公开赛事数据）；R6 国服化新闻在 B 站、微博持续刷屏（2026-04-16 先遣资格招募当日多平台热搜）。</p>
+        <p><b>痛点</b>：长期"看而不玩"——因为加速器麻烦、外挂多、入门曲线陡峭。有强烈"想试一次"的潜在动机，但需要一个低门槛的入口。</p>
+        <p><b>R6 攻势切入的情绪空位</b>：<b>"原来我也能玩这个。"</b> 国服的<b>原生中文化 + 中文配音 + 原生好友系统 + 跨平台组队</b>把入门门槛拆掉了大半。这一圈的关键是<b>新手向内容</b>——而不是给硬核老玩家看的高光集锦。</p>
+      </div>
+
+      <h3>三圈用户的差异化触达策略</h3>
+      <table>
+        <thead><tr><th>圈层</th><th>首触物料</th><th>核心话术</th><th>主要平台</th><th>KOL 类型</th></tr></thead>
+        <tbody>
+          <tr><td>A 国际服回归</td><td>「老兵回归」专属 PV + 账号识别说明视频</td><td>"欢迎回家，老兵专属标识 + 福利已就绪"</td><td>NGA / 贴吧 / B站 / 微博</td><td>R6 老牌主播、社区元老</td></tr>
+          <tr><td>B 战术 FPS</td><td>完整对局演示（无解说）+ 干员能力深度解析</td><td>"5v5 战术 + 可破坏环境，深度走到这一步"</td><td>B站 / YouTube / 虎牙</td><td>CS / 三角洲战术内容创作者</td></tr>
+          <tr><td>C 内容圈泛粉</td><td>新手向"第一次玩 R6"实况 + 干员剧情合集</td><td>"看了那么久比赛，是时候自己上场了"</td><td>抖音 / 小红书 / B站</td><td>泛娱乐主播、电竞 KOL</td></tr>
+        </tbody>
+      </table>
+
+      <h3>三圈交叠的"超级核心用户"</h3>
+      <p>三圈交叠区域是最稀缺、最高价值的群体——<b>"玩过国际服 + 玩过 CS / 三角洲 + 看过 R6 比赛"</b>三角合一的用户。规模不大（保守估计十几万到几十万量级，行业估计），但他们是：</p>
+      <ul>
+        <li>首测期日活的稳定盘</li>
+        <li>NGA / 贴吧 / 视频区内容产出主力</li>
+        <li>反作弊承诺最敏感、最容易"用脚投票"的群体</li>
+      </ul>
+      <p><b>So what</b>：先遣资格招募、首测名额分配，应该<b>显著向超级核心用户倾斜</b>——通过 NGA 老用户身份、Twitch / B站 R6 观赛历史、加速器使用记录等多维度筛选。这批人在首测里玩得开心，公测的口碑就稳一半。</p>
+
+      <h3>容易被忽略的第四圈：观战经济用户</h3>
+      <p>R6 是为数不多<b>观赏性强于操作性</b>的战术射击——慕尼黑 Major 决赛 Twitch 峰值 20.6 万观众证明了这一点。国服化之后，<b>观赛体验中文化 + 国内主播本土赛事内容</b>会带来一批"只看不玩"但深度参与社区讨论、参与皮肤竞猜、参与赛事话题传播的用户。这一圈不直接贡献 DAU，但贡献热度和长期内容生态——电竞团队应该从首测期就开始建设。</p>
+    </div>
+
+    <!-- ========== PAGE 2: 核心记忆符号 ========== -->
+    <div x-show="page === 2" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">核心品牌符号：「干员 × 攻防 × 一发爆头」</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：R6 国际版有十年沉淀的玩法系统，但<b>国服需要一句话能讲清楚</b>的品牌符号——不是再造一个新概念，而是把 R6 已有的玩法骨架提炼成最锋利的三个词。<b>「干员 × 攻防 × 一发爆头」</b>是 R6 攻势国服必须立起来的国民级记忆点。</p>
+      </div>
+
+      <h3>为什么是这三个词，不是别的？</h3>
+      <p>R6 玩法的差异化要素不少：可破坏环境、TTK 极短、5v5 攻防、上百个干员、烟与雷、加固墙、监视器… 把这一堆塞进一句宣传语，结果就是"啥也没说"。<b>必须做减法</b>。</p>
+      <table>
+        <thead><tr><th>候选符号</th><th>差异化</th><th>记忆点</th><th>结论</th></tr></thead>
+        <tbody>
+          <tr><td>可破坏环境</td><td>有差异（CS / VAL 没有）</td><td>偏抽象，难一秒说清</td><td>放在视觉里，不入主标语</td></tr>
+          <tr><td><b>干员 × 攻防 × 一发爆头</b></td><td>三词分别命中"角色 / 玩法 / 紧张感"</td><td><b>每词都直觉、每词都强</b></td><td><b>主品牌符号</b></td></tr>
+          <tr><td>5v5 战术射击</td><td>类目词，不独有</td><td>—</td><td>支撑词不是核心词</td></tr>
+          <tr><td>慢节奏对抗</td><td>反向卖点，但容易被理解为"不刺激"</td><td>—</td><td>用作内容向解释，不上主物料</td></tr>
+        </tbody>
+      </table>
+
+      <h3>三词如何分别工作</h3>
+      <div class="highlight">
+        <h4>"干员"：建立角色资产 + 长尾运营钩子</h4>
+        <p>R6 累计已超过 70 个干员，每一个都有独立外观、独立技能、独立背景故事和独立配音。"干员"这个词本身就承载了：<b>角色收集欲 + 战术多样性 + 皮肤付费心智</b>。在国服宣发里，"干员"应该是反复出现、被特别命名（不能简单翻译成"探员"或"特种兵"）、被赋予中文配音灵魂的核心资产。</p>
+        <p>对比 VAL 的"特工"系统会发现：R6 的干员系统在<b>真实感、战术深度、装备多样性</b>上仍占优——这是国服宣发可以打的差异化点。</p>
+      </div>
+      <div class="highlight">
+        <h4>"攻防"：定义玩法骨架，反向区隔国内 FPS</h4>
+        <p>"攻防"是 R6 与所有国内主流 FPS 的<b>结构性区隔</b>——CF 是死亡竞赛 / 爆破，和平精英是大逃杀，三角洲是搜打撤，CS2 是炸包但场景死的。"攻防"两字明确说出了 R6 是<b>"一边进 / 一边守"的对抗结构</b>，并暗示了"加固、布陷、突破、破墙"的所有衍生内容。</p>
+        <p>更重要的是："攻防"两个汉字本身就有<b>东方武学的对仗美感</b>——这一点比任何英文翻译都更适合做国服 KV 主标。</p>
+      </div>
+      <div class="highlight">
+        <h4>"一发爆头"：紧张感的瞬间符号 + 短视频原生爆点</h4>
+        <p>R6 的 TTK（击杀时间）极短——一发爆头即死。这是 R6 与所有"血厚枪软"的国内 FPS 最直观的区别。"一发爆头"四个字是<b>短视频时代天然的截屏文案</b>：每一次精彩爆头都是 5 秒切片素材，每一次自己被秒都是"这游戏真严肃"的证言。</p>
+        <p>它也是反向解释 R6"为什么慢"的最佳钥匙——<b>正是因为一发爆头，所以你必须慢慢摸、慢慢架、慢慢听声音</b>。慢与狠的统一，是 R6 玩法美学的核心。</p>
+      </div>
+
+      <h3>三词组合的传播路径</h3>
+      <table>
+        <thead><tr><th>使用场景</th><th>建议表达</th><th>承担作用</th></tr></thead>
+        <tbody>
+          <tr><td>主 KV / 大屏广告 / 主标 logo 副线</td><td><b>干员 × 攻防 × 一发爆头</b></td><td>国民级记忆锤</td></tr>
+          <tr><td>预告片片尾字幕</td><td>「70+ 干员 / 5v5 攻防 / 一发爆头即死」</td><td>展开为玩法卖点</td></tr>
+          <tr><td>抖音/B站短切片标题</td><td>「这就是一发爆头」/「干员技能这么用」</td><td>每条短视频对应一个词</td></tr>
+          <tr><td>电竞解说话术</td><td>反复强调"<b>这一波攻防</b>" "<b>这个干员的关键时刻</b>"</td><td>把品牌词嵌入观赛习惯</td></tr>
+        </tbody>
+      </table>
+
+      <h3>为什么不照搬国际版"Tom Clancy's Rainbow Six Siege"</h3>
+      <p>「彩虹六号：围攻」这个名字是国际服十年品牌资产，<b>不能扔</b>，但<b>不能挑大梁</b>。"汤姆·克兰西"对国内大众用户是陌生的IP；"围攻"在中文里偏中性、不直观。<b>"攻势"这个国服中文名是关键转换器</b>——它一方面承接国际版"围攻"的字面联想（攻势/围攻一对动词），一方面把"攻"字提到前面，与"防"形成天然对仗，直接呼应"攻防"这个核心玩法符号。</p>
+      <p><b>So what</b>：国服宣发要让用户在第一次接触时就认到三件事——这是<b>《彩虹六号：攻势》</b>（不是"围攻"）、它是<b>5v5 攻防</b>玩法、它的核心是<b>干员 × 攻防 × 一发爆头</b>。这三件事一气呵成，国服品牌符号就立住了。</p>
+
+      <h3>给品牌团队的关键建议</h3>
+      <ul>
+        <li><b>主 KV 上必须出现"攻防"两字的中文视觉化</b>——可以是地图剖面图、可以是攻方守方双视角分镜，但不能只放一群干员站着拍合照</li>
+        <li><b>"一发爆头"应该有标志性瞬间符号</b>——一个全平台统一的爆头 KO 视效（红色弹孔 / 镜头微颤 / 短促音效），让任何短视频里出现这个瞬间，观众一秒认出"这是 R6 攻势"</li>
+        <li><b>"干员"必须有中文化的人格灵魂</b>——中文配音不是把英文台词直译，而是给每个干员注入符合其性格的中文表达。这一步做得好，干员就是国服独有的资产</li>
+      </ul>
+    </div>
+
+    <!-- ========== PAGE 3: 视觉定位 ========== -->
+    <div x-show="page === 3" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">视觉定位：零圆角战术极简 × Y11 焕新的国服落地</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：围攻 X（R6X，2025 年 6 月上线）已经为整个 IP 重置了视觉语言——<b>零圆角、高对比、战术极简、深色 UI</b>。国服不是另立门户，而是<b>把这套国际视觉系统嫁接到中文语境</b>——用 Noto Sans CJK SC 字族补齐中文支线，用"攻防"两字的几何感重做主标，让国服 KV 一眼能认出"这是同一个游戏"，又能感受到"这是给中国玩家做的版本"。</p>
+      </div>
+
+      <h3>围攻 X 视觉系统的关键支柱</h3>
+      <p>2025-06 围攻 X 上线日 Steam 峰值 14.2 万，重置了 R6 的视觉气质：<b>更冷、更硬、更接近现代化战术装备美学</b>。其视觉语言可拆为三个支柱：</p>
+      <table>
+        <thead><tr><th>支柱</th><th>具体表达</th><th>国服落地建议</th></tr></thead>
+        <tbody>
+          <tr><td><b>零圆角几何</b></td><td>UI 元素全部直角、锐边、网格化</td><td>国服 KV / Banner 全部沿用，禁止圆角图标和"圆润可爱"风格</td></tr>
+          <tr><td><b>高对比深色</b></td><td>近黑底 + 高亮警示色 + 深灰中间层</td><td>沿用全套色板，社交内容图保持深色调一致性</td></tr>
+          <tr><td><b>战术极简文字</b></td><td>无装饰几何无衬线 + 等宽数字</td><td>中文用 Noto Sans CJK SC，英文用 Inter / 自有几何无衬线，保持笔画粗细同档</td></tr>
+        </tbody>
+      </table>
+
+      <h3>国服中英双语 logo 处理</h3>
+      <div class="highlight">
+        <p><b>主 logo 结构（自上而下三段式）</b>：</p>
+        <ul>
+          <li><b>顶部小字</b>：国际版"Tom Clancy's" / "RAINBOW SIX SIEGE X" 锁定标，保留品牌资产</li>
+          <li><b>主标</b>：「<b>彩虹六号：攻势</b>」六个汉字 + 一个冒号 + 两个汉字，用 Heavy / Black 字重，零圆角，字间距收紧到几何对齐</li>
+          <li><b>底部副线</b>（可选）：「干员 × 攻防 × 一发爆头」slogan 字号小、间距宽、对齐主标</li>
+        </ul>
+        <p><b>颜色处理</b>："彩虹六号"四字保留白色 / 浅银，"攻势"两字使用<b>R6 标志性警示橙</b>（向「围攻 X」的 X 字标致敬）——这是国服中文 logo 唯一的色彩点睛，所有衍生物料严格执行。</p>
+        <p><b>禁止</b>：把 logo 做成"中国风书法体"、加入水墨/印章/朱红色装饰、用圆头黑体或宋体——这些都偏离 R6 的战术极简骨架。R6 不是中国故事，国服化也不应该把它伪装成中国故事。</p>
+      </div>
+
+      <h3>Key Art 系统：四张图覆盖全场景</h3>
+      <table>
+        <thead><tr><th>KV 类型</th><th>构图核心</th><th>使用场景</th></tr></thead>
+        <tbody>
+          <tr><td><b>主 KV：群像攻防图</b></td><td>左侧攻方干员、右侧守方干员，中间是被破坏的墙、烟雾穿透的弹孔——<b>"攻防"两字结构具象化</b></td><td>官网首屏 / 商店主图 / 大屏广告 / 应用商店特色图</td></tr>
+          <tr><td><b>地图剖面 KV</b></td><td>建筑剖面图，多层楼立体展示攻方推进路线 + 守方布防点 + 监视器/陷阱标记</td><td>玩法解释类内容 / 战术教学 / 媒体长图</td></tr>
+          <tr><td><b>干员肖像系列</b></td><td>单干员深色背景肖像，干员标志道具特写，姓名+代号+技能简述</td><td>干员介绍专题 / KOL 内容封面 / 社交头像模板</td></tr>
+          <tr><td><b>"一发爆头"瞬间系列</b></td><td>第一人称瞄准镜视角，一颗弹孔 + 红色 KO 标记 + 极简战术 HUD</td><td>短视频封面 / 社交媒体单图 / 抖音开屏</td></tr>
+        </tbody>
+      </table>
+
+      <h3>典型物料的色彩配比规范</h3>
+      <table>
+        <thead><tr><th>物料</th><th>近黑底</th><th>中性深灰</th><th>警示橙</th><th>白/浅银</th></tr></thead>
+        <tbody>
+          <tr><td>主 KV</td><td>50%</td><td>25%</td><td>10%</td><td>15%</td></tr>
+          <tr><td>预告片色调</td><td>60%</td><td>20%</td><td>10%</td><td>10%</td></tr>
+          <tr><td>社交媒体单图</td><td>55%</td><td>20%</td><td>10%</td><td>15%</td></tr>
+          <tr><td>商店页 / Banner</td><td>50%</td><td>25%</td><td>15%</td><td>10%</td></tr>
+        </tbody>
+      </table>
+
+      <h3>中文化的视觉细节红线</h3>
+      <ul>
+        <li><b>不要把"国服特供"做成视觉噪点</b>——所有"国服专属"的标识应在 UI 系统层面被吸收（专属头像框、专属国服数据 dashboard），而不是 KV 上贴一个红章</li>
+        <li><b>中文配音物料要有"配音演员可见性"</b>——主要干员中文配音演员可以做小专题，让玩家认人、认声、认 R6 国服的本地化诚意</li>
+        <li><b>"国际服回归玩家专属标识"在视觉上应被设计成勋章而非 tag</b>——不张扬但有质感，让佩戴者有"老兵识别码"的归属感</li>
+        <li><b>电竞物料保持与国际赛事的视觉血缘</b>——国服赛事的视觉系统不能另起炉灶，应直接继承 BLAST R6 / Major 系列的视觉资产，证明"这是同一个生态"</li>
+      </ul>
+    </div>
+
+    <!-- ========== PAGE 4: 竞品象限 ========== -->
+    <div x-show="page === 4" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">竞品象限：国内战术射击格局与 R6 攻势的生态位</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：在「节奏快慢 × 玩法结构」的二维坐标中，R6 攻势独占「<b>慢节奏 × 5v5 攻防</b>」象限——这是国内主流 FPS 中没有任何一款产品占据的生态位。它不和 CF 抢娱乐用户、不和三角洲抢搜打撤用户、不和 CS2 抢爆破用户——它在<b>所有人都没看到的那个空格里</b>。</p>
+      </div>
+
+      <h3>国内战术射击四象限</h3>
+      <div class="highlight">
+        <p style="font-size:12px;color:#737373;text-align:center;margin-bottom:12px;"><b>Y 轴</b>：节奏 ─ 快 ↔ 慢 &nbsp;&nbsp;|&nbsp;&nbsp; <b>X 轴</b>：结构 ─ 大地图 / 多人乱战 ↔ 小地图 / 5v5 攻防</p>
+        <table>
+          <thead><tr><th>象限</th><th>定位</th><th>代表产品</th></tr></thead>
+          <tbody>
+            <tr><td>快 × 大地图</td><td>大 DAU 国民射击</td><td>CF / 和平精英</td></tr>
+            <tr><td>快 × 小地图</td><td>快节奏战术</td><td>CS2 / 无畏契约（无国服）</td></tr>
+            <tr><td>慢 × 大地图</td><td>搜打撤撤离</td><td>三角洲行动 / PUBG</td></tr>
+            <tr><td><b>慢 × 5v5 攻防</b></td><td><b>慢节奏战术对抗（生态位空格）</b></td><td><b>R6 攻势 — 唯一占位者</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>逐竞品拆解：与 R6 攻势的关系</h3>
+
+      <div class="creative-card">
+        <h5>CS2 — 战术射击的标杆，但场景"死的"</h5>
+        <table>
+          <thead><tr><th>维度</th><th>CS2</th><th>R6 攻势的差异化</th></tr></thead>
+          <tbody>
+            <tr><td>玩法</td><td>5v5 爆破，固定 30 回合</td><td>5v5 攻防 + 干员系统 + 可破坏环境</td></tr>
+            <tr><td>场景</td><td>不可破坏，地图静止</td><td><b>可破坏环境，每局空间都不一样</b></td></tr>
+            <tr><td>角色</td><td>无角色技能</td><td>70+ 干员，每个独立技能</td></tr>
+            <tr><td>国服</td><td>无国服，加速器为主</td><td><b>有国服，原生服务器、原生中文</b></td></tr>
+            <tr><td>关系</td><td colspan="2">CS2 的硬核玩家是 R6 攻势的优质迁移池——他们已经习惯了"慢节奏 + 一发爆头"，但厌倦了 20 年不变的玩法。R6 攻势提供"下一阶段"。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>三角洲行动 — 腾讯射击矩阵的"流量旗舰"</h5>
+        <table>
+          <thead><tr><th>维度</th><th>三角洲行动</th><th>关系判断</th></tr></thead>
+          <tbody>
+            <tr><td>市场表现</td><td>2026-01 登顶 iOS 畅销总榜 <a href="https://news.17173.com/" target="_blank" rel="noopener" class="tag">17173 ↗</a></td><td>—</td></tr>
+            <tr><td>玩法</td><td>大地图搜打撤 + 多模式</td><td>与 R6 攻势<b>玩法不重叠</b></td></tr>
+            <tr><td>用户重叠</td><td>战术 FPS 用户基本盘有交集</td><td>需要话术区分而非抢人</td></tr>
+            <tr><td>关系</td><td colspan="2"><b>不是竞品，是矩阵搭档</b>。三角洲负责"大 DAU + 流量入口"，R6 攻势负责"硬核战术 + 品牌高度 + 电竞资产"。腾讯内部应明确两者的差异化定位，避免内部资源争夺。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>CF / 和平精英 — 大 DAU 国民产品</h5>
+        <table>
+          <thead><tr><th>维度</th><th>CF / 和平精英</th><th>关系判断</th></tr></thead>
+          <tbody>
+            <tr><td>定位</td><td>低门槛 + 大 DAU + 娱乐化</td><td>—</td></tr>
+            <tr><td>用户群</td><td>泛大众 FPS 用户</td><td>与 R6 攻势<b>用户心智完全不同</b></td></tr>
+            <tr><td>关系</td><td colspan="2">CF / 和平精英的用户里，<b>少数硬核玩家</b>会被 R6 攻势吸引——但这不是流量战，而是"金字塔尖"的承接。R6 攻势没必要、也不可能从这两款产品手里"抢" DAU。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>PUBG / 无畏契约 — 没有国服的"加速器游戏"</h5>
+        <table>
+          <thead><tr><th>维度</th><th>PUBG / 无畏契约</th><th>关系判断</th></tr></thead>
+          <tbody>
+            <tr><td>玩法</td><td>大逃杀 / 快节奏 5v5 战术</td><td>玩法各有差异</td></tr>
+            <tr><td>国服</td><td>无（无畏契约只有港澳台）</td><td>—</td></tr>
+            <tr><td>关系</td><td colspan="2">这两款产品的"加速器用户群"和 R6 国际服用户群有交叠——他们都习惯了"为爱付出延迟"的玩法。R6 攻势国服化故事会让这群用户产生"是不是其他游戏也快了"的联想——这本身就是国服化故事的传播红利。</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>R6 攻势的生态位壁垒</h3>
+      <ul>
+        <li><b>壁垒一 · 玩法生态位垄断</b>：「慢节奏 × 5v5 攻防 × 可破坏环境 × 干员系统」这四件事的组合在国内市场无人占据。复制需要 5 年以上的开发积累——R6 自己用了 10 年</li>
+        <li><b>壁垒二 · 国际生态联通</b>：R6 攻势国服与国际服共享干员、共享世界观、共享电竞品牌（Major / Six Invitational）。任何国内自研产品都不可能复制这一点——这是 IP 引进的<b>独占价值</b></li>
+        <li><b>壁垒三 · 反作弊承诺的差异化护城河</b>：腾讯 ACE 定制方案 + 100% 录入外服外挂样本库 + 联合警方打击 + "全民鉴挂师"——这一套组合<b>正在成为国服 R6 区别于"加速器版本"的核心承诺</b>。如果首测期能兑现，反作弊本身就是一面战旗</li>
+      </ul>
+
+      <h3>给战略团队的关键判断</h3>
+      <div class="highlight">
+        <p><b>不要把 R6 攻势放进"和谁比"的框架，而要放进"补什么位"的框架。</b></p>
+        <p>R6 攻势在国内的成功标准不是"超过三角洲"或"挤掉 CS2"——这两件事都不会发生，也不该发生。R6 攻势的成功标准是：<b>在 5v5 慢节奏战术对抗这个空格里建立"提到这个品类，第一个想到的就是 R6 攻势"的国民认知</b>，并把这个认知变成一个稳定的百万级核心玩家盘 + 健康的电竞生态 + 可持续的皮肤付费 LTV。</p>
+        <p>这不是流量战，是品类战。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 5: 物料清单 ========== -->
+    <div x-show="page === 5" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">宣发物料三段式清单：首测前 90 天 / 首测期 / 首测到公测</h2>
+
+      <div class="verdict">
+        <p><b>这一页回答一个问题</b>：从今天到公测，每一个时间节点要做哪些物料、给哪一圈用户看？以下是按三段式 timeline 排列的物料清单。</p>
+      </div>
+
+      <h3>阶段一：首测前 90 天（识别 + 预热）</h3>
+      <table>
+        <thead><tr><th>物料</th><th>目标圈层</th><th>核心承担</th><th>优先级</th></tr></thead>
+        <tbody>
+          <tr><td><b>国服公告 PV（已发布）</b></td><td>全圈层</td><td>"国服来了"信号弹 + 反作弊承诺 + 1 亿生态投入承诺</td><td>P0 已交付</td></tr>
+          <tr><td><b>主 KV 完整套件（4 张）</b></td><td>全圈层</td><td>群像攻防图 / 地图剖面 / 干员肖像 / "一发爆头"瞬间</td><td>P0</td></tr>
+          <tr><td><b>「老兵回归」专属 PV</b></td><td>圈层 A</td><td>专属标识 + 福利说明 + 国际服账号识别流程</td><td>P0</td></tr>
+          <tr><td><b>反作弊专题片</b></td><td>全圈层（重点圈层 A、B）</td><td>ACE 方案 + 警方合作案例 + "全民鉴挂师"</td><td>P0</td></tr>
+          <tr><td><b>「干员 × 攻防 × 一发爆头」概念片</b></td><td>圈层 B、C</td><td>立国服品牌符号</td><td>P1</td></tr>
+          <tr><td><b>干员中文配音花絮</b></td><td>圈层 A、C</td><td>本地化诚意 + 配音演员人设</td><td>P1</td></tr>
+        </tbody>
+      </table>
+
+      <h3>阶段二：首测期（2026 年 6 月，引爆 + 验证）</h3>
+      <table>
+        <thead><tr><th>物料</th><th>目标圈层</th><th>核心承担</th><th>优先级</th></tr></thead>
+        <tbody>
+          <tr><td><b>完整对局演示（无剪辑）</b></td><td>圈层 B</td><td>展示 R6 完整玩法循环：进攻方布局 → 守方加固 → 突破 → 一发爆头 → 残局</td><td>P0</td></tr>
+          <tr><td><b>「先遣资格招募」结果与名单</b></td><td>圈层 A</td><td>仪式感强，强化"老兵回归"叙事</td><td>P0</td></tr>
+          <tr><td><b>首测主播直播矩阵</b></td><td>圈层 B、C</td><td>50-100 位 KOL 同时开播首日体验</td><td>P0</td></tr>
+          <tr><td><b>新手向"第一次玩 R6"系列短视频</b></td><td>圈层 C</td><td>把"看比赛的人"转化为"自己上场的人"</td><td>P0</td></tr>
+          <tr><td><b>反作弊战报周更</b></td><td>全圈层</td><td>每周公布封禁数据 + 真实案例（首例已抓 R1 外挂团伙 3 人，涉案超 300 万元）</td><td>P0</td></tr>
+          <tr><td><b>玩家反馈实时回应（社区运营）</b></td><td>全圈层</td><td>NGA / TapTap / 微博每日固定时间发声</td><td>P1</td></tr>
+        </tbody>
+      </table>
+
+      <h3>阶段三：首测后到公测（沉淀 + 转化）</h3>
+      <table>
+        <thead><tr><th>物料</th><th>目标圈层</th><th>核心承担</th><th>优先级</th></tr></thead>
+        <tbody>
+          <tr><td><b>首测白皮书</b></td><td>全圈层 + 行业</td><td>公开首测期数据：DAU 曲线 / 反作弊封禁数 / 玩家反馈采纳数 / 核心玩家留存率</td><td>P0</td></tr>
+          <tr><td><b>「开拓者扶持」计划落地</b></td><td>圈层 C + 内容创作者</td><td>公布预算不低于 1 亿的资金扶持名单 + 内容创作者签约</td><td>P0</td></tr>
+          <tr><td><b>国服首届赛事预告</b></td><td>圈层 C + 电竞观众</td><td>把电竞资产从首测就开始建设</td><td>P0</td></tr>
+          <tr><td><b>跨平台组队功能展示</b></td><td>圈层 A、C</td><td>本地化卖点之一：手柄+键鼠跨平台</td><td>P1</td></tr>
+          <tr><td><b>公测倒计时 H5 / 预约页</b></td><td>全圈层</td><td>转化为公测日 DAU 储水池</td><td>P1</td></tr>
+        </tbody>
+      </table>
+
+      <h3>KOL 矩阵分层策略</h3>
+      <p>不是"找游戏区 UP 主"就够了。R6 攻势的 KOL 矩阵应跨四个垂类：</p>
+      <ul>
+        <li><b>R6 老牌主播</b>（国际服时代积累）：他们是圈层 A 的核心信任锚——首批先遣资格、首批专访、首批 KV 互动权益</li>
+        <li><b>战术 FPS 内容创作者</b>（CS / 三角洲 / 无畏契约）：他们是圈层 B 的进入桥梁——重点投放完整对局演示、干员能力深度评测</li>
+        <li><b>电竞解说与赛事 KOL</b>：观赛圈层 + 圈层 C 的信任源——重点投放赛事解说、干员战术分析</li>
+        <li><b>泛娱乐 KOL</b>（与游戏区 KOL 跨界）：他们是出圈的关键——"组队开黑笑场""一发爆头被气哭"等情绪传播内容</li>
+      </ul>
+
+      <h3>反作弊承诺：必须独立成为一条传播线</h3>
+      <div class="highlight">
+        <p>R6 国际服外挂问题是国内玩家长期讨论的痛点——这恰恰让国服反作弊承诺成为<b>差异化最锋利的武器</b>。但前提是必须做到：</p>
+        <ul>
+          <li>反作弊承诺不只是发布会上提一句，而是<b>每周一份战报、每月一次案例、每季度一次警方合作公告</b></li>
+          <li>"全民鉴挂师"计划要有具体奖励机制 + 公开成果——让玩家成为反作弊体系的一部分</li>
+          <li>已抓 R1 外挂团伙 3 人涉案超 300 万元的案例，要做成一支专题短片——不是"我们抓了人"，而是"我们认真到把人送进派出所"</li>
+        </ul>
+        <p><b>So what</b>：反作弊承诺如果做对了，它本身就是公测前最强的导流物料——比任何预告片都更能打动那些"被国际服外挂折磨过的人"。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 6: 三个杀手级创意 ========== -->
+    <div x-show="page === 6" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三个杀手级宣发创意</h2>
+
+      <div class="creative-card">
+        <div class="tag" style="margin-bottom:12px;">创意 01 · 老兵回归</div>
+        <h5>「老兵识别码」— 国际服回归玩家的专属仪式</h5>
+        <p><b>核心概念</b>：把"国际服回归玩家专属标识与福利"从一个普通的本地化承诺，升级成一场<b>有仪式感的"老兵识别"</b>。每一个验证过国际服账号的玩家，会获得一组独一无二的"老兵识别码"——它既是游戏内的勋章，也是社交平台上的身份认证。</p>
+
+        <h4>执行方案</h4>
+        <ul>
+          <li>开发"老兵识别"H5：玩家上传 Uplay / Steam 账号绑定信息，系统验证国际服游戏时长、干员持有数、年通行证记录</li>
+          <li>验证通过：生成专属识别码（如 R6X-CN-OPS-XXXXX）+ 一张可分享的"军籍卡"长图（设计上沿用零圆角战术极简风格 + 警示橙点缀）</li>
+          <li>军籍卡上展示：国际服总时长、最常用干员、首次登录时间、验证通过时间——<b>每一项数据都是十年情怀的具象化</b></li>
+          <li>社交分享后：H5 自动统计"老兵已归队"人数，每达到一个里程碑（10 万 / 50 万 / 100 万）开放对应的国服游戏内奖励</li>
+        </ul>
+
+        <h4>执行时间线</h4>
+        <table>
+          <thead><tr><th>阶段</th><th>周期</th><th>交付物</th></tr></thead>
+          <tbody>
+            <tr><td>开发</td><td>首测前 60 天</td><td>H5 + 后端验证 + 军籍卡模板</td></tr>
+            <tr><td>预热</td><td>首测前 30 天</td><td>20 位 R6 老牌主播率先晒出军籍卡</td></tr>
+            <tr><td>全网开放</td><td>首测前 14 天</td><td>NGA / 贴吧 / B站 / 微博全渠道投放</td></tr>
+          </tbody>
+        </table>
+
+        <h4>预算与 KPI</h4>
+        <table>
+          <thead><tr><th>项目</th><th>预算</th><th>KPI</th></tr></thead>
+          <tbody>
+            <tr><td>H5 与后端开发</td><td>80-120 万</td><td>验证完成率 >90%</td></tr>
+            <tr><td>R6 老牌 KOL 投放</td><td>200-300 万</td><td>KOL 内容总播放 >2000 万</td></tr>
+            <tr><td>渠道投放</td><td>100-150 万</td><td>军籍卡生成 >50 万份 / 分享率 >40%</td></tr>
+            <tr><td><b>总计</b></td><td><b>380-570 万</b></td><td><b>"R6 国服老兵"成为社交话题；首测核心玩家盘已经预热</b></td></tr>
+          </tbody>
+        </table>
+        <p><b>落地平台</b>：微博 / B 站 / NGA / 贴吧 / 抖音二级传播 / 小红书"军籍卡晒图" UGC</p>
+        <p><b>参考案例</b>：网易云音乐"年度听歌报告"（人格化数据卡）；Steam 年度回顾报告；《魔兽世界》"经典怀旧服老兵勋章"。</p>
+      </div>
+
+      <div class="creative-card">
+        <div class="tag" style="margin-bottom:12px;">创意 02 · 反作弊战旗</div>
+        <h5>「全民鉴挂师」纪录片 + 实时战报系统</h5>
+        <p><b>核心概念</b>：把反作弊从"运营动作"升级为"<b>品牌叙事核心</b>"。R6 国际服外挂之痛是国内玩家心头病——国服反作弊承诺如果只停留在发布会上，就是浪费这把战旗。这个创意要做的是：让反作弊战报<b>每周更新、每月引爆、每季度成为社交平台话题</b>。</p>
+
+        <h4>执行方案</h4>
+        <ul>
+          <li><b>第一层 · 反作弊纪录片（10 分钟长片）</b>：跟拍腾讯 ACE 团队 + 警方协查办案过程，公开"已抓 R1 外挂团伙 3 人涉案超 300 万元"完整案例（在合规允许范围内）。<b>不是宣传片，是纪录片——画面要冷、要克制、要让人感受到"这件事我们是认真的"</b></li>
+          <li><b>第二层 · 反作弊周报系统</b>：游戏内 + 官网 + 微博每周三固定发布上一周封禁数据：封禁账号数、外挂样本类型、警方协助案例进度——<b>让"周三 R6 反作弊战报"成为玩家的固定期待</b></li>
+          <li><b>第三层 · 「全民鉴挂师」积分体系</b>：玩家举报有效外挂账号可获得积分，积分可兑换专属皮肤 / 专属头像框 / 实物周边。每月公开"鉴挂师 TOP100"——让玩家成为反作弊体系的一部分</li>
+          <li><b>第四层 · 警方公告联动</b>：与公安部门合作的反外挂案件，在合规许可下做联合公告——这一步是国服 R6 与"加速器版本"最强的差异化承诺</li>
+        </ul>
+
+        <h4>执行时间线与预算</h4>
+        <table>
+          <thead><tr><th>项目</th><th>周期</th><th>预算</th></tr></thead>
+          <tbody>
+            <tr><td>反作弊纪录片拍摄与制作</td><td>首测前 8 周</td><td>200-300 万</td></tr>
+            <tr><td>战报系统开发与日常运营</td><td>持续</td><td>100-150 万 / 季度</td></tr>
+            <tr><td>「全民鉴挂师」积分体系</td><td>首测期上线</td><td>50-80 万 + 奖励池预留</td></tr>
+            <tr><td><b>总计（首测周期）</b></td><td><b>—</b></td><td><b>350-530 万 + 持续性运营</b></td></tr>
+          </tbody>
+        </table>
+        <p><b>KPI</b>：纪录片 B 站播放 >800 万 / "周三反作弊战报"话题阅读量 >2 亿（季度累计）/ 鉴挂师积分参与玩家 >10% 月活</p>
+        <p><b>落地平台</b>：B 站长视频 / 抖音切片传播 / 微博话题运营 / 游戏内 dashboard / 官网战报专区</p>
+        <p><b>参考案例</b>：Riot Games《无畏契约》Vanguard 反作弊年报；Steam VAC 封禁公告周更机制。</p>
+      </div>
+
+      <div class="creative-card">
+        <div class="tag" style="margin-bottom:12px;">创意 03 · 攻防 UGC 引擎</div>
+        <h5>「这一波攻防」— 短视频原生内容引擎</h5>
+        <p><b>核心概念</b>：R6 的玩法天然适合短视频——<b>每一波 5v5 攻防都是一个微剧</b>，进攻方布局、守方加固、突破瞬间、一发爆头、残局反杀，每一个节点都是 5-15 秒的完美短视频素材。把"这一波攻防"做成一个全平台话题 + 内容创作工具，让玩家把自己的对局变成可传播的内容。</p>
+
+        <h4>执行方案</h4>
+        <ul>
+          <li><b>游戏内功能</b>：每局结束自动生成"这一波攻防"高光集锦——挑选关键 5 秒（首杀 / 一发爆头 / 关键残局 / 戏剧性反杀），自动加上字幕模板、警示橙特效、R6 攻势 logo 水印</li>
+          <li><b>一键分享到抖音 / B 站 / 小红书</b>——内置话题 #这一波攻防# 自动添加</li>
+          <li><b>话题运营</b>：官方微博、官方抖音每周精选 TOP10 玩家剪辑，给予游戏内奖励 + 在官方账号转发——形成"被官方翻牌"的荣誉激励</li>
+          <li><b>赛事内容联动</b>：把职业赛事的精彩攻防瞬间也接入这个话题——让"这一波攻防"既有素人内容，也有职业级内容，建立内容生态的两端</li>
+        </ul>
+
+        <h4>执行时间线与预算</h4>
+        <table>
+          <thead><tr><th>项目</th><th>周期</th><th>预算</th></tr></thead>
+          <tbody>
+            <tr><td>游戏内自动剪辑功能开发</td><td>首测期上线（迭代版本）</td><td>150-200 万</td></tr>
+            <tr><td>话题运营 + 奖励池</td><td>首测起持续运营</td><td>50-80 万 / 月</td></tr>
+            <tr><td>KOL 启动种草</td><td>首测期</td><td>100-150 万</td></tr>
+            <tr><td><b>总计（首测季度）</b></td><td><b>—</b></td><td><b>400-580 万</b></td></tr>
+          </tbody>
+        </table>
+        <p><b>KPI</b>：#这一波攻防# 话题视频投稿 >30 万条 / 总播放量 >5 亿 / 抖音&B站站内话题进入"游戏类"周热榜前 3</p>
+        <p><b>落地平台</b>：抖音（主战场）/ B 站（中长版剪辑）/ 小红书（女性玩家社区）/ 微博（官方矩阵转发）</p>
+        <p><b>参考案例</b>：《和平精英》"高光时刻"自动剪辑；《无畏契约》"Top Plays" 短视频生态；Riot 官方在国际赛事中的"#VCT精彩瞬间"运营。</p>
+      </div>
+
+      <h3>三个创意的优先级</h3>
+      <div class="highlight">
+        <table>
+          <thead><tr><th>创意</th><th>核心价值</th><th>执行难度</th><th>预算</th><th>优先级</th></tr></thead>
+          <tbody>
+            <tr><td>老兵识别码</td><td>种子用户激活 + 身份认同</td><td>中</td><td>380-570 万</td><td><b>P0 — 必做</b></td></tr>
+            <tr><td>全民鉴挂师</td><td>差异化战旗 + 长期信任</td><td>中高</td><td>350-530 万 + 持续</td><td><b>P0 — 必做</b></td></tr>
+            <tr><td>这一波攻防</td><td>UGC 飞轮 + 出圈传播</td><td>中</td><td>400-580 万</td><td><b>P1 — 强烈建议</b></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px;"><b>三创意首测周期总预算</b>：约 <b>1130-1680 万</b>。相对于"开拓者扶持计划"承诺的<b>不低于 1 亿元</b>预算盘子，这部分宣发投入是合理的——剩余预算应主要用于电竞赛事建设、职业战队签约和长期内容创作者扶持。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 7: 视觉规范速查 ========== -->
+    <div x-show="page === 7" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">视觉规范速查</h2>
+
+      <p style="color:#525252;">本页面供设计师快速参考。只放结论，不放推导过程。完整设计哲学见"视觉定位与中文落地"。</p>
+
+      <h3>配色规范</h3>
+      <table>
+        <thead><tr><th>色彩角色</th><th>建议色值</th><th>使用场景</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td><b>近黑底（主背景）</b></td><td>#0c0c0c → #141414</td><td>所有 KV / UI / 长图主背景</td><td>占画面面积 50-60%</td></tr>
+          <tr><td><b>中性深灰</b></td><td>#1c1c1c → #252525</td><td>层级分隔 / 卡片底色 / 信息组背景</td><td>占 20-25%</td></tr>
+          <tr><td><b>R6 警示橙</b></td><td>#FF6B1A 系（参考围攻 X "X" 标志色）</td><td>"攻势"二字、KO 标记、关键 CTA、品牌点睛</td><td><b>克制使用 ≤15%</b>，过多即廉价</td></tr>
+          <tr><td><b>战术冷蓝</b></td><td>#2A4A6E → #4A6E94</td><td>地图剖面、监视器 UI、电竞观赛模式</td><td>仅在功能性 UI 中使用</td></tr>
+          <tr><td><b>白 / 浅银</b></td><td>#FFFFFF → #D4D4D4</td><td>主标 logo、关键文案、HUD 数据</td><td>占 10-15%</td></tr>
+        </tbody>
+      </table>
+
+      <h3>字体规范</h3>
+      <table>
+        <thead><tr><th>用途</th><th>中文</th><th>英文</th><th>规格</th></tr></thead>
+        <tbody>
+          <tr><td><b>品牌主标 / KV 大字</b></td><td>Noto Sans CJK SC Black / Heavy</td><td>定制几何无衬线 / Inter Black</td><td>零圆角、几何对齐、字间距收紧</td></tr>
+          <tr><td><b>正文 / 段落</b></td><td>Noto Sans CJK SC Regular / Medium</td><td>Inter Regular / Medium</td><td>line-height 1.6-1.8</td></tr>
+          <tr><td><b>HUD 数字 / 数据</b></td><td>—</td><td>等宽字体（JetBrains Mono / 自定义）</td><td>弹药数 / 倒计时 / 干员代号严格对齐</td></tr>
+          <tr><td><b>战术标识 / 警示文字</b></td><td>Noto Sans CJK SC Bold（紧排）</td><td>同英文 Bold</td><td>大写 / 字间距 0.5-1px</td></tr>
+        </tbody>
+      </table>
+
+      <h3>图形造型语言</h3>
+      <div class="highlight">
+        <p><b>核心原则：零圆角 × 高对比 × 战术极简</b></p>
+        <ul>
+          <li><b>UI 元素全部直角</b>——按钮、卡片、图标容器、对话框，禁止圆角</li>
+          <li><b>分隔线全部 1px 直线</b>——禁用阴影、禁用渐变模糊边缘、禁用毛玻璃效果（除非用于沉浸式比赛 OB 模式）</li>
+          <li><b>图标系统使用线性图标</b>——线宽 1.5-2px，几何感强，避免拟物化</li>
+          <li><b>构图遵循 8px 网格</b>——所有元素位置、间距、尺寸都吸附 8px 倍数</li>
+        </ul>
+      </div>
+
+      <h3>国服中英双语 logo 规范</h3>
+      <table>
+        <thead><tr><th>位置</th><th>内容</th><th>字重 / 颜色</th></tr></thead>
+        <tbody>
+          <tr><td>顶部锁定标</td><td>Tom Clancy's RAINBOW SIX SIEGE X</td><td>细体 / 浅银</td></tr>
+          <tr><td>中文主标</td><td>彩虹六号：攻势</td><td>"彩虹六号"白色 Black 字重 / "攻势"R6 警示橙 Black 字重</td></tr>
+          <tr><td>副线 slogan（可选）</td><td>干员 × 攻防 × 一发爆头</td><td>浅银 Medium / 字间距宽</td></tr>
+        </tbody>
+      </table>
+
+      <h3>宣发物料色彩比例速查</h3>
+      <table>
+        <thead><tr><th>物料类型</th><th>近黑底</th><th>中性深灰</th><th>R6 警示橙</th><th>白/浅银</th></tr></thead>
+        <tbody>
+          <tr><td>主 KV / 海报</td><td>50%</td><td>25%</td><td>10%</td><td>15%</td></tr>
+          <tr><td>预告片色调</td><td>60%</td><td>20%</td><td>10%</td><td>10%</td></tr>
+          <tr><td>社交媒体单图</td><td>55%</td><td>20%</td><td>10%</td><td>15%</td></tr>
+          <tr><td>商店页 / Banner</td><td>50%</td><td>25%</td><td>15%</td><td>10%</td></tr>
+          <tr><td>电竞赛事直播 OB</td><td>45%</td><td>30%</td><td>10%</td><td>15%</td></tr>
+        </tbody>
+      </table>
+
+      <h3>禁忌清单（违反即视觉灾难）</h3>
+      <ul>
+        <li><b>禁止</b>：把国服 logo 加水墨、印章、朱红、龙图腾等"中国风"装饰</li>
+        <li><b>禁止</b>：用圆头黑体、宋体或华文楷体作为主标字体</li>
+        <li><b>禁止</b>：警示橙作为大面积底色——它只能是点睛色</li>
+        <li><b>禁止</b>：在 KV 中堆砌过多干员（>5 个）——R6 不是"角色合影"游戏</li>
+        <li><b>禁止</b>：使用过度模糊 / 毛玻璃 / 高斯模糊背景——这与"零圆角战术极简"基因相冲</li>
+      </ul>
+    </div>
+
+    <!-- ========== PAGE 8: 风险预警 ========== -->
+    <div x-show="page === 8" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">风险预警与反制</h2>
+
+      <p style="color:#525252;">以下五个风险按严重程度从高到低排列。每个风险附发生概率评估、影响范围和具体反制策略。</p>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(196,60,60,0.15);color:#c43c3c;border-color:rgba(196,60,60,0.3);">风险等级：极高</div>
+        <h5>风险 1：玩家对腾讯运营的疑虑——"又要变味了"</h5>
+        <p>R6 国际服玩家对"腾讯接手国服"的反应在社区已经形成两极：一部分期待"终于有原生服务器和反作弊"，另一部分担忧"腾讯一接就氪金、就快餐化、就阉割玩法"。这种疑虑不是没有道理——历史上多款腾讯代理 / 自研射击产品被讨论时都面临类似指责。<b>这是 R6 攻势国服面临的最大单一风险</b>。</p>
+        <div class="mitigation">
+          <p><b>反制策略</b>：</p>
+          <ul>
+            <li><b>"原汁原味"承诺必须刻在最显眼的位置</b>——核心玩法、平衡机制、TTK、干员体系完全与国际版一致，且通过版本同步保证后续不偏离</li>
+            <li><b>付费策略首测前明确公告</b>："纯外观付费，不影响数值平衡"——任何付费数值化的传言要在 24 小时内回应澄清</li>
+            <li><b>制作人 / 项目负责人公开露面</b>——而不是只用官方账号沟通。让玩家"认识那个对国服负责的人"，比任何承诺函都有效</li>
+            <li><b>透明的版本同步路线图</b>——公开国际版与国服版本同步的时间窗口（差异不应超过 1-2 个赛季），打消"国服会不会被砍内容"的怀疑</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(196,60,60,0.15);color:#c43c3c;border-color:rgba(196,60,60,0.3);">风险等级：高</div>
+        <h5>风险 2：反作弊承诺兑现 —— 一旦失守，所有信任崩塌</h5>
+        <p>反作弊是国服最锋利的差异化武器，也是最脆弱的承诺。一旦首测期出现明显的外挂泛滥，<b>所有"我们不一样"的话术会立刻反噬</b>——玩家会得出结论："腾讯也搞不定外挂，那国服和加速器版本有啥区别？"。</p>
+        <div class="mitigation">
+          <p><b>反制策略</b>：</p>
+          <ul>
+            <li><b>首测期反作弊投入要"过度"</b>——宁可前期资源过剩，也不要让首批玩家的体验毁于外挂</li>
+            <li><b>透明披露反作弊数据</b>——每周战报包含封禁数、误封申诉处理速度、外挂样本类型 — <b>用数据建立信任而非用口号</b></li>
+            <li><b>面向核心玩家的"可观察性"</b>——玩家在举报后可以追踪自己举报的处理状态，封禁后可以看到具体原因</li>
+            <li><b>建立"红色预警"应急机制</b>——一旦某种新型外挂在 24 小时内造成超过一定数量的玩家投诉，启动专项响应并对外公告处理进度</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(196,60,60,0.15);color:#c43c3c;border-color:rgba(196,60,60,0.3);">风险等级：高</div>
+        <h5>风险 3：与三角洲行动的用户重叠 —— 内部资源争夺</h5>
+        <p>三角洲行动 2026-01 已登顶 iOS 畅销榜，是腾讯射击矩阵的"流量旗舰"。R6 攻势进入市场后，会与三角洲在<b>"战术 FPS 用户"</b>这块基本盘上有交叠——尤其是核心玩家可能要在两款产品之间做时间分配。如果腾讯内部对两款产品的差异化定位不清晰，会出现资源、KOL、流量的内部争夺，<b>"自家人打自家人"是最容易被忽略也最伤的内耗</b>。</p>
+        <div class="mitigation">
+          <p><b>反制策略</b>：</p>
+          <ul>
+            <li><b>内部明确定位差异</b>：三角洲 = 大 DAU + 流量入口；R6 攻势 = 硬核战术 + 品牌高度 + 电竞 + 海外联动。两者 KPI 体系不同、KOL 矩阵不同、宣发节奏不同</li>
+            <li><b>避免在同一时间窗口的核心营销重叠</b>——如果三角洲在某个版本节点冲量，R6 攻势的大物料应错峰</li>
+            <li><b>探索两款产品联动</b>——比如皮肤跨产品、跨产品成就奖励、双产品玩家专属权益，把"分流"转化为"双消费"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(255,255,255,0.06);color:#737373;border-color:rgba(255,255,255,0.06);">风险等级：中</div>
+        <h5>风险 4：6 月首测时间窗 —— 暑期档竞品挤压</h5>
+        <p>2026 年 6 月正值暑期档前夜——通常 6 月底到 7 月初是国内游戏行业重度营销窗口，多款新品 / 大版本 / IP 联动会扎堆。R6 攻势首测如果撞在某款大流量产品的核心营销期，会被淹没在话题洪流中。</p>
+        <div class="mitigation">
+          <p><b>反制策略</b>：</p>
+          <ul>
+            <li><b>首测节点尽量提前到 6 月上中旬</b>——避开 7 月暑期档高峰，给国服话题足够的发酵窗口</li>
+            <li><b>差异化话题角度</b>——R6 攻势的核心传播角度（10 年老 IP 国服化、反作弊、老兵回归）与暑期档主流大作的话题完全不同，不应在"流量打榜"维度比拼，而应在"质感 / 信任 / 情怀"维度站住</li>
+            <li><b>密切监控竞品动态</b>——首测前 4 周监控暑期档主要竞品的预定档期，必要时调整核心物料投放节奏</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <div class="tag" style="margin-bottom:8px;background:rgba(255,255,255,0.06);color:#737373;border-color:rgba(255,255,255,0.06);">风险等级：中</div>
+        <h5>风险 5：电竞生态从零起步 —— 国际接驳速度跟不上</h5>
+        <p>R6 国际版有完整的全球赛事体系（Major、Six Invitational、各赛区联赛），国服需要在公测后<b>较短时间内</b>建立国服赛事 + 接入国际赛事 + 培育国服职业战队三件事。任何一环慢，都会让"R6 攻势 = 中国电竞"的故事讲不通。</p>
+        <div class="mitigation">
+          <p><b>反制策略</b>：</p>
+          <ul>
+            <li><b>电竞团队首测期就开始建设</b>——不等公测，提前签约职业选手 / KOL 战队 / 解说团队</li>
+            <li><b>明确国服赛事与国际赛事的接驳路径</b>——国服冠军是否能直通国际 Major？这条规则要在公测前对外公告</li>
+            <li><b>「开拓者扶持」1 亿元预算中应有明确比例划给电竞生态</b>——内容创作者扶持只是表层，电竞才是 R6 IP 的核心资产</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 9: 终审意见 ========== -->
+    <div x-show="page === 9" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">顾问终审意见</h2>
+      <p style="color:#737373;margin-bottom:20px;">审核角色：资深游戏宣发顾问 &nbsp;|&nbsp; 审核日期：2026.05.19</p>
+
+      <div class="verdict" style="border-left-color:#FF6B1A;">
+        <h4 style="color:#fff;margin-top:0;">GO / NO-GO 判断：GO —— 强烈建议推进，但必须满足三个战略前提</h4>
+        <p>《彩虹六号：攻势》国服化是腾讯射击矩阵中<b>战略价值远高于流量价值</b>的项目。它不会是 5000 万 DAU 的国民产品，但它有可能成为腾讯射击矩阵中<b>品牌高度最高、海外可联动、电竞资产最完整、长期 LTV 最稳健</b>的那一块拼图。</p>
+        <p>但要打满这个潜力，必须满足三个不可妥协的战略前提。</p>
+      </div>
+
+      <h3>战略前提一：KPI 不能用 DAU 数字</h3>
+      <div class="highlight">
+        <p>R6 攻势的玩法定位（5v5 慢节奏 + 一发爆头 + 干员系统）天然是<b>百万级稳定核心玩家盘</b>而非千万 DAU 产品。如果内部 KPI 被设定为"对标三角洲 / 和平精英的 DAU 数字"，产品会被迫做错三件事：把玩法降难、把付费数值化、把节奏快餐化——最终变成"R6 皮肤的 CF"，失去存在意义。</p>
+        <p><b>建议 KPI 体系</b>：核心玩家 30 日留存率 > 35%、ARPU 高于腾讯射击矩阵平均水平 1.5 倍、电竞赛事观赛峰值国内 > 10 万、海外（与国际版联动）观赛 > 5 万、反作弊承诺兑现率（玩家投票打分）> 80%。</p>
+      </div>
+
+      <h3>战略前提二：反作弊必须真做，不是口号</h3>
+      <div class="highlight">
+        <p>这是国服 R6 区别于"加速器版本"的<b>唯一不可被竞争对手复制的承诺</b>。如果反作弊只是发布会上提一句、首测期出现外挂泛滥，那 R6 国服化的所有故事都会被一句"还不如玩国际服"打回原形。</p>
+        <p><b>建议机制</b>：每周战报、每月案例、每季度警方合作公告——反作弊不是市场行为，是<b>产品基本功</b>。"已抓 R1 外挂团伙 3 人涉案超 300 万元"这个案例必须被反复讲述、做成纪录片、做成警方联合公告——不是为了营销，而是为了让所有人知道"这件事我们是认真的"。</p>
+      </div>
+
+      <h3>战略前提三：原汁原味与本地化优化的边界必须清晰</h3>
+      <div class="highlight">
+        <p>"原汁原味（核心玩法不变）+ 独一无二（本地化优化）"是国服策略关键词，但需要内部对<b>什么是"原汁原味"的红线、什么是"本地化优化"的灰区</b>有共同语言。否则在版本运营中会反复出现争议——比如某个干员调整、某个皮肤价格、某个赛事规则，到底是"本地化优化"还是"已经偏离原版"。</p>
+        <p><b>建议</b>：制定《国服 R6 玩法红线手册》，对外发布版本同步路线图——让玩家社区参与"红线监督"，而不是事后被动应对争议。</p>
+      </div>
+
+      <h3>第一优先行动（首测前 30 天，本月内）</h3>
+      <div class="verdict">
+        <p><b>立即启动「老兵识别码」H5 与反作弊纪录片的并行制作</b>。这两件物料是首测期最关键的"信任建立物料"——前者激活种子用户、后者建立差异化承诺。两者必须在<b>首测前 14 天</b>同步上线，给 6 月首测开服储备话题势能。</p>
+      </div>
+
+      <h3>第二优先行动（首测期，6 月）</h3>
+      <div class="verdict">
+        <p><b>完整对局演示 + KOL 直播矩阵 + 玩家反馈实时回应三件事并行</b>。完整对局演示打圈层 B 的硬核玩家心智，KOL 矩阵打圈层 C 的内容圈泛粉，玩家反馈实时回应保证圈层 A 的种子用户口碑不崩。这三条线在首测期同时打满，公测前的话题势能就稳了。</p>
+      </div>
+
+      <h3>第三优先行动（首测后 60 天内，公测前夜）</h3>
+      <div class="verdict">
+        <p><b>发布首测白皮书 + 启动「开拓者扶持」计划落地 + 公布国服首届赛事预告</b>。这三件事一起做，传递的核心信号是<b>"国服 R6 不是一场首测烟花，而是一个长期生态"</b>——这是把首测期积累的话题势能转化为公测期 DAU 储水池的关键动作。</p>
+      </div>
+
+      <h3>结语：这个项目，做对了，是腾讯射击矩阵的"战略资产"</h3>
+      <p>R6 攻势国服化不是一次"代理一款 10 年老游戏"。它是腾讯第一次<b>用一个全球级 IP，向中国市场证明"我们能做硬核 + 长期 + 国际化的产品"</b>。它的成功不会立刻在 DAU 数字上反映出来，但它会在三年后体现为：<b>腾讯有了一个能与国际顶级电竞产品对话的资产、有了一个百万级高 ARPU 稳定盘、有了一条把国内战术射击玩家承接住的护城河</b>。</p>
+      <p>错过这个窗口，下一次机会要等 5 年；做对这一次，整个射击矩阵的战略高度都会被抬升。</p>
+      <p style="color:#525252;margin-top:24px;font-size:12px;">— 报告完 —</p>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>彩虹六号：攻势 — 主战场阵地设计方案</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'surface-0': '#0C0F16',
+        'surface-1': '#141823',
+        'surface-2': '#1c2030',
+        'surface-3': '#252a3a',
+        'bdr': 'rgba(255,255,255,0.06)'
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background:#0C0F16; color:#e5e5e5; font-family:'Noto Sans CJK SC','Noto Sans SC',-apple-system,BlinkMacSystemFont,sans-serif; }
+  * { scrollbar-width: thin; scrollbar-color:#333 transparent; }
+  .page-content h2 { color:#fff; }
+  .page-content h3 { font-size:16px; font-weight:700; color:#fff; margin:28px 0 12px; }
+  .page-content h4 { font-size:14px; font-weight:600; color:#d4d4d4; margin:20px 0 8px; }
+  .page-content p { font-size:14px; line-height:1.8; color:#a3a3a3; margin:0 0 12px; }
+  .page-content ul { padding-left:20px; margin:0 0 16px; }
+  .page-content li { font-size:13px; line-height:1.7; color:#a3a3a3; margin-bottom:5px; }
+  .page-content li::marker { color:#525252; }
+  .page-content b, .page-content strong { color:#fff; font-weight:600; }
+  .highlight { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:16px; margin:16px 0; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; background:rgba(255,255,255,0.06); color:#737373; border:1px solid rgba(255,255,255,0.06); margin-right:4px; text-decoration:none; }
+  table { width:100%; border-collapse:collapse; margin:12px 0 20px; font-size:13px; }
+  th { text-align:left; padding:8px 12px; font-size:11px; font-weight:600; color:#737373; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  td { padding:9px 12px; color:#a3a3a3; border-bottom:1px solid rgba(255,255,255,0.04); vertical-align:top; }
+  .verdict { background:#141823; border-left:3px solid #fff; padding:16px 20px; margin:20px 0; border-radius:0 6px 6px 0; }
+  .verdict p { color:#d4d4d4; }
+  .creative-card { background:#141823; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; }
+  .creative-card h5 { font-size:15px; font-weight:700; color:#fff; margin:0 0 8px; }
+  .risk-card { background:#141823; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; border-left:3px solid #fff; }
+  .quote { color:#d4d4d4; font-size:18px; line-height:1.6; font-weight:700; letter-spacing:-0.02em; }
+  .muted { color:#737373 !important; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../rainbow-six-siege-x.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">《彩虹六号：攻势》— 主战场阵地设计方案<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-05-19</span></h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="rainbow-six-siege-x.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
+      <a href="rainbow-six-siege-x-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">首测引流</a>
+      <a href="rainbow-six-siege-x-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">主战场阵地</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="rainbow-six-siege-x-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三大阵地功能与旅程</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">各阵地用户行为特征</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">WeGame 商店页策略</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">WeGame 游戏专区策略</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">自研启动器策略</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三阵地视觉规范统一</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三阵地转化创意</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">执行时间线</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预案</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">终审 + KPI + 预算</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">三大阵地功能定位与用户旅程</h2>
+      <div class="verdict"><p><b>核心判断</b>：《彩虹六号：攻势》国服首测档期 2026-06，主战场由三个固定阵地构成——WeGame 商店页、WeGame 游戏专区、官方自研启动器（r6.qq.com 体系）。R6 玩家结构具有强烈双重性：一边是国际服回流老兵（带账号、带肌肉记忆、最在意干员补偿），一边是 5v5 战术射击的全新国服用户（最在意中文配音和反作弊）。三阵地必须分别承接「预约→下载→启动→留存→回流」全链路，让两类玩家都能找到属于自己的入口。<a href="https://r6.qq.com/" target="_blank" rel="noopener" class="tag">国服官网 r6.qq.com ↗</a></p></div>
+      <h3>三大阵地功能定位</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>核心功能</th><th>用户在此完成的动作</th><th>在旅程中的角色</th></tr></thead>
+        <tbody>
+          <tr><td><b>WeGame 商店页</b></td><td>第一印象 + 预约转化入口</td><td>了解游戏→看 PV→点击预约</td><td>入口：把兴趣变成行动</td></tr>
+          <tr><td><b>WeGame 游戏专区</b></td><td>测试期运营 + 长期留存</td><td>看攻略→查百科→逛社区→晒战绩</td><td>中枢：把玩家变成社区居民</td></tr>
+          <tr><td><b>自研游戏启动器</b></td><td>每日触达 + 氛围预热</td><td>登录→看公告→启动游戏→接收活动</td><td>日常：把启动变成习惯</td></tr>
+        </tbody>
+      </table>
+      <h3>用户完整旅程（五阶段 × 双用户类型）</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>新用户路径</th><th>回归玩家路径</th><th>主承接阵地</th><th>失败信号</th></tr></thead>
+        <tbody>
+          <tr><td><b>预约</b></td><td>外围内容→商店页→预约</td><td>国际服老兵收到回归补偿信息→直奔商店页</td><td>WeGame 商店页</td><td>页面跳出率 &gt;65%</td></tr>
+          <tr><td><b>下载</b></td><td>测试资格→商店页下载</td><td>资格通过→商店页下载（带回归标识）</td><td>商店页→启动器</td><td>下载中断/安装失败</td></tr>
+          <tr><td><b>启动</b></td><td>启动器登录→新手引导→进入游戏</td><td>启动器登录→识别国际服账号→显示补偿干员</td><td>自研启动器</td><td>启动器停留 &gt;30 秒未进入</td></tr>
+          <tr><td><b>留存</b></td><td>专区查地图/干员攻略</td><td>专区入驻 KOL/职业选手内容</td><td>游戏专区 + 启动器</td><td>7 日留存 &lt;35%（射击品类基准）</td></tr>
+          <tr><td><b>回流</b></td><td>启动器召回弹窗+段位重置预告</td><td>启动器「回归礼包」+ 老干员限定皮肤</td><td>商店页 + 启动器</td><td>召回点击率 &lt;5%</td></tr>
+        </tbody>
+      </table>
+      <h3>三阵地协作逻辑</h3>
+      <div class="highlight"><p class="quote">商店页负责「让人按下预约」，专区负责「让人住下来」，启动器负责「让人每天回来」。</p><p>三个阵地不是三个独立页面，而是一条管道。R6 玩法学习曲线陡（干员体系 + 破坏物理 + 信息博弈），首测期间任何一环断裂都意味着新手在懵懂中流失。商店页转化再高，专区没干员资料留不住小白；专区再热闹，启动器每天打开慢、活动覆盖「开始游戏」按钮，老兵会先骂再走。<b>So what：三阵地必须按同一条用户旅程图共建，而不是三个团队各做各的。</b></p></div>
+    </div>
+
+    <div x-show="page === 1" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">各阵地用户行为特征</h2>
+      <div class="verdict"><p><b>核心判断</b>：三个阵地面对的用户心智完全不同——商店页用户是「决策型浏览」（要不要预约），专区用户是「社区型沉浸」（找内容、找同好），启动器用户是「习惯型触达」（最短路径进游戏）。R6 国服的特殊性在于：商店页面对的是「我听说彩虹六号要国服了」的兴趣用户，专区面对的是「我已经决定玩，现在要变强」的进阶用户，启动器面对的则是「我每天上线打几把」的常驻用户。设计必须严格匹配心智。</p></div>
+      <h3>阵地① WeGame 商店页 — 决策型浏览</h3>
+      <p><b>用户画像</b>：从外围（B站 PV、抖音 KOL 试玩、微博话题）到达，对「腾讯代理 R6」有初步兴趣但未决定是否预约。WeGame 商店页平均停留 45-90 秒（行业基准）。</p>
+      <p><b>行为特征</b>：扫一眼首屏（这是不是真的 R6？）→ 看预约福利（墨冰 10 选 3、企鹅大兵饰品、固态硬盘） → 看反作弊承诺（腾讯 ACE） → 决定是否预约。</p>
+      <p><b>So what</b>：商店页的设计目标是<b>3 秒回答「这是国际服的中国版本而非换皮」+ 10 秒说服「值得预约」</b>。不要长世界观，要：UE5 实机 PV + 中文配音 0.5 秒预览 + 腾讯 ACE 反作弊承诺浮窗 + 醒目预约按钮 + 福利展示。<a href="https://r6.qq.com/cn/news.html" target="_blank" rel="noopener" class="tag">国服官网新闻区 ↗</a></p>
+      <h3>阵地② WeGame 游戏专区 — 社区型沉浸</h3>
+      <p><b>用户画像</b>：已预约或已下载的玩家，为找地图打法、干员 build、版本数据、组队队友而来。R6 是「研究型」射击游戏（单局信息博弈密度高），专区单次停留可达 8-20 分钟（高于普通射击品类）。</p>
+      <p><b>行为特征</b>：带明确目的进入（搜「窝点 GIGN 干员」「游艇加固点位」）→ 找到攻略 → 顺手翻百科 → 看战绩对比 → 形成回访。R6 的干员/地图复杂度天然制造「研究需求」，是专区最大杠杆。</p>
+      <p><b>So what</b>：专区的设计目标是<b>把 R6 的高学习曲线变成回访理由</b>。Tab 架构清晰（攻略/百科/社区/战绩），干员百科 50+ 干员档案完整，邀请国际服回归 KOL/职业选手开专栏（这是 R6 国服独有的内容资产）。</p>
+      <h3>阵地③ 自研启动器 — 习惯型触达</h3>
+      <p><b>用户画像</b>：已安装的活跃玩家。R6 是「上线开几把」型游戏（单局 10-15 分钟，玩家通常 2-4 局起步），启动器每天被打开 1-2 次，每次停留 5-15 秒。</p>
+      <p><b>行为特征</b>：扫一眼公告（有没有版本更新/新干员）→ 点「开始游戏」→ 进入游戏。停留极短，触达极频繁，<b>「开始游戏」按钮被遮挡 = 用户怒删客户端</b>。</p>
+      <p><b>So what</b>：启动器的设计目标是<b>不打断启动流程的前提下完成信息传达</b>。公告不能挡按钮；活动弹窗一键关闭；预热用背景动效（每日干员台词轮播、版本前夜中文 PV 自动播放），不用强制弹窗。</p>
+      <table>
+        <thead><tr><th>维度</th><th>商店页</th><th>游戏专区</th><th>启动器</th></tr></thead>
+        <tbody>
+          <tr><td><b>用户心智</b></td><td>决策型</td><td>沉浸型</td><td>习惯型</td></tr>
+          <tr><td><b>平均停留</b></td><td>45-90 秒</td><td>8-20 分钟（R6 研究型）</td><td>5-15 秒</td></tr>
+          <tr><td><b>核心 KPI</b></td><td>预约转化率</td><td>回访率/UGC 数</td><td>启动率/弹窗点击率</td></tr>
+          <tr><td><b>R6 特异性</b></td><td>反作弊承诺前置</td><td>50+ 干员百科沉淀</td><td>回归玩家专属界面</td></tr>
+          <tr><td><b>设计原则</b></td><td>快速说服</td><td>深度留人</td><td>不打断、轻触达</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div x-show="page === 2" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold mb-6">WeGame 商店页设计策略</h2>
+      <div class="verdict"><p><b>核心判断</b>：商店页是用户从外围平台到达的第一个主战场触点。3 秒回答「这是什么游戏 + 国服解决了哪些痛点」，10 秒完成预约转化。R6 国服的差异化卖点必须前置：<b>中文配音、腾讯 ACE 反作弊、回归玩家干员补偿</b>——这三点是国际服无法提供、国服独占的价值，必须在首屏可见。</p></div>
+      <h3>首屏设计（用户看到的第一个画面）</h3>
+      <table>
+        <thead><tr><th>元素</th><th>位置</th><th>设计要求</th><th>目的</th></tr></thead>
+        <tbody>
+          <tr><td><b>主 KV</b></td><td>首屏 100% 宽度（1920×600 横幅）</td><td>5 干员阵列站位（攻防双方各 2-3 人），背景为中文版地图入口标识</td><td>0.5 秒传达「5v5 战术射击+国服中文化」</td></tr>
+          <tr><td><b>预约按钮</b></td><td>首屏右侧/KV 下方</td><td>白底深色字 + R6 攻势 X 标识，面积不小于 140×44px，hover 微动效</td><td>视觉第一落点，降低预约摩擦</td></tr>
+          <tr><td><b>实机视频自动播放</b></td><td>KV 区域内嵌</td><td>15 秒中文配音精华片段（含一发爆头/无人机侦察/加固据点），静音自动循环+悬停取消静音</td><td>用动态画面+中文台词同时证明「真国服+真实机」</td></tr>
+          <tr><td><b>核心卖点标签</b></td><td>预约按钮附近</td><td>4 个标签：「5v5 战术射击」「腾讯 ACE 反作弊」「中文配音」「跨平台组队」</td><td>2 秒传达国服差异化</td></tr>
+          <tr><td><b>反作弊承诺浮窗</b></td><td>首屏右下角悬浮</td><td>展开式浮窗：「腾讯 ACE + 100% 录入外服外挂样本 + 红黄屏检测 + 全民鉴挂师」</td><td>解决 R6 玩家最大痛点（外挂）</td></tr>
+        </tbody>
+      </table>
+      <h3>次屏设计（下滑后的内容）</h3>
+      <table>
+        <thead><tr><th>模块</th><th>内容</th><th>设计要点</th></tr></thead>
+        <tbody>
+          <tr><td><b>实机视频区</b></td><td>3-5 段中文配音实机（一局完整对局/干员技能展示/地图破坏）</td><td>缩略图标注「中文配音」徽标，播放器内嵌不跳出</td></tr>
+          <tr><td><b>特色系统介绍</b></td><td>干员系统/破坏物理/无人机侦察/加固据点/换边机制 各一卡片</td><td>每个系统 50 字以内 + 实机配图，杜绝概念图</td></tr>
+          <tr><td><b>国服承诺墙</b></td><td>四大承诺：中文配音/UI 优化/原生好友/跨平台组队 + 「开拓者扶持 ≥ 1 亿元」</td><td>每条承诺一张卡片，配「已实施/测试中」状态徽标</td></tr>
+          <tr><td><b>回归玩家专区</b></td><td>「国际服老兵看这里」横幅：根据国际服活跃情况补偿干员+专属标识</td><td>独立锚点，可从首屏快速跳达</td></tr>
+          <tr><td><b>预约福利展示</b></td><td>墨冰武器涂装 10 选 3 / 国服卡面 / 企鹅大兵饰品 / 固态硬盘 / 补给包</td><td>福利图标 + 阶梯式解锁条件可视化</td></tr>
+          <tr><td><b>评价区预埋</b></td><td>R6 国际服回归 KOL 试玩评价（待入驻后填充）</td><td>真实来源可追溯，用 .tag 标注来源</td></tr>
+          <tr><td><b>底部浮动预约条</b></td><td>固定页面底部的预约 CTA + 实时预约人数</td><td>滚动到任何位置都可一键预约</td></tr>
+        </tbody>
+      </table>
+      <h3>商店页关键数据指标</h3>
+      <table>
+        <thead><tr><th>指标</th><th>行业基准</th><th>R6 国服目标</th><th>优化杠杆</th></tr></thead>
+        <tbody>
+          <tr><td><b>首屏跳出率</b></td><td>射击品类商店页约 50-60%</td><td>&lt;42%</td><td>5 干员 KV + 中文配音视频自动播放</td></tr>
+          <tr><td><b>预约转化率</b></td><td>射击品类约 10-18%</td><td>&gt;22%</td><td>反作弊浮窗 + 福利展示 + 底部浮动条</td></tr>
+          <tr><td><b>视频播放率</b></td><td>商店页视频约 25-35%</td><td>&gt;45%</td><td>自动播放 + 中文配音徽标吸引</td></tr>
+          <tr><td><b>页面停留时间</b></td><td>商店页约 45-90 秒</td><td>&gt;75 秒</td><td>国服承诺墙 + 回归玩家专区分流</td></tr>
+          <tr><td><b>回归玩家专区点击率</b></td><td>无基准</td><td>&gt;25%（已预约用户）</td><td>首屏「国际服老兵看这里」入口</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><p><b>商店页设计铁律</b>：</p><ul><li>预约按钮永远可见——首屏有、滚动有（底部浮动条）、视频播放结束有 CTA 弹层</li><li>不讲完整剧情——只讲「你将体验什么 + 国服解决了什么」</li><li>用中文配音实机说服，不用英文 PV 翻字幕</li><li>反作弊承诺是 R6 玩家的第一痛点——必须在首屏可见，不能埋在 FAQ</li><li>回归玩家路径必须独立——避免老兵被新手内容稀释体验</li></ul><p><b>So what</b>：R6 国服商店页和外服 Steam 页面最大的区别在于「国服承诺」必须是显性卖点。直接照搬国际服店面会浪费国服独有的差异化资产。</p></div>
+    </div>
+
+    <div x-show="page === 3" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
+      <h2 class="text-2xl font-bold mb-6">WeGame 游戏专区设计策略</h2>
+      <div class="verdict"><p><b>核心判断</b>：游戏专区是测试期和长线运营期的内容中枢。R6 的高学习曲线是专区的天然杠杆——50+ 干员、20+ 地图、几十种道具/小工具的研究需求，决定了「玩家不进游戏也要回专区查资料」的强黏性。专区活跃度直接决定 R6 国服的长线 LTV。</p></div>
+      <h3>Tab 架构设计</h3>
+      <table>
+        <thead><tr><th>Tab</th><th>核心内容</th><th>更新频率</th><th>用户目的</th></tr></thead>
+        <tbody>
+          <tr><td><b>首页/动态</b></td><td>官方公告 + 精选社区帖 + 热门攻略 + 赛事卡片</td><td>每日更新</td><td>快速获取最新信息</td></tr>
+          <tr><td><b>攻略</b></td><td>地图教学 + 干员 build + 段位上分指南 + 团队协作</td><td>每周 5+ 篇（首测期）</td><td>解决游戏中遇到的问题</td></tr>
+          <tr><td><b>百科</b></td><td>50+ 干员档案 + 20+ 地图详解 + 武器/小工具数据库</td><td>随版本更新</td><td>深入了解游戏系统</td></tr>
+          <tr><td><b>社区</b></td><td>玩家帖文 + 二创展示 + 组队招募 + 反馈区</td><td>实时 UGC</td><td>社交互动+找队友</td></tr>
+          <tr><td><b>战绩</b></td><td>个人数据 + 段位榜单 + 个人热力图 + 干员胜率</td><td>实时数据</td><td>竞技动力+回访理由</td></tr>
+        </tbody>
+      </table>
+      <h3>百科系统 — R6 专区的最大资产</h3>
+      <p><b>测试期优先建设</b>：R6 单局信息博弈密度极高（无人机侦察、可破坏环境、加固点位、武器后坐力），新手第一局通常 80% 时间不知道发生了什么。攻略和百科是降低上手门槛的关键工具，也是 R6 国服区别于其他射击品类专区的最大优势。</p>
+      <table>
+        <thead><tr><th>内容类型</th><th>测试期数量目标</th><th>来源</th><th>展示形式</th></tr></thead>
+        <tbody>
+          <tr><td><b>新手引导</b></td><td>8 篇核心（5v5 流程/无人机/加固/换边/段位）</td><td>官方编写</td><td>图文 + 短视频嵌入</td></tr>
+          <tr><td><b>地图攻略</b></td><td>每张首测地图 1 主篇 + 3 进阶篇</td><td>官方 + KOL 合作</td><td>俯视图标注加固点位/进攻路线</td></tr>
+          <tr><td><b>干员档案</b></td><td>首测开放干员 100% 覆盖（≥30 个）</td><td>官方编写 + 国际服老兵补充</td><td>3D 模型 + 技能视频 + 配音段落 + 推荐 build</td></tr>
+          <tr><td><b>武器数据</b></td><td>全部首测武器</td><td>官方提供数据</td><td>数据表 + 后坐力曲线图 + 配件搭配</td></tr>
+          <tr><td><b>段位指南</b></td><td>各段位上分要点 5 篇</td><td>邀请国际服钻石+ KOL 撰写</td><td>对局复盘视频 + 文字总结</td></tr>
+        </tbody>
+      </table>
+      <h3>KOL/职业选手内容入驻 — 国服独家资产</h3>
+      <p><b>差异化机会</b>：R6 国际服在中国有大量回归玩家和现役主播。游戏专区可以主动邀请这批人入驻开专栏——这是国服独有、国际服 Steam 页面无法提供的内容资产。<a href="https://r6.qq.com/cn/news.html" target="_blank" rel="noopener" class="tag">国服回归玩家政策 ↗</a></p>
+      <table>
+        <thead><tr><th>入驻类型</th><th>邀请目标</th><th>专栏内容</th><th>激励机制</th></tr></thead>
+        <tbody>
+          <tr><td><b>国际服老兵 KOL</b></td><td>10-20 位（万粉以上）</td><td>每周 1-2 篇上分思路+干员推荐</td><td>专属勋章 + 流量分成 + 首测优先资格</td></tr>
+          <tr><td><b>退役/现役职业选手</b></td><td>3-5 位</td><td>每月 1 场战术解析直播 + 文字版回顾</td><td>专属认证标识 + 内容置顶 + 合作分成</td></tr>
+          <tr><td><b>新晋创作者</b></td><td>不限名额（开放申请）</td><td>UGC 投稿，每周精选 3-5 篇上首页</td><td>「开拓者扶持」≥ 1 亿元资金分配</td></tr>
+        </tbody>
+      </table>
+      <h3>社区互动机制</h3>
+      <p><b>目标</b>：让玩家在专区产生 UGC 并互相互动，形成社区黏性。R6 单局后玩家有强烈分享欲（「神之一刀爆头」「无人机抓双」），是社区炫耀的天然燃料。</p>
+      <table>
+        <thead><tr><th>机制</th><th>功能</th><th>催化 UGC 的方式</th></tr></thead>
+        <tbody>
+          <tr><td><b>精选帖</b></td><td>官方每日精选 3-5 条优质帖文置顶</td><td>给创作者曝光奖励，激励产出</td></tr>
+          <tr><td><b>社区勋章</b></td><td>发帖/回帖/精选/攻略作者+ 国际服老兵专属勋章</td><td>身份认同驱动持续创作</td></tr>
+          <tr><td><b>组队招募</b></td><td>按段位/服务器/语言筛选的组队帖板块</td><td>5v5 团队属性天然产生组队需求</td></tr>
+          <tr><td><b>战绩分享</b></td><td>一键生成战绩卡片（含段位/MVP/干员胜率）分享到社区/朋友圈</td><td>社交炫耀驱动回访和传播</td></tr>
+          <tr><td><b>全民鉴挂师</b></td><td>承接官方反作弊社区计划，玩家提交可疑录像</td><td>把反作弊从「官方做」变成「社区共建」</td></tr>
+        </tbody>
+      </table>
+      <h3>成就与战绩系统（长线留存引擎）</h3>
+      <p><b>设计理念</b>：成就和战绩是让玩家回到专区查看进度、设定下一个目标的理由。R6 段位驱动留存的特性，让段位榜单和个人热力图成为回访高频功能。</p>
+      <ul>
+        <li><b>段位成就</b>：每赛季段位达成解锁专属称号/卡面</li>
+        <li><b>干员成就</b>：每个干员达到 100 局/胜率 60%/MVP 10 次解锁</li>
+        <li><b>地图成就</b>：每张地图发现全部加固点位 + 完成全部进攻角度</li>
+        <li><b>社区成就</b>：发布 10 篇攻略/获得 100 个赞/被职业选手回复</li>
+      </ul>
+      <div class="highlight"><p><b>专区设计铁律</b>：</p><ul><li>50+ 干员档案是首测前必须 100% 完成的硬指标——任何缺失都会被国际服老兵嘲笑</li><li>KOL/职业选手入驻是国服独家资产，必须有专属的视觉标识和置顶位</li><li>UGC 必须有正反馈（精选/勋章/曝光/分成），让创作者觉得值得</li><li>战绩系统必须跨游戏内外——专区可查看、可分享、可追踪</li></ul><p><b>So what</b>：R6 专区比商店页和启动器更有杠杆——它是一次性建设、长期产生留存和回流的资产。70% 投入应该集中在百科 + KOL 入驻上。</p></div>
+    </div>
+
+    <div x-show="page === 4" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
+      <h2 class="text-2xl font-bold mb-6">自研启动器设计策略</h2>
+      <div class="verdict"><p><b>核心判断</b>：启动器是用户每次进入游戏的必经之路。它的核心使命不是「展示信息」，而是「在不打断启动流程的前提下完成氛围预热和活动触达」。R6 国服启动器（r6.qq.com 体系/腾讯统一启动器）的设计标准：5 秒内可进入游戏，但这 5 秒让人感受到「干员们已经就位」。</p></div>
+      <h3>启动器核心页面结构</h3>
+      <table>
+        <thead><tr><th>页面/区域</th><th>功能</th><th>用户交互</th><th>停留时间</th></tr></thead>
+        <tbody>
+          <tr><td><b>登录页</b></td><td>账号验证 + 氛围展示 + 国际服老兵识别</td><td>输入密码/自动登录</td><td>3-10 秒</td></tr>
+          <tr><td><b>主界面</b></td><td>「开始游戏」按钮 + 公告/活动栏 + 每日干员卡片</td><td>点击启动或浏览信息</td><td>5-15 秒</td></tr>
+          <tr><td><b>更新提示</b></td><td>版本更新进度 + 中文更新日志</td><td>等待更新完成</td><td>视更新大小</td></tr>
+          <tr><td><b>活动弹窗</b></td><td>限时活动/预热信息/赛季开启</td><td>一键关闭或点击参与</td><td>2-5 秒</td></tr>
+        </tbody>
+      </table>
+      <h3>登录页氛围设计 — 每日干员一句台词</h3>
+      <p><b>设计理念</b>：登录页是玩家每天第一眼看到的 R6 画面。它不是静态壁纸，而是一个「干员阵列正在准备进入对局」的动态场景，配合每日轮播的干员中文配音台词。</p>
+      <ul>
+        <li><b>背景动效</b>：每日轮换干员剪影站台动画（攻防各 1 位），背景为中文版基地走廊。微动循环 30 秒，不影响前台输入框可读性</li>
+        <li><b>每日台词</b>：每日干员中文配音一句话台词（音频 1-2 秒，可点击重播），文字以字幕形式淡入淡出</li>
+        <li><b>回归玩家识别</b>：检测到登录账号关联国际服时，登录页右上角浮现「老兵归来」徽章，配合专属过场动画（仅首次登录展示）</li>
+        <li><b>版本前夜模式</b>：版本更新前 24 小时，登录页背景切换为「干员入场倒计时」，配合中文 PV 自动播放（默认静音）</li>
+        <li><b>音效</b>：极低音量环境音（无线电杂讯/远处脚步），可在设置中关闭</li>
+      </ul>
+      <h3>主界面信息架构</h3>
+      <table>
+        <thead><tr><th>区域</th><th>内容</th><th>优先级</th><th>设计要求</th></tr></thead>
+        <tbody>
+          <tr><td><b>中心</b></td><td>「开始游戏」按钮</td><td>最高</td><td>面积最大、对比最强，永远不被遮挡</td></tr>
+          <tr><td><b>左侧栏</b></td><td>公告列表（3-5 条）</td><td>中</td><td>标题可见，点击展开详情，不打断流程</td></tr>
+          <tr><td><b>右侧/底部</b></td><td>当前活动轮播 + 「今日干员推荐」卡片</td><td>中</td><td>图片轮播 + 「了解更多」文字链跳转专区</td></tr>
+          <tr><td><b>顶部</b></td><td>版本号 + 在线人数 + 段位徽章</td><td>低</td><td>小字展示，营造社区感和身份认同</td></tr>
+          <tr><td><b>右下角</b></td><td>每日任务/加速器优惠入口</td><td>低</td><td>小图标 + 红点，hover 展开详情</td></tr>
+        </tbody>
+      </table>
+      <h3>预热倒计时与版本更新</h3>
+      <p><b>首测前</b>：启动器主界面显示「首测倒计时」——每天数字减少，背景干员剪影从 1 位逐日增加到 5 位（暗示队伍即将就位）。</p>
+      <p><b>版本更新日</b>：启动器强制展示中文更新日志摘要（3 行以内），配合新干员/新地图的预览图。玩家可选择「查看详情」（跳转专区百科）或「立即更新」。</p>
+      <h3>每日内容轮转 — 不让启动器看起来一成不变</h3>
+      <p><b>设计理念</b>：让启动器每天「看起来不一样」，给玩家一个在 5 秒内扫一眼的理由。</p>
+      <ul>
+        <li><b>周一</b>：本周活动预告 + 新干员台词解锁</li>
+        <li><b>周二-四</b>：今日干员推荐（轮播全部 50+ 干员）+ 社区精选 UGC</li>
+        <li><b>周五</b>：周末双倍声望/限时挑战提醒</li>
+        <li><b>周末</b>：战绩回顾卡片（本周 K/D、MVP 次数、最佳干员）</li>
+        <li><b>赛季节点</b>：段位结算+新赛季倒计时全屏接管（可跳过）</li>
+      </ul>
+      <h3>活动弹窗规范</h3>
+      <table>
+        <thead><tr><th>规则</th><th>要求</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td><b>频率限制</b></td><td>每天最多 1 次弹窗</td><td>避免用户产生「跳过」肌肉记忆</td></tr>
+          <tr><td><b>关闭方式</b></td><td>右上角 × + 点击空白区域均可关闭</td><td>不制造操作摩擦</td></tr>
+          <tr><td><b>尺寸</b></td><td>不超过主界面 60% 面积</td><td>不完全遮挡「开始游戏」按钮</td></tr>
+          <tr><td><b>内容类型</b></td><td>仅限重大活动/版本更新/赛季开启/反作弊播报</td><td>保持弹窗的信息权重</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><p><b>启动器设计铁律</b>：</p><ul><li>「开始游戏」按钮永远是视觉第一优先——任何信息都不能挡住它</li><li>氛围用背景动效和每日台词实现，不用强制弹窗打断</li><li>每天看起来不完全一样（干员/活动/战绩轮转），但操作路径永远一样（点中心按钮→进游戏）</li><li>弹窗是稀缺资源，每天最多 1 次，用完即止</li><li>国际服老兵识别动画只在首次登录展示一次，避免重复打扰</li></ul><p><b>So what</b>：R6 启动器的最大差异化在于「每日干员台词轮换」——这是把游戏内 50+ 干员资产复用到每日触达的杠杆，零额外内容成本，最大化氛围浸入。</p></div>
+    </div>
+
+    <div x-show="page === 5" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
+      <h2 class="text-2xl font-bold mb-6">三阵地视觉规范统一</h2>
+      <div class="verdict"><p><b>核心判断</b>：WeGame 商店页、游戏专区、启动器三个阵地必须在视觉上让用户感知到「这是同一个世界」。围攻 X Y11 焕新的视觉系统（零圆角战术极简、siege-navy 主色、Noto Sans CJK SC 中文字体、Ghost 噪声纹理）是统一的视觉纽带，但三个阵地的适配尺寸和信息密度各不相同。<a href="https://www.ubisoft.com/en-us/game/rainbow-six/siege" target="_blank" rel="noopener" class="tag">Y11 视觉系统 ↗</a></p></div>
+      <h3>siege-navy 色系 + 中文字体规范</h3>
+      <table>
+        <thead><tr><th>色彩角色</th><th>色值</th><th>使用场景</th><th>三阵地通用规则</th></tr></thead>
+        <tbody>
+          <tr><td><b>主背景 siege-navy</b></td><td>#0C0F16</td><td>页面/启动器底色</td><td>三阵地统一使用，保持暗调一致性</td></tr>
+          <tr><td><b>层级面板</b></td><td>#141823 / #1c2030</td><td>卡片/模块/Tab 容器</td><td>明度递进 +5%，避免分层混乱</td></tr>
+          <tr><td><b>R6 警示橙</b></td><td>#FF6B00</td><td>预约按钮/CTA/红黄屏提醒</td><td>面积不超过画面 8%，仅用于焦点</td></tr>
+          <tr><td><b>反作弊红</b></td><td>#E63946</td><td>外挂封禁实时播报/警告状态</td><td>仅在反作弊相关场景使用</td></tr>
+          <tr><td><b>文字白</b></td><td>#E5E5E5</td><td>正文/按钮文字</td><td>主文字色，三阵地统一</td></tr>
+          <tr><td><b>辅助灰</b></td><td>#737373</td><td>次要信息/标签/时间戳</td><td>次要文字、分割线</td></tr>
+          <tr><td><b>中文字体</b></td><td>Noto Sans CJK SC</td><td>所有中文内容</td><td>三阵地强制统一</td></tr>
+          <tr><td><b>等宽字体</b></td><td>Simplon Mono / 备选 Roboto Mono</td><td>数据/版本号/段位分数</td><td>段位/胜率/伤害值等数字场景</td></tr>
+        </tbody>
+      </table>
+      <h3>各阵地适配尺寸</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>主 KV 尺寸</th><th>内容区宽度</th><th>最小字号</th><th>动效规范</th></tr></thead>
+        <tbody>
+          <tr><td><b>WeGame 商店页</b></td><td>1920×600（头图横幅）</td><td>1200px 内容居中</td><td>12px</td><td>KV 微动 + Ghost 噪声纹理叠加</td></tr>
+          <tr><td><b>WeGame 游戏专区</b></td><td>1200×300（专区头图）</td><td>1000px 内容区</td><td>12px</td><td>Tab 切换战术过渡动效（&lt;200ms）</td></tr>
+          <tr><td><b>自研启动器</b></td><td>全窗口（约 1280×720 起）</td><td>自适应</td><td>13px</td><td>登录页全屏背景动画 + 每日台词字幕</td></tr>
+        </tbody>
+      </table>
+      <h3>干员卡片在三阵地的尺寸适配</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>干员卡片尺寸</th><th>包含元素</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><b>商店页</b></td><td>200×280px（首屏阵列展示用）</td><td>干员肖像 + 阵营标识 + 名称</td><td>建立认知</td></tr>
+          <tr><td><b>专区百科</b></td><td>320×420px（百科入口缩略）+ 详情页全宽</td><td>肖像 + 技能图标 + 胜率 + 推荐 build</td><td>深度查询</td></tr>
+          <tr><td><b>启动器</b></td><td>140×180px（每日推荐卡片）</td><td>肖像 + 一句台词 + 点击播放配音</td><td>氛围浸入</td></tr>
+        </tbody>
+      </table>
+      <h3>中英双语规范</h3>
+      <ul>
+        <li><b>干员代号</b>：保留英文（Sledge / Ash / Hibana），中文释义在副标题/Tooltip 出现</li>
+        <li><b>地图名</b>：双语对照（House 民居 / Yacht 游艇），主标题使用中文</li>
+        <li><b>武器名</b>：保留英文型号（M870 / SR-25），中文别名在配件页面</li>
+        <li><b>技能名</b>：中文为主（如「破墙锤」「智能手雷」），英文小字标注</li>
+        <li><b>UI 文字</b>：100% 中文（按钮、菜单、提示）</li>
+      </ul>
+      <h3>视觉一致性检查清单</h3>
+      <table>
+        <thead><tr><th>检查项</th><th>通过标准</th><th>常见错误</th></tr></thead>
+        <tbody>
+          <tr><td><b>色彩统一</b></td><td>三阵地 siege-navy 主背景色差 &lt;3%</td><td>商店页偏纯黑、启动器偏蓝</td></tr>
+          <tr><td><b>字体统一</b></td><td>三阵地 100% 使用 Noto Sans CJK SC</td><td>商店页用黑体、专区用宋体</td></tr>
+          <tr><td><b>圆角统一</b></td><td>所有按钮/卡片零圆角或 ≤2px</td><td>启动器使用 8px 圆角</td></tr>
+          <tr><td><b>Ghost 噪声</b></td><td>三阵地都叠加 5-8% 噪声纹理</td><td>商店页有噪声、启动器无噪声</td></tr>
+          <tr><td><b>国服徽标</b></td><td>三阵地都展示「国服」徽标 + 腾讯代理标识</td><td>启动器漏掉国服徽标</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><p class="quote">用户从商店页→专区→启动器的切换应该像走进同一栋指挥中心的不同房间——灯光一样，无线电杂讯一样，只是任务简报不同。</p><p>视觉不统一会让用户产生「这是同一个游戏吗」的割裂感，损害品牌信任。<b>So what：建立统一 Figma 组件库，三阵地任何一方更新视觉时同步推送给另两方。</b></p></div>
+    </div>
+
+    <div x-show="page === 6" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
+      <h2 class="text-2xl font-bold mb-6">三个阵地定制转化创意</h2>
+      <div class="verdict"><p><b>核心判断</b>：三个阵地各有一个定制创意，分别服务于预约转化（商店页）、社区激活（专区）和习惯养成（启动器）。三案都基于 R6 国服独有资产（反作弊承诺、国际服老兵、干员中文配音），不是通用射击游戏方案的换皮。</p></div>
+      <div class="creative-card">
+        <span class="tag">创意 01 · 商店页</span>
+        <h5>「反作弊承诺浮窗」— 商店页实时数据透明化</h5>
+        <p><b>核心概念</b>：WeGame 商店页右下角悬浮一个可展开的反作弊浮窗，实时展示腾讯 ACE 当日封禁数 + 累计录入外服外挂样本数 + 红黄屏触发次数 + 「全民鉴挂师」处理工单数。让玩家在预约前就看到「国服反作弊不是承诺，是数据」。</p>
+        <table><thead><tr><th>模块</th><th>安排</th></tr></thead><tbody>
+          <tr><td>展示数据</td><td>当日封禁数（每小时刷新）+ 累计外挂样本（&gt;X 万条）+ 红黄屏触发次数 + 鉴挂师工单</td></tr>
+          <tr><td>视觉表现</td><td>可折叠卡片，浮在商店页右下角，展开后类似「指挥中心仪表盘」风格</td></tr>
+          <tr><td>社交传播</td><td>玩家可截图分享「今日封禁数」到社区，作为信任凭证</td></tr>
+          <tr><td>核心概念落地阵地</td><td>WeGame 商店页（首屏可见）</td></tr>
+          <tr><td>执行时间线</td><td>T-60 周内开发，T-45 周上线，首测前持续运营</td></tr>
+          <tr><td>预算区间</td><td><b>40-60 万</b>（前端浮窗组件 + 后端数据接口 + ACE 数据对接 + 视觉素材）</td></tr>
+          <tr><td>KPI</td><td>预约转化率提升 <b>25%+</b>，浮窗点击展开率 <b>30%+</b>，分享外传播带来额外 <b>10 万+</b> 预约</td></tr>
+          <tr><td>参考案例</td><td>《无畏契约》Vanguard 反作弊系统的透明化沟通策略<a href="https://playvalorant.com/zh-cn/news/dev/" target="_blank" rel="noopener" class="tag">VALORANT 官博 ↗</a></td></tr>
+        </tbody></table>
+      </div>
+      <div class="creative-card">
+        <span class="tag">创意 02 · 游戏专区</span>
+        <h5>「国际服老兵入驻馆」— 专区独立板块</h5>
+        <p><b>核心概念</b>：在游戏专区开设「老兵入驻馆」独立板块，集中展示国际服回归 KOL/职业选手的入驻档案、专栏内容、直播预告、玩家可订阅追更。每位入驻老兵有专属档案页（最高段位、擅长干员、代表性集锦）。这是 R6 国服独有、国际服 Steam 页面无法提供的内容资产。</p>
+        <table><thead><tr><th>模块</th><th>安排</th></tr></thead><tbody>
+          <tr><td>内容</td><td>10-20 位国际服老兵 KOL + 3-5 位职业选手档案</td></tr>
+          <tr><td>互动形式</td><td>关注/订阅/打赏/评论，关注后老兵更新内容自动推送到玩家首页</td></tr>
+          <tr><td>奖励</td><td>关注 5 位老兵解锁「新兵观察员」勋章，关注 10 位解锁「老兵迷弟」称号</td></tr>
+          <tr><td>社交</td><td>老兵直播时一键分享到组队招募板块，召集队友一起看</td></tr>
+          <tr><td>核心概念落地阵地</td><td>WeGame 游戏专区（独立 Tab 入口）</td></tr>
+          <tr><td>执行时间线</td><td>T-90 周开始招募，T-60 周首批入驻，T-30 周开放公测</td></tr>
+          <tr><td>预算区间</td><td><b>80-150 万</b>（老兵签约费 + 内容制作 + 板块开发 + 流量分成池）</td></tr>
+          <tr><td>KPI</td><td>入驻老兵数 ≥ 15 位，板块周活 <b>30%+</b>（已预约用户中），专区日活提升 <b>40%+</b></td></tr>
+          <tr><td>参考案例</td><td>B 站游戏区主播签约入驻 + 虎牙 R6 主播扶持计划</td></tr>
+        </tbody></table>
+      </div>
+      <div class="creative-card">
+        <span class="tag">创意 03 · 启动器</span>
+        <h5>「中文配音预告倒计时」— 启动器 7 日干员上线事件</h5>
+        <p><b>核心概念</b>：首测前 7 天，启动器每天「上线一位干员」。Day1 登录页只有 1 位干员剪影站台并播放他的中文配音台词；Day2 第 2 位干员加入；Day3-Day7 每日新增一位，直到首测当天 5 人战术队完整就位，「开始游戏」按钮变为「集结进入」。</p>
+        <table><thead><tr><th>模块</th><th>安排</th></tr></thead><tbody>
+          <tr><td>时间线</td><td>首测前 7 天开始，每天零点自动更新，每日新增 1 位干员剪影 + 中文台词</td></tr>
+          <tr><td>视觉变化</td><td>Day1：1 位干员 → Day4：3 位攻防混编 → Day7：5 人战术队 + 装备灯亮起</td></tr>
+          <tr><td>彩蛋</td><td>每位干员剪影可点击播放完整中文配音段落（约 5-8 秒），收集全部 7 段解锁登录页限定皮肤</td></tr>
+          <tr><td>社交</td><td>每天截图分享到专区可获得「干员观察员」进度勋章</td></tr>
+          <tr><td>核心概念落地阵地</td><td>自研启动器（登录页 + 主界面）</td></tr>
+          <tr><td>执行时间线</td><td>T-30 周制作 7 套素材，T-7 周正式启动，首测当天达到完整态</td></tr>
+          <tr><td>预算区间</td><td><b>30-50 万</b>（7 套登录页皮肤 + 干员剪影动画 + 配音剪辑 + 隐藏点击区 + 勋章对接）</td></tr>
+          <tr><td>KPI</td><td>7 日连续登录率 <b>75%+</b>，配音彩蛋发现率 <b>60%+</b>，社区截图帖 <b>3 万+</b></td></tr>
+          <tr><td>参考案例</td><td>《英雄联盟》新英雄上线倒计时主页 + 《无畏契约》代理人揭晓节奏</td></tr>
+        </tbody></table>
+      </div>
+      <div class="highlight"><p><b>三案总开发成本</b>：<b>150-260 万</b>。三个创意分别服务于拉新转化（商店页反作弊浮窗）、社区激活（专区老兵入驻馆）和习惯养成（启动器干员倒计时）。<b>So what：三案都基于 R6 国服独有资产，零通用换皮，建议全部执行。</b></p></div>
+    </div>
+
+    <div x-show="page === 7" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
+      <h2 class="text-2xl font-bold mb-6">执行时间线（首测前 90 天 × 三阵地联动节奏）</h2>
+      <div class="verdict"><p><b>核心判断</b>：三个阵地的建设不是「做完一个再做下一个」，而是并行推进、分阶段上线。R6 国服首测定档 2026-06，从 T-90 倒推执行节奏：资格招募期（T-90→T-60）→ 资格筛选期（T-60→T-30）→ 测试启动期（T-30→T-0）。</p></div>
+      <h3>三阶段总览</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>时间</th><th>商店页</th><th>游戏专区</th><th>启动器</th></tr></thead>
+        <tbody>
+          <tr><td><b>资格招募期</b></td><td>T-90→T-60</td><td>基础页面 + 预约功能 + UE5 实机视频</td><td>Tab 架构 + 干员档案初始入库</td><td>基础框架 + 登录页氛围动效</td></tr>
+          <tr><td><b>资格筛选期</b></td><td>T-60→T-30</td><td>反作弊浮窗上线 + 国服承诺墙完整化</td><td>老兵入驻馆开放 + KOL 签约首批</td><td>每日干员轮转上线 + 活动弹窗</td></tr>
+          <tr><td><b>测试启动期</b></td><td>T-30→T-0</td><td>首屏切换「集结」主题 + 倒计时</td><td>首测攻略预发布 + 战绩系统准备</td><td>7 日干员上线 + 首测入口激活</td></tr>
+        </tbody>
+      </table>
+      <h3>资格招募期详细排期（T-90→T-60）</h3>
+      <table>
+        <thead><tr><th>周</th><th>商店页</th><th>游戏专区</th><th>启动器</th></tr></thead>
+        <tbody>
+          <tr><td><b>W1-W2</b></td><td>基础页面开发 + 5 干员阵列 KV 设计</td><td>Tab 架构确认 + 干员档案模板开发</td><td>启动器 UI 框架 + 登录页动效原型</td></tr>
+          <tr><td><b>W3</b></td><td>首版商店页上线（基础 KV + 预约 + 国服承诺标签）</td><td>首批 10 个干员档案入库 + 8 篇新手攻略</td><td>登录页氛围动效完成 + 国际服账号检测对接</td></tr>
+          <tr><td><b>W4</b></td><td>UE5 实机视频嵌入 + 福利展示模块上线</td><td>地图百科首版上线（首测开放地图）+ 武器数据库</td><td>主界面公告系统 + 活动轮播框架上线</td></tr>
+        </tbody>
+      </table>
+      <h3>资格筛选期详细排期（T-60→T-30）</h3>
+      <table>
+        <thead><tr><th>周</th><th>商店页</th><th>游戏专区</th><th>启动器</th></tr></thead>
+        <tbody>
+          <tr><td><b>W5</b></td><td>反作弊承诺浮窗开发 + ACE 数据接口对接</td><td>社区板块开放 + 勋章系统上线</td><td>每日干员推荐系统开发 + 数据库接入</td></tr>
+          <tr><td><b>W6</b></td><td>反作弊浮窗正式上线 + 首次社区分享潮</td><td>「老兵入驻馆」首批 5-8 位 KOL 入驻</td><td>预热倒计时功能上线（D-30 倒计时）</td></tr>
+          <tr><td><b>W7</b></td><td>回归玩家专区独立锚点上线 + 评价区填充</td><td>地图攻略 KOL 合作帖入库 + 进阶攻略上线</td><td>活动弹窗模板定稿 + 首次资格通知弹窗</td></tr>
+          <tr><td><b>W8</b></td><td>商店页 AB 测试 + 转化率优化</td><td>干员档案补齐至 100% + 老兵入驻达 15 位</td><td>7 日干员上线素材制作启动</td></tr>
+        </tbody>
+      </table>
+      <h3>测试启动期详细排期（T-30→T-0）</h3>
+      <table>
+        <thead><tr><th>周</th><th>商店页</th><th>游戏专区</th><th>启动器</th></tr></thead>
+        <tbody>
+          <tr><td><b>W9</b></td><td>首屏切换「集结」主题 + D-30 倒计时组件</td><td>首测攻略合集预发布 + FAQ 帖置顶</td><td>D-30 倒计时启动 + 干员阵列开始集结动画</td></tr>
+          <tr><td><b>W10</b></td><td>预约数冲刺 + 外围平台联动高峰</td><td>首测期社区规则公告 + 版主招募</td><td>活动弹窗：首测资格确认通知 + 下载提示</td></tr>
+          <tr><td><b>W11</b></td><td>「百万预约全服福利」进度冲刺组件上线</td><td>实时在线人数组件准备 + 战绩页面调试</td><td>7 日干员上线倒计时正式启动（Day1-Day7）</td></tr>
+          <tr><td><b>W12</b></td><td>首测当天：商店页 CTA 切换为「立即下载」</td><td>首测当天：战绩系统上线 + 讨论区爆发承接</td><td>Day7：5 人战术队完整就位 + 「集结进入」按钮上线</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><p><b>节奏铁律</b>：三个阵地的重大更新必须同步——外围平台大规模引流时，商店页/专区/启动器必须已完成对应准备。<b>不能出现「B 站老兵看 KOL 视频后跑到商店页发现还是基础版」的情况。</b></p></div>
+    </div>
+
+    <div x-show="page === 8" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
+      <h2 class="text-2xl font-bold mb-6">风险预案</h2>
+      <div class="verdict"><p><b>核心判断</b>：三个阵地各有一个最致命的风险——商店页转化率低、专区活跃度不够、启动器跳过率高。R6 国服还有两个特异性风险：国际服老兵不买账（认为国服不如外服）、反作弊承诺翻车（首测期间出现外挂被抓现行）。每个风险都有可量化的触发条件和预案。</p></div>
+      <div class="risk-card"><span class="tag">高风险 · 商店页</span><h5>风险 1：商店页预约转化率持续低于 15%</h5><p><b>触发条件</b>：上线两周后，页面访问→预约转化率仍低于 15%（射击品类基准 10-18%，国服目标 22%+）。</p><p><b>根因分析</b>：可能原因——5 干员阵列 KV 冲击力不够、反作弊浮窗位置太隐蔽、UE5 实机视频未自动播放、国服承诺墙信息密度过高。</p><p><b>预案</b>：① 48 小时内启动 AB 测试（KV 候选 3 套 / 浮窗位置 / 视频自动播放开关）；② 增加底部浮动预约条 + 实时预约人数显示；③ 反作弊浮窗从可折叠改为默认展开；④ 三次 AB 测试无改善则邀请用户调研，针对性重构首屏。</p></div>
+      <div class="risk-card"><span class="tag">高风险 · 游戏专区</span><h5>风险 2：专区日活低于预约数的 8%</h5><p><b>触发条件</b>：首测开启两周后，专区日活跃用户 &lt; 总预约数的 8%（射击品类高研究密度品类基准应在 12-15%）。</p><p><b>根因分析</b>：可能原因——干员档案不完整、攻略 KOL 入驻不足、社区缺乏互动氛围、玩家不知道专区存在、入口太深。</p><p><b>预案</b>：① 在启动器主界面增加「今日热帖」推荐模块（引流到专区）；② 加速国际服老兵入驻进度，把「老兵入驻馆」KOL 从 5 位扩到 15 位；③ 推出「每日签到+攻略阅读」双奖励 + 段位榜单首页置顶；④ 在游戏内对局结算页加入「查看本场干员攻略」按钮直达专区；⑤ 「全民鉴挂师」工单板块入口前置到首页。</p></div>
+      <div class="risk-card"><span class="tag">高风险 · 启动器</span><h5>风险 3：活动弹窗点击率低于 3%</h5><p><b>触发条件</b>：连续 7 天活动弹窗平均点击率 &lt;3%，说明用户已形成「条件反射关闭」习惯。</p><p><b>根因分析</b>：可能原因——弹窗频率过高（用户疲劳）、弹窗内容不够吸引、弹窗出现时机不对（用户急着进游戏）、活动内容缺乏个性化。</p><p><b>预案</b>：① 立即降低弹窗频率至每 3 天 1 次；② 把信息改为主界面右侧内嵌卡片（不遮挡，被动展示）；③ 弹窗内容从「活动通知」改为「你的战绩摘要+限时奖励+干员推荐」（个性化）；④ 仍无改善则取消弹窗改为「开始游戏」按钮旁的小红点提示。</p></div>
+      <div class="risk-card"><span class="tag">高风险 · R6 特异</span><h5>风险 4：国际服老兵不买账，引发负面舆论</h5><p><b>触发条件</b>：B站/微博/贴吧/专区出现「国服反作弊不如 BattlEye」「中文配音出戏」「补偿干员太少」等集中负评帖（单日 ≥ 50 条同主题贴）。</p><p><b>根因分析</b>：国际服老兵习惯外服节奏，对国服任何细微差异都敏感。本地化承诺如果未在他们眼中「足够诚意」，会引爆口碑反噬。</p><p><b>预案</b>：① 老兵入驻馆首批邀请大牌国际服 KOL 公开测试 + 真实反馈（避免官方一言堂）；② 商店页回归玩家专区独立化，福利透明化（具体补偿干员清单可见）；③ 启动器国际服账号识别后展示「老兵归来」专属界面，配合限定皮肤；④ 出现舆情时 24 小时内官方回应，邀请老兵 KOL 直播官方答疑。</p></div>
+      <div class="risk-card"><span class="tag">高风险 · R6 特异</span><h5>风险 5：反作弊承诺翻车（首测出现可重现外挂）</h5><p><b>触发条件</b>：首测期间社区出现可重现的外挂视频/录像，单日转发量 ≥ 1000 次。</p><p><b>根因分析</b>：腾讯 ACE + 红黄屏体系是国服最大卖点。一旦在首测期间被抓现行，预约即流失，专区即变讨伐场。</p><p><b>预案</b>：① 启动器立即弹出「反作弊播报」专属弹窗（罕见使用，仅此场景）；② 商店页反作弊浮窗增加「最近 24 小时封禁数」实时数据；③ 专区开设「全民鉴挂师」工单专项处理通道，承诺 24 小时反馈；④ 若问题严重则邀请安全团队官方科普视频 + 直播答疑。</p></div>
+      <div class="risk-card"><span class="tag">中风险 · 全局</span><h5>风险 6：三阵地视觉不一致导致品牌割裂感</h5><p><b>触发条件</b>：用户反馈/社区帖中出现「商店页和启动器看起来不像同一个游戏」类评论。</p><p><b>预案</b>：① 上线前由设计团队进行「三阵地并排走查」；② 建立统一 Figma 组件库（颜色/字体/按钮/Ghost 噪声纹理跨阵地一致）；③ 每次更新任一阵地视觉时同步检查其余两个阵地是否需要联动更新。</p></div>
+      <div class="risk-card"><span class="tag">中风险 · 全局</span><h5>风险 7：外围引流高峰时阵地承载能力不足</h5><p><b>触发条件</b>：外围平台（B站/抖音/微博）大规模内容发布后，商店页/专区出现加载缓慢/服务降级。</p><p><b>预案</b>：① 每次外围引流高峰前 24 小时通知 WeGame 技术团队进行容量预估+扩容；② 商店页准备静态降级版本（纯图片+预约链接，无动效）；③ 专区设置访问队列（高并发时排队而非报错）。</p></div>
+    </div>
+
+    <div x-show="page === 9" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
+      <h2 class="text-2xl font-bold mb-6">终审 + 三阵地 KPI 仪表盘 + 预算分配</h2>
+      <div class="verdict"><h4 style="color:#fff;margin-top:0;">GO / NO-GO 判断：GO</h4><p>本方案是面向《彩虹六号：攻势》国服发行团队的<b>主战场阵地设计手册</b>。它回答的核心问题是：WeGame 商店页怎么设计让人预约（含国际服老兵）、游戏专区怎么建设让人留下（含 KOL 入驻馆）、启动器怎么做让人每天回来（含每日干员台词）。三个阵地构成用户从「看到」到「每天打开」的完整链路，且全部基于 R6 国服独有资产（腾讯 ACE 反作弊、中文配音、回归玩家政策、≥1 亿元开拓者扶持）。</p></div>
+      <h3>三阵地 KPI 仪表盘</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>核心 KPI</th><th>目标值</th><th>监测频率</th><th>负责团队</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="4"><b>WeGame 商店页</b></td><td>预约转化率</td><td>&gt;22%</td><td>每日</td><td>产品+设计</td></tr>
+          <tr><td>首屏跳出率</td><td>&lt;42%</td><td>每日</td><td>产品+设计</td></tr>
+          <tr><td>视频播放率</td><td>&gt;45%</td><td>每周</td><td>内容</td></tr>
+          <tr><td>反作弊浮窗展开率</td><td>&gt;30%</td><td>每日</td><td>运营</td></tr>
+          <tr><td rowspan="4"><b>WeGame 游戏专区</b></td><td>日活/预约数比</td><td>&gt;12%</td><td>每日</td><td>运营</td></tr>
+          <tr><td>7 日回访率</td><td>&gt;40%</td><td>每周</td><td>运营</td></tr>
+          <tr><td>UGC 帖文数/日</td><td>&gt;800（首测期）</td><td>每日</td><td>社区</td></tr>
+          <tr><td>老兵入驻数</td><td>≥ 15 位（KOL）+ 3 位（职业）</td><td>每月</td><td>BD</td></tr>
+          <tr><td rowspan="4"><b>自研启动器</b></td><td>日启动率（已安装用户）</td><td>&gt;65%</td><td>每日</td><td>产品</td></tr>
+          <tr><td>弹窗点击率</td><td>&gt;8%</td><td>每次弹窗</td><td>运营</td></tr>
+          <tr><td>平均进入游戏时长</td><td>&lt;8 秒</td><td>每周</td><td>技术</td></tr>
+          <tr><td>每日干员配音点击率</td><td>&gt;15%</td><td>每周</td><td>运营</td></tr>
+        </tbody>
+      </table>
+      <h3>预算分配（纯线上）</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>模块</th><th>预算区间</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="3"><b>WeGame 商店页</b></td><td>页面设计 + 开发（含 5 干员阵列 KV、国服承诺墙、回归玩家专区）</td><td>60-90 万</td></tr>
+          <tr><td>UE5 中文配音实机视频制作（嵌入用 3-5 段）</td><td>40-70 万</td></tr>
+          <tr><td>反作弊承诺浮窗（创意 01）</td><td>40-60 万</td></tr>
+          <tr><td rowspan="3"><b>WeGame 游戏专区</b></td><td>架构开发 + 内容管理系统（Tab/百科/社区/战绩）</td><td>100-150 万</td></tr>
+          <tr><td>初始内容制作（50+ 干员档案 + 地图 + 武器 + 攻略）</td><td>60-90 万</td></tr>
+          <tr><td>老兵入驻馆（创意 02，含签约费 + 流量分成池）</td><td>80-150 万</td></tr>
+          <tr><td rowspan="3"><b>自研启动器</b></td><td>UI 设计 + 开发（含国际服账号识别 + 每日干员卡片系统）</td><td>80-120 万</td></tr>
+          <tr><td>登录页氛围动效（每日干员台词 + 配音剪辑）</td><td>30-50 万</td></tr>
+          <tr><td>7 日干员上线倒计时（创意 03）</td><td>30-50 万</td></tr>
+          <tr><td colspan="2"><b>三阵地总预算（纯线上建设成本）</b></td><td><b>520-830 万</b></td></tr>
+        </tbody>
+      </table>
+      <h3>三个尖锐问题</h3>
+      <div class="highlight"><h4>问题一：WeGame 商店页能否承载反作弊浮窗 + 实时数据接口？</h4><p>反作弊浮窗需要实时读取腾讯 ACE 封禁数据并动态渲染。如果 WeGame 商店页框架不支持自定义前端组件 + 第三方实时数据接口，需要提前 6 周与 WeGame 技术团队 + ACE 安全团队三方对齐技术方案（自定义 iframe / Web Component / 数据接口规范 / 缓存策略）。否则浮窗只能展示静态文案，将丧失差异化卖点。</p></div>
+      <div class="highlight"><h4>问题二：启动器的国际服账号识别如何实现？</h4><p>启动器需要在登录时识别该 Ubisoft 账号在国际服的活跃情况（最高段位、累计干员、累计皮肤），用于显示「老兵归来」界面 + 计算补偿干员清单。这涉及与 Ubisoft 后端的账号数据互通协议——属于业务侧关键依赖，不解决则回归玩家专属体验全部失效。建议在 T-90 周前完成与 Ubisoft 官方的数据互通协议谈判。</p></div>
+      <div class="highlight"><h4>问题三：三阵地的数据是否打通？</h4><p>商店页预约用户数据、专区活跃数据、启动器登录数据如果分属三个系统且不互通，无法实现「预约用户→专区活跃→每日启动→留存」的漏斗分析。建议统一用户 ID 体系 + 事件埋点规范，三阵地数据进入同一数据仓库 + 同一仪表盘。这也是反作弊「全民鉴挂师」工单跨阵地流转的前置条件。</p></div>
+      <h3>第一优先行动清单</h3>
+      <table>
+        <thead><tr><th>周期</th><th>动作</th><th>交付物</th><th>负责方</th></tr></thead>
+        <tbody>
+          <tr><td>本周</td><td>确认 WeGame 商店页技术能力 + 启动器与 Ubisoft 账号互通协议 + 三阵地数据打通方案</td><td>技术可行性文档</td><td>技术 + 产品</td></tr>
+          <tr><td>两周内</td><td>三阵地设计规范定稿 + Figma 组件库建立 + 干员档案模板冻结</td><td>设计规范文档 + 共享组件库</td><td>设计</td></tr>
+          <tr><td>一个月内</td><td>商店页首版上线 + 专区 Tab 架构上线 + 启动器框架完成 + 老兵入驻馆首批 KOL 签约</td><td>三阵地基建版本</td><td>产品 + 技术 + 设计 + BD</td></tr>
+          <tr><td>六周内</td><td>反作弊承诺浮窗 + 老兵入驻馆开放 + 启动器每日干员轮转全部上线</td><td>三阵地预热版本</td><td>全团队</td></tr>
+          <tr><td>九十天内</td><td>7 日干员上线倒计时启动 + 首测当天三阵地完整态切换</td><td>三阵地爆发版本</td><td>全团队</td></tr>
+        </tbody>
+      </table>
+      <div class="verdict"><p><b>最终建议</b>：本方案总预算 <b>520-830 万</b>，是三阵地从 0 到 1 的建设成本。<b>主战场建设必须先于外围引流方案 2-3 周启动</b>——否则首批从外围引流来的高价值用户（尤其是国际服老兵）会在「半成品」阵地上跳出，造成不可挽回的口碑损失。R6 国服只有一次首测的机会，三阵地准备好了再开闸放水。</p></div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
