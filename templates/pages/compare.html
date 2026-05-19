@@ -20,10 +20,10 @@
     </template>
   </div>
 
-  {# Sticky 锚点导航 #}
-  <nav class="sticky top-0 z-30 -mx-4 px-4 py-3 bg-surface-0/90 backdrop-blur-md border-b border-bdr mb-6"
+  {# Sticky 锚点导航：固定在全局 header (h-14) 之下 #}
+  <nav class="sticky top-14 z-40 -mx-4 px-4 py-2.5 bg-surface-0/95 backdrop-blur-md border-b border-bdr mb-6 shadow-sm shadow-black/10"
        x-show="prods.length > 0">
-    <div class="flex gap-1 overflow-x-auto">
+    <div class="max-w-7xl mx-auto flex gap-1 overflow-x-auto">
       <template x-for="tab in tabs" :key="tab.key">
         <a :href="'#sec-' + tab.key"
            x-on:click="active = tab.key"
@@ -37,7 +37,7 @@
   </nav>
 
   {# 1. Screenshots #}
-  <section id="sec-screenshots" class="mb-12 scroll-mt-20">
+  <section id="sec-screenshots" class="mb-12 scroll-mt-32">
     <h2 class="text-base font-bold mb-3">官网截图对比</h2>
     <div class="grid gap-4" :style="'grid-template-columns: repeat('+Math.min(prods.length,3)+',1fr)'">
       <template x-for="p in prods" :key="p.id">
@@ -61,7 +61,7 @@
   </section>
 
   {# 2. Worldview comparison #}
-  <section id="sec-worldview" class="mb-12 scroll-mt-20">
+  <section id="sec-worldview" class="mb-12 scroll-mt-32">
     <h2 class="text-base font-bold mb-3">
       世界观对比
       <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.worldview">共同点已高亮</span>
@@ -72,7 +72,7 @@
   </section>
 
   {# 3. Story dims comparison #}
-  <section id="sec-story" class="mb-12 scroll-mt-20">
+  <section id="sec-story" class="mb-12 scroll-mt-32">
     <h2 class="text-base font-bold mb-3">
       IP / 故事剧情对比
       <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.story">共同点已高亮</span>
@@ -89,7 +89,7 @@
   </section>
 
   {# 4. Aesthetic summary #}
-  <section id="sec-summary" class="mb-12 scroll-mt-20">
+  <section id="sec-summary" class="mb-12 scroll-mt-32">
     <h2 class="text-base font-bold mb-3">美学综述对比（label / definition / evolution）</h2>
     <div class="overflow-x-auto rounded border border-bdr">
       <div x-html="tableHtml.summary"></div>
@@ -97,7 +97,7 @@
   </section>
 
   {# 5. Aesthetic 5-card #}
-  <section id="sec-aesthetic" class="mb-12 scroll-mt-20">
+  <section id="sec-aesthetic" class="mb-12 scroll-mt-32">
     <h2 class="text-base font-bold mb-3">
       五维美术对比（场景/服装/UI/符号/宣发）
       <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.aesthetic">共同点已高亮</span>
@@ -108,7 +108,7 @@
   </section>
 
   {# 6. PlayerExp #}
-  <section id="sec-playerexp" class="mb-12 scroll-mt-20">
+  <section id="sec-playerexp" class="mb-12 scroll-mt-32">
     <h2 class="text-base font-bold mb-3">玩家体验对比（媒体 / 社区记忆点）</h2>
     <div class="overflow-x-auto rounded border border-bdr">
       <div x-html="tableHtml.playerexp"></div>
@@ -161,7 +161,7 @@ function compareApp(){
       var keys = this.tabs.map(t=>t.key);
       var self = this;
       var onScroll = function(){
-        var navH = 80; // sticky 导航高度估算
+        var navH = 130; // 全局 header 56 + 锚点 nav ~50 + 缓冲 24
         var current = keys[0];
         for(var i = 0; i < keys.length; i++){
           var el = document.getElementById('sec-' + keys[i]);
