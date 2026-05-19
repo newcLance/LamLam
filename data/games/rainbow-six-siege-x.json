@@ -1,7 +1,88 @@
 {
   "id": 241,
   "slug": "rainbow-six-siege-x",
-  "playerExp": {},
+  "playerExp": {
+    "media": {
+      "memory": [
+        {
+          "text": "IGN 评测：<b>「即便十年过去，Rainbow Six Siege X 仍然非常好玩——掌握每一名干员将让我在写完评测之后还会一直回来」</b>，给出「这是想入场战术 FPS 的最佳时机」的肯定结论。",
+          "src": "IGN — Rainbow Six Siege X Review",
+          "url": "https://za.ign.com/rainbow-six-siege-x/212164/review/NONE"
+        },
+        {
+          "text": "GamesRadar+ 评测：<b>「比以往任何时候都更大、更好、更对新手友好——这是入坑围攻的完美时刻」</b>，重点表扬声誉系统大幅压低了恶意队杀，免费化让 Y11 成为十年最佳上手节点。",
+          "src": "GamesRadar+ — Tom Clancys Rainbow Six Siege X review",
+          "url": "https://www.gamesradar.com/games/fps/tom-clancys-rainbow-six-siege-x-review/"
+        },
+        {
+          "text": "TheGamer 评测：「Siege X 是一次大胆而不平衡的进化——它既致敬也部分削弱了让 Rainbow Six 之所以特别的东西」，给出 <b>3.5/5</b> 的中性评分，肯定 Dual Front 6v6 的设计但担忧重生机制稀释了战术张力。",
+          "src": "TheGamer — Rainbow Six Siege X Review",
+          "url": "https://www.thegamer.com/rainbow-six-siege-x-review-new-era-past-vs-future/"
+        },
+        {
+          "text": "腾讯新闻：「《彩虹六号：攻势》公布国服计划，将于 <b>2026 年 6 月启动首次删档测试</b>」，由育碧研发、腾讯游戏代理发行，将按国内要求优化游戏内容、完善反作弊与账号安全机制。",
+          "src": "腾讯新闻 — 彩虹六号攻势公布国服计划",
+          "url": "https://news.qq.com/rain/a/20260426A04G2D00"
+        },
+        {
+          "text": "GameLook：国服团队联合警方侦破彩六外服首例外挂案件，针对外服使用量最大的「<b>RING-1</b>」外挂抓获大代理 3 人，涉案金额超 300 万元；并将接入<b>腾讯 ACE 反作弊系统 + 红黄屏 + 实时封禁播报</b>。",
+          "src": "GameLook / 腾讯新闻 — 彩虹六号攻势玩家通气大会",
+          "url": "https://new.qq.com/rain/a/20260417A084JJ00"
+        }
+      ]
+    },
+    "community": {
+      "memory": [
+        {
+          "text": "TapTap 老玩家评：「<b>不同干员的道具和枪械，在不同地图的进攻防守策略以及局内的应对措施，非常考验应变能力——前一百级被打的找不到北都是正常的</b>」，1000 小时之前都算新手期是社区共识。",
+          "src": "TapTap 彩虹六号围攻评价区",
+          "url": "https://www.taptap.com/app/117582/review"
+        },
+        {
+          "text": "TapTap 国服测评：「《彩虹六号：攻势》正在试图主动打破某些行业惯例——主动选择开放、透明的沟通形式，<b>把技术进度、本地化成果、测试时间节点全部摆在台面上</b>」，玩家对腾讯代理首次给出正面评价。",
+          "src": "TapTap — 定档6月首测 攻势用透明沟通重新定义玩家关系",
+          "url": "https://www.taptap.cn/moment/794090371389851682"
+        },
+        {
+          "text": "Steam 社区 7 月汇总贴：玩家最在意的依旧是<b>命中判定与延迟</b>——「清晰的射击经常不计入伤害，毁掉排位赛体验」，新手敌意与硬核学习曲线并列为社区两大顽疾。",
+          "src": "Steam 社区 — Rainbow Six Siege X 现状汇总",
+          "url": "https://steamcommunity.com/app/359550/discussions/0/537733421695295397?l=schinese"
+        },
+        {
+          "text": "游侠网玩家炸锅：免费化后<b>声望奖励被削减最高 300%</b>——「赢一场 Dual Front 开 30% 加成器才拿到 108 声望」，社区抱怨育碧用付费化通行证替代了原先的肝党路径。",
+          "src": "游侠网 — 围攻X 游戏声望被大幅削减玩家炸锅",
+          "url": "https://www.ali213.net/news/html/2025-6/939731.html"
+        },
+        {
+          "text": "Reddit r/Rainbow6 与 Dexerto 报道：核心玩家最担心的是性能——「<b>如果 Siege X 性能跟 R6 Extraction 或 XDefiant 一样，我们就完了</b>」，DX12 替换 Vulkan 后部分玩家 FPS 掉了 20–30%，高刷玩家在等优化。",
+          "src": "Dexerto / r/Rainbow6 — Siege X performance worries",
+          "url": "https://www.dexerto.com/rainbow-six/rainbow-six-players-fear-siege-x-will-fail-if-one-major-feature-isnt-right-3146662/"
+        }
+      ]
+    },
+    "biliVideos": [
+      {
+        "title": "【IGN】8分，《彩虹六号：围攻X》评测：《围攻》迈出的坚实一步",
+        "bvid": "BV18z3yz9E7v",
+        "views": "9万"
+      },
+      {
+        "title": "彩六免费了！新版彩虹六号围攻X有哪些进步？",
+        "bvid": "BV1AijGzNE2Q",
+        "views": "107万"
+      },
+      {
+        "title": "《彩虹六号：围攻X》正式转为永久免费，但仍需付费解锁高级游玩资格",
+        "bvid": "BV1kiMVzyEkA",
+        "views": "5万"
+      },
+      {
+        "title": "彩虹六号围攻X 二次元枪皮全图鉴（已加入SUISUI）",
+        "bvid": "BV1csMEztENu",
+        "views": "3万"
+      }
+    ]
+  },
   "worldview": {
     "background": {
       "title": "Tom Clancy 反恐宇宙——全球精锐干员在可破坏建筑中展开近距离战术对抗",
@@ -161,7 +242,47 @@
         "id": 272,
         "reason": "<b>电竞 UI 重设计参照</b>——LOL 电竞生态的视觉设计语言为 R6 攻势国服化提供了电竞侧 UI 范式"
       }
-    ]
+    ],
+    "scene": {
+      "title": "可破坏室内建筑——领事馆/银行金库/瑞士豪宅 Chalet 的 4K 重制 × 弹孔决定生死",
+      "value": "场景锚点是<b>「每一面墙都能炸开的封闭建筑」</b>——领事馆、银行金库、瑞士豪宅 Chalet、摩托俱乐部 Clubhouse、阿拉伯咖啡馆 Kafe，5v5 战术对抗的微缩剧场。Y11 焕新给五张经典地图加了<b>4K 贴图 + 重制光照 + 煤气管道与灭火器可破坏物</b>，长走廊侧逆光把人物剪影洗白。你贴墙匍匐、透过弹孔窥探对面的那一刻——siege-navy #0C0F16 把每束侧光打成审讯室质感，<b>木屑混凝土硝烟在击穿加固墙时同步飞溅</b>。",
+      "anchorRule": [
+        1,
+        3
+      ]
+    },
+    "costume": {
+      "title": "70+ 干员服装多样性——SAS/GIGN/SAT/北欧无统一阵营色的写实优先哲学",
+      "value": "服装系统反着 Valorant 的统一阵营色路线走——<b>70+ 干员各自对应全球真实特种部队</b>：英国 SAS、法国 GIGN、俄罗斯 Spetsnaz、日本 SAT、中东 GEO、新西兰 NZSAS——每个干员的护甲层级、面罩、武器涂装都在告诉你<b>「他来自哪支反恐部队」</b>。Sledge 扛英式破门锤、Hibana 戴日式忍者面甲、Oryx 着阿拉伯白袍。<b>写实优先于辨识度</b>——你不能光看颜色分敌我，要看剪影、看装备、听脚步。",
+      "anchorRule": [
+        3,
+        5
+      ]
+    },
+    "ui": {
+      "title": "HUD 极简零圆角 × Y11 焕新——Noto Sans CJK SC + Simplon Mono + Ghost 噪声纹理",
+      "value": "HUD 是十年战术 FPS 沉淀的<b>信息效率极简范式</b>——准星 2px 白十字、弹药数白底黑字、击杀回放灰底纯文本，<b>零圆角、零渐变、零阴影</b>。Y11 焕新推到 Dieter Rams 工业设计祖宗——<b>siege-navy #0C0F16 + Simplon Mono 等宽数字 + Noto Sans CJK SC 中文</b>，图标遵循 8px 网格。新增<b>Ghost 噪声纹理</b>覆盖加载与回放，模拟监控扫描线，把 45 秒准备倒计时拧成军用终端质感。",
+      "anchorRule": [
+        4,
+        5
+      ]
+    },
+    "symbol": {
+      "title": "彩虹六号 logo + 干员图标墙 + 「X」十周年视觉锚——网格化信息建筑",
+      "value": "符号系统三层骨架——<b>顶层是延续 1998 年初代的六色彩虹 logo</b>，Y11 把它收进了几何方框；<b>中层是 70+ 干员极简头像图标</b>，黑白剪影加单色描边，进攻方蓝框、防守方橙框，Ban/Pick 阶段就是这堵图标墙；<b>底层是网格化信息建筑</b>——商店、结算、赛季手册全用 12 列栅格 + 等宽数字铺成。十周年新增的「<b>X</b>」字符既是罗马数字 ten，也是攻防双线交叉的标志，logo 不再炫技，只剩功能。",
+      "anchorRule": [
+        4,
+        5
+      ]
+    },
+    "promo": {
+      "title": "Y11 焕新 KV + Six Invitational 电竞包装 + 国服「红黄屏」反作弊承诺墙",
+      "value": "宣发视觉分三块——<b>Y11 焕新 KV 用 siege-navy 深底 + 单干员侧写剪影 + 巨型「X」字符</b>，海报放弃十年群像热闹，只剩一名 Ash 或 Sledge 的孤胆瞬间。<b>Six Invitational 电竞包装</b>沿用攻守蓝橙双色，2026 巴黎站 LED 舞台铺满 Ghost 噪声。国服最强视觉资产是<b>「反作弊承诺墙」</b>——腾讯 ACE 检测到外挂会闪现<b>红黄屏 + 「比赛取消，作弊者已封禁」实时播报</b>，比任何海报都让你记住公平竞技。",
+      "anchorRule": [
+        2,
+        5
+      ]
+    }
   },
   "assets": {
     "official": [
