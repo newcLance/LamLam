@@ -20,20 +20,24 @@
     </template>
   </div>
 
-  {# 1. Tab navigation #}
-  <div class="flex gap-1 mb-5 overflow-x-auto pb-1 border-b border-bdr">
-    <template x-for="tab in tabs" :key="tab.key">
-      <button x-on:click="active = tab.key"
-              :class="active === tab.key ? 'bg-white/[.08] text-white border-white/15' : 'text-neutral-500 hover:text-white hover:bg-white/[.04] border-transparent'"
-              class="px-3 py-1.5 rounded text-[12px] font-medium border transition whitespace-nowrap">
-        <span x-text="tab.label"></span>
-        <span class="text-[10px] text-neutral-600 ml-1" x-show="tab.hasCommon" x-text="'· 有共同点'"></span>
-      </button>
-    </template>
-  </div>
+  {# Sticky 锚点导航 #}
+  <nav class="sticky top-0 z-30 -mx-4 px-4 py-3 bg-surface-0/90 backdrop-blur-md border-b border-bdr mb-6"
+       x-show="prods.length > 0">
+    <div class="flex gap-1 overflow-x-auto">
+      <template x-for="tab in tabs" :key="tab.key">
+        <a :href="'#sec-' + tab.key"
+           x-on:click="active = tab.key"
+           :class="active === tab.key ? 'bg-white/[.08] text-white border-white/15' : 'text-neutral-500 hover:text-white hover:bg-white/[.04] border-transparent'"
+           class="px-3 py-1.5 rounded text-[12px] font-medium border transition whitespace-nowrap no-underline">
+          <span x-text="tab.label"></span>
+          <span class="text-[10px] text-neutral-600 ml-1" x-show="tab.hasCommon" x-text="'· 有共同点'"></span>
+        </a>
+      </template>
+    </div>
+  </nav>
 
-  {# 2. Screenshots #}
-  <section x-show="active === 'screenshots'" class="mb-8">
+  {# 1. Screenshots #}
+  <section id="sec-screenshots" class="mb-12 scroll-mt-20">
     <h2 class="text-base font-bold mb-3">官网截图对比</h2>
     <div class="grid gap-4" :style="'grid-template-columns: repeat('+Math.min(prods.length,3)+',1fr)'">
       <template x-for="p in prods" :key="p.id">
@@ -56,8 +60,8 @@
     </div>
   </section>
 
-  {# 3. Worldview comparison #}
-  <section x-show="active === 'worldview'" class="mb-8">
+  {# 2. Worldview comparison #}
+  <section id="sec-worldview" class="mb-12 scroll-mt-20">
     <h2 class="text-base font-bold mb-3">
       世界观对比
       <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.worldview">共同点已高亮</span>
@@ -67,8 +71,8 @@
     </div>
   </section>
 
-  {# 4. Story dims comparison #}
-  <section x-show="active === 'story'" class="mb-8">
+  {# 3. Story dims comparison #}
+  <section id="sec-story" class="mb-12 scroll-mt-20">
     <h2 class="text-base font-bold mb-3">
       IP / 故事剧情对比
       <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.story">共同点已高亮</span>
@@ -79,32 +83,32 @@
         <div x-html="storyOverviewHtml"></div>
       </div>
     </div>
-    <div class="overflow-x-auto max-h-[70vh] overflow-y-auto rounded border border-bdr">
+    <div class="overflow-x-auto rounded border border-bdr">
       <div x-html="tableHtml.story"></div>
     </div>
   </section>
 
-  {# 5. Aesthetic summary #}
-  <section x-show="active === 'summary'" class="mb-8">
+  {# 4. Aesthetic summary #}
+  <section id="sec-summary" class="mb-12 scroll-mt-20">
     <h2 class="text-base font-bold mb-3">美学综述对比（label / definition / evolution）</h2>
     <div class="overflow-x-auto rounded border border-bdr">
       <div x-html="tableHtml.summary"></div>
     </div>
   </section>
 
-  {# 6. Aesthetic 5-card #}
-  <section x-show="active === 'aesthetic'" class="mb-8">
+  {# 5. Aesthetic 5-card #}
+  <section id="sec-aesthetic" class="mb-12 scroll-mt-20">
     <h2 class="text-base font-bold mb-3">
       五维美术对比（场景/服装/UI/符号/宣发）
       <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.aesthetic">共同点已高亮</span>
     </h2>
-    <div class="overflow-x-auto max-h-[70vh] overflow-y-auto rounded border border-bdr">
+    <div class="overflow-x-auto rounded border border-bdr">
       <div x-html="tableHtml.aesthetic"></div>
     </div>
   </section>
 
-  {# 7. PlayerExp #}
-  <section x-show="active === 'playerexp'" class="mb-8">
+  {# 6. PlayerExp #}
+  <section id="sec-playerexp" class="mb-12 scroll-mt-20">
     <h2 class="text-base font-bold mb-3">玩家体验对比（媒体 / 社区记忆点）</h2>
     <div class="overflow-x-auto rounded border border-bdr">
       <div x-html="tableHtml.playerexp"></div>
@@ -148,7 +152,31 @@ function compareApp(){
         this.prods = idList.map(id=>games.find(g=>g.id===id)).filter(Boolean);
         this.buildAll();
         this.syncTabHasCommon();
+        // 滚动监听：当前可视 section 在锚点导航高亮
+        this.$nextTick(()=>this.bindScrollSpy());
       });
+    },
+
+    bindScrollSpy(){
+      var keys = this.tabs.map(t=>t.key);
+      var self = this;
+      var onScroll = function(){
+        var navH = 80; // sticky 导航高度估算
+        var current = keys[0];
+        for(var i = 0; i < keys.length; i++){
+          var el = document.getElementById('sec-' + keys[i]);
+          if(!el) continue;
+          var rect = el.getBoundingClientRect();
+          if(rect.top - navH < 50){
+            current = keys[i];
+          } else {
+            break;
+          }
+        }
+        if(self.active !== current) self.active = current;
+      };
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
     },
 
     getImgs(p){
