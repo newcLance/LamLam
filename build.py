@@ -74,6 +74,9 @@ def main():
             g["report"] = detail.get("report")
         games_by_id[g["id"]] = g
 
+    # 过滤 stub 游戏：仅元数据，不参与首页/详情页渲染（但可被 rivals 引用）
+    visible_games = [g for g in games if not g.get("stub")]
+
     # Jinja2 setup
     env = Environment(loader=FileSystemLoader(str(TEMPLATES)), autoescape=False)
 
@@ -84,11 +87,11 @@ def main():
     )
     ctx = dict(
         products=products,
-        games=games,
+        games=visible_games,
         games_by_id=games_by_id,
         screenshots=screenshots,
         total_screenshots=total_ss,
-        total_products=len(products) + len(games),
+        total_products=len(products) + len(visible_games),
         survey_url="https://wj.qq.com/s2/26428392/849b/",
     )
 
@@ -101,7 +104,7 @@ def main():
     detail_tpl = env.get_template("pages/detail.html")
     gdir = DIST / "game"
     gdir.mkdir()
-    for g in games:
+    for g in visible_games:
         slug = g.get("slug", "")
         if not slug:
             continue
@@ -126,7 +129,7 @@ def main():
                 break
         html = detail_tpl.render(game=g, ss=ss, hero_bg=hero_bg, site_url=first_url, **ctx)
         (gdir / f"{slug}.html").write_text(html, "utf-8")
-    print(f"  [OK] {len(games)} detail pages")
+    print(f"  [OK] {len(visible_games)} detail pages")
 
     # 2b. Platform detail pages (reuse detail template)
     pcount = 0
