@@ -171,7 +171,12 @@ def main():
     if report_src.exists():
         report_dst = DIST / "game" / "report"
         report_dst.mkdir(parents=True, exist_ok=True)
-        shutil.copytree(str(report_src), str(report_dst), dirs_exist_ok=True)
+        shutil.copytree(
+            str(report_src),
+            str(report_dst),
+            dirs_exist_ok=True,
+            ignore=shutil.ignore_patterns("_*"),
+        )
         n = sum(1 for _ in report_dst.rglob("*.html"))
         print(f"  [OK] report/ ({n} pages)")
 

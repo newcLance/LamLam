@@ -539,5 +539,131 @@ tailwind.config = {
     </div>
   </main>
 </div>
+<!-- THEME_TOGGLE_INJECT_START -->
+<!-- Theme toggle: 注入在每份报告 </body> 之前 -->
+<style>
+/* ===== 浅色模式覆盖（仅在 html[data-theme="light"] 时生效） ===== */
+html[data-theme="light"] body { background:#f5f5f5 !important; color:#1a1a1a !important; }
+html[data-theme="light"] header { background:rgba(245,245,245,0.95) !important; border-bottom-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] header h1 { color:#1a1a1a !important; }
+html[data-theme="light"] header a { color:#525252 !important; }
+html[data-theme="light"] header a:hover { color:#000 !important; }
+html[data-theme="light"] header .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] header .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] header .bg-white\/\[\.08\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; border-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] header .hover\:bg-white\/\[\.04\]:hover { background:rgba(0,0,0,0.05) !important; color:#000 !important; }
+html[data-theme="light"] header .bg-white\/10, html[data-theme="light"] header .bg-white\/\[\.04\] { background:rgba(0,0,0,0.1) !important; }
+
+/* 左侧 nav 区（主报告页结构） */
+html[data-theme="light"] aside, html[data-theme="light"] nav { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] aside button, html[data-theme="light"] nav button { color:#525252 !important; }
+html[data-theme="light"] aside button:hover, html[data-theme="light"] nav button:hover { color:#000 !important; background:rgba(0,0,0,0.04) !important; }
+html[data-theme="light"] .bg-white\/\[\.06\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; }
+html[data-theme="light"] .bg-white\/\[\.04\] { background:rgba(0,0,0,0.05) !important; }
+
+/* 内容卡片 */
+html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+html[data-theme="light"] .verdict { border-left-color:#1a1a1a !important; }
+html[data-theme="light"] .verdict p { color:#1a1a1a !important; }
+html[data-theme="light"] .risk-card { border-left-color:#c43c3c !important; }
+html[data-theme="light"] .creative-card h5, html[data-theme="light"] .risk-card h5 { color:#1a1a1a !important; }
+
+/* 文字色 */
+html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }
+html[data-theme="light"] .page-content p, html[data-theme="light"] .page-content li { color:#3a3a3a !important; }
+html[data-theme="light"] .page-content b, html[data-theme="light"] .page-content strong, html[data-theme="light"] b, html[data-theme="light"] strong { color:#000 !important; }
+html[data-theme="light"] .text-white { color:#1a1a1a !important; }
+html[data-theme="light"] .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-600 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-300 { color:#3a3a3a !important; }
+html[data-theme="light"] .quote { color:#1a1a1a !important; }
+html[data-theme="light"] .muted { color:#737373 !important; }
+
+/* 表格 */
+html[data-theme="light"] table th { color:#525252 !important; border-bottom-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] table td { color:#3a3a3a !important; border-bottom-color:rgba(0,0,0,0.06) !important; }
+
+/* tag */
+html[data-theme="light"] .tag { background:rgba(0,0,0,0.05) !important; color:#525252 !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] .tag:hover { color:#000 !important; }
+
+/* 分隔线 */
+html[data-theme="light"] .bg-white\/10 { background:rgba(0,0,0,0.1) !important; }
+html[data-theme="light"] .border-bdr, html[data-theme="light"] .border-white\/10, html[data-theme="light"] .border-white\/\[\.06\] { border-color:rgba(0,0,0,0.08) !important; }
+
+/* compare 卡片专用 */
+html[data-theme="light"] .text-3xl, html[data-theme="light"] .text-2xl, html[data-theme="light"] .text-xl { color:#1a1a1a !important; }
+html[data-theme="light"] .report-date { color:#737373 !important; }
+
+/* ===== 切换按钮本体 ===== */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.theme-toggle-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+.theme-toggle-btn svg { width: 22px; height: 22px; transition: all 0.25s ease; }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-on { display: block; color: #fbbf24; filter: drop-shadow(0 0 4px rgba(251,191,36,0.6)); }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-off { display: none; }
+html[data-theme="light"] .theme-toggle-btn { background: #ffffff; border-color: rgba(0,0,0,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+html[data-theme="light"] .theme-toggle-btn:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-on { display: none; }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-off { display: block; color: #737373; }
+
+/* 拉绳小动画 */
+.theme-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+}
+html[data-theme="light"] .theme-toggle-btn::before { background: rgba(0,0,0,0.15); }
+</style>
+
+<button class="theme-toggle-btn" onclick="toggleReportTheme()" title="切换深浅色模式" aria-label="切换主题">
+  <!-- 点亮的灯泡（深色模式显示） -->
+  <svg class="icon-bulb-on" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z"/>
+  </svg>
+  <!-- 熄灭的灯泡（浅色模式显示） -->
+  <svg class="icon-bulb-off" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  // 初始化：从 localStorage 读，没有就默认 dark
+  var savedTheme = localStorage.getItem('report-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+function toggleReportTheme() {
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('report-theme', next);
+}
+</script>
+
+<!-- THEME_TOGGLE_INJECT_END -->
 </body>
 </html>
