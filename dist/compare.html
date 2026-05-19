@@ -105,46 +105,106 @@ document.addEventListener('alpine:init', function() {
      x-data="compareApp()" x-init="init()">
 
   <h1 class="text-xl font-bold mb-1">竞品横向对比</h1>
+  <p class="text-xs text-neutral-500 mb-4">基于游戏档案完整结构：世界观 / 故事 / 美学综述 / 五维美术 / 玩家体验 五大模块横向对照，共同点已自动高亮。</p>
   <div class="flex gap-1.5 flex-wrap mb-6" id="chips">
     <template x-for="p in prods" :key="p.id">
-      <span class="px-3 py-1 rounded bg-surface-2 border border-bdr text-xs text-neutral-400"
-            x-text="(p.nameCN || p.name)"></span>
+      <span class="px-3 py-1 rounded bg-surface-2 border border-bdr text-xs text-neutral-400">
+        <span x-text="(p.nameCN || p.name)"></span>
+        <span class="text-neutral-600 ml-1" x-text="'· ' + (p.company || '')"></span>
+      </span>
     </template>
   </div>
 
   
-  <h2 class="text-base font-bold mb-3">官网截图对比</h2>
-  <div class="grid gap-4 mb-8" :style="'grid-template-columns: repeat('+Math.min(prods.length,3)+',1fr)'">
-    <template x-for="p in prods" :key="p.id">
-      <div class="bg-surface-1 border border-bdr rounded overflow-hidden">
-        <div class="px-4 py-3 border-b border-bdr text-sm font-semibold flex items-center gap-2">
-          <span x-text="p.nameCN || p.name"></span>
-          <span class="ml-auto text-xs text-neutral-500 font-normal" x-text="p.company"></span>
+  <div class="flex gap-1 mb-5 overflow-x-auto pb-1 border-b border-bdr">
+    <template x-for="tab in tabs" :key="tab.key">
+      <button x-on:click="active = tab.key"
+              :class="active === tab.key ? 'bg-white/[.08] text-white border-white/15' : 'text-neutral-500 hover:text-white hover:bg-white/[.04] border-transparent'"
+              class="px-3 py-1.5 rounded text-[12px] font-medium border transition whitespace-nowrap">
+        <span x-text="tab.label"></span>
+        <span class="text-[10px] text-neutral-600 ml-1" x-show="tab.hasCommon" x-text="'· 有共同点'"></span>
+      </button>
+    </template>
+  </div>
+
+  
+  <section x-show="active === 'screenshots'" class="mb-8">
+    <h2 class="text-base font-bold mb-3">官网截图对比</h2>
+    <div class="grid gap-4" :style="'grid-template-columns: repeat('+Math.min(prods.length,3)+',1fr)'">
+      <template x-for="p in prods" :key="p.id">
+        <div class="bg-surface-1 border border-bdr rounded overflow-hidden">
+          <div class="px-4 py-3 border-b border-bdr text-sm font-semibold flex items-center gap-2">
+            <span x-text="p.nameCN || p.name"></span>
+            <span class="ml-auto text-xs text-neutral-500 font-normal" x-text="p.company"></span>
+          </div>
+          <div class="flex gap-1.5 p-3 overflow-x-auto">
+            <template x-for="img in getImgs(p)" :key="img">
+              <img :src="img" loading="lazy"
+                   class="shrink-0 w-44 h-24 rounded object-cover border border-bdr cursor-pointer hover:border-white/20 transition"
+                   x-on:click="$store.lightbox.show(img)"
+                   :data-lightbox-src="img">
+            </template>
+            <div x-show="getImgs(p).length===0" class="shrink-0 w-44 h-24 rounded bg-surface-2 flex items-center justify-center text-xs text-neutral-600">暂无截图</div>
+          </div>
         </div>
-        <div class="flex gap-1.5 p-3 overflow-x-auto">
-          <template x-for="img in getImgs(p)" :key="img">
-            <img :src="img" loading="lazy"
-                 class="shrink-0 w-44 h-24 rounded object-cover border border-bdr cursor-pointer hover:border-white/20 transition"
-                 x-on:click="$store.lightbox.show(img)"
-                 :data-lightbox-src="img">
-          </template>
-          <div x-show="getImgs(p).length===0" class="shrink-0 w-44 h-24 rounded bg-surface-2 flex items-center justify-center text-xs text-neutral-600">暂无截图</div>
-        </div>
+      </template>
+    </div>
+  </section>
+
+  
+  <section x-show="active === 'worldview'" class="mb-8">
+    <h2 class="text-base font-bold mb-3">
+      世界观对比
+      <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.worldview">共同点已高亮</span>
+    </h2>
+    <div class="overflow-x-auto rounded border border-bdr">
+      <div x-html="tableHtml.worldview"></div>
+    </div>
+  </section>
+
+  
+  <section x-show="active === 'story'" class="mb-8">
+    <h2 class="text-base font-bold mb-3">
+      IP / 故事剧情对比
+      <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.story">共同点已高亮</span>
+    </h2>
+    <div x-show="storyOverviewHtml" class="mb-4">
+      <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-wide mb-2">开篇综述（overview tagline）</h3>
+      <div class="grid gap-3" :style="'grid-template-columns: repeat('+Math.min(prods.length,3)+',1fr)'">
+        <div x-html="storyOverviewHtml"></div>
       </div>
-    </template>
-  </div>
+    </div>
+    <div class="overflow-x-auto max-h-[70vh] overflow-y-auto rounded border border-bdr">
+      <div x-html="tableHtml.story"></div>
+    </div>
+  </section>
 
   
-  <h2 class="text-base font-bold mb-3">IP / 故事剧情对比 <span x-text="storyHasCommon ? '共同点已高亮' : '无明显共同点'" class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="storyTableHtml"></span></h2>
-  <div class="overflow-x-auto mb-8 max-h-[70vh] overflow-y-auto rounded border border-bdr">
-    <div x-html="storyTableHtml"></div>
-  </div>
+  <section x-show="active === 'summary'" class="mb-8">
+    <h2 class="text-base font-bold mb-3">美学综述对比（label / definition / evolution）</h2>
+    <div class="overflow-x-auto rounded border border-bdr">
+      <div x-html="tableHtml.summary"></div>
+    </div>
+  </section>
 
   
-  <h2 class="text-base font-bold mb-3">审美偏好对比 <span x-text="aesHasCommon ? '共同点已高亮' : '无明显共同点'" class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="tableHtml"></span></h2>
-  <div class="overflow-x-auto mb-8 max-h-[70vh] overflow-y-auto rounded border border-bdr">
-    <div x-html="tableHtml"></div>
-  </div>
+  <section x-show="active === 'aesthetic'" class="mb-8">
+    <h2 class="text-base font-bold mb-3">
+      五维美术对比（场景/服装/UI/符号/宣发）
+      <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.aesthetic">共同点已高亮</span>
+    </h2>
+    <div class="overflow-x-auto max-h-[70vh] overflow-y-auto rounded border border-bdr">
+      <div x-html="tableHtml.aesthetic"></div>
+    </div>
+  </section>
+
+  
+  <section x-show="active === 'playerexp'" class="mb-8">
+    <h2 class="text-base font-bold mb-3">玩家体验对比（媒体 / 社区记忆点）</h2>
+    <div class="overflow-x-auto rounded border border-bdr">
+      <div x-html="tableHtml.playerexp"></div>
+    </div>
+  </section>
 
   <div x-show="prods.length===0" class="text-center py-20 text-neutral-500">
     未传入有效的游戏 ID，请从游戏详情页点击"一键对比"进入
@@ -216,10 +276,19 @@ function compareApp(){
   return {
     prods: [],
     screenshots: {},
-    tableHtml: '',
-    storyTableHtml: '',
-    storyHasCommon: false,
-    aesHasCommon: false,
+    active: 'screenshots',
+    tabs: [
+      {key:'screenshots', label:'官网截图', hasCommon:false},
+      {key:'worldview',   label:'世界观',   hasCommon:false},
+      {key:'story',       label:'故事剧情', hasCommon:false},
+      {key:'summary',     label:'美学综述', hasCommon:false},
+      {key:'aesthetic',   label:'五维美术', hasCommon:false},
+      {key:'playerexp',   label:'玩家体验', hasCommon:false},
+    ],
+    tableHtml: {worldview:'', story:'', summary:'', aesthetic:'', playerexp:''},
+    hasCommon: {worldview:false, story:false, aesthetic:false},
+    storyOverviewHtml: '',
+
     init(){
       var ids = new URLSearchParams(location.search).get('ids');
       if(!ids) return;
@@ -230,93 +299,259 @@ function compareApp(){
       ]).then(([games, ss])=>{
         this.screenshots = ss;
         this.prods = idList.map(id=>games.find(g=>g.id===id)).filter(Boolean);
-        this.buildStoryTable();
-        this.buildTable();
+        this.buildAll();
+        this.syncTabHasCommon();
       });
     },
+
     getImgs(p){
       var ss = this.screenshots[p.name]||[];
       var imgs=[];
       ss.forEach(m=>(m.screens||[]).forEach(s=>{if(s.imgs)imgs=imgs.concat(s.imgs);}));
       return imgs.slice(0,8);
     },
-    buildStoryTable(){
-      var prods=this.prods;
-      if(!prods.length) return;
-      var allLabels=[];var seen={};
-      prods.forEach(p=>{if(!p.story||!p.story.dims)return;p.story.dims.forEach(d=>{if(!seen[d.label]){seen[d.label]=1;allLabels.push(d.label);}});});
-      if(!allLabels.length){this.storyTableHtml='<div class="text-sm text-neutral-500 p-4">暂无 IP/故事数据</div>';return;}
 
-      function findCommon(dim){
-        var vals=[];
-        prods.forEach(p=>{if(!p.story||!p.story.dims)return;var d=p.story.dims.find(x=>x.label===dim);if(d)vals.push(d.value);});
-        if(vals.length<2)return[];
-        var sets=vals.map(v=>(v.match(/<b>([^<]+)<\/b>/g)||[]).map(s=>s.replace(/<\/?b>/g,'')));
-        var counts={};sets.forEach(ts=>{var u={};ts.forEach(t=>{u[t]=1;});Object.keys(u).forEach(t=>{counts[t]=(counts[t]||0)+1;});});
-        return Object.keys(counts).filter(t=>counts[t]>=2);
-      }
-
-      var t='<table class="w-full border-collapse bg-surface-1 text-left">';
-      t+='<thead class="sticky top-0 z-10"><tr><th class="p-3 bg-surface-3 text-xs font-bold text-neutral-500 uppercase tracking-wide border-b border-bdr w-24">\u7ef4\u5ea6</th>';
-      prods.forEach(p=>{t+='<th class="p-3 bg-surface-2 border-b border-bdr min-w-[200px]"><span class="text-sm font-semibold">'+(p.nameCN||p.name)+'</span> <span class="text-xs text-neutral-600 font-normal">'+p.company+'</span></th>';});
-      t+='</tr></thead><tbody>';
-      var hasAnyCommon=false;
-      allLabels.forEach(dim=>{
-        var common=findCommon(dim);
-        if(common.length) hasAnyCommon=true;
-        t+='<tr><td class="p-3 text-[11px] font-bold text-neutral-500 uppercase tracking-wide bg-white/[.02] border-b border-bdr align-top">'+dim+'</td>';
-        prods.forEach(p=>{
-          var val='\u2014';
-          if(p.story&&p.story.dims){var d=p.story.dims.find(x=>x.label===dim);if(d)val=d.value;}
-          var isC=common.length&&common.some(term=>val.includes(term));
-          t+='<td class="p-3 text-[13px] leading-7 text-neutral-400 border-b border-bdr align-top data-text'+(isC?' bg-white/[.06] border-l-[3px] border-l-white/40':'')+'">'
-            +val+(isC?'<span class="inline-flex items-center gap-1 text-[9px] px-2 py-0.5 rounded border border-white/20 bg-white/10 text-white font-bold ml-1.5 whitespace-nowrap">\u2022 \u5171\u540c</span>':'')+'</td>';
-        });
-        t+='</tr>';
-      });
-      t+='</tbody></table>';
-      this.storyHasCommon=hasAnyCommon;
-      this.storyTableHtml=t;
+    buildAll(){
+      this.tableHtml.worldview = this.buildWorldview();
+      this.buildStory();
+      this.tableHtml.summary = this.buildSummary();
+      this.tableHtml.aesthetic = this.buildAesthetic();
+      this.tableHtml.playerexp = this.buildPlayerExp();
     },
-    buildTable(){
+
+    syncTabHasCommon(){
+      this.tabs.forEach(t=>{
+        if(t.key === 'worldview') t.hasCommon = this.hasCommon.worldview;
+        else if(t.key === 'story') t.hasCommon = this.hasCommon.story;
+        else if(t.key === 'aesthetic') t.hasCommon = this.hasCommon.aesthetic;
+      });
+    },
+
+    // ─ 工具函数 ─
+    findCommonBolds(values){
+      var sets = values.map(v=>((v||'').match(/<b>([^<]+)<\/b>/g)||[]).map(s=>s.replace(/<\/?b>/g,'')));
+      var counts={};
+      sets.forEach(ts=>{var u={};ts.forEach(t=>{u[t]=1;});Object.keys(u).forEach(t=>{counts[t]=(counts[t]||0)+1;});});
+      return Object.keys(counts).filter(t=>counts[t]>=2);
+    },
+
+    headerRow(){
+      var prods = this.prods;
+      var t = '<thead class="sticky top-0 z-10"><tr><th class="p-3 bg-surface-3 text-xs font-bold text-neutral-500 uppercase tracking-wide border-b border-bdr w-28">维度</th>';
+      prods.forEach(p=>{t+='<th class="p-3 bg-surface-2 border-b border-bdr min-w-[220px] text-left"><span class="text-sm font-semibold">'+(p.nameCN||p.name)+'</span> <span class="text-xs text-neutral-600 font-normal">'+(p.company||'')+'</span></th>';});
+      t += '</tr></thead>';
+      return t;
+    },
+
+    cell(val, isCommon){
+      return '<td class="p-3 text-[13px] leading-7 text-neutral-400 border-b border-bdr align-top data-text'
+        +(isCommon?' bg-white/[.06] border-l-[3px] border-l-white/40':'')+'">'
+        +(val||'—')
+        +(isCommon?'<span class="inline-flex items-center gap-1 text-[9px] px-2 py-0.5 rounded border border-white/20 bg-white/10 text-white font-bold ml-1.5 whitespace-nowrap">• 共同</span>':'')
+        +'</td>';
+    },
+
+    // ─ 1. Worldview 对比 ─
+    buildWorldview(){
       var prods=this.prods;
-      if(!prods.length) return;
-      var dims=['scene','costume','ui','symbol','promo'];
-      var dimLabels={scene:'\u573a\u666f\u6c1b\u56f4',costume:'\u89d2\u8272\u670d\u88c5',ui:'UI\u754c\u9762',symbol:'\u89c6\u89c9\u7b26\u53f7',promo:'\u5ba3\u53d1\u98ce\u683c'};
-
-      function findCommon(dim){
-        var vals=[];
-        prods.forEach(p=>{if(!p.aesthetic||!p.aesthetic[dim])return;vals.push(p.aesthetic[dim].value||'');});
-        if(vals.length<2)return[];
-        var sets=vals.map(v=>(v.match(/<b>([^<]+)<\/b>/g)||[]).map(s=>s.replace(/<\/?b>/g,'')));
-        var counts={};sets.forEach(ts=>{var u={};ts.forEach(t=>{u[t]=1;});Object.keys(u).forEach(t=>{counts[t]=(counts[t]||0)+1;});});
-        return Object.keys(counts).filter(t=>counts[t]>=2);
-      }
-
-      var t='<table class="w-full border-collapse bg-surface-1 text-left">';
-      t+='<thead class="sticky top-0 z-10"><tr><th class="p-3 bg-surface-3 text-xs font-bold text-neutral-500 uppercase tracking-wide border-b border-bdr w-28">\u7ef4\u5ea6</th>';
-      prods.forEach(p=>{t+='<th class="p-3 bg-surface-2 border-b border-bdr min-w-[200px]"><span class="text-sm font-semibold">'+(p.nameCN||p.name)+'</span> <span class="text-xs text-neutral-600 font-normal">'+p.company+'</span></th>';});
-      t+='</tr></thead><tbody>';
-
+      var dims = [
+        {key:'background', label:'世界背景'},
+        {key:'mainStory',  label:'主线故事'},
+        {key:'combat',     label:'战斗系统'},
+        {key:'coreLoop',   label:'核心循环'},
+      ];
+      var t = '<table class="w-full border-collapse bg-surface-1 text-left">';
+      t += this.headerRow();
+      t += '<tbody>';
       var hasAnyCommon=false;
       dims.forEach(dim=>{
-        var common=findCommon(dim);
-        if(common.length) hasAnyCommon=true;
-        t+='<tr><td class="p-3 text-[11px] font-bold text-neutral-400 bg-white/[.02] border-b border-bdr align-top">'+(dimLabels[dim]||dim)+'</td>';
-        prods.forEach(p=>{
-          var val='\u2014';var title='';
-          if(p.aesthetic&&p.aesthetic[dim]){val=p.aesthetic[dim].value||'\u2014';title=p.aesthetic[dim].title||'';}
-          if(title)val='<div class="text-xs text-neutral-500 font-semibold mb-1">'+title+'</div>'+val;
-          var isC=common.length&&common.some(term=>val.includes(term));
-          t+='<td class="p-3 text-[13px] leading-7 text-neutral-400 border-b border-bdr align-top data-text'+(isC?' bg-white/[.06] border-l-[3px] border-l-white/40':'')+'">'
-            +val+(isC?'<span class="inline-flex items-center gap-1 text-[9px] px-2 py-0.5 rounded border border-white/20 bg-white/10 text-white font-bold ml-1.5 whitespace-nowrap">\u2022 \u5171\u540c</span>':'')+'</td>';
+        var values = prods.map(p=>{
+          var w = p.worldview||{};
+          var v = w[dim.key];
+          return v ? (v.value||'') : '';
         });
-        t+='</tr>';
+        var common = this.findCommonBolds(values);
+        if(common.length) hasAnyCommon = true;
+        t += '<tr><td class="p-3 text-[11px] font-bold text-neutral-400 bg-white/[.02] border-b border-bdr align-top">'+dim.label+'</td>';
+        values.forEach(val=>{
+          var isC = common.length && common.some(term=>val.includes(term));
+          t += this.cell(val, isC);
+        });
+        t += '</tr>';
       });
-      t+='</tbody></table>';
-      this.aesHasCommon=hasAnyCommon;
-      this.tableHtml=t;
-    }
+      t += '</tbody></table>';
+      this.hasCommon.worldview = hasAnyCommon;
+      return t;
+    },
+
+    // ─ 2. Story 对比 ─
+    buildStory(){
+      var prods=this.prods;
+      // overview taglines
+      var overviewTiles = prods.map(p=>{
+        var ov = (p.story||{}).overview || {};
+        var tl = ov.tagline || '';
+        if(!tl) return '<div class="bg-surface-1 border border-bdr rounded p-3 text-xs text-neutral-600">'+(p.nameCN||p.name)+'：暂无 tagline</div>';
+        return '<div class="bg-surface-1 border border-bdr rounded p-3"><div class="text-[10px] font-bold text-neutral-500 uppercase mb-1">'+(p.nameCN||p.name)+'</div><div class="text-sm font-bold text-white leading-snug">'+tl+'</div></div>';
+      }).join('');
+      this.storyOverviewHtml = overviewTiles;
+
+      // dims table
+      var allLabels=[];var seen={};
+      prods.forEach(p=>{
+        var dims = (p.story||{}).dims||[];
+        dims.forEach(d=>{if(!seen[d.label]){seen[d.label]=1;allLabels.push(d.label);}});
+      });
+
+      if(!allLabels.length){
+        this.tableHtml.story='<div class="text-sm text-neutral-500 p-4">暂无 IP/故事维度数据</div>';
+        return;
+      }
+
+      var t = '<table class="w-full border-collapse bg-surface-1 text-left">';
+      t += this.headerRow();
+      t += '<tbody>';
+      var hasAnyCommon=false;
+      allLabels.forEach(label=>{
+        var values = prods.map(p=>{
+          var dims = (p.story||{}).dims||[];
+          var d = dims.find(x=>x.label===label);
+          return d ? (d.value||'') : '';
+        });
+        var common = this.findCommonBolds(values);
+        if(common.length) hasAnyCommon = true;
+        t += '<tr><td class="p-3 text-[11px] font-bold text-neutral-500 uppercase tracking-wide bg-white/[.02] border-b border-bdr align-top">'+label+'</td>';
+        values.forEach(val=>{
+          var isC = common.length && common.some(term=>val.includes(term));
+          t += this.cell(val, isC);
+        });
+        t += '</tr>';
+      });
+      t += '</tbody></table>';
+      this.hasCommon.story = hasAnyCommon;
+      this.tableHtml.story = t;
+    },
+
+    // ─ 3. Aesthetic Summary 对比 ─
+    buildSummary(){
+      var prods=this.prods;
+      var rows = [
+        {key:'label',      label:'美学定调'},
+        {key:'definition', label:'定义公式'},
+        {key:'evolution',  label:'共识发展史'},
+      ];
+      var t = '<table class="w-full border-collapse bg-surface-1 text-left">';
+      t += this.headerRow();
+      t += '<tbody>';
+      rows.forEach(r=>{
+        t += '<tr><td class="p-3 text-[11px] font-bold text-neutral-400 bg-white/[.02] border-b border-bdr align-top">'+r.label+'</td>';
+        prods.forEach(p=>{
+          var s = (p.aesthetic||{}).summary || {};
+          var val = s[r.key] || '';
+          t += this.cell(val, false);
+        });
+        t += '</tr>';
+      });
+      // references 谱系
+      t += '<tr><td class="p-3 text-[11px] font-bold text-neutral-400 bg-white/[.02] border-b border-bdr align-top">借鉴谱系</td>';
+      prods.forEach(p=>{
+        var refs = ((p.aesthetic||{}).summary||{}).references || [];
+        var html = refs.map(r=>'<span class="inline-block px-2 py-0.5 rounded text-[11px] bg-white/[.04] border border-white/[.08] text-neutral-300 mr-1 mb-1">'+r.title+(r.year?' <span class="text-neutral-600">'+r.year+'</span>':'')+'</span>').join('');
+        t += '<td class="p-3 text-[12px] leading-6 border-b border-bdr align-top">'+(html||'<span class="text-neutral-600">—</span>')+'</td>';
+      });
+      t += '</tr>';
+      t += '</tbody></table>';
+      return t;
+    },
+
+    // ─ 4. Aesthetic 5-card 对比 ─
+    buildAesthetic(){
+      var prods=this.prods;
+      var dims=[
+        {key:'scene',    label:'场景氛围'},
+        {key:'costume',  label:'角色服装'},
+        {key:'ui',       label:'UI 界面'},
+        {key:'symbol',   label:'视觉符号'},
+        {key:'promo',    label:'宣发风格'},
+      ];
+
+      var t = '<table class="w-full border-collapse bg-surface-1 text-left">';
+      t += this.headerRow();
+      t += '<tbody>';
+      var hasAnyCommon=false;
+      dims.forEach(dim=>{
+        var values = prods.map(p=>{
+          var ae = (p.aesthetic||{})[dim.key];
+          return ae ? (ae.value||'') : '';
+        });
+        var common = this.findCommonBolds(values);
+        if(common.length) hasAnyCommon=true;
+        t += '<tr><td class="p-3 text-[11px] font-bold text-neutral-400 bg-white/[.02] border-b border-bdr align-top">'+dim.label+'</td>';
+        prods.forEach((p, i)=>{
+          var ae = (p.aesthetic||{})[dim.key];
+          var val = values[i];
+          var title = ae ? (ae.title||'') : '';
+          var combined = title ? '<div class="text-xs text-neutral-500 font-semibold mb-1">'+title+'</div>'+val : val;
+          var isC = common.length && common.some(term=>val.includes(term));
+          t += this.cell(combined, isC);
+        });
+        t += '</tr>';
+      });
+      t += '</tbody></table>';
+      this.hasCommon.aesthetic = hasAnyCommon;
+      return t;
+    },
+
+    // ─ 5. PlayerExp 对比 ─
+    buildPlayerExp(){
+      var prods=this.prods;
+      var rows = [
+        {key:'media',     label:'媒体记忆点'},
+        {key:'community', label:'社区记忆点'},
+      ];
+      var t = '<table class="w-full border-collapse bg-surface-1 text-left">';
+      t += this.headerRow();
+      t += '<tbody>';
+      rows.forEach(r=>{
+        t += '<tr><td class="p-3 text-[11px] font-bold text-neutral-400 bg-white/[.02] border-b border-bdr align-top">'+r.label+'</td>';
+        prods.forEach(p=>{
+          var pe = p.playerExp||{};
+          var memArr = ((pe[r.key])||{}).memory || [];
+          if(!memArr.length){
+            t += '<td class="p-3 text-[12px] text-neutral-600 border-b border-bdr align-top">—</td>';
+            return;
+          }
+          var html = '<ul class="space-y-2">';
+          memArr.slice(0,5).forEach(m=>{
+            var src = m.src ? '<span class="text-[10px] text-neutral-600 ml-1">— '+m.src+'</span>' : '';
+            html += '<li class="text-[12px] leading-6 text-neutral-400">'+(m.text||'')+src+'</li>';
+          });
+          html += '</ul>';
+          t += '<td class="p-3 border-b border-bdr align-top">'+html+'</td>';
+        });
+        t += '</tr>';
+      });
+      // biliVideos count
+      t += '<tr><td class="p-3 text-[11px] font-bold text-neutral-400 bg-white/[.02] border-b border-bdr align-top">B 站热门视频</td>';
+      prods.forEach(p=>{
+        var vids = ((p.playerExp||{}).biliVideos)||[];
+        if(!vids.length){
+          t += '<td class="p-3 text-[12px] text-neutral-600 border-b border-bdr align-top">—</td>';
+          return;
+        }
+        var html = '<ul class="space-y-1">';
+        vids.slice(0,5).forEach(v=>{
+          var bvid = v.bvid||'';
+          var url = bvid ? 'https://www.bilibili.com/video/'+bvid : '#';
+          html += '<li class="text-[11px] leading-5"><a href="'+url+'" target="_blank" rel="noopener" class="text-neutral-400 hover:text-white">'+(v.title||'')+'</a> <span class="text-neutral-600">· '+(v.views||'')+'</span></li>';
+        });
+        html += '</ul>';
+        t += '<td class="p-3 border-b border-bdr align-top">'+html+'</td>';
+      });
+      t += '</tr>';
+      t += '</tbody></table>';
+      return t;
+    },
   };
 }
 </script>
