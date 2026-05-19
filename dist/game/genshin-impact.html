@@ -766,12 +766,16 @@ document.addEventListener('alpine:init', function() {
       玩家游戏体验清单
     </h2>
     <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
-         x-data="{ tab: 'media' }">
+         x-data="{ tab: 'bili' }">
       
       <div class="flex border-b border-bdr">
         
         
         
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
         
         <button x-on:click="tab='media'"
                 :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
@@ -785,9 +789,61 @@ document.addEventListener('alpine:init', function() {
 
       
       
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1cX516vEu8/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《原神》尼可角色PV——「缄口的金弦」</span>
+          <span class="text-xs text-neutral-500 shrink-0">272万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1JvdgBvEC9/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《原神》「空月之歌·行律」版本PV：「虚空劫灰往世书」</span>
+          <span class="text-xs text-neutral-500 shrink-0">212万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1pbdgBzELK/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《原神》「『空月之歌·行律』虚空劫灰往世书」前瞻特别节目</span>
+          <span class="text-xs text-neutral-500 shrink-0">131万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1mY4y1Z7Ku/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【原神宝箱全收集】千壑沙地(成就数290)须弥3.4/精准分类/路线规划/须弥宝箱攻略/草之印获取途径/原神3.4</span>
+          <span class="text-xs text-neutral-500 shrink-0">1.3千万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1YiDjB8EK9/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【原神一条龙全收集】蒙德月之六(成就数222/技忆团块30/摩拉70)风息山+空之神殿/宝箱/摩拉堆/玉帛/摹忆因子/风之印/探索度/原神月之六一条龙</span>
+          <span class="text-xs text-neutral-500 shrink-0">1.1千万播放</span>
+        </a>
+        
+      </div>
+      
 
       
-      <div x-show="tab==='media'"  class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
         
         
         

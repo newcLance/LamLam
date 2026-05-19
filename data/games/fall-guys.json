@@ -112,7 +112,33 @@
         }
       ]
     },
-    "biliVideos": []
+    "biliVideos": [
+      {
+        "title": "糖豆人淘汰赛！60名玩家争夺冠军！超魔性的画风，鲤鱼Ace解说",
+        "bvid": "BV1jK4y1Y7PS",
+        "views": "749万"
+      },
+      {
+        "title": "糖豆人社区盲盒赛来了~欢迎大家关注！",
+        "bvid": "BV1coAAeVEto",
+        "views": "5849"
+      },
+      {
+        "title": "有史以来最疯狂的闯关游戏，蠢萌的糖豆人大逃杀！60人只能存活1个！糖豆人终极淘汰赛",
+        "bvid": "BV1aa4y1E7NF",
+        "views": "208万"
+      },
+      {
+        "title": "【小宇】糖豆人：淘汰赛 玩这游戏能泡妞？P52",
+        "bvid": "BV145411a7HJ",
+        "views": "36万"
+      },
+      {
+        "title": "【糖豆人：终极淘汰赛】新手向全关卡地图攻略技巧合集 第六赛季已更新（Fall Guys: Ultimate Knockout）",
+        "bvid": "BV1T54y1D7cE",
+        "views": "31万"
+      }
+    ]
   },
   "worldview": {
     "background": {

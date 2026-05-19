@@ -112,7 +112,33 @@
         }
       ]
     },
-    "biliVideos": []
+    "biliVideos": [
+      {
+        "title": "【IGN】10分，《极乐迪斯科：最终剪辑版》评测：成为了真正的必玩大作",
+        "bvid": "BV1T64y1S7V8",
+        "views": "116万"
+      },
+      {
+        "title": "【完结】极乐迪斯科-最终剪辑版 全流程 无解说 【全集】",
+        "bvid": "BV1zb4y1Q7Js",
+        "views": "137万"
+      },
+      {
+        "title": "【合集，完结】【极乐迪斯科 最终剪辑版】实况流程攻略【小米解说】",
+        "bvid": "BV1g64y1U7Ef",
+        "views": "33万"
+      },
+      {
+        "title": "【中文字幕】TGA2019最佳独立游戏《极乐迪斯科》颁奖现场",
+        "bvid": "BV1YJ411j7eh",
+        "views": "24万"
+      },
+      {
+        "title": "五分钟上手《极乐迪斯科》良心制作 一看就会！",
+        "bvid": "BV1xYuZzEE9W",
+        "views": "17万"
+      }
+    ]
   },
   "worldview": {
     "background": {

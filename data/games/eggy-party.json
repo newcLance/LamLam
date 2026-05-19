@@ -112,7 +112,33 @@
         }
       ]
     },
-    "biliVideos": []
+    "biliVideos": [
+      {
+        "title": "【蛋仔飞车】全新粉蓝配色赛车来袭",
+        "bvid": "BV1Zy5T6xEr4",
+        "views": "7万"
+      },
+      {
+        "title": "蛋仔最夸张的老钱又发力了，蛋币换纤维我还是头一次见识！",
+        "bvid": "BV1hqwXzREDa",
+        "views": "3万"
+      },
+      {
+        "title": "Eggy night 蛋仔之夜",
+        "bvid": "BV1fz4y1h7HA",
+        "views": "1万"
+      },
+      {
+        "title": "Eggy Party(蛋仔国际服)下载教程",
+        "bvid": "BV1x9pEzBETX",
+        "views": "1万"
+      },
+      {
+        "title": "【惊魂寻宝队】「肉铺惊魂」版本更新介绍",
+        "bvid": "BV1yN9kBtEEC",
+        "views": "162万"
+      }
+    ]
   },
   "worldview": {
     "background": {

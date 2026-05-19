@@ -747,12 +747,16 @@ document.addEventListener('alpine:init', function() {
       玩家游戏体验清单
     </h2>
     <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
-         x-data="{ tab: 'media' }">
+         x-data="{ tab: 'bili' }">
       
       <div class="flex border-b border-bdr">
         
         
         
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
         
         <button x-on:click="tab='media'"
                 :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
@@ -766,9 +770,61 @@ document.addEventListener('alpine:init', function() {
 
       
       
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1Zy5T6xEr4/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【蛋仔飞车】全新粉蓝配色赛车来袭</span>
+          <span class="text-xs text-neutral-500 shrink-0">7万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1hqwXzREDa/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">蛋仔最夸张的老钱又发力了，蛋币换纤维我还是头一次见识！</span>
+          <span class="text-xs text-neutral-500 shrink-0">3万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1fz4y1h7HA/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">Eggy night 蛋仔之夜</span>
+          <span class="text-xs text-neutral-500 shrink-0">1万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1x9pEzBETX/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">Eggy Party(蛋仔国际服)下载教程</span>
+          <span class="text-xs text-neutral-500 shrink-0">1万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1yN9kBtEEC/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【惊魂寻宝队】「肉铺惊魂」版本更新介绍</span>
+          <span class="text-xs text-neutral-500 shrink-0">162万播放</span>
+        </a>
+        
+      </div>
+      
 
       
-      <div x-show="tab==='media'"  class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
         
         
         

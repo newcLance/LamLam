@@ -764,12 +764,16 @@ document.addEventListener('alpine:init', function() {
       玩家游戏体验清单
     </h2>
     <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
-         x-data="{ tab: 'media' }">
+         x-data="{ tab: 'bili' }">
       
       <div class="flex border-b border-bdr">
         
         
         
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
         
         <button x-on:click="tab='media'"
                 :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
@@ -783,9 +787,61 @@ document.addEventListener('alpine:init', function() {
 
       
       
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1jK4y1Y7PS/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">糖豆人淘汰赛！60名玩家争夺冠军！超魔性的画风，鲤鱼Ace解说</span>
+          <span class="text-xs text-neutral-500 shrink-0">749万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1coAAeVEto/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">糖豆人社区盲盒赛来了~欢迎大家关注！</span>
+          <span class="text-xs text-neutral-500 shrink-0">5849播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1aa4y1E7NF/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">有史以来最疯狂的闯关游戏，蠢萌的糖豆人大逃杀！60人只能存活1个！糖豆人终极淘汰赛</span>
+          <span class="text-xs text-neutral-500 shrink-0">208万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV145411a7HJ/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【小宇】糖豆人：淘汰赛 玩这游戏能泡妞？P52</span>
+          <span class="text-xs text-neutral-500 shrink-0">36万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1T54y1D7cE/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【糖豆人：终极淘汰赛】新手向全关卡地图攻略技巧合集 第六赛季已更新（Fall Guys: Ultimate Knockout）</span>
+          <span class="text-xs text-neutral-500 shrink-0">31万播放</span>
+        </a>
+        
+      </div>
+      
 
       
-      <div x-show="tab==='media'"  class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
         
         
         
