@@ -4825,5 +4825,108 @@
     "lastUpdate": "2026-05-19",
     "slug": "the-sinking-city",
     "stub": true
+  },
+  {
+    "id": 307,
+    "name": "Tom Clancy's Rainbow Six",
+    "nameCN": "彩虹六号（初代）",
+    "alias": "Rainbow Six,彩虹六号初代,Tom Clancy Rainbow Six",
+    "icon": "🎯",
+    "company": "Red Storm / Ubisoft",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS1",
+      "N64"
+    ],
+    "model": "买断制",
+    "genre": "Shooter",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "1998",
+    "releaseDate": "1998.8",
+    "desc": "Tom Clancy 反恐战术 FPS 鼻祖，彩虹六号系列起点。强调战前规划+无重生硬核拟真。",
+    "features": [
+      "战术规划",
+      "硬核拟真",
+      "无重生",
+      "Tom Clancy IP"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-05-19",
+    "slug": "rainbow-six-classic",
+    "stub": true
+  },
+  {
+    "id": 308,
+    "name": "Minecraft",
+    "nameCN": "我的世界",
+    "alias": "Minecraft,我的世界,MC",
+    "icon": "🟫",
+    "company": "Mojang Studios",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox",
+      "Switch",
+      "iOS",
+      "Android"
+    ],
+    "model": "买断制",
+    "genre": "Survival",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2011",
+    "releaseDate": "2011.11",
+    "desc": "全球销量第一沙盒生存游戏（超 3 亿份），方块创造与生存玩法定义了沙盒品类。",
+    "features": [
+      "方块沙盒",
+      "生存创造",
+      "无尽世界",
+      "Mojang"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-05-19",
+    "slug": "minecraft",
+    "stub": true
+  },
+  {
+    "id": 309,
+    "name": "DayZ",
+    "nameCN": "DayZ",
+    "alias": "DayZ,Day Z",
+    "icon": "☣️",
+    "company": "Bohemia Interactive",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "PS4",
+      "Xbox"
+    ],
+    "model": "买断制",
+    "genre": "Survival",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2018",
+    "releaseDate": "2018.12",
+    "desc": "Bohemia 拟真丧尸末世生存沙盒，PUBG 大逃杀的精神先驱。Arma 引擎遗作。",
+    "features": [
+      "硬核生存",
+      "丧尸末世",
+      "PvP 沙盒",
+      "永久死亡"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-05-19",
+    "slug": "dayz",
+    "stub": true
   }
 ]
