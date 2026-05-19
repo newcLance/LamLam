@@ -172,12 +172,6 @@ document.addEventListener('alpine:init', function() {
       IP / 故事剧情对比
       <span class="text-[10px] px-2 py-1 rounded border border-white/15 bg-white/[.04] text-neutral-400 font-semibold ml-2 uppercase tracking-wide" x-show="hasCommon.story">共同点已高亮</span>
     </h2>
-    <div x-show="storyOverviewHtml" class="mb-4">
-      <h3 class="text-xs font-bold text-neutral-500 uppercase tracking-wide mb-2">开篇综述（overview tagline）</h3>
-      <div class="grid gap-3" :style="'grid-template-columns: repeat('+Math.min(prods.length,3)+',1fr)'">
-        <div x-html="storyOverviewHtml"></div>
-      </div>
-    </div>
     <div class="overflow-x-auto rounded border border-bdr">
       <div x-html="tableHtml.story"></div>
     </div>
@@ -291,7 +285,6 @@ function compareApp(){
     ],
     tableHtml: {worldview:'', story:'', summary:'', aesthetic:'', playerexp:''},
     hasCommon: {worldview:false, story:false, aesthetic:false},
-    storyOverviewHtml: '',
 
     init(){
       var ids = new URLSearchParams(location.search).get('ids');
@@ -415,14 +408,6 @@ function compareApp(){
     // ─ 2. Story 对比 ─
     buildStory(){
       var prods=this.prods;
-      // overview taglines
-      var overviewTiles = prods.map(p=>{
-        var ov = (p.story||{}).overview || {};
-        var tl = ov.tagline || '';
-        if(!tl) return '<div class="bg-surface-1 border border-bdr rounded p-3 text-xs text-neutral-600">'+(p.nameCN||p.name)+'：暂无 tagline</div>';
-        return '<div class="bg-surface-1 border border-bdr rounded p-3"><div class="text-[10px] font-bold text-neutral-500 uppercase mb-1">'+(p.nameCN||p.name)+'</div><div class="text-sm font-bold text-white leading-snug">'+tl+'</div></div>';
-      }).join('');
-      this.storyOverviewHtml = overviewTiles;
 
       // dims table
       var allLabels=[];var seen={};
@@ -431,7 +416,10 @@ function compareApp(){
         dims.forEach(d=>{if(!seen[d.label]){seen[d.label]=1;allLabels.push(d.label);}});
       });
 
-      if(!allLabels.length){
+      // 检查是否有 overview
+      var hasOverview = prods.some(p=>(p.story||{}).overview);
+
+      if(!allLabels.length && !hasOverview){
         this.tableHtml.story='<div class="text-sm text-neutral-500 p-4">暂无 IP/故事维度数据</div>';
         return;
       }
@@ -440,6 +428,48 @@ function compareApp(){
       t += this.headerRow();
       t += '<tbody>';
       var hasAnyCommon=false;
+
+      // ─ overview tagline 一行 ─
+      if(hasOverview){
+        var taglines = prods.map(p=>(((p.story||{}).overview)||{}).tagline||'');
+        var commonTL = this.findCommonBolds(taglines);
+        if(commonTL.length) hasAnyCommon = true;
+        t += '<tr><td class="p-3 text-[11px] font-bold text-neutral-500 uppercase tracking-wide bg-white/[.02] border-b border-bdr align-top">开篇钩子</td>';
+        taglines.forEach(val=>{
+          var isC = commonTL.length && commonTL.some(term=>val.includes(term));
+          var content = val ? '<div class="text-[14px] font-bold text-white leading-snug">'+val+'</div>' : '—';
+          var cellHtml = '<td class="p-3 text-[13px] leading-7 text-neutral-400 border-b border-bdr align-top'
+            +(isC?' bg-white/[.06] border-l-[3px] border-l-white/40':'')+'">'
+            +content
+            +(isC?'<span class="inline-flex items-center gap-1 text-[9px] px-2 py-0.5 rounded border border-white/20 bg-white/10 text-white font-bold ml-1.5 whitespace-nowrap">• 共同</span>':'')
+            +'</td>';
+          t += cellHtml;
+        });
+        t += '</tr>';
+
+        // ─ overview paragraphs（合并为段落组）─
+        var paraValues = prods.map(p=>{
+          var ps = (((p.story||{}).overview)||{}).paragraphs||[];
+          return ps.join('\n\n');
+        });
+        var commonPara = this.findCommonBolds(paraValues);
+        if(commonPara.length) hasAnyCommon = true;
+        t += '<tr><td class="p-3 text-[11px] font-bold text-neutral-500 uppercase tracking-wide bg-white/[.02] border-b border-bdr align-top">开篇综述</td>';
+        prods.forEach((p, i)=>{
+          var ps = (((p.story||{}).overview)||{}).paragraphs||[];
+          var val = paraValues[i];
+          var isC = commonPara.length && commonPara.some(term=>val.includes(term));
+          var html = ps.length ? ps.map(s=>'<p class="mb-2 last:mb-0">'+s+'</p>').join('') : '<span class="text-neutral-600">—</span>';
+          t += '<td class="p-3 text-[12px] leading-6 text-neutral-400 border-b border-bdr align-top'
+            +(isC?' bg-white/[.06] border-l-[3px] border-l-white/40':'')+'">'
+            +html
+            +(isC?'<span class="inline-flex items-center gap-1 text-[9px] px-2 py-0.5 rounded border border-white/20 bg-white/10 text-white font-bold ml-1.5 whitespace-nowrap">• 共同</span>':'')
+            +'</td>';
+        });
+        t += '</tr>';
+      }
+
+      // ─ dims 维度表格（之前的逻辑）─
       allLabels.forEach(label=>{
         var values = prods.map(p=>{
           var dims = (p.story||{}).dims||[];
