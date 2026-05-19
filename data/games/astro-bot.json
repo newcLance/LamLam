@@ -97,29 +97,29 @@
     },
     "biliVideos": [
       {
-        "title": "最终bos宇宙恶霸！玩起轮盘游戏！宇宙机器人",
-        "bvid": "BV15LQmYfEFF",
-        "views": "551万"
-      },
-      {
-        "title": "今年TGA年度最佳应该就是宇宙机器人了",
-        "bvid": "BV1GqpbeDEpH",
-        "views": "304万"
-      },
-      {
-        "title": "种种迹象表明，宇宙机器人100%必定拿下TGA年度游戏，没有一丝一毫的悬念 （20241207第41期）",
-        "bvid": "BV1yRiBYjEfp",
-        "views": "267万"
-      },
-      {
-        "title": "TGA2024年度最佳游戏：《宇宙机器人》",
-        "bvid": "BV1fQqiYeENA",
-        "views": "250万"
-      },
-      {
         "title": "【宇宙机器人】4K 最高画质 全收集 全流程通关攻略 索尼独占平台跳跃动作游戏 宇宙机器人2 - ASTRO BOT 2【完结】",
         "bvid": "BV1cUp3eJEus",
-        "views": "227万"
+        "views": "230万"
+      },
+      {
+        "title": "【宇宙机器人】(完结) 全收集丨全机器人原型丨白金地毯式攻略",
+        "bvid": "BV1P6p3eRE8W",
+        "views": "60万"
+      },
+      {
+        "title": "【宇宙机器人】关卡全收集及部分奖杯攻略（进度条已分段）",
+        "bvid": "BV1Hq4RenEsQ",
+        "views": "25万"
+      },
+      {
+        "title": "PS5宇宙机器人| ASTRO BOT 全收集 全解密 及个别奖杯攻略【PowerPyx】",
+        "bvid": "BV1AJpgenEyY",
+        "views": "18万"
+      },
+      {
+        "title": "在《宇宙机器人》中修复PS5【Astro Bot·剧情动画·3D平台跳跃动作游戏·可爱·索尼PS5·ProsafiaGaming】",
+        "bvid": "BV1Nc4Se6E8s",
+        "views": "17万"
       }
     ]
   },
@@ -311,27 +311,59 @@
       {
         "id": 108,
         "reason": "同为高分新作，<b>视觉艺术方向的差异化（纯快乐 vs 暗黑诗意）可供设计参考</b>"
-    }
-  ]
+      }
+    ]
   },
   "assets": {
     "official": [
       {
         "cat": "商店页 + 官网",
         "links": [
-          {"title": "Steam 商店页 — 截图 + Header + 胶囊图", "source": "Steam", "url": "https://store.steampowered.com/app/2756820/Astro_Bot/"},
-          {"title": "PlayStation 官方游戏页 — 封面 / 截图 / 介绍", "source": "PlayStation", "url": "https://www.playstation.com/en-us/games/astro-bot/"},
-          {"title": "IGDB — 截图 / 封面 / Artwork 聚合", "source": "IGDB", "url": "https://www.igdb.com/games/astro-bot"},
-          {"title": "Steam 头图 Header（高清直链）", "source": "Steam", "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2756820/header.jpg"},
-          {"title": "搜索「宇宙机器人」— 玩家壁纸 / 截图整理", "source": "小红书", "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%AE%87%E5%AE%99%E6%9C%BA%E5%99%A8%E4%BA%BA"},
-          {"title": "@TeamAsobi — 官方开发团队截图 / 更新 / 概念图", "source": "X", "url": "https://x.com/TeamAsobi"}
+          {
+            "title": "Steam 商店页 — 截图 + Header + 胶囊图",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/2756820/Astro_Bot/"
+          },
+          {
+            "title": "PlayStation 官方游戏页 — 封面 / 截图 / 介绍",
+            "source": "PlayStation",
+            "url": "https://www.playstation.com/en-us/games/astro-bot/"
+          },
+          {
+            "title": "IGDB — 截图 / 封面 / Artwork 聚合",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/astro-bot"
+          },
+          {
+            "title": "Steam 头图 Header（高清直链）",
+            "source": "Steam",
+            "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2756820/header.jpg"
+          },
+          {
+            "title": "搜索「宇宙机器人」— 玩家壁纸 / 截图整理",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%AE%87%E5%AE%99%E6%9C%BA%E5%99%A8%E4%BA%BA"
+          },
+          {
+            "title": "@TeamAsobi — 官方开发团队截图 / 更新 / 概念图",
+            "source": "X",
+            "url": "https://x.com/TeamAsobi"
+          }
         ]
       },
       {
         "cat": "角色建模 / 概念设定图",
         "links": [
-          {"title": "Jessica Woulfe: Astro Bot 关卡概念美术（官方设计师）", "source": "ArtStation", "url": "https://www.artstation.com/artwork/qJQXPN"},
-          {"title": "Astro Bot 角色设计演化 — 官方设计访谈 + 早期设定图", "source": "PlayStation Blog", "url": "https://blog.playstation.com/2024/08/26/the-evolution-of-astro-bots-adorable-character-design/"}
+          {
+            "title": "Jessica Woulfe: Astro Bot 关卡概念美术（官方设计师）",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/artwork/qJQXPN"
+          },
+          {
+            "title": "Astro Bot 角色设计演化 — 官方设计访谈 + 早期设定图",
+            "source": "PlayStation Blog",
+            "url": "https://blog.playstation.com/2024/08/26/the-evolution-of-astro-bots-adorable-character-design/"
+          }
         ]
       }
     ],
@@ -339,22 +371,46 @@
       {
         "cat": "概念美术 / Concept Art",
         "links": [
-          {"title": "搜索 Astro Bot Concept Art", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=astro%20bot%20concept%20art"},
-          {"title": "Astro Bot 概念设计 / 关卡设计", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=astro%20bot%20concept%20art%20level%20design"}
+          {
+            "title": "搜索 Astro Bot Concept Art",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=astro%20bot%20concept%20art"
+          },
+          {
+            "title": "Astro Bot 概念设计 / 关卡设计",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=astro%20bot%20concept%20art%20level%20design"
+          }
         ]
       },
       {
         "cat": "角色设计",
         "links": [
-          {"title": "搜索 Astro Bot Character Design", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=astro%20bot%20character"},
-          {"title": "3D 平台跳跃角色设计参考", "source": "Pinterest", "url": "https://www.pinterest.com/search/pins/?q=3d%20platformer%20robot%20character%20design%20cute"}
+          {
+            "title": "搜索 Astro Bot Character Design",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=astro%20bot%20character"
+          },
+          {
+            "title": "3D 平台跳跃角色设计参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=3d%20platformer%20robot%20character%20design%20cute"
+          }
         ]
       },
       {
         "cat": "UI 界面 / 纹理材质",
         "links": [
-          {"title": "搜索 3D Platformer Game UI", "source": "Dribbble", "url": "https://dribbble.com/search/3d-platformer-game-ui"},
-          {"title": "卡通材质 / Stylized 3D 纹理", "source": "ArtStation", "url": "https://www.artstation.com/search?sort_by=relevance&query=stylized%203d%20platformer%20texture"}
+          {
+            "title": "搜索 3D Platformer Game UI",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/3d-platformer-game-ui"
+          },
+          {
+            "title": "卡通材质 / Stylized 3D 纹理",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=stylized%203d%20platformer%20texture"
+          }
         ]
       }
     ]
