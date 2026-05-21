@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>《CF：虹》宣发设计宣讲｜识别 · 定位 · 构建</title>
+<style>
+  :root {
+    /* ---- 真实采样 v1 色板（覆盖原"暗蓝绿+猩红"假设）---- */
+    --void: #000000;
+    --asphalt: #1A1D20;
+    --steel: #222E31;
+    --tar: #2C2925;
+    --gunmetal: #4A5555;
+    --moss: #48433B;
+    --moonlit: #B4C9C1;
+    --flesh: #997375;
+    --ember: #FF6A2C;
+    --blood-deep: #390909;
+    --blood: #721D20;
+    --alert: #C93030;
+    --text: #E6D9D8;
+    --muted: #8a8f88;
+    --line: #1f2125;
+    --accent: var(--alert);
+    --hl: #d8c896;
+    --shadow: 0 4px 24px rgba(0,0,0,.5);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--void); color: var(--text); font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  b { color: var(--hl); font-weight: 600; }
+
+  .app { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+
+  /* ---------- Sidebar ---------- */
+  .side {
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    background: linear-gradient(180deg, #050505 0%, #0a0c0e 100%);
+    border-right: 1px solid var(--line);
+    padding: 28px 18px 28px 22px;
+  }
+  .brand { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+  .brand .cn { font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+  .brand .cn .hong { color: var(--alert); text-shadow: 0 0 12px rgba(201,48,48,.5); }
+  .brand .en { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+  .sub { font-size: 12px; color: var(--muted); margin-bottom: 24px; }
+
+  .chapter { margin-top: 18px; }
+  .chapter-title {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: #cfd3da;
+    letter-spacing: 4px; padding: 6px 8px; margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .chapter-title .num {
+    width: 22px; height: 22px; border: 1px solid var(--line);
+    border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--muted);
+  }
+
+  .nav { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .nav li a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 12px; border-radius: 8px;
+    color: #c0c4cc; text-decoration: none; font-size: 14px;
+    border-left: 2px solid transparent; transition: all .18s ease;
+  }
+  .nav li a .dot { width: 6px; height: 6px; border-radius: 50%; background: #2c313b; }
+  .nav li a:hover { background: rgba(255,255,255,.03); color: #fff; }
+  .nav li a.active {
+    background: linear-gradient(90deg, rgba(201,48,48,.12), rgba(201,48,48,0));
+    color: #fff; border-left-color: var(--alert);
+  }
+  .nav li a.active .dot { background: var(--alert); box-shadow: 0 0 8px var(--alert); }
+
+  .side-foot { margin-top: 32px; padding-top: 16px; border-top: 1px dashed var(--line); font-size: 11px; color: var(--muted); line-height: 1.7; }
+
+  /* ---------- Main ---------- */
+  .main { padding: 0; }
+  .page {
+    min-height: 100vh; padding: 64px 72px; display: none;
+    animation: fade .35s ease;
+  }
+  .page.active { display: block; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .breadcrumb { font-size: 12px; color: var(--muted); letter-spacing: 2px; margin-bottom: 14px; }
+  .breadcrumb .sep { margin: 0 8px; color: #3a3f4b; }
+  .page h1 { font-size: 40px; margin: 0 0 6px; letter-spacing: 1px; }
+  .page h1 .accent { color: var(--alert); }
+  .page .lead { font-size: 15px; color: var(--muted); max-width: 820px; line-height: 1.8; margin-bottom: 28px; }
+
+  .card {
+    background: var(--asphalt); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 24px; margin-bottom: 18px; box-shadow: var(--shadow);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 17px; color: #fff; }
+  .card .desc { color: #c8ccd0; line-height: 1.85; font-size: 14px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+
+  .tag {
+    display: inline-block; padding: 3px 10px; margin: 4px 6px 0 0;
+    background: rgba(180,201,193,.08); color: var(--moonlit);
+    border: 1px solid rgba(180,201,193,.3); border-radius: 999px;
+    font-size: 12px; letter-spacing: .5px;
+  }
+  .tag.red { background: rgba(201,48,48,.08); color: #ff8888; border-color: rgba(201,48,48,.3); }
+  .tag.gold { background: rgba(216,200,150,.08); color: var(--hl); border-color: rgba(216,200,150,.3); }
+  .tag.flesh { background: rgba(153,115,117,.08); color: #d8a8aa; border-color: rgba(153,115,117,.3); }
+
+  .kv { display: grid; grid-template-columns: 110px 1fr; gap: 10px 16px; font-size: 14px; line-height: 1.8; }
+  .kv .k { color: var(--muted); }
+  .kv .v { color: #d8dce0; }
+
+  .kicker {
+    display: inline-block; padding: 4px 10px; border-radius: 4px;
+    background: rgba(201,48,48,.12); color: var(--alert);
+    font-size: 12px; letter-spacing: 2px; margin-bottom: 12px;
+    border: 1px solid rgba(201,48,48,.3);
+  }
+
+  .quote {
+    border-left: 3px solid var(--alert); padding: 4px 0 4px 16px;
+    color: #f0e8c5; font-style: italic; font-size: 16px; line-height: 1.8;
+    background: linear-gradient(90deg, rgba(114,29,32,.08), transparent);
+    margin: 12px 0;
+  }
+
+  .role-card { background: var(--tar); border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
+  .role-card .icon { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--blood), #390909); display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom: 10px; color: #fff; }
+  .role-card h4 { margin: 0 0 6px; font-size: 15px; color: #fff; }
+  .role-card p { margin: 0; color: #b6bac0; font-size: 13px; line-height: 1.7; }
+
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .pill { background: var(--tar); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; font-size: 12px; color: #c4c8c8; }
+
+  .mood-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  .mood-cell {
+    aspect-ratio: 1/1; border-radius: 6px; overflow: hidden; position: relative;
+    background: linear-gradient(135deg, #1a1d20, #0a0c0e);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 11px; color: var(--muted); text-align: center; padding: 6px;
+    border: 1px solid var(--line);
+  }
+  .mood-cell.bloodborne { background: radial-gradient(circle at 30% 30%, #4a1c1c, #0a0a0a); color: #f0c8a0; }
+  .mood-cell.alanwake { background: radial-gradient(circle at 60% 40%, #2C2925, #050505); color: #B4C9C1; }
+  .mood-cell.tarkov { background: linear-gradient(160deg, #2a2a1a, #0a0a05); color: #c8b878; }
+  .mood-cell.annihilation { background: radial-gradient(circle at 50% 50%, #4a2a4a, #0a0a1a); color: #d8a0d8; }
+  .mood-cell.dbd { background: linear-gradient(160deg, #1a0a0a, #0a0505); color: #ff8080; }
+  .mood-cell.hereditary { background: radial-gradient(circle at 30% 70%, #3a1a0a, #0a0505); color: #d8a070; }
+  .mood-cell.cthulhu { background: linear-gradient(135deg, #222E31, #050505); color: #B4C9C1; }
+  .mood-cell.bloodborne2 { background: radial-gradient(circle at 70% 70%, #2a0a0a, #0a0a0a); color: #c87878; }
+  .mood-cell.gothic { background: linear-gradient(180deg, #1a1525, #050505); color: #a890d0; }
+
+  /* ===== 3.2 配色专用样式 ===== */
+  .src-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .src-card { background: var(--tar); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .src-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+  .src-card .strip { display: flex; height: 14px; }
+  .src-card .strip span { flex: 1; }
+  .src-card .meta { padding: 10px 12px; font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .src-card .meta b { color: #fff; display: block; margin-bottom: 2px; font-size: 13px; }
+
+  .pal-row { display: grid; gap: 12px; margin-bottom: 12px; }
+  .pal-r1 { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
+  .pal-r2 { grid-template-columns: repeat(5, 1fr); }
+  .pal-r3 { grid-template-columns: repeat(4, 1fr); }
+  .swatch {
+    border-radius: 10px; padding: 18px 14px 14px;
+    min-height: 130px; display: flex; flex-direction: column; justify-content: space-between;
+    border: 1px solid rgba(255,255,255,.06);
+    position: relative; overflow: hidden;
+  }
+  .swatch.lg { min-height: 170px; }
+  .swatch .role { font-size: 10px; letter-spacing: 2px; opacity: .8; }
+  .swatch .name { font-size: 15px; font-weight: 700; margin-top: 4px; }
+  .swatch .meta { display: flex; justify-content: space-between; font-family: monospace; font-size: 10px; opacity: .85; }
+  .swatch .pct { position: absolute; right: 12px; top: 12px; font-family: monospace; font-size: 10px; opacity: .7; }
+
+  .ratio-bar { height: 48px; border-radius: 8px; overflow: hidden; display: flex; border: 1px solid var(--line); margin-bottom: 12px; }
+  .ratio-bar > div { display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 12px; }
+  .ratio-legend { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .legend-item { font-size: 12px; color: #b8b8ad; display: flex; align-items: center; gap: 8px; line-height: 1.5; }
+  .legend-item .ldot { width: 14px; height: 14px; border-radius: 3px; flex: 0 0 14px; border: 1px solid rgba(255,255,255,.1); }
+
+  .rule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .rule { background: var(--tar); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+  .rule .rt { display: inline-block; padding: 3px 10px; border-radius: 3px; font-size: 11px; letter-spacing: 2px; margin-bottom: 10px; border: 1px solid; }
+  .rule.do .rt { background: rgba(180,201,193,.08); color: var(--moonlit); border-color: rgba(180,201,193,.3); }
+  .rule.dont .rt { background: rgba(201,48,48,.12); color: var(--alert); border-color: rgba(201,48,48,.3); }
+  .rule h4 { margin: 0 0 8px; font-size: 15px; color: #fff; }
+  .rule ul { margin: 0; padding-left: 18px; color: #b8b8ad; font-size: 13px; line-height: 1.85; }
+  .rule .swatch-row { display: flex; gap: 6px; margin-top: 12px; }
+  .rule .swatch-row .s { width: 32px; height: 22px; border-radius: 4px; border: 1px solid rgba(255,255,255,.06); }
+
+  .ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .step { aspect-ratio: 1/1.05; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255,255,255,.05); font-size: 11px; }
+  .step .lvl { font-family: monospace; font-size: 10px; opacity: .7; }
+  .step .nm { font-weight: 700; font-size: 13px; }
+  .step .role-text { opacity: .85; line-height: 1.4; font-size: 11px; }
+
+  /* tokens */
+  .tokens { width: 100%; border-collapse: collapse; font-size: 12.5px; background: var(--tar); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .tokens th, .tokens td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+  .tokens th { background: #111; color: #a8a89c; font-weight: 600; font-size: 11px; letter-spacing: 1px; }
+  .tokens td { color: #b8b8ad; }
+  .tokens td .chip { display: inline-block; width: 18px; height: 18px; border-radius: 3px; vertical-align: middle; margin-right: 8px; border: 1px solid rgba(255,255,255,.08); }
+  .tokens td.hex { font-family: monospace; color: var(--text); }
+
+  /* radar / hud / etc */
+  .radar-wrap { display: flex; align-items: center; justify-content: center; padding: 12px 0; }
+
+  .quad { position: relative; height: 380px; background: var(--tar); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+  .quad .x-axis, .quad .y-axis { position: absolute; background: var(--line); }
+  .quad .x-axis { left: 0; right: 0; top: 50%; height: 1px; }
+  .quad .y-axis { top: 0; bottom: 0; left: 50%; width: 1px; }
+  .quad .label { position: absolute; font-size: 11px; color: var(--muted); }
+  .quad .label.t { top: 8px; left: 50%; transform: translateX(-50%); }
+  .quad .label.b { bottom: 8px; left: 50%; transform: translateX(-50%); }
+  .quad .label.l { left: 8px; top: 50%; transform: translateY(-50%); }
+  .quad .label.r { right: 8px; top: 50%; transform: translateY(-50%); }
+  .quad .point { position: absolute; transform: translate(-50%, -50%); background: var(--asphalt); border: 1px solid var(--line); padding: 4px 10px; border-radius: 999px; font-size: 12px; color: #d8dce3; white-space: nowrap; }
+  .quad .point.us { background: var(--alert); color: #fff; border-color: var(--alert); box-shadow: 0 0 12px var(--alert); font-weight: 700; }
+
+  .fb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .fb { padding: 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--tar); }
+  .fb h5 { margin: 0 0 6px; font-size: 13px; letter-spacing: 1px; }
+  .fb.green h5 { color: var(--moonlit); }
+  .fb.red h5 { color: #ff8080; }
+  .fb.gold h5 { color: var(--hl); }
+  .fb.blue h5 { color: #d8a8aa; }
+  .fb ul { margin: 6px 0 0 16px; padding: 0; }
+  .fb li { font-size: 13px; line-height: 1.7; color: #c8ccc8; margin-bottom: 6px; }
+  .src { color: var(--muted); font-size: 11px; margin-left: 4px; }
+
+  .lhb { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .lhb .item { padding: 18px; border-radius: 12px; background: var(--tar); border: 1px solid var(--line); position: relative; overflow: hidden; }
+  .lhb .item::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--alert); }
+  .lhb .item:nth-child(2)::before { background: var(--moonlit); }
+  .lhb .item:nth-child(3)::before { background: var(--ember); }
+  .lhb .big { font-size: 28px; font-weight: 800; letter-spacing: 4px; margin-bottom: 6px; }
+  .lhb .item:nth-child(1) .big { color: var(--alert); }
+  .lhb .item:nth-child(2) .big { color: var(--moonlit); }
+  .lhb .item:nth-child(3) .big { color: var(--ember); }
+  .lhb .sub-l { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+  .lhb p { margin: 0; font-size: 13px; line-height: 1.8; color: #c8ccc8; }
+
+  /* timeline */
+  .tl { position: relative; padding-left: 28px; margin-top: 12px; }
+  .tl::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(180deg, var(--alert), transparent); }
+  .tl-item { position: relative; padding: 0 0 18px 0; }
+  .tl-item::before { content: ''; position: absolute; left: -28px; top: 4px; width: 18px; height: 18px; border-radius: 50%; background: var(--tar); border: 2px solid var(--alert); box-shadow: 0 0 8px var(--alert); }
+  .tl-year { font-family: monospace; color: var(--moonlit); font-size: 13px; }
+  .tl-title { font-size: 14px; color: #fff; margin: 2px 0 4px; font-weight: 600; }
+  .tl-desc { font-size: 13px; color: #b6bac0; line-height: 1.7; }
+
+  /* hero */
+  .hero {
+    background:
+      radial-gradient(ellipse at 70% 20%, rgba(114,29,32,.18) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 90%, rgba(72,67,59,.18) 0%, transparent 50%),
+      linear-gradient(180deg, #050505 0%, #000 100%);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 48px 52px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before { content: '虹'; position: absolute; right: -50px; bottom: -80px; font-size: 360px; font-weight: 900; color: rgba(201,48,48,.07); line-height: 1; pointer-events: none; }
+  .hero h1 { font-size: 52px; margin: 0; letter-spacing: 2px; }
+  .hero .tag-line { font-size: 18px; color: var(--hl); margin-top: 14px; font-style: italic; }
+  .hero .meta-row { margin-top: 24px; display: flex; gap: 36px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+  .hero .meta-row strong { color: #fff; display: block; font-size: 14px; margin-top: 4px; }
+
+  .ll { list-style: none; padding: 0; margin: 0; }
+  .ll li { padding: 8px 0; border-bottom: 1px dashed var(--line); display: flex; justify-content: space-between; font-size: 13px; }
+  .ll li:last-child { border-bottom: 0; }
+  .ll li .views { color: var(--alert); font-family: monospace; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 8px; }
+  .stat-row .stat-card { background: var(--tar); border: 1px solid var(--line); border-radius: 10px; padding: 16px; text-align: center; }
+  .stat-row .num { font-size: 26px; font-weight: 800; color: var(--alert); font-family: monospace; }
+  .stat-row .lab { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  .sym-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .sym { background: var(--tar); border: 1px solid var(--line); border-radius: 10px; padding: 16px; text-align: center; }
+  .sym svg { width: 50px; height: 50px; margin-bottom: 10px; }
+  .sym h5 { margin: 0 0 4px; font-size: 14px; color: #fff; }
+  .sym p { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  .shape-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .shape { aspect-ratio: 1/1; background: var(--tar); border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px; }
+  .shape svg { width: 70%; height: 70%; }
+  .shape .lab { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  .font-spec { background: var(--tar); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+  .font-spec .latin { font-family: 'Courier New', monospace; font-size: 36px; color: #fff; letter-spacing: 4px; }
+  .font-spec .cn { font-size: 30px; font-weight: 800; color: #fff; letter-spacing: 6px; margin-top: 8px; }
+  .font-spec .desc { color: var(--muted); font-size: 13px; margin-top: 10px; line-height: 1.7; }
+  .font-spec .hong-glow { color: var(--alert); text-shadow: 0 0 16px var(--alert), 0 0 32px rgba(201,48,48,.5); }
+
+  .ui-mock { aspect-ratio: 16/9; border-radius: 10px; overflow: hidden; background: radial-gradient(circle at 50% 60%, #1a1010, #050505 70%); border: 1px solid var(--line); position: relative; }
+  .ui-mock .vignette { position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(57,9,9,.18) 80%, rgba(0,0,0,.6) 100%); }
+  .ui-mock .crosshair { position: absolute; left: 50%; top: 50%; width: 14px; height: 14px; transform: translate(-50%,-50%); }
+  .ui-mock .crosshair::before, .ui-mock .crosshair::after { content: ''; position: absolute; background: rgba(255,255,255,.85); }
+  .ui-mock .crosshair::before { left: 50%; top: 0; bottom: 0; width: 1px; transform: translateX(-50%); }
+  .ui-mock .crosshair::after { top: 50%; left: 0; right: 0; height: 1px; transform: translateY(-50%); }
+  .ui-mock .hud-bottom { position: absolute; left: 0; right: 0; bottom: 16px; display: flex; justify-content: space-between; padding: 0 24px; }
+  .ui-mock .hud-bottom .stat { font-family: monospace; font-size: 13px; letter-spacing: 1px; }
+  .ui-mock .hud-bottom .hp { color: var(--alert); }
+  .ui-mock .hud-bottom .san { color: var(--moonlit); }
+  .ui-mock .hud-bottom .ammo { color: var(--hl); }
+
+  .pager { display: flex; justify-content: space-between; margin-top: 36px; gap: 12px; }
+  .pager a { flex: 1; padding: 14px 18px; background: var(--asphalt); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: #c8ccc8; font-size: 13px; transition: all .2s ease; }
+  .pager a:hover { background: var(--tar); border-color: var(--alert); color: #fff; }
+  .pager a .label { display: block; font-size: 11px; color: var(--muted); letter-spacing: 2px; }
+  .pager a.next { text-align: right; }
+  .pager a.disabled { opacity: .3; pointer-events: none; }
+
+  .footer-bar { margin-top: 32px; padding-top: 18px; border-top: 1px dashed var(--line); color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="side">
+    <div class="brand">
+      <div class="cn">CF：<span class="hong">虹</span></div>
+      <div class="en">CROSSFIRE: HONG</div>
+    </div>
+    <div class="sub">宣发设计宣讲材料 · v1.1（真实采样）</div>
+
+    <div class="chapter">
+      <div class="chapter-title"><span class="num">1</span> 识别 / Identify</div>
+      <ul class="nav">
+        <li><a href="#p-cover" data-page="p-cover"><span class="dot"></span>封面</a></li>
+        <li><a href="#p-bg" data-page="p-bg"><span class="dot"></span>1.1 背景</a></li>
+        <li><a href="#p-research" data-page="p-research"><span class="dot"></span>1.2 用户调研</a></li>
+      </ul>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-title"><span class="num">2</span> 定位 / Position</div>
+      <ul class="nav">
+        <li><a href="#p-concept" data-page="p-concept"><span class="dot"></span>2.1 世界观高概念</a></li>
+        <li><a href="#p-aesthetic" data-page="p-aesthetic"><span class="dot"></span>2.2 世界观美学</a></li>
+        <li><a href="#p-style" data-page="p-style"><span class="dot"></span>2.3 定位风格</a></li>
+      </ul>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-title"><span class="num">3</span> 构建 / Build</div>
+      <ul class="nav">
+        <li><a href="#p-ui" data-page="p-ui"><span class="dot"></span>3.1 UI设计思路</a></li>
+        <li><a href="#p-color" data-page="p-color"><span class="dot"></span>3.2 配色方案 ★</a></li>
+        <li><a href="#p-graphic" data-page="p-graphic"><span class="dot"></span>3.3 图形纹样</a></li>
+      </ul>
+    </div>
+
+    <div class="side-foot">
+      数据来源：竞品追踪台 · game-tracker-v2<br/>
+      色板源：cfh.qq.com 三屏像素采样<br/>
+      © 设计中心 / 内部参考
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- 封面 -->
+    <section id="p-cover" class="page active">
+      <div class="hero">
+        <div class="kicker">17 年老 IP × UE5 次世代 × 微恐射击</div>
+        <h1>《CF：<span class="accent">虹</span>》<br/>宣发设计 · 视觉策划宣讲</h1>
+        <div class="tag-line">"当 CF 撞上克苏鲁，老兵也得在月色里护好自己的脑子。"</div>
+        <div class="meta-row">
+          <div>项目<strong>CrossFire: Hong</strong></div>
+          <div>开发<strong>琳琅天上</strong></div>
+          <div>发行<strong>腾讯</strong></div>
+          <div>引擎<strong>UE5 / Lumen</strong></div>
+          <div>预计上线<strong>2026</strong></div>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card"><h3>识别 · Identify</h3><div class="desc">先把 IP / 故事 / 角色读懂，再听玩家在说什么——确认我们要服务的对象与情绪基线。</div></div>
+        <div class="card"><h3>定位 · Position</h3><div class="desc">从世界观高概念到象限定位，把"虹"放回它在游戏视觉光谱里应该站的位置。</div></div>
+        <div class="card"><h3>构建 · Build</h3><div class="desc">UI 设计思路、配色细节、图形纹样和字体规范——把定位拆成可落地的视觉语言。</div></div>
+      </div>
+
+      <div class="pager">
+        <a class="disabled">←</a>
+        <a class="next" data-jump="p-bg">下一页 · 1.1 背景 <span class="label">CHAPTER 1 · IDENTIFY</span></a>
+      </div>
+    </section>
+
+    <!-- 1.1 背景 -->
+    <section id="p-bg" class="page">
+      <div class="breadcrumb">识别 IDENTIFY <span class="sep">/</span> 1.1 背景</div>
+      <h1>背景 · <span class="accent">从枪战到怪谈</span></h1>
+      <p class="lead">17 年的 CF 射击 IP 一脚踹进 UE5 次世代恐怖片，世界观核心是「虹蚀」物质——它腐蚀城市、腐蚀理智，也腐蚀玩家对那张老地图的所有熟悉感。</p>
+
+      <div class="card">
+        <div class="kicker">1 · 游戏世界观架构</div>
+        <h3>近未来 · 虹蚀污染 · 夜幕山庄</h3>
+        <div class="desc">
+          故事发生在<b>近未来的当代世界</b>——这里没有外星人、没有末日核战，唯一的不正常是一种叫「<b>虹蚀</b>」的物质突然在世界各地爆开。被它沾上的城市会慢慢腐烂、长出触手；被它沾上的人会一边发疯一边掉理智。游戏舞台是被封锁的<b>夜幕山庄</b>，前一秒还是哥特式废弃别墅，下一秒月色一变，墙缝里就钻出克苏鲁式的肉变怪物。
+        </div>
+        <div class="pill-row">
+          <span class="pill">近未来</span><span class="pill">虹蚀污染</span><span class="pill">夜幕山庄</span><span class="pill">克苏鲁微恐</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">2 · IP 剧情</div>
+        <h3>不是兵，是被推进恐怖区的平民</h3>
+        <div class="quote">"这不是一个关于 CF 老情怀的故事，是一个关于「连那张你打了十年的地图都开始陌生」的故事。"</div>
+        <div class="desc">
+          你扮演的不是穿制式军装的特种兵，而是一群<b>被迫进区</b>的平民——可能是个厨师、记者、或者派出所警察。手里没有什么先进装备，<b>燃烧瓶得自己拿瓶子加破布做</b>，消音器要去废墟里翻零件。一边躲怪物一边躲其他人类小队，<b>队友也可能因为理智崩溃突然举枪打你</b>——三方混战，活着出去就是赢。
+        </div>
+        <div style="margin-top: 16px;" class="kv">
+          <div class="k">时间</div><div class="v">近未来——虹蚀危机爆发后的当代世界</div>
+          <div class="k">发生地</div><div class="v">虹蚀侵蚀区域——夜幕山庄为核心，多个 POI 散布于封锁区</div>
+          <div class="k">核心机制</div><div class="v">理智值（San）跨局影响 + 撤离循环 + 三方非对称对抗</div>
+          <div class="k">IP 重生</div><div class="v">奥摩、毛线帽等经典角色 UE5 重制 / CF 经典 IP 彩蛋埋设各 POI</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">3 · 角色介绍</div>
+        <h3>三方对抗的角色版图</h3>
+        <div class="grid-3" style="margin-top: 14px;">
+          <div class="role-card">
+            <div class="icon">人</div>
+            <h4>调查员小队（玩家）</h4>
+            <p>厨师、记者、派出所警察等平民身份；穿户外便装而非制式军装；自制武器为主。<br/><br/><b>使命</b>：进入虹蚀区搜刮 → 拼出真相 → 活着撤离。</p>
+          </div>
+          <div class="role-card">
+            <div class="icon" style="background: linear-gradient(135deg, var(--moss), #1a1815);">怪</div>
+            <h4>玩家操控的怪物</h4>
+            <p>非对称玩法的另一端——克系触手、肉质变异、人形残骸混合而成的"过去 CF 地图上根本不存在"的存在。<br/><br/><b>使命</b>：阻止人类撤离。</p>
+          </div>
+          <div class="role-card">
+            <div class="icon" style="background: linear-gradient(135deg, var(--gunmetal), #1a1f22);">兵</div>
+            <h4>另一支调查员小队</h4>
+            <p>需要的资源、撤离点、剧情线索——和你的小队<b>完全重叠</b>。三方混战，PvPvE 由此成立。<br/><br/><b>使命</b>：先撤的赢。</p>
+          </div>
+        </div>
+        <div class="card" style="margin-top: 18px; background: rgba(201,48,48,.06); border-color: rgba(201,48,48,.3);">
+          <h3 style="color: #ff8888;">⚠ 第四种威胁：你的队友</h3>
+          <div class="desc">理智值跌到底，<b>队友会在压力到极限的瞬间举枪向你</b>——这是 CF：虹 把"友军"也变成叙事危险源的核心设计。</div>
+        </div>
+      </div>
+
+      <div class="pager">
+        <a data-jump="p-cover"><span class="label">← 返回</span>封面</a>
+        <a class="next" data-jump="p-research">下一页 · 1.2 用户调研 <span class="label">CHAPTER 1 · IDENTIFY</span></a>
+      </div>
+    </section>
+
+    <!-- 1.2 用户调研 -->
+    <section id="p-research" class="page">
+      <div class="breadcrumb">识别 IDENTIFY <span class="sep">/</span> 1.2 用户调研</div>
+      <h1>用户调研 · <span class="accent">体验清单</span></h1>
+      <p class="lead">游戏尚未公测，调研以<b>媒体试玩稿</b>+<b>玩家社区评价</b>为基础，重点回答：玩家在期待什么、在担心什么。</p>
+
+      <div class="card">
+        <h3>关键传播数据</h3>
+        <div class="stat-row">
+          <div class="stat-card"><div class="num">4000W+</div><div class="lab">首曝抖音曝光</div></div>
+          <div class="stat-card"><div class="num">1488W</div><div class="lab">B 站实机首曝</div></div>
+          <div class="stat-card"><div class="num">759W</div><div class="lab">Gamescom 2025 PV</div></div>
+          <div class="stat-card"><div class="num">TOP 1</div><div class="lab">抖音全站热榜</div></div>
+        </div>
+        <ul class="ll" style="margin-top: 16px;">
+          <li><span>CF系列新作《穿越火线：虹》实机首曝</span><span class="views">1488 万</span></li>
+          <li><span>《穿越火线：虹》宣传视频 ｜ Gamescom 2025</span><span class="views">759 万</span></li>
+          <li><span>《穿越火线：虹》｜ 非对称玩法实机预告</span><span class="views">180 万</span></li>
+          <li><span>《穿越火线：虹》未公开档案 ｜ 微恐到底是什么恐怖？</span><span class="views">175 万</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>媒体评价 · Media</h3>
+        <div class="fb-grid" style="margin-top: 10px;">
+          <div class="fb green"><h5>● 记忆点 / Memory</h5><ul>
+            <li><b>非对称 PvPvE</b> 设计——人类小队 vs 玩家操控怪物 vs 其他小队<span class="src">（游民星空）</span></li>
+            <li>UE5 打造的<b>微恐射击</b>品质——3A 级画面在免费射击游戏中树立新标杆<span class="src">（GameSky）</span></li>
+            <li>独特的<b>理智值/San 系统</b>——理智下降会向队友开火的幻觉<span class="src">（网易游戏）</span></li>
+          </ul></div>
+          <div class="fb gold"><h5>● 兴奋点 / Excitement</h5><ul>
+            <li><b>CF 系列 UE5 次世代新作</b>——3A 级转型<span class="src">（CF 嘉年华）</span></li>
+            <li>首曝抖音<b>全站热榜 TOP1</b>——超 4000 万人围观<span class="src">（多平台）</span></li>
+            <li><b>怪谈恐怖 × 射击竞技</b>——跳出传统军事 FPS<span class="src">（腾讯新闻）</span></li>
+          </ul></div>
+          <div class="fb red"><h5>● 痛点 / Pain</h5><ul>
+            <li>游戏尚处<b>未公测</b>阶段——仅有实机演示<span class="src">（TapTap）</span></li>
+            <li>社区对<b>三角洲行动前车之鉴</b>保持警惕<span class="src">（NGA / TapTap）</span></li>
+            <li>非对称模式的<b>平衡性</b>是公认难题<span class="src">（行业分析）</span></li>
+          </ul></div>
+          <div class="fb blue"><h5>● 流失风险 / Churn</h5><ul>
+            <li>能否在<b>猎杀对决 / DBD</b> 等成熟非对称游戏面前差异化</li>
+            <li><b>恐怖题材受众天花板</b>——能否覆盖 CF 大众玩家</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>玩家社区评价 · Community</h3>
+        <div class="fb-grid" style="margin-top: 10px;">
+          <div class="fb green"><h5>● 记忆点</h5><ul>
+            <li>「<b>腾讯版猎杀对决</b>」——社区最常见类比<span class="src">（TapTap / NGA）</span></li>
+            <li>「<b>CF 生化模式精神续作</b>」——老玩家情怀<span class="src">（B站）</span></li>
+          </ul></div>
+          <div class="fb gold"><h5>● 兴奋点</h5><ul>
+            <li><b>经典角色回归</b>——奥摩、葵 UE5 重塑<span class="src">（B站 / 抖音）</span></li>
+            <li>琳琅天上用<b>三角洲行动</b>建立信任<span class="src">（TapTap）</span></li>
+          </ul></div>
+          <div class="fb red"><h5>● 痛点</h5><ul>
+            <li><b>商业化模式</b>担忧——付费策略是否影响公平<span class="src">（TapTap / Steam）</span></li>
+            <li>部分玩家对<b>恐怖氛围</b>接受度有限<span class="src">（TapTap 评论区）</span></li>
+          </ul></div>
+          <div class="fb blue"><h5>● 流失风险</h5><ul>
+            <li>从首曝到可玩<b>等待周期过长</b><span class="src">（TapTap）</span></li>
+            <li>若 PvE 内容线性化重蹈三角洲覆辙</li>
+          </ul></div>
+        </div>
+      </div>
+
+      <div class="pager">
+        <a data-jump="p-bg"><span class="label">← 返回</span>1.1 背景</a>
+        <a class="next" data-jump="p-concept">下一页 · 2.1 世界观高概念 <span class="label">CHAPTER 2 · POSITION</span></a>
+      </div>
+    </section>
+
+    <!-- 2.1 高概念 -->
+    <section id="p-concept" class="page">
+      <div class="breadcrumb">定位 POSITION <span class="sep">/</span> 2.1 世界观高概念</div>
+      <h1>世界观高概念 · <span class="accent">LOOK · HOOK · BOOK</span></h1>
+      <p class="lead">用一句话告诉所有人——这游戏好看在哪、好玩在哪、好理解在哪。</p>
+
+      <div class="lhb">
+        <div class="item">
+          <div class="big">LOOK</div>
+          <div class="sub-l">好看 / 视觉钩子</div>
+          <p>UE5 Lumen 下<b>哥特废弃别墅 × 克系触手肉变</b>——纯黑底色 + 金属石青暗调 + 唯一的猩红 Logo 血雾笔触。<br/><br/>抓眼标识：<b>红色"虹"字 + 调查员手电光柱 + 触手剪影</b>。</p>
+        </div>
+        <div class="item">
+          <div class="big">HOOK</div>
+          <div class="sub-l">好玩 / 玩法钩子</div>
+          <p>不是又一个 FPS——是<b>枪不够用、理智才是真血条</b>的微恐射击。<br/><br/>核心循环：<b>进区 → 搜刮 → 推剧情 → 撤离</b>，理智值<b>跨局影响</b>。</p>
+        </div>
+        <div class="item">
+          <div class="big">BOOK</div>
+          <div class="sub-l">好理解 / 故事钩子</div>
+          <p><b>"老兵也得在月色里护好自己的脑子。"</b><br/><br/>17 年老 CF 地图被「虹蚀」侵蚀，平民被推进封锁区——<b>熟悉地图 + 不熟悉恐怖 + 熟悉枪</b>。</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 22px;">
+        <h3>IP 发展进程</h3>
+        <div class="desc">CF 不是一夜变恐怖——下面是它一路走到《虹》的关键节点。</div>
+        <div class="tl">
+          <div class="tl-item"><div class="tl-year">2008</div><div class="tl-title">CrossFire 端游公测（Smilegate）</div><div class="tl-desc">写实军事 FPS，腾讯代理国服。建立"奥摩 / 毛线帽 / 生化模式"等记忆点。</div></div>
+          <div class="tl-item"><div class="tl-year">2014–2018</div><div class="tl-title">手游与生化扩展</div><div class="tl-desc">CFM 接棒；生化模式建立 CF 第一个微恐基因——这条线成为《虹》的精神祖宗。</div></div>
+          <div class="tl-item"><div class="tl-year">2024</div><div class="tl-title">琳琅天上《三角洲行动》验证撤离品类</div><div class="tl-desc">同工作室在搜打撤品类交出答卷，建立厂方对"撤离循环"的工程能力与玩家信任。</div></div>
+          <div class="tl-item"><div class="tl-year">2025</div><div class="tl-title">CF 嘉年华首曝《虹》</div><div class="tl-desc">UE5 实机演示，定位"克苏鲁微恐 × 非对称 PvPvE"，抖音热榜 TOP 1，4000 万围观，Gamescom 全球曝光。</div></div>
+          <div class="tl-item"><div class="tl-year">2026</div><div class="tl-title">预计上线（《CF：虹》）</div><div class="tl-desc">17 年老 IP 的次世代重塑——3A 量级的微恐射击新品类。</div></div>
+        </div>
+      </div>
+
+      <div class="pager">
+        <a data-jump="p-research"><span class="label">← 返回</span>1.2 用户调研</a>
+        <a class="next" data-jump="p-aesthetic">下一页 · 2.2 世界观美学 <span class="label">CHAPTER 2 · POSITION</span></a>
+      </div>
+    </section>
+
+    <!-- 2.2 美学 -->
+    <section id="p-aesthetic" class="page">
+      <div class="breadcrumb">定位 POSITION <span class="sep">/</span> 2.2 世界观美学定义</div>
+      <h1>世界观美学 · <span class="accent">克苏鲁微恐 × CF 次世代</span></h1>
+      <p class="lead">把<b>东欧哥特废墟</b>和<b>洛夫克拉夫特式触手肉变</b>硬塞进一座 17 年的射击 IP 里——这是《虹》的视觉一句话定义。</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="kicker">角色美学</div>
+          <h3>民间调查员 × 异变怪物</h3>
+          <div class="desc">人类一侧是<b>厨师/记者/警察</b>等平民，户外生存/城市便装风格，<b>去军事化</b>是核心规则。怪物一侧融合<b>克系触手、肉质变异、人形残骸</b>。<b>奥摩</b>等经典角色 UE5 重塑。</div>
+        </div>
+        <div class="card">
+          <div class="kicker">物件美学</div>
+          <h3>自制武器 × 拾荒装备</h3>
+          <div class="desc"><b>燃烧瓶 = 玻璃瓶 + 破布</b>，消音器去废墟翻零件。装备和角色外观会被搜刮影响，强调求生而非装备先进。CF 经典枪械作为<b>工具感</b>而非<b>军事感</b>。</div>
+        </div>
+        <div class="card">
+          <div class="kicker">场景美学</div>
+          <h3>哥特废墟 × 克系入侵</h3>
+          <div class="desc"><b>夜幕山庄</b>哥特尖顶 + 长廊 + 舞会大厅；墙缝渗黑色脉络、吊灯下挂肉芽、月色翻红时整栋楼像活物呼吸。Lumen 全局光照、<b>沥青褐 + 凝血红</b>，红色 = 危险标识。</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>"审美趋势"共识是如何发展来的</h3>
+        <div class="desc">克苏鲁视觉本不是射击品类的常客——下面这条线说明它怎么一步步走进战术射击。</div>
+        <div class="tl" style="margin-top: 14px;">
+          <div class="tl-item"><div class="tl-year">1928</div><div class="tl-title">洛夫克拉夫特《克苏鲁的呼唤》</div><div class="tl-desc">确立"不可名状之物 / 触手 / 理智崩溃"三件套。</div></div>
+          <div class="tl-item"><div class="tl-year">1992</div><div class="tl-title">《鬼屋魔影》</div><div class="tl-desc">早期 3D 恐怖游戏，克系美学进入电子游戏品类。</div></div>
+          <div class="tl-item"><div class="tl-year">2015</div><div class="tl-title">《血源诅咒》</div><div class="tl-desc">证明克系 + 硬核动作可以融合——"哥特 + 克系"的视觉教科书。</div></div>
+          <div class="tl-item"><div class="tl-year">2017</div><div class="tl-title">《逃离塔可夫》</div><div class="tl-desc">撤离循环 + 物资博弈成型，非对称多方对抗的紧张氛围范式建立。</div></div>
+          <div class="tl-item"><div class="tl-year">2018</div><div class="tl-title">《湮灭》《遗传厄运》</div><div class="tl-desc">克系生态变异与家庭恐怖 × 仪式邪教的电影级视觉范本。</div></div>
+          <div class="tl-item"><div class="tl-year">2023</div><div class="tl-title">《心灵杀手 2》</div><div class="tl-desc">把哥特恐怖与现代叙事推到 3A 量级——暗夜小镇恐怖的当代标杆。</div></div>
+          <div class="tl-item"><div class="tl-year">2026</div><div class="tl-title">《CF：虹》</div><div class="tl-desc"><b>克苏鲁 × 战术射击 × 老 IP 重塑</b>——UE5 Lumen 落成"老 IP 转型 + 微恐射击新品类"。</div></div>
+        </div>
+      </div>
+
+      <div class="pager">
+        <a data-jump="p-concept"><span class="label">← 返回</span>2.1 世界观高概念</a>
+        <a class="next" data-jump="p-style">下一页 · 2.3 定位风格 <span class="label">CHAPTER 2 · POSITION</span></a>
+      </div>
+    </section>
+
+    <!-- 2.3 定位风格 -->
+    <section id="p-style" class="page">
+      <div class="breadcrumb">定位 POSITION <span class="sep">/</span> 2.3 定位风格</div>
+      <h1>定位风格 · <span class="accent">某某主义 + 象限定位</span></h1>
+      <p class="lead">从设计原则、关键词雷达图、风格情绪版到象限位置——把"虹"按死在视觉光谱里那一个特定位置。</p>
+
+      <div class="card">
+        <div class="kicker">遵循的"某某主义"</div>
+        <h3>暗调写实恐怖主义 · Dark-Realism Horror</h3>
+        <div class="desc">介于<b>《心灵杀手 2》</b>的暖中性暗调与<b>《逃离塔可夫》</b>的写实搜刮之间——既写实又超自然，既怀旧又陌生。</div>
+        <div class="grid-3" style="margin-top: 16px;">
+          <div class="role-card"><h4>① 写实做底</h4><p>材质 / 光照 / 动态 严格遵循 UE5 写实管线，不进入卡通或风格化区间。</p></div>
+          <div class="role-card"><h4>② 微恐做调味</h4><p>恐怖只在"关键时刻"压一下——靠光、声、变异肉芽，不靠 jumpscare。</p></div>
+          <div class="role-card"><h4>③ CF 做骨</h4><p>枪械手感、经典角色、关卡空间感保留 CF 基因，不为风格牺牲射击爽快。</p></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>关键词雷达图</h3>
+          <div class="desc">六个维度上"虹"相对传统 CF 的定位。</div>
+          <div class="radar-wrap">
+            <svg viewBox="0 0 360 320" width="100%">
+              <g transform="translate(180,160)">
+                <polygon points="0,-130 113,-65 113,65 0,130 -113,65 -113,-65" fill="none" stroke="#2a2f3a" stroke-width="1"/>
+                <polygon points="0,-104 90,-52 90,52 0,104 -90,52 -90,-52" fill="none" stroke="#2a2f3a" stroke-width="1"/>
+                <polygon points="0,-78 67,-39 67,39 0,78 -67,39 -67,-39" fill="none" stroke="#2a2f3a" stroke-width="1"/>
+                <polygon points="0,-52 45,-26 45,26 0,52 -45,26 -45,-26" fill="none" stroke="#2a2f3a" stroke-width="1"/>
+                <polygon points="0,-26 22,-13 22,13 0,26 -22,13 -22,-13" fill="none" stroke="#2a2f3a" stroke-width="1"/>
+                <line x1="0" y1="0" x2="0" y2="-130" stroke="#2a2f3a"/>
+                <line x1="0" y1="0" x2="113" y2="-65" stroke="#2a2f3a"/>
+                <line x1="0" y1="0" x2="113" y2="65" stroke="#2a2f3a"/>
+                <line x1="0" y1="0" x2="0" y2="130" stroke="#2a2f3a"/>
+                <line x1="0" y1="0" x2="-113" y2="65" stroke="#2a2f3a"/>
+                <line x1="0" y1="0" x2="-113" y2="-65" stroke="#2a2f3a"/>
+                <polygon points="0,-130 90,-52 90,52 0,104 -90,52 -90,-104" fill="rgba(201,48,48,0.25)" stroke="#C93030" stroke-width="2"/>
+                <polygon points="0,-26 67,-39 22,13 0,26 -22,13 -113,-65" fill="rgba(180,201,193,0.10)" stroke="#B4C9C1" stroke-width="1.5" stroke-dasharray="4 3"/>
+                <text x="0" y="-140" text-anchor="middle" fill="#cfd3da" font-size="12">恐怖氛围</text>
+                <text x="125" y="-65" text-anchor="start" fill="#cfd3da" font-size="12">写实质感</text>
+                <text x="125" y="72" text-anchor="start" fill="#cfd3da" font-size="12">克系怪诞</text>
+                <text x="0" y="148" text-anchor="middle" fill="#cfd3da" font-size="12">撤离循环</text>
+                <text x="-125" y="72" text-anchor="end" fill="#cfd3da" font-size="12">CF 情怀</text>
+                <text x="-125" y="-65" text-anchor="end" fill="#cfd3da" font-size="12">IP 纹理</text>
+              </g>
+            </svg>
+          </div>
+          <div class="pill-row">
+            <span class="pill" style="border-color: rgba(201,48,48,.5); color: #ff8888;">■ 《CF：虹》</span>
+            <span class="pill" style="border-color: rgba(180,201,193,.5); color: var(--moonlit);">▢ 传统 CF</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>风格情绪版 / Mood Board</h3>
+          <div class="desc">9 格情绪锚点——所有美术评审先看这九张。</div>
+          <div class="mood-grid" style="margin-top: 12px;">
+            <div class="mood-cell bloodborne">血源·哥特</div>
+            <div class="mood-cell alanwake">心灵杀手·暗夜</div>
+            <div class="mood-cell tarkov">塔可夫·撤离</div>
+            <div class="mood-cell annihilation">湮灭·彩虹膜</div>
+            <div class="mood-cell dbd">DBD·非对称</div>
+            <div class="mood-cell hereditary">遗传厄运·仪式</div>
+            <div class="mood-cell cthulhu">克苏鲁·触手</div>
+            <div class="mood-cell bloodborne2">猩红·肉变</div>
+            <div class="mood-cell gothic">哥特长廊</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>象限定位</h3>
+        <div class="desc">横轴：<b>军事写实 ←→ 怪诞超自然</b>；纵轴：<b>大众化爽感 ↑ ↓ 硬核生存</b>。</div>
+        <div class="quad" style="margin-top: 14px;">
+          <div class="label t">↑ 大众化爽感</div>
+          <div class="label b">↓ 硬核生存</div>
+          <div class="label l">军事写实 ←</div>
+          <div class="label r">→ 怪诞超自然</div>
+          <div class="point" style="left: 25%; top: 20%;">CoD</div>
+          <div class="point" style="left: 30%; top: 38%;">CF（端游）</div>
+          <div class="point" style="left: 22%; top: 70%;">三角洲行动</div>
+          <div class="point" style="left: 18%; top: 82%;">EFT 塔可夫</div>
+          <div class="point" style="left: 78%; top: 22%;">Apex / Overwatch</div>
+          <div class="point" style="left: 75%; top: 60%;">DBD 黎明杀机</div>
+          <div class="point" style="left: 80%; top: 78%;">猎杀对决</div>
+          <div class="point" style="left: 85%; top: 88%;">Lethal Company</div>
+          <div class="point us" style="left: 65%; top: 70%;">★ CF：虹</div>
+        </div>
+        <div class="desc" style="margin-top: 12px;">站位：<b>怪诞超自然 + 偏硬核生存</b>，但保留 CF 的<b>枪感爽点</b>——比 EFT 易接受，比 DBD 有枪。</div>
+      </div>
+
+      <div class="pager">
+        <a data-jump="p-aesthetic"><span class="label">← 返回</span>2.2 世界观美学</a>
+        <a class="next" data-jump="p-ui">下一页 · 3.1 UI 设计思路 <span class="label">CHAPTER 3 · BUILD</span></a>
+      </div>
+    </section>
+
+    <!-- 3.1 UI -->
+    <section id="p-ui" class="page">
+      <div class="breadcrumb">构建 BUILD <span class="sep">/</span> 3.1 UI 设计思路</div>
+      <h1>UI 设计思路 · <span class="accent">极简 HUD × 不可靠叙事者</span></h1>
+      <p class="lead">UI 不只是显示数据，它是<b>恐怖体验的延伸</b>——理智值低，UI 就开始撒谎。</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="kicker">风格定义</div>
+          <h3>极简 · 写实 · 不可靠</h3>
+          <div class="desc">仅保留<b>血量 / 弹药 / 理智值</b>三项核心数据。理智值用<b>大脑图标</b>呈现，下降时屏幕边缘<b>渗血色噪点</b> + 准星抖动。背包系统是<b>格子式搜刮界面</b>。低 San 值时 UI 本身会扭曲、闪烁。</div>
+        </div>
+        <div class="card">
+          <div class="kicker">对价值观的继承</div>
+          <h3>CF 的工程感 + 实用主义</h3>
+          <div class="desc">沿用 CF 端游<b>"枪是工具"</b>的工程化美学——金属边、磨砂质感、白底黑字的弹药计数。背包不浪漫，<b>像翻一个真实的旧帆布包</b>。</div>
+        </div>
+        <div class="card">
+          <div class="kicker">加入主观表达</div>
+          <h3>UI 也会"发疯"</h3>
+          <div class="desc">理智低，UI 开始<b>撒谎</b>：弹药数字闪一下变成奇怪符号、地图上多出不存在的撤离点、队友头像变成红色剪影。<b>UI 不再可信</b>——这是《虹》UI 最锋利的设计点。</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>HUD 示意 / In-Game Mock</h3>
+        <div class="desc">人类视角的极简 HUD ——血色边缘 = 理智值在跌；中心准星抖动 = 即将失控。</div>
+        <div class="ui-mock" style="margin-top: 12px;">
+          <div class="vignette"></div>
+          <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="position: absolute; inset: 0;">
+            <defs>
+              <radialGradient id="moon" cx="0.7" cy="0.25" r="0.3">
+                <stop offset="0%" stop-color="#4A5555" stop-opacity="0.7"/>
+                <stop offset="100%" stop-color="#0a0a0a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <rect x="0" y="0" width="800" height="450" fill="url(#moon)"/>
+            <polygon points="0,450 0,300 80,250 120,280 160,200 200,260 260,210 320,290 380,250 440,310 500,260 560,300 620,240 680,290 740,280 800,310 800,450" fill="#0a0a0a"/>
+            <circle cx="560" cy="100" r="38" fill="#B4C9C1" opacity="0.85"/>
+            <circle cx="560" cy="100" r="38" fill="#C93030" opacity="0.18"/>
+            <path d="M 220 450 Q 240 380, 220 320 T 250 220 Q 270 180, 250 140" stroke="#390909" stroke-width="6" fill="none" opacity="0.8"/>
+          </svg>
+          <div class="crosshair"></div>
+          <div class="hud-bottom">
+            <div class="stat hp">HP  ███░░  62</div>
+            <div class="stat san">◐ SAN  ▆▆▅▄▂  41%</div>
+            <div class="stat ammo">[•••] 24 / 90</div>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top: 14px;">
+          <div class="role-card"><h4>人类视角</h4><p>白色细线 / 衬线小字 / 屏幕边缘血色噪点；San 值越低噪点越重，准星抖动越明显。</p></div>
+          <div class="role-card"><h4>怪物视角</h4><p>切换到<b>热感 / 异色视野</b>——红绿对比，几何块状描边人类位置；与人类界面形成鲜明分裂。</p></div>
+        </div>
+      </div>
+
+      <div class="pager">
+        <a data-jump="p-style"><span class="label">← 返回</span>2.3 定位风格</a>
+        <a class="next" data-jump="p-color">下一页 · 3.2 配色方案 ★ <span class="label">CHAPTER 3 · BUILD</span></a>
+      </div>
+    </section>
+
+    <!-- ============ 3.2 配色方案 — v1 真实采样覆盖版 ============ -->
+    <section id="p-color" class="page">
+      <div class="breadcrumb">构建 BUILD <span class="sep">/</span> 3.2 配色方案 · v1 真实采样</div>
+      <h1>配色方案 · <span class="accent">基于官方 UI 像素提炼</span></h1>
+      <p class="lead">本节<b>覆盖了早期"暗蓝绿+猩红"的初稿假设</b>。色板提炼自 cfh.qq.com 先导预约页三屏 UI 的像素级量化采样——全部色值都来自真实素材，不再凭直觉脑补。</p>
+
+      <!-- 提炼来源 -->
+      <div class="card">
+        <div class="kicker">A · 提炼素材</div>
+        <h3>三张官方先导预约页截屏 + 各自的色带</h3>
+        <div class="src-grid" style="margin-top: 12px;">
+          <div class="src-card">
+            <img src="../screenshots/crossfire-hong/home-1.webp" alt="home-1"/>
+            <div class="strip">
+              <span style="background:#000;"></span>
+              <span style="background:#222E31;"></span>
+              <span style="background:#48433B;"></span>
+              <span style="background:#39090A;"></span>
+              <span style="background:#997375;"></span>
+              <span style="background:#B4C9C1;"></span>
+            </div>
+            <div class="meta"><b>HOME-1 · 雾林伫立</b>调查员剪影于湿冷松林——湿绿+土褐底，胸甲深石青，Logo 血红是唯一高饱和点</div>
+          </div>
+          <div class="src-card">
+            <img src="../screenshots/crossfire-hong/home-2.webp" alt="home-2"/>
+            <div class="strip">
+              <span style="background:#000;"></span>
+              <span style="background:#2C2925;"></span>
+              <span style="background:#4A5555;"></span>
+              <span style="background:#490A0A;"></span>
+              <span style="background:#687173;"></span>
+              <span style="background:#B4C9C4;"></span>
+            </div>
+            <div class="meta"><b>HOME-2 · 暗角特写</b>大量纯黑（93%）+ 一道月光绿灰高光，暗调写实标杆</div>
+          </div>
+          <div class="src-card">
+            <img src="../screenshots/crossfire-hong/home-3.webp" alt="home-3"/>
+            <div class="strip">
+              <span style="background:#000;"></span>
+              <span style="background:#410706;"></span>
+              <span style="background:#282A2D;"></span>
+              <span style="background:#FF6A2C;"></span>
+              <span style="background:#731D20;"></span>
+              <span style="background:#B4C8C2;"></span>
+            </div>
+            <div class="meta"><b>HOME-3 · 篝火室内</b>97% 纯黑 + 左侧橙红篝火光——唯一一处明确"暖光源"，给整体冷调色谱加了一道生人锚</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 关键修正 -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(201,48,48,.06), rgba(180,201,193,.04));">
+        <h3>关键修正 · 与早期"暗蓝绿+猩红"假设的差距</h3>
+        <div class="desc">
+          ① 实际底色<b>不是冷蓝绿</b>，而是<b>偏暖中性的"沥青褐 / 烟黑 / 金属石青"</b>三色循环——更接近《Alan Wake 2》《Resident Evil 7》，而非《血源》冷青。<br/>
+          ② <b>纯黑占据 75%–97%</b>——官方策略是"<b>黑场为主，主体浮岛</b>"，所有 UI 信息都浮在黑里。<br/>
+          ③ <b>红色不是亮红</b>，而是<b>干涸血红 #390909–#721D20</b>——Logo 血雾笔触是<b>唯一允许的高饱和符号</b>。<br/>
+          ④ 隐藏的<b>橙红篝火光（#FF6A2C 系）</b>是色谱里唯一暖光源——"人还在这里"的生命锚点。<br/>
+          ⑤ <b>月光绿灰 #B4C9C1</b> 在三屏里都出现一抹——它是 Logo 红的"安全色对位"。
+        </div>
+      </div>
+
+      <!-- 核心色板 -->
+      <div class="card">
+        <div class="kicker">B · 核心色板（5 个角色 / 13 个 token）</div>
+        <h3>底色 · 金属 · 危险 · 月光 · 篝火</h3>
+
+        <!-- Tier1 黑场 -->
+        <div class="pal-row pal-r1" style="margin-top: 14px;">
+          <div class="swatch lg" style="background: #000; color: #cfcfcf; border-color: #1a1d20;">
+            <div><div class="role">▸ TIER 1 · 黑场底色 / VOID</div><div class="name" style="color:#fff;">虚空黑</div></div>
+            <div class="pct">采样占比 <b style="color:#fff;">75–97%</b></div>
+            <div class="meta"><span>#000000</span><span>0,0,0</span></div>
+          </div>
+          <div class="swatch lg" style="background: #1A1D20; color: #cfcfcf;">
+            <div><div class="role">▸ 黑场延展</div><div class="name" style="color:#fff;">沥青黑</div></div>
+            <div class="meta"><span>#1A1D20</span><span>26,29,32</span></div>
+          </div>
+          <div class="swatch lg" style="background: #222E31; color: #cfcfcf;">
+            <div><div class="role">▸ 装备 / 雾林</div><div class="name" style="color:#fff;">石青金属</div></div>
+            <div class="meta"><span>#222E31</span><span>34,46,49</span></div>
+          </div>
+          <div class="swatch lg" style="background: #2C2925; color: #cfcfcf;">
+            <div><div class="role">▸ 暖灰过渡</div><div class="name" style="color:#fff;">沥青褐</div></div>
+            <div class="meta"><span>#2C2925</span><span>44,41,37</span></div>
+          </div>
+          <div class="swatch lg" style="background: #4A5555; color: #fff;">
+            <div><div class="role">▸ 金属次色</div><div class="name">枪钢灰</div></div>
+            <div class="meta"><span>#4A5555</span><span>74,85,85</span></div>
+          </div>
+        </div>
+
+        <!-- Tier2 危险红 -->
+        <div class="pal-row pal-r2">
+          <div class="swatch" style="background: #390909; color: #f0c8c8;">
+            <div><div class="role">▸ TIER 2 · 干涸血</div><div class="name">凝血红</div></div>
+            <div class="meta"><span>#390909</span><span>57,9,10</span></div>
+          </div>
+          <div class="swatch" style="background: #490A0A; color: #f0c8c8;">
+            <div><div class="role">▸ 血雾笔触</div><div class="name">虹蚀红</div></div>
+            <div class="meta"><span>#490A0A</span><span>73,10,10</span></div>
+          </div>
+          <div class="swatch" style="background: #721D20; color: #fff;">
+            <div><div class="role">▸ Logo 主色</div><div class="name">Logo 红</div></div>
+            <div class="meta"><span>#721D20</span><span>114,29,32</span></div>
+          </div>
+          <div class="swatch" style="background: #C93030; color: #fff;">
+            <div><div class="role">▸ 警戒高光（CF 基因）</div><div class="name">警戒红</div></div>
+            <div class="meta"><span>#C93030</span><span>201,48,48</span></div>
+          </div>
+          <div class="swatch" style="background: linear-gradient(135deg, #C93030, #721D20); color: #fff;">
+            <div><div class="role">▸ Logo 渐变</div><div class="name">血雾渐变</div></div>
+            <div class="meta"><span>#C93030 → #721D20</span></div>
+          </div>
+        </div>
+
+        <!-- Tier3 辅助 -->
+        <div class="pal-row pal-r3">
+          <div class="swatch" style="background: #48433B; color: #f0e8c8;">
+            <div><div class="role">▸ TIER 3 · 自然辅色</div><div class="name">苔藓褐</div></div>
+            <div class="meta"><span>#48433B</span><span>72,67,59</span></div>
+          </div>
+          <div class="swatch" style="background: #B4C9C1; color: #1a2520;">
+            <div><div class="role">▸ 月光 / 安全文本</div><div class="name">月光绿灰</div></div>
+            <div class="meta"><span>#B4C9C1</span><span>180,201,193</span></div>
+          </div>
+          <div class="swatch" style="background: #997375; color: #1a0e0e;">
+            <div><div class="role">▸ 人物 / 暖肤</div><div class="name">血肉粉</div></div>
+            <div class="meta"><span>#997375</span><span>153,115,117</span></div>
+          </div>
+          <div class="swatch" style="background: #FF6A2C; color: #2a1505;">
+            <div><div class="role">▸ 唯一暖光源</div><div class="name">篝火橙</div></div>
+            <div class="meta"><span>#FF6A2C</span><span>255,106,44</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 比例 -->
+      <div class="card">
+        <div class="kicker">C · 使用比例 70/22/7/1</div>
+        <h3>官方实测占比 → 落地比例分配</h3>
+        <div class="ratio-bar" style="margin-top: 12px;">
+          <div style="width: 70%; background: #000; color: #777;">70% · 黑场（虚空黑 / 沥青黑）</div>
+          <div style="width: 22%; background: #2C2925; color: #b8b8ad;">22% · 中性暗调</div>
+          <div style="width: 7%; background: linear-gradient(90deg, #48433B, #B4C9C1, #997375); color: #fff;">7% · 自然辅色</div>
+          <div style="width: 1%; background: #C93030;"></div>
+        </div>
+        <div class="ratio-legend">
+          <div class="legend-item"><span class="ldot" style="background:#000;"></span><b>70% 黑场</b>——所有 UI 浮于黑底，建立"凝视感"</div>
+          <div class="legend-item"><span class="ldot" style="background:#2C2925;"></span><b>22% 中性暗调</b>——主体 / 装备 / 卡片底</div>
+          <div class="legend-item"><span class="ldot" style="background:#B4C9C1;"></span><b>7% 自然辅色</b>——月光、肤色、苔藓、可读文本</div>
+          <div class="legend-item"><span class="ldot" style="background:#C93030;"></span><b>≤1% 危险红</b>——Logo / 倒计时 / 关键警告，绝不滥用</div>
+        </div>
+      </div>
+
+      <!-- 应用规则 -->
+      <div class="card">
+        <div class="kicker">D · 应用规则 · DO 与 DON'T</div>
+        <h3>所有素材保持同一调性的"硬条款"</h3>
+        <div class="rule-grid" style="margin-top: 12px;">
+          <div class="rule do">
+            <span class="rt">DO · 应当</span>
+            <h4>红只用一次，且只在视觉锚点</h4>
+            <ul>
+              <li>每张 KV / 海报上，<b>红色面积不超过 5%</b>，且唯一锚点是 Logo「虹」或关键警告</li>
+              <li>UI 中红色仅用于：<b>低血量 / 倒计时 / 死亡 / 严重警告</b></li>
+              <li>红色出现时<b>必有黑场围拢</b>（不接其他高饱和色）</li>
+            </ul>
+            <div class="swatch-row">
+              <div class="s" style="background:#000;"></div>
+              <div class="s" style="background:#1A1D20;"></div>
+              <div class="s" style="background:#721D20;"></div>
+              <div class="s" style="background:#C93030;"></div>
+            </div>
+          </div>
+          <div class="rule do">
+            <span class="rt">DO · 应当</span>
+            <h4>黑场为主，主体浮岛</h4>
+            <ul>
+              <li>所有信息卡片 / 角色立绘 / 视频缩略图先在黑场上"打洞"，再放主体</li>
+              <li>主体周围保留<b>4–8% 的纯黑呼吸空间</b>，绝不到边</li>
+              <li>背景大面积<b>暗角（vignette）</b>是必选——半径不小于画面 60%</li>
+            </ul>
+            <div class="swatch-row">
+              <div class="s" style="background:#000;"></div>
+              <div class="s" style="background:#0a0a0a;"></div>
+              <div class="s" style="background:#1A1D20;"></div>
+              <div class="s" style="background:#2C2925;"></div>
+            </div>
+          </div>
+          <div class="rule dont">
+            <span class="rt">DON'T · 不得</span>
+            <h4>不要冷蓝 / 紫 / 霓虹绿</h4>
+            <ul>
+              <li>禁用<b>赛博朋克霓虹</b>（青蓝紫）——会破坏写实暗调氛围</li>
+              <li>禁用<b>高饱和绿色</b>——只允许 #B4C9C1 月光绿灰这种低饱和</li>
+              <li>禁用<b>纯白 #FFFFFF 大面积</b>——文字白以 #E6D9D8 替代</li>
+            </ul>
+            <div class="swatch-row">
+              <div class="s" style="background:#00BFFF;"></div>
+              <div class="s" style="background:#A020F0;"></div>
+              <div class="s" style="background:#39FF14;"></div>
+              <div class="s" style="background:#FFFFFF;"></div>
+            </div>
+          </div>
+          <div class="rule dont">
+            <span class="rt">DON'T · 不得</span>
+            <h4>不要让红色叠红色</h4>
+            <ul>
+              <li>Logo 红 + 警戒红同框 = 视觉打架——必须<b>用黑场或月光绿灰隔开</b></li>
+              <li>红色文字不许压在红色背景上——可读性归零</li>
+              <li>篝火橙不得与血红毗邻——用枪钢灰过渡</li>
+            </ul>
+            <div class="swatch-row">
+              <div class="s" style="background:#C93030;"></div>
+              <div class="s" style="background:#721D20;"></div>
+              <div class="s" style="background:#FF6A2C;"></div>
+              <div class="s" style="background:#FF0040;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAN 阶梯 -->
+      <div class="card">
+        <div class="kicker">E · 理智值色彩阶梯</div>
+        <h3>San 值掉落时屏幕色温的 5 阶变化</h3>
+        <div class="ladder" style="margin-top: 14px;">
+          <div class="step" style="background:#1A1D20; color:#B4C9C1;">
+            <div class="lvl">SAN 100–80%</div>
+            <div><div class="nm">清明</div><div class="role-text">月光绿灰 + 沥青黑底</div></div>
+          </div>
+          <div class="step" style="background:#1a1815; color:#d8c896;">
+            <div class="lvl">SAN 80–60%</div>
+            <div><div class="nm">紧张</div><div class="role-text">沥青褐压 + 暗角加深</div></div>
+          </div>
+          <div class="step" style="background:#221012; color:#ffb088;">
+            <div class="lvl">SAN 60–40%</div>
+            <div><div class="nm">焦虑</div><div class="role-text">渗入凝血红 5%</div></div>
+          </div>
+          <div class="step" style="background:#2c0a0c; color:#ff8888;">
+            <div class="lvl">SAN 40–20%</div>
+            <div><div class="nm">幻觉</div><div class="role-text">血红泛屏 / UI 抖动</div></div>
+          </div>
+          <div class="step" style="background:linear-gradient(135deg,#490a0a,#000); color:#fff;">
+            <div class="lvl">SAN ≤20%</div>
+            <div><div class="nm">崩溃</div><div class="role-text">虹蚀红+黑屏脉冲</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Token 表 -->
+      <div class="card">
+        <div class="kicker">F · 设计 Token 表（可直接交付）</div>
+        <h3>变量名 / HEX / RGB / 角色 / 应用范围</h3>
+        <table class="tokens" style="margin-top: 12px;">
+          <thead>
+            <tr><th>Token</th><th>色样</th><th>HEX</th><th>RGB</th><th>角色</th><th>应用范围</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>--cfh-void</td><td><span class="chip" style="background:#000"></span></td><td class="hex">#000000</td><td>0,0,0</td><td>主底</td><td>全局背景 / 卡片镂空 / 分隔</td></tr>
+            <tr><td>--cfh-asphalt</td><td><span class="chip" style="background:#1A1D20"></span></td><td class="hex">#1A1D20</td><td>主底延展</td><td>卡片 / 弹窗 / 边框</td></tr>
+            <tr><td>--cfh-steel</td><td><span class="chip" style="background:#222E31"></span></td><td class="hex">#222E31</td><td>金属/装备</td><td>装备格子 / 武器底板 / 雾林背景</td></tr>
+            <tr><td>--cfh-tar</td><td><span class="chip" style="background:#2C2925"></span></td><td class="hex">#2C2925</td><td>暖中性过渡</td><td>主体边缘 / 立绘背景</td></tr>
+            <tr><td>--cfh-gunmetal</td><td><span class="chip" style="background:#4A5555"></span></td><td class="hex">#4A5555</td><td>金属次色</td><td>按钮描边 / 次级文字 / 分隔线</td></tr>
+            <tr><td>--cfh-blood-deep</td><td><span class="chip" style="background:#390909"></span></td><td class="hex">#390909</td><td>干涸血</td><td>Logo 阴影 / 危险底纹</td></tr>
+            <tr><td>--cfh-blood</td><td><span class="chip" style="background:#721D20"></span></td><td class="hex">#721D20</td><td>Logo 主色</td><td>Logo 中段 / 关键提示底</td></tr>
+            <tr><td>--cfh-alert</td><td><span class="chip" style="background:#C93030"></span></td><td class="hex">#C93030</td><td>警戒高光</td><td>低血量 / 倒计时 / 死亡红字</td></tr>
+            <tr><td>--cfh-moss</td><td><span class="chip" style="background:#48433B"></span></td><td class="hex">#48433B</td><td>苔藓褐</td><td>苔/泥/草地 KV / 旧物纹理</td></tr>
+            <tr><td>--cfh-moonlit</td><td><span class="chip" style="background:#B4C9C1"></span></td><td class="hex">#B4C9C1</td><td>月光绿灰</td><td>正文文字 / 可信信息 / 月光高光</td></tr>
+            <tr><td>--cfh-flesh</td><td><span class="chip" style="background:#997375"></span></td><td class="hex">#997375</td><td>血肉粉</td><td>人物皮肤 / 受伤特写</td></tr>
+            <tr><td>--cfh-ember</td><td><span class="chip" style="background:#FF6A2C"></span></td><td class="hex">#FF6A2C</td><td>篝火橙</td><td>火光 / 营地 / 暖光锚点（仅点缀）</td></tr>
+            <tr><td>--cfh-text</td><td><span class="chip" style="background:#E6D9D8"></span></td><td class="hex">#E6D9D8</td><td>主文字白</td><td>替代纯白 #FFFFFF</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pager">
+        <a data-jump="p-ui"><span class="label">← 返回</span>3.1 UI 设计思路</a>
+        <a class="next" data-jump="p-graphic">下一页 · 3.3 图形纹样 <span class="label">CHAPTER 3 · BUILD</span></a>
+      </div>
+    </section>
+
+    <!-- 3.3 图形纹样 -->
+    <section id="p-graphic" class="page">
+      <div class="breadcrumb">构建 BUILD <span class="sep">/</span> 3.3 图形纹样</div>
+      <h1>图形纹样 · <span class="accent">造型 / 符号 / 字体</span></h1>
+      <p class="lead">从基础造型分析、特殊造型、底纹与图腾，到字体规范——把视觉系统的"砖"全部码齐。</p>
+
+      <div class="card">
+        <h3>造型分析 · Shape Language</h3>
+        <div class="desc">三组造型构成《虹》的视觉骨架：<b>哥特尖 / 触手卷 / 工程直</b>。</div>
+        <div class="shape-grid" style="margin-top: 14px;">
+          <div class="shape">
+            <svg viewBox="0 0 100 100">
+              <polygon points="50,10 70,40 60,40 60,90 40,90 40,40 30,40" fill="none" stroke="#B4C9C1" stroke-width="2"/>
+              <line x1="50" y1="10" x2="50" y2="90" stroke="#B4C9C1" stroke-width="1" stroke-dasharray="3 3"/>
+            </svg>
+            <div class="lab">哥特尖 · 垂直神性</div>
+          </div>
+          <div class="shape">
+            <svg viewBox="0 0 100 100">
+              <path d="M 20 80 Q 30 50, 20 30 Q 30 10, 50 25 Q 70 10, 80 30 Q 70 50, 80 80" fill="none" stroke="#C93030" stroke-width="2"/>
+              <circle cx="35" cy="40" r="3" fill="#C93030"/>
+              <circle cx="65" cy="40" r="3" fill="#C93030"/>
+            </svg>
+            <div class="lab">触手卷 · 有机扭曲</div>
+          </div>
+          <div class="shape">
+            <svg viewBox="0 0 100 100">
+              <rect x="20" y="20" width="60" height="60" fill="none" stroke="#cfd3da" stroke-width="2"/>
+              <line x1="20" y1="50" x2="80" y2="50" stroke="#cfd3da" stroke-width="1"/>
+              <line x1="50" y1="20" x2="50" y2="80" stroke="#cfd3da" stroke-width="1"/>
+            </svg>
+            <div class="lab">工程直 · CF 工业感</div>
+          </div>
+          <div class="shape">
+            <svg viewBox="0 0 100 100">
+              <polygon points="50,15 80,35 70,80 30,80 20,35" fill="none" stroke="#FF6A2C" stroke-width="2"/>
+              <circle cx="50" cy="50" r="8" fill="none" stroke="#FF6A2C" stroke-width="1.5"/>
+            </svg>
+            <div class="lab">封锁五边 · 危险标识</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>特殊造型 · 核心视觉符号</h3>
+        <div class="desc">所有 Key Art / UI 图标都从这四个符号里挑——视觉记忆点必须收敛。</div>
+        <div class="sym-row" style="margin-top: 14px;">
+          <div class="sym">
+            <svg viewBox="0 0 64 64">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#721D20"/>
+                  <stop offset="0.5" stop-color="#C93030"/>
+                  <stop offset="1" stop-color="#FF6A2C"/>
+                </linearGradient>
+              </defs>
+              <path d="M 8 40 Q 32 8, 56 40" fill="none" stroke="url(#g1)" stroke-width="3"/>
+              <path d="M 12 44 Q 32 18, 52 44" fill="none" stroke="url(#g1)" stroke-width="2" opacity="0.6"/>
+              <path d="M 16 48 Q 32 28, 48 48" fill="none" stroke="url(#g1)" stroke-width="1.5" opacity="0.4"/>
+            </svg>
+            <h5>虹光裂隙</h5>
+            <p>世界观核心——侵蚀一切的超自然物质</p>
+          </div>
+          <div class="sym">
+            <svg viewBox="0 0 64 64">
+              <path d="M 16 56 Q 20 40, 16 28 Q 12 16, 24 12 Q 32 8, 40 16 Q 50 22, 44 32 Q 38 42, 48 50" fill="none" stroke="#C93030" stroke-width="2.5"/>
+              <circle cx="22" cy="22" r="2.5" fill="#C93030"/>
+              <circle cx="36" cy="28" r="2" fill="#C93030"/>
+              <circle cx="44" cy="38" r="2.5" fill="#C93030"/>
+            </svg>
+            <h5>触手肉变</h5>
+            <p>威胁的具象化——阴影中伸出的未知</p>
+          </div>
+          <div class="sym">
+            <svg viewBox="0 0 64 64">
+              <rect x="12" y="36" width="6" height="14" fill="#cfd3da"/>
+              <polygon points="18,40 56,28 56,32 18,46" fill="#FF6A2C" opacity="0.7"/>
+              <line x1="18" y1="40" x2="56" y2="28" stroke="#fff" stroke-width="0.5"/>
+              <line x1="18" y1="46" x2="56" y2="32" stroke="#fff" stroke-width="0.5"/>
+            </svg>
+            <h5>手电光柱</h5>
+            <p>人类唯一的视野武器——光与黑暗博弈</p>
+          </div>
+          <div class="sym">
+            <svg viewBox="0 0 64 64">
+              <path d="M 32 14 Q 18 14, 16 26 Q 14 36, 22 42 L 22 50 L 42 50 L 42 42 Q 50 36, 48 26 Q 46 14, 32 14 Z" fill="none" stroke="#B4C9C1" stroke-width="2"/>
+              <path d="M 22 26 Q 26 22, 30 26" fill="none" stroke="#B4C9C1" stroke-width="1.2"/>
+              <path d="M 34 26 Q 38 22, 42 26" fill="none" stroke="#B4C9C1" stroke-width="1.2"/>
+              <line x1="20" y1="50" x2="44" y2="50" stroke="#B4C9C1" stroke-width="2"/>
+              <line x1="24" y1="54" x2="40" y2="54" stroke="#C93030" stroke-width="1.5"/>
+            </svg>
+            <h5>大脑 / 理智仪表</h5>
+            <p>核心机制 UI 标识——精神崩溃倒计时</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>底纹与图腾 · Pattern & Totem</h3>
+        <div class="grid-2" style="margin-top: 14px;">
+          <div class="role-card">
+            <h4>底纹 · 虹蚀脉络</h4>
+            <p>用于 UI 大面积背景、加载界面、过场。<br/><b>规则</b>：黑色脉络从屏幕边缘向中心生长，密度不超过 8%。</p>
+            <div style="margin-top: 10px; height: 80px; border-radius: 6px; background:
+              radial-gradient(circle at 20% 30%, rgba(201,48,48,.12), transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(180,201,193,.06), transparent 40%),
+              repeating-linear-gradient(45deg, #0c1015 0 8px, #1a1d20 8px 14px);
+              border: 1px solid #1f2125;"></div>
+          </div>
+          <div class="role-card">
+            <h4>图腾 · 封锁五边形 + 虹字</h4>
+            <p>核心 IP 标识——封锁区警示用五边形几何 + 中心一个红色发光"虹"。<br/><b>规则</b>：宽高比 1:1，最小可识别尺寸 24px。</p>
+            <div style="margin-top: 10px; display: flex; align-items: center; justify-content: center; height: 80px; background: #0c1015; border: 1px solid #1f2125; border-radius: 6px;">
+              <svg viewBox="0 0 80 80" width="60" height="60">
+                <polygon points="40,8 70,30 60,68 20,68 10,30" fill="none" stroke="#cfd3da" stroke-width="1.5"/>
+                <text x="40" y="50" text-anchor="middle" font-size="28" font-weight="900" fill="#C93030" style="filter: drop-shadow(0 0 6px #C93030);">虹</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>字体规范 · Typography</h3>
+        <div class="grid-2" style="margin-top: 14px;">
+          <div class="font-spec">
+            <div class="latin">CROSSFIRE: HONG</div>
+            <div class="cn">穿越火线<span class="hong-glow">：虹</span></div>
+            <div class="desc">
+              <b>主标题</b>：思源黑体 Heavy / Bebas Neue（拉丁）<br/>
+              <b>副标题</b>：思源黑体 Bold / Inter Bold<br/>
+              <b>正文</b>：思源黑体 Regular / Inter Regular<br/>
+              <b>HUD 数字</b>：JetBrains Mono / Roboto Mono——保证读数清晰
+            </div>
+          </div>
+          <div class="font-spec" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 13px; color: var(--muted); letter-spacing: 2px;">特殊字体 / DISPLAY</div>
+              <div style="font-size: 48px; font-weight: 900; margin-top: 12px; color: #fff; font-family: serif; letter-spacing: 4px;">
+                夜幕<span class="hong-glow">山庄</span>
+              </div>
+              <div style="margin-top: 14px; font-family: 'Courier New', monospace; font-size: 14px; color: #B4C9C1; letter-spacing: 2px;">
+                [SAN: 41%] WARNING ▲<br/>
+                <span style="color: #ff8888;">VOICE: ENEMY ?</span>
+              </div>
+            </div>
+            <div class="desc" style="margin-top: 14px;">
+              <b>世界观大字</b>：宋体 / 衬线 + 金属浮雕——用于 Key Art 与章节标题。<br/>
+              <b>不可信文本</b>：等宽字体出现错位 / 闪烁 / 偶发字符替换——理智低时用。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 总结 -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(201,48,48,.08), rgba(180,201,193,.04));">
+        <h3>构建总结 · 一句话交付物</h3>
+        <div class="desc">
+          《CF：虹》的视觉系统就一句话：<b>用 CF 的工程感骨架 + 哥特克系的氛围皮肤 + 一套可信／不可信切换的不可靠 UI</b>，全部锁死在<b>"黑场 70% + 暖中性 22% + 自然辅 7% + 虹蚀红 ≤1%"</b>的真实采样色板上。<br/>
+          所有未来素材，先回头看这套<b>13 个色 token / 4 个核心符号 / 3 组造型语言 / 3 档字体层级</b>——任何一项偏离，先停下来对一下。
+        </div>
+        <div class="pill-row">
+          <span class="tag red">虹蚀红 = 危险</span>
+          <span class="tag">月光绿灰 = 可信</span>
+          <span class="tag gold">篝火橙 = 暖光锚点</span>
+          <span class="tag flesh">血肉粉 = 人物</span>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        数据来源：竞品追踪台 · game-tracker-v2 / cfh.qq.com 三屏像素采样 / GameSky / TapTap / B 站 / 行业分析<br/>
+        本材料用于内部宣发设计宣讲，仅作参考。色板版本 v1.1 · 2026-05-21。
+      </div>
+
+      <div class="pager">
+        <a data-jump="p-color"><span class="label">← 返回</span>3.2 配色方案</a>
+        <a class="disabled">已是最后一页</a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  const navLinks = document.querySelectorAll('.nav a[data-page]');
+  const pages = document.querySelectorAll('.page');
+
+  function show(id){
+    pages.forEach(p => p.classList.toggle('active', p.id === id));
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('data-page') === id));
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (history.replaceState) history.replaceState(null, '', '#' + id);
+  }
+
+  navLinks.forEach(a => a.addEventListener('click', e => { e.preventDefault(); show(a.getAttribute('data-page')); }));
+  document.querySelectorAll('a[data-jump]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); show(a.getAttribute('data-jump')); }));
+
+  const hash = (location.hash || '').replace('#', '');
+  if (hash && document.getElementById(hash)) show(hash);
+  else show('p-cover');
+
+  const order = ['p-cover','p-bg','p-research','p-concept','p-aesthetic','p-style','p-ui','p-color','p-graphic'];
+  document.addEventListener('keydown', e => {
+    const cur = document.querySelector('.page.active');
+    if (!cur) return;
+    const i = order.indexOf(cur.id);
+    if (e.key === 'ArrowRight' && i < order.length - 1) show(order[i+1]);
+    if (e.key === 'ArrowLeft' && i > 0) show(order[i-1]);
+  });
+})();
+</script>
+
+</body>
+</html>

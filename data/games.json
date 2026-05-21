@@ -4928,5 +4928,48 @@
     "lastUpdate": "2026-05-19",
     "slug": "dayz",
     "stub": true
+  },
+  {
+    "id": 310,
+    "name": "Resident Evil Requiem",
+    "nameCN": "生化危机：安魂曲",
+    "alias": "Resident Evil Requiem,生化危机9,生化危机安魂曲,Biohazard Requiem,RE9",
+    "icon": "🕯️",
+    "company": "CAPCOM",
+    "category": "已发售",
+    "region": "日本",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series X|S"
+    ],
+    "model": "买断制",
+    "genre": "Horror",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2026",
+    "releaseDate": "2026.2.27",
+    "desc": "CAPCOM 生化危机系列 30 周年纪念正统第九作。新主角格蕾丝·阿什克罗夫特，背景是 30 年前震惊世界的浣熊市事件。支持第一/第三人称视角自由切换，承接 RE7-Village 的恐怖回归路线。",
+    "features": [
+      "生存恐怖正统作",
+      "第一/第三人称切换",
+      "RE Engine",
+      "30周年纪念作",
+      "浣熊市续接"
+    ],
+    "changes": [
+      {
+        "date": "2025-06",
+        "text": "Summer Game Fest 2025 公布"
+      },
+      {
+        "date": "2026-02-27",
+        "text": "PC/PS5/Xbox Series 全球发售"
+      }
+    ],
+    "lastUpdate": "2026-05-21",
+    "slug": "resident-evil-requiem",
+    "url": "https://www.residentevil.com/requiem/"
   }
 ]

@@ -1,0 +1,629 @@
+{
+  "id": 310,
+  "slug": "resident-evil-requiem",
+  "worldview": {
+    "background": {
+      "title": "浣熊市灭城三十年后的安魂曲",
+      "value": "1998 年浣熊市被导弹抹去，<b>安布雷拉的罪行随废墟一起被官方掩埋</b>。三十年后，幸存者陆续死于皮肤生黑斑的「浣熊市综合征」(RCS)——T 病毒以另一种形态苏醒。废弃的 Wrenwood Hotel 接连冒出尸体，<b>安布雷拉残党 Victor Gideon 与酷似 Wesker 的特工 Zeno</b> 在阴影里争夺 Oswell Spencer 留下的遗产「Elpis」。你要回到这座被铁丝网封锁的死城。",
+      "keywords": [
+        "浣熊市",
+        "T 病毒",
+        "安布雷拉残党",
+        "RCS 综合征",
+        "Connections"
+      ]
+    },
+    "mainStory": {
+      "title": "Grace 与里昂的双线追凶",
+      "value": "你是 FBI 情报分析师 <b>Grace Ashcroft</b>，内向、不擅战斗，被派往 Wrenwood Hotel——八年前母亲 Alyssa 在此遇害。Alyssa 是浣熊市幸存者、《爆发》里的女记者，留下追查 Spencer 的资料盘。刚拿到线索就被 Victor Gideon 绑架，你醒在 Rhodes Hill 疗养院被巨怪「The Girl」追猎。<b>身患 RCS 的里昂</b>循同一条线赶来，陪你潜入 ARK。",
+      "keywords": [
+        "Grace Ashcroft",
+        "Alyssa Ashcroft",
+        "里昂·肯尼迪",
+        "Wrenwood Hotel",
+        "Elpis"
+      ]
+    },
+    "combat": {
+      "title": "一三人称切换的求生射击",
+      "value": "默认第一人称，一键切回越肩第三人称——<b>Grace 的恐惧在第一人称下被无限放大，里昂的动作戏在第三人称里更顺手</b>。FBI 训练只给了 Grace 基础枪法，弹匣常常见底。面对在墙体和天花板里游走的「The Girl」，你更多要蹲下憋气、钻进桌底、<b>捡玻璃瓶砸向远处制造声响</b>，再用打火机点亮黑暗——但火光也会引怪。Boss 战靠环境破绽，比如把怪物拖到日光下灼伤。",
+      "keywords": [
+        "第一人称",
+        "第三人称切换",
+        "潜行",
+        "资源紧缺",
+        "Boss 战"
+      ]
+    },
+    "coreLoop": {
+      "title": "探索解谜与古典生存恐怖回环",
+      "value": "系列骨子里的循环在 RE Engine 上重新跑起来：<b>探索废楼 → 翻档案解谜 → 与丧尸短兵相接 → 收集弹药 → 用打字机存档</b>，再推进剧情。Wrenwood Hotel、Rhodes Hill 疗养院、浣熊市警署残骸、地下 ARK 实验室像一串锁链穿起的房间，每开一道门都要先解一道谜。<b>子弹与火药要从抽屉和尸体上一点点抠出来</b>，过场再插入 Alyssa 的访谈录音把旧账拼齐。",
+      "keywords": [
+        "打字机存档",
+        "档案解谜",
+        "资源管理",
+        "房间探索",
+        "剧情拼图"
+      ]
+    }
+  },
+  "story": {
+    "overview": {
+      "tagline": "<b>母亲的死</b>，是序章",
+      "paragraphs": [
+        "<b>温伍德酒店</b>的同一间客房，八年前 <b>Alyssa</b> 死在这里，八年后 FBI 分析员 Grace 接到报案——又一具尸体浮出水面。她翻开母亲留下的数据盘，本以为只是侦破一桩冷案，却被前 <b>保护伞</b> 研究员 Victor Gideon 当场绑走。母亲调查的不是命案，是埋在 1998 年浣熊市灰烬底下、被一发导弹刻意掩埋的东西。",
+        "Grace 在 <b>罗德山慢病护理中心</b> 救出失明少女 Emily，却在逃亡中目睹 Emily 当面变异——而 <b>里昂</b> 不得不亲手了结她。更残酷的真相在浣熊市废墟下展开：Emily 是 Grace 的克隆体之一，Grace 自己也是 <b>Spencer 意识转移实验</b> 的成果，她的身体里写着开启终极生物武器「Elpis」的密码。救母亲的女儿，可能正是毁灭世界的钥匙。",
+        "<b>「予生者恐惧，给尸者安魂」</b>——三十年前的导弹烧掉了一座城，却没烧掉藏在地底的 ARK。Alyssa 在录音里留下的最后一段访谈，到底是为了让女儿继续追查，还是想让她永远停下？当 Grace 站在密码终端前，她要为 <b>谁</b> 奏响这首安魂曲？"
+      ]
+    },
+    "dims": [
+      {
+        "label": "时间",
+        "value": "<b>2026 年 10 月</b>，距 <b>1998 年浣熊市灭菌作战</b>整整 28 年。母亲 Alyssa 在八年前的 2018 年死于温伍德酒店，Grace 此刻接手的连环命案，正是当年那条未竟线索的回声——保护伞虽亡，<b>Connections</b> 仍在低语。"
+      },
+      {
+        "label": "地点",
+        "value": "中西部废弃的 <b>温伍德酒店</b>、丧尸横行的 <b>罗德山慢病护理中心</b>，最终通向被导弹夷平、至今仍处隔离封锁的 <b>浣熊市废墟</b>。地下深处藏着前保护伞设施 <b>ARK</b>，Spencer 留下的最后一份遗产。"
+      },
+      {
+        "label": "主角",
+        "value": "<b>Grace Ashcroft</b>，FBI 情报分析员，被开发者称作「<b>系列史上最胆小的主角</b>」，不擅战斗、内向沉默，靠推理与隐匿求生；与之交错的是 DSO 老兵 <b>里昂</b>，他自己也感染了 <b>RCS（浣熊市综合征）</b>，时间所剩无几。"
+      },
+      {
+        "label": "反派",
+        "value": "<b>Victor Gideon</b>——前保护伞 T 病毒研究员，执意完成已故创始人 <b>Oswell E. Spencer</b> 的遗志；以及神秘组织 <b>Connections</b> 派出的特工 <b>Zeno</b>，相貌与 Wesker 惊人地相似，操纵一切的真正幕后。"
+      },
+      {
+        "label": "关系",
+        "value": "全作的核心是 <b>母女线</b>——Alyssa 用一生追查保护伞、把女儿留在身后；Grace 接过火炬，却发现自己正是母亲拼命想藏起的「答案」。次线则是 Grace 与浣熊市幸存者 <b>里昂</b>、与 DSO 同伴 <b>Sherry Birkin</b> 的命运交叠。"
+      },
+      {
+        "label": "动机",
+        "value": "Grace 的明面动机是侦破 <b>连环命案</b>、查清母亲八年前的死因；潜在动机是直面那段把她变得沉默寡言的童年阴影。剧情推进后，动机被改写——她必须阻止 <b>Elpis</b> 落入 Connections 之手，哪怕代价是亲手杀死那个被植入了 <b>Spencer 意识</b>、可能正是「自己」的克隆体。"
+      },
+      {
+        "label": "基调",
+        "value": "<b>恐怖 × 救赎</b> 的双声部：Grace 章节回归《生化危机 2》式压抑生存恐怖，资源稀缺、墨带计数；里昂章节延续 4 代肾上腺素动作。两条线在 <b>浣熊市 30 周年</b> 的怀旧底色里收束，从「逃出生天」转向「为谁送葬」。"
+      },
+      {
+        "label": "题眼",
+        "value": "官方宣传语 <b>「Requiem for the dead. Nightmare for the living.」</b>——予生者恐惧，给尸者安魂。安魂曲既是写给浣熊市死难者，也是写给被秘密杀害的母亲，更可能是写给那个站在 <b>ARK</b> 终端前、不知道自己究竟是 Grace 还是 Spencer 的女孩。"
+      }
+    ]
+  },
+  "aesthetic": {
+    "summary": {
+      "label": "<b>湿冷霓虹废墟</b>×<b>第一人称生存恐怖回归</b>",
+      "definition": "公式 = <b>80% 浣熊市三十年后的废墟末世感</b> × <b>20% RE7/Village 同款贴脸窒息恐怖</b>。主色是雨夜柏油路面的青灰、霓虹招牌的脏黄脏绿、警灯抖动的蓝红，反派灯光全靠手电筒和打火机一束孤光戳进黑里。Rhodes Hill 慢性病护理中心的暗色木质墙板被时间磨成毛边，第三幕的 90 年代秘密设施反过来用惨白瓷光做对比。Grace 视角逼到鼻尖，Leon 视角拉远到肩后，靠两套构图节奏把生存恐怖和动作爽感切开。",
+      "evolution": "<b>1996</b> 初代《Resident Evil》定下定镜头+丧尸+档案碎片的浣熊市图谱；<b>1998</b> RE2 把警察局红木走廊和雨夜街景刻进玩家肌肉记忆；<b>2017</b> RE7《Biohazard》第一人称回归低成本贴脸恐怖，确立 Ethan 视角的肮脏窒息美术；<b>2021</b> RE Village 把第一人称恐怖嫁接到欧洲哥特城堡，证明 RE Engine 能扛大场面；<b>2023</b> RE4 Remake 在第三人称里复刻动作射击的标杆质感；<b>2026</b> Requiem 把上述遗产拧成一股——浣熊市废墟做底布、双视角随时切、路径追踪做技术招牌，30 周年总集篇美学落地。",
+      "references": [
+        {
+          "type": "game",
+          "title": "Resident Evil 7: Biohazard",
+          "year": "2017",
+          "note": "<b>第一人称贴脸恐怖范式直接源头</b>，Grace 章节的窒息感和手电光逻辑全从这里继承"
+        },
+        {
+          "type": "game",
+          "title": "Resident Evil 2 (1998)",
+          "year": "1998",
+          "note": "<b>浣熊市档案 IP 美术原型</b>，警察局红木走廊和雨夜街景的祖师爷"
+        },
+        {
+          "type": "game",
+          "title": "Resident Evil Village",
+          "year": "2021",
+          "note": "<b>RE Engine 第一人称大场景方法论</b>，Rhodes Hill 护理中心走廊节奏的近亲"
+        },
+        {
+          "type": "game",
+          "title": "Resident Evil 4 Remake",
+          "year": "2023",
+          "note": "<b>第三人称动作恐怖标杆</b>，Leon 章节的过肩构图与战斗调度照此复刻"
+        },
+        {
+          "type": "film",
+          "title": "It Follows",
+          "year": "2014",
+          "note": "<b>现代心理恐怖美术语汇</b>，慢推、长焦留白、不肯切走的镜头被搬进 Grace 章节"
+        },
+        {
+          "type": "film",
+          "title": "Barbarian",
+          "year": "2022",
+          "note": "<b>追猎者「The Girl」造型直接对标</b>，白衣巨足+拖锁的怪物剪影"
+        },
+        {
+          "type": "art",
+          "title": "Zdzisław Beksiński 末世废墟绘画",
+          "year": "1980",
+          "note": "<b>浣熊市废墟坑洞远景的氛围参照</b>，灰烬色调与残骸构图同源"
+        },
+        {
+          "type": "manga",
+          "title": "伊藤润二《漩涡》",
+          "year": "1998",
+          "note": "<b>追猎者拖锁场景的不安美学</b>，缓慢逼近+人体怪诞的恐怖语法呼应"
+        }
+      ]
+    },
+    "scene": {
+      "title": "<b>湿冷柏油 × 浣熊市三十年后裂缝</b>",
+      "value": "开场是雨水砸出油亮反光的美式主街，<b>霓虹招牌的脏黄脏绿</b>和警车蓝红灯在水洼里抖成一摊抽象画，RE Engine 把每一道反射都压进路径追踪里。往里走，浣熊市从一座尸城退化成<b>干涸开裂的石质遗迹</b>，警察局只剩疲惫的轮廓，第三幕把镜头拉进塌陷塔楼下面的 90 年代秘密设施，惨白瓷砖反过来照亮所有灰尘。三段景观——湿夜街道、风化石头、白瓷地堡——靠材质冷暖对撞咬住玩家眼睛。",
+      "anchorRule": [
+        1,
+        2,
+        4
+      ]
+    },
+    "costume": {
+      "title": "<b>FBI 写实风衣 × 颤抖的素人剪影</b>",
+      "value": "Grace 一身 FBI 技术分析员的标准配置：深色风衣、衬衫、平底鞋，头发是<b>短软到 RE Engine 专门为她重写发丝系统</b>的栗色短发。轮廓上故意去掉所有英雄特征，肩线窄、动作缩，握枪时手在抖、汗珠会贴在脸上。Leon 那边维持系列招牌的过肩战术装，皮夹克+战术腰带，剪影硬朗到能一眼认出。一软一硬两套服装做对照组，<b>Grace 的脆弱剪影本身就是恐怖游戏的钩子</b>。",
+      "anchorRule": [
+        3,
+        4
+      ]
+    },
+    "ui": {
+      "title": "<b>极简 HUD × 第一人称无界沉浸</b>",
+      "value": "默认状态下血量条、弹药数都被压缩到屏幕角落最小可见，<b>第一人称模式下 HUD 几乎隐形</b>，留出整张屏幕给手电筒光束、墙上血迹和走廊深处的脚步声。物品栏维持系列经典的网格箱子界面，但配色拉到更脏的暗琥珀，方便和场景里的霓虹色冲撞。摄影模式没做（已被玩家吐槽），但<b>关 UI 模式专门保留</b>给第一人称沉浸截图，等于默认承认 UI 是叙事干扰项，能少则少。",
+      "anchorRule": [
+        5
+      ]
+    },
+    "symbol": {
+      "title": "<b>白衣拖锁追猎者 × 浣熊市废墟坑洞</b>",
+      "value": "两个主视觉符号撑起整套调性：一是 Grace 的追猎者「The Girl」，<b>纯白长袍配巨大赤足、铁链拖地</b>，剪影是 Mr X 和 Lady Dimitrescu 之后系列又一次靠身高和颜色做记忆点。二是浣熊市中心那个<b>巨型环形坑洞</b>——曾经的市政厅广场，现在是一圈断墙围着的灰烬深渊，所有宣发素材都拿它做远景锚点，等于 30 周年系列对自己历史的一次墓碑式回望。",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "promo": {
+      "title": "<b>双主角并立 key art × 雨夜霓虹路径追踪</b>",
+      "value": "横版 key art 把 Leon 和 Grace 并排放在一片塌陷与雾气里，<b>Leon 站姿稳、Grace 微缩肩</b>，两种生存姿态一目了然。色调压到接近黑白只留一抹暖光，呼应 Requiem 的悼念基调。视频宣发主打 NVIDIA 路径追踪+DLSS 4 的<b>雨夜霓虹反光技术演示</b>，开场 Grace 走过湿街那 30 秒被反复剪进每支预告，线下还摆了涩谷等身雕像和 Hamilton/保时捷联名做配套。",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "rivals": [
+      {
+        "id": 212,
+        "reason": "<b>同 IP 直系前作+第一人称恐怖范式</b>。Village 把 RE Engine 第一人称恐怖跑通，Requiem 直接继承它的视角逻辑、贴脸窒息感和大场景调度，连 Rhodes Hill 走廊节奏都能看到 Beneviento 段落的影子。"
+      },
+      {
+        "id": 289,
+        "reason": "<b>同 IP 范式革命标杆+第三人称动作美学源头</b>。RE4 Remake 重新定义了系列过肩射击的质感，Leon 章节几乎是它的换皮续作，斧头中段抓取这种小动作都直接搬过来。"
+      },
+      {
+        "id": 204,
+        "reason": "<b>心理恐怖叙事天花板对标</b>。Grace 章节的脆弱视角、追猎者拖锁声、It Follows 式留白都在向《寂静岭 2》的心理恐怖审美靠拢，两边都把恐怖做成情绪而不是反应。"
+      },
+      {
+        "id": 245,
+        "reason": "<b>双主角分线+生存恐怖×动作切换</b>同构。Alan Wake 2 用 Saga/Alan 切叙事节奏，Requiem 用 Grace/Leon 切恐怖与动作，两边都在<b>同一个游戏里塞两种类型片体验</b>。"
+      }
+    ]
+  },
+  "playerExp": {
+    "media": {
+      "memory": [
+        {
+          "text": "IGN 评测把<b>开场 Rhodes Hill 慢性病疗养中心几小时</b>形容为系列至今最惊悚的段落，戴上耳机关灯玩会让人发现自己身上还有没绷紧过的肌肉。",
+          "src": "IGN Resident Evil Requiem Review",
+          "url": "https://www.ign.com/articles/resident-evil-requiem-review"
+        },
+        {
+          "text": "Polygon 把流程拆成<b>「Grace 的脆弱潜行 + Leon 的残躯救赎」双主角对照</b>，并指出 Leon 的整段戏建立在他作为浣熊市菜鸟警员留下的幸存者愧疚上。",
+          "src": "Polygon Resident Evil Requiem Endings",
+          "url": "https://www.polygon.com/resident-evil-requiems-endings-explained/"
+        },
+        {
+          "text": "游民星空给出 9.2 分，称 Wrenwood Hotel 与浣熊市废墟的复刻<b>把场景做成了叙事本身</b>，老玩家光是路过警局残骸就会被戳中。",
+          "src": "游民星空 评测",
+          "url": "https://www.gamersky.com/news/202602/2096887_2.shtml"
+        },
+        {
+          "text": "Outlook Respawn 报道 Metacritic 用户均分 9.5、Steam 同时在线峰值 344,214，<b>成为系列史上口碑最高、Steam 同时在线最高的正传作品</b>，超过《生化危机 4 重制版》一倍以上。",
+          "src": "Outlook Respawn",
+          "url": "https://respawn.outlookindia.com/gaming/gaming-news/resident-evil-requiem-breaks-metacritic-record-with-highest-score"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "IGN 把 Grace 段落里<b>用「血液收集器」吸取丧尸尸液合成单次溶血针</b>列为系列最爽的潜行处决，扎进背脊后整具尸体会膨胀爆裂。",
+          "src": "IGN Resident Evil Requiem Review",
+          "url": "https://www.ign.com/articles/resident-evil-requiem-review"
+        },
+        {
+          "text": "游民星空认为 Leon 的<b>手斧 + 完美格挡反击</b>能让高手无伤通关大部分战斗，「卡肉感」反击与「皇家守卫」式弹反让动作流畅度直追《生化危机 4 重制版》。",
+          "src": "游民星空 评测",
+          "url": "https://www.gamersky.com/news/202602/2096887_2.shtml"
+        },
+        {
+          "text": "Metacritic 媒体评测用「the most enjoyably bad one-liners in the business」形容 Leon 的台词，加上<b>原生 PS5 不掉 60、PS5 Pro 4K + 路径追踪</b>的演出，被多家媒体并列为「20 年来最让人乐在其中的生化新作」。",
+          "src": "Metacritic Resident Evil Requiem PS5",
+          "url": "https://www.metacritic.com/game/playstation-5/resident-evil-requiem"
+        },
+        {
+          "text": "IGN 中国指出 Leon 进入<b>东浣熊市半开放地图</b>的爽感来自「战斗手环」积分系统：杀敌换点数购入新枪与改装件，配合废墟中的崩塌高楼战斗，是系列罕有的立体战场。",
+          "src": "IGN 中国 评测",
+          "url": "https://www.ign.com.cn/re9/58781/review/sheng-hua-wei-ji-an-hun-qu-ping-ce-9-fen-ign-zhong-guo"
+        }
+      ],
+      "pain": [
+        {
+          "text": "游民星空指出<b>双线切换太频繁</b>，Leon 刚打爽就被切回 Grace 潜行，情绪反复被打断；后期剧情靠浣熊市怀旧桥段硬串，关键转折铺垫不足。",
+          "src": "游民百相 游民星空",
+          "url": "https://club.gamersky.com/m/activity/1539358?club=1468"
+        },
+        {
+          "text": "IGN 中国吐槽<b>BOSS 战设计套路化</b>，匹配不上整体精彩的动作体验；同时半开放浣熊市地图除了倒塌高楼桥段外平平无奇，缺少 RE4 重制湖区的灵性。",
+          "src": "IGN 中国 评测",
+          "url": "https://www.ign.com.cn/re9/58781/review/sheng-hua-wei-ji-an-hun-qu-ping-ce-9-fen-ign-zhong-guo"
+        },
+        {
+          "text": "Region Free 仅给出 60 分，作为 M 站当下最低分指出谜题<b>陈旧到部分被过场动画直接跳过</b>，跑回头路换钥匙的设计像在做功课，最终 Boss 战草草收场。",
+          "src": "游民星空 转载 Region Free",
+          "url": "https://www.gamersky.com/news/202602/2096927.shtml"
+        },
+        {
+          "text": "Metacritic 法语用户长评指出 Grace 段落第一人称视角下<b>战斗辨识度不足</b>，加上配乐与音效偏内敛，没有给关键场面留下记忆点。",
+          "src": "Metacritic User Review",
+          "url": "https://www.metacritic.com/game/playstation-5/resident-evil-requiem"
+        }
+      ],
+      "churn": [
+        {
+          "text": "ComicBook 与 Screen Rant 指出<b>非正史「坏结局」里 Leon 被 Zeno 一枪爆头</b>，整段没有最终 Boss 战，玩家普遍觉得突兀且廉价，让首次通关情绪极差。",
+          "src": "ComicBook.com",
+          "url": "https://comicbook.com/gaming/feature/resident-evil-requiems-non-canon-ending-feels-like-a-complete-waste/"
+        },
+        {
+          "text": "biggo 财经报道 PC 版同时挂着<b>Denuvo + Capcom 自家 DRM + Enigma</b> 三层壳，评测者一天只能换 5 次 CPU 授权，玩家也可能因 Windows 更新或驱动变动被锁出游戏。",
+          "src": "biggo Finance",
+          "url": "https://finance.biggo.com/news/202602271823_Resident_Evil_Requiem_PC_Performance_Review"
+        },
+        {
+          "text": "Steam 商店页显示<b>「豪华包」拆出 5 套外观、4 把武器涂装与 1998 年来信文件</b>额外卖 78 元，多家媒体批评 30 周年纪念作把怀旧元素切片当 DLC。",
+          "src": "Steam 商店页 Resident Evil Requiem",
+          "url": "https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/"
+        }
+      ]
+    },
+    "community": {
+      "memory": [
+        {
+          "text": "Steambase 统计 Steam 总评 14.8 万条<b>「好评如潮」、好评率 96%</b>，简体中文区也是 90% 好评，社区普遍把开场疗养院段落称为「peak Resident Evil」。",
+          "src": "Steambase Resident Evil Requiem Reviews",
+          "url": "https://steambase.io/games/resident-evil-requiem/reviews"
+        },
+        {
+          "text": "Metacritic PS5 用户区充斥「The most entertaining new Resident Evil game in over two decades」之类长评，<b>用户均分 9.5 创系列纪录</b>，被频繁拿来与《生化危机 4 重制版》《村庄》对比。",
+          "src": "Metacritic Resident Evil Requiem PS5",
+          "url": "https://www.metacritic.com/game/playstation-5/resident-evil-requiem"
+        },
+        {
+          "text": "游民百相用户长评把游戏总结成「<b>一场精心准备的粉丝聚会</b>」，认为重返浣熊市警局残骸、双线联动设计与 RE Engine 升级版的湿润材质是最直接的留念点。",
+          "src": "游民百相 玩家评测",
+          "url": "https://club.gamersky.com/m/activity/1539358?club=1468"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "Screen Rant 整理 YouTube 频道 Sirloin 的坏结局视频评论，玩家「<b>哭崩</b>」「<b>看完直接发疯</b>」的留言占满评论区，确认这是 30 年系列里情感冲击最强的一次假死。",
+          "src": "Screen Rant",
+          "url": "https://screenrant.com/resident-evil-requiem-leon-death-bad-ending-reactions/"
+        },
+        {
+          "text": "FandomWire 长帖回顾真结局里<b>Sherry Birkin 出现并暗示 Elpis 可治愈所有浣熊市后遗症患者</b>，社区把这段彩蛋视为承接生化 10 复仇者集结的最大爽点。",
+          "src": "FandomWire 结局解析",
+          "url": "https://fandomwire.com/all-resident-evil-requiem-endings-explained"
+        },
+        {
+          "text": "Steam 社区讨论区把<b>「Grace 在线声敏丧尸 → Leon 进同一区无怪可刷」的连锁反应</b>当作多周目必玩理由，证明双线 AI 真的会互相吃掉敌人。",
+          "src": "Steam 社区讨论",
+          "url": "https://steamcommunity.com/app/3764200/discussions/"
+        },
+        {
+          "text": "Outlook Respawn 把 Steam 同时在线 344,214 写成「比 RE4 重制翻倍、和《艾尔登法环》同等量级」，<b>社区把这数据截图洗版</b>当作生化系列复兴的实锤。",
+          "src": "Outlook Respawn",
+          "url": "https://respawn.outlookindia.com/gaming/gaming-news/resident-evil-requiem-breaks-metacritic-record-with-highest-score"
+        }
+      ],
+      "pain": [
+        {
+          "text": "游民星空转载 IGN 专栏，指出社区分裂成两派——<b>「Leon 一出恐怖全无」</b>派与「30 周年就该照顾不同口味」派吵成一片，老粉认为后期被强行做成加强版生化 6。",
+          "src": "游民星空 转载 IGN",
+          "url": "https://www.gamersky.com/news/202603/2101776.shtml"
+        },
+        {
+          "text": "Metacritic 用户长评出现「<b>Leon feels about as engaging as a protagonist as rotten cheese</b>」之类差评，吐槽 50% 后剧情放弃 Grace 这条更有趣的线。",
+          "src": "Metacritic 用户评测",
+          "url": "https://www.metacritic.com/game/resident-evil-requiem"
+        },
+        {
+          "text": "游民百相多位玩家提到<b>缺少佣兵模式</b>，通关后除了多周目收集没什么刷的动力；首发还遇到偶发闪退与 Steam 版小型优化问题，等着补丁。",
+          "src": "游民百相 玩家评测",
+          "url": "https://club.gamersky.com/m/activity/1539358?club=1468"
+        },
+        {
+          "text": "Steam 社区一篇日文长评归纳三条结构性差评：<b>「Leon 一枪爆头 vs Grace 一弹匣还杀不死同种怪」物理逻辑割裂、射击手感不及《最后生还者》、丧尸断头后变异让斩首失去价值</b>。",
+          "src": "Metacritic 日语用户评测",
+          "url": "https://www.metacritic.com/game/resident-evil-requiem"
+        }
+      ],
+      "churn": [
+        {
+          "text": "Steam 综合讨论区围绕 Denuvo + Capcom DRM + Enigma 吵翻天，差评里反复出现「<b>5 次硬件授权上限 + Enigma 限制 mod</b>」两条，让 PC mod 玩家直接退款。",
+          "src": "Steam 综合讨论",
+          "url": "https://steamcommunity.com/app/3764200/discussions/0/762934064830303899/"
+        },
+        {
+          "text": "Steam 商店页热门差评点名<b>「豪华包 78 元卖五套外观、滤镜与 1998 年来信」</b>，认为 30 周年纪念作把情怀彩蛋切片付费，吃相难看。",
+          "src": "Steam 商店页 Resident Evil Requiem",
+          "url": "https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/"
+        },
+        {
+          "text": "Steam 配置门槛讨论中，老硬件用户反映<b>GTX 1660 / RX 5500 XT 推荐档需开启 DLSS/FSR 才能稳 1080p 60</b>，加上 SSD 强制要求，劝退一批仍在用机械硬盘的核心粉。",
+          "src": "Steam 商店页 系统需求",
+          "url": "https://store.steampowered.com/app/3764200/Resident_Evil_Requiem/"
+        }
+      ]
+    },
+    "biliVideos": [
+      {
+        "title": "全网首发完结《生化危机9:安魂曲》英配中字 猛男打法 全结局 全流程实况解说视频",
+        "bvid": "BV1VNfbBUENM",
+        "views": "1.0千万"
+      },
+      {
+        "title": "【生化危机9：安魂曲】4K 最高难度 全收集 全结局 全流程无伤通关攻略 生存恐怖动作冒险游戏 - Resident Evil 9 - Requiem【完结】",
+        "bvid": "BV1xGA6z7EMo",
+        "views": "483万"
+      },
+      {
+        "title": "『 生化危机9: 安魂曲 』 | 癫狂难度 无伤通关 |  无挂件 无奖励内容 | 浣熊 全收集  | 第三人称 无解说4K 剧情流程 |",
+        "bvid": "BV1vuPRzzEzF",
+        "views": "245万"
+      },
+      {
+        "title": "全结局完结《生化危机：安魂曲》初见惊吓全流程/全结局/生化危机9实况/中文配音",
+        "bvid": "BV12jAkzpEz7",
+        "views": "124万"
+      },
+      {
+        "title": "老戴试玩《生化危机 安魂曲》画面很棒，氛围到位，完成度已经很高了【Resident Evil Requiem】《生化危机 9》",
+        "bvid": "BV1vreszcEsJ",
+        "views": "118万"
+      }
+    ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 (appid 3764200)",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/3764200/"
+          },
+          {
+            "title": "Resident Evil Requiem 官方网站",
+            "source": "CAPCOM 官网",
+            "url": "https://www.residentevil.com/requiem/"
+          },
+          {
+            "title": "PlayStation Store 商店页",
+            "source": "PlayStation",
+            "url": "https://store.playstation.com/concept/10010932"
+          },
+          {
+            "title": "Xbox 商店页",
+            "source": "Xbox",
+            "url": "https://www.xbox.com/games/store/resident-evil-requiem/9NXMVJSMW1KH"
+          },
+          {
+            "title": "Resident Evil Portal 官方",
+            "source": "CAPCOM Portal",
+            "url": "https://www.residentevil.com/"
+          },
+          {
+            "title": "X/Twitter 官方账号 @RE_Games",
+            "source": "X/Twitter",
+            "url": "https://x.com/RE_Games"
+          },
+          {
+            "title": "CAPCOM 官方 YouTube 频道",
+            "source": "YouTube",
+            "url": "https://www.youtube.com/@residentevil"
+          },
+          {
+            "title": "小红书搜索「生化危机9 安魂曲」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%94%9F%E5%8C%96%E5%8D%B1%E6%9C%BA9%20%E5%AE%89%E9%AD%82%E6%9B%B2"
+          },
+          {
+            "title": "B 站搜索「生化危机 安魂曲」",
+            "source": "B 站",
+            "url": "https://search.bilibili.com/all?keyword=%E7%94%9F%E5%8C%96%E5%8D%B1%E6%9C%BA%20%E5%AE%89%E9%AD%82%E6%9B%B2"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Resident Evil Requiem」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Resident%20Evil%20Requiem"
+          },
+          {
+            "title": "ArtStation 搜索「Grace Ashcroft」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Grace%20Ashcroft"
+          },
+          {
+            "title": "Pinterest 搜索「Resident Evil Requiem art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Resident%20Evil%20Requiem%20art"
+          },
+          {
+            "title": "IGDB Resident Evil Requiem 媒体库",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/resident-evil-requiem/media"
+          }
+        ]
+      },
+      {
+        "cat": "宣传片 / KV 主视觉",
+        "links": [
+          {
+            "title": "Summer Game Fest 2025 首曝 PV",
+            "source": "YouTube",
+            "url": "https://www.youtube.com/results?search_query=Resident%20Evil%20Requiem%20reveal%20trailer"
+          },
+          {
+            "title": "Resident Evil Requiem 官方预告合集",
+            "source": "YouTube",
+            "url": "https://www.youtube.com/results?search_query=Resident%20Evil%20Requiem%20official%20trailer"
+          },
+          {
+            "title": "Press Kit / KV 主视觉 (CAPCOM Press)",
+            "source": "CAPCOM Press",
+            "url": "https://press.capcom.com/"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Resident Evil Requiem concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Resident%20Evil%20Requiem%20concept%20art"
+          },
+          {
+            "title": "ArtStation 搜索「Raccoon City ruins」浣熊市废墟参考",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Raccoon%20City%20ruins%20concept"
+          },
+          {
+            "title": "Pinterest 浣熊市末世废墟氛围参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Raccoon%20City%20post%20apocalypse%20concept"
+          },
+          {
+            "title": "Behance 生存恐怖 Concept Art 集",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=survival%20horror%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计 / 怪物造型",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Resident Evil monster design」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Resident%20Evil%20monster%20design"
+          },
+          {
+            "title": "ArtStation 搜索「body horror creature」生化系怪物参考",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=body%20horror%20creature%20design"
+          },
+          {
+            "title": "Pinterest「FBI agent female character」Grace 参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=FBI%20female%20agent%20character%20design"
+          },
+          {
+            "title": "Pinterest「Resident Evil character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Resident%20Evil%20character%20design"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / HUD 设计",
+        "links": [
+          {
+            "title": "GameUI.net 生化危机4重制版 UI 集（同 RE Engine 范式）",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/7712"
+          },
+          {
+            "title": "Dribbble 搜索「Horror Game UI」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/horror%20game%20ui"
+          },
+          {
+            "title": "Pinterest「Survival horror inventory UI」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=survival%20horror%20inventory%20UI"
+          },
+          {
+            "title": "ArtStation 搜索「Resident Evil UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Resident%20Evil%20UI"
+          }
+        ]
+      },
+      {
+        "cat": "场景氛围 / Environment Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「abandoned hospital horror」废弃医院氛围",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=abandoned%20hospital%20horror"
+          },
+          {
+            "title": "ArtStation 搜索「post apocalyptic city ruins」末世城市废墟",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=post%20apocalyptic%20city%20ruins"
+          },
+          {
+            "title": "Pinterest「dark wet neon environment」湿冷霓虹废墟",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=dark%20wet%20neon%20environment%20concept"
+          },
+          {
+            "title": "Behance 末世场景氛围集",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=post%20apocalyptic%20environment%20concept"
+          }
+        ]
+      },
+      {
+        "cat": "镜头语言 / 电影参考",
+        "links": [
+          {
+            "title": "Pinterest「first person horror cinematography」第一人称恐怖镜头",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=first%20person%20horror%20cinematography"
+          },
+          {
+            "title": "ArtStation 搜索「horror lighting reference」恐怖打光",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=horror%20lighting%20reference"
+          },
+          {
+            "title": "电影《潜行者》Stalker 末世废墟参考",
+            "source": "Letterboxd",
+            "url": "https://letterboxd.com/film/stalker/"
+          },
+          {
+            "title": "电影《湮灭》Annihilation 生物变异美学",
+            "source": "Letterboxd",
+            "url": "https://letterboxd.com/film/annihilation/"
+          }
+        ]
+      }
+    ]
+  }
+}
