@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>明日之后 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<a href="../index.html" id="back-btn"
+   class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-2/90 backdrop-blur-sm border border-white/[.08] hover:bg-surface-3 hover:border-white/[.15] text-neutral-300 hover:text-white text-sm font-medium transition-all shadow-lg shadow-black/30">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  返回
+  <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
+</a>
+<script>
+(function(){
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable]')) return;
+    // Don't navigate if lightbox is open (Alpine handles that)
+    try { if (window.Alpine && Alpine.store('lightbox') && Alpine.store('lightbox').open) return; } catch(x){}
+    window.location.href = '../index.html';
+  });
+})();
+</script>
+
+
+<div id="sec-header" class="relative w-full overflow-hidden">
+  
+  
+  <div class="absolute inset-0 z-0 bg-gradient-to-br from-surface-1 to-surface-0"></div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">明日之后</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">网易 · Survival · 2018.11</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">网易末世生存旗舰手游。写实 3D 开放世界，尸潮入侵、基地建造、PVE+PVP、采集制造、多人联机。国内生存手游品类绝对头部，长线运营超 7 年。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">末世生存</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">开放世界</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">基地建造</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">尸潮入侵</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">多人联机</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">长线运营</span>
+        
+      </div>
+      
+    </div>
+
+    
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      <a href="#sec-assets"
+         class="group flex items-center gap-2 px-5 py-3 rounded bg-white text-black font-bold hover:bg-neutral-200 text-sm transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  <section id="sec-worldview" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      游戏世界观
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">BACKGROUND</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">游戏背景</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">病毒末世与幸存者困境</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">未来某年，一种被称为<b>O病毒</b>的未知传染源从南印洲爆发并迅速蔓延全球，城市沦陷，文明崩塌。各国联合组建共治政府并发起「感染战争」试图收复失地，却遭遇<b>特殊变异体</b>的毁灭性打击，军队溃败。方舟计划启动大撤离，但容量有限，大量难民被遗弃在感染区。你就是那些被留下的人之一，蜷缩在摇摇欲坠的避难所中，面对病毒、饥饿、极端气候三重威胁，唯一的出路是和其他幸存者抱团取暖，建起属于自己的营地。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">O病毒</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">共治政府</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">方舟计划</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">大撤离</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">感染区</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">末世求生</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">MAIN STORY</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">主线剧情</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">三方势力博弈与文明重建</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">大撤离之后，废土之上生长出三股截然不同的力量：<b>自由贸易联盟</b>扎根西陆平原，以商路串联各营地、信奉交易即和平；北方的<b>铁血帝国</b>奉行纪律至上的军事铁腕，占据白树高地与多贝雪山；而神秘教会的兜帽教徒正渗透每一处角落。你在营地日渐壮大的过程中被卷入三方暗流，既要选择立场，又要面对「半感染者」这一人性灰色地带——当病毒也能成为力量，活着的定义还剩什么？</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">贸易联盟</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">帝国</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">教会</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">半感染者</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">势力博弈</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">文明重建</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">COMBAT</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">战斗系统</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">枪械近战与尸潮围攻</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">白天你端着自制步枪搜刮城镇废墟，夜晚则用木墙和陷阱抵御<b>尸潮来袭</b>。远程射击、近身刀斧、无人机支援三大战斗维度交织，每种武器都有独立熟练度和耐久衰减，逼迫你不断寻找新材料维持火力。高难度副本「黑暗巢穴」里，特殊变异体拥有独一无二的异变形态，需要整支小队配合走位、火力集中才能击杀。PVP 交火区则是<b>真刀真枪的生存淘汰</b>，装备差距意味着生死一线。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">尸潮</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">枪械制造</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">武器耐久</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">副本</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">PVP交火区</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">变异体</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">CORE LOOP</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">核心循环</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">采集-建造-生存的日夜循环</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">每一天从<b>采集</b>开始：砍木、采矿、猎兽、钓鱼，资源按稀有度分布在不同危险等级的地图。你把材料带回庄园进行<b>制造</b>——武器、护甲、家具、载具——然后升级营地科技树解锁更高阶蓝图。庄园既是生产基地也是生活空间，你可以装修房间、饲养宠物、邀请好友来参观。营地成员之间分工协作：有人专攻战斗，有人负责后勤制造，有人经营贸易，形成一个小型末世社会。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">采集</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">制造</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">庄园升级</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">营地分工</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">科技树</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">日夜循环</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-5 text-neutral-500">IP / STORY</div>
+  
+
+  
+  
+  <div class="mb-6 pb-6 border-b border-white/[.06]">
+    
+    <div class="text-[15px] md:text-base font-semibold text-white/90 leading-relaxed mb-5 italic tracking-wide">
+      “当<b>文明的最后火种</b>握在一群被遗弃的人手中，活下去本身就是一场革命”
+    </div>
+    
+    
+    <div class="space-y-4">
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">O病毒将世界撕成两半：方舟上的「安全人类」和废土上的「被遗弃者」。你属于后者。没有政府救援、没有军队保护，你拥有的只是一双手和<b>对明天的执念</b>。你从零开始——砍下第一棵树、搭起第一面墙、在第一个夜晚挺过尸潮。营地从几根木桩长成一座小镇，陌生人变成<b>生死搭档</b>，末日反而催生出最原始的人际纽带。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">但废土没有田园牧歌。北方帝国的巡逻队带着枪和命令南下，贸易联盟的商人用粮食换你的忠诚，教会的传教士低语着「先知能解释一切」。三方势力把你的营地变成<b>棋盘上的棋子</b>，而更大的危机正在酝酿——一部分幸存者开始主动注入病毒，成为<b>半感染者</b>，他们拥有超越常人的力量，却也被两个世界同时抛弃。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">在末世的灰烬里，你是选择留在阳光下坚守人类底线，还是坠入地下城拥抱<b>禁忌的力量</b>？当生存的代价不断攀升，「活着」和「还是人」之间的界限，究竟在哪里？</p>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-3 text-neutral-500">DETAILS</div>
+  
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">故事始于病毒爆发后的<b>废土纪元</b>，从大撤离结束、难民被遗弃的第一天开始。时间线跨越数年，经历感染战争失败、帝国崛起、半感染者出现等<b>重大节点</b>，世界在崩溃中缓慢重组。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地点</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">秋日森林的宁静营地、沙石堡的贸易集市、远星城的枪声不断、多贝雪山的帝国堡垒、<b>落火沙漠</b>深处的教廷废墟，以及半感染者栖息的<b>地下城</b>——从温带到极寒，每张地图都是一种生存哲学。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">主角</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">你没有名字、没有过去，只有一个身份：<b>幸存者</b>。从赤手空拳的难民到营地支柱，你的成长轨迹由自己的选择书写。你可以是冲锋在前的战士、默默制造的工匠，或是在<b>势力夹缝</b>中周旋的外交者。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">反派</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">没有单一的大反派。<b>O病毒</b>是无形的终极威胁，帝国的铁腕统治是秩序的暴力面，贸易联盟的利益至上隐藏着冷血算计，而真正的恐惧来自<b>特殊变异体</b>——那些超越人类认知的进化怪物，每一只都独一无二、不可预测。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">营地是末世中最珍贵的关系网：你和室友共用一面墙、和队友<b>背靠背抵御尸潮</b>、和营长争论资源分配。信任在这里比弹药更稀缺，一次背叛可能让整个营地瓦解。但也正是这种<b>脆弱的羁绊</b>让人甘愿为彼此赴险。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">动机</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">最初只为<b>活过今晚</b>。然后是活得更好——更坚固的墙、更强的武器、更大的营地。再然后是活出意义——选择立场、保护同伴、在废土上<b>重新定义文明</b>。生存欲是引擎，但驱动你走远的是对秩序和归属的渴望。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">基调</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">写实沉重但不绝望。白天的阳光洒在废墟上有一种<b>残酷的美感</b>，夜晚的尸潮则是纯粹的恐惧。人与人之间的温情穿插在枪声中，末世不是绝路——它是<b>旧秩序的葬礼和新文明的产房</b>。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">题眼</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">「<b>团结一致，是活下去的唯一密码</b>」——这不是口号，而是你在废土上用鲜血换来的生存法则。末日剥夺了一切，唯独剥夺不了人类<b>抱团求生的本能</b>。</div>
+  </div>
+  
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+
+    
+    
+    
+    
+    <div class="rounded-xl border border-white/[.08] bg-white/[.02] p-6 mb-8">
+      
+      <div class="flex items-baseline gap-3 mb-5 pb-5 border-b border-white/[.06]">
+        <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">AESTHETIC LABEL</span>
+        <span class="text-[20px] md:text-[22px] font-extrabold text-white tracking-tight"><b>写实废土</b>中的温暖生存感</span>
+      </div>
+      
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q1 · 这是什么美学</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">《明日之后》的视觉语言扎根于写实3D渲染，用偏冷的环境色调铺设末世荒凉，再以暖光营地、手工质感家具、角色间的互动细节注入人情温度。它不追求恐怖片式的极端血腥，而是用锈迹斑斑的金属、长满苔藓的混凝土、雨后泥泞的地面传递「文明退场后自然接管一切」的视觉逻辑。角色装扮介于功能性防护服和个性化时装之间，既保留生存实用感又满足审美表达。UI设计延续废土工业风，粗糙纹理搭配橙黄警示色系，让信息界面本身也成为世界观的一部分。</p>
+        </div>
+        
+
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q2 · 共识如何发展</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">2018年公测初期以「写实灰绿废土」为视觉锚点，画面偏暗沉朴素，强调荒野求生的孤独感。2019-2020年随地图扩张加入雪山、沙漠、热带等多气候biome，色彩丰富度显著提升。2021年半感染者更新引入「地下城霓虹」视觉风格，打破纯写实基调。2023年简单生存服推出后UI全面轻量化改版，降低信息密度。2026年「重生日」大版本是视觉分水岭——经典地图高清翻新，光影升级到PBR标准，植被密度与天气粒子效果大幅提升，画面品质跃升一个世代。</p>
+        </div>
+        
+      </div>
+
+      
+      <div class="mt-6 pt-6 border-t border-white/[.06]">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-3">Q3 · 借鉴谱系（值得美术设计参考的游戏 / 电影 / 动漫 / 剧集）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                我是传奇 I Am Legend
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2007</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text">空无一人的都市废墟、独自求生的孤独感</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                末日危途 The Road
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2009</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text">灰暗色调下的人性温情、父子羁绊式的生存叙事</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                最后生还者 The Last of Us
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2013</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text">自然侵蚀城市的视觉语言、菌丝感染者设计</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                DayZ
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2013</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text">东欧废墟场景的写实取材、多人生存紧张感</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                疯狂的麦克斯：狂暴之路
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2015</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text">末世载具美学与废土势力的视觉符号体系</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                辐射4 Fallout 4
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2015</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text">废土建造系统的视觉逻辑、拾荒改造美学</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              TV
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                行尸走肉 The Walking Dead
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2010</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text">营地社群叙事、尸群围攻的压迫感画面</div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">多biome废土地理</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">每张地图都是一种气候极端下的<b>生存剧场</b>：秋日森林是金黄树冠下的新手伊甸园，沙石堡黄沙漫天能见度极低，多贝雪山白茫茫一片只有篝火是唯一暖色，远星城则是钢铁废墟中的<b>PVP修罗场</b>。2026年高清翻新后，植被随风摆动、雨滴在地面形成水洼反射天光，环境从「背景板」升级为「会呼吸的世界」。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">功能防护与末世时装</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">基础装扮是拼凑感十足的<b>生存防护服</b>——帆布拼接皮革、外露缝线、随处挂载的弹药袋和水壶。而商城时装则打开了末世的另一面：霓虹涂鸦风夹克、机能风连体战衣、甚至带着黑色幽默的丧尸玩偶背包。两条线并行：实用层传递「物资紧缺」的真实感，时装层则是<b>末日中的自我表达</b>，让玩家在废墟里依然可以好看地活着。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">废土工业信息面板</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">主界面用<b>深灰金属纹理</b>做底，橙黄色作为警示高亮贯穿所有关键交互按钮，字体选择等宽无衬线体模拟军事终端。背包界面模拟物理收纳格，物品图标带有磨损质感。地图用手绘等高线风格标注危险区域，营地管理面板则切换为更温暖的<b>木质布告栏</b>视觉，暗示「回到家了」的安全感切换。信息层次清晰但信息量大，2023年改版后显著精简。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">火焰与营地灯塔</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">篝火是《明日之后》最核心的视觉符号——它意味着<b>温暖、安全、人类聚落的存在</b>。营地中央永远亮着的灯塔是远方旅人的归航标志。O病毒的视觉化则是黑绿色的菌丝蔓延，侵蚀一切有机和无机表面。帝国用鹰徽与铁十字做势力图腾，联盟的标志是交握的双手叠加齿轮。<b>半感染者</b>的霓虹眼瞳与脉络是后期最具辨识度的角色符号。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">灾难大片式宣传叙事</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">CG宣传片走<b>好莱坞灾难片</b>路线：航拍俯冲展现城市废墟的规模感，慢镜头捕捉尸潮奔涌的压迫感，最后镜头推到主角手持火把面向黑暗的背影——经典末世英雄站位。真人广告则选择温情切入：几个普通人围坐篝火聊「末日第一天你做了什么」，用日常感解构宏大叙事。周年庆<b>「重生日」</b>宣传片对比旧画面与高清新画面，直接用视觉升级作为回归号召力。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'bili' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV14VdbBaEH9/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">末日天气实录计划 |《明日之后》× 中国国家地理 合作纪录片重磅首发</span>
+          <span class="text-xs text-neutral-500 shrink-0">106万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1HWdbBREag/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">明日之后×灵笼联动第二弹正式开启！</span>
+          <span class="text-xs text-neutral-500 shrink-0">75万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1tHoTB6EPv/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">白月魁来了！明日之后×灵笼联动第二弹开启！</span>
+          <span class="text-xs text-neutral-500 shrink-0">70万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1VELm6hEt9/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【明日之后】520全新预告CG释出！</span>
+          <span class="text-xs text-neutral-500 shrink-0">9010播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1UN411P7LY/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">新的开始！从零挑战通关明日之后！#1</span>
+          <span class="text-xs text-neutral-500 shrink-0">483万播放</span>
+        </a>
+        
+      </div>
+      
+
+      
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>
+    
+      <span class="text-xs text-neutral-600 ml-1">— </span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        
+        <a href="dont-starve-newhome.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">饥困荒野 <span class="text-xs text-neutral-500 font-normal ml-1">猪人工作室 / 腾讯</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">饥困荒野同为开放世界生存手游，但走低多边形卡通渲染路线，与明日之后的写实3D形成直接美学对照</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        <a href="once-human.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">七日世界 <span class="text-xs text-neutral-500 font-normal ml-1">网易</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">七日世界是网易同门末世生存新作，画面技术代际更新但核心玩法高度重叠，构成最直接的内部竞争</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">腐蚀 <span class="text-xs text-neutral-500 font-normal ml-1">Facepunch Studios</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">Rust 是PC端硬核生存标杆，极端拟真的建造与PVP体验是明日之后高战力玩家的精神参照系</div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">饥荒 <span class="text-xs text-neutral-500 font-normal ml-1">Klei Entertainment</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">饥荒是生存品类鼻祖之一，其资源循环设计和黑色幽默美学在基因层面影响了所有后来者包括明日之后</div>
+          </div>
+        </div>
+        
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        
+        
+        
+        <button onclick="window.open('../compare.html?ids=312,311,313','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 3 款游戏
+        </button>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    
+    
+    <div x-show="assetTab === 'official'" x-cloak x-ref="panelOfficial">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">商店页+官网</h4>
+        <div class="space-y-1">
+          
+          <a href="https://mrzh.163.com/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+          <a href="https://apps.apple.com/cn/app/id1435567000" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+          <a href="https://www.taptap.cn/app/70065" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色/概念</h4>
+        <div class="space-y-1">
+          
+          <a href="https://mrzh.163.com/2025/file" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+          <a href="https://ds.163.com/game/lifeafter/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">宣传片</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.bilibili.com/video/BV1x2421A7Wh" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+          <a href="https://www.bilibili.com/video/BV1eE411j7T5" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelOfficial.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+    
+    
+    <div x-show="assetTab === 'inspiration'" x-cloak x-ref="panelInspiration">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">概念美术</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?query=post-apocalyptic%20environment" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?query=last%20of%20us%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色设计</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?query=survivor%20costume%20post%20apocalyptic" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?query=mad%20max%20character%20design" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">UI</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?query=military%20game%20UI" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?query=dead%20space%20UI%20design" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">场景</h4>
+        <div class="space-y-1">
+          
+          <a href="https://unsplash.com/s/photos/abandoned-city" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+          <a href="https://unsplash.com/s/photos/chernobyl" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">电影参考</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.imdb.com/title/tt0480249/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+          <a href="https://www.imdb.com/title/tt0898367/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition"></span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0"></span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelInspiration.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-worldview',   label:'游戏世界观'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+
+// Track visit for "近期热门" module
+(function() {
+  var slug = 'lifeafter';
+  var key = 'game_visits';
+  var dedup_key = 'game_visit_dedup';
+  var now = Date.now();
+
+  // Dedup: same game only counts once within 30 minutes
+  var dedup = JSON.parse(localStorage.getItem(dedup_key) || '{}');
+  if (dedup[slug] && (now - dedup[slug]) < 30 * 60 * 1000) return;
+  dedup[slug] = now;
+  // Clean dedup entries older than 24 hours
+  Object.keys(dedup).forEach(function(k) {
+    if (now - dedup[k] > 24 * 60 * 60 * 1000) delete dedup[k];
+  });
+  localStorage.setItem(dedup_key, JSON.stringify(dedup));
+
+  // Record visit
+  var visits = JSON.parse(localStorage.getItem(key) || '{}');
+  visits[slug] = (visits[slug] || 0) + 1;
+  localStorage.setItem(key, JSON.stringify(visits));
+})();
+</script>
+
+</body>
+</html>

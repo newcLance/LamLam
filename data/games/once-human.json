@@ -1,0 +1,486 @@
+{
+  "id": 313,
+  "slug": "once-human",
+  "worldview": {
+    "background": {
+      "title": "星尘坠落之后，世界变成了克苏鲁式废土",
+      "value": "故事发生在<b>近未来的末日地球</b>——一种名为「星尘」的神秘物质从天而降，污染了一切生物和土地。曾经繁荣的文明在数周内崩塌，人类变成了畸变异种，森林长出肉质触手，湖泊泛着诡异的荧光。整片世界像<b>把洛夫克拉夫特的笔记本用虚幻引擎全渲染了一遍</b>——你能在荒野中看到扭曲的巨型生物残骸、被星尘侵蚀半截的摩天大楼、以及从裂隙里涌出的不可名状之物。<b>压抑、诡谲、却又处处藏着生存的缝隙</b>，这就是你醒来时的世界。",
+      "keywords": [
+        "星尘末日",
+        "克苏鲁废土",
+        "异种污染",
+        "开放世界生存"
+      ]
+    },
+    "mainStory": {
+      "title": "你是蜉蝣——能驯服异种的觉醒者",
+      "value": "你扮演一名「<b>蜉蝣</b>」（Mayfly）——在星尘浩劫中觉醒了特殊能力的幸存者。你不会像普通人一样被星尘完全异化，反而能与<b>异变生物（Deviant）建立共鸣</b>，驯养它们为己用。你的任务是追查星尘降临的真相：它不是天灾，背后有<b>来自异次元的古神意志</b>在操控一切。沿途你会遭遇各方势力——有试图利用星尘的军阀、有守护旧文明火种的科学家，也有已经彻底疯狂的星尘教徒。最终你要直面<b>裂隙深处的维度 Boss</b>，阻止更大规模的污染。",
+      "keywords": [
+        "蜉蝣觉醒者",
+        "异种驯养",
+        "星尘阴谋",
+        "古神入侵"
+      ]
+    },
+    "combat": {
+      "title": "百把枪械 + 异种伙伴 + 维度 Boss 战",
+      "value": "战斗核心是<b>第三人称射击</b>——7大类近百种枪械蓝图可自由改装配件和特性词条，从突击步枪到火箭筒都有。你身边还有<b>异种伙伴（Deviant）</b>助战：有的能自动采矿、有的能释放范围治疗、有的能扑向敌人撕咬。真正的硬核内容是<b>维度 Boss 战</b>——巨型古神级怪物从裂隙中涌出，需要多人配合走位、集火弱点才能击杀，掉落顶级装备蓝图并降低区域星尘污染。搭配武器词条和异种能力做出<b>自己的Build</b>，这是核心爽感。",
+      "keywords": [
+        "枪械改装",
+        "异种伙伴",
+        "维度Boss",
+        "多人协作"
+      ]
+    },
+    "coreLoop": {
+      "title": "探索 → 建家 → 驯养 → 推Boss → 赛季重启",
+      "value": "玩起来是<b>开放世界生存循环</b>：在256平方公里的大地图上搜刮物资、解锁蓝图、建造领地、驯养异种、组队挑战维度Boss。每6周为一个<b>赛季</b>，赛季结束时角色等级重置、地图刷新，但蓝图和外观永久保留。赛季制让每轮开荒都有新鲜感——新地图区域、新Boss、新剧情线。你的<b>永恒之地</b>（Eternaland）是私人永久世界，赛季中打造的家具和建筑蓝图可以带过去，不怕心血白费。整套循环围绕「<b>每赛季重新征服世界</b>」展开。",
+      "keywords": [
+        "赛季循环",
+        "开放探索",
+        "领地建造",
+        "永恒之地"
+      ]
+    }
+  },
+  "story": {
+    "overview": {
+      "tagline": "<b>星尘坠地，万物异变</b>——你是最后能驯服怪物的人，而怪物的背后还站着神。",
+      "paragraphs": [
+        "想象一个<b>被外星物质彻底改写的近未来地球</b>。名为「星尘」的东西从天而降，碰到什么就改变什么——人变成畸形怪物，动物长出不该有的器官，连土壤和水源都带上了腐蚀心智的毒性。<b>文明在几周内崩盘</b>，城市沦为废墟，幸存者龟缩在少数避难所里苟延残喘。但废墟之间也生长出一种<b>诡异的美</b>——荧光蘑菇照亮夜路，扭曲的巨树撑起半边天空，异变生物在月光下展现出近乎艺术品般的奇异形态。",
+        "你从一片荒野中醒来，记忆模糊，但身体里有一种<b>与星尘共鸣的力量</b>。世人叫你「蜉蝣」——短命却拥有特权：你能<b>驯服那些异变生物</b>，让它们成为你的伙伴而非天敌。沿着主线追查星尘的源头，你发现这不是一场随机天灾。<b>裂隙深处有意志</b>，有规划，有一套超越人类理解的逻辑在推动万物异化。一路上你遇到想利用星尘称霸的军阀、守护旧世界知识的科学家、以及已经开始<b>崇拜裂隙之物</b>的狂信者。",
+        "当你第一次站在<b>维度裂隙</b>前，看到那个不属于这个宇宙的巨大轮廓缓缓成型，你要问自己一个问题：<b>驯服怪物的力量本身，是恩赐还是陷阱</b>？那些跟随你的异种，究竟是在帮你对抗星尘——还是星尘留给你的诱饵？"
+      ]
+    },
+    "dims": [
+      {
+        "label": "时间",
+        "value": "<b>近未来末日</b>——星尘降临后的数年，文明刚刚崩溃，废墟中仍残留着现代科技的痕迹"
+      },
+      {
+        "label": "地点",
+        "value": "<b>256平方公里开放世界</b>——涵盖荒野平原、污染沼泽、废弃城市、高辐射禁区、维度裂隙入口等多种生态区域"
+      },
+      {
+        "label": "主角",
+        "value": "「<b>蜉蝣</b>」——星尘浩劫中的特殊觉醒者，能与异变生物共鸣并驯养它们，身份和记忆都是谜"
+      },
+      {
+        "label": "反派",
+        "value": "<b>裂隙深处的维度古神</b>+利用星尘的人类军阀+星尘狂信教团——三股势力各怀目的，互相牵制"
+      },
+      {
+        "label": "关系",
+        "value": "蜉蝣与<b>异种伙伴</b>的共生关系是核心纽带——你驯养它们、喂养它们、依赖它们战斗和劳作，但它们的本质是星尘造物"
+      },
+      {
+        "label": "动机",
+        "value": "追查<b>星尘降临的真相</b>、阻止更大规模的维度入侵、在末日中建立属于自己的家园和社群"
+      },
+      {
+        "label": "基调",
+        "value": "<b>克苏鲁式压抑与生存希望并存</b>——世界观底色恐怖诡谲，但玩家行为（建造、驯养、合作）不断注入暖色"
+      },
+      {
+        "label": "题眼",
+        "value": "「<b>驯服怪物的力量本身是恩赐还是陷阱</b>」——蜉蝣的能力来源成谜，与星尘的关系暧昧不明"
+      }
+    ]
+  },
+  "aesthetic": {
+    "summary": {
+      "label": "<b>克苏鲁废土</b>生存美学 Stardust Horror",
+      "definition": "<b>克苏鲁废土生存美学</b>，是把<b>洛夫克拉夫特式宇宙恐怖</b>（不可名状之物、理智侵蚀、维度裂隙）和<b>开放世界生存游戏</b>的基建美感硬碰硬地撞在一起。底色是末日后的荒凉——废弃建筑、锈蚀车辆、杂草丛生的公路；变异在于<b>星尘污染带来的生物异化</b>——肉质触手从墙壁长出、巨型古神的残骸横亘天际、异种生物兼具恐怖与奇异美感。色彩体系以<b>暗绿/深紫/锈红</b>为底，配合<b>星尘荧光蓝</b>作为统一的超自然标识色。整体调性介于<b>《湮灭》</b>的生物异变美学和<b>《辐射》</b>系列的废土生存质感之间。",
+      "evolution": "克苏鲁×末日生存的视觉融合经历了跨越40年的演化。<b>1980年代</b>，约翰·卡朋特的<b>《怪形》（1982）</b>定义了「外星物质寄生变异」的视觉恐怖标准；<b>1990年代</b>，<b>《辐射》系列（1997）</b>奠定了废土生存游戏的美术语言——锈蚀、改装、末日幽默；<b>2000年代</b>，<b>《潜行者》（2007）</b>将切尔诺贝利式辐射废土推到了沉浸式极致；<b>2010年代</b>，<b>《湮灭》（2018）</b>电影把「外来物质改写地球生态」渲染成了诗意恐怖；<b>2020年代</b>，网易星犀工作室在《七日世界》中完成了这条线的最新融合——将克苏鲁宇宙恐怖降维到可建造、可驯养的<b>多人生存框架</b>中，让「不可名状之物」从被观看的恐惧变成可互动的日常。",
+      "references": [
+        {
+          "type": "film",
+          "title": "怪形 The Thing",
+          "year": "1982",
+          "note": "<b>外星物质寄生变异</b>的视觉恐怖经典；异种生物设计的直接美学祖先"
+        },
+        {
+          "type": "game",
+          "title": "辐射 Fallout 系列",
+          "year": "1997",
+          "note": "<b>废土生存</b>美术语言的奠基者；锈蚀改装与末日基建美感的标准范式"
+        },
+        {
+          "type": "game",
+          "title": "潜行者 S.T.A.L.K.E.R.",
+          "year": "2007",
+          "note": "<b>辐射禁区沉浸感</b>的极致标杆；异常区域和变异生态的氛围营造"
+        },
+        {
+          "type": "film",
+          "title": "湮灭 Annihilation",
+          "year": "2018",
+          "note": "<b>外来物质改写地球生态</b>的诗意恐怖美学；生物异变兼具美感与不安"
+        },
+        {
+          "type": "game",
+          "title": "Rust",
+          "year": "2013",
+          "note": "<b>硬核多人生存</b>基建美学的参照；荒野求生+玩家建筑的视觉张力"
+        },
+        {
+          "type": "literature",
+          "title": "洛夫克拉夫特 克苏鲁神话",
+          "year": "1928",
+          "note": "<b>宇宙恐怖</b>文学体系的创始；不可名状之物与理智侵蚀的概念源头"
+        },
+        {
+          "type": "game",
+          "title": "方舟：生存进化 ARK",
+          "year": "2015",
+          "note": "<b>驯养异兽</b>+开放世界建造的品类先驱；生物收集驱动的生存循环模板"
+        }
+      ]
+    },
+    "scene": {
+      "title": "星尘侵蚀荒野 - 诡美与废土共生",
+      "value": "世界底色是<b>后工业废土</b>——锈蚀的高压电塔、杂草吞噬的高速公路、半截没入泥沼的卡车；在此之上叠加<b>星尘异变层</b>：荧光蓝色的菌丝覆盖整片森林地表、巨型肉质结构从地面拱起如同活体建筑、维度裂隙在天空撕开发着紫光的伤口。白天色调偏<b>灰绿色的压抑</b>，夜晚则被各种异变发光体照得诡美异常。天气系统加入了<b>星尘暴</b>——紫色尘雾笼罩一切，能见度骤降，侵蚀理智值。",
+      "anchorRule": [
+        1,
+        2,
+        4
+      ]
+    },
+    "costume": {
+      "title": "末日拼装甲 x 星尘有机改造",
+      "value": "玩家角色穿着<b>后末日拼装风</b>的服装——军用背心上缝着手工补丁、摩托护甲搭配自制面罩、实用主义至上。高级装备开始出现<b>星尘有机化</b>痕迹——甲片表面生长出荧光纹路、头盔镜片折射出异常色彩。异种伙伴造型是重头戏：每只Deviant都有<b>独特的畸变美学</b>——可能是长着蝴蝶翅膀的鹿、布满眼球的浮游水母、或者由齿轮和肉质融合的机械犬。",
+      "anchorRule": [
+        1,
+        3
+      ]
+    },
+    "ui": {
+      "title": "实用生存 HUD + 科幻数据面板",
+      "value": "界面风格走<b>科幻实用路线</b>——半透明深色底板配荧光蓝/绿色线条，呈现出「末日中的高科技残余」感。核心HUD显示<b>血量+饱食+理智值</b>三大生存指标；建造模式切换后UI变为<b>蓝图网格线</b>风格；地图界面强调等高线和污染区域标记。整体设计在信息密度和沉浸感之间取平衡——<b>不以花哨为目的</b>，保证生存信息一目了然。",
+      "anchorRule": [
+        5
+      ]
+    },
+    "symbol": {
+      "title": "星尘荧光 x 维度裂隙 x 异种之眼",
+      "value": "核心视觉符号：<b>星尘荧光蓝</b>（贯穿全游戏的超自然标识色——从UI到异种到环境光都使用这个色调）、<b>维度裂隙</b>（天空中撕裂的紫色伤口，古神降临的通道）、<b>异种之眼</b>（Deviant生物普遍拥有不对称或多余的眼睛，成为辨识符号）、<b>领地核心</b>（玩家文明重建的象征——从一块发光的基石生长出整座家园）。色彩母题为<b>荧光蓝/紫（星尘/异次元）vs 暖橙/篝火（人类文明/希望）</b>的对立。",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "promo": {
+      "title": "免费 3A 级生存 - 克苏鲁美学降维打击",
+      "value": "宣发核心策略是<b>「免费游戏+3A级视觉品质」的反差冲击</b>——预告片强调巨型Boss战和诡美世界观画面，让人难以相信这是F2P产品。Key Art必带<b>巨型异变生物剪影+渺小人类对峙</b>的构图；国际宣发走<b>Cthulhu meets survival crafting</b>的品类混搭标签；Steam页面用<b>恐怖氛围截图+建造系统截图</b>交替排列，覆盖「看恐怖来的」和「看建造来的」双受众。",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "rivals": [
+      {
+        "id": 312,
+        "reason": "<b>网易同门末世生存</b>旗舰——同公司同品类直接竞争，玩法框架和商业模式高度重合"
+      },
+      {
+        "id": 279,
+        "reason": "<b>硬核多人生存PvP标杆</b>——赛季Wipe机制的直接参照物，建造+射击+社交的核心循环对标"
+      },
+      {
+        "id": 260,
+        "reason": "<b>生存品类鼻祖</b>——怪物设计的诡异美学和理智值系统的直接灵感来源"
+      },
+      {
+        "id": 311,
+        "reason": "<b>同品类竞品沙盒生存</b>——手游端的主要对手，末日题材+建造+PvE的受众重合"
+      }
+    ]
+  },
+  "playerExp": {
+    "media": {
+      "memory": [
+        {
+          "text": "<b>异种生物设计</b>是全年最佳——每只Deviant都有独特的畸变美学，驯养它们的快感远超预期",
+          "src": "IGN 8/10评测",
+          "url": "https://www.ign.com/articles/once-human-review"
+        },
+        {
+          "text": "免费游戏做到<b>这种画面品质</b>令人难以置信，末日废土的光影氛围可以和付费3A比肩",
+          "src": "PC Gamer 84/100"
+        },
+        {
+          "text": "<b>建造系统</b>自由度极高，领地可以随时搬迁这一设计解决了生存游戏的老大难问题",
+          "src": "God is a Geek 8.5/10"
+        },
+        {
+          "text": "克苏鲁氛围和<b>维度Boss战</b>的规模感是同类游戏中少见的，多人协作击杀巨型Boss体验一流",
+          "src": "COGconnected 78/100"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "首周Steam同时在线<b>突破23万</b>，免费生存游戏中罕见的爆发力",
+          "src": "SteamDB"
+        },
+        {
+          "text": "<b>七大类近百种枪械蓝图</b>+配件改装系统让武器Build的深度远超同类F2P",
+          "src": "Eurogamer"
+        },
+        {
+          "text": "将<b>克苏鲁宇宙恐怖</b>真正融入可互动的生存世界——不是看恐怖电影，是住在恐怖电影里",
+          "src": "PC Gamer"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>赛季Wipe机制</b>争议极大——每6周重置等级和地图让部分玩家觉得建造毫无意义",
+          "src": "Steam社区/多媒体综合"
+        },
+        {
+          "text": "敌人<b>AI水平</b>偏低，普通怪物行为模式单一，削弱了末日生存的紧张感",
+          "src": "Eurogamer 3/5"
+        },
+        {
+          "text": "中后期<b>重复内容</b>明显——相似的据点清理任务和资源采集循环容易产生疲劳",
+          "src": "GamingBolt 6/10"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>赛季清档</b>导致的心理落差是最大流失原因——辛苦6周建的家一夜回到解放前",
+          "src": "多媒体综合"
+        },
+        {
+          "text": "PvE<b>缺乏持久性内容</b>——维度Boss打完后缺少等价的终局挑战，等新赛季成了唯一选择",
+          "src": "IGN"
+        }
+      ]
+    },
+    "community": {
+      "memory": [
+        {
+          "text": "「<b>网易终于做对了一款生存游戏</b>」——社区普遍认可其F2P诚意和美术品质",
+          "src": "Steam评论/Reddit"
+        },
+        {
+          "text": "<b>Deviant驯养</b>系统成为社区顶流内容——玩家争相展示稀有异种和创意搭配",
+          "src": "Reddit r/OnceHuman"
+        },
+        {
+          "text": "领地<b>建造大赛</b>成为每赛季社区保留节目——玩家用建造系统复刻现实建筑或创造奇幻城堡",
+          "src": "Steam社区/B站"
+        },
+        {
+          "text": "「<b>理智值</b>掉光时屏幕扭曲」的设计被社区做成各种鬼畜视频和梗图",
+          "src": "B站/Reddit"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "Steam<b>特别好评（87%）</b>——对于一款F2P网游来说这个好评率非常罕见",
+          "src": "Steam"
+        },
+        {
+          "text": "社区自发产出大量<b>Deviant图鉴</b>和驯养攻略，形成了类似宝可梦的收集文化",
+          "src": "Reddit/Wiki"
+        },
+        {
+          "text": "<b>领地搬迁功能</b>被社区誉为「生存游戏最伟大的发明」——彻底解决了选址焦虑",
+          "src": "Steam评论"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>赛季Wipe</b>公告引发社区地震——「kill the game」「unacceptable」刷屏",
+          "src": "Reddit r/OnceHuman"
+        },
+        {
+          "text": "服务器<b>稳定性</b>问题在高峰期频发，掉线导致丢失进度引发大量投诉",
+          "src": "Steam社区"
+        },
+        {
+          "text": "部分玩家认为<b>后期内容</b>匮乏——Boss打完、蓝图集齐后缺乏继续登录的理由",
+          "src": "TapTap/Steam"
+        }
+      ],
+      "churn": [
+        {
+          "text": "每次<b>赛季清档</b>后在线人数明显下滑——部分建造型玩家直接离开等永久服",
+          "src": "SteamDB数据"
+        },
+        {
+          "text": "「<b>肝完六周又要从头来</b>」的疲劳感让非硬核玩家逐渐放弃",
+          "src": "Reddit/TapTap"
+        }
+      ]
+    },
+    "biliVideos": [
+      {
+        "title": "300小时深度体验《七日世界》究竟怎么样？",
+        "bvid": "BV1xKt5eVEz3",
+        "views": "52万"
+      },
+      {
+        "title": "【七日世界】4K 最高画质 全流程通关攻略 开放世界末日生存游戏 公测",
+        "bvid": "BV16b421n7Gw",
+        "views": "35万"
+      },
+      {
+        "title": "《七日世界》新手入坑保姆级攻略",
+        "bvid": "BV1XSKkz6E2E",
+        "views": "19万"
+      },
+      {
+        "title": "开放世界丧尸生存游戏《Once Human》将于1月6号开启CBT测试",
+        "bvid": "BV1Jg411n7mb",
+        "views": "19万"
+      },
+      {
+        "title": "小宇《七日世界》画质拉满全流程",
+        "bvid": "BV1ym421G7j3",
+        "views": "9万"
+      }
+    ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页 — 截图 + Header + 背景",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/2139460/Once_Human/"
+          },
+          {
+            "title": "官方网站 — 宣传图 + KV + 世界观介绍",
+            "source": "官网",
+            "url": "https://www.oncehuman.game/"
+          },
+          {
+            "title": "Epic Games Store 商店页",
+            "source": "Epic",
+            "url": "https://store.epicgames.com/p/once-human-f58e76"
+          },
+          {
+            "title": "TapTap 游戏页",
+            "source": "TapTap",
+            "url": "https://www.taptap.cn/app/284259"
+          },
+          {
+            "title": "X/Twitter 官方账号 @OnceHumanGame",
+            "source": "X/Twitter",
+            "url": "https://x.com/OnceHumanGame"
+          }
+        ]
+      },
+      {
+        "cat": "角色 / 概念设定",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Once Human concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Once%20Human%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Once Human game art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Once%20Human%20game%20art"
+          },
+          {
+            "title": "IGDB 游戏页 — 评分 + 媒体素材",
+            "source": "IGDB",
+            "url": "https://www.igdb.com/games/once-human"
+          }
+        ]
+      },
+      {
+        "cat": "宣传片",
+        "links": [
+          {
+            "title": "YouTube 官方频道 — 预告片 + 赛季PV",
+            "source": "YouTube",
+            "url": "https://www.youtube.com/@OnceHuman"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「post apocalyptic Cthulhu environment」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=post%20apocalyptic%20Cthulhu%20environment"
+          },
+          {
+            "title": "Pinterest 搜索「cosmic horror survival game art」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=cosmic%20horror%20survival%20game%20art"
+          }
+        ]
+      },
+      {
+        "cat": "生物设计 / Creature Design",
+        "links": [
+          {
+            "title": "ArtStation 搜索「mutant creature design」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=mutant%20creature%20design"
+          },
+          {
+            "title": "Pinterest 搜索「Lovecraftian creature concept」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Lovecraftian%20creature%20concept"
+          }
+        ]
+      },
+      {
+        "cat": "废土环境 / Post-Apocalyptic",
+        "links": [
+          {
+            "title": "ArtStation 搜索「overgrown apocalypse environment」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=overgrown%20apocalypse%20environment"
+          },
+          {
+            "title": "Pinterest 搜索「abandoned city nature reclaim」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=abandoned%20city%20nature%20reclaim"
+          }
+        ]
+      },
+      {
+        "cat": "UI / 界面设计",
+        "links": [
+          {
+            "title": "Dribbble 搜索「survival game HUD sci-fi」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/survival-game-HUD-sci-fi"
+          },
+          {
+            "title": "Pinterest 搜索「sci-fi survival game UI」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=sci-fi%20survival%20game%20UI"
+          }
+        ]
+      },
+      {
+        "cat": "建造 / 基地设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「survival base building concept」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=survival%20base%20building%20concept"
+          },
+          {
+            "title": "Pinterest 搜索「post apocalyptic shelter design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=post%20apocalyptic%20shelter%20design"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -5018,5 +5018,93 @@
     "lastUpdate": "2026-06-01",
     "slug": "dont-starve-newhome",
     "url": "https://www.taptap.cn/app/194039"
+  },
+  {
+    "id": 312,
+    "name": "LifeAfter",
+    "nameCN": "明日之后",
+    "alias": "LifeAfter,明日之后,Life After",
+    "icon": "🧟",
+    "company": "网易",
+    "category": "已发售",
+    "region": "中国",
+    "platforms": [
+      "iOS",
+      "Android",
+      "PC"
+    ],
+    "model": "免费+内购",
+    "genre": "Survival",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2018",
+    "releaseDate": "2018.11",
+    "desc": "网易末世生存旗舰手游。写实 3D 开放世界，尸潮入侵、基地建造、PVE+PVP、采集制造、多人联机。国内生存手游品类绝对头部，长线运营超 7 年。",
+    "features": [
+      "末世生存",
+      "开放世界",
+      "基地建造",
+      "尸潮入侵",
+      "多人联机",
+      "长线运营"
+    ],
+    "changes": [
+      {
+        "date": "2018-11",
+        "text": "全平台公测"
+      },
+      {
+        "date": "2025",
+        "text": "持续大版本更新，累计超 20 个赛季"
+      }
+    ],
+    "lastUpdate": "2026-06-01",
+    "slug": "lifeafter",
+    "url": "https://mrzh.163.com/"
+  },
+  {
+    "id": 313,
+    "name": "Once Human",
+    "nameCN": "七日世界",
+    "alias": "Once Human,七日世界",
+    "icon": "👁",
+    "company": "网易",
+    "category": "已发售",
+    "region": "国际",
+    "platforms": [
+      "PC",
+      "iOS",
+      "Android"
+    ],
+    "model": "免费+内购",
+    "genre": "Survival",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024",
+    "releaseDate": "2024.7.9",
+    "desc": "网易次世代克苏鲁末日生存 RPG。开放世界多人联机，空间裂隙、异种生物驯养、巨型古神 Boss。将克苏鲁神话深度融入末日设定，强调压抑氛围与诡谲光影。Steam 特别好评。",
+    "features": [
+      "克苏鲁末日",
+      "开放世界",
+      "多人联机",
+      "异种驯养",
+      "古神 Boss",
+      "Steam 特别好评"
+    ],
+    "changes": [
+      {
+        "date": "2024-07-09",
+        "text": "PC 全球上线（Steam/Epic）"
+      },
+      {
+        "date": "2025",
+        "text": "iOS/Android 移动版上线"
+      }
+    ],
+    "lastUpdate": "2026-06-01",
+    "slug": "once-human",
+    "url": "https://www.oncehuman.game/"
   }
 ]
