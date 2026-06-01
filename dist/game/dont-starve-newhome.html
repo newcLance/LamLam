@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>饥困荒野 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<a href="../index.html" id="back-btn"
+   class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-2/90 backdrop-blur-sm border border-white/[.08] hover:bg-surface-3 hover:border-white/[.15] text-neutral-300 hover:text-white text-sm font-medium transition-all shadow-lg shadow-black/30">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  返回
+  <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
+</a>
+<script>
+(function(){
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable]')) return;
+    // Don't navigate if lightbox is open (Alpine handles that)
+    try { if (window.Alpine && Alpine.store('lightbox') && Alpine.store('lightbox').open) return; } catch(x){}
+    window.location.href = '../index.html';
+  });
+})();
+</script>
+
+
+<div id="sec-header" class="relative w-full overflow-hidden">
+  
+  
+  <div class="absolute inset-0 z-0 bg-gradient-to-br from-surface-1 to-surface-0"></div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">饥困荒野</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">猪人工作室 / 腾讯 · Survival · 未定（2026 测试中）</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">Klei 正版授权、以《饥荒：联机版》为基础开发的全新沙盒生存手游。猪人工作室开发，腾讯发行。保留经典饥荒沙盒生存核心玩法，新增家园系统、特质 BD 系统、元素战斗机制和多人联机社交。TapTap 6.9 分，预约超 208 万。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">Klei 正版授权</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">沙盒生存手游</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">多人联机</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">家园系统</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">特质 BD 养成</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">元素战斗机制</span>
+        
+      </div>
+      
+    </div>
+
+    
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      <a href="#sec-assets"
+         class="group flex items-center gap-2 px-5 py-3 rounded bg-white text-black font-bold hover:bg-neutral-200 text-sm transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
+
+  
+  
+  
+  
+
+  
+
+  
+  
+  <section id="sec-worldview" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      游戏世界观
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">BACKGROUND</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">游戏背景</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">永恒领域：暗影与生机并存的平行荒野</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你被一股不可名状的力量拽入<b>永恒领域</b>——一个半噩梦般的平行世界。这片荒野表面生机盎然，地下却爬满腐朽的暗影根须。时间在这里以扭曲的节律流动，四季更替无常，日落之后<b>黑暗本身就是猎手</b>。曾经的暗影王座统治者麦克斯韦尔已被推翻，夜魔查理接管了王座，而你——一个从现实世界坠入此地的普通人，必须在饥饿、疯狂与死亡的三重夹缝中找到活路。四大原住民势力（浣猫人、企鸥人、东方鹤人、鼹鼠冒险团）各据一方，它们的领地里藏着古老谜团与求生资源。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">永恒领域</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">暗影荒野</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">麦克斯韦尔</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">四大势力</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">平行世界</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">MAIN STORY</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">主线剧情</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">隐士的遗言：新家园中的流浪与觉醒</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你在废墟中捡到一张泛黄的纸条，那是<b>隐士威尔逊</b>留下的记录——他在永恒领域流浪了四百七十七天，见证了空间机器的爆炸，经历了反复的死亡与疯狂。纸条上写着一个关键信息：在暗影力量无法触及的缝隙里，存在一个<b>相对稳定的安全区域</b>，他称之为「新家园」。你循着线索找到了它，一片不受暗影直接控制的小绿洲。但平静只是表象——四大势力的文化冲突、远古织影者残留的魔法余波、以及查理从王座上投下的窥视目光，都在暗示这片安宁随时可能崩塌。你的任务不只是活下去，而是揭开永恒领域存在的真正原因。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">威尔逊</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">新家园</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">暗影王座</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">远古织影者</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">流浪求生</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">COMBAT</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">战斗系统</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">七元素战场：冰火草雷交织的生存博弈</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">永恒领域的威胁远不止野兽。你面对的每一个敌人都拥有<b>元素属性与弱点</b>——冰、火、草、雷、光、暗、物理七种伤害类型对应着沙漠、海洋、草原、森林、月亮、暗影六大群系的生态特征。你需要锻造对应元素的武器，为护甲镶嵌抗性词条，甚至驯养能释放元素技能的<b>战斗宠物</b>来协同作战。高等级副本中，首领会展开元素护盾并进入霸体状态，单一属性的蛮力毫无意义——只有精确匹配弱点、合理切换装备，才能在困难与噩梦难度下存活。每一场战斗都是一次即时的策略判断，而不是无脑挥砍。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">七元素伤害</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">属性克制</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">战斗宠物</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">元素护盾</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">策略战斗</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">CORE LOOP</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">核心循环</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">从废墟到家园：沙盒生存的无限循环</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你的日常是一条<b>探索—采集—制造—扩建</b>的生存链。白天深入随机生成的沙盒世界搜刮资源、完成任务、结识散落各地的经典角色并解锁他们的特质技能；夜幕降临前必须赶回家园——这里没有黑暗侵蚀，仓库能<b>永久保鲜食物</b>，睡眠不会因饥饿而掉血。家园等级的提升逐步开放坐骑驯养、高难度副本和装饰系统，而每一次等级突破都需要从沙盒世界带回特定材料。特质系统取代了传统的固定角色选择，你可以自由组合主动技能与被动增益，用十六费的技能点构建专属的生存流派。抽卡获得的武器蓝图和宠物扩展了战斗边界，但核心始终是：活过今夜，然后比昨天走得更远。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">沙盒循环</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">家园系统</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">特质技能树</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">永久保鲜</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">自由搭配</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-5 text-neutral-500">IP / STORY</div>
+  
+
+  
+  
+  <div class="mb-6 pb-6 border-b border-white/[.06]">
+    
+    <div class="text-[15px] md:text-base font-semibold text-white/90 leading-relaxed mb-5 italic tracking-wide">
+      “你被丢进一片<b>万物皆可杀你</b>的异世界荒野，唯一的庇护所是一个前任囚徒留下的废弃营地——而它正在被<b>六种势力同时觊觎</b>。”
+    </div>
+    
+    
+    <div class="space-y-4">
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">一台来历不明的收音机在深夜发出沙哑的低语，你鬼使神差地按下了开关。下一秒，<b>暗影之手</b>从地板裂缝中伸出，将你拖入名为永恒领域的平行世界。这里有熟悉的日升月落和四季轮转，也有完全陌生的规则：理智值归零时你会看见不存在的怪物，而那些怪物<b>真的会咬你</b>；饥饿不仅仅是胃在叫，它会直接从你的<b>生命值</b>上扣除代价。你唯一知道的是，一个叫威尔逊的科学家曾在这里活了四百多天，然后消失了。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">威尔逊留下了一张手绘地图和一间摇摇欲坠的安全屋。你把它修缮成「新家园」，一个暗影力量暂时无法渗透的<b>避风港</b>。但外面的世界不会因为你有了屋顶就变得温柔——森林群系里的草元素蜥蜴成群结队，沙漠深处的火焰巨人能在<b>三秒内融化你的全套护甲</b>，而雷暴平原上空劈下的每一道闪电都有可能点燃你身上最后一把火炬。你开始学着像永恒领域的原住民一样思考：锻造<b>元素武器</b>、驯养战斗宠物、在七种伤害类型之间寻找克制链。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">四大原住民势力对你的态度暧昧不清：浣猫人想拉你入伙，企鸥人视你为贱民，鹤人长老说你身上有「被流放者的气息」，鼹鼠冒险团只关心你背包里有没有<b>值钱的矿石</b>。夜魔查理坐在暗影王座上微笑，她似乎在等你做出某个选择。而你还没搞清楚最基本的问题——<b>永恒领域到底为什么需要不断吞噬现实世界的活人</b>？</p>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-3 text-neutral-500">DETAILS</div>
+  
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>无确定纪年</b>的扭曲时间流。永恒领域的时间与现实世界不同步，麦克斯韦尔曾问「外面是什么年代了」。你感受到的四季更替是被人为压缩的循环——每一轮春夏秋冬可能只对应现实中的几天，也可能是<b>几十年</b>。威尔逊的纸条上记录了四百七十七天，但没人知道那在现实中是多久。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地点</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">永恒领域，一个<b>半噩梦般的平行荒野世界</b>。地表由六大群系构成——海洋、沙漠、草原、森林、月亮辐射区和暗影污染区，每个群系对应不同的元素生态。地下是远古遗迹和噩梦空间。你的「新家园」位于<b>暗影力量的盲区</b>，是整个世界中极少数不会在夜间生成敌对生物的安全地带。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">主角</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">你——一个被收音机低语引诱、从现实世界坠入永恒领域的<b>普通人</b>。没有固定职业，没有先天超能力，但你可以通过结识威尔逊、薇洛、沃尔夫冈等散落各地的经典角色，解锁并自由组合他们的<b>特质技能</b>。十六费的技能点上限意味着你必须做出取舍：是成为全能的庸才，还是某一领域的极端专家。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">反派</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>夜魔查理</b>是当前暗影王座的统治者，她曾是麦克斯韦尔的助手，在被暗影力量吞噬后一分为二——白天是温柔的人类面孔，夜晚化为致命的暗影形态。她击败了远古织影者、放逐了麦克斯韦尔，却没有摧毁永恒领域的<b>吞噬机制</b>。她的动机至今成谜：是在保护被困者，还是在喂养王座？</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">你与每个阵营的关系都从<b>零信任</b>开始。浣猫人的民主制让你有机会通过贡献获得市民身份；企鸥人的种姓社会把外来者自动归入贱民阶层；鹤人长老会审视你是否值得他们的救赎；鼹鼠冒险团只认利益。经典角色散落在各势力领地中，<b>提升好感度</b>才能解锁特质——但高好感并不等于忠诚，他们各自有不愿被触碰的秘密。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">动机</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">最初你只想<b>活过今夜</b>。但随着家园扩建、势力接触加深，你意识到永恒领域不断从现实世界拉人并非偶然——暗影王座需要「燃料」，而每一个坠入此地的灵魂都是它运转的<b>能量来源</b>。你的动机从求生逐渐变为追问：能不能切断这条吞噬链？代价是什么？如果王座停转，你还回得去吗？</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">基调</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>黑色童话</b>风格的荒诞求生。画面是蒂姆·波顿式的哥特线条，配乐是不协和的手风琴与班卓琴。恐惧不来自血腥，而来自<b>理智崩溃时视野边缘蠕动的黑影</b>。幽默感以冷笑话和角色自嘲的形式穿插在绝境之中——你在暴风雪里饿得发慌，而身边的牛群正悠闲地嚼草，完全无视你的存在。</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">题眼</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">如果<b>回家的代价</b>是让另一个人永远留在这里，你还走吗？永恒领域的底层逻辑是零和博弈——王座必须有人坐，暗影必须有人喂。威尔逊逃出去了，但查理被困住了；麦克斯韦尔获得自由，代价是威尔逊<b>坐上了他的王座</b>。这个循环有没有第三种结局，取决于你愿不愿意相信废墟之下还藏着一条没人走过的路。</div>
+  </div>
+  
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+
+    
+    
+    
+    
+    <div class="rounded-xl border border-white/[.08] bg-white/[.02] p-6 mb-8">
+      
+      <div class="flex items-baseline gap-3 mb-5 pb-5 border-b border-white/[.06]">
+        <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">AESTHETIC LABEL</span>
+        <span class="text-[20px] md:text-[22px] font-extrabold text-white tracking-tight"><b>哥特手绘荒野</b>在手机上重生的生存童话</span>
+      </div>
+      
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q1 · 这是什么美学</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">80% <b>Tim Burton式哥特手绘暗黑童话</b> × 20% <b>手游碎片化RPG视觉体系</b>。饥困荒野继承了饥荒系列标志性的粗犷黑色线条、低饱和度配色和夸张不协调的人物比例，整个世界仿佛一本被翻烂的维多利亚时代暗黑绘本。角色拥有空洞的眼窝、巨大的头颅和纤细的肢体，场景以墨绿、暗紫、焦褐为主色调，藤蔓缠绕的神庙与满月下扭曲的枯树构成核心视觉语言。移植到手游后，新增了<b>元素战斗特效光芒</b>（冰、火、草、雷、光、暗七色）和抽卡武器的星级光效，RPG化的伤害数字与技能释放动画叠加在手绘底色之上，形成一种哥特荒诞与手游华丽并存的独特张力。</p>
+        </div>
+        
+
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q2 · 共识如何发展</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">2013年<b>《饥荒》PC版</b>以Edward Gorey式交叉排线与Tim Burton式剪影人物开创了独立游戏哥特手绘美学标杆。2016年<b>《饥荒：联机版》</b>将单人暗黑绘本扩展为多人共享的荒野剧场，角色皮肤系统首次引入装饰性视觉消费。2021年<b>《饥荒：新家园》海外测试</b>启动，猪人工作室在保留手绘底色的前提下加入家园建造的暖色调室内场景和元素战斗的粒子特效。2024年<b>国内多轮内测</b>中，抽卡武器带来了星级光效和雕纹强化的RPG视觉层，社区争议倒逼美学回调。2025年<b>正式定名「饥困荒野」</b>公测，2.0版本削弱氪金感，武器宠物改为活跃度兑换，视觉上回归手绘质朴，同时保留了UGC奇点工厂的创作自由度。</p>
+        </div>
+        
+      </div>
+
+      
+      <div class="mt-6 pt-6 border-t border-white/[.06]">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-3">Q3 · 借鉴谱系（值得美术设计参考的游戏 / 电影 / 动漫 / 剧集）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                剪刀手爱德华
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1990</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>苍白孤独主角与哥特庄园</b>——饥荒角色空洞眼窝与暗色调场景的直接视觉源头</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              ART
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                Edward Gorey插画集
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1953</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>交叉排线与维多利亚暗黑童趣</b>——饥荒系列粗犷线条和荒诞叙事的美学根基</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                圣诞夜惊魂
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1993</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>细长肢体剪影与暗黑节庆美学</b>——饥荒角色夸张比例和季节事件设计的参照</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                地狱边境 Limbo
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2010</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>极简黑白剪影与无言叙事</b>——同属哥特独立游戏美学谱系的平行探索</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              动画
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                鬼妈妈 Coraline
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2009</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>定格动画的暗黑童话世界观</b>——纽扣眼睛与缝合美学对饥荒怪物设计的隐性影响</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                空洞骑士 Hollow Knight
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2017</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>手绘暗色调与昆虫哥特</b>——独立游戏中手绘暗黑美学的当代延续</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              漫画
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                噬魂师 Soul Eater
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2004</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>Tim Burton式角色造型与哥特漫画线条</b>——日式哥特对饥荒角色设计语言的跨文化呼应</div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">墨色荒野与元素光焰的拉锯</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">饥困荒野的场景在<b>低饱和手绘底色</b>上叠加了元素战斗的高光层。永秋家园是暖橙色调的安全港，对比沙盒荒野中墨绿、暗紫、焦褐三色交织的危险地带，形成了「回家-出征」的视觉节奏。满月升起时天空泛出冷蓝，影怪从地面涌现带着暗元素紫光；沙漠群系笼罩火元素橙红热浪，森林群系弥漫草元素的病态翠绿。七种元素伤害各自拥有粒子特效色——<b>雷击的电弧白</b>、冰冻的霜蓝、火焰的焦橙，这些高饱和闪光刺穿手绘底色的一瞬间，正是端游哥特美学与手游RPG视觉最剧烈的碰撞点。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">维多利亚剪影遇上星级光效</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">角色延续了饥荒系列<b>夸张头身比与空洞眼窝</b>的标志性剪影——巨大的头颅、纤细的四肢、粗黑线条勾勒的轮廓，在任何背景下一眼可辨。威尔逊的尖发、温蒂的苍白面孔、沃尔夫冈的膨胀肌肉，每个角色关闭UI后仅凭剪影即可识别。手游新增了<b>时装皮肤与武器外观的星级分层</b>：三星武器朴素如原版手搓工具，五星武器则环绕元素光环和浮动符文。鹅卵石甲保留了原版粗糙的灰色质感，而黄金甲、活木甲则加入了金属反光与纹理细节，在哥特手绘的底子上架设了一层RPG品阶的视觉阶梯。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">羊皮卷轴上的手游操控</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI界面将饥荒的<b>手绘羊皮纸质感</b>延伸到了手游的全部交互层。背包格子像缝在粗布袋上的口袋，制作菜单展开如卷轴，地图使用泛黄纸张与墨迹标注。血量、饥饿、精神三维表盘沿用经典心形、胃袋、大脑图标，手游新增的<b>元素属性面板和雕纹镶嵌界面</b>则用齿轮装饰边框和铜质铆钉风格，将RPG信息量嵌入哥特工坊的视觉叙事中。虚拟摇杆和技能按钮被设计为石质与木质纹理，尽可能消解触屏操控对沉浸感的破坏，使界面本身成为荒野世界的一部分而非悬浮于其上的外来物。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">暗影与火光的永恒对峙</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">饥荒系列的核心视觉符号是<b>黑暗中的火光</b>——篝火是生存的第一法则，火焰的橙色圆圈与周围无尽黑暗的边界线构成了整个游戏最具辨识度的画面。饥困荒野将这一符号扩展到元素维度：七种元素各自拥有光源色，雷电的白、冰霜的蓝、暗影的紫，都是火光符号的变体。另一组核心符号是<b>齿轮与暗影</b>——发条生物的铜色齿轮代表秩序与科技，暗影生物的紫黑触手代表混沌与疯狂，两者在手游的元素克制体系中被进一步强化为对立阵营的视觉标识，贯穿从怪物设计到UI装饰的全部层面。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">绘本翻页与荒野邀约</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">饥困荒野的宣发视觉延续了饥荒系列<b>暗黑绘本式的叙事海报</b>传统——角色站在枯树与满月构成的剪影前景中，标题字体使用粗糙的手写体，整体画面如同一本哥特童话的封面。手游宣发新增了<b>元素武器展示和家园生活场景</b>的双线叙事：一面是荒野中元素光芒四射的BOSS战画面，强调战斗爽感；另一面是家园中暖色灯光下布置花园、喂养宠物的田园景象，传递轻松社交的情绪。两条视觉线在「白天建设，夜晚生存」的核心循环中交汇，形成饥荒IP移植手游后特有的宣发张力。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'bili' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1wsLz6WEDg/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">“死”了一年后，饥困荒野删除了抽卡，删除了命作，终于从icu抢救成功！那这次测试他的体验怎么样呢？</span>
+          <span class="text-xs text-neutral-500 shrink-0">14万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1oH7mzsEUi/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">饥困荒野（饥荒新家）焕新测试实况 EP1 发现小切</span>
+          <span class="text-xs text-neutral-500 shrink-0">1万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1ZeLE6dEQv/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">饥荒手游发展到哪一步了 饥困荒野</span>
+          <span class="text-xs text-neutral-500 shrink-0">9万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1QBVp6QExE/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">饥困荒野手游四大贼肝的系统玩法详解！武器熟练度也太绝了！</span>
+          <span class="text-xs text-neutral-500 shrink-0">5580播放</span>
+        </a>
+        
+      </div>
+      
+
+      
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>获得<b>Klei正版授权</b>的饥荒手游，以饥荒联机版为核心玩法基础，保留了昼夜循环、三维管理（饥饿/精神/生命）等经典设定，原汁原味的沙盒生存体验搬上手机
+    
+      <a href="https://www.taptap.cn/app/194039" target="_blank" rel="noopener" class="src-link">— TapTap 官方介绍页 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>原名饥荒新家园，后更名为<b>饥困荒野</b>，由猪人工作室（盛趣游戏）开发、腾讯发行，TapTap预约突破211万，是近年预约量最高的生存手游之一
+    
+      <a href="https://www.taptap.cn/app/194039" target="_blank" rel="noopener" class="src-link">— TapTap 预约页 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>沙盒世界<b>随机生成地形</b>，移植了端游的四季变换、Boss战、洞穴探索等核心内容，同时新增了浣猫鹤、企鹅等原创地形和生物
+    
+      <a href="https://new.qq.com/rain/a/20260531A07WOX00" target="_blank" rel="noopener" class="src-link">— 游戏那点事 媒体报道 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>2026年开启<b>限量删档测试</b>，经历了饱荒测试、终极测试、焕新测试等多轮迭代，目前TapTap评分6.9、好游快爆7.4
+    
+      <a href="https://new.qq.com/rain/a/20260531A07WOX00" target="_blank" rel="noopener" class="src-link">— 游戏那点事 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>新增<b>一键回家园</b>功能，大世界遇到危险可传送回安全区，重构了生存玩法逻辑，新手不再频繁开局暴毙
+    
+      <a href="https://new.qq.com/rain/a/20260531A07WOX00" target="_blank" rel="noopener" class="src-link">— 游戏那点事 媒体评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>联机体验流畅，<b>马戏团大逃杀模式</b>成为最大惊喜，饥荒里玩吃鸡的新鲜感让不少测试玩家直呼过瘾
+    
+      <a href="https://m.taptap.cn/moment/805488983621501926" target="_blank" rel="noopener" class="src-link">— TapTap 玩家评测 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>特质技能树系统支持多种<b>BD搭配</b>，原作角色变为NPC可学习专属特质，策略深度超出预期
+    
+      <a href="https://m.taptap.cn/moment/805488983621501926" target="_blank" rel="noopener" class="src-link">— TapTap 玩家讨论 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>官方宣布<b>武器池和宠物池取消抽卡</b>，改为兑换商店免费获取，打破了腾讯运营的刻板印象，社区一致好评
+    
+      <a href="https://new.qq.com/rain/a/20260519A0006H00" target="_blank" rel="noopener" class="src-link">— 腾讯新闻 游戏报道 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>早期版本<b>抽卡98元/抽、80发保底</b>，武器宠物混池，金色坐骑200抽不保底，氪金压力极大
+    
+      <a href="http://m.taptap.com/app/194039/review" target="_blank" rel="noopener" class="src-link">— TapTap 玩家评价 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>Bug数量较多，家园布局<b>拖拽不跟手</b>、移动轮盘灵敏度差、吃东西被移动打断、私聊无红点提示等问题影响体验
+    
+      <a href="https://www.taptap.cn/moment/689268973530776631" target="_blank" rel="noopener" class="src-link">— TapTap 反馈帖 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>马戏团PVP模式<b>装备加成全部带入</b>，氪金玩家碾压白嫖，竞技公平性遭到质疑
+    
+      <a href="http://m.taptap.com/app/194039/review" target="_blank" rel="noopener" class="src-link">— TapTap 评价区 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>日常副本<b>每天只能打两次</b>，坐骑培养、护甲升级、冒险团捐赠等系统肝度叠加，学生和上班族时间撑不住
+    
+      <a href="http://m.taptap.com/app/194039/review" target="_blank" rel="noopener" class="src-link">— TapTap 玩家吐槽 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>被批评<b>网游化严重</b>，家园养成、日活任务、战令会员等系统堆砌，距离饥荒单机沙盒的初心越来越远
+    
+      <a href="https://www.taptap.cn/app/194039/topic?page=46" target="_blank" rel="noopener" class="src-link">— TapTap 论坛讨论 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>饥智团测试<b>只招主播不招普通玩家</b>，申请表要求填粉丝数和创作链接，社区指责官方割裂玩家群体
+    
+      <a href="https://www.taptap.cn/moment/802929122308262292" target="_blank" rel="noopener" class="src-link">— TapTap 论坛 / 腾讯频道 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>饥荒IP十年积淀，<b>Klei亲自授权</b>让老玩家放下戒心，联机版的经典怪物、四季机制、Boss战在手机上终于能玩到了
+    
+      <a href="https://www.taptap.cn/app/194039" target="_blank" rel="noopener" class="src-link">— TapTap 评测区 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>预约期间<b>突破211万</b>，TapTap关注超220万，说明社区对饥荒移动端的期待值极高
+    
+      <a href="https://www.taptap.cn/app/194039" target="_blank" rel="noopener" class="src-link">— TapTap 预约数据 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>官方B站账号通过<b>SanBTI人格测试</b>等梗图活动重新激活社区，评论区热度迅速回暖
+    
+      <a href="https://new.qq.com/rain/a/20260531A07WOX00" target="_blank" rel="noopener" class="src-link">— 游戏那点事 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>开发者日志系列<b>累计7期</b>，制作组正面回应商业化争议，策划面对面节目宣布砍掉抽卡系统获得社区掌声
+    
+      <a href="https://space.bilibili.com/1307689118/" target="_blank" rel="noopener" class="src-link">— B站 饥困荒野官方账号 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>玩家自发在TapTap论坛分享<b>家园建造作品</b>，筑梦设计师活动鼓励截图投票，建家党社区活跃度很高
+    
+      <a href="https://www.taptap.cn/app/194039/topic?page=46" target="_blank" rel="noopener" class="src-link">— TapTap 社区活动 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>联机房间支持<b>升级到8人共享房</b>，房主离线访客也能继续玩，社交体验被社区称赞为手游生存品类天花板
+    
+      <a href="https://space.bilibili.com/1307689118/" target="_blank" rel="noopener" class="src-link">— B站 开发者日志第七期 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>密友系统和<b>亲密度特质</b>加深了社交羁绊，广场寄养坐骑、好友协赠等设计让老玩家觉得不再孤单
+    
+      <a href="https://space.bilibili.com/1307689118/" target="_blank" rel="noopener" class="src-link">— B站 开发者日志 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>老饥荒玩家吐槽<b>原版角色全变NPC</b>，威尔逊、薇洛等经典可玩角色被替换成自创人物，情怀大打折扣
+    
+      <a href="https://www.233leyuan.com/game-user-comment/679b462ed9d30000647ea0a6" target="_blank" rel="noopener" class="src-link">— 233乐园 玩家评论 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>社区戏称游戏为<b>饥荒传奇</b>，认为特权会员、战令小连招、首充等网游套路与饥荒气质格格不入
+    
+      <a href="http://m.taptap.com/app/194039/review" target="_blank" rel="noopener" class="src-link">— TapTap 评价区 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>成就奖励只有<b>5个抽卡资源</b>，领完无补充渠道，日活奖励皮肤还能重复获取无补偿，白嫖玩家体验极差
+    
+      <a href="http://m.taptap.com/app/194039/review" target="_blank" rel="noopener" class="src-link">— TapTap 评价区 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>腾讯频道玩家直言<b>先签协议再给资格</b>，主播需要发视频吹一番才能拿到测试码，普通玩家被排斥在外
+    
+      <a href="https://pd.qq.com/g/6s7g98qd46/post/B_a77ef169cb3c08001441152186981359830X60" target="_blank" rel="noopener" class="src-link">— 腾讯频道 饥困荒野板块 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>有玩家总结<b>卖数值的游戏活不久</b>，氪佬碾压导致平民流失，没有基本盘后氪佬也会退，形成恶性循环
+    
+      <a href="https://www.taptap.cn/app/194039/topic?page=46" target="_blank" rel="noopener" class="src-link">— TapTap 论坛热帖 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">饥荒 <span class="text-xs text-neutral-500 font-normal ml-1">Klei Entertainment</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1"><b>同IP端游原作</b>——饥荒联机版是饥困荒野的美学基底与核心视觉资产来源，哥特手绘风格、角色剪影、三维表盘等全部继承自此</div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">我的世界 <span class="text-xs text-neutral-500 font-normal ml-1">Mojang Studios</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1"><b>同为生存沙盒手游化标杆</b>——Minecraft以像素体素美学证明了端游IP手游化可以保留核心视觉身份，与饥困荒野的手绘移植路径形成对照</div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <a href="clair-obscur-expedition-33.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">光暗交响：远征33 <span class="text-xs text-neutral-500 font-normal ml-1">Sandfall Interactive</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1"><b>同为F2P手游+元素战斗+探索向</b>——原神的七元素体系和抽卡武器视觉层级是饥困荒野元素战斗与星级光效的最近参照</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">星露谷物语 <span class="text-xs text-neutral-500 font-normal ml-1">ConcernedApe</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1"><b>同为像素/手绘田园+生存经营</b>——星露谷物语的家园建造与社交种田美学是饥困荒野家园系统暖色调场景的风格对标</div>
+          </div>
+        </div>
+        
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        
+        
+        
+        <button onclick="window.open('../compare.html?ids=311,108','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 2 款游戏
+        </button>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    
+    
+    <div x-show="assetTab === 'official'" x-cloak x-ref="panelOfficial">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">商店页+官网</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.taptap.cn/app/194039" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">TapTap 饥困荒野 官方页面</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">TapTap</span>
+          </a>
+          
+          <a href="https://www.klei.com/games/dont-starve" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Klei Entertainment 饥荒官网</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Klei Official</span>
+          </a>
+          
+          <a href="https://space.bilibili.com/1307689118/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">B站 饥困荒野官方账号主页</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">bilibili</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色/概念设定图</h4>
+        <div class="space-y-1">
+          
+          <a href="https://dontstarve.fandom.com/zh/wiki/%E9%9F%A6%E6%96%AF/%E7%94%BB%E5%BB%8A" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">饥荒Wiki 角色画廊（含Newhome概念图）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Fandom Wiki</span>
+          </a>
+          
+          <a href="https://forums.kleientertainment.com/forums/topic/153714-all-about-mysterious-dont-starve-pc-cddvd-version-unshown-early-concept-arts-assets-designs-and-more/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Klei论坛 早期概念设定图合集（DVD版未公开素材）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Klei Forums</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">宣传片/KV</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.bilibili.com/video/BV1Wx4y1G7Yq/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">饥荒新家园 终极测试PV首曝（B站33万播放）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">bilibili</span>
+          </a>
+          
+          <a href="https://space.bilibili.com/1307689118/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">饥困荒野 焕新测试开发者日志第七期</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">bilibili</span>
+          </a>
+          
+          <a href="https://space.bilibili.com/1307689118/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">饥荒新家园 手游预约PV — 再一起努力活到天明</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">bilibili</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelOfficial.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+    
+    
+    <div x-show="assetTab === 'inspiration'" x-cloak x-ref="panelInspiration">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">概念美术</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=don%27t%20starve%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Don't Starve Concept Art</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=gothic%20hand%20drawn%20game%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Gothic Hand Drawn Game Art</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色设计</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=tim%20burton%20style%20character%20design" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Tim Burton Style Character Design</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=don%27t%20starve%20character%20fan%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Don't Starve Character Fan Art</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">UI界面</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=survival%20game%20UI%20dark%20theme" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Survival Game UI Dark Theme</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=gothic%20game%20interface%20design" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Gothic Game Interface Design</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">场景氛围</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=dark%20wilderness%20environment%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Dark Wilderness Environment Art</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=don%27t%20starve%20biome%20scene" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Don't Starve Biome Scene</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">镜头语言/电影参考</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=edward%20gorey%20illustration%20style" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Edward Gorey Illustration Style</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=tim%20burton%20animation%20storyboard" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索 Tim Burton Animation Storyboard</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelInspiration.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-worldview',   label:'游戏世界观'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+
+// Track visit for "近期热门" module
+(function() {
+  var slug = 'dont-starve-newhome';
+  var key = 'game_visits';
+  var dedup_key = 'game_visit_dedup';
+  var now = Date.now();
+
+  // Dedup: same game only counts once within 30 minutes
+  var dedup = JSON.parse(localStorage.getItem(dedup_key) || '{}');
+  if (dedup[slug] && (now - dedup[slug]) < 30 * 60 * 1000) return;
+  dedup[slug] = now;
+  // Clean dedup entries older than 24 hours
+  Object.keys(dedup).forEach(function(k) {
+    if (now - dedup[k] > 24 * 60 * 60 * 1000) delete dedup[k];
+  });
+  localStorage.setItem(dedup_key, JSON.stringify(dedup));
+
+  // Record visit
+  var visits = JSON.parse(localStorage.getItem(key) || '{}');
+  visits[slug] = (visits[slug] || 0) + 1;
+  localStorage.setItem(key, JSON.stringify(visits));
+})();
+</script>
+
+</body>
+</html>

@@ -4971,5 +4971,52 @@
     "lastUpdate": "2026-05-21",
     "slug": "resident-evil-requiem",
     "url": "https://www.residentevil.com/requiem/"
+  },
+  {
+    "id": 311,
+    "name": "Don't Starve: Newhome",
+    "nameCN": "饥困荒野",
+    "alias": "饥困荒野,饥荒新家园,Don't Starve New Home,Don't Starve Newhome,饥荒手游",
+    "icon": "🔥",
+    "company": "猪人工作室 / 腾讯",
+    "category": "未上线",
+    "region": "中国",
+    "platforms": [
+      "iOS",
+      "Android"
+    ],
+    "model": "免费+内购",
+    "genre": "Survival",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024",
+    "releaseDate": "未定（2026 测试中）",
+    "desc": "Klei 正版授权、以《饥荒：联机版》为基础开发的全新沙盒生存手游。猪人工作室开发，腾讯发行。保留经典饥荒沙盒生存核心玩法，新增家园系统、特质 BD 系统、元素战斗机制和多人联机社交。TapTap 6.9 分，预约超 208 万。",
+    "features": [
+      "Klei 正版授权",
+      "沙盒生存手游",
+      "多人联机",
+      "家园系统",
+      "特质 BD 养成",
+      "元素战斗机制"
+    ],
+    "changes": [
+      {
+        "date": "2024-01",
+        "text": "通过游戏审批变更（原名：饥荒：新家园）"
+      },
+      {
+        "date": "2025-05",
+        "text": "开启「饥智团」创作者招募 + 限量删档测试"
+      },
+      {
+        "date": "2026-05-14",
+        "text": "新一轮限量删档测试"
+      }
+    ],
+    "lastUpdate": "2026-06-01",
+    "slug": "dont-starve-newhome",
+    "url": "https://www.taptap.cn/app/194039"
   }
 ]
