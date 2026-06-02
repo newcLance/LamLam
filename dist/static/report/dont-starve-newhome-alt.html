@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>饥困荒野 — 公测冲刺与口碑修复</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'surface-0': '#0c0c0c',
+        'surface-1': '#141414',
+        'surface-2': '#1c1c1c',
+        'surface-3': '#252525',
+        'bdr': 'rgba(255,255,255,0.06)'
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background:#0c0c0c; color:#e5e5e5; }
+  * { scrollbar-width: thin; scrollbar-color:#333 transparent; }
+  .page-content h2 { color:#fff; }
+  .page-content h3 { font-size:16px; font-weight:700; color:#fff; margin:28px 0 12px; }
+  .page-content h4 { font-size:14px; font-weight:600; color:#d4d4d4; margin:20px 0 8px; }
+  .page-content p { font-size:14px; line-height:1.8; color:#a3a3a3; margin:0 0 12px; }
+  .page-content ul { padding-left:20px; margin:0 0 16px; }
+  .page-content li { font-size:13px; line-height:1.7; color:#a3a3a3; margin-bottom:5px; }
+  .page-content li::marker { color:#525252; }
+  .page-content b, .page-content strong { color:#fff; font-weight:600; }
+  .highlight { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:16px; margin:16px 0; }
+  .tag { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:600; background:rgba(255,255,255,0.06); color:#737373; border:1px solid rgba(255,255,255,0.06); margin-right:4px; text-decoration:none; }
+  table { width:100%; border-collapse:collapse; margin:12px 0 20px; font-size:13px; }
+  th { text-align:left; padding:8px 12px; font-size:11px; font-weight:600; color:#737373; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  td { padding:9px 12px; color:#a3a3a3; border-bottom:1px solid rgba(255,255,255,0.04); vertical-align:top; }
+  .verdict { background:#141414; border-left:3px solid #fff; padding:16px 20px; margin:20px 0; border-radius:0 6px 6px 0; }
+  .verdict p { color:#d4d4d4; }
+  .creative-card { background:#141414; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; }
+  .creative-card h5 { font-size:15px; font-weight:700; color:#fff; margin:0 0 8px; }
+  .risk-card { background:#141414; border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:20px; margin:16px 0; border-left:3px solid #fff; }
+  .quote { color:#d4d4d4; font-size:18px; line-height:1.6; font-weight:700; letter-spacing:-0.02em; }
+  .muted { color:#737373 !important; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../dont-starve-newhome.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">饥困荒野 — 公测冲刺与口碑修复<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-06-02 · v1</span></h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="dont-starve-newhome.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
+      <a href="dont-starve-newhome-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">运营阶段</a>
+      <a href="dont-starve-newhome-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">阵地定制</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="dont-starve-newhome-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">当前运营阶段诊断</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">目标用户行为路径</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">阶段核心符号「饥活了」</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">内容节奏策略</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">社区信任修复策略</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">内容排期表</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个阶段性创意</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">转化漏斗设计</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">终审意见</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+    <!-- PAGE 0: 当前运营阶段诊断 -->
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold mb-6">当前运营阶段诊断</h2>
+      <div class="verdict"><p><b>核心判断</b>：饥困荒野正处于<b>公测前最后冲刺期</b>——但它不是一个"即将上线的新游"，而是一个"经历了四次濒死体验、刚从 ICU 抢救出来的产品"。TapTap 评分从 9.0 跌至 6.9，本质是三年信任透支的集中算账。当前首要任务不是获取新用户，而是修复存量用户的信任基础。</p></div>
+
+      <h3>阶段定性：不是冷启动，是信任重建</h3>
+      <p>常规公测前冲刺的逻辑是"曝光→兴趣→预约→下载"的漏斗扩张。但饥困荒野的情况完全不同——<b>1000 万预约量</b>说明曝光和兴趣已经足够，问题出在信任环节。三年间四轮删档测试、一次 iOS 下架、抽卡争议、画风争议、Bug 争议层层叠加，把 TapTap 评分从 9.0 打到了 6.9。<a href="https://www.taptap.cn/app/194039" target="_blank" rel="noopener" class="tag">TapTap 6.9分 ↗</a></p>
+      <p><b>So what</b>：公测前的 6-8 周不是做声量的窗口，是做信任修复的窗口。如果带着 6.9 分进公测，首日就会面临"下载→看评分→犹豫→流失"的致命链路。</p>
+
+      <h3>评分崩塌根因分析</h3>
+      <table>
+        <thead><tr><th>根因层级</th><th>具体问题</th><th>用户原话</th><th>当前状态</th></tr></thead>
+        <tbody>
+          <tr><td><b>商业化错位</b></td><td>武器+宠物混合抽卡，满星保底 2000 元+</td><td>"饥荒传奇"、"披着 IP 皮的氪金缝合怪"</td><td>4.28 已宣布取消抽卡</td></tr>
+          <tr><td><b>核心体验偏离</b></td><td>日常任务繁重、RPG养成替代生存核心</td><td>"一股网游的感觉，完全没有生存感"</td><td>焕新测试有改善，尚需验证</td></tr>
+          <tr><td><b>技术不稳定</b></td><td>虚幻引擎卡顿、洞穴时间错乱、骑乘闪退</td><td>"Bug 数量感人"</td><td>持续修复中</td></tr>
+          <tr><td><b>IP 情怀伤害</b></td><td>原版角色变 NPC、画风差距大</td><td>"不是饥荒的饥荒"</td><td>特质系统已部分缓解</td></tr>
+          <tr><td><b>运营信任崩塌</b></td><td>多次跳票、iOS 下架数月沉默</td><td>"怎么还没出？跑路了？"</td><td>「饥活了」节目开始修复</td></tr>
+        </tbody>
+      </table>
+
+      <h3>竞品对比：同阶段产品表现</h3>
+      <table>
+        <thead><tr><th>产品</th><th>公测前评分</th><th>公测首日表现</th><th>对照意义</th></tr></thead>
+        <tbody>
+          <tr><td><b>洛克王国:世界</b></td><td>TapTap 8.5+</td><td>13 小时 1500 万新增，双榜第一</td><td>"不卖数值"承诺兑现→口碑引爆</td></tr>
+          <tr><td><b>七日世界</b></td><td>Steam 77%（中性）</td><td>Steam 峰值 23.1 万→一年衰减 95%</td><td>开局可以，留存是真正战场</td></tr>
+          <tr><td><b>明日之后（2018）</b></td><td>新品类无对标</td><td>DAU 峰值 693 万</td><td>品类红利期已过，不可复制</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p class="quote">带着 6.9 分进公测 = 让 1000 万预约用户在点击"下载"之前先看到一面差评墙。</p>
+        <p>目标：公测前将 TapTap 评分修复至 <b>7.5+</b>（可见改善），公测后 30 天内冲击 <b>8.0+</b>。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 1: 目标用户行为路径 -->
+    <div x-show="page === 1" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold mb-6">目标用户行为路径</h2>
+      <div class="verdict"><p><b>核心判断</b>：饥困荒野的用户不是从零开始的新用户，而是经历过"期待→失望→观望→再判断"循环的老预约用户。转化链路不是传统的"曝光→预约→下载"，而是<b>「预约→测试→流失→召回→公测」</b>的修复型路径。</p></div>
+
+      <h3>用户分层：三类核心人群</h3>
+      <table>
+        <thead><tr><th>用户层</th><th>规模估算</th><th>当前状态</th><th>核心诉求</th></tr></thead>
+        <tbody>
+          <tr><td><b>受伤老预约</b></td><td>~300 万</td><td>参加过测试、打过差评、仍关注但不信任</td><td>"证明你真的改了，我才回来"</td></tr>
+          <tr><td><b>佛系等待者</b></td><td>~500 万</td><td>预约后从未参加测试、偶尔刷到消息</td><td>"出了告诉我就行，别再跳票"</td></tr>
+          <tr><td><b>IP 新触达</b></td><td>~200 万</td><td>饥荒端游玩家/被 UGC 或社交吸引的新用户</td><td>"手机上能玩饥荒了？好不好玩？"</td></tr>
+        </tbody>
+      </table>
+
+      <h3>完整转化链路设计</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>用户心理</th><th>运营动作</th><th>关键指标</th></tr></thead>
+        <tbody>
+          <tr><td><b>1. 召回唤醒</b><br><span class="muted">公测前 6 周</span></td><td>"他们又搞什么？"</td><td>「饥活了」系列节目持续输出改动证据</td><td>老用户回访 TapTap 论坛比例</td></tr>
+          <tr><td><b>2. 信任验证</b><br><span class="muted">公测前 4 周</span></td><td>"取消抽卡是真的吗？"</td><td>开放公开测试服、KOL 实机体验直播</td><td>TapTap 新增正面评价数</td></tr>
+          <tr><td><b>3. 预期重建</b><br><span class="muted">公测前 2 周</span></td><td>"这次可能真的不一样了"</td><td>UGC 编辑器开放预览、公测日期锁定</td><td>预约量增速、社区讨论热度</td></tr>
+          <tr><td><b>4. 公测引爆</b><br><span class="muted">公测日</span></td><td>"冲了！"</td><td>全渠道开服、KOL 首发内容矩阵</td><td>首日下载量、DAU</td></tr>
+          <tr><td><b>5. 留存巩固</b><br><span class="muted">公测后 7-30 天</span></td><td>"能玩多久？"</td><td>赛季内容更新、UGC 生态启动、社交黏性构建</td><td>7 日/30 日留存率</td></tr>
+        </tbody>
+      </table>
+
+      <h3>关键断点与应对</h3>
+      <ul>
+        <li><b>断点 1：召回→验证</b>——用户回来看了但不信。应对：不是官方自说自话，而是让"饥智团"创作者出第三方验证视频</li>
+        <li><b>断点 2：验证→预期重建</b>——用户信了但没紧迫感。应对：限时福利绑定公测日期，错过不补</li>
+        <li><b>断点 3：公测→留存</b>——首日体验好但后续无事可做。应对：公测首周每日解锁新内容（"7 天 7 惊喜"），30 天内启动首个赛季</li>
+      </ul>
+
+      <div class="highlight">
+        <p><b>核心洞察</b>：1000 万预约量不是资产，是<b>负债</b>——因为每一个预约用户都带着"你欠我一个好游戏"的期望。修复型产品的转化链路，第一步不是"让人知道"，而是"让人重新相信"。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 2: 阶段核心符号「饥活了」 -->
+    <div x-show="page === 2" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold mb-6">阶段核心符号：「饥活了」</h2>
+      <div class="verdict"><p><b>核心判断</b>：「饥活了」不仅是一档开发者节目的名字，它应该被提升为<b>整个公测冲刺期的情感符号和信任重建标志</b>。三个字浓缩了两层含义——"饥荒活过来了"（产品重生）+"我们饥着活下来了"（玩家坚持等待的价值被认可）。</p></div>
+
+      <h3>为什么「饥活了」是最强信任符号</h3>
+      <p>在手游市场，"取消抽卡"这类改动如果只以公告形式发布，用户反应是"说得好听，做到再说"。但当它被包装成一个<b>系列叙事</b>——制作人面对镜头立军令状、一期一期展示实际改动、玩家在弹幕里从质疑变为认可——这个过程本身就是最有力的信任证据。</p>
+      <p>「饥活了」三个字的语义场：</p>
+      <ul>
+        <li><b>产品叙事</b>："这个游戏在 ICU 躺了一年，现在活过来了"——承认过去的问题，不回避</li>
+        <li><b>玩家叙事</b>："我等了三年，它终于饥活了"——认可老玩家的等待成本</li>
+        <li><b>IP 叙事</b>：饥荒的核心就是"Don't Starve"——活下来本身就是最大的胜利</li>
+      </ul>
+
+      <h3>符号应用体系</h3>
+      <table>
+        <thead><tr><th>应用场景</th><th>表达方式</th><th>情感效果</th></tr></thead>
+        <tbody>
+          <tr><td><b>开发者节目</b></td><td>「饥活了」第 N 期——制作人面对面</td><td>透明、坦诚、有人格</td></tr>
+          <tr><td><b>社区回帖</b></td><td>官方回复签名"我们饥活了"</td><td>不是冷冰冰的客服，是"同一战线"</td></tr>
+          <tr><td><b>公测倒计时</b></td><td>"饥活了 X 天"——每日解锁一个改动细节</td><td>紧迫感 + 信息递增</td></tr>
+          <tr><td><b>玩家 UGC 标签</b></td><td>#饥活了挑战 ——晒出你在饥荒世界活了多少天</td><td>社区归属感、共同记忆</td></tr>
+          <tr><td><b>公测首屏</b></td><td>游戏启动画面出现"饥活了"三字然后碎裂，露出新世界</td><td>仪式感、与过去告别</td></tr>
+        </tbody>
+      </table>
+
+      <h3>与竞品差异化</h3>
+      <p>洛克王国:世界用"情怀+不氪"打情感牌，七日世界用"UGC+私服"打自由牌。饥困荒野的差异化不应该是功能点，而是<b>态度</b>——"我们知道我们搞砸了，但我们活过来了，这次不一样"。这种坦诚本身在中国手游市场极其稀缺，反而构成独特竞争力。</p>
+
+      <div class="highlight">
+        <p class="quote">「饥活了」= 产品的重生宣言 + 玩家等待的价值认证 + IP"活下去"精神的当代表达。</p>
+        <p>所有公测前传播内容，统一锚定这三个字。不是口号，是承诺的持续兑现。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 3: 内容节奏策略 -->
+    <div x-show="page === 3" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
+      <h2 class="text-2xl font-bold mb-6">内容节奏策略</h2>
+      <div class="verdict"><p><b>核心判断</b>：公测前到公测后的内容投放必须遵循<b>三段式节奏</b>——「饥活了」系列信任修复（6 周）→ UGC 预热期（3 周）→ 公测引爆期（首周+后续）。节奏错位是最大风险：过早引爆 = 信任未修复就上战场；过晚引爆 = 竞品截流暑期档。</p></div>
+
+      <h3>第一段：信任修复期（公测前 6-4 周）</h3>
+      <p><b>核心目标</b>：让"受伤老预约"群体从"不信"变为"半信半疑"</p>
+      <table>
+        <thead><tr><th>周次</th><th>「饥活了」主题</th><th>核心证据</th><th>平台分发</th></tr></thead>
+        <tbody>
+          <tr><td>W-6</td><td>商业化重塑</td><td>抽卡移除前后对比实机演示</td><td>B站长视频+TapTap 开发者日志</td></tr>
+          <tr><td>W-5</td><td>生存回归</td><td>删除日常打卡任务、强化野外探索</td><td>B站+抖音对比切片</td></tr>
+          <tr><td>W-4</td><td>Bug 清零行动</td><td>Top 20 Bug 修复清单 + 技术负责人出镜</td><td>TapTap 帖子+B站短视频</td></tr>
+        </tbody>
+      </table>
+
+      <h3>第二段：UGC 预热期（公测前 3-1 周）</h3>
+      <p><b>核心目标</b>：让"佛系等待者"产生紧迫感，让"IP 新触达"产生好奇心</p>
+      <table>
+        <thead><tr><th>周次</th><th>内容主题</th><th>核心动作</th><th>平台分发</th></tr></thead>
+        <tbody>
+          <tr><td>W-3</td><td>奇点工厂首秀</td><td>UGC 编辑器实机演示+创作者作品首曝</td><td>B站+抖音+小红书</td></tr>
+          <tr><td>W-2</td><td>饥智团创作者日</td><td>头部创作者直播制作关卡全流程</td><td>B站直播+抖音切片+微博话题</td></tr>
+          <tr><td>W-1</td><td>公测倒计时启动</td><td>"饥活了 7 天"每日解锁+预下载开放</td><td>全平台联动</td></tr>
+        </tbody>
+      </table>
+
+      <h3>第三段：公测引爆期（首周 + Day8-30）</h3>
+      <p><b>核心目标</b>：首日 DAU 峰值 + 7 日留存不低于 40%</p>
+      <table>
+        <thead><tr><th>时间</th><th>内容主题</th><th>核心动作</th><th>预期效果</th></tr></thead>
+        <tbody>
+          <tr><td>Day 1</td><td>开荒直播日</td><td>100+ KOL 同步开荒直播、全渠道推送</td><td>首日下载量峰值</td></tr>
+          <tr><td>Day 2-3</td><td>新手引导优化验证</td><td>KOL 体验视频聚焦"新手友好"</td><td>拉动犹豫用户转化</td></tr>
+          <tr><td>Day 4-7</td><td>7 天 7 惊喜</td><td>每日解锁一个隐藏内容（彩蛋/限定活动）</td><td>维持连续登录</td></tr>
+          <tr><td>Day 8-14</td><td>联机社交周</td><td>8 人房主题活动+好友邀请奖励</td><td>社交裂变拉新</td></tr>
+          <tr><td>Day 15-30</td><td>首赛季预告+UGC 上线</td><td>绿洲之诗赛季启动+奇点工厂正式开放</td><td>30日留存锚定</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>节奏铁律</b>：信任未修复不打声量，声量未蓄足不开公测。三段之间<b>不可压缩</b>——如果发现信任修复效果不达预期（TapTap 新增好评率 < 60%），宁可推迟 UGC 预热一周，也不要带着未修复的口碑强行引爆。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 4: 社区信任修复策略 -->
+    <div x-show="page === 4" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
+      <h2 class="text-2xl font-bold mb-6">社区信任修复策略</h2>
+      <div class="verdict"><p><b>核心判断</b>：从 6.9 修复到 8.0+ 不能靠"删差评"或"水军刷分"，只有一条路——<b>透明沟通 × 实际改动验证 × KOL 共创三管齐下</b>。本质是让用户亲眼看到变化、亲手验证变化、亲口传播变化。</p></div>
+
+      <h3>策略一：透明沟通——把改动摊开给所有人看</h3>
+      <ul>
+        <li><b>「改了什么」清单</b>：发布一份完整的"过去 vs 现在"对照表，覆盖商业化、日常肝度、Bug 修复三大板块，用可验证的数据说话（如"保底费用从 2000 元→0 元""日常任务从 12 个→4 个"）</li>
+        <li><b>制作人周报</b>：每周一篇 TapTap 开发者日志，格式固定——"本周修了什么 / 下周要改什么 / 我们知道还有什么问题"。<b>不回避问题</b>是建立信任的第一步</li>
+        <li><b>直播军令状兑现</b>：制作人承诺的"死一次发一次福利"直播不能断，这是唯一让玩家觉得"这个人是真的在乎"的渠道</li>
+      </ul>
+
+      <h3>策略二：实际改动验证——让玩家亲手摸到变化</h3>
+      <ul>
+        <li><b>扩大公开测试规模</b>：饥智团目前只招 KOL/创作者，社区已经不满（"只招主播不招普通玩家"）。建议公测前 3 周开放一轮<b>全量公测预览服</b>，让所有老预约用户可以上手验证</li>
+        <li><b>评分引导但不操控</b>：公测预览服体验结束后，弹出"你觉得现在如何？"的引导评价入口——注意是引导到 TapTap 评价页，<b>不过滤差评</b>。真诚比好看重要</li>
+        <li><b>差评响应机制</b>：TapTap 每条 1-3 星评价 24 小时内由运营人员逐条回复（不是模板回复），说明对应问题的解决进展或排期</li>
+      </ul>
+
+      <h3>策略三：KOL 共创——让第三方替你说话</h3>
+      <ul>
+        <li><b>选人标准</b>：不选粉丝最多的，选<b>最早骂过这款游戏的 KOL</b>——他们的"真香"最有说服力</li>
+        <li><b>内容形式</b>：不是"恰饭安利"，而是"回来复查"——标题格式："我半年前给饥困荒野打了 3 分，现在重新打开看看……"</li>
+        <li><b>不审稿</b>：给 KOL 完整游戏体验权限，不审稿不删负面，只要求如实呈现。<b>真实的 7 分比虚假的 10 分有用一万倍</b></li>
+        <li><b>饥智团扩招</b>：将创作者门槛从"粉丝数"改为"饥荒系列游玩时长"——<b>真正的老饥荒玩家比流量主播更有社区说服力</b></li>
+      </ul>
+
+      <h3>评分修复路径预估</h3>
+      <table>
+        <thead><tr><th>时间节点</th><th>目标评分</th><th>驱动因素</th></tr></thead>
+        <tbody>
+          <tr><td>当前</td><td>6.9</td><td>存量差评主导</td></tr>
+          <tr><td>公测前 4 周</td><td>7.2</td><td>「饥活了」系列+制作人周报积累正面讨论</td></tr>
+          <tr><td>公测前 1 周</td><td>7.5</td><td>公测预览服体验后新增正面评价</td></tr>
+          <tr><td>公测后 7 天</td><td>7.8</td><td>公测首周体验超预期+新用户涌入稀释差评</td></tr>
+          <tr><td>公测后 30 天</td><td>8.0+</td><td>首赛季+UGC 生态验证长线价值</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>底线原则</b>：信任修复没有快捷键。任何试图"操控评分"的行为（刷好评、删差评、给好评奖励）一旦被社区发现，将导致<b>不可逆的二次信任崩塌</b>。唯一的路是——做到了就说，没做到就承认，正在做就公开进度。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 5: 内容排期表 -->
+    <div x-show="page === 5" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
+      <h2 class="text-2xl font-bold mb-6">内容排期表</h2>
+      <div class="verdict"><p><b>假设公测时间为 2026 年 7 月中旬</b>（暑期档开启），以下排期从 2026-06-02 起到公测后 30 天，覆盖完整生命周期。如公测日调整，整体平移即可。</p></div>
+
+      <h3>信任修复期 · W-6 到 W-4（6/2—6/22）</h3>
+      <table>
+        <thead><tr><th>日期</th><th>内容</th><th>平台</th><th>负责方</th></tr></thead>
+        <tbody>
+          <tr><td>6/2</td><td>「饥活了」第 8 期：商业化重塑深度解读</td><td>B站+TapTap</td><td>品牌组</td></tr>
+          <tr><td>6/5</td><td>制作人周报 #1：本周修复 Bug 清单</td><td>TapTap 开发者日志</td><td>制作组</td></tr>
+          <tr><td>6/9</td><td>「饥活了」第 9 期：生存体验回归实测</td><td>B站+抖音切片</td><td>品牌组</td></tr>
+          <tr><td>6/12</td><td>制作人周报 #2 + 直播（军令状第 2 场）</td><td>B站直播+TapTap</td><td>制作组</td></tr>
+          <tr><td>6/16</td><td>「饥活了」第 10 期：Bug 清零进度透明汇报</td><td>B站+TapTap</td><td>技术组</td></tr>
+          <tr><td>6/19</td><td>KOL"回来复查"系列第 1 波（5 位）发布</td><td>B站+抖音+小红书</td><td>KOL 合作组</td></tr>
+          <tr><td>6/22</td><td>制作人周报 #3 + 阶段性总结帖</td><td>TapTap</td><td>制作组</td></tr>
+        </tbody>
+      </table>
+
+      <h3>UGC 预热期 · W-3 到 W-1（6/23—7/13）</h3>
+      <table>
+        <thead><tr><th>日期</th><th>内容</th><th>平台</th><th>负责方</th></tr></thead>
+        <tbody>
+          <tr><td>6/23</td><td>奇点工厂首支官方演示视频</td><td>B站+抖音+微博</td><td>品牌组+UGC 团队</td></tr>
+          <tr><td>6/26</td><td>饥智团创作者作品首批展示（10 个关卡）</td><td>TapTap+B站</td><td>UGC 团队</td></tr>
+          <tr><td>6/30</td><td>公测预览服开放（全量老预约用户可进）</td><td>全渠道推送</td><td>运营组</td></tr>
+          <tr><td>7/3</td><td>KOL"回来复查"第 2 波（10 位）+ 直播</td><td>B站直播+抖音+微博</td><td>KOL 合作组</td></tr>
+          <tr><td>7/7</td><td>公测日期正式官宣 + 预下载开放</td><td>全渠道+应用商店</td><td>发行组</td></tr>
+          <tr><td>7/8-13</td><td>"饥活了倒计时 7 天"每日解锁内容</td><td>TapTap+B站+微博+抖音</td><td>品牌组</td></tr>
+        </tbody>
+      </table>
+
+      <h3>公测引爆期 · Day 1-30（7/14—8/13）</h3>
+      <table>
+        <thead><tr><th>日期</th><th>内容</th><th>平台</th><th>预期效果</th></tr></thead>
+        <tbody>
+          <tr><td>7/14（Day1）</td><td>公测开服 + 100+ KOL 同步开荒直播</td><td>全渠道</td><td>首日下载峰值</td></tr>
+          <tr><td>7/15-16</td><td>新手攻略矩阵（图文+视频+直播）</td><td>B站+小红书+TapTap</td><td>降低新手流失</td></tr>
+          <tr><td>7/17-20</td><td>"7 天 7 惊喜"隐藏内容逐日解锁</td><td>游戏内+社媒</td><td>连续登录率</td></tr>
+          <tr><td>7/21-27</td><td>联机社交周 + 好友邀请活动</td><td>游戏内+微信+QQ</td><td>社交裂变拉新</td></tr>
+          <tr><td>7/28</td><td>"绿洲之诗"首赛季正式启动</td><td>全渠道</td><td>长线内容预期</td></tr>
+          <tr><td>8/4</td><td>奇点工厂正式开放 + UGC 创作大赛</td><td>全渠道</td><td>用户创造内容生态</td></tr>
+          <tr><td>8/13</td><td>公测满月庆 + 30 天数据回顾</td><td>B站+TapTap</td><td>口碑沉淀</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>排期弹性规则</b>：信任修复期是"质量优先于速度"——如果某期「饥活了」的改动展示效果不达预期（弹幕正面率 < 50%），暂停一周，补做一期专项回应，而不是按时间推进到 UGC 预热。节奏为内容服务，不为日历服务。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 6: 三个阶段性创意 -->
+    <div x-show="page === 6" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
+      <h2 class="text-2xl font-bold mb-6">三个阶段性创意</h2>
+      <div class="verdict"><p><b>核心原则</b>：每个阶段的创意必须服务于该阶段的唯一目标——公测前是修复信任，公测首日是引爆下载，公测后是巩固留存。创意可以有趣，但不能脱离阶段目标自嗨。</p></div>
+
+      <div class="creative-card">
+        <h5>创意一：「饥荒验尸报告」—— 公测前口碑修复</h5>
+        <p><b>概念</b>：制作一份正式的"尸检报告"风格文档——对过去三年"死掉的"旧版本做一次完整解剖。用饥荒世界的视觉语言（羊皮纸+墨迹+手绘插图）呈现每个"死因"（抽卡→致死、日常肝度→窒息、Bug→失血过多），每个死因旁边标注"治愈方案"和"疗效验证"。</p>
+        <p><b>形式</b>：B站 3 分钟动画短片（饥荒手绘风格动画）+ TapTap 长图文互动帖 + 抖音 30 秒切片</p>
+        <p><b>核心情绪</b>：自嘲+坦诚+幽默。"我们知道我们差点死了"比"我们很优秀"有说服力一万倍。</p>
+        <p><b>CTA</b>：短片结尾——"验尸结论：患者已脱离危险期。复诊时间：公测日。"</p>
+        <p class="muted">预期效果：B站弹幕"真诚"刷屏、TapTap 帖子引发"真的改了吗"讨论（有讨论就是成功，沉默才是死亡）</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意二：「477 天回忆录」—— 公测首日引爆</h5>
+        <p><b>概念</b>：以威尔逊在永恒领域生存 477 天的故事为线索，制作一支公测日发布的品牌短片。画面从"第 1 天"的孤独求生开始，快进到暴风雪、Boss 战、建造家园，最后在"第 478 天"——画面从威尔逊的视角切换到<b>玩家手中的手机屏幕</b>，"属于你的第一天开始了"。</p>
+        <p><b>形式</b>：90 秒品牌 CG 短片（Tim Burton 风格动画）+ 全渠道投放</p>
+        <p><b>核心情绪</b>：从孤独到共鸣，从 NPC 的故事过渡到"你的故事"。IP 情怀的终极表达。</p>
+        <p><b>CTA</b>：最后 5 秒——下载链接 + "Don't Starve. Don't Wait."</p>
+        <p class="muted">预期效果：B站播放 500 万+、微博热搜"饥荒手游"、朋友圈自发传播</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意三：「我的荒野，你来定义」—— 公测后留存巩固</h5>
+        <p><b>概念</b>：以奇点工厂 UGC 编辑器为核心，发起"首届饥困荒野关卡设计大赛"。参赛者用编辑器制作自己的关卡，投稿后由全服玩家试玩投票。获胜作品将被<b>官方收录为永久关卡</b>，创作者获得游戏内署名+独占称号。</p>
+        <p><b>形式</b>：为期 30 天的线上赛事 + 每周精选展示（B站+抖音）+ 最终颁奖直播</p>
+        <p><b>核心情绪</b>：主人翁感。"这不是他们的游戏，是我们的游戏。"——当玩家成为内容创造者，留存就从"消费内容"变成了"投资自己的作品"。</p>
+        <p><b>CTA</b>：每条展示视频末尾——"下载饥困荒野，你也能创造自己的荒野"</p>
+        <p class="muted">预期效果：UGC 内容产出 1000+、30日留存提升 5-8 个百分点、形成自循环内容生态</p>
+      </div>
+    </div>
+
+    <!-- PAGE 7: 转化漏斗设计 -->
+    <div x-show="page === 7" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
+      <h2 class="text-2xl font-bold mb-6">转化漏斗设计</h2>
+      <div class="verdict"><p><b>核心判断</b>：1000 万预约量是漏斗顶部的存量资产，但预约→下载的转化率行业均值仅 30-40%。饥困荒野因信任危机可能更低。每个环节都需要专门的策略来减少流失。</p></div>
+
+      <h3>全链路漏斗与环节策略</h3>
+      <table>
+        <thead><tr><th>环节</th><th>行业均值</th><th>饥困荒野风险点</th><th>专项策略</th><th>目标值</th></tr></thead>
+        <tbody>
+          <tr><td><b>预约→下载</b></td><td>30-40%</td><td>老用户信任低，可能预约了不下</td><td>公测前预览服体验重建信心+首日专属奖励绑定预约身份</td><td>45%</td></tr>
+          <tr><td><b>下载→完成新手引导</b></td><td>70-80%</td><td>虚幻引擎包体大、首次加载慢</td><td>边下边玩技术+新手引导压缩至 5 分钟以内+跳过选项</td><td>75%</td></tr>
+          <tr><td><b>新手引导→首日留存</b></td><td>40-50%</td><td>早期"上班感"劝退+Bug 体验差</td><td>首日"自由探索模式"不锁日常+首日限定彩蛋刺激探索</td><td>50%</td></tr>
+          <tr><td><b>首日→7 日留存</b></td><td>20-30%</td><td>内容消耗过快/社交链未建立</td><td>"7天7惊喜"每日解锁+8 人房邀请机制+导师系统匹配</td><td>35%</td></tr>
+          <tr><td><b>7 日→30 日留存</b></td><td>10-15%</td><td>赛季内容等待期空窗</td><td>首赛季 Day14 启动+UGC 内容持续补充+亲密关系系统深化</td><td>20%</td></tr>
+          <tr><td><b>30 日→首次付费</b></td><td>5-8%</td><td>取消抽卡后付费动力不明确</td><td>外观付费+Battle Pass+UGC创作者收益分成+家园装饰限定</td><td>8%</td></tr>
+        </tbody>
+      </table>
+
+      <h3>关键环节深入：预约→下载的信任桥</h3>
+      <p>这是饥困荒野最特殊的环节——正常游戏预约用户下载意愿高，但饥困荒野的预约用户中有大量"预约了但已经不信任"的人。解法：</p>
+      <ul>
+        <li><b>预约身份绑定奖励</b>：公测首日，所有预约用户获得"477 天等待者"专属称号+限定皮肤框。这个奖励在公测前 2 周开始预告，制造"不下载就亏了"的心理</li>
+        <li><b>预览服体验转化</b>：参加过公测预览服的用户，公测正式服保留进度（或给予等值补偿），减少"重复游玩"的心理阻力</li>
+        <li><b>社交召回</b>：允许预约用户生成"我的等待天数"分享卡片，朋友圈/微信分享后解锁额外奖励</li>
+      </ul>
+
+      <h3>关键环节深入：7 日→30 日的内容弹药</h3>
+      <p>七日世界的前车之鉴——开局 23 万峰值但一年衰减 95%，核心原因是"赛季 wipe + 重复内容"。饥困荒野必须在 30 天内证明长线内容的厚度：</p>
+      <ul>
+        <li><b>赛季不 wipe</b>：明确承诺"不赛季清档"——这是和七日世界的核心差异点</li>
+        <li><b>UGC 内容补充</b>：奇点工厂产出的玩家关卡可以无限补充游戏内容，理论上"永远有新东西玩"</li>
+        <li><b>社交黏性</b>：亲密关系系统（兄弟/闺蜜/情侣）+ 8 人共享房 + 导师机制——让玩家因为"人"而留下，而不只是因为"内容"</li>
+      </ul>
+
+      <div class="highlight">
+        <p><b>漏斗终极目标</b>：1000 万预约 × 45% 下载 = 450 万首日用户 → 7 日留存 35% = 157 万 → 30 日留存 20% = 90 万 DAU 稳态 → 付费率 8% = 7.2 万付费用户。这个数据如果达成，月流水可达 <b>3000-5000 万</b>（参考洛克王国:世界外观付费 ARPPU 约 400-700 元）。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 8: 风险预警 -->
+    <div x-show="page === 8" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
+      <h2 class="text-2xl font-bold mb-6">风险预警</h2>
+      <div class="verdict"><p><b>核心判断</b>：饥困荒野公测面临三大高概率风险——服务器过载、付费模型切换期阵痛、暑期竞品截流。每个风险都需要<b>预案 + 触发条件 + 响应时间</b>的完整方案。</p></div>
+
+      <div class="risk-card">
+        <h5>风险一：公测首日服务器过载</h5>
+        <p><b>概率</b>：高（1000 万预约量 × 暑期档 × 饥荒 IP 热度）</p>
+        <p><b>后果</b>：首日体验崩溃→差评潮→信任修复前功尽弃</p>
+        <p><b>前车之鉴</b>：洛克王国:世界首日 1500 万新增导致部分服务器排队，但因 IP 情怀和口碑基础未造成评分崩盘。饥困荒野没有这个口碑缓冲。</p>
+        <p><b>预案</b>：</p>
+        <ul>
+          <li>服务器承载量按预约量 50%（500 万）同时在线设计，弹性扩容至 70%</li>
+          <li>分批开服（预约时间越早，开服越早）——将峰值分散到 6 小时窗口</li>
+          <li>首日 30 分钟内如出现排队，立即全渠道推送"补偿公告+预计恢复时间"——<b>30 分钟内响应</b>是红线</li>
+          <li>准备"排队彩蛋"——排队界面展示饥荒小游戏（类似"恐龙跑酷"），减少焦虑</li>
+        </ul>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险二：付费模型切换期用户困惑</h5>
+        <p><b>概率</b>：中高（取消抽卡后新模型尚未被充分验证）</p>
+        <p><b>后果</b>：老测试用户习惯了"抽卡获取武器"的路径，新模型如果体验不丝滑，会产生"改了但没变好"的负面感知</p>
+        <p><b>具体风险点</b>：</p>
+        <ul>
+          <li>兑换商店的"活跃产出道具"获取节奏是否合理——太快则付费无意义，太慢则"换汤不换药"</li>
+          <li>老测试玩家之前抽卡获得的资源如何补偿——处理不当引发不满</li>
+          <li>外观付费定价是否符合用户预期——参考洛克王国 68-198 元/套的区间</li>
+        </ul>
+        <p><b>预案</b>：</p>
+        <ul>
+          <li>公测预览服重点收集新商业化模型的数据反馈，预览服阶段就完成调优</li>
+          <li>公测首周提供"商业化引导教程"——明确告诉玩家"你不花钱也能获得所有武器，花钱买的只是外观"</li>
+          <li>老测试玩家补偿方案提前 2 周公布+社区征求意见——让玩家参与决策过程</li>
+        </ul>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险三：暑期竞品截流</h5>
+        <p><b>概率</b>：中（取决于竞品排期）</p>
+        <p><b>潜在竞品</b>：</p>
+        <ul>
+          <li><b>明日之后</b>：2026年4月已启动"重生日"大版本，暑期可能有跨年庆典活动——争夺同品类用户</li>
+          <li><b>七日世界</b>：可能在暑期推出新赛季+UGC 更新——直接竞争"不卖数值+UGC"定位</li>
+          <li><b>饥荒:异域</b>：Klei 新端游可能在暑期有更多信息——分流部分"只认端游"的硬核饥荒玩家</li>
+          <li><b>其他暑期新游</b>：暑期是手游发行高峰期，流量成本上升</li>
+        </ul>
+        <p><b>预案</b>：</p>
+        <ul>
+          <li>错峰公测：避开已知的竞品大版本更新日（需持续监控明日之后和七日世界的更新公告）</li>
+          <li>与 Klei 端游联动：利用饥荒:异域的热度——"想先在手机上体验荒野？来饥困荒野"</li>
+          <li>差异化定位强化：持续传播"不卖数值+不赛季 wipe+UGC"的三重差异——这是七日世界和明日之后都没有同时具备的</li>
+        </ul>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险四：信任修复不达预期</h5>
+        <p><b>概率</b>：中（社区情绪修复需要时间，6 周可能不够）</p>
+        <p><b>后果</b>：带着 7.0 以下评分进公测→首日评论区成战场→恶性循环</p>
+        <p><b>触发条件</b>：公测前 2 周 TapTap 评分仍低于 7.3</p>
+        <p><b>预案</b>：推迟公测 2-4 周。<b>推迟的代价远小于带伤上阵的代价</b>——饥困荒野已经跳票多次，玩家对"再等一等"的容忍度反而比"出了但不好"高。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 9: 终审意见 -->
+    <div x-show="page === 9" x-cloak class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
+      <h2 class="text-2xl font-bold mb-6">终审意见</h2>
+      <div class="verdict"><p><b>一句话结论</b>：饥困荒野的公测不是一场发布会，是一场<b>信任重建手术</b>。手术的前提是——患者已经脱离危险期。如果评分修复未达标，宁可推迟，绝不带伤上场。</p></div>
+
+      <h3>三个必须做对的事</h3>
+      <ul>
+        <li><b>第一</b>：4.28「饥活了」节目宣布的取消抽卡+UGC 两大改革必须在公测版本中<b>100% 兑现</b>。不能打折、不能延期、不能"后续版本更新"。信任修复的基础是"说到做到"，任何一个承诺未兑现都会引发雪崩式信任崩塌。</li>
+        <li><b>第二</b>：TapTap 评分必须在公测前修复到 <b>7.5 以上</b>。这不是"锦上添花"，而是"能不能公测"的前置条件。如果 6 周不够，就再等 2 周。时间是修复信任的成本，不是敌人。</li>
+        <li><b>第三</b>：公测后 30 天内必须证明<b>长线内容供给</b>的可持续性。首赛季+UGC 生态+社交系统三管齐下，让玩家看到"这个游戏能玩很久"。七日世界的 95% 衰减是前车之鉴——"开局惊艳但后续空洞"是生存手游的最大杀手。</li>
+      </ul>
+
+      <h3>三个绝不能犯的错</h3>
+      <ul>
+        <li><b>绝不刷评分</b>：任何形式的评分操控（删差评/刷好评/利诱好评）一旦被社区发现，将直接宣判"二次死亡"。饥困荒野已经没有第二次被原谅的机会。</li>
+        <li><b>绝不割裂玩家</b>：饥智团只招 KOL 已经引发社区不满。公测前的测试资格必须向普通老玩家开放——"粉丝数"不应该是参与门槛，"对饥荒的热爱"才是。</li>
+        <li><b>绝不在公测首周加付费压力</b>：首周是体验窗口期，任何"首充"、"限时折扣"、"会员推送"都会被解读为"又来了"。付费引导最早从 Day 8 开始。</li>
+      </ul>
+
+      <h3>最终判断</h3>
+      <div class="highlight">
+        <p class="quote">饥困荒野具备成功公测的所有条件——IP 基盘足够大、预约量足够多、改革方向正确、竞品格局有空间。唯一的变量是信任。</p>
+      </div>
+      <p>「饥活了」三个字既是这款游戏的自我描述，也是它对玩家的承诺——<b>我活过来了，这次我不会再让你失望</b>。</p>
+      <p>如果这个承诺能在公测版本中被完整兑现，饥困荒野有望成为 2026 年暑期档的一匹黑马。如果不能——三年的等待和 1000 万的预约量，就会变成中国手游史上又一个"IP 被浪费"的教科书案例。</p>
+      <p>没有中间地带。要么饥活了，要么饥死了。</p>
+
+      <div class="verdict">
+        <p><b>终审建议</b>：按本报告三段式节奏执行，密切监控 TapTap 评分恢复速度。若公测前 2 周评分未达 7.3，启动 Plan B（推迟 2 周+追加信任修复动作）。<b>信任是这次公测唯一的燃料，烧完就没有了。</b></p>
+      </div>
+    </div>
+  </main>
+</div>
+<!-- THEME_TOGGLE_INJECT_START -->
+<!-- Theme toggle: 注入在每份报告 </body> 之前 -->
+<style>
+/* ===== 浅色模式覆盖（仅在 html[data-theme="light"] 时生效） ===== */
+html[data-theme="light"] body { background:#f5f5f5 !important; color:#1a1a1a !important; }
+html[data-theme="light"] header { background:rgba(245,245,245,0.95) !important; border-bottom-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] header h1 { color:#1a1a1a !important; }
+html[data-theme="light"] header a { color:#525252 !important; }
+html[data-theme="light"] header a:hover { color:#000 !important; }
+html[data-theme="light"] header .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] header .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] header .bg-white\/\[\.08\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; border-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] header .hover\:bg-white\/\[\.04\]:hover { background:rgba(0,0,0,0.05) !important; color:#000 !important; }
+html[data-theme="light"] header .bg-white\/10, html[data-theme="light"] header .bg-white\/\[\.04\] { background:rgba(0,0,0,0.1) !important; }
+
+/* 左侧 nav 区（主报告页结构） */
+html[data-theme="light"] aside, html[data-theme="light"] nav { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] aside button, html[data-theme="light"] nav button { color:#525252 !important; }
+html[data-theme="light"] aside button:hover, html[data-theme="light"] nav button:hover { color:#000 !important; background:rgba(0,0,0,0.04) !important; }
+html[data-theme="light"] .bg-white\/\[\.06\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; }
+html[data-theme="light"] .bg-white\/\[\.04\] { background:rgba(0,0,0,0.05) !important; }
+
+/* 内容卡片 */
+html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+html[data-theme="light"] .verdict { border-left-color:#1a1a1a !important; }
+html[data-theme="light"] .verdict p { color:#1a1a1a !important; }
+html[data-theme="light"] .risk-card { border-left-color:#c43c3c !important; }
+html[data-theme="light"] .creative-card h5, html[data-theme="light"] .risk-card h5 { color:#1a1a1a !important; }
+
+/* 文字色 */
+html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }
+html[data-theme="light"] .page-content p, html[data-theme="light"] .page-content li { color:#3a3a3a !important; }
+html[data-theme="light"] .page-content b, html[data-theme="light"] .page-content strong, html[data-theme="light"] b, html[data-theme="light"] strong { color:#000 !important; }
+html[data-theme="light"] .text-white { color:#1a1a1a !important; }
+html[data-theme="light"] .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-600 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-300 { color:#3a3a3a !important; }
+html[data-theme="light"] .quote { color:#1a1a1a !important; }
+html[data-theme="light"] .muted { color:#737373 !important; }
+
+/* 表格 */
+html[data-theme="light"] table th { color:#525252 !important; border-bottom-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] table td { color:#3a3a3a !important; border-bottom-color:rgba(0,0,0,0.06) !important; }
+
+/* tag */
+html[data-theme="light"] .tag { background:rgba(0,0,0,0.05) !important; color:#525252 !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] .tag:hover { color:#000 !important; }
+
+/* 分隔线 */
+html[data-theme="light"] .bg-white\/10 { background:rgba(0,0,0,0.1) !important; }
+html[data-theme="light"] .border-bdr, html[data-theme="light"] .border-white\/10, html[data-theme="light"] .border-white\/\[\.06\] { border-color:rgba(0,0,0,0.08) !important; }
+
+/* compare 卡片专用 */
+html[data-theme="light"] .text-3xl, html[data-theme="light"] .text-2xl, html[data-theme="light"] .text-xl { color:#1a1a1a !important; }
+html[data-theme="light"] .report-date { color:#737373 !important; }
+
+/* ===== 切换按钮本体 ===== */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.theme-toggle-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+.theme-toggle-btn svg { width: 22px; height: 22px; transition: all 0.25s ease; }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-on { display: block; color: #fbbf24; filter: drop-shadow(0 0 4px rgba(251,191,36,0.6)); }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-off { display: none; }
+html[data-theme="light"] .theme-toggle-btn { background: #ffffff; border-color: rgba(0,0,0,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+html[data-theme="light"] .theme-toggle-btn:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-on { display: none; }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-off { display: block; color: #737373; }
+
+/* 拉绳小动画 */
+.theme-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+}
+html[data-theme="light"] .theme-toggle-btn::before { background: rgba(0,0,0,0.15); }
+</style>
+
+<button class="theme-toggle-btn" onclick="toggleReportTheme()" title="切换深浅色模式" aria-label="切换主题">
+  <!-- 点亮的灯泡（深色模式显示） -->
+  <svg class="icon-bulb-on" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z"/>
+  </svg>
+  <!-- 熄灭的灯泡（浅色模式显示） -->
+  <svg class="icon-bulb-off" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  // 初始化：从 localStorage 读，没有就默认 dark
+  var savedTheme = localStorage.getItem('report-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+function toggleReportTheme() {
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('report-theme', next);
+}
+</script>
+
+<!-- THEME_TOGGLE_INJECT_END -->
+</body>
+</html>
