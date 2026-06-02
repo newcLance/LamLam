@@ -2788,5 +2788,61 @@
         }
       ]
     }
+  ],
+  "Resident Evil Requiem": [
+    {
+      "module": "首页",
+      "screens": [
+        {
+          "title": "生化危机：安魂曲 - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/resident-evil-requiem/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Don't Starve: Newhome": [
+    {
+      "module": "首页",
+      "screens": [
+        {
+          "title": "饥困荒野 - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/dont-starve-newhome/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "LifeAfter": [
+    {
+      "module": "首页",
+      "screens": [
+        {
+          "title": "明日之后 - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/lifeafter/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Once Human": [
+    {
+      "module": "首页",
+      "screens": [
+        {
+          "title": "七日世界 - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/once-human/cover.webp"
+          ]
+        }
+      ]
+    }
   ]
 }
