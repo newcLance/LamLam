@@ -372,60 +372,181 @@
   "assets": {
     "official": [
       {
-        "type": "website",
-        "label": "洛克王国：世界官网",
-        "url": "https://17roco.qq.com",
-        "note": "腾讯官方主站，包含游戏下载、新闻公告、精灵图鉴"
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "洛克王国：世界 官网",
+            "source": "官网",
+            "url": "https://17roco.qq.com/"
+          },
+          {
+            "title": "TapTap 洛克王国：世界",
+            "source": "TapTap",
+            "url": "https://www.taptap.cn/app/203482"
+          },
+          {
+            "title": "App Store 洛克王国：世界",
+            "source": "App Store",
+            "url": "https://apps.apple.com/cn/app/id1574593498"
+          },
+          {
+            "title": "微博 @洛克王国世界",
+            "source": "微博",
+            "url": "https://weibo.com/u/7611487603"
+          },
+          {
+            "title": "B 站 洛克王国世界官方",
+            "source": "B 站",
+            "url": "https://search.bilibili.com/all?keyword=%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD%E4%B8%96%E7%95%8C%20%E5%AE%98%E6%96%B9"
+          },
+          {
+            "title": "小红书搜索「洛克王国世界」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD%E4%B8%96%E7%95%8C"
+          }
+        ]
       },
       {
-        "type": "storePage",
-        "label": "TapTap游戏页",
-        "url": "https://www.taptap.cn/app/188212",
-        "note": "TapTap官方页面，含玩家评分评论、版本更新记录"
+        "cat": "角色建模 / 精灵设定图",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Roco Kingdom」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Roco%20Kingdom"
+          },
+          {
+            "title": "ArtStation 搜索「洛克王国」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD"
+          },
+          {
+            "title": "Pinterest 搜索「洛克王国世界 精灵」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD%E4%B8%96%E7%95%8C%20%E7%B2%BE%E7%81%B5%20art"
+          }
+        ]
       },
       {
-        "type": "socialMedia",
-        "label": "B站官方账号",
-        "url": "https://space.bilibili.com/394281636",
-        "note": "B站官方号，发布PV、实机演示、赛季更新预告"
-      },
-      {
-        "type": "socialMedia",
-        "label": "微博官方账号",
-        "url": "https://weibo.com/luokewangguoshijie",
-        "note": "微博官方，日常运营、活动预告、玩家互动"
+        "cat": "宣传片 / KV 主视觉",
+        "links": [
+          {
+            "title": "洛克王国世界 公测 PV",
+            "source": "B 站",
+            "url": "https://search.bilibili.com/all?keyword=%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD%E4%B8%96%E7%95%8C%20%E5%85%AC%E6%B5%8BPV%20%E5%AE%98%E6%96%B9"
+          },
+          {
+            "title": "洛克王国世界 CG 合集",
+            "source": "B 站",
+            "url": "https://search.bilibili.com/all?keyword=%E6%B4%9B%E5%85%8B%E7%8E%8B%E5%9B%BD%E4%B8%96%E7%95%8C%20CG%20%E9%A2%84%E5%91%8A"
+          }
+        ]
       }
     ],
     "inspiration": [
       {
-        "type": "artReference",
-        "label": "ArtStation - Cute Monster Design",
-        "query": "cute monster character design stylized",
-        "note": "圆润可爱的精灵/怪物角色设计参考，贴合Q版造型基因"
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Roco Kingdom concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Roco%20Kingdom%20concept%20art"
+          },
+          {
+            "title": "ArtStation 搜索「cute fantasy creature design」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=cute%20fantasy%20creature%20design"
+          },
+          {
+            "title": "Pinterest 搜索「stylized fantasy world concept」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=stylized%20fantasy%20world%20concept%20art"
+          }
+        ]
       },
       {
-        "type": "artReference",
-        "label": "ArtStation - Stylized Open World Environment",
-        "query": "stylized open world environment cel shading",
-        "note": "卡通渲染开放世界场景设计参考，明快色调+手绘质感"
+        "cat": "精灵 / 角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「cute monster character design」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=cute%20monster%20character%20design"
+          },
+          {
+            "title": "Pinterest 搜索「pokemon style creature design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=pokemon%20style%20creature%20design"
+          },
+          {
+            "title": "ArtStation 搜索「fantasy pet companion design」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=fantasy%20pet%20companion%20design"
+          }
+        ]
       },
       {
-        "type": "artReference",
-        "label": "ArtStation - Fantasy Creature Ecology",
-        "query": "fantasy creature ecology interaction behavior",
-        "note": "精灵生态行为设计参考，自主互动+情绪表达"
+        "cat": "UI 界面 / HUD 设计",
+        "links": [
+          {
+            "title": "Dribbble 搜索「RPG game UI cute」",
+            "source": "Dribbble",
+            "url": "https://dribbble.com/search/RPG%20game%20UI%20cute%20stylized"
+          },
+          {
+            "title": "Pinterest 搜索「cute game UI design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=cute%20game%20UI%20design%20fantasy"
+          },
+          {
+            "title": "ArtStation 搜索「stylized game UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=stylized%20game%20UI%20fantasy"
+          }
+        ]
       },
       {
-        "type": "artReference",
-        "label": "Pinterest - Kawaii Magic Academy",
-        "query": "kawaii magic school fantasy architecture",
-        "note": "魔法学院建筑风格参考，童话感+圆角设计语言"
+        "cat": "场景氛围 / Environment",
+        "links": [
+          {
+            "title": "ArtStation 搜索「stylized open world environment」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=stylized%20open%20world%20environment"
+          },
+          {
+            "title": "Pinterest 搜索「colorful fantasy landscape」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=colorful%20fantasy%20landscape%20game"
+          },
+          {
+            "title": "ArtStation 搜索「magic academy environment」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=magic%20academy%20environment%20fantasy"
+          },
+          {
+            "title": "Behance 搜索「fantasy town environment」",
+            "source": "Behance",
+            "url": "https://www.behance.net/search/projects?search=fantasy%20town%20environment%20concept"
+          }
+        ]
       },
       {
-        "type": "artReference",
-        "label": "ArtStation - Cel Shade RPG UI Design",
-        "query": "cel shade RPG game UI candy color",
-        "note": "糖果色圆角卡通UI设计参考，贴合清新明亮视觉体系"
+        "cat": "动画 / 电影参考",
+        "links": [
+          {
+            "title": "Pinterest 搜索「Ghibli style game art」吉卜力风参考",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Ghibli%20style%20game%20art%20cute"
+          },
+          {
+            "title": "Pinterest 搜索「Pokemon Legends Arceus art」宝可梦开放世界",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Pokemon%20Legends%20Arceus%20concept%20art"
+          },
+          {
+            "title": "ArtStation 搜索「Ni no Kuni art style」二之国风参考",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Ni%20no%20Kuni%20art%20style"
+          }
+        ]
       }
     ]
   }
