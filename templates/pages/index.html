@@ -34,11 +34,11 @@
            ">
   </div>
 
-  {# ===== 近期热门 (Recent Trending) ===== #}
-  <section id="recentTrending" x-data="recentTrending()" x-init="init()" x-show="items.length > 0" x-cloak class="mb-14">
+  {# ===== 浏览历史 (Recent History) ===== #}
+  <section id="recentTrending" x-data="recentHistory()" x-init="init()" x-show="items.length > 0" x-cloak class="mb-14">
     <div class="flex items-baseline gap-3 mb-5">
-      <h2 class="text-lg font-bold text-white">近期热门</h2>
-      <span class="text-xs text-neutral-600" x-text="items.length + ' games'"></span>
+      <h2 class="text-lg font-bold text-white">浏览历史</h2>
+      <span class="text-xs text-neutral-600" x-text="items.length + ' 款近 7 天浏览'"></span>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
       <template x-for="item in items" :key="item.slug">
@@ -57,7 +57,7 @@
     </div>
   </section>
   <script>
-  function recentTrending() {
+  function recentHistory() {
     return {
       items: [],
       init: function() {
@@ -70,22 +70,52 @@
           '{{ g.slug }}': { name: '{{ (g.nameCN or g.name)|replace("'", "\\'") }}', company: '{{ g.company|replace("'", "\\'") }}', img: '{{ ns.img }}' }{% if not loop.last %},{% endif %}
           {% endfor %}
         };
-        var visits = {};
-        try { visits = JSON.parse(localStorage.getItem('game_visits') || '{}'); } catch(e) {}
-        var ranked = Object.keys(visits)
-          .filter(function(slug) { return visits[slug] > 0 && gameMap[slug]; })
+        var SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+        var now = Date.now();
+        var history = {};
+        try { history = JSON.parse(localStorage.getItem('game_history') || '{}'); } catch(e) {}
+
+        // 兼容旧格式：如果还有 game_visits（纯数字），迁移一次
+        if (!Object.keys(history).length) {
+          try {
+            var oldVisits = JSON.parse(localStorage.getItem('game_visits') || '{}');
+            Object.keys(oldVisits).forEach(function(slug) {
+              if (oldVisits[slug] > 0) {
+                history[slug] = { last: now, count: oldVisits[slug] };
+              }
+            });
+            if (Object.keys(history).length) {
+              localStorage.setItem('game_history', JSON.stringify(history));
+              localStorage.removeItem('game_visits');
+              localStorage.removeItem('game_visit_dedup');
+            }
+          } catch(e) {}
+        }
+
+        // 过滤 7 天以外 + 按最近访问时间排序
+        var ranked = Object.keys(history)
+          .filter(function(slug) {
+            return gameMap[slug] && history[slug] && (now - history[slug].last) < SEVEN_DAYS;
+          })
           .map(function(slug) {
             return {
               slug: slug,
               name: gameMap[slug].name,
               company: gameMap[slug].company,
               img: gameMap[slug].img || '',
-              count: visits[slug]
+              last: history[slug].last
             };
           })
-          .sort(function(a, b) { return b.count - a.count; })
+          .sort(function(a, b) { return b.last - a.last; })
           .slice(0, 8);
         this.items = ranked;
+
+        // 顺手清理过期数据
+        var dirty = false;
+        Object.keys(history).forEach(function(k) {
+          if ((now - history[k].last) > SEVEN_DAYS) { delete history[k]; dirty = true; }
+        });
+        if (dirty) localStorage.setItem('game_history', JSON.stringify(history));
       }
     };
   }

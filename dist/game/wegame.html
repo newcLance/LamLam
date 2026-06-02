@@ -730,27 +730,32 @@ function anchorNav() {
   }
 }
 
-// Track visit for "近期热门" module
+// Track visit for "浏览历史" module
 (function() {
   var slug = 'wegame';
-  var key = 'game_visits';
-  var dedup_key = 'game_visit_dedup';
+  var key = 'game_history';
   var now = Date.now();
+  var SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+
+  var history = {};
+  try { history = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e) {}
 
   // Dedup: same game only counts once within 30 minutes
-  var dedup = JSON.parse(localStorage.getItem(dedup_key) || '{}');
-  if (dedup[slug] && (now - dedup[slug]) < 30 * 60 * 1000) return;
-  dedup[slug] = now;
-  // Clean dedup entries older than 24 hours
-  Object.keys(dedup).forEach(function(k) {
-    if (now - dedup[k] > 24 * 60 * 60 * 1000) delete dedup[k];
-  });
-  localStorage.setItem(dedup_key, JSON.stringify(dedup));
+  var prev = history[slug];
+  if (prev && (now - prev.last) < 30 * 60 * 1000) return;
 
-  // Record visit
-  var visits = JSON.parse(localStorage.getItem(key) || '{}');
-  visits[slug] = (visits[slug] || 0) + 1;
-  localStorage.setItem(key, JSON.stringify(visits));
+  // Update: record last visit time + increment count
+  history[slug] = {
+    last: now,
+    count: (prev ? prev.count : 0) + 1
+  };
+
+  // Clean entries older than 7 days
+  Object.keys(history).forEach(function(k) {
+    if (now - history[k].last > SEVEN_DAYS) delete history[k];
+  });
+
+  localStorage.setItem(key, JSON.stringify(history));
 })();
 </script>
 
