@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>洛克王国：世界 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<a href="../index.html" id="back-btn"
+   class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-2/90 backdrop-blur-sm border border-white/[.08] hover:bg-surface-3 hover:border-white/[.15] text-neutral-300 hover:text-white text-sm font-medium transition-all shadow-lg shadow-black/30">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  返回
+  <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
+</a>
+<script>
+(function(){
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable]')) return;
+    // Don't navigate if lightbox is open (Alpine handles that)
+    try { if (window.Alpine && Alpine.store('lightbox') && Alpine.store('lightbox').open) return; } catch(x){}
+    window.location.href = '../index.html';
+  });
+})();
+</script>
+
+
+<div id="sec-header" class="relative w-full overflow-hidden">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/roco-kingdom-world/cover.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">洛克王国：世界</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">腾讯魔方工作室群 · RPG · 2026.3.26</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">腾讯魔方工作室群自主研发，基于童年 IP「洛克王国」的大世界精灵养成游戏。虚幻4引擎，集精灵收集对战与开放世界探索于一体。公测预约量突破 6000 万，开服 13 小时新增玩家超 1500 万，首日 iOS 免费+畅销双榜第一。承诺「不卖精灵、不卖数值、不抽卡」。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">洛克王国 IP</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">精灵收集对战</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">开放世界</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">不卖数值不抽卡</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">虚幻4引擎</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">预约6000万</span>
+        
+      </div>
+      
+    </div>
+
+    
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      <a href="#sec-assets"
+         class="group flex items-center gap-2 px-5 py-3 rounded bg-white text-black font-bold hover:bg-neutral-200 text-sm transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
+
+  
+  
+  
+  
+    
+      
+        
+      
+    
+  
+
+  
+
+  
+  
+  <section id="sec-worldview" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      游戏世界观
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">BACKGROUND</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">游戏背景</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">卡洛西亚大陆——精灵与魔法共生的童话世界</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">故事发生在<b>卡洛西亚大陆</b>——一片拥有雪山、密林、沙漠、湖泊等多元生态的广袤魔法大陆。远古时期，创世神奥洛斯赋予大陆<b>元素本源</b>，洛克族在此掌握与精灵沟通的技艺，建立起魔法与日常并存的文明形态。大陆经历过「初源之乱」的浩劫——混沌力量「噩梦」侵蚀精灵心智引发大规模冲突，传奇领袖<b>亚瑟王</b>联合各族英雄封印噩梦本源，开创「亚瑟纪元」。如今封印松动、元素潮汐失衡，你将以魔法学院新生的身份踏入这片<b>万物有灵、人宠共生</b>的世界。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">卡洛西亚大陆</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">元素本源</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">亚瑟纪元</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">万物有灵</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">MAIN STORY</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">主线剧情</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">魔法学院新生，追查封印松动背后的真相</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你是<b>皇家魔法学院</b>的一名见习魔法师。入学第一天就在轻风山目睹流星坠落，拾到古老罗盘后卷入一场元素失衡危机。黑衣人组织暗中活动，被<b>噩梦碎片侵蚀的精灵</b>在各区域失控暴走。你跟随线索穿越风眠省、月牙镇、水晶山谷等地，一步步揭开古代封印松动的真相。旅途中你会遇到<b>洛奇、菲尔特、可丽希亚公主</b>等伙伴，与精灵建立深厚羁绊，最终直面噩梦残余势力——这不只是一场冒险，更是一段关于<b>信任与成长</b>的魔法师养成之路。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">魔法学院新生</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">噩梦侵蚀</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">封印松动</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">伙伴羁绊</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">COMBAT</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">战斗系统</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">18 系属性克制 + 回合制策略编队</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">战斗采用<b>经典回合制</b>，核心是 18 个属性之间的克制关系——火克草、水克火、电克水……每只精灵最多携带 4 个技能，编队上限 6 只。你需要根据对手属性<b>灵活换阵</b>，利用先手速度差、属性双抗、天气加成等要素制定策略。精灵拥有「<b>了不起的天分</b>」个体差异系统，同一物种可能具备不同特性与资质。PVP 对战中，棱镜球捕获的精灵与野外捕获的完全平等——<b>不卖数值、不抽卡</b>，纯靠培养与策略取胜。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">18系属性克制</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">回合制策略</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">天分个体差异</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">零氪公平对战</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">CORE LOOP</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">核心循环</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">探索捕捉 → 培养编队 → 策略对战 → 解锁新区域</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">核心循环是<b>精灵收集养成</b>与<b>开放世界探索</b>的双轮驱动。在无缝大世界中自由奔跑，草丛、山洞、水边都可能遇到野生精灵，用咕噜球免费捕捉。天气和昼夜会影响精灵出没——<b>雨天水系活跃、雪天冰系增多、雷暴夜有稀有精灵</b>。培养精灵提升等级后挑战各区域「守护地」遗迹和领地试炼，通关解锁新地图与剧情。赛季制更新带来新精灵、新区域和战令奖励，社交系统支持好友互访家园、组队副本和实时 PVP 天梯。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">开放世界捕捉</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">天气联动刷新</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">守护地遗迹</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">赛季制更新</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-5 text-neutral-500">IP / STORY</div>
+  
+
+  
+  
+  <div class="mb-6 pb-6 border-b border-white/[.06]">
+    
+    <div class="text-[15px] md:text-base font-semibold text-white/90 leading-relaxed mb-5 italic tracking-wide">
+      “<b>老朋友，新世界，大冒险</b>——在卡洛西亚大陆重逢童年的精灵伙伴，踏上属于你的魔法师之路。”
+    </div>
+    
+    
+    <div class="space-y-4">
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">想象一片<b>用虚幻 4 引擎重建的魔法大陆</b>。轻风山的草甸在晨光中泛着柔绿，彼得大道的石板路被昼夜交替的光影慢慢染上暖黄，王国城堡的尖塔在薄雾里若隐若现。这不再是你记忆中那个 Flash 页面上的 2D 洛克王国——<b>卡洛西亚大陆</b>被重新活了过来，精灵在草丛里踱步、在河边饮水、在树顶打盹，整片世界的呼吸你都能听见。而远处那些你曾经只能点击跳转的区域，现在可以<b>一路跑过去</b>，没有加载画面挡在中间。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">你以<b>魔法学院新生</b>的身份开局。第一课是选一只初始精灵——火花、水蓝蓝或喵喵，这个选择十五年前你就做过一次了。但这次不同：选完之后你会带着它走进一个<b>无缝衔接的 3D 大世界</b>，学习符文理论、精灵亲和原理、属性相克法则，然后踏出学院大门，直面被噩梦碎片侵蚀的失控精灵。黑衣人的踪迹散落在风眠省各处，你的罗盘指针微微颤抖——它在指向封印松动的裂缝。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">旅途中你会重新遇见那些<b>老朋友</b>——洛奇还是那个冲动的热血少年，菲尔特依旧靠谱得像行走的百科全书，可丽希亚公主肩上多了整个王国的重量。你们会一起闯入<b>水晶山谷的深处</b>、在月牙镇的夜市里追踪线索、在星辉古堡的废墟中对峙黑衣人首领。精灵不是工具，它们有自己的情绪和记忆——你的初始伙伴会在关键时刻做出<b>超出指令的选择</b>，而那个瞬间，就是这段冒险真正想讲的东西：信任从来不是单向的。</p>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-3 text-neutral-500">DETAILS</div>
+  
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>亚瑟纪元现代</b>——远古封印松动后的当下时间线，古代魔法文明与现代学院生活并存</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>卡洛西亚大陆</b>——轻风山、彼得大道、王国城堡、月牙镇、水晶山谷、星辉古堡等经典场景 3D 重构为无缝开放世界</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">主角</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">玩家扮演<b>皇家魔法学院见习魔法师</b>——从零起步的学徒，与精灵伙伴共同成长的普通人</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">反派</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>噩梦残余势力 + 黑衣人组织</b>——暗中破坏封印、侵蚀精灵心智的幕后黑手</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">伙伴关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>洛克族魔法师 × 精灵</b>的共生羁绊——精灵不是道具而是拥有情感与自主意志的伙伴</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">动机</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">追查封印松动的真相、<b>守护大陆和平</b>——从个人冒险升级为拯救王国的使命</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">基调</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>治愈冒险 + 热血成长</b>——底色是温暖友善的童话氛围，高潮处有燃点与泪点</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">题眼</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">「<b>信任</b>」——人与精灵之间的双向信任是解决一切危机的核心钥匙</div>
+  </div>
+  
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+
+    
+    
+    
+    
+    <div class="rounded-xl border border-white/[.08] bg-white/[.02] p-6 mb-8">
+      
+      <div class="flex items-baseline gap-3 mb-5 pb-5 border-b border-white/[.06]">
+        <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">AESTHETIC LABEL</span>
+        <span class="text-[20px] md:text-[22px] font-extrabold text-white tracking-tight">清新卡通魔法 Cel-Shade Fantasy</span>
+      </div>
+      
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q1 · 这是什么美学</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text"><b>清新卡通魔法</b>，是把<b>经典洛克王国 Q 版角色语汇</b>和<b>虚幻 4 卡通渲染（Cel Shading）</b>结合形成的视觉体系。底色是明快柔和的童话色调——粉蓝天空、嫩绿草甸、暖黄石径；角色与精灵采用 Q 版比例建模，线条圆润、表情生动；场景在清新治愈的基调上叠加<b>动态光影与天气系统</b>，让整个世界既保留了页游时代的亲切感，又达到了当代开放世界手游的品质上限。整体调性介于<b>《宝可梦 传说 阿尔宙斯》</b>的原野探索气质和<b>《二之国》</b>的吉卜力童话感之间。</p>
+        </div>
+        
+
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q2 · 共识如何发展</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">日式精灵收集游戏的美术演化跨越近三十年。<b>1996 年</b>初代《<b>宝可梦 红/绿</b>》用黑白像素定型了「精灵图鉴」视觉框架；<b>2000 年代</b>《数码宝贝》《洛克人EXE》把伙伴生物带入更丰富的动画表现；<b>2010 年</b>洛克王国页游以<b>Flash 2D 卡通</b>建立了国内精灵养成的视觉记忆——圆润造型、高饱和配色、Q 版比例成为一代人的童年符号。<b>2019 年</b>《二之国》用吉卜力级卡通渲染证明了「童话世界能做到电影品质」；<b>2022 年</b>《宝可梦 传说 阿尔宙斯》首次将精灵收集带入开放世界。<b>2026 年</b>《洛克王国：世界》用虚幻 4 完成了从 2D 到 3D 开放世界的跨越——它的意义在于把<b>国产精灵养成 IP</b>的视觉表达推到了与国际 3A 卡通渲染同台的水准。</p>
+        </div>
+        
+      </div>
+
+      
+      <div class="mt-6 pt-6 border-t border-white/[.06]">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-3">Q3 · 借鉴谱系（值得美术设计参考的游戏 / 电影 / 动漫 / 剧集）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                宝可梦 红/绿
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1996</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>精灵收集养成</b>视觉原型的奠基之作；图鉴式生物设计的起点</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                二之国：白色圣灰的女王
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2011</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>吉卜力级卡通渲染</b>标杆；证明童话世界能达到电影级画面品质</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              动画
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                数码宝贝大冒险
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1999</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>人与搭档生物</b>的共生叙事模板；进化系统的视觉演出</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                宝可梦 传说 阿尔宙斯
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2022</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>精灵收集 × 开放世界</b>融合的先驱；野外实时捕捉的交互范式</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                洛克王国（页游）
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2010</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>国产精灵养成</b>的视觉记忆原点；Q 版比例与高饱和配色的 IP 基因</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                哈利·波特与魔法石
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2001</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>魔法学院</b>的空间与氛围参照；城堡、长廊、教室的视觉语法</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              动画
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                魔卡少女樱
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1998</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>清新魔法少女</b>的色彩与治愈基调；柔和光线与梦幻配色的参考</div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">清新卡通渲染 - UE4 无缝开放魔法大陆</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">整体色调锁定<b>明快柔和</b>：轻风山的嫩绿草甸、月牙镇的暖橙黄昏、水晶山谷的冰蓝折光、王国城堡的米白石墙。全地图<b>无缝衔接无加载</b>，动态昼夜交替驱动光照色温变化——清晨冷蓝、正午暖白、黄昏橙金、夜晚靛蓝。实时天气系统不仅改变视觉（雨滴涟漪、雪花飘落、雷暴闪光），还直接影响精灵出没概率。植被、水体、建筑表面均有<b>卡通渲染描边</b>处理，在写实光照下保留手绘质感。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">Q 版魔法师 × 去拟人化可爱精灵</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">玩家角色采用<b>Q 版卡通比例</b>，头身比约 1:4，造型圆润可爱；服饰以魔法学院制服为基础，可通过<b>外观商城</b>更换时装（游戏唯一付费点）。精灵设计遵循「<b>去拟人化、保留可爱</b>」原则——经典精灵（迪莫、火花、水蓝蓝）完美复刻原版 2D 形象的 3D 化，新精灵造型灵动自然。精灵拥有踱步、休憩、警觉等<b>自主行为动画</b>，骑乘精灵可飞行/奔跑，战斗技能配合分层动画与属性交互特效。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">圆角卡通 - 清新明亮的功能界面</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI 采用<b>圆角卡片式</b>布局，配色与场景氛围联动——底色为半透明磨砂白，按钮和图标使用<b>高饱和糖果色</b>系（蓝、粉、黄、绿）。精灵图鉴界面以星空卷轴展开，属性克制表用色环可视化。战斗 HUD 精简：底部显示精灵 HP 条与技能面板，属性克制提示以<b>彩色箭头</b>即时反馈。字体使用圆体中文字型，图标线条粗细统一，视觉信息清晰不压画面。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">咕噜球 × 魔法扫帚 × 猫头鹰 × 元素徽章</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">核心视觉符号：<b>咕噜球</b>（精灵捕捉的标志性道具，圆润半红半白的经典造型）、<b>魔法扫帚</b>（飞行探索的移动工具与魔法世界身份象征）、<b>猫头鹰 Lulu</b>（系列吉祥物与引导角色）、<b>元素徽章</b>（18 属性的色彩符号体系）。色彩母题为<b>彩虹光谱</b>——18 种属性各占一个主色，组合形成充满活力的视觉基因。精灵进化时的<b>光芒绽放特效</b>是最具辨识度的视觉瞬间。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">国民童年回归 - 情怀与品质升级并行</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发核心策略是<b>情怀唤醒 + 品质证明</b>双线并行——首批物料以「老朋友，新世界，大冒险」为 slogan，唤起 00 后一代的童年记忆；实机画面对比页游原版场景形成<b>视觉冲击</b>。公测预约突破 6000 万，Key Art 必带<b>经典精灵三人组</b>（火花、水蓝蓝、喵喵）与 3D 重制的王国城堡。「不卖精灵、不卖数值、不抽卡」的<b>公平承诺</b>被反复强调，成为区别于其他养成游戏的核心差异化卖点。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'bili' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1pdL26LE8t/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《洛克王国：世界》欢迎「学院呱呱」正式入学！</span>
+          <span class="text-xs text-neutral-500 shrink-0">345万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV13QG16EEt1/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《洛克王国：世界》 「恶魔叮家族」</span>
+          <span class="text-xs text-neutral-500 shrink-0">55万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1DSGR66EWV/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《洛克王国：世界》洛个明白，分支进化全讲透！</span>
+          <span class="text-xs text-neutral-500 shrink-0">42万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1jdG96mEfM/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《洛克王国：世界》 周末活动预告「幽影树大量出没」</span>
+          <span class="text-xs text-neutral-500 shrink-0">33万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1qRL465EFY/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">S2小鼓象进化方法【洛克王国世界】</span>
+          <span class="text-xs text-neutral-500 shrink-0">5万播放</span>
+        </a>
+        
+      </div>
+      
+
+      
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>全网预约突破6000万，开服13小时新增1500万用户，iOS免费+畅销双榜第一，创腾讯2026开年最佳开局
+    
+      <span class="text-xs text-neutral-600 ml-1">— DataEye研究院/腾讯新闻</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>所有精灵免费获取，不卖精灵不抽卡，付费仅限外观——这个承诺让情怀党彻底放心了
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap玩家评论区</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>虚幻4重建的卡洛西亚大陆无缝衔接无加载，从彼得大道跑到轻风山一路没有loading，页游党直接泪目
+    
+      <span class="text-xs text-neutral-600 ml-1">— B站UP主评测</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>TapTap上线初期6.6分，B站游戏中心好评如潮，玩家称其为「宝可梦该有的样子」
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap/B站游戏中心</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>400+只精灵全部免费捕捉，异色、奇遇、赛季限定均可白嫖获得，零氪玩家友好度拉满
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA/TapTap综合</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>骑乘系统极其用心——水蓝蓝载人水面滑行、绅士鸡公主抱奔跑、魔力猫把人揣怀里赶路，每只骑宠都有独特姿态
+    
+      <span class="text-xs text-neutral-600 ml-1">— 腾讯新闻/B站UP主</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>精灵生态互动让大世界真正活了过来：嗜光嗡嗡叮其他精灵屁股、奇丽花找水系讨水喝、护主犬看到骑坐骑会主动当韩信
+    
+      <span class="text-xs text-neutral-600 ml-1">— 腾讯新闻游戏频道</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>同乘系统支持和好友用搞笑方式一起骑精灵，倒挂、侧坐、叠罗汉，社交欢乐度爆表
+    
+      <span class="text-xs text-neutral-600 ml-1">— B站视频评论区</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>精灵有自主行为动画——踱步、休憩、警觉状态切换自然，被冷落还会闹脾气吃醋，陪伴感满满
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap长评</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>S2赛季无公告暗改女洛克战败动作+精灵数值大削，48小时评论区涌入40万条差评，TapTap新版评分暴跌至2.8
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap/搜狐游戏</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>体力机制被玩家喷烂——2026年大世界游戏还用体力墙限制探索，梦回2019原神开荒争议
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap长评</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>升星材料严重不足，52级推完全图升星材料只够拉一只觉醒三星、两只五星，养成深度严重不够
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap玩家评测</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>S2美术风格断崖式下跌，马戏团主题强行缝合，经典画风消失引发情怀党核心暴击
+    
+      <span class="text-xs text-neutral-600 ml-1">— 搜狐游戏/NGA</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>S2上线隔日口碑崩盘，3天新增4000+负评，B站话题讨论量破6万，大批玩家集体退游
+    
+      <span class="text-xs text-neutral-600 ml-1">— 澳门游戏文化产业协会/新浪证券</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>从上线初期6.5分「又爱又恨」到S2赛季2.8分口碑崩盘，主策致歉信因态度敷衍再涨20万差评，情怀消耗殆尽
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap/搜狐游戏</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>核心矛盾：玩家信任被「暗改」行为彻底动摇——不公告削弱精灵、调整掉落，官方沟通近乎为零
+    
+      <span class="text-xs text-neutral-600 ml-1">— 网易新闻/B站</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>开服当天全网刷屏「洛克王国回来了」，00后集体回忆杀，微博热搜多次上榜
+    
+      <span class="text-xs text-neutral-600 ml-1">— 微博热搜</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>首月日活突破1300万，被腾讯写入财报作为经典IP复活标杆
+    
+      <span class="text-xs text-neutral-600 ml-1">— 腾讯财报/新浪证券</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>「如果洛克王国是宝可梦新作，那这部作品可以封神了」——玩家高度评价其为宝可梦精神续作
+    
+      <span class="text-xs text-neutral-600 ml-1">— 腾讯新闻玩家评论</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>B站游戏中心公测前好评如潮：「老洛克该有的味道回来了」「策划这次确实花了心思」
+    
+      <span class="text-xs text-neutral-600 ml-1">— B站游戏中心</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>三测期间玩家偷菜次数高达36万次，家园种田玩法唤醒页游时代经典社交记忆
+    
+      <span class="text-xs text-neutral-600 ml-1">— 腾讯新闻</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>精灵生态设计引爆UGC创作——B站大量「精灵互动合集」视频播放过百万，独角兽抓小精灵跑步成名场面
+    
+      <span class="text-xs text-neutral-600 ml-1">— B站</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>零氪公平对战获社区高度认可：所有精灵平等、不卖数值、纯靠策略，PVP天梯热度持续
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA/TapTap</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>社区自发整理精灵图鉴wiki、属性克制表、编队攻略，策略讨论氛围浓厚
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA/B站专栏</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>好友互访家园+实时偷菜+派护主犬看家的社交设计在微博引发大量欢乐截图传播
+    
+      <span class="text-xs text-neutral-600 ml-1">— 微博</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>剧情被普遍吐槽偏水拖拉——需要频繁往返跑腿，代入感弱，男洛克线伊里斯剧情引发争议
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap/NGA</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>连锁捕捉机制奖励概率过低，异色精灵无保底机制（1.8%概率），脸黑玩家赛季结束都刷不出理想个体
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap长评</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>操作按键冲突严重——视角转动误触功能键、boss战按键失灵/卡顿反复出现
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap评测</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>PVE内容严重不足，过于注重PVP导致休闲玩家缺乏长线目标
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap/NGA</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>S2暗改事件彻底动摇社区信任，NGA/TapTap出现大规模「退坑帖」和「情怀已死」讨论
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA/TapTap</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>部分老玩家反映「大世界审美疲劳」——探索内容重复性高，情怀红利消耗后缺乏长线留存动力
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap/B站</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        
+        <a href="genshin-impact.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">原神 <span class="text-xs text-neutral-500 font-normal ml-1">米哈游 (miHoYo/HoYoverse)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>开放世界精灵/角色收集</b> F2P 手游 + 虚幻/Unity 高品质渲染 + 赛季制内容更新</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        <a href="eggy-party.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">蛋仔派对 <span class="text-xs text-neutral-500 font-normal ml-1">网易游戏 (NetEase)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>腾讯系轻社交</b>全年龄向游戏 + IP 联动策略 + 外观付费商业模式</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        <a href="honkai-star-rail.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">崩坏：星穹铁道 <span class="text-xs text-neutral-500 font-normal ml-1">米哈游 (miHoYo/HoYoverse)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>回合制策略 + 角色收集</b>的 F2P 大作 + 赛季制叙事更新 + 多端互通</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        
+        
+        
+        <button onclick="window.open('../compare.html?ids=314,234,232,235','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 4 款游戏
+        </button>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    
+    
+    <div x-show="assetTab === 'official'" x-cloak x-ref="panelOfficial">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2"></h4>
+        <div class="space-y-1">
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2"></h4>
+        <div class="space-y-1">
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2"></h4>
+        <div class="space-y-1">
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2"></h4>
+        <div class="space-y-1">
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelOfficial.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+    
+    
+    <div x-show="assetTab === 'inspiration'" x-cloak x-ref="panelInspiration">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2"></h4>
+        <div class="space-y-1">
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2"></h4>
+        <div class="space-y-1">
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2"></h4>
+        <div class="space-y-1">
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2"></h4>
+        <div class="space-y-1">
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2"></h4>
+        <div class="space-y-1">
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelInspiration.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-worldview',   label:'游戏世界观'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+
+// Track visit for "浏览历史" module
+(function() {
+  var slug = 'roco-kingdom-world';
+  var key = 'game_history';
+  var now = Date.now();
+  var SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+
+  var history = {};
+  try { history = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e) {}
+
+  // Dedup: same game only counts once within 30 minutes
+  var prev = history[slug];
+  if (prev && (now - prev.last) < 30 * 60 * 1000) return;
+
+  // Update: record last visit time + increment count
+  history[slug] = {
+    last: now,
+    count: (prev ? prev.count : 0) + 1
+  };
+
+  // Clean entries older than 7 days
+  Object.keys(history).forEach(function(k) {
+    if (now - history[k].last > SEVEN_DAYS) delete history[k];
+  });
+
+  localStorage.setItem(key, JSON.stringify(history));
+})();
+</script>
+
+</body>
+</html>

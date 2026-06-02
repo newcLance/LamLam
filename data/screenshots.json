@@ -2844,5 +2844,19 @@
         }
       ]
     }
+  ],
+  "Roco Kingdom: World": [
+    {
+      "module": "首页",
+      "screens": [
+        {
+          "title": "洛克王国：世界 - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/roco-kingdom-world/cover.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

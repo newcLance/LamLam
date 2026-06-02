@@ -5106,5 +5106,57 @@
     "lastUpdate": "2026-06-01",
     "slug": "once-human",
     "url": "https://www.oncehuman.game/"
+  },
+  {
+    "id": 314,
+    "name": "Roco Kingdom: World",
+    "nameCN": "洛克王国：世界",
+    "alias": "洛克王国世界,洛克王国:世界,Roco Kingdom World,洛克王国手游",
+    "icon": "🧙",
+    "company": "腾讯魔方工作室群",
+    "category": "已发售",
+    "region": "中国",
+    "platforms": [
+      "PC",
+      "iOS",
+      "Android"
+    ],
+    "model": "免费（不卖精灵/不卖数值/不抽卡）",
+    "genre": "RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2020",
+    "releaseDate": "2026.3.26",
+    "desc": "腾讯魔方工作室群自主研发，基于童年 IP「洛克王国」的大世界精灵养成游戏。虚幻4引擎，集精灵收集对战与开放世界探索于一体。公测预约量突破 6000 万，开服 13 小时新增玩家超 1500 万，首日 iOS 免费+畅销双榜第一。承诺「不卖精灵、不卖数值、不抽卡」。",
+    "features": [
+      "洛克王国 IP",
+      "精灵收集对战",
+      "开放世界",
+      "不卖数值不抽卡",
+      "虚幻4引擎",
+      "预约6000万"
+    ],
+    "changes": [
+      {
+        "date": "2020-07",
+        "text": "正式宣布研发"
+      },
+      {
+        "date": "2024-08-18",
+        "text": "急急鸭轻测"
+      },
+      {
+        "date": "2025-03-27",
+        "text": "等等鸭测试"
+      },
+      {
+        "date": "2026-03-26",
+        "text": "全平台正式公测"
+      }
+    ],
+    "lastUpdate": "2026-06-02",
+    "slug": "roco-kingdom-world",
+    "url": "https://17roco.qq.com/"
   }
 ]
