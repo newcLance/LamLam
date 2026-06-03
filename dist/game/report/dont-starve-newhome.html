@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>饥困荒野 — 市场机会与品牌策略</title>
+<title>饥困荒野 — 信任翻盘战：从 6.9 到公测引爆</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script>
@@ -34,7 +34,6 @@ tailwind.config = {
   .page-content strong, .page-content b { color: #fff; font-weight: 600; }
   .page-content .highlight { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 16px; margin: 16px 0; }
   .page-content .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.06); color: #737373; border: 1px solid rgba(255,255,255,0.06); margin-right: 4px; cursor: pointer; text-decoration: none; }
-  .page-content .tag:hover { color: #a3a3a3; background: rgba(255,255,255,0.08); }
   .page-content table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
   .page-content th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #737373; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .page-content td { padding: 8px 12px; color: #a3a3a3; border-bottom: 1px solid rgba(255,255,255,0.04); }
@@ -45,6 +44,8 @@ tailwind.config = {
   .risk-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; border-left: 3px solid #c43c3c; }
   .risk-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
   .risk-card .mitigation { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 12px; padding-top: 12px; }
+  .opportunity-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; border-left: 3px solid #2d8a4e; }
+  .opportunity-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
 </style>
 </head>
 <body class="min-h-screen antialiased" x-data="{ page: 0 }">
@@ -58,7 +59,7 @@ tailwind.config = {
         返回详情页
       </a>
       <div class="h-4 w-px bg-white/10"></div>
-      <h1 class="text-sm font-bold text-white">饥困荒野 — 市场机会与品牌策略<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-06-02 · v1</span></h1>
+      <h1 class="text-sm font-bold text-white">饥困荒野 — 信任翻盘战：从 6.9 到公测引爆<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-06-03</span></h1>
     </div>
     <div class="flex items-center gap-1">
       <a href="dont-starve-newhome.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">宏观视角</a>
@@ -76,553 +77,825 @@ tailwind.config = {
   <!-- LEFT: Page Navigation -->
   <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
     <div class="mb-6">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
-      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">市场背景与品类机会</button>
-      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">玩家画像与情绪地图</button>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">尸检</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">从 9.0 到 6.9：信任崩塌</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">「饥荒传奇」变翻盘武器</button>
     </div>
     <div class="mb-6">
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
-      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">核心记忆符号</button>
-      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉定位与美学谱系</button>
-      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">竞品象限与差异化壁垒</button>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">最敢砍自己刀的手游</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">谁最可能被召回</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">品类十字路口</button>
     </div>
     <div class="mb-6">
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
-      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">宣发核心物料清单</button>
-      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个杀手级宣发创意</button>
-      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范速查</button>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个信任重建创意</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">公测首日三件事</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范</button>
     </div>
     <div>
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
-      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警与应对</button>
-      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">顾问终审意见</button>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">Plan B：如果还是 6 分</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">GO/NO-GO 终审</button>
     </div>
   </nav>
 
   <!-- RIGHT: Content Area -->
   <main class="flex-1 py-8 px-10 max-w-4xl">
 
-    <!-- ========== PAGE 0: 市场背景与品类机会 ========== -->
+    <!-- ========== PAGE 0: 从 9.0 到 6.9 ========== -->
     <div x-show="page === 0" class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
-      <h2 class="text-2xl font-bold text-white mb-6">市场背景与品类机会</h2>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">尸检 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">从 9.0 到 6.9：四年信任崩塌尸检报告</h2>
 
       <div class="verdict">
-        <p><b>核心判断</b>：沙盒生存手游品类正处于「供给真空」窗口——明日之后独霸八年缺乏竞争，七日世界高开低走验证了品类需求但暴露了赛季制致命伤，我的世界覆盖了创造但缺乏生存紧张感。饥困荒野的机会不是「又一款生存手游」，而是<b>唯一一款拥有全球级 IP 信任背书 + 手绘美学辨识度 + 正在自我纠偏的商业化模型</b>的沙盒生存手游。问题不是品类有没有空间，而是团队能不能在 IP 信任被消耗殆尽之前完成口碑逆转。</p>
+        <p><b>一句话</b>：一款拥有千万预约、正版授权的饥荒手游，在四年反复测试中把 TapTap 评分从 <b>9.0 打到 6.9</b>——不是因为游戏本身不好玩，而是因为它一步步活成了玩家最恐惧的那个东西：「饥荒传奇」。现在它砍掉了全部抽卡，暑期公测，问题只有一个——<b>7083 条差评的记忆能被覆盖吗？</b></p>
       </div>
 
-      <h3>趋势一：沙盒生存手游品类需求持续增长，但头部供给断层</h3>
-      <p>沙盒游戏凭借高自由度和社交属性吸引年轻用户，成为中国手游增长最快的品类方向之一。<a href="https://www.chyxx.com/industry/1232429.html" target="_blank" rel="noopener" class="tag">智研咨询 2025 ↗</a> 但一个悖论是：品类增长了，头部产品却只有一款——<b>明日之后</b>，运营八年，2026年1月月流水仍有约 <b>3200 万元</b>。<a href="https://news.17173.com/content/02032026/155100534.shtml" target="_blank" rel="noopener" class="tag">17173 / 第三方数据 ↗</a></p>
-      <p>这不是「市场饱和」的信号，恰恰相反——这说明<b>品类需求远大于供给</b>。明日之后八年没有遇到真正的对手，七日世界尝试挑战但 Steam 峰值 <b>23.1 万</b>跌至日均 <b>1.2 万</b>（衰减 95%）。<a href="https://live-player-count.com/game/once-human" target="_blank" rel="noopener" class="tag">Steam 实时数据 ↗</a> 玩家在用脚投票：他们想要新的生存手游，但不想要「赛季清档」和「无限重复同一剧本」。</p>
+      <h3>时间线：一场有据可查的信任坍缩</h3>
 
-      <h3>趋势二：端转手 IP 的机会窗口与陷阱</h3>
-      <p>行业数据证明了一条铁律：端游 IP 手游化，<b>成功的不是照搬移植，而是基于 IP 核心体验重新设计手游逻辑</b>。</p>
       <table>
-        <thead><tr><th>产品</th><th>结果</th><th>关键因素</th></tr></thead>
+        <thead>
+          <tr><th>时间节点</th><th>TapTap 评分/事件</th><th>核心伤害</th></tr>
+        </thead>
         <tbody>
-          <tr><td><b>明日之后</b></td><td>运营 8 年，开局 DAU 近 700 万</td><td>原创手游级设计，非直接移植</td></tr>
-          <tr><td><b>方舟：生存进化手游</b></td><td>长期运营，玩家基础稳固</td><td>高度还原端游 + 免费内购</td></tr>
-          <tr><td><b>七日世界</b></td><td>峰值 23 万→日均 1.2 万</td><td>美术出色但赛季 wipe 劝退</td></tr>
-          <tr><td><b>冰汽时代手游</b></td><td>被《无尽冬日》抢先</td><td>IP 过于垂类，手游化受限</td></tr>
+          <tr><td><b>2022-2024 首测期</b></td><td>9.0 高分开局</td><td>—— 信任账户满额</td></tr>
+          <tr><td><b>2025年中 焕新测试</b></td><td>评分急跌</td><td>武器池/宠物池/98元单抽/200抽金坐骑</td></tr>
+          <tr><td><b>2025年中-年底</b></td><td>持续走低</td><td>马戏团PVP装备碾压 + 日常肝度爆表</td></tr>
+          <tr><td><b>2025年底-2026Q1</b></td><td>延期打磨，社区冷却</td><td>「测了又测」消耗耐心</td></tr>
+          <tr><td><b>2026-04-28「饥活了」</b></td><td>取消全部抽卡，社区短暂好评</td><td>评分仍锁在 6.9（惯性差评未消化）</td></tr>
+          <tr><td><b>2026-06-03 今日</b></td><td><b>6.9 分 / 7083 条评价</b></td><td>等待公测验证</td></tr>
         </tbody>
       </table>
-      <p><a href="https://new.qq.com/rain/a/20260519A0006H00" target="_blank" rel="noopener" class="tag">GameLook 行业分析 ↗</a></p>
-      <p><b>So what</b>：饥困荒野的核心风险不在品类方向（方向正确），而在执行路径——四年间反复测试、商业化方向三次大改，已经消耗了大量 IP 信任储备。好消息是 2026 年 4 月的「饥活了」节目宣布取消抽卡，说明团队终于找到了正确方向。坏消息是窗口在收窄。</p>
+      <p class="text-[11px] text-neutral-600">数据来源：TapTap 官方页面实时抓取 <a href="https://taptap.com/app/194039" target="_blank" class="tag">TapTap ↗</a> + 世纪华通研报 <a href="https://caifuhao.eastmoney.com/news/20250715224237047131230" target="_blank" class="tag">东方财富 ↗</a></p>
 
-      <h3>趋势三：「不卖数值」正在成为中国手游新共识</h3>
-      <p>2026 年最具说服力的案例是<b>洛克王国:世界</b>——定位「不卖精灵、不卖数值、不抽卡」，上线 13 小时新增 <b>1500 万</b>，3 月全平台流水 <b>6.75 亿元</b>，仅次于原神。<a href="https://view.inews.qq.com/a/20260525A04FBN00" target="_blank" rel="noopener" class="tag">腾讯新闻 ↗</a> 玩家总结的逻辑很简单：<b>「因为不逼氪，所以我氪了」</b>——情怀 + 尊重感驱动的消费远超压迫式抽卡。</p>
-      <p>七日世界同样不卖数值，但一年衰减 95%——证明「不卖数值」是必要条件而非充分条件，真正决定胜负的是<b>长线内容供给 + 留存设计</b>。饥困荒野取消抽卡后面临的核心命题不是「钱从哪来」，而是「内容够不够撑住留存」。</p>
-
-      <h3>饥荒 IP 的底盘：不是从零开始</h3>
-      <p>饥荒系列全球总销量约 <b>2500 万份</b>（2023 年十周年官方数据）。<a href="https://www.vgover.com/news/28099" target="_blank" rel="noopener" class="tag">Klei 官方声明 ↗</a> Steam 好评率 <b>95%+</b>，历史峰值同时在线 <b>114,109</b>。<a href="https://levvvel.com/dont-starve-statistics/" target="_blank" rel="noopener" class="tag">LEVVVEL / VG Insights ↗</a></p>
-      <p>更重要的是 Klei 的运营节奏：2025 年《饥荒联机版》十周年仍在推出大型更新，2026 年 4 月公布全新系列作品《饥荒:异域》——端游 IP 热度并未衰退，而是在持续积累。手游的问题从来不是「IP 有没有价值」，而是「你有没有对得起这个 IP」。</p>
+      <h3>五刀致命伤——玩家为什么给差评</h3>
 
       <div class="highlight">
-        <p><b>品类机会总结</b>：沙盒生存手游市场存在明确的「头部挑战者」空位。明日之后老化但无敌手，七日世界证明了需求但犯了赛季制的错误，我的世界覆盖了创造端但竞争维度不同。饥困荒野拿着一张全球级 IP 入场券，但已经在入口消耗了三年信任——<b>公测是最后一次机会，不是第二次测试</b>。</p>
+        <p><b>第一刀：抽卡定价背叛 IP 信任</b></p>
+        <p>武器池 + 宠物池双卡池并行，单抽 98 元，80 发保底，金色坐骑 200 抽不保底。当饥荒端游 25 元买断全部内容时，手游一把武器的期望成本是端游价格的 <b>300 倍</b>。玩家的愤怒不是针对抽卡本身——而是"凭什么饥荒也这样"。</p>
+      </div>
+
+      <div class="highlight">
+        <p><b>第二刀：PVP 变成钱包比拼</b></p>
+        <p>马戏团大逃杀模式原本是最大惊喜——饥荒里玩吃鸡的创意让测试玩家直呼过瘾。但当装备加成全部带入 PVP、氪金玩家一击碾压白嫖时，好评瞬间反转为"花钱买赢"的指控。</p>
+      </div>
+
+      <div class="highlight">
+        <p><b>第三刀：日常肝度溢出</b></p>
+        <p>每天只能打两次的副本次数 + 坐骑培养 + 护甲升级 + 冒险团捐赠 + 战令 + 日活任务。当系统层层堆砌到学生和上班族时间撑不住时，游戏就从"想玩"变成了"不得不登录"。</p>
+      </div>
+
+      <div class="highlight">
+        <p><b>第四刀：技术品质拖后腿</b></p>
+        <p>家园布局拖拽不跟手、移动轮盘灵敏度差、吃东西被移动打断、洞穴时间错乱、任务卡死。玩家可以容忍氪金，但不能容忍花了钱还卡。</p>
+      </div>
+
+      <div class="highlight">
+        <p><b>第五刀：「不像饥荒」的灵魂拷问</b></p>
+        <p>经典角色全变 NPC、特权会员 + 首充 + 战令小连招——当玩家说出"这是饥荒传奇"四个字时，它已经不再是调侃，而是定罪。一个 IP 手游最致命的判决就是被玩家认定"背叛了原作精神"。</p>
+      </div>
+
+      <h3>关键洞察：6.9 不是游戏的"真实分数"</h3>
+      <p>TapTap 评分有<b>锁定效应</b>——早期差评在算法中持续压制新好评。「饥活了」节目后社区一致好评，但一个月过去评分纹丝不动。这意味着：公测不只是发布新版本，而是需要一次<b>评分重置级别的事件</b>来打破惯性。洛克王国做到了（公测首日评分从 7.x 跳到 8.5+），但它有 6000 万预约的势能碾压。饥困荒野的 211 万预约 <a href="https://taptap.com/app/194039" target="_blank" class="tag">TapTap ↗</a> 不具备同等碾压力，必须靠<b>事件密度</b>弥补人数差距。</p>
+
+      <h3>数据对照：7083 条评价的构成分析</h3>
+      <p>根据 TapTap 评价区抽样观察，差评集中在以下几个关键词簇：</p>
+      <table>
+        <thead>
+          <tr><th>差评关键词</th><th>出现频率（估）</th><th>情绪烈度</th><th>公测版是否已修复</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>抽卡/氪金/98元/传奇</td><td>~45%</td><td>极高（愤怒）</td><td><b>已修复</b>——全砍</td></tr>
+          <tr><td>肝/日常多/副本限次</td><td>~20%</td><td>高（疲惫）</td><td>部分修复——需验证</td></tr>
+          <tr><td>BUG/卡顿/优化差</td><td>~15%</td><td>中（失望）</td><td>未知——需公测验证</td></tr>
+          <tr><td>不像饥荒/网游化</td><td>~12%</td><td>中（惋惜）</td><td>部分修复——DLC移植中</td></tr>
+          <tr><td>PVP不公平</td><td>~8%</td><td>高（愤怒）</td><td><b>已修复</b>——装备归一</td></tr>
+        </tbody>
+      </table>
+      <p>这意味着：差评中<b>超过 53%</b> 的核心痛点（抽卡 + PVP）已经被砍掉。但玩家不会因为"听说改了"就改评——他们需要亲手验证。公测的核心任务不是证明"游戏好玩"，而是证明"<b>你骂的那些东西确实没了</b>"。</p>
+
+      <h3>信任修复的时间维度</h3>
+      <p>参考行业案例，评分翻盘的时间窗口通常是<b>公测后 2-4 周</b>。超过这个窗口后，新评价密度会自然衰减，评分曲线固化。这意味着：</p>
+      <ul>
+        <li>公测前 2 周是"认知铺垫期"——让人知道改了</li>
+        <li>公测首日到第 7 天是"验证爆发期"——让人亲手确认改了</li>
+        <li>第 8-28 天是"口碑扩散期"——让确认过的人帮你说</li>
+        <li>超过 30 天后——评分基本定型，后续只能靠长线内容缓慢抬升</li>
+      </ul>
+
+      <div class="verdict">
+        <p><b>尸检结论</b>：这不是一个"产品有缺陷"的故事，而是一个"信任被系统性摧毁"的故事。修复产品需要一个版本，修复信任需要一场运动。窗口期只有 4 周。</p>
       </div>
     </div>
 
-    <!-- ========== PAGE 1: 玩家画像与情绪地图 ========== -->
-    <div x-show="page === 1" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
-      <h2 class="text-2xl font-bold text-white mb-6">玩家画像与情绪地图</h2>
+    <!-- ========== PAGE 1: 「饥荒传奇」翻盘武器 ========== -->
+    <div x-show="page === 1" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">尸检 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">「饥荒传奇」这个绰号怎么变成翻盘武器</h2>
 
       <div class="verdict">
-        <p><b>核心判断</b>：饥困荒野的目标用户不是一个圆，而是<b>三个圆</b>的同心扩展。核心圈的情绪是「又爱又恨的期待」，中间圈是「好奇但观望」，外圈是「完全不知道这是啥」。当前最危险的不是外圈触达不够，而是<b>核心圈的信任已经接近临界点</b>——TapTap 评分从 9.0 跌到 6.9，就是核心圈用脚投票的结果。</p>
+        <p><b>核心逻辑</b>：被嘲讽为"饥荒传奇"是最大的耻辱——但如果你能<b>主动拥抱这个词</b>，把它变成叙事的起点而非终点，它就会成为最强的信任背书。逻辑是：「对，我们曾经是饥荒传奇。然后我们砍掉了全部抽卡。你见过哪个传奇敢砍自己的命根子？」</p>
       </div>
 
-      <h3>三圈用户模型</h3>
+      <h3>为什么"饥荒传奇"是一把双刃剑</h3>
+      <p>"饥荒传奇"这四个字浓缩了社区对游戏<b>最精准的控诉</b>——它不是骂画面差、不是骂玩法无聊，而是骂"你把饥荒做成了换皮流水线"。这个绰号之所以杀伤力极大，是因为它击中了 IP 改编手游的核心焦虑：<b>原作精神被商业化稀释</b>。</p>
+      <p>但反过来看——正因为这个词精确描述了"过去的错误"，它也天然成为了"现在的改变"的最佳对照组。关键是：<b>不要回避，不要辩解，直接认领</b>。</p>
 
-      <div class="highlight">
-        <h4>核心圈：饥荒端游老玩家（情怀驱动型）</h4>
-        <p><b>画像</b>：18-30 岁，Steam / TGP 饥荒联机版活跃用户，对 Klei 手绘美学和「别饿死」核心循环有强情感连接。规模参考：饥荒联机版 Steam 历史峰值 <b>11.4 万</b>同时在线，中国区贡献主要增量。<a href="https://levvvel.com/dont-starve-statistics/" target="_blank" rel="noopener" class="tag">LEVVVEL ↗</a></p>
-        <p><b>当前情绪</b>：极度矛盾。一方面对「饥荒能在手机上玩」有本能期待，另一方面被四年测试消耗了耐心。TapTap 评分从预约期 <b>9.0</b> 跌至 <b>6.9</b>。<a href="https://news.qq.com/rain/a/20260531A07WOX00" target="_blank" rel="noopener" class="tag">游戏那点事 ↗</a> 高频负面关键词：「饥荒传奇」「网游化」「原版角色变 NPC」。</p>
-        <p><b>痛点</b>：不是「游戏不好玩」，而是<b>「这不像饥荒」</b>。抽卡、日常肝度、RPG 数值养成——每一条都在偏离「原汁原味」的心理预期。</p>
-        <p><b>转化密钥</b>：「饥活了」节目取消抽卡是第一步信任修复。但这圈人需要看到的不是承诺，而是<b>实际体验的改变</b>——公测首周的前 48 小时体验将决定这个圈层最终给出好评还是差评。</p>
-      </div>
+      <h3>策略：三步把嘲讽变成叙事资产</h3>
 
-      <div class="highlight">
-        <h4>中间圈：沙盒生存泛用户（品类驱动型）</h4>
-        <p><b>画像</b>：16-28 岁，玩过明日之后 / 我的世界 / 方舟手游中任一款，对「采集-建造-生存」循环有认知和兴趣，但不一定知道饥荒 IP。</p>
-        <p><b>当前情绪</b>：品类疲劳但仍有需求。明日之后八年了想换新鲜的，七日世界赛季 wipe 劝退了，我的世界太低龄想要更刺激的。</p>
-        <p><b>痛点</b>：不是没有选择，而是<b>每个选择都有明显短板</b>——明日之后太老、七日世界太肝且清档、方舟太硬核。</p>
-        <p><b>转化密钥</b>：这圈人不在乎「饥荒情怀」，在乎的是「好不好玩」和「氪不氪」。宣发话术应该是：<b>手绘美术差异化 + 不卖数值 + 8 人联机沙盒房</b>。</p>
-      </div>
-
-      <div class="highlight">
-        <h4>外圈：轻度手游社交玩家（社交驱动型）</h4>
-        <p><b>画像</b>：18-35 岁，女性占比高，日常玩蛋仔派对 / 光遇 / 摩尔庄园，核心诉求是「和朋友一起玩点什么」。</p>
-        <p><b>当前情绪</b>：完全不知道饥困荒野是什么，但对「和朋友一起建家」「养宠物」有天然兴趣。</p>
-        <p><b>痛点</b>：害怕「太难」「太肝」「太恐怖」。饥荒的黑暗美学和生存压力在这圈人眼里是双刃剑。</p>
-        <p><b>转化密钥</b>：家园系统 + 亲密关系系统 + 安全区设计。宣发物料需要专门切一条「白天家园」线——<b>不是荒野求生，是和朋友一起经营小天地</b>。导师系统和「一键回家园」是降低门槛的关键功能点。</p>
-      </div>
-
-      <h3>情绪地图：从预约到公测的信任曲线</h3>
-      <table>
-        <thead><tr><th>阶段</th><th>时间</th><th>TapTap 评分</th><th>核心圈情绪</th></tr></thead>
-        <tbody>
-          <tr><td>预约期</td><td>2024</td><td><b>9.0</b></td><td>「Klei 正版授权，终于等到了」</td></tr>
-          <tr><td>付费测试期</td><td>2023-2024</td><td>持续下滑</td><td>「98 元一抽？饥荒传奇？」</td></tr>
-          <tr><td>iOS 下架</td><td>2024.3</td><td>恐慌性差评</td><td>「跑路了？」</td></tr>
-          <tr><td>焕新测试</td><td>2025.6</td><td>小幅回升</td><td>「有进步但还不够」</td></tr>
-          <tr><td>饥活了节目</td><td>2026.4.28</td><td>情绪转暖</td><td>「终于取消抽卡了！」</td></tr>
-          <tr><td>饥智团测试</td><td>2026.5.14</td><td><b>6.9</b></td><td>「只招主播不招我？」</td></tr>
-        </tbody>
-      </table>
-      <p><a href="https://jinbao.people.com.cn/n1/2024/0703/c421674-40269929.html" target="_blank" rel="noopener" class="tag">盛趣 CSR 报告 ↗</a> <a href="https://news.qq.com/rain/a/20260531A07WOX00" target="_blank" rel="noopener" class="tag">游戏那点事 ↗</a></p>
-
-      <p><b>So what</b>：信任曲线告诉我们一件事——<b>「饥活了」节目是底部反转的起点，但还远未完成修复</b>。饥智团测试「只招主播不招普通玩家」的操作在社区引发了新一轮不满。<a href="https://www.taptap.cn/moment/802929122308262292" target="_blank" rel="noopener" class="tag">TapTap 论坛 ↗</a> 公测前的每一次对外动作都必须回答同一个问题：<b>你站在玩家这边，还是站在 KPI 那边？</b></p>
-    </div>
-
-    <!-- ========== PAGE 2: 核心记忆符号 ========== -->
-    <div x-show="page === 2" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 01</div>
-      <h2 class="text-2xl font-bold text-white mb-6">核心记忆符号</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：饥荒 IP 拥有三个全球级记忆符号——<b>哥特手绘风格</b>、<b>三维生存管理</b>（饥饿/精神/生命）、<b>「别饿死」品牌心智</b>。这三个符号不是装饰，是饥困荒野区隔所有竞品的根本壁垒。宣发的第一优先级不是解释「新增了什么」，而是证明<b>「我们没有丢掉这三样东西」</b>。</p>
-      </div>
-
-      <h3>符号一：哥特手绘——你一眼就知道这是饥荒</h3>
-      <p>饥荒系列的视觉辨识度是独立游戏史上最高的之一。<b>粗黑线条、空洞眼窝、夸张头身比、低饱和度配色</b>——关掉 UI，只看剪影就能认出这是饥荒。这种辨识度的商业价值是什么？是<b>零成本品牌传播</b>。任何一张饥荒截图在社交媒体上都不需要标注游戏名，所有人都知道这是什么。</p>
-      <p><b>So what</b>：手游化过程中，这个符号正在被稀释。元素战斗特效、星级武器光效、RPG 数字飘字——每增加一层「手游标配」视觉，就离饥荒原生美学远一步。宣发策略的核心不是「展示新内容多炫」，而是<b>每张 Key Art 都必须让人第一眼认出这是饥荒</b>。如果你的宣传图拿掉 logo 后看起来像任何一款韩式手游，那视觉定位就失败了。</p>
-
-      <h3>符号二：三维管理——不是血条，是生存哲学</h3>
-      <p>饥饿值、精神值、生命值——三个同时下降的数值构成了饥荒独有的生存压力感。这不是「又一个血条游戏」，这是<b>「你必须同时照顾三件事，而资源永远不够」</b>的哲学。精神值尤其独特：当理智下降，你会看到不存在的怪物——而那些怪物真的会攻击你。</p>
-      <p>手游化的关键问题是：三维管理在碎片化游戏时间中如何保持紧张感？家园系统的「永久保鲜」和「安全区无精神衰减」是合理的妥协——但宣发必须强调的是<b>走出家园后的紧张感依然在</b>。「白天是田园牧歌，夜晚是绝命荒野」——这个反差本身就是最好的宣发叙事。</p>
-
-      <h3>符号三：「别饿死」——最简洁的品牌心智</h3>
-      <p>Don't Starve。两个单词。全世界的玩家都知道这个名字意味着什么。这是游戏史上最成功的品牌命名之一——名字本身就是玩法描述、情感承诺和文化 meme 的三合一。</p>
-      <p>中文名「饥困荒野」继承了「饥」字的品牌基因，但略显温和。宣发中应该持续使用「别饿死」作为<b>社区暗号</b>——不是官方 slogan，而是玩家之间心照不宣的圈层语言。<a href="https://www.taptap.cn/app/194039" target="_blank" rel="noopener" class="tag">TapTap 官方页 ↗</a></p>
-
-      <div class="highlight">
-        <p><b>三大符号的宣发优先级</b>：</p>
+      <div class="creative-card">
+        <h5>第一步：官方自嘲——「我们确实是饥荒传奇」</h5>
+        <p>在公测预热期的品牌视频/开发者信中，<b>正面使用"饥荒传奇"这个词</b>。文案参考方向：</p>
         <ul>
-          <li><b>每一张 Key Art</b>：必须通过「关掉 logo 测试」——拿掉游戏名，依然一眼认出是饥荒</li>
-          <li><b>每一段预告片</b>：必须在前 3 秒出现三维表盘（心形 + 胃袋 + 大脑）</li>
-          <li><b>每一次社区互动</b>：官方话语体系中保持「别饿死」基因——用自嘲、黑色幽默、生存哲学的口吻，不用「尊敬的冒险者」体</li>
+          <li>"你们叫我们饥荒传奇。说实话，我们确实配得上这个名字——98 元单抽、200 抽金坐骑、装备碾压 PVP。我们把饥荒做成了你们最讨厌的样子。"</li>
+          <li>"然后我们做了一件传奇游戏从来不会做的事——砍掉了所有抽卡。不是减少，不是优化，是<b>全部删除</b>。"</li>
+          <li>"所以现在的问题是：一个曾经的饥荒传奇，砍掉了让它成为传奇的东西，它还是传奇吗？还是终于有机会做回饥荒？"</li>
         </ul>
       </div>
-    </div>
 
-    <!-- ========== PAGE 3: 视觉定位与美学谱系 ========== -->
-    <div x-show="page === 3" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 02</div>
-      <h2 class="text-2xl font-bold text-white mb-6">视觉定位与美学谱系</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：饥困荒野的视觉定位是 <b>80% Tim Burton 式哥特手绘暗黑童话 × 20% 手游碎片化 RPG 视觉体系</b>。这个比例不能反过来。一旦手游 RPG 视觉占比超过手绘底色，产品就会丧失区隔竞品的唯一壁垒——因为「手游 RPG」长一个样，而「饥荒手绘」全世界只有一个。</p>
+      <div class="creative-card">
+        <h5>第二步：社区二创引导——#不是传奇了</h5>
+        <p>发起 <b>#不是传奇了</b> 话题挑战：让玩家晒出删除抽卡前后的对比截图、测试体验差异、老差评 vs 新版感受。利用社区的"打脸快感"——曾经骂得越狠的人，现在"被打脸"时的传播力越强。</p>
+        <p>配合 B 站 UP 主投放：不投头部游戏区（他们太贵且粉丝脱敏），投<b>中腰部吐槽类/盘点类 UP 主</b>——他们的粉丝群体就是曾经骂过这个游戏的人，精准触达"被伤害过的老饥荒玩家"。</p>
       </div>
 
-      <h3>美学 DNA：从 Edward Gorey 到 Tim Burton 到饥荒</h3>
-      <p>饥荒的视觉语言有清晰的谱系：<b>Edward Gorey 的交叉排线 → Tim Burton 的剪影人物 → Klei 的粗犷手绘</b>。角色拥有空洞的眼窝、巨大的头颅和纤细的肢体，场景以墨绿、暗紫、焦褐为主色调。整个世界仿佛一本被翻烂的维多利亚时代暗黑绘本。</p>
+      <div class="creative-card">
+        <h5>第三步：产品内嵌入叙事——让"砍抽卡"成为可感知的日常</h5>
+        <p>光靠一次公告不够。需要在产品体验中<b>持续提醒</b>玩家"这不是传奇了"：</p>
+        <ul>
+          <li>兑换商店界面顶部加一行小字：「所有武器和宠物均可通过日常活跃免费兑换，不花一分钱」——这行字的作用不是通知，是<b>心理锚点</b></li>
+          <li>每次获得高品质武器时弹出的提示改为：「恭喜！这把武器通过沙盒材料锻造获得。无需抽卡。」——反复强化「free」的体感</li>
+          <li>马戏团模式入口增加：「本模式所有玩家装备归一，仅凭操作和策略分胜负」——直接回应"花钱买赢"的旧伤</li>
+        </ul>
+      </div>
 
-      <h3>美学演进时间线</h3>
+      <h3>行业参照：谁做过类似的"耻辱翻盘"</h3>
       <table>
-        <thead><tr><th>时间</th><th>产品</th><th>视觉特征</th></tr></thead>
+        <thead>
+          <tr><th>产品</th><th>耻辱标签</th><th>翻盘动作</th><th>结果</th></tr>
+        </thead>
         <tbody>
-          <tr><td>2013</td><td>《饥荒》PC 版</td><td>纯手绘、交叉排线、极简配色</td></tr>
-          <tr><td>2016</td><td>《饥荒联机版》</td><td>多人共享荒野 + 角色皮肤系统引入装饰性视觉消费</td></tr>
-          <tr><td>2023-24</td><td>多轮内测</td><td>抽卡武器带来星级光效和 RPG 视觉层，社区争议</td></tr>
-          <tr><td>2025</td><td>焕新测试</td><td>回调：削弱氪金感视觉，回归手绘质朴</td></tr>
-          <tr><td>2026</td><td>饥智团测试</td><td>取消抽卡后，武器外观回归功能感，UGC 编辑器引入创作自由度</td></tr>
+          <tr><td>No Man's Sky</td><td>"骗子肖恩"</td><td>闷头更新 4 年不说话</td><td>Steam 评价从极差到极好</td></tr>
+          <tr><td>最终幻想 XIV</td><td>"史上最烂 MMO"</td><td>砍服重做 2.0</td><td>全球注册 2700 万</td></tr>
+          <tr><td>洛克王国:世界</td><td>"页游圈钱"</td><td>三不承诺（不卖数值/不卖精灵/不抽卡）</td><td>公测 10 天 iOS 流水 1.03 亿 <a href="https://www.toutiao.com/article/7629951309638091290" target="_blank" class="tag">今日头条 ↗</a></td></tr>
         </tbody>
       </table>
 
-      <h3>手游化的视觉张力点</h3>
-      <p>问题本质是：<b>手绘底色与手游 RPG 光效之间的冲突</b>。七种元素伤害各有粒子特效色——雷击的电弧白、冰冻的霜蓝、火焰的焦橙——这些高饱和闪光刺穿手绘底色的一瞬间，是端游哥特美学与手游 RPG 视觉最剧烈的碰撞点。</p>
-      <p><b>So what</b>：宣发视觉策略应该<b>拥抱这个张力而不是回避它</b>。正确的做法是：90% 的画面保持手绘底色的克制，<b>只在关键战斗瞬间释放元素光芒</b>——就像电影中的爆炸只在沉默很久之后才有冲击力。如果每一帧都在闪光，玩家就分不清这是饥荒还是原神了。</p>
-
-      <h3>美学参照坐标</h3>
-      <table>
-        <thead><tr><th>参照</th><th>年份</th><th>关联</th></tr></thead>
-        <tbody>
-          <tr><td><b>剪刀手爱德华</b>（Tim Burton）</td><td>1990</td><td>苍白孤独主角与哥特庄园——饥荒角色空洞眼窝的视觉源头</td></tr>
-          <tr><td><b>Edward Gorey 插画集</b></td><td>1953</td><td>交叉排线与维多利亚暗黑童趣——系列美学根基</td></tr>
-          <tr><td><b>圣诞夜惊魂</b></td><td>1993</td><td>细长肢体剪影与暗黑节庆美学——角色夸张比例参照</td></tr>
-          <tr><td><b>鬼妈妈 Coraline</b></td><td>2009</td><td>定格动画的暗黑童话——纽扣眼睛与缝合美学的隐性影响</td></tr>
-          <tr><td><b>空洞骑士</b></td><td>2017</td><td>手绘暗色调——独立游戏中手绘暗黑美学的当代延续</td></tr>
-        </tbody>
-      </table>
+      <div class="verdict">
+        <p><b>结论</b>：「饥荒传奇」不是需要压制的负面词汇——它是一个<b>已经被社区共识认证的叙事起点</b>。只要你能证明"从传奇到饥荒"这条回归路是真实的、可体验的、不可逆的，这四个字就会从嘲讽变成传奇故事本身。</p>
+      </div>
     </div>
 
-    <!-- ========== PAGE 4: 竞品象限与差异化壁垒 ========== -->
-    <div x-show="page === 4" x-cloak class="page-content">
+    <!-- ========== PAGE 2: 最敢砍自己刀的手游 ========== -->
+    <div x-show="page === 2" class="page-content">
       <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
-      <h2 class="text-2xl font-bold text-white mb-6">竞品象限与差异化壁垒</h2>
+      <h2 class="text-2xl font-bold text-white mb-6">从「被腾讯毁掉的经典」到「最敢砍自己刀的手游」</h2>
 
       <div class="verdict">
-        <p><b>核心判断</b>：饥困荒野的竞争对手不是「其他饥荒」，而是「玩家打开手机时的其他选择」。在四象限分析中，饥困荒野占据了唯一的「<b>强 IP 美学辨识度 × 中度生存压力</b>」象限——明日之后没有全球 IP，七日世界没有美学辨识度，我的世界没有生存紧张感。这个位置是饥困荒野唯一的壁垒，但只有在执行层不犯错的前提下才成立。</p>
+        <p><b>核心重定位</b>：饥困荒野需要的不是"我们变好了"的温和叙事，而是一个<b>激进到让人不得不相信</b>的标签。「最敢砍自己刀的手游」——砍的不是别人的刀，是自己的营收来源。这种自我伤害级别的诚意，在 2026 年国产手游市场里没有第二家。</p>
       </div>
 
-      <h3>四象限定位图</h3>
+      <h3>为什么"移除抽卡"是核武级操作</h3>
+      <p>2026 年"去抽卡"不再是新闻——从洛克王国到王者荣耀世界到异环，越来越多新游以"不抽卡"作为卖点。<a href="https://new.qq.com/rain/a/20260519A0006H00" target="_blank" class="tag">GameLook ↗</a> 但饥困荒野的情况<b>根本不一样</b>：</p>
+
+      <table>
+        <thead>
+          <tr><th>维度</th><th>洛克王国等新游</th><th>饥困荒野</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>抽卡历史</td><td>从未有过抽卡（先天不抽卡）</td><td><b>曾经有，且被骂到 6.9，然后全砍</b></td></tr>
+          <tr><td>玩家感知</td><td>"这游戏本来就不抽卡"（无感）</td><td>"它居然真砍了"（震撼）</td></tr>
+          <tr><td>信号强度</td><td>弱——因为没有对比</td><td><b>极强——因为有血淋淋的对比</b></td></tr>
+          <tr><td>叙事张力</td><td>品牌宣传</td><td><b>浪子回头故事</b></td></tr>
+        </tbody>
+      </table>
+
+      <p>"不抽卡"是承诺，"砍掉已有的抽卡"是<b>行动</b>。前者是新游的标准操作，后者是自我革命。这就是饥困荒野独一无二的叙事资本。</p>
+
+      <h3>定位锚点：「行业里唯一一个砍了自己营收模型的游戏」</h3>
+      <p>具体内容支撑：</p>
+      <ul>
+        <li><b>武器池取消</b>——改为兑换商店，用「锻造棱晶」免费兑换 <a href="https://shouyou.3dmgame.com/news/76170.html" target="_blank" class="tag">3DM ↗</a></li>
+        <li><b>宠物池取消</b>——同上，兑换道具通过日常活跃产出</li>
+        <li><b>武器突破/精炼</b>——仅消耗沙盒材料，全程免费（不再关联付费）</li>
+        <li><b>宠物突破</b>——仅消耗沙盒材料</li>
+        <li><b>付费重心转向</b>——仅保留外观付费（皮肤/装饰），告别随机抽卡的不确定性 <a href="https://new.qq.com/rain/a/20260519A0006H00" target="_blank" class="tag">腾讯新闻 ↗</a></li>
+      </ul>
+
+      <h3>腾讯的赌注——为什么这次可能是真的</h3>
+      <p>魔方工作室群总裁 Enzo 在洛克王国公测时的表态可以直接平移：「赌 IP 长线运营的信任，放弃短期流水」。<a href="https://www.toutiao.com/article/7629951309638091290" target="_blank" class="tag">今日头条 ↗</a> 腾讯 2026Q1 财报已经用洛克王国验证了这条路——<b>首月 DAU 1300 万</b>，公测 10 天 iOS 流水 1.03 亿。当"不卖数值"可以比"卖数值"赚更多钱时，这不再是情怀，而是商业理性。</p>
+
+      <h3>定位落地：一句话、三个版本、五个触点</h3>
+      <p><b>核心定位一句话</b>（内部对齐用）：「砍了自己抽卡命根子的饥荒手游」</p>
+      <p><b>对外表达三个版本</b>（适配不同语境）：</p>
+      <ul>
+        <li><b>正式版</b>（官方公告/新闻稿）："饥困荒野全面移除抽卡机制，所有武器与宠物均可通过游戏内活跃免费获取。"</li>
+        <li><b>社区版</b>（TapTap/B站）："武器池砍了。宠物池砍了。传奇那个版本的饥荒，没了。"</li>
+        <li><b>口语版</b>（UP主/直播间）："这游戏以前是饥荒传奇，现在把抽卡全删了，你说离谱不离谱？"</li>
+      </ul>
+      <p><b>五个核心触点</b>（玩家必须在这五个地方感知到定位）：</p>
+      <ul>
+        <li>① TapTap 商店页副标题/简介第一行</li>
+        <li>② 所有广告素材的第一帧（3 秒法则）</li>
+        <li>③ 游戏内新手引导前 10 分钟</li>
+        <li>④ 商城首页顶部 Banner</li>
+        <li>⑤ 每次获得武器/宠物时的系统提示</li>
+      </ul>
+
+      <div class="verdict">
+        <p><b>定位总结</b>：饥困荒野的市场身份应该是「<b>国产手游史上第一个砍掉已上线抽卡系统的 IP 手游</b>」——不要温和，不要模糊，就是这一条。所有宣发物料的核心信息都应该收敛到这个点上：我们曾经错了，我们砍了，来看看砍完之后是什么样。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 3: 谁最可能被召回 ========== -->
+    <div x-show="page === 3" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
+      <h2 class="text-2xl font-bold text-white mb-6">从月卡党到 DST 铁杆：谁最可能被「移除抽卡」召回</h2>
+
+      <div class="verdict">
+        <p><b>核心判断</b>：饥困荒野面对的不是一个统一的"饥荒玩家群体"，而是至少四个<b>利益完全不同</b>的人群。"移除抽卡"对他们的意义截然不同——有的人会回来，有的人根本不知道这件事发生了。你需要精确瞄准"最有可能回头看一眼"的那批人。</p>
+      </div>
+
+      <h3>四层人群画像与召回概率</h3>
+
+      <table>
+        <thead>
+          <tr><th>人群</th><th>规模</th><th>核心诉求</th><th>「砍抽卡」对其意义</th><th>召回难度</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>A. DST 端游铁杆</b></td><td>Steam 中国区数百万</td><td>原汁原味饥荒体验</td><td>中 — 抽卡不是唯一顾虑，还担心"手游化"</td><td>★★★★ 高</td></tr>
+          <tr><td><b>B. 测试期流失差评玩家</b></td><td>约数万（写差评的活跃用户）</td><td>被骗过，要看到彻底改变</td><td><b>极高</b> — 这就是他们差评的核心原因</td><td>★★★ 中</td></tr>
+          <tr><td><b>C. 预约但从未测试过的等待党</b></td><td>211万预约中的大多数</td><td>想玩饥荒手游但在观望</td><td>高 — 移除消息降低了入坑门槛</td><td>★★ 低</td></tr>
+          <tr><td><b>D. 泛生存品类手游玩家</b></td><td>明日之后+七日世界+我的世界用户</td><td>找个新坑跳</td><td>低 — 他们不知道"饥荒传奇"的梗</td><td>★★★ 中</td></tr>
+        </tbody>
+      </table>
+
+      <h3>优先级排序：B > C > D > A</h3>
+
+      <div class="creative-card">
+        <h5>第一优先：B. 测试期流失差评玩家（最高 ROI）</h5>
+        <p>为什么最优先？因为他们<b>已经下载过、已经玩过、已经形成情绪记忆</b>。召回他们不需要从零教育，只需要一个足够强的信号——"你骂的那个东西被砍了"。</p>
+        <p>触达方式：TapTap 站内推送 + 短信 + B 站信息流（定向投放曾观看过饥困荒野负面评测视频的用户）</p>
+        <p>关键信息：不讲新功能，只讲<b>一条</b>——「你写差评时骂的抽卡，全部删了。不是减少，是删了。不信来看。」</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>第二优先：C. 预约等待党（最大基数）</h5>
+        <p>211 万 TapTap 预约 + 全平台千万预约 <a href="https://new.qq.com/rain/a/20260519A0006H00" target="_blank" class="tag">腾讯新闻 ↗</a> 中绝大多数人从未参与过测试。他们的心智中可能只有模糊印象："饥荒手游好像评价不太好"。需要帮他们快速建立信心。</p>
+        <p>触达方式：TapTap 预约弹窗 + 微信小程序预约提醒 + 抖音开屏</p>
+        <p>关键信息：「Klei 正版授权 + 全面移除抽卡 + 暑期公测」三点并列，不需要解释历史。</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>第三优先：D. 泛生存品类玩家（增量市场）</h5>
+        <p>明日之后运营近 8 年用户疲劳、七日世界流失超 86% <a href="https://www.biligame.com.cn/gamenews/sx9gywjlsld86wyzkjzjjyhlbzr" target="_blank" class="tag">Biligame ↗</a> ——大量 SOC 玩家处于"无坑可蹲"状态。但他们对"饥荒"的 IP 认知可能仅停留在"那个很难的生存游戏"。</p>
+        <p>触达方式：抖音/快手直播 + 生存品类内容合作</p>
+        <p>关键信息：不提历史包袱，直接展示核心循环——「沙盒探索 + 家园建造 + 8 人联机 + 不用氪金」</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>第四优先：A. DST 端游铁杆（长线转化）</h5>
+        <p>最难但最有价值——他们如果认可手游，将成为<b>最忠实的内容创作者和社区核心</b>。但他们的顾虑不止抽卡：操作手感、画风还原度、联机体验、是否"网游化严重"。不能靠一条信息打动，需要持续内容输出。</p>
+        <p>触达方式：Steam 社区帖子 / B 站硬核测评 UP 主 / 饥荒联机版 Mod 创作者定向邀请</p>
+        <p>关键信息：「DST DLC 移植已启动（哈姆雷特/天体风暴/月亮码头） + UGC 编辑器原型期」<a href="https://shouyou.3dmgame.com/news/76170.html" target="_blank" class="tag">3DM ↗</a></p>
+      </div>
+
+      <h3>人群触达渠道与内容适配矩阵</h3>
+      <table>
+        <thead>
+          <tr><th>人群</th><th>主渠道</th><th>内容形态</th><th>核心信息</th><th>KPI</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>B 差评党</td><td>TapTap 站内 + B 站中腰 UP</td><td>短视频（1-2min 吐槽风）</td><td>"你骂的那些全砍了"</td><td>评价修改率</td></tr>
+          <tr><td>C 预约党</td><td>TapTap 弹窗 + 微信小程序</td><td>信息流图文</td><td>"Klei正版+0抽卡+暑期公测"</td><td>预下载转化率</td></tr>
+          <tr><td>D 品类玩家</td><td>抖音/快手信息流</td><td>15s 竖屏实机</td><td>"8人联机生存不用氪"</td><td>新增下载</td></tr>
+          <tr><td>A 端游铁杆</td><td>Steam 社区 + B 站硬核UP</td><td>深度测评（10min+）</td><td>"DLC移植+UGC编辑器+手感还原"</td><td>口碑种子转化</td></tr>
+        </tbody>
+      </table>
+
+      <h3>特别注意：避免触发"反感"的内容陷阱</h3>
+      <ul>
+        <li><b>不要过度道歉</b>——中国游戏社区对"跪式公关"免疫甚至反感。语气应该是"我们砍了，来验收"，不是"对不起对不起对不起"</li>
+        <li><b>不要使用"感恩"类话术</b>——"感谢各位不离不弃"会被嘲讽为"都是你逼走的还感谢"</li>
+        <li><b>不要对比友商</b>——不要在物料中明示"我们比七日世界好"或"我们比明日之后便宜"，这会引发不必要的骂战</li>
+        <li><b>不要夸大改变</b>——只说做了什么，不要说"业界首创/史无前例"——让玩家自己下结论远比你替他们下结论有效</li>
+      </ul>
+
+      <div class="verdict">
+        <p><b>资源分配建议</b>：暑期公测预算的 <b>50%</b> 打 B+C（召回+激活预约），<b>30%</b> 打 D（品类增量），<b>20%</b> 打 A（长线口碑种子）。不要平均分配——先把最容易回来的人拉回来制造声势，再用声势带动观望者。记住：社区口碑的传播路径永远是"先被打动的少数人→被他们影响的多数人"。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 4: 品类十字路口 ========== -->
+    <div x-show="page === 4" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
+      <h2 class="text-2xl font-bold text-white mb-6">明日之后活了 8 年、七日世界跌了 95%——饥困荒野站在哪个十字路口</h2>
+
+      <div class="verdict">
+        <p><b>品类事实</b>：自 2018 年《明日之后》上线以来的<b>整整七年</b>，国产 SOC（生存开放世界建造）赛道始终未能再迎来一款真正意义上的现象级作品。<a href="https://news.17173.com/content/04222026/175340707.shtml" target="_blank" class="tag">17173 ↗</a> 腾讯《黎明觉醒》凉了，字节《星球重启》凉了，灵犀《荒原曙光》凉了，网易自家《七日世界》投了近 10 亿开发 5 年+、峰值 24 万同时在线，9 个月流失 86%。<a href="https://3g.china.com/act/ent/11005281/20250403/48169223.html" target="_blank" class="tag">中华网 ↗</a></p>
+      </div>
+
+      <h3>竞品坐标系：饥困荒野在哪？</h3>
+
+      <table>
+        <thead>
+          <tr><th>产品</th><th>上线时间</th><th>峰值表现</th><th>当前状态</th><th>关键教训</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>明日之后</b></td><td>2018.11</td><td>首日 DAU 1500 万</td><td>运营 8 年，畅销百名上下</td><td>长线>爆发；内容产能为王</td></tr>
+          <tr><td><b>七日世界</b></td><td>2024.07</td><td>Steam 峰值 24 万</td><td>日活跌至 ~1.5 万（约 -95%）</td><td>赛季 wipe 致命；产能不足致恶循环</td></tr>
+          <tr><td><b>洛克王国:世界</b></td><td>2026.03</td><td>首月 DAU 1300 万</td><td>iOS 畅销 Top 30 常驻</td><td>不卖数值 + IP 情怀 = 核弹开局</td></tr>
+          <tr><td><b>我的世界（网易）</b></td><td>2017</td><td>中国区 8 亿用户</td><td>DAU ~190 万，UGC 生态自转</td><td>UGC 是终极留存引擎</td></tr>
+          <tr><td><b>饥困荒野</b></td><td>2026 暑期公测</td><td>全平台千万预约</td><td>TapTap 6.9 / 211 万预约</td><td>待验证</td></tr>
+        </tbody>
+      </table>
+      <p class="text-[11px] text-neutral-600">数据来源：<a href="https://news.17173.com/content/04222026/175340707.shtml" target="_blank" class="tag">17173 ↗</a> <a href="https://new.qq.com/rain/a/20260520A08R1C00" target="_blank" class="tag">腾讯新闻 ↗</a> <a href="https://www.tmtpost.com/7930720.html" target="_blank" class="tag">钛媒体 ↗</a></p>
+
+      <h3>十字路口：三条路，只能选一条</h3>
+
+      <div class="opportunity-card">
+        <h5>路线 A：做"手机上的明日之后"——长线 SOC</h5>
+        <p>对标明日之后的 8 年长线运营模型：持续产出赛季内容、永远在线、社交绑定。</p>
+        <p><b>优势</b>：赛道验证过天花板（明日之后首日 1500 万 DAU）；腾讯有基建</p>
+        <p><b>风险</b>：明日之后还活着，正面竞争；饥荒 IP 气质偏"冒险探索"而非"末日社交"</p>
+      </div>
+
+      <div class="opportunity-card">
+        <h5>路线 B：做"手机上的 DST"——硬核 IP 还原</h5>
+        <p>对标端游联机版，强调沙盒随机性、高难度、Roguelike 循环、创作者生态。</p>
+        <p><b>优势</b>：IP 粉丝最想要的；UGC 编辑器已在原型期；DLC 移植计划明确</p>
+        <p><b>风险</b>：硬核定位 DAU 天花板低；手游碎片化时间与长线探索冲突</p>
+      </div>
+
+      <div class="opportunity-card">
+        <h5>路线 C：做"下一个洛克王国"——IP 情怀 + 不卖数值 + 爆发公测</h5>
+        <p>对标洛克王国首月 1300 万 DAU 的路径：用情怀拉人、用"不卖数值"降低决策门槛、用公测事件制造全网声量。</p>
+        <p><b>优势</b>：洛克王国刚证明了这条路在腾讯体系内跑通；饥荒的"砍抽卡"故事天然适配</p>
+        <p><b>风险</b>：洛克有 6000 万预约 vs 饥困 211 万；洛克的 IP 受众更广（15 年页游/3.5 亿注册）</p>
+      </div>
+
+      <h3>我的判断：C 为引爆器，A 为底座，B 为长线转化</h3>
+      <p>不要选一条路——用 C 的打法制造公测声量（对标洛克的首发策略），用 A 的产能节奏保证留存（对标明日之后的赛季更新），用 B 的内容深度圈住核心粉（UGC + DLC 移植）。</p>
+      <p>关键差异化：饥困荒野和所有竞品的本质区别是——<b>它是唯一一个"曾经做错过然后改正了"的游戏</b>。明日之后从没做错过（它就是那样设计的），洛克王国从没做错过（它天生不卖数值），七日世界做错了但没改（赛季 wipe 到死）。只有饥困荒野可以讲"浪子回头"的故事。</p>
+
+      <h3>七日世界的教训：为什么"砸钱+好创意"不够</h3>
+      <p>七日世界是饥困荒野最值得研究的反面教材——它几乎做对了所有"产品层面"的事：</p>
+      <ul>
+        <li>投入近 10 亿元，研发 5 年+（资源充裕）<a href="https://new.qq.com/rain/a/20260103A06L3B00" target="_blank" class="tag">腾讯新闻 ↗</a></li>
+        <li>去数值化，仅卖外观/皮肤（商业化克制）</li>
+        <li>开服峰值 24 万同时在线（市场有需求）</li>
+        <li>2026 年启动 UGC "用户共创计划"（长线布局）</li>
+      </ul>
+      <p>但它仍然失败了——9 个月流失 86%，当前日均在线约 1.1-1.5 万。核心原因：<b>赛季 wipe 机制</b>。每赛季清空物资，让生存玩家辛辛苦苦建造的家园一夜归零。玩家评价："唯一一个靠听劝把自己玩凉的游戏"——它听了"做赛季"的建议，却没听"别清档"的呼声。</p>
+      <p>教训对饥困荒野的意义：<b>去抽卡只是入场券，真正的留存取决于"玩家的努力是否被尊重"</b>。饥困荒野的家园系统、武器锻造、宠物培养如果存在任何形式的"重置/清空"，就会重蹈七日世界覆辙。</p>
+
+      <h3>明日之后的启示：8 年长线靠什么</h3>
+      <p>明日之后能活 8 年（且仍然盈利）的核心并非"游戏多好玩"——很多玩家吐槽它画面过时、玩法重复。它活着靠的是三样东西：</p>
+      <ul>
+        <li><b>社交绑定</b>：营地系统（公会）让玩家形成了人际关系网，退游等于和朋友断联</li>
+        <li><b>内容产能</b>：每 6-8 周一个赛季更新，每个赛季新地图/新怪物/新资源，从不断供</li>
+        <li><b>适度的付费压力</b>：不逼氪但有"变强的诱惑"，月卡用户就能保持竞争力</li>
+      </ul>
+      <p>饥困荒野可以借鉴的：8 人联机家园 + 密友系统 + 亲密度特质已经搭了社交底座；问题是<b>内容产能</b>——能不能做到每 6 周更新？DLC 移植（哈姆雷特/天体风暴/月亮码头）给出了短期答案，UGC 编辑器给出了长期答案。但中间可能有一个 3-6 个月的"内容真空期"需要填充。</p>
+
+      <div class="verdict">
+        <p><b>十字路口结论</b>：SOC 品类正处于"王座空窗期" <a href="https://news.17173.com/content/04222026/175340707.shtml" target="_blank" class="tag">17173 ↗</a>。明日之后疲劳但没倒，七日世界倒了但没死透，新挑战者全军覆没。饥困荒野此时入局的最大资本不是 IP（IP 被消耗了）、不是预约量（211 万 vs 洛克 6000 万相差 28 倍），而是<b>一个真实的、可验证的、不可逆转的商业化革命故事</b>。这是它在品类红海中唯一的差异化锚点。守住这个锚点的同时，必须确保内容产能跟得上——信任让人进来，内容让人留下。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 5: 三个信任重建创意 ========== -->
+    <div x-show="page === 5" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三个让老玩家回头看一眼的信任重建创意</h2>
+
+      <div class="verdict">
+        <p><b>设计原则</b>：信任重建不能靠"说"，必须靠<b>可验证的行为</b>。每一个创意都必须在玩家体验中留下"我能亲手确认这不是嘴上说说"的感知点。</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意一：「抽卡坟场」—— 公测首日限时体验</h5>
+        <p><b>形式</b>：公测第一天，在家园地图的废墟区放置一个可交互的「破碎扭蛋机」装置。玩家靠近时触发动画：扭蛋机碎裂、抽卡券化为灰烬、碎片变成免费兑换币飘入背包。</p>
+        <p><b>设计意图</b>：把"删除抽卡"从一个公告变成一个<b>可体验的仪式</b>。让玩家亲手见证旧系统的死亡——这不是文字描述能替代的。</p>
+        <p><b>传播钩子</b>：装置交互后弹出截图分享按钮 + 一句随机文案（如"别了传奇""98 元再见""第一次在腾讯游戏里见到这个"），天然引发社区传播。</p>
+        <p><b>执行复杂度</b>：低。本质是一个家园场景装饰 + 一段 5 秒动画 + 一个分享弹窗。</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意二：「差评玩家 VIP 通道」—— TapTap 定向召回</h5>
+        <p><b>形式</b>：联动 TapTap，向所有曾给出 1-3 星差评的用户发送定向推送——不是道歉信，而是一封<b>极短的挑战函</b>：</p>
+        <p style="padding: 12px; background: rgba(255,255,255,0.03); border-radius: 4px; font-style: italic; color: #d4d4d4;">「你给了我们 [X] 星。你说得对——[引用该用户差评中的关键词]。我们砍了。现在给你一个专属预下载资格 + 公测前 24 小时抢先体验。回来验收。」</p>
+        <p><b>设计意图</b>：差评用户是<b>最强的口碑翻转节点</b>——如果连写差评的人都回来了、改评了，这比任何广告都有说服力。给他们"提前验证"的特权，让他们觉得自己不是被拉回来的韭菜，而是被邀请回来的审判者。</p>
+        <p><b>执行风险</b>：需要与 TapTap 运营团队深度合作，可能有隐私合规风险。降级方案：在 TapTap 社区发帖邀请差评玩家回帖领取资格（不做定向推送）。</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意三：「透明账本」—— 每周公布商业化数据</h5>
+        <p><b>形式</b>：公测后每周在 TapTap 社区 + B 站发布「透明周报」，公布：</p>
+        <ul>
+          <li>本周人均付费金额（展示"不卖数值"后的真实消费水平）</li>
+          <li>本周最高付费玩家花了多少（展示天花板，用数据证明"没有氪金碾压"）</li>
+          <li>本周兑换商店前三热门武器（展示大家在免费玩什么）</li>
+          <li>本周 PVP 胜率按付费分层的差异（直接回应"花钱买赢"）</li>
+        </ul>
+        <p><b>设计意图</b>：信任是靠<b>持续透明</b>建立的，不是靠一次公告。让玩家看到"你说的不卖数值，数据上确实是不卖数值"。如果哪周数据翻车了——那就更好，真诚面对数据翻车比隐瞒好一百倍。</p>
+        <p><b>行业对标</b>：暗区突围曾公布反作弊数据获得口碑回升；Path of Exile 长年公布掉率数据建立信任。</p>
+      </div>
+
+      <h3>创意执行优先级与资源评估</h3>
+      <table>
+        <thead>
+          <tr><th>创意</th><th>研发工时</th><th>运营协调难度</th><th>传播预期</th><th>优先级</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>抽卡坟场</td><td>~3 人天（美术+前端）</td><td>低</td><td>高（截图传播）</td><td><b>P0 必做</b></td></tr>
+          <tr><td>差评玩家 VIP 通道</td><td>~1 人天（运营配置）</td><td>中（需 TapTap 合作）</td><td>极高（情绪反转）</td><td><b>P0 必做</b></td></tr>
+          <tr><td>透明账本</td><td>~5 人天（数据后台+内容模板）</td><td>高（需商业化团队配合）</td><td>中→长线高</td><td>P1 首周启动</td></tr>
+        </tbody>
+      </table>
+
+      <h3>补充创意：社区"监工"机制</h3>
+      <div class="creative-card">
+        <h5>「砍刀监工团」—— 让玩家参与商业化决策</h5>
+        <p><b>形式</b>：公测后组建一个 50-100 人的"商业化监督委员会"（从 TapTap 活跃评论者中筛选），每月一次会议，制作组公开下月商业化方案征求意见。</p>
+        <p><b>设计意图</b>：信任的终极形态不是"我做了你来看"，而是"<b>你来决定我做什么</b>"。给玩家真正的否决权（即使 99% 的时候他们不会用），是最强的信任信号。</p>
+        <p><b>风险</b>：监工团可能被利用来恶意攻击；需要设定清晰的议题边界和准入机制。</p>
+      </div>
+
+      <div class="verdict">
+        <p><b>三个创意的共同逻辑</b>：不是"我们变好了请相信我们"（单向输出），而是"这是证据，你自己看"（可验证）。区别在于——前者需要玩家先信任你才会看，后者<b>不需要信任就能验证</b>。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 6: 公测首日三件事 ========== -->
+    <div x-show="page === 6" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
+      <h2 class="text-2xl font-bold text-white mb-6">公测首日必须做对的三件事</h2>
+
+      <div class="verdict">
+        <p><b>核心逻辑</b>：公测首日不是"上线"——是一场<b>72 小时的信任审判</b>。洛克王国首日 13 小时 1500 万新增 <a href="https://news.qq.com/rain/a/20260326A08NQX00" target="_blank" class="tag">腾讯新闻 ↗</a> 证明了首日声量决定长期命运。但饥困荒野不会有 1500 万首日（预约量差距太大），它需要的是<b>事件密度>人数</b>——用高质量事件弥补低绝对值。</p>
+      </div>
+
+      <h3>第一件事：服务器零翻车（技术底线）</h3>
+
       <div class="highlight">
-        <p style="text-align:center; font-size:12px; color:#737373;">纵轴：生存压力强度（高↑ / 低↓） ｜ 横轴：IP/美学辨识度（弱← / 强→）</p>
-        <table>
-          <thead><tr><th></th><th>弱 IP/美学辨识度</th><th>强 IP/美学辨识度</th></tr></thead>
-          <tbody>
-            <tr><td><b>高生存压力</b></td><td>七日世界（Steam 峰值 23 万→1.2 万，赛季 wipe 致命伤）</td><td>—（空位）</td></tr>
-            <tr><td><b>中生存压力</b></td><td>明日之后（运营 8 年，无全球 IP 但品牌心智强）</td><td><b>饥困荒野</b>（目标位置）</td></tr>
-            <tr><td><b>低生存压力</b></td><td>—</td><td>我的世界（8 亿用户，创造>生存）</td></tr>
-          </tbody>
-        </table>
+        <p><b>为什么这是第一位？</b></p>
+        <p>因为任何产品层面的信任重建都建立在"能正常玩"的基础上。还记得差评里写的"BUG 频发/洞穴时间错乱/任务卡死"吗？如果公测首日出现大面积服务器崩溃或严重 BUG，所有"砍抽卡"的叙事都会瞬间失效——玩家会直接回到"腾讯垃圾"的心智锚点。</p>
       </div>
 
-      <h3>逐个击破：竞品核心数据与弱点</h3>
-
-      <h4>明日之后（网易，2018 年上线）</h4>
-      <p>运营八年的品类老大。2026 年 4 月推出「重生日」版本，底层引擎大升级，从「常规更新」转为「对废土世界底层体验的重构」。<a href="http://www.lifeafter.tw/news/update/20260416/30154_1296474.html" target="_blank" rel="noopener" class="tag">明日之后官网 ↗</a></p>
+      <p><b>执行清单</b>：</p>
       <ul>
-        <li><b>优势</b>：品牌心智极强（「生存手游=明日之后」）、8 年运营积累的系统深度、付费模型成熟</li>
-        <li><b>弱点</b>：审美疲劳、无全球 IP 加持、画面风格「末日网游」缺乏艺术辨识度、新用户进入门槛高</li>
-        <li><b>饥困荒野的差异化</b>：手绘美学 vs 写实末日；黑色童话基调 vs 严肃废土；全球 IP 社区 vs 国内运营</li>
+        <li>压力测试覆盖 3x 预期首日在线（参考：211 万预约按 15% 首日转化 = 约 30 万同时在线，压测需覆盖 100 万）</li>
+        <li>准备 3 套降级方案：排队系统 → 分区限流 → 紧急扩容</li>
+        <li>首日前 6 小时设置"全服免费 10 连"等补偿预案（如果出问题，立刻发而不是等）</li>
+        <li>客服团队 24 小时值守 + TapTap/B 站评论区实时回复模板</li>
       </ul>
 
-      <h4>七日世界（网易，2024 年上线）</h4>
-      <p>Steam 同时在线峰值 <b>231,343</b>（2024 年 7 月），2026 年 5 月日均约 <b>11,599</b>——一年衰减 95%。<a href="https://live-player-count.com/game/once-human" target="_blank" rel="noopener" class="tag">Steam 实时数据 ↗</a> Steam 评价 Mostly Positive <b>77%</b>（13.4 万正面 / 3.8 万负面）。核心问题：赛季 wipe 机制导致「同一个剧本玩 3-4 遍还是一样的流程」。</p>
-      <ul>
-        <li><b>优势</b>：美术品质高、不卖数值、PC+移动端跨平台</li>
-        <li><b>弱点</b>：赛季清档劝退严重、endgame 仅刷本、内容产能不足（一年一张新地图）</li>
-        <li><b>饥困荒野的差异化</b>：永久家园 vs 赛季清档；IP 角色情怀 vs 原创无认知基础；UGC 编辑器 vs 有限官方内容</li>
-      </ul>
+      <h3>第二件事：让"砍抽卡"在前 10 分钟被感知</h3>
 
-      <h4>我的世界手游（网易代理中国版）</h4>
-      <p>全平台用户超 <b>8 亿</b>（2025 年 4 月），同时在线峰值 <b>125 万</b>（2025 年 Q3 网易财报）。<a href="https://www.163.com/dy/article/KERMMBPE05118K7K_pdya11y.html" target="_blank" rel="noopener" class="tag">网易财报 ↗</a></p>
-      <ul>
-        <li><b>优势</b>：全球最大用户池、UGC 生态成熟、低门槛全年龄</li>
-        <li><b>弱点</b>：「太低龄」刻板印象、生存维度弱（创造>生存）、像素美学受众分化</li>
-        <li><b>饥困荒野的差异化</b>：生存紧张感 vs 创造安全感；哥特暗黑 vs 明快像素；成人向叙事 vs 全年龄合家欢</li>
-      </ul>
-
-      <h3>差异化壁垒总结</h3>
       <div class="highlight">
-        <p>饥困荒野的真正壁垒<b>不是</b>玩法——沙盒生存的核心循环所有竞品都做得到。壁垒是：</p>
-        <ul>
-          <li><b>美学壁垒</b>：全球唯一的哥特手绘生存游戏美学，13 年积累不可速成</li>
-          <li><b>IP 壁垒</b>：2500 万份销量 + 95% 好评率 = 全球玩家预装的信任和情感连接</li>
-          <li><b>叙事壁垒</b>：「别饿死」三个字就是品牌——竞品没有这种浓缩度的品牌心智</li>
-        </ul>
-        <p>但壁垒有保质期。<b>如果公测后三个月 TapTap 评分不能回到 7.5 以上</b>，美学壁垒和 IP 壁垒都会被「这游戏配不上饥荒」的口碑淹没。</p>
-      </div>
-    </div>
-
-    <!-- ========== PAGE 5: 宣发核心物料清单 ========== -->
-    <div x-show="page === 5" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 01</div>
-      <h2 class="text-2xl font-bold text-white mb-6">宣发核心物料清单</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：饥困荒野的宣发物料需要同时完成两个任务——<b>修复信任</b>（面向核心圈）和<b>扩大认知</b>（面向中外圈）。传统「一套物料打全场」的做法行不通。需要切两条内容线：「回归线」（证明我们还是饥荒）和「新生线」（证明手游体验值得尝试）。</p>
+        <p><b>为什么必须在前 10 分钟？</b></p>
+        <p>因为首日涌入的大量用户中，很多是看了宣传但<b>不确定是不是真的</b>。他们的判断窗口极短——如果前 10 分钟的体验像"又一个换皮手游"（引导任务 → 送你免费十连 → 弹出各种充值弹窗），信任直接归零。</p>
       </div>
 
-      <h3>Key Art 策略</h3>
-      <table>
-        <thead><tr><th>用途</th><th>画面要求</th><th>发布渠道</th></tr></thead>
-        <tbody>
-          <tr><td><b>品牌主 KV</b></td><td>威尔逊（NPC）+ 新主角在满月枯树前的剪影，三维表盘悬浮，零 RPG 光效，纯手绘</td><td>商店页/官网/媒体通稿</td></tr>
-          <tr><td><b>社交裂变 KV</b></td><td>8 人联机小队在家园前合影，暖色调，展示建造成果</td><td>微信朋友圈广告/小红书</td></tr>
-          <tr><td><b>战斗 KV</b></td><td>元素 BOSS 战 + 宠物协同，允许适度光效，但背景必须保持手绘底色</td><td>TapTap/B站/硬核社区</td></tr>
-        </tbody>
-      </table>
-
-      <h3>预告片矩阵</h3>
-      <table>
-        <thead><tr><th>类型</th><th>时长</th><th>核心信息</th><th>发布时机</th></tr></thead>
-        <tbody>
-          <tr><td><b>品牌宣言片</b></td><td>90s</td><td>「从饥荒到饥困荒野」IP 传承，Klei 正版授权信息前置</td><td>公测前 30 天</td></tr>
-          <tr><td><b>玩法实机演示</b></td><td>3-5min</td><td>完整「出发→探索→遇险→回家」循环，无解说纯操作</td><td>公测前 14 天</td></tr>
-          <tr><td><b>社交短片</b></td><td>30s</td><td>两人协作建家 + 夜间救援，突出联机体验</td><td>公测当天 + 持续投放</td></tr>
-          <tr><td><b>UGC 编辑器展示</b></td><td>60s</td><td>「奇点工厂」功能演示，强调创造自由度</td><td>公测后 14 天</td></tr>
-        </tbody>
-      </table>
-
-      <h3>社交策略</h3>
+      <p><b>执行清单</b>：</p>
       <ul>
-        <li><b>TapTap 口碑修复线</b>：每周一期「制作人说」短视频，正面回应评论区高频差评，态度诚恳不打官腔</li>
-        <li><b>B站内容线</b>：邀请饥荒老 UP 主（而非泛娱乐主播）做首批体验，产出「端游老玩家玩手游」系列内容</li>
-        <li><b>小红书/抖音裂变线</b>：家园建造大赛 + 宠物截图分享，切轻度社交用户</li>
-        <li><b>官方社区运营</b>：延续「SanBTI 人格测试」等梗图活动的风格，用饥荒式黑色幽默做社区互动 <a href="https://new.qq.com/rain/a/20260531A07WOX00" target="_blank" rel="noopener" class="tag">游戏那点事 ↗</a></li>
-      </ul>
-    </div>
-
-    <!-- ========== PAGE 6: 三个杀手级宣发创意 ========== -->
-    <div x-show="page === 6" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 02</div>
-      <h2 class="text-2xl font-bold text-white mb-6">三个杀手级宣发创意</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：饥困荒野当前最大的宣发障碍不是「不知道」，而是<b>「知道但不信」</b>。三个创意围绕同一个底层逻辑：用行动而非承诺重建信任——让玩家亲眼看到、亲手摸到、亲身参与改变。</p>
-      </div>
-
-      <!-- 创意 1 -->
-      <div class="creative-card">
-        <h5>创意一：「477 天生存挑战」全民直播事件</h5>
-        <p style="color:#737373; font-size:12px; margin-bottom:12px;">概念来源：威尔逊在永恒领域活了 477 天——把叙事设定变成全网互动事件</p>
-        
-        <h4>核心概念</h4>
-        <p>邀请 <b>477 位真实玩家</b>（不是主播，是从社区招募的普通玩家）参与一场持续 <b>47.7 小时</b>的不间断直播挑战。每位玩家在游戏中生存，死亡即淘汰，最后存活者获得「威尔逊传承者」永久称号 + Klei 官方认证勋章。全程 B站/抖音/TapTap 三平台同步直播，弹幕投票决定天气/Boss 刷新等随机事件。</p>
-
-        <h4>执行时间线</h4>
-        <table>
-          <thead><tr><th>阶段</th><th>时间</th><th>动作</th></tr></thead>
-          <tbody>
-            <tr><td>招募期</td><td>公测前 21 天</td><td>TapTap/B站社区公开招募，条件：写一段「我为什么想活 477 天」</td></tr>
-            <tr><td>预热期</td><td>公测前 7 天</td><td>公布 477 位入选者名单，每人拍 15 秒「我的求生宣言」短视频</td></tr>
-            <tr><td>直播日</td><td>公测当天</td><td>47.7 小时不间断直播，每 4 小时弹幕投票触发一次灾难事件</td></tr>
-            <tr><td>收尾</td><td>直播结束后 48 小时</td><td>精华剪辑 + 幸存者访谈 + 全网二创话题</td></tr>
-          </tbody>
-        </table>
-
-        <h4>预算区间</h4>
-        <p><b>150-250 万元</b>（含直播技术搭建 40 万 + 平台推流采买 60 万 + 奖品/物资 20 万 + 内容后期制作 30 万 + 应急预算 30 万）</p>
-
-        <h4>KPI</h4>
-        <ul>
-          <li>直播总观看人次 ≥ <b>2000 万</b></li>
-          <li>招募贴社区互动量 ≥ <b>5 万条</b></li>
-          <li>二创视频产出 ≥ <b>500 条</b></li>
-          <li>公测首日新增对比无事件基线提升 ≥ <b>30%</b></li>
-        </ul>
-
-        <h4>参考案例</h4>
-        <p>《堡垒之夜》黑洞事件（直播观看峰值 <b>600 万</b>）、《我的世界》百人生存挑战（B站单期视频 <b>1000 万+</b> 播放）。核心逻辑相同：<b>把游戏机制变成真人秀叙事</b>，观众不需要玩过游戏也能看懂「谁活了谁死了」。</p>
-      </div>
-
-      <!-- 创意 2 -->
-      <div class="creative-card">
-        <h5>创意二：「制作人的 1000 次死亡」信任修复纪录片</h5>
-        <p style="color:#737373; font-size:12px; margin-bottom:12px;">概念来源：「饥活了」节目中制作人立下的「死一次发一次福利」军令状——把它做到极致</p>
-
-        <h4>核心概念</h4>
-        <p>不是一次活动，而是<b>持续 100 天的系列短视频</b>。制作人 + 核心策划团队每天在游戏中挑战最高难度内容，每死一次就在镜头前回应一条 TapTap 真实差评。视频标题格式固定：「第 X 次死亡：回应 @玩家ID 的问题——为什么 XXX」。本质不是道歉，而是<b>展示一个真正在玩自己游戏、真正听到批评的团队</b>。</p>
-
-        <h4>执行时间线</h4>
-        <table>
-          <thead><tr><th>阶段</th><th>时间</th><th>动作</th></tr></thead>
-          <tbody>
-            <tr><td>策划期</td><td>公测前 14 天</td><td>从 TapTap/B站收集 100 条最具代表性的真实差评，分类排序</td></tr>
-            <tr><td>拍摄期</td><td>公测前 7 天 - 公测后 93 天</td><td>每天一期 3-5 分钟短视频，B站/TapTap/抖音同步发布</td></tr>
-            <tr><td>里程碑</td><td>第 100 期（第 1000 次死亡）</td><td>制作人直播「终极挑战」，全员在线回应社区提问</td></tr>
-          </tbody>
-        </table>
-
-        <h4>预算区间</h4>
-        <p><b>80-120 万元</b>（含拍摄团队驻场 100 天 50 万 + 后期剪辑 20 万 + 平台推广 30 万 + 福利发放 20 万）</p>
-
-        <h4>KPI</h4>
-        <ul>
-          <li>系列视频总播放量 ≥ <b>5000 万</b></li>
-          <li>TapTap 评分在 100 天内回升至 ≥ <b>7.5</b></li>
-          <li>系列中单期最高播放 ≥ <b>300 万</b></li>
-          <li>被回应的玩家中改评率 ≥ <b>40%</b></li>
-        </ul>
-
-        <h4>参考案例</h4>
-        <p>《No Man's Sky》的 Sean Murray 静默修复路线（3 年从 Steam 31% 好评 → 80%+）、《最终幻想 XIV》吉田直树的「道歉+重做」策略。核心逻辑：<b>不是说「我们会改」，而是每天展示「我们正在改」</b>。区别在于饥困荒野把这个过程做成了可追踪的内容产品。</p>
-      </div>
-
-      <!-- 创意 3 -->
-      <div class="creative-card">
-        <h5>创意三：「奇点工厂 × 饥荒端游 UP 主」UGC 共创计划</h5>
-        <p style="color:#737373; font-size:12px; margin-bottom:12px;">概念来源：UGC 编辑器「奇点工厂」是 4.28 节目的核心亮点之一——让它成为口碑传播引擎</p>
-
-        <h4>核心概念</h4>
-        <p>邀请 <b>20 位头部饥荒端游内容创作者</b>（B站粉丝 10 万+的饥荒向 UP 主）提前获得「奇点工厂」编辑器权限，每人自由创作一个自定义关卡。公测后第二周上线「UP 主精选关卡合集」——玩家进入游戏就能玩到社区创作者做的内容。每个关卡入口标注创作者名字和 B 站主页链接，形成<b>游戏内→B 站→游戏内</b>的流量闭环。</p>
-
-        <h4>执行时间线</h4>
-        <table>
-          <thead><tr><th>阶段</th><th>时间</th><th>动作</th></tr></thead>
-          <tbody>
-            <tr><td>邀请期</td><td>公测前 30 天</td><td>定向邀请 20 位饥荒端游 UP 主，签约内容合作</td></tr>
-            <tr><td>创作期</td><td>公测前 30-7 天</td><td>UP 主获得编辑器权限，自由创作 + 官方技术支持</td></tr>
-            <tr><td>内容爆发</td><td>公测第 14 天</td><td>「UP 主精选关卡」正式上线 + 20 位 UP 同时发布创作过程视频</td></tr>
-            <tr><td>全民共创</td><td>公测第 30 天起</td><td>编辑器向全体玩家开放，开启月度「最佳关卡」评选</td></tr>
-          </tbody>
-        </table>
-
-        <h4>预算区间</h4>
-        <p><b>200-300 万元</b>（含 20 位 UP 合作费 120 万 + 编辑器提前适配开发 50 万 + 运营活动奖金池 30 万 + 平台推广 50 万 + 技术支持人力 50 万）</p>
-
-        <h4>KPI</h4>
-        <ul>
-          <li>20 位 UP 主相关视频总播放 ≥ <b>3000 万</b></li>
-          <li>首月 UGC 关卡发布数 ≥ <b>1000 个</b></li>
-          <li>UGC 关卡游玩次数占比 ≥ 全服总游玩次数 <b>15%</b></li>
-          <li>核心圈玩家（端游老玩家）付费转化率对比无 UGC 基线提升 ≥ <b>20%</b></li>
-        </ul>
-
-        <h4>参考案例</h4>
-        <p>《我的世界》网易版组件生态（组件下载量超百亿次）、《堡垒之夜》创意模式（贡献 40%+ 游戏时长）、七日世界「用户共创计划」（私服/脚本）。核心逻辑：<b>UGC 不是锦上添花，是长线留存的命脉</b>。饥困荒野选择在公测早期就推 UGC，比七日世界上线一年后才转向更有战略前瞻性。</p>
-      </div>
-    </div>
-
-    <!-- ========== PAGE 7: 视觉规范速查 ========== -->
-    <div x-show="page === 7" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 03</div>
-      <h2 class="text-2xl font-bold text-white mb-6">视觉规范速查</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：所有对外物料必须通过「剪影测试」——<b>去掉颜色和 Logo，只看轮廓线和构图，是否一眼认出是饥荒</b>。如果不能，回炉重做。</p>
-      </div>
-
-      <h3>配色体系</h3>
-      <table>
-        <thead><tr><th>色彩角色</th><th>色值</th><th>使用场景</th></tr></thead>
-        <tbody>
-          <tr><td><b>墨绿</b>（主色）</td><td>#2d3a2d ~ #1a2b1a</td><td>森林场景、安全状态、家园植被</td></tr>
-          <tr><td><b>暗紫</b>（危险色）</td><td>#3d2b4a ~ #2a1a3d</td><td>暗影生物、精神值低、夜间氛围</td></tr>
-          <tr><td><b>焦褐</b>（大地色）</td><td>#4a3b2a ~ #3d2e1f</td><td>地面纹理、UI 羊皮卷、工具质感</td></tr>
-          <tr><td><b>篝火橙</b>（温暖色）</td><td>#d4763a ~ #f5a623</td><td>篝火光源、家园暖光、安全信号</td></tr>
-          <tr><td><b>冷蓝</b>（月光色）</td><td>#4a6b8a ~ #6b8fb5</td><td>满月场景、冰元素、冬季氛围</td></tr>
-        </tbody>
-      </table>
-      <p><b>铁律</b>：宣发物料中，低饱和度色彩面积 ≥ <b>80%</b>，高饱和元素光效面积 ≤ <b>20%</b>。永远不要让元素特效压过手绘底色。</p>
-
-      <h3>纹样与装饰</h3>
-      <ul>
-        <li><b>线条</b>：粗黑手绘线（2-4px 等效），不追求精确，刻意保留手抖感和断线</li>
-        <li><b>阴影</b>：交叉排线（cross-hatching），不用渐变投影</li>
-        <li><b>UI 边框</b>：羊皮纸/粗布/木板质感，齿轮铆钉装饰，拒绝光滑圆角玻璃态</li>
-        <li><b>图标</b>：心形（生命）、胃袋（饥饿）、大脑（精神）——三维表盘永远使用这三个原版图标，不做现代化改造</li>
+        <li>新手引导第 3 步（进入家园后）立刻触发「抽卡坟场」交互——让玩家在最早期就感知到"这游戏真的没抽卡"</li>
+        <li>首次打开商城时：顶部 banner 写「本游戏无任何随机抽卡。所有武器和宠物均可免费兑换。」</li>
+        <li>首日前 30 分钟内<b>不弹出任何付费弹窗</b>——零充值引导、零礼包推送、零限时打折</li>
+        <li>首把武器获取路径设计为"教程任务直给"而非"引导你去商店"</li>
       </ul>
 
-      <h3>字体规范</h3>
+      <h3>第三件事：制造"公测首日即高光"的社区事件</h3>
+
+      <div class="highlight">
+        <p><b>为什么需要主动制造事件？</b></p>
+        <p>因为饥困荒野的 211 万预约不会像洛克王国 6000 万预约那样自然产生"刷屏效应"。你需要<b>人为设计传播节点</b>——让进入游戏的人有东西可截图、可分享、可讨论。</p>
+      </div>
+
+      <p><b>执行清单</b>：</p>
+      <ul>
+        <li><b>全服第一个 Boss 击杀</b>：设计一个公测首日限定世界 Boss（如「抽卡机械巨兽」），需要全服协力击败。击杀后全服弹窗 + 全员发放纪念物品。这会自然产生直播素材和社区帖子。</li>
+        <li><b>「死一次发一次福利」直播</b>：官方承诺过的定期直播 <a href="https://shouyou.3dmgame.com/news/76170.html" target="_blank" class="tag">3DM ↗</a>，公测首日晚 8 点开播。策划亲自玩、死了就发福利码——既有梗又有实惠。</li>
+        <li><b>TapTap 评分挑战</b>：在 B 站/抖音发起「公测后你会给几分」投票，同时鼓励已体验玩家去 TapTap 更新评价——目标是首周从 6.9 推到 7.5+。</li>
+      </ul>
+
+      <h3>首日时间轴排布（精确到小时）</h3>
       <table>
-        <thead><tr><th>用途</th><th>推荐字体</th><th>备选</th></tr></thead>
+        <thead>
+          <tr><th>时间</th><th>事件</th><th>目的</th></tr>
+        </thead>
         <tbody>
-          <tr><td><b>标题/Logo</b></td><td>手写体/手绘字（保持与游戏内一致）</td><td>定制手写字体</td></tr>
-          <tr><td><b>正文/说明</b></td><td>思源黑体（中文）/ Inter（英文）</td><td>Noto Sans SC</td></tr>
-          <tr><td><b>UI 内数字</b></td><td>等宽手绘数字（游戏内原生）</td><td>—</td></tr>
+          <tr><td>T-24h</td><td>预下载开放 + 差评玩家抢先体验入口</td><td>提前排除服务器压力峰值</td></tr>
+          <tr><td>T+0h 公测开服</td><td>全服公告："欢迎回来。抽卡已删。"</td><td>一句话确认核心改变</td></tr>
+          <tr><td>T+0-0.5h</td><td>新手引导 → 抽卡坟场交互 → 首把武器直给</td><td>前 30 分钟体验无任何付费摩擦</td></tr>
+          <tr><td>T+1h</td><td>全服广播"第 10 万位玩家进入永恒领域"</td><td>营造热度感知</td></tr>
+          <tr><td>T+3h</td><td>世界 Boss 首次刷新 + 全服号召</td><td>制造协作事件 + 直播素材</td></tr>
+          <tr><td>T+6h</td><td>TapTap/B 站发布首日数据快报（在线人数/创建角色数）</td><td>用数据证明热度</td></tr>
+          <tr><td>T+8h (晚8点)</td><td>「死一次发一次福利」首播</td><td>社区互动 + 福利分发 + 直播流量</td></tr>
+          <tr><td>T+12h</td><td>世界 Boss 击杀 → 全服纪念品发放 + 截图分享活动开启</td><td>产出 UGC 传播素材</td></tr>
+          <tr><td>T+24h</td><td>发布"首日回顾"图文（含数据+玩家截图精选）</td><td>延续话题热度进入第二天</td></tr>
         </tbody>
       </table>
 
-      <h3>角色造型规范</h3>
-      <ul>
-        <li><b>头身比</b>：2.5-3 头身（巨头小身体），绝不做写实比例</li>
-        <li><b>眼睛</b>：空洞圆形/椭圆形眼窝，无瞳孔细节</li>
-        <li><b>肢体</b>：纤细四肢，关节处有明显弯折感</li>
-        <li><b>轮廓</b>：任何角色关闭 UI 后仅凭剪影可识别（威尔逊尖发、温蒂双辫、沃尔夫冈肌肉轮廓）</li>
-        <li><b>禁止</b>：不做二次元大眼、不做韩式精致五官、不做写实肌肉纹理</li>
-      </ul>
-    </div>
-
-    <!-- ========== PAGE 8: 风险预警与应对 ========== -->
-    <div x-show="page === 8" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 01</div>
-      <h2 class="text-2xl font-bold text-white mb-6">风险预警与应对</h2>
-
-      <div class="verdict">
-        <p><b>核心判断</b>：饥困荒野面临的风险不是「方向错误」（方向已纠正），而是<b>「纠正速度能否跑赢信任衰减速度」</b>。三个风险按紧迫度排序：口碑修复 > 付费模型转型阵痛 > 竞品压制。</p>
+      <h3>什么情况下首日算"成功"</h3>
+      <div class="highlight">
+        <p><b>首日成功的四个信号</b>（达成 3/4 即可判断为成功开局）：</p>
+        <ul>
+          <li>服务器零宕机（或宕机时间 < 30 分钟且补偿及时）</li>
+          <li>TapTap 首日新增评价 2000+ 条，且新评平均分 ≥ 8.0</li>
+          <li>B 站"饥困荒野"相关视频首日新增 50+ 条（自然投稿，非商单）</li>
+          <li>微博/抖音出现至少 1 个自然热搜/热门话题（非买量）</li>
+        </ul>
       </div>
 
-      <!-- 风险 1 -->
+      <div class="verdict">
+        <p><b>首日核心指标</b>：不是 DAU（你控制不了），而是<b>TapTap 首日新增评价数 + 平均分</b>。如果首日新增 3000+ 条 8 分以上评价，算法就会开始推动分数上涨。这是可控的、可影响的、可复盘的目标。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 7: 视觉规范 ========== -->
+    <div x-show="page === 7" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
+      <h2 class="text-2xl font-bold text-white mb-6">视觉规范：「不是饥荒传奇了」的视觉语言</h2>
+
+      <div class="verdict">
+        <p><b>视觉战略</b>：公测期所有宣发物料必须在视觉层面传递一个信息——<b>这不是你记忆中的那个充值弹窗横飞的手游</b>。具体来说：回归饥荒 IP 的手绘暗黑美学根基，剥离所有「传奇感」的视觉噪音（金光、星级光效、渐变按钮、充值红点）。</p>
+      </div>
+
+      <h3>一、色彩系统：回归低饱和</h3>
+
+      <table>
+        <thead>
+          <tr><th>层级</th><th>色彩方向</th><th>用途</th><th>禁止</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>主色</td><td>墨绿 #2a3a2a / 暗紫 #2d1f3a / 焦褐 #3a2a1a</td><td>KV 背景、海报底色</td><td>高饱和渐变、金属光泽</td></tr>
+          <tr><td>辅助色</td><td>篝火橙 #d4763a（仅限点缀）</td><td>标题强调、CTA 按钮</td><td>红色促销标签、金色"限时"字样</td></tr>
+          <tr><td>文字色</td><td>暖白 #f5f0e6（手绘纸张质感）</td><td>正文/标题</td><td>纯白 #ffffff（太"科技感"）</td></tr>
+          <tr><td>强调色</td><td>冰蓝 #6ba3c4 / 雷白 #e8e4d0</td><td>元素战斗物料中限量使用</td><td>超过画面 15% 面积的高饱和色块</td></tr>
+        </tbody>
+      </table>
+
+      <h3>二、字体与排版</h3>
+      <ul>
+        <li><b>标题字体</b>：手写感粗犷体（参考饥荒原版标题风格）—— 不规则笔画、轻微倾斜、带纸张纹理</li>
+        <li><b>正文字体</b>：无衬线但略带圆润（如 Source Han Sans + 轻微做旧纹理叠加）</li>
+        <li><b>绝对禁止</b>：方正大标宋（传奇标配）、黄金描边字（传奇标配）、「限时」「首充」「VIP」等文字元素</li>
+      </ul>
+
+      <h3>三、物料分级——什么能做、什么绝不能做</h3>
+
+      <table>
+        <thead>
+          <tr><th>✓ 可以做</th><th>✗ 绝不能做</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>角色在篝火旁的剪影海报</td><td>角色背后爆金光的立绘展示</td></tr>
+          <tr><td>手绘线条风格的 UI 截图</td><td>满屏红点/弹窗的 UI 截图</td></tr>
+          <tr><td>沙盒世界的俯视角实机画面</td><td>充值界面的截图（即使是为了展示"低价"）</td></tr>
+          <tr><td>"免费兑换"字样在商城截图中</td><td>"限时折扣""首充好礼"等字样</td></tr>
+          <tr><td>8 人联机家园的温馨场景</td><td>PVP 装备碾压的"战力对比"</td></tr>
+          <tr><td>暗黑绘本风格的叙事向短片</td><td>快节奏"爆装备/升星/数字跳动"的广告</td></tr>
+        </tbody>
+      </table>
+
+      <h3>四、KV 主视觉方向</h3>
+      <p>公测主 KV 建议方向：</p>
+      <div class="creative-card">
+        <h5>方案：「篝火重燃」</h5>
+        <p><b>画面描述</b>：画面中央是一堆即将熄灭又重新燃起的篝火。火光照亮了围坐的角色剪影——不是精致的立绘，而是饥荒经典的粗线条剪影。远景是永恒领域的黑暗荒野，但黑暗中隐约可见新的建筑轮廓（象征重建）。</p>
+        <p><b>Slogan 位置</b>：画面底部三分之一，手写体：「火没灭。我们还在。」</p>
+        <p><b>信息层</b>：KV 下方小字区域：「全面移除抽卡 · Klei 正版授权 · 暑期公测」</p>
+        <p><b>色调</b>：90% 暗色（墨绿+暗紫）+ 10% 篝火橙暖光</p>
+      </div>
+
+      <h3>五、动态素材规范（视频/GIF）</h3>
+      <ul>
+        <li><b>画面节奏</b>：慢 → 缓入。不使用快闪/频繁切镜。参考饥荒端游 Trailer 的"缓慢展开世界 → 突然危险出现"叙事节奏</li>
+        <li><b>音效</b>：手风琴 / 班卓琴 / 不协和弦乐——延续饥荒系列音乐标识。禁止使用电子/合成器/史诗交响（传奇标配 BGM）</li>
+        <li><b>字幕样式</b>：手写体 + 微动效（如墨水浸润展开），不用居中加粗白底字幕（抖音口播风格）</li>
+      </ul>
+
+      <h3>六、社交媒体视觉适配</h3>
+      <ul>
+        <li><b>TapTap 开发者动态</b>：统一使用手绘线条边框 + 羊皮纸底纹，信息简洁不超过三行文字</li>
+        <li><b>B 站封面</b>：暗色背景 + 角色剪影 + 单色高光字幕。禁止使用"震惊体"红黄标题</li>
+        <li><b>抖音/短视频</b>：竖屏 9:16 裁切时确保篝火在中心 1/3 区域，底部预留安全区给平台 UI 遮挡</li>
+        <li><b>微信朋友圈广告</b>：极简——一张暗色调 KV + 一行文案 + 一个"预约"按钮。不放价格/不放礼包图</li>
+      </ul>
+
+      <div class="verdict">
+        <p><b>视觉规范总结</b>：所有物料的最终检验标准只有一个——拿给一个完全不了解游戏的人看，问他"这像不像传奇/仙侠手游广告"。如果答案是"像"，<b>立刻推翻重做</b>。视觉是玩家判断"这次是不是不一样了"的第一道筛子，必须在 0.5 秒内传递正确信号。</p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE 8: Plan B ========== -->
+    <div x-show="page === 8" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
+      <h2 class="text-2xl font-bold text-white mb-6">如果公测还是 6 分怎么办（Plan B）</h2>
+
+      <div class="verdict">
+        <p><b>必须正视的可能性</b>：即使做对了所有事，公测后 TapTap 评分仍然可能停在 6.x。原因是 TapTap 的评分算法对历史差评有权重保护——7083 条差评不会因为新版本好玩就消失。<b>这不意味着失败</b>，但需要预案。</p>
+      </div>
+
+      <h3>场景一：公测首周 TapTap 评分 6.5-7.0（分数基本没动）</h3>
+
       <div class="risk-card">
-        <h5>风险一：TapTap 口碑修复窗口极窄</h5>
-        <p>TapTap 评分 <b>6.9</b> 意味着什么？在 TapTap 生态中，7.0 以下的评分会触发「不推荐」心理阈值——新用户看到 6.9 分的第一反应不是「去看看」，而是「算了」。<a href="https://news.qq.com/rain/a/20260531A07WOX00" target="_blank" rel="noopener" class="tag">游戏那点事 ↗</a></p>
-        <p><b>更危险的是</b>：差评中有大量「内测四回了」「跳票很多次」的疲劳情绪——这些不是功能 bug 可以修的，是<b>时间造成的信任侵蚀</b>。</p>
+        <h5>诊断：新好评被老差评对冲</h5>
+        <p>如果首周新增评价以 8-9 分为主、但总分不动，说明新评价量不足以稀释 7083 条历史差评。这是<b>数学问题</b>而非口碑问题。</p>
         <div class="mitigation">
-          <p><b>应对策略</b>：</p>
+          <p><b>应对</b>：</p>
           <ul>
-            <li>公测前不要试图「刷分」——社区对水军极度敏感，一旦被发现适得其反</li>
-            <li>公测首周集中投入客服资源，对每一条有建设性的差评进行<b>官方逐条回复</b></li>
-            <li>设置「老测试员专属回归礼包」——承认他们等了很久，给予实质性补偿而非敷衍福利</li>
-            <li>目标：公测后 60 天内评分回升至 <b>7.5+</b>；若 30 天内未突破 7.0，启动紧急口碑干预方案</li>
+            <li>发起"重新评价"运动——在游戏内放置一键跳转 TapTap 评价页的入口（合规前提下）</li>
+            <li>联动 UP 主发布"我改评了"系列内容，用"差评变好评"本身作为传播素材</li>
+            <li>与 TapTap 运营协商：是否可以在页面展示"近 30 天评分 X.X"（类似 Steam 的"最近好评"标签）</li>
+            <li>降低对 TapTap 单一渠道的依赖——加大好游快爆（当前 7.4 分）、应用宝评价引导</li>
           </ul>
         </div>
       </div>
 
-      <!-- 风险 2 -->
+      <h3>场景二：公测首周 TapTap 评分跌至 6.0-6.5（新差评涌入）</h3>
+
       <div class="risk-card">
-        <h5>风险二：付费模型转型阵痛——取消抽卡后收入如何撑住</h5>
-        <p>取消抽卡是正确的决定，但正确不等于容易。<b>洛克王国:世界</b>证明了外观付费可以赚大钱（月流水 6.75 亿），但它有 <b>3.5 亿注册 IP 用户</b>的基盘——饥困荒野预约量 1000 万，基盘规模差一个数量级。<a href="https://view.inews.qq.com/a/20260525A04FBN00" target="_blank" rel="noopener" class="tag">腾讯新闻 ↗</a></p>
-        <p><b>核心矛盾</b>：饥荒的哥特手绘美学天然限制了外观消费的「华丽上限」——玩家为什么要花钱买一个同样暗黑的皮肤？不像原神的角色有明确的颜值消费逻辑。</p>
+        <h5>诊断：产品层面仍有未解决的痛点</h5>
+        <p>如果新玩家也在给差评——大概率原因是：①技术问题（服务器/BUG）；②"去抽卡"后新的体验缺口（缺乏成长感/内容空洞）；③日常肝度问题未根本解决。</p>
         <div class="mitigation">
-          <p><b>应对策略</b>：</p>
+          <p><b>应对</b>：</p>
           <ul>
-            <li>付费重心从「角色/武器颜值」转向「家园装饰」和「UGC 创作工具」——建家党天然愿意为装饰付费</li>
-            <li>学习《动物森友会》的季节限定家具逻辑——稀缺性驱动消费而非数值驱动</li>
-            <li>Battle Pass（赛季通行证）作为稳定收入底盘，奖励以外观+家园物件为主</li>
-            <li><b>红线</b>：绝不回头卖数值。一旦有任何「付费→变强」的暗示，6.9 分会变成 5.0</li>
+            <li><b>48 小时内</b>发布制作人公开信——不是道歉模板，而是逐条回应排名前三的差评点</li>
+            <li><b>首周紧急热更</b>：优先修复技术问题 > 削减日常肝度 > 增加成长反馈</li>
+            <li>启动「饥活了」第二季直播——直面差评 Top 3 问题，当场给出改进时间表</li>
+            <li>邀请首批差评玩家进入"问题反馈专属群"（给他们"被重视"的感知）</li>
           </ul>
         </div>
       </div>
 
-      <!-- 风险 3 -->
+      <h3>场景三：公测首月 DAU 断崖下跌（七日留存 < 20%）</h3>
+
       <div class="risk-card">
-        <h5>风险三：竞品压制——明日之后「重生日」的正面阻击</h5>
-        <p>明日之后 2026 年 4 月推出「重生日」版本，底层引擎大升级、UI 全面重做——这不是巧合，这是针对饥困荒野公测的<b>预防性打击</b>。八年老产品选择在对手公测前做「重生」级更新，说明网易把饥困荒野视为真正威胁。<a href="http://www.lifeafter.tw/news/update/20260416/30154_1296474.html" target="_blank" rel="noopener" class="tag">明日之后官网 ↗</a></p>
+        <h5>诊断：内容消耗速度远超产出</h5>
+        <p>如果玩家进来很开心但一周后走了——说明"来的理由够了，留的理由不够"。去掉抽卡后如果没有足够的成长驱动力替代，玩家会在免费获得所有武器后失去目标。</p>
         <div class="mitigation">
-          <p><b>应对策略</b>：</p>
+          <p><b>应对</b>：</p>
           <ul>
-            <li><b>不打正面</b>：不要在「末日生存」维度与明日之后竞争——它有八年积累打不过</li>
-            <li><b>打差异</b>：强调「手绘美学」「黑色童话」「Klei 正版」——这些是明日之后永远不可能有的</li>
-            <li><b>错峰上线</b>：避免与明日之后大版本更新同周发布重大宣发物料</li>
-            <li>关注七日世界 UGC 共创计划的进展——如果它的 UGC 先于饥困荒野上线并做出口碑，需要加速「奇点工厂」的开放节奏</li>
+            <li>加速 UGC 编辑器从"原型期"进入"可用期"——让玩家自己创造内容填补空洞</li>
+            <li>加快 DLC 移植节奏——哈姆雷特、天体风暴作为"月更大版本"而非"年更"</li>
+            <li>引入赛季排行/挑战成就系统——用竞争性目标替代数值成长（不卖数值≠不能有目标）</li>
+            <li>参考明日之后的赛季节奏：每 6 周一个中型更新，每 3 月一个大版本</li>
           </ul>
         </div>
+      </div>
+
+      <h3>底线思维：什么情况下该踩刹车</h3>
+      <div class="highlight">
+        <p>如果公测首月出现以下<b>任意两个</b>同时发生，建议立刻启动战略收缩：</p>
+        <ul>
+          <li>TapTap 评分跌破 6.0</li>
+          <li>七日留存低于 15%（行业平均约 25-30%）</li>
+          <li>首月 iOS 畅销榜从未进入 Top 100</li>
+          <li>B 站/抖音自然流量评论区负面率超过 70%</li>
+        </ul>
+        <p>收缩不是放弃——而是回到"闷头改版"模式（参考 No Man's Sky 的路线），用 3-6 个月时间做一次真正的内容品质跃升，再择机二次发力。</p>
+      </div>
+
+      <div class="verdict">
+        <p><b>Plan B 核心态度</b>：不怕分低——怕的是分低了还装没看见。饥困荒野最大的资产已经不是"游戏本身"（游戏可以继续改），而是"诚实面对问题"这个人设。如果公测翻车，<b>最快承认、最快响应、最快改</b>——这个速度本身就是信任的延续。</p>
       </div>
     </div>
 
-    <!-- ========== PAGE 9: 顾问终审意见 ========== -->
-    <div x-show="page === 9" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 02</div>
-      <h2 class="text-2xl font-bold text-white mb-6">顾问终审意见</h2>
+    <!-- ========== PAGE 9: GO/NO-GO ========== -->
+    <div x-show="page === 9" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
+      <h2 class="text-2xl font-bold text-white mb-6">GO/NO-GO + 本周三个必须启动的动作</h2>
 
       <div class="verdict">
-        <p><b>终审结论：有条件 GO</b></p>
-        <p>饥困荒野拥有全球级 IP 背书、独占性美学壁垒和已验证的品类需求。「饥活了」节目后商业化方向回归正轨，UGC 编辑器提供了长线内容想象空间。这些基本面支持继续投入。</p>
-        <p>但 GO 的前提是：<b>团队必须在公测首月证明「这一次真的不一样了」</b>。不是靠话术证明，是靠体验证明。TapTap 评分从 6.9 回升到 7.5 是最低门槛——达不到说明产品还没准备好，应暂停大规模买量投入。</p>
+        <p><b>顾问终审判断：GO</b></p>
+        <p>理由：饥困荒野在 2026 年暑期公测的时机窗口<b>不可复制</b>——SOC 品类空窗 7 年、"去抽卡"趋势正在爆发、洛克王国刚证明了路径可行性、IP 底蕴仍在（千万预约证明了用户池）、制作组已经交出了行业罕见的"自我革命"动作。如果现在不打，这个窗口不会等你。</p>
       </div>
 
-      <h3>GO 的五个前提条件</h3>
-      <div class="highlight">
-        <ul>
-          <li><b>条件一</b>：公测版本 Bug 修复率 ≥ 90%（饥智团测试中反馈的恶性 Bug 必须全部解决）</li>
-          <li><b>条件二</b>：新商业化模型（活跃度兑换制）在饥智团测试中得到正面玩家反馈</li>
-          <li><b>条件三</b>：首支品牌宣言片通过内部「剪影测试」+ 外部饥荒老玩家焦点小组验证</li>
-          <li><b>条件四</b>：UGC「奇点工厂」至少有 20 个可玩关卡储备（公测后 14 天内上线）</li>
-          <li><b>条件五</b>：客服团队完成扩编，能在公测首周保证 TapTap/B站评论区 4 小时内响应</li>
-        </ul>
-      </div>
-
-      <h3>优先行动清单（按紧迫度排序）</h3>
+      <h3>GO 的前提条件（缺一不可）</h3>
       <table>
-        <thead><tr><th>优先级</th><th>行动</th><th>负责方</th><th>截止时间</th></tr></thead>
+        <thead>
+          <tr><th>条件</th><th>当前状态</th><th>风险等级</th></tr>
+        </thead>
         <tbody>
-          <tr><td><b>P0</b></td><td>完成恶性 Bug 全量修复 + 性能优化（低端机帧率）</td><td>研发</td><td>公测前 14 天</td></tr>
-          <tr><td><b>P0</b></td><td>输出品牌主 KV + 品牌宣言片定稿</td><td>市场 + 创意</td><td>公测前 21 天</td></tr>
-          <tr><td><b>P1</b></td><td>启动「477 天生存挑战」招募 + 制作人直播系列</td><td>社区运营</td><td>公测前 21 天</td></tr>
-          <tr><td><b>P1</b></td><td>签约 20 位饥荒端游 UP 主，启动 UGC 共创计划</td><td>KOL 合作</td><td>公测前 30 天</td></tr>
-          <tr><td><b>P2</b></td><td>制定 Battle Pass 内容规划（首赛季 60 天内容量）</td><td>商业化</td><td>公测前 14 天</td></tr>
-          <tr><td><b>P2</b></td><td>部署竞品监控（明日之后/七日世界版本节奏追踪）</td><td>竞品分析</td><td>即刻启动</td></tr>
+          <tr><td>服务器承压能力覆盖 3x 预期峰值</td><td>需确认</td><td>关键</td></tr>
+          <tr><td>公测版本 Bug 密度降至测试期 1/3 以下</td><td>需确认</td><td>关键</td></tr>
+          <tr><td>去抽卡后的成长循环有至少 30 天内容深度</td><td>需确认</td><td>高</td></tr>
+          <tr><td>马戏团 PVP 装备归一方案已实装</td><td>已宣布</td><td>中</td></tr>
+          <tr><td>UGC 编辑器至少有可展示的 Demo</td><td>原型期</td><td>中</td></tr>
         </tbody>
       </table>
 
-      <h3>最后一句话</h3>
-      <div class="highlight">
-        <p>饥困荒野的问题从来不是「饥荒 IP 有没有价值」——2500 万份销量和 95% 好评率回答了这个问题。真正的问题是：<b>这个团队有没有资格代表这个 IP</b>。四年的测试、三次商业化转向、从 9.0 跌到 6.9 的评分——玩家已经给了很多次机会。公测是最后一次。</p>
-        <p>不是「做对了所有事就能成功」，而是<b>「再错一步就可能永远失去这些玩家」</b>。谨慎乐观，严格执行。</p>
+      <h3>本周三个必须启动的动作</h3>
+
+      <div class="creative-card">
+        <h5>动作一：公测倒计时叙事启动（本周启动，持续至公测）</h5>
+        <p><b>具体执行</b>：</p>
+        <ul>
+          <li>本周三发布一条 TapTap 开发者动态："距离公测还有 X 天。我们想先说几句实话。"——以制作人第一人称写一封 800 字以内的信，核心内容：承认过去的错误 + 列出砍掉的东西 + 请求"给我们一次验证的机会"</li>
+          <li>配合 B 站发布 1 分钟短片："从 9.0 到 6.9，再到 ?"——用数字做悬念，不给答案</li>
+          <li>本周五开始每日一张"倒计时海报"（手绘风格，符合视觉规范第八页要求）</li>
+        </ul>
       </div>
+
+      <div class="creative-card">
+        <h5>动作二：差评玩家定向召回批次启动（本周启动）</h5>
+        <p><b>具体执行</b>：</p>
+        <ul>
+          <li>与 TapTap 运营对接"差评用户专属预下载"方案的可行性 + 合规评估</li>
+          <li>同时启动降级方案：在 TapTap 社区发布"如果你曾经给过差评——我们想请你第一批回来验收"帖子</li>
+          <li>联系 5-8 个曾发布过负面评测的 B 站中腰部 UP 主（播放量 5-20 万区间），邀请他们提前体验公测版并发布"复测"内容</li>
+        </ul>
+      </div>
+
+      <div class="creative-card">
+        <h5>动作三：公测首日事件脚本锁定（本周完成策划文档）</h5>
+        <p><b>具体执行</b>：</p>
+        <ul>
+          <li>确认「抽卡坟场」装置的美术资源排期 + 研发工时评估</li>
+          <li>确认公测首日世界 Boss 方案（如果来不及做新 Boss，至少准备全服协力事件）</li>
+          <li>确认「死一次发一次福利」直播的策划阵容 + 时间 + 平台</li>
+          <li>锁定首日前 30 分钟"零充值弹窗"的产品策略（需产品+商业化团队签字确认）</li>
+        </ul>
+      </div>
+
+      <h3>成功的定义——60 天后回头看</h3>
+
+      <table>
+        <thead>
+          <tr><th>指标</th><th>及格线</th><th>优秀线</th><th>对标锚点</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TapTap 评分</td><td>7.5+</td><td>8.0+</td><td>洛克王国公测后 8.5</td></tr>
+          <tr><td>首月 DAU 峰值</td><td>100 万+</td><td>300 万+</td><td>明日之后首日 1500 万（天花板）</td></tr>
+          <tr><td>七日留存</td><td>25%+</td><td>35%+</td><td>品类平均 25-30%</td></tr>
+          <tr><td>iOS 畅销榜最高排名</td><td>Top 50</td><td>Top 20</td><td>洛克王国首日登顶</td></tr>
+          <tr><td>B 站相关视频首月总播放</td><td>3000 万+</td><td>1 亿+</td><td>（与预约量规模匹配）</td></tr>
+        </tbody>
+      </table>
+
+      <h3>NO-GO 触发条件</h3>
+      <p>以下情况如果在公测前一周确认为真，建议推迟公测（宁可晚一个月也不要带伤上阵）：</p>
+      <div class="risk-card">
+        <h5>NO-GO 红线</h5>
+        <ul>
+          <li>压力测试发现服务器无法承载 50 万同时在线且无法在一周内扩容</li>
+          <li>公测版本仍存在 3 个以上影响核心循环的 P0 级 Bug</li>
+          <li>去抽卡后的成长循环在内部测试中被验证"15 天内容量见底"</li>
+          <li>马戏团 PVP 装备归一方案因技术原因无法在公测版本实装</li>
+        </ul>
+        <div class="mitigation">
+          <p><b>推迟的成本 vs 带伤上线的成本</b>：推迟一个月损失的是预热势能（可通过"我们为了品质延期"的叙事部分回收）；带伤上线损失的是<b>最后一次机会的信任</b>（不可回收）。</p>
+        </div>
+      </div>
+
+      <h3>本报告核心观点一览（便于会议引用）</h3>
+      <table>
+        <thead>
+          <tr><th>#</th><th>核心观点</th><th>页码</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>6.9 不是真实评分，是算法锁定的历史惯性</td><td>P1</td></tr>
+          <tr><td>2</td><td>「饥荒传奇」应该被官方认领为叙事起点</td><td>P2</td></tr>
+          <tr><td>3</td><td>饥困荒野的唯一差异化是"曾经错过然后改了"——这比"从没错过"更有力</td><td>P3</td></tr>
+          <tr><td>4</td><td>召回优先级：B（差评党）> C（预约党）> D（品类玩家）> A（端游铁杆）</td><td>P4</td></tr>
+          <tr><td>5</td><td>SOC 品类 7 年无新王，但饥困荒野不是来抢王座的——是来讲浪子回头的</td><td>P5</td></tr>
+          <tr><td>6</td><td>信任重建靠"可验证的行为"而非"单向宣传"</td><td>P6</td></tr>
+          <tr><td>7</td><td>公测首日核心指标是 TapTap 新增评价数+均分，不是 DAU</td><td>P7</td></tr>
+          <tr><td>8</td><td>视觉规范的终极检验："看起来像不像传奇广告"——像就重做</td><td>P8</td></tr>
+          <tr><td>9</td><td>如果公测还是 6 分：最快承认、最快响应、最快改——速度本身就是信任</td><td>P9</td></tr>
+          <tr><td>10</td><td>GO。窗口期不可复制。本周启动三个动作。</td><td>P10</td></tr>
+        </tbody>
+      </table>
+
+      <div class="verdict">
+        <p><b>最后一句话</b>：饥困荒野不需要奇迹——它需要的是<b>把"砍掉抽卡"这个已经做完的事实，变成每一个潜在玩家都能亲手验证的体验</b>。信任不是被给予的，是被验证出来的。产品已经改了，现在轮到宣发把这个改变<b>翻译成</b>玩家语言。GO。</p>
+      </div>
+
+      <h3>附录：关键数据源索引</h3>
+      <table>
+        <thead>
+          <tr><th>数据</th><th>数值</th><th>来源</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>TapTap 当前评分</td><td>6.9（7083 条评价）</td><td><a href="https://taptap.com/app/194039" target="_blank" class="tag">TapTap ↗</a></td></tr>
+          <tr><td>TapTap 预约量</td><td>211 万</td><td><a href="https://taptap.com/app/194039" target="_blank" class="tag">TapTap ↗</a></td></tr>
+          <tr><td>全平台预约量</td><td>千万级</td><td><a href="https://new.qq.com/rain/a/20260519A0006H00" target="_blank" class="tag">腾讯新闻 ↗</a></td></tr>
+          <tr><td>洛克王国预约量</td><td>6000 万</td><td><a href="https://www.tmtpost.com/7930720.html" target="_blank" class="tag">钛媒体 ↗</a></td></tr>
+          <tr><td>洛克王国首月 DAU</td><td>1300 万</td><td><a href="https://new.qq.com/rain/a/20260520A08R1C00" target="_blank" class="tag">腾讯新闻 ↗</a></td></tr>
+          <tr><td>洛克王国公测 10 天 iOS 流水</td><td>1.03 亿元</td><td><a href="https://www.toutiao.com/article/7629951309638091290" target="_blank" class="tag">今日头条 ↗</a></td></tr>
+          <tr><td>明日之后首日 DAU</td><td>1500 万</td><td><a href="https://news.17173.com/content/04222026/175340707.shtml" target="_blank" class="tag">17173 ↗</a></td></tr>
+          <tr><td>明日之后运营年限</td><td>~8 年</td><td>计算得出</td></tr>
+          <tr><td>七日世界峰值在线</td><td>24 万</td><td><a href="https://www.gamersky.com/news/202604/2122135.shtml" target="_blank" class="tag">游民星空 ↗</a></td></tr>
+          <tr><td>七日世界 9 月后流失率</td><td>~86%</td><td><a href="https://www.biligame.com.cn/gamenews/sx9gywjlsld86wyzkjzjjyhlbzr" target="_blank" class="tag">Biligame ↗</a></td></tr>
+          <tr><td>七日世界投入成本</td><td>近 10 亿元</td><td><a href="https://new.qq.com/rain/a/20260103A06L3B00" target="_blank" class="tag">腾讯新闻 ↗</a></td></tr>
+          <tr><td>我的世界中国区用户</td><td>8 亿+</td><td><a href="https://zh.minecraft.wiki/w/网易版" target="_blank" class="tag">Minecraft Wiki ↗</a></td></tr>
+          <tr><td>SOC 品类空窗期</td><td>7 年无现象级新品</td><td><a href="https://news.17173.com/content/04222026/175340707.shtml" target="_blank" class="tag">17173 ↗</a></td></tr>
+          <tr><td>去抽卡行业趋势</td><td>RPG 抽卡市场连续 3 年下滑</td><td><a href="https://www.taptap.cn/moment/798658126176848876" target="_blank" class="tag">TapTap ↗</a></td></tr>
+        </tbody>
+      </table>
     </div>
 
   </main>
