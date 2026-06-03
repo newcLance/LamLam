@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>饥困荒野 — 阵地宣发设计方案</title>
+<title>饥困荒野 — 三阵地设计 Brief：让商店页闻到篝火味</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script>
@@ -56,7 +56,7 @@ tailwind.config = {
         返回详情页
       </a>
       <div class="h-4 w-px bg-white/10"></div>
-      <h1 class="text-sm font-bold text-white">饥困荒野 — 阵地宣发设计方案<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-06-02 · v1</span></h1>
+      <h1 class="text-sm font-bold text-white">饥困荒野 — 三阵地设计 Brief：让商店页闻到篝火味<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-06-03 · v1</span></h1>
     </div>
     <div class="flex items-center gap-1">
       <a href="dont-starve-newhome.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
@@ -71,490 +71,617 @@ tailwind.config = {
 <div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
   <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
     <div class="mb-6">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
-      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三大阵地功能与画像</button>
-      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">用户行为路径与转化</button>
-    </div>
-    <div class="mb-6">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
-      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">核心设计语言</button>
-      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">WeGame 商店页策略</button>
-      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">专区 & 启动器策略</button>
-    </div>
-    <div class="mb-6">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
-      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三阵地转化创意</button>
-      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范速查</button>
-      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">执行时间线与预算</button>
-    </div>
-    <div>
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
-      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警</button>
-      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">终审意见</button>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">设计 Brief</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉元素取舍</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">竞品商店页拆解</button>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">Banner 设计 Brief</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">详情页首屏 Brief</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">评价区与预约转化</button>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">专区 Tab 与 UGC</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">社区氛围设计</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">启动器 Banner Brief</button>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">每日触达弹窗</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">统一规范 + 终审</button>
     </div>
   </nav>
 
-  <main class="flex-1 py-8 px-10 max-w-4xl">
-    <!-- PAGE 0 -->
-    <div x-show="page === 0" class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
-      <h2 class="text-2xl font-bold mb-6">三大阵地功能定位 + 用户画像</h2>
-      <div class="verdict"><p><b>核心判断</b>：饥困荒野的三大阵地——WeGame 商店页、WeGame 游戏专区、自研游戏启动器——分别承接「第一印象→预约转化」「长期运营→社区粘性」「每日触达→氛围预热」三段旅程。哥特荒野的沉浸感必须从游戏内渗透到每一个阵地触点。</p></div>
+  <main class="flex-1 py-10 px-10 page-content">
 
-      <h3>三大阵地功能定位</h3>
-      <table>
-        <thead><tr><th>阵地</th><th>核心功能</th><th>用户在此完成的动作</th><th>旅程中角色</th></tr></thead>
-        <tbody>
-          <tr><td><b>WeGame 商店页</b></td><td>第一印象 + 预约/下载转化</td><td>了解游戏→看 PV/实机→点击预约/下载</td><td>入口：把兴趣变成行动</td></tr>
-          <tr><td><b>WeGame 游戏专区</b></td><td>攻略百科 + UGC社区 + 战绩中枢</td><td>查攻略→逛社区→晒家园→看百科</td><td>中枢：把玩家变成社区居民</td></tr>
-          <tr><td><b>自研游戏启动器</b></td><td>每日触达 + 活动预热 + 快速启动</td><td>登录→扫公告→启动游戏→领奖励</td><td>日常：把启动变成仪式</td></tr>
-        </tbody>
-      </table>
+    <!-- PAGE 0: 视觉元素取舍 -->
+    <div x-show="page === 0" x-cloak>
+      <h2 class="text-xl font-bold mb-2">从游戏内到商店页：5 个必须保留 / 3 个必须改掉的视觉元素</h2>
+      <p class="muted mb-6">核心命题：如何在 WeGame 三阵地延伸哥特手绘质感，同时与"饥荒传奇"划清界限</p>
 
-      <h3>各阵地用户画像差异</h3>
-      <table>
-        <thead><tr><th>维度</th><th>商店页用户</th><th>专区日活用户</th><th>启动器用户</th></tr></thead>
-        <tbody>
-          <tr><td><b>来源</b></td><td>B站/抖音/TapTap 外围引流；WeGame 搜索/推荐</td><td>已预约/已下载玩家主动回访</td><td>已安装客户端的活跃玩家</td></tr>
-          <tr><td><b>饥荒 IP 认知</b></td><td>混合：40% 老饥荒玩家 + 60% 路人/泛生存玩家</td><td>高：80%+ 有饥荒端游经验或深度关注</td><td>极高：每日启动 = 核心活跃用户</td></tr>
-          <tr><td><b>决策状态</b></td><td>「要不要预约/下载」——决策型</td><td>「找什么内容/跟谁互动」——探索型</td><td>「今天玩什么/有什么新活动」——习惯型</td></tr>
-          <tr><td><b>停留时长</b></td><td>45-90 秒</td><td>5-20 分钟</td><td>5-15 秒</td></tr>
-          <tr><td><b>情绪基调</b></td><td>「IP 情怀拉扯 + 对手游化的戒心」</td><td>「找归属感 + 展示创造力」</td><td>「快点进游戏 + 顺便看看有没有福利」</td></tr>
-          <tr><td><b>核心痛点</b></td><td>担心"饥荒传奇"——需要证明已改</td><td>需要高质量 UGC 内容和社区认同</td><td>讨厌打断启动流程的弹窗</td></tr>
-        </tbody>
-      </table>
-
-      <h3>饥困荒野特殊背景</h3>
+      <h3>必须保留的 5 个视觉锚点</h3>
       <div class="highlight">
-        <p><b>1000 万+预约 × TapTap 6.9 分 = 高期待 + 高戒心并存</b></p>
-        <p>饥荒 IP 全球 2500-3000 万销量积累的情怀，与经历 4 次测试跳票、抽卡争议后的信任裂痕，在三大阵地上同时投射。商店页必须回答「抽卡真的取消了吗」；专区必须证明「UGC 编辑器是真的」；启动器必须传递「这次不跳票了」。</p>
+        <p><b>设计原则</b>：这些元素是饥荒 IP 十年积淀的视觉心智资产，缺任何一项都会被老玩家判定为"不是正统饥荒"。</p>
+      </div>
+
+      <table>
+        <thead><tr><th>序号</th><th>视觉元素</th><th>具体表现</th><th>保留理由</th><th>实施规格</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>粗黑手绘线条</b></td><td>Edward Gorey 式交叉排线，所有角色/物件/场景轮廓线 2-4px 不等宽手绘笔触</td><td>饥荒系列第一辨识度元素，去掉它等于去掉身份证</td><td>商店页所有美术资源必须保留手绘线条层，禁止纯 3D 渲染图直出</td></tr>
+          <tr><td>2</td><td><b>篝火橙色圆圈</b></td><td>暖橙色 #E8820C 火光照亮半径约 200px 的安全区域，周围是纯黑深渊</td><td>「黑暗中的火光」是饥荒视觉叙事的第一符号，等同于 Logo 级心智</td><td>Banner/首屏必须出现至少一处篝火光源，色值锁定 #E8820C → #F5A623 渐变</td></tr>
+          <tr><td>3</td><td><b>低饱和三色地基</b></td><td>墨绿 #2D3B2A + 暗紫 #3B2D42 + 焦褐 #4A3728 构成场景底色</td><td>区分饥荒与所有其他生存手游的色调签名，高饱和意味着"这不是饥荒"</td><td>所有阵地背景图 HSB 饱和度不超过 35%，明度不超过 40%</td></tr>
+          <tr><td>4</td><td><b>角色夸张头身比剪影</b></td><td>大头 + 纤细肢体 + 空洞眼窝，关闭 UI 后仅凭剪影可识别角色</td><td>Tim Burton 式人物比例是饥荒与"写实生存"品类的根本区隔</td><td>商店页角色展示禁止使用写实人体比例的 CG，必须保持 1:2.5 头身比</td></tr>
+          <tr><td>5</td><td><b>羊皮纸/旧纸质感 UI</b></td><td>泛黄纸张、墨迹标注、缝线布袋、铜钉装饰边框</td><td>UI 质感是区分"饥荒手绘世界"与"悬浮手游通用 UI"的关键层</td><td>商店页内嵌 UI 截图/视频必须展示羊皮纸界面，禁止换成通用渐变底板</td></tr>
+        </tbody>
+      </table>
+
+      <h3>必须改掉的 3 个视觉陷阱</h3>
+      <div class="risk-card">
+        <p><b>设计警告</b>：以下三项元素在游戏内有存在理由，但放到商店页会直接触发"饥荒传奇"的负面联想。</p>
+      </div>
+
+      <table>
+        <thead><tr><th>序号</th><th>需改掉的元素</th><th>原因</th><th>替代方案</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><b>星级光效 / 抽卡金光</b></td><td>五星武器金色光环、彩虹抽卡动画是"饥荒传奇"口碑的视觉根源</td><td>商店页不展示任何星级分层 UI；武器展示用元素光芒替代品阶光效</td></tr>
+          <tr><td>2</td><td><b>数字伤害飘字</b></td><td>密集 RPG 伤害数字让画面像传奇/仙侠页游</td><td>视频/截图展示战斗时关闭伤害数字层，保留元素粒子效果</td></tr>
+          <tr><td>3</td><td><b>满屏红点 + 任务列表</b></td><td>标准手游"日活压迫"视觉，与"不逼氪/不逼肝"承诺矛盾</td><td>UI 截图选用沙盒探索场景（最小化 HUD）而非城镇主界面</td></tr>
+        </tbody>
+      </table>
+
+      <div class="verdict">
+        <p><b>终审原则</b>：商店页的每一帧画面，用户在 0.3 秒内应能回答两个问题——「这是饥荒」和「这不是传奇」。保留项确保前者，改掉项确保后者。</p>
       </div>
     </div>
 
-    <!-- PAGE 1 -->
-    <div x-show="page === 1" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
-      <h2 class="text-2xl font-bold mb-6">各阵地用户行为路径与转化机会点</h2>
-      <div class="verdict"><p><b>核心判断</b>：饥困荒野的用户旅程是「外围种草→商店页转化→下载安装→启动器触达→专区沉淀→回流循环」。每个阶段都有可量化的转化漏斗，而「取消抽卡」这一信任信号必须在每个触点被反复强化。</p></div>
+    <!-- PAGE 1: 竞品商店页拆解 -->
+    <div x-show="page === 1" x-cloak>
+      <h2 class="text-xl font-bold mb-2">竞品商店页拆解：明日之后 / 洛克王国世界做对了什么</h2>
+      <p class="muted mb-6">从两款成功案例中提炼可复用的商店页设计策略</p>
 
-      <h3>完整用户旅程（六阶段）</h3>
-      <table>
-        <thead><tr><th>阶段</th><th>用户状态</th><th>主承接阵地</th><th>关键转化动作</th><th>失败信号</th></tr></thead>
-        <tbody>
-          <tr><td><b>种草</b></td><td>B站/抖音看到「取消抽卡」新闻</td><td>外围平台→商店页</td><td>点击链接进入商店页</td><td>链接点击率 &lt;3%</td></tr>
-          <tr><td><b>预约</b></td><td>进入商店页浏览</td><td>WeGame 商店页</td><td>点击预约按钮</td><td>页面跳出率 &gt;65%</td></tr>
-          <tr><td><b>下载</b></td><td>公测开启/获得测试码</td><td>商店页→启动器</td><td>点击下载并安装完成</td><td>下载中断率 &gt;15%</td></tr>
-          <tr><td><b>启动</b></td><td>安装完成后首次打开</td><td>自研启动器</td><td>进入游戏大厅</td><td>启动器停留 &gt;30 秒未进入游戏</td></tr>
-          <tr><td><b>留存</b></td><td>首次游戏后次日/七日</td><td>游戏专区 + 启动器</td><td>回专区看攻略/回启动器再次启动</td><td>7 日留存 &lt;25%</td></tr>
-          <tr><td><b>回流</b></td><td>流失后被新赛季/UGC内容召回</td><td>商店页（版本页）+ 启动器弹窗</td><td>重新启动游戏</td><td>召回推送打开率 &lt;5%</td></tr>
-        </tbody>
-      </table>
-
-      <h3>各阵地关键转化机会点</h3>
-      <table>
-        <thead><tr><th>阵地</th><th>机会点 1</th><th>机会点 2</th><th>机会点 3</th></tr></thead>
-        <tbody>
-          <tr><td><b>商店页</b></td><td>「不卖数值」信任标签前置——首屏可见</td><td>实机视频自动播放（UGC 编辑器演示 + 联机玩法）</td><td>千万预约社会认同数据展示</td></tr>
-          <tr><td><b>游戏专区</b></td><td>「奇点工厂」UGC 作品展示台——玩家创作即内容</td><td>家园建造截图投票活动——低门槛 UGC 激励</td><td>饥荒百科+特质搭配器——工具型留存</td></tr>
-          <tr><td><b>启动器</b></td><td>每日登录动效：哥特荒野场景日夜轮转</td><td>赛季倒计时 + 新赛季「绿洲之诗」预告片嵌入</td><td>「你的家园昨晚被谁参观了」社交Hook</td></tr>
-        </tbody>
-      </table>
-
-      <h3>竞品转化参照</h3>
-      <div class="highlight">
-        <p><b>洛克王国:世界的启示</b>：同为「不卖数值」IP 手游，13 小时 1500 万新增证明——信任感前置 + IP 情怀激活 = 爆发式转化。饥困荒野的阵地设计应将「取消抽卡」「Klei 正版授权」「UGC 编辑器」三个信任信号在每个触点重复出现，形成认知锤击。</p>
-      </div>
-    </div>
-
-    <!-- PAGE 2 -->
-    <div x-show="page === 2" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
-      <h2 class="text-2xl font-bold mb-6">核心设计语言：哥特荒野沉浸式渗透</h2>
-      <div class="verdict"><p><b>核心判断</b>：饥困荒野的阵地设计语言为「哥特荒野沉浸式渗透」——把饥荒标志性的 Tim Burton 式哥特手绘氛围从游戏内延伸到三个阵地的每一个像素，让用户在未进入游戏前就已经「身处荒野」。</p></div>
-
-      <h3>设计语言定义</h3>
-      <div class="highlight">
-        <p class="quote">「让三个阵地成为永恒领域的延伸，而不是游戏外的广告牌。」</p>
-        <p>用户在商店页看到的不是一张普通商品海报，而是荒野发来的一封泛黄信件；在专区浏览的不是标准化百科，而是威尔逊留下的研究笔记；在启动器按下按钮时，感受到的不是「打开软件」，而是「推开新家园的门」。</p>
-      </div>
-
-      <h3>设计语言四大支柱</h3>
-      <table>
-        <thead><tr><th>支柱</th><th>定义</th><th>在阵地中的表现</th></tr></thead>
-        <tbody>
-          <tr><td><b>墨线质感</b></td><td>所有边框、分割线、装饰线使用手绘粗黑线条风格，拒绝工业化直线</td><td>商店页模块分隔使用不规则墨线；专区Tab底线手绘化；启动器按钮边框带手绘抖动感</td></tr>
-          <tr><td><b>暗色基底</b></td><td>背景以 #0c0c0c 至 #1a1a1a 为主，营造永恒夜幕前的压迫感</td><td>三个阵地统一暗色调，仅在交互热区（按钮/卡片悬浮）使用暖橙色光晕暗示「篝火安全感」</td></tr>
-          <tr><td><b>篝火暖光</b></td><td>所有 CTA 和高亮元素使用篝火橙(#E8722A)及其光晕，象征「安全区」和「行动指引」</td><td>预约按钮：篝火橙底色+微光辐射动效；启动按钮：圆形篝火光圈；专区精选帖：橙色左边线</td></tr>
-          <tr><td><b>绘本叙事</b></td><td>文案风格采用第二人称荒野笔记体，配图使用手绘插图而非渲染图</td><td>商店页卖点描述用威尔逊笔记口吻；专区板块名用羊皮纸标签；启动器公告用「营地告示板」视觉框</td></tr>
-        </tbody>
-      </table>
-
-      <h3>与竞品差异化对比</h3>
-      <table>
-        <thead><tr><th>游戏</th><th>阵地设计风格</th><th>饥困荒野差异点</th></tr></thead>
-        <tbody>
-          <tr><td><b>明日之后</b></td><td>废土写实 + 科幻 UI + 冷蓝色调</td><td>饥困荒野用手绘温度对抗写实冰冷，用篝火暖光替代科幻冷光</td></tr>
-          <tr><td><b>七日世界</b></td><td>高品质写实美术 + 黑金配色</td><td>饥困荒野用 2D 手绘粗线条打出识别度，不在写实赛道竞争</td></tr>
-          <tr><td><b>我的世界</b></td><td>像素风 + 明快配色 + 低龄化设计</td><td>饥困荒野用哥特暗色调瞄准 18-30 岁核心玩家，拉开年龄层距离</td></tr>
-        </tbody>
-      </table>
-
-      <h3>情绪地图：三个阵地的情绪弧线</h3>
-      <div class="highlight">
+      <h3>明日之后 WeGame 商店页：「末世生活感」叙事</h3>
+      <div class="creative-card">
+        <h5>做对了什么</h5>
         <ul>
-          <li><b>商店页</b>：好奇 → 震撼 → 信任 → 行动（「这荒野有意思」→「画面真的好」→「居然不卖数值」→ 点击预约）</li>
-          <li><b>游戏专区</b>：目的 → 发现 → 归属 → 贡献（「来找攻略」→「这个 UGC 好绝」→「我也要发」→ 上传作品）</li>
-          <li><b>启动器</b>：习惯 → 惊喜 → 沉浸 → 启动（「日常打开」→「今天背景变了」→「新赛季要来了」→ 进入游戏）</li>
+          <li><b>首屏即世界观</b>：Banner 是废墟城市远景 + 近景角色持枪剪影，1 秒建立"末世生存"心智，无数值信息。</li>
+          <li><b>视频选择精准</b>：首屏自动播放 30 秒「生活向」蒙太奇——建造庇护所→种植蔬菜→与狗互动→丧尸来袭。先松后紧。</li>
+          <li><b>版本更新前置</b>：第二屏直接展示最新版本核心内容，用"新鲜感"对抗 7.5 年老游戏疲态。</li>
+          <li><b>评价区引导</b>：引导文案是"分享你的末世故事"而非"给个好评"，官方置顶有故事性的长评。</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>饥困荒野可借鉴</h5>
+        <ul>
+          <li>首屏视频策略：生活感先行，危机感后置——「家园温馨→荒野危机」叙事节奏</li>
+          <li>评价区 UGC 化：鼓励玩家分享"我的荒野故事"而非打分</li>
+          <li>版本更新作首屏 hook："取消抽卡"是最大新闻，应成为商店页第一信息</li>
+        </ul>
+      </div>
+
+      <h3>洛克王国世界 WeGame 商店页：「信任承诺」转化术</h3>
+      <div class="creative-card">
+        <h5>做对了什么</h5>
+        <ul>
+          <li><b>"三不承诺"视觉化</b>：三个并排图标卡片——「不卖精灵」「不卖数值」「不抽卡」——每个配 ✕ 号删除线图标。将商业化承诺转化为信任标签的经典设计。</li>
+          <li><b>IP 温度前置</b>：首屏是经典精灵 3D 化互动场景，用户第一反应是"童年回来了"而非"又一个氪金手游"。</li>
+          <li><b>数据背书不喊数字</b>：用"你小时候的伙伴长大了"替代"6000 万预约"。数据小字底部呈现。</li>
+          <li><b>商业验证</b>：公测 10 天 iOS 流水 1.03 亿，证明"不抽卡"承诺能赢口碑也能赢收入。</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>饥困荒野可借鉴</h5>
+        <ul>
+          <li>"承诺视觉化"：饥困荒野需要自己的信任标签——「不抽卡」「不卖战力」「免费兑换」</li>
+          <li>IP 温度 &gt; 战斗炫技：首屏放威尔逊篝火旁生存日常，而非 BOSS 战 DPS</li>
+          <li>情感文案 &gt; 数据文案：不说"千万预约"，说"饥荒老玩家等了 6 年终于不氪了"</li>
+        </ul>
+      </div>
+
+      <div class="verdict">
+        <p><b>竞品启示总结</b>：两款成功案例的共性——商店页首屏建立情绪而非罗列功能；信任承诺视觉化，让"不坑钱"变成设计元素；用 IP 情感连接替代硬核参数展示。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 2: Banner 设计 Brief -->
+    <div x-show="page === 2" x-cloak>
+      <h2 class="text-xl font-bold mb-2">Banner 设计 Brief：「不是饥荒传奇」——6 个字让人停下来</h2>
+      <p class="muted mb-6">WeGame 商店页主 Banner 创意方案</p>
+
+      <h3>创意核心</h3>
+      <div class="highlight">
+        <p class="quote">「武器不抽卡了。」</p>
+        <p class="muted">—— 6 个字，直击饥困荒野最大舆论痛点。用否定句制造认知冲突，让每一个曾因"饥荒传奇"离开的用户停下来。</p>
+      </div>
+
+      <h3>Banner 技术规格</h3>
+      <table>
+        <thead><tr><th>参数</th><th>规格</th><th>设计理由</th></tr></thead>
+        <tbody>
+          <tr><td>尺寸</td><td><b>1920×600px</b>（WeGame 商店页主 Banner 标准）</td><td>横向构图利于展示荒野场景全景</td></tr>
+          <tr><td>安全区</td><td>核心信息集中在 <b>1200×400px</b> 中心区域</td><td>适配 1366/1440/1920 三种主流分辨率裁切</td></tr>
+          <tr><td>文件格式</td><td>静态 JPG + 动态 WebM（5s 循环 ≤3MB）</td><td>WeGame 支持动态 Banner，篝火动画提升点击率</td></tr>
+          <tr><td>主色调</td><td>背景 <b>#1A1412</b>（焦褐暗夜）→ 篝火 <b>#E8820C</b> 径向渐变</td><td>低明度底色保证可读性，篝火制造视觉焦点</td></tr>
+        </tbody>
+      </table>
+
+      <h3>画面构成</h3>
+      <div class="creative-card">
+        <h5>背景层</h5>
+        <ul>
+          <li><b>右侧 60%</b>：暗夜荒野远景——枯树剪影、满月、远处暗影生物轮廓。游戏截图经手绘滤镜处理，保留粗黑线条质感。</li>
+          <li><b>左侧 40%</b>：篝火光圈照亮近景——威尔逊剪影背对观众坐在篝火旁，烤肉架冒热气。光圈 300px，#E8820C 向边缘衰减至 #4A2800。</li>
+          <li><b>粒子层</b>：篝火火星缓慢上升（动态版）+ 远处暗影眼睛闪紫光 #7B2D8B。</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>文案层</h5>
+        <ul>
+          <li><b>主标题</b>：「武器不抽卡了。」—— 64px Bold #FFFFFF 手写体。画面左 1/3 垂直居中偏上。</li>
+          <li><b>副标题</b>：「饥困荒野 全面取消抽卡 · 兑换商店免费获取」—— 18px Regular #A3A3A3，主标题下 24px。</li>
+          <li><b>CTA</b>：「立即预约」—— 圆角 6px，背景 #E8820C，字色 #1A1412，14px Bold，140×40px，副标题下 32px。</li>
+          <li><b>角标</b>：左上 Logo（饥困荒野 + Klei 授权），右下 WeGame 标签。</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>为什么是这样不是那样</h5>
+        <ul>
+          <li><b>为什么否定句不用"全新玩法上线"？</b>——核心矛盾是"被认为是传奇"。否定句直接回应负面标签，穿透力强于正面宣传。洛克王国"三不承诺"已验证有效。</li>
+          <li><b>为什么篝火不用 BOSS 战？</b>——BOSS 战触发"又一个 RPG 手游"判断；篝火是饥荒 IP 独有心智，0.3 秒激活"这是饥荒"。</li>
+          <li><b>为什么角色背影不用正面？</b>——背影+篝火制造"邀请感"（观众像走向篝火的第二人），比正面 POSE 有情感拉力。</li>
         </ul>
       </div>
     </div>
 
-    <!-- PAGE 3 -->
-    <div x-show="page === 3" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
-      <h2 class="text-2xl font-bold mb-6">WeGame 商店页视觉策略</h2>
-      <div class="verdict"><p><b>核心判断</b>：商店页面对的最大挑战是「IP 信任危机」——用户带着「又是一个饥荒传奇？」的戒心进入。首屏必须在 3 秒内回答三个问题：① 这是正版饥荒；② 抽卡真的没了；③ 有新东西值得期待。</p></div>
+    <!-- PAGE 3: 详情页首屏 Brief -->
+    <div x-show="page === 3" x-cloak>
+      <h2 class="text-xl font-bold mb-2">详情页首屏 Brief：视频选择 / 信息排布 / 信任标签设计</h2>
+      <p class="muted mb-6">WeGame 商店详情页首屏 1080px 区域的完整设计方案</p>
 
-      <h3>首屏设计（0-3 秒决策窗口）</h3>
+      <h3>首屏信息架构</h3>
       <table>
-        <thead><tr><th>元素</th><th>位置</th><th>设计要求</th><th>目的</th></tr></thead>
+        <thead><tr><th>区域</th><th>高度</th><th>内容</th><th>设计意图</th></tr></thead>
         <tbody>
-          <tr><td><b>主 KV</b></td><td>首屏 100% 宽度</td><td>哥特手绘风全景：威尔逊剪影站在篝火前，远处是永恒领域六大群系轮廓，满月高悬——1:1 还原端游标志性构图</td><td>0.5 秒传达「这是饥荒，不是别的游戏」</td></tr>
-          <tr><td><b>信任标签组</b></td><td>KV 左下角</td><td>三枚标签：「Klei 正版授权」「已取消全部抽卡」「1000 万预约」，使用篝火橙底色</td><td>1 秒内击破「饥荒传奇」戒心</td></tr>
-          <tr><td><b>预约/下载按钮</b></td><td>KV 右侧居中</td><td>篝火橙圆角按钮 + 微光脉冲动效，文案「点燃篝火（预约）」或「进入荒野（下载）」</td><td>用 IP 语言替代通用「预约」，提升点击欲</td></tr>
-          <tr><td><b>实机视频自动播放</b></td><td>KV 区域右下角浮窗或 KV 下方</td><td>静音自动循环 20 秒精华（联机合作 + UGC 编辑器 + BOSS 战三段剪辑）</td><td>动态画面证明「这不是 PPT」</td></tr>
+          <tr><td>A. 视频播放器</td><td><b>480px</b></td><td>自动播放 60s 核心体验视频（静音+字幕）</td><td>3 秒内传递游戏调性</td></tr>
+          <tr><td>B. 信任标签带</td><td><b>64px</b></td><td>三枚信任标签横向排列</td><td>视频后紧接信任信息，"好看+安心"双重说服</td></tr>
+          <tr><td>C. 核心卖点区</td><td><b>280px</b></td><td>三列图文卡片</td><td>30 秒让用户理解游戏是什么</td></tr>
+          <tr><td>D. 预约按钮区</td><td><b>80px</b></td><td>大号预约按钮 + 实时计数器</td><td>首屏即转化</td></tr>
         </tbody>
       </table>
 
-      <h3>次屏内容设计</h3>
+      <h3>A 区视频脚本（60 秒）</h3>
+      <div class="creative-card">
+        <h5>分镜结构</h5>
+        <ul>
+          <li><b>0-5s</b>：黑屏→收音机沙沙声→篝火点燃（声音先行画面后至，致敬游戏开场）</li>
+          <li><b>5-15s</b>：家园生活蒙太奇——喂宠物、布置花园、篝火旁烤肉。暖色调慢节奏，手风琴轻快旋律。</li>
+          <li><b>15-30s</b>：沙盒探索——走出家园→随机地形→远古遗迹→元素战斗（不展示伤害数字）。节奏加快。</li>
+          <li><b>30-45s</b>：联机社交——4 人下洞穴→分工协作→大 BOSS 元素爆发击杀。高潮段。</li>
+          <li><b>45-55s</b>：UGC 创造——奇点工厂编辑器→自制地图→他人体验。"不仅玩游戏还能造游戏"。</li>
+          <li><b>55-60s</b>：回到篝火→字幕"武器不抽卡了。"→Logo + 预约。</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>视频技术规格</h5>
+        <ul>
+          <li>分辨率 <b>1920×1080</b>，码率 8Mbps，H.264/MP4</li>
+          <li>字幕：底部居中白色描边，24px，中文全覆盖</li>
+          <li>默认静音自动播放，提供音频开启按钮</li>
+          <li>封面帧：15s 处「角色走出家园门口」——兼具温暖与悬念</li>
+        </ul>
+      </div>
+
+      <h3>B 区信任标签设计</h3>
       <table>
-        <thead><tr><th>模块</th><th>内容</th><th>设计要点</th></tr></thead>
+        <thead><tr><th>标签</th><th>图标</th><th>文案</th><th>颜色</th></tr></thead>
         <tbody>
-          <tr><td><b>「为什么不一样了」</b></td><td>三张对比卡片：旧版抽卡→新版兑换；旧版单人→新版 8 人联机；无 UGC→奇点工厂编辑器</td><td>左右对比布局，旧版灰色划线，新版篝火橙高亮</td></tr>
-          <tr><td><b>核心玩法卡片</b></td><td>沙盒生存 / 家园建造 / 多人联机 / UGC 创作 / 元素战斗——各一卡片</td><td>手绘插图风，每卡片 40 字以内 + 一张实机截图</td></tr>
-          <tr><td><b>评价区信任墙</b></td><td>精选「饥活了」节目后玩家正面反馈 + B站 UP 主评测片段</td><td>带头像+来源标注，可追溯真实性</td></tr>
-          <tr><td><b>底部浮动预约条</b></td><td>固定底部：左侧显示实时预约数，右侧「点燃篝火」按钮</td><td>滚动到任何位置都可一键预约</td></tr>
+          <tr><td>1</td><td>✕ 删除线 + 抽卡图标</td><td><b>武器宠物不抽卡</b></td><td>背景 #1C2A1C · 描边 #3D5C3D · 文字 #7BC67B</td></tr>
+          <tr><td>2</td><td>双箭头循环</td><td><b>活跃兑换免费拿</b></td><td>背景 #2A2A1C · 描边 #5C5C3D · 文字 #C6B87B</td></tr>
+          <tr><td>3</td><td>Klei Logo 简化</td><td><b>Klei 正版授权</b></td><td>背景 #1C1C2A · 描边 #3D3D5C · 文字 #7B7BC6</td></tr>
         </tbody>
       </table>
+      <div class="creative-card">
+        <h5>为什么是这样不是那样</h5>
+        <ul>
+          <li><b>为什么绿色系不用金色系？</b>——金色暗示"稀有/付费/品阶"，是传奇联想核心色。绿色传递"免费/安全/通过"。</li>
+          <li><b>为什么紧贴视频下方？</b>——看完视频的下意识反应是"好看但会不会氪金？"，信任标签在此窗口阻断负面联想。</li>
+          <li><b>为什么不写"免费游戏"？</b>——"免费"在中国手游语境等同"前期免费后期逼氪"。"武器宠物不抽卡"更具体可信。</li>
+        </ul>
+      </div>
 
-      <h3>商店页关键指标</h3>
+      <h3>C 区核心卖点三列卡片</h3>
       <table>
-        <thead><tr><th>指标</th><th>行业基准</th><th>饥困荒野目标</th><th>优化杠杆</th></tr></thead>
+        <thead><tr><th>列</th><th>标题</th><th>副文案</th><th>配图方向</th></tr></thead>
         <tbody>
-          <tr><td><b>首屏跳出率</b></td><td>50-60%</td><td>&lt;40%</td><td>IP 信任标签 + 视频自动播放</td></tr>
-          <tr><td><b>预约转化率</b></td><td>8-15%</td><td>&gt;20%（IP 加成）</td><td>情怀 KV + 篝火 CTA + 社会认同</td></tr>
-          <tr><td><b>视频播放完成率</b></td><td>25-35%</td><td>&gt;45%</td><td>20 秒精华剪辑 + 自动播放</td></tr>
-          <tr><td><b>页面停留时间</b></td><td>45-90 秒</td><td>&gt;80 秒</td><td>对比卡片 + 评价墙内容深度</td></tr>
+          <tr><td>左</td><td><b>原汁原味沙盒生存</b></td><td>随机世界 · 四季轮转 · 昼夜危机</td><td>暴风雪中搭营地的手绘风截图</td></tr>
+          <tr><td>中</td><td><b>8 人联机共享荒野</b></td><td>好友房 · 大逃杀 · 导师系统</td><td>4 人篝火旁互动截图</td></tr>
+          <tr><td>右</td><td><b>UGC 奇点工厂</b></td><td>自制关卡 · 分享世界 · 创作者计划</td><td>编辑器截图 + 自创地图鸟瞰</td></tr>
         </tbody>
       </table>
+    </div>
 
+    <!-- PAGE 4: 评价区与预约转化 -->
+    <div x-show="page === 4" x-cloak>
+      <h2 class="text-xl font-bold mb-2">评价区引导 + 预约转化按钮设计</h2>
+      <p class="muted mb-6">将社区口碑从负面翻转为预约动力的设计策略</p>
+
+      <h3>评价区引导设计</h3>
+      <div class="creative-card">
+        <h5>引导语文案</h5>
+        <ul>
+          <li><b>主引导语</b>：「分享你的荒野第一夜」——不要求打分，引导叙事。</li>
+          <li><b>副引导语</b>：「无论是被蜘蛛追着跑的狼狈，还是第一次成功过冬的成就感，都值得被记录。」</li>
+          <li><b>规格</b>：引导区域 80px 高，背景 #141414，左侧 32×32px 微型篝火动画 GIF。</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>评价置顶策略</h5>
+        <ul>
+          <li><b>置顶优先级</b>：含截图故事评价 &gt; 提及"取消抽卡"的体验变化 &gt; 联机趣事</li>
+          <li><b>禁止置顶</b>：纯分数无文字 / 过短"好玩" / 早期抽卡吐槽（已过时）</li>
+          <li><b>官方回复标签</b>：「开发者回复」背景 #2A1C2A，文字 #C67BC6，猪人工作室 Logo 图标</li>
+        </ul>
+      </div>
+
+      <h3>「饥活了」改版日志模块</h3>
       <div class="highlight">
-        <p><b>商店页铁律——「信任优先于炫酷」</b>：饥困荒野经历过 4 次测试跳票和抽卡争议，商店页的第一优先级不是展示多酷的画面，而是证明「这次是认真的」。每个模块的设计都必须服务于信任重建。</p>
+        <p>评价区顶部固定模块，展示"取消抽卡"核心改变的时间线。不可折叠。</p>
+      </div>
+      <table>
+        <thead><tr><th>时间</th><th>事件</th><th>视觉</th></tr></thead>
+        <tbody>
+          <tr><td>2025</td><td>社区反馈抽卡过重</td><td>灰色节点 + 引号图标</td></tr>
+          <tr><td>2026.04.28</td><td>「饥活了」宣布取消全部抽卡</td><td><b>高亮绿色节点</b> + 勾选图标</td></tr>
+          <tr><td>2026 公测</td><td>兑换商店上线</td><td>绿色节点 + 礼物图标</td></tr>
+        </tbody>
+      </table>
+
+      <h3>预约转化按钮</h3>
+      <div class="creative-card">
+        <h5>主 CTA 按钮</h5>
+        <ul>
+          <li><b>文案</b>：「点燃篝火 · 预约公测」——游戏语言增强代入感</li>
+          <li><b>尺寸</b>：240×48px，圆角 8px</li>
+          <li><b>颜色</b>：渐变 #E8820C→#F5A623，文字 #1A1412，hover +10%</li>
+          <li><b>动效</b>：按钮周围微弱火星粒子上飘（CSS animation）</li>
+          <li><b>位置</b>：首屏 D 区 + 底部固定悬浮栏（滚过首屏后浮出）</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>预约计数器</h5>
+        <ul>
+          <li><b>文案</b>：「已有 XXX 位冒险者点燃篝火」——实时更新，叙事包裹数据</li>
+          <li><b>位置</b>：按钮正下方，12px #737373</li>
+          <li><b>理由</b>：社会证明 + 语言一致性。"冒险者"比"用户"有归属感。</li>
+        </ul>
+      </div>
+
+      <div class="verdict">
+        <p><b>为什么不做评分挽回？</b>——TapTap 6.9 分已形成，拉分适得其反。正确策略是把关注点从"分数"转移到"故事"。WeGame 评价区有独立运营权，不受 TapTap 评分传染。</p>
       </div>
     </div>
 
-    <!-- PAGE 4 -->
-    <div x-show="page === 4" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
-      <h2 class="text-2xl font-bold mb-6">游戏专区 & 启动器策略</h2>
-      <div class="verdict"><p><b>核心判断</b>：游戏专区的核心武器是「UGC 展示台」——让奇点工厂的玩家创作成为内容引擎；启动器的核心武器是「哥特荒野日历」——每天用场景变化传递赛季进度，把启动变成仪式。</p></div>
+    <!-- PAGE 5: 专区 Tab 与 UGC -->
+    <div x-show="page === 5" x-cloak>
+      <h2 class="text-xl font-bold mb-2">游戏专区 Tab 架构 + UGC 展台模块 Brief</h2>
+      <p class="muted mb-6">WeGame 游戏专区的内容组织与创作者生态展示</p>
 
-      <h3>游戏专区 Tab 架构</h3>
+      <h3>Tab 架构</h3>
       <table>
-        <thead><tr><th>Tab</th><th>核心内容</th><th>更新频率</th><th>差异化设计</th></tr></thead>
+        <thead><tr><th>Tab</th><th>定位</th><th>优先级</th><th>更新频率</th></tr></thead>
         <tbody>
-          <tr><td><b>首页/动态</b></td><td>官方公告 + UGC精选 + 热门攻略</td><td>每日</td><td>信息流采用「营地告示板」视觉，置顶帖用篝火橙高亮</td></tr>
-          <tr><td><b>奇点工厂</b></td><td>UGC 关卡/建造分享 + 下载 + 评分</td><td>实时玩家上传</td><td>专区核心差异化——类 Steam 创意工坊，但视觉为手绘绘本</td></tr>
-          <tr><td><b>荒野百科</b></td><td>怪物图鉴 + 特质搭配器 + 元素克制表 + 食谱</td><td>版本更新后同步</td><td>百科页面采用「威尔逊的研究笔记」视觉风格——手绘边框+泛黄底色</td></tr>
-          <tr><td><b>攻略区</b></td><td>新手引导 + BOSS攻略 + 赛季指南</td><td>每周 3+篇</td><td>攻略作者获「荒野向导」认证标签</td></tr>
-          <tr><td><b>社区</b></td><td>玩家讨论 + 家园截图 + 反馈建议</td><td>玩家自发</td><td>「家园秀」专区——一键投票+每周精选上首页</td></tr>
+          <tr><td><b>荒野日报</b></td><td>版本动态/公告/维护</td><td>版本改动 &gt; 活动预告 &gt; 维护</td><td>每日</td></tr>
+          <tr><td><b>攻略营地</b></td><td>PGC + 精选 UGC 攻略</td><td>新手指南 &gt; BOSS攻略 &gt; 特质搭配</td><td>每 3 天</td></tr>
+          <tr><td><b>创作者广场</b></td><td>UGC 作品/奇点地图/建家</td><td>本周热门 &gt; 官方精选 &gt; 最新</td><td>实时</td></tr>
+          <tr><td><b>篝火圈</b></td><td>讨论/组队/反馈</td><td>热门讨论 &gt; 组队 &gt; BUG</td><td>实时</td></tr>
+          <tr><td><b>冒险者档案</b></td><td>成就/家园参观</td><td>最佳家园 &gt; 成就排行 &gt; 截图墙</td><td>每周</td></tr>
         </tbody>
       </table>
 
-      <h3>专区运营三板斧</h3>
+      <h3>UGC 展台模块</h3>
       <div class="creative-card">
-        <h5>① UGC 展示台：「奇点工厂」前台化</h5>
-        <p>将游戏内 UGC 编辑器的作品直接在专区 Tab 展示，支持预览/下载/评分/作者主页。顶级作品推送到商店页「玩家创造」模块——形成「创作→展示→获赞→吸引新玩家」的正循环。</p>
-        <p class="muted">KPI：UGC 上传数月增 300%；奇点工厂 Tab 日均 UV 占专区总 UV 30%+。</p>
+        <h5>「创作者广场」模块</h5>
+        <ul>
+          <li><b>布局</b>：瀑布流三列，卡片 280px 宽，圆角 8px，背景 #141414，描边 1px rgba(255,255,255,0.06)</li>
+          <li><b>卡片</b>：封面 280×180px + 标题 14px Bold 单行 + 作者头像/名/点赞数</li>
+          <li><b>筛选</b>：顶部 Tab——「奇点地图」/「建家作品」/「攻略图文」/「同人创作」</li>
+          <li><b>推荐权重</b>：官方精选 40% + 7 日点赞 30% + 新鲜度 20% + 创作者等级 10%</li>
+        </ul>
       </div>
       <div class="creative-card">
-        <h5>② 家园秀：低门槛 UGC 激励</h5>
-        <p>不需要编辑器技能，只需截图即可参与。每周「家园装修大赛」主题轮换（如「最恐怖家园」「最像端游的家园」「纯原版风家园」），获赞最多者获游戏内限定家具。</p>
-        <p class="muted">KPI：每周截图投稿量 &gt;500；社区帖子互动率提升 2x。</p>
+        <h5>「饥智团」创作者入口</h5>
+        <ul>
+          <li><b>位置</b>：创作者广场顶部右侧常驻</li>
+          <li><b>按钮</b>：120×36px，圆角 6px，背景 #2D3B2A，文字 #7BC67B，画笔+齿轮图标</li>
+          <li><b>tooltip</b>：「创作地图/视频/攻略，获得官方流量扶持与专属奖励」</li>
+          <li><b>设计理由</b>：社区批评"只招主播"，公开入口+降低门槛描述释放开放信号</li>
+        </ul>
       </div>
       <div class="creative-card">
-        <h5>③ 特质搭配器：工具型留存</h5>
-        <p>交互式特质技能树模拟器——玩家可在专区直接规划 16 费点的 BD 搭配，保存方案并分享。成为攻略社区的基础设施，让玩家有理由反复回来调整 build。</p>
-        <p class="muted">KPI：搭配器日均使用 UV &gt;5000；平均单次使用时长 &gt;3 分钟。</p>
+        <h5>「家园参观」快捷入口</h5>
+        <ul>
+          <li><b>位置</b>：冒险者档案首屏，横向滑动卡片组</li>
+          <li><b>卡片</b>：360×240px 圆角 12px，家园俯视截图 + 昵称 + 「参观」按钮</li>
+          <li><b>遮罩</b>：截图上方 40% 暗色渐变，底部显示信息</li>
+          <li><b>理由</b>：建家是最活跃 UGC 行为，可视化驱动社交传播</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PAGE 6: 社区氛围设计 -->
+    <div x-show="page === 6" x-cloak>
+      <h2 class="text-xl font-bold mb-2">社区氛围设计：评论引导语 / 官方标签 / 创作者入口</h2>
+      <p class="muted mb-6">构建「饥荒味」社区氛围的视觉与文案体系</p>
+
+      <h3>评论引导语体系</h3>
+      <div class="creative-card">
+        <h5>场景化引导语（随机展示）</h5>
+        <ul>
+          <li>「你今天在荒野里发现了什么？」</li>
+          <li>「说说你被什么怪物追了三条街的经历」</li>
+          <li>「你的家园建到第几天了？晒一张截图」</li>
+          <li>「和队友配合最默契的一次是？」</li>
+          <li>「如果威尔逊能说一句话，你觉得他会说什么？」</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>引导语规格</h5>
+        <ul>
+          <li><b>容器</b>：评论框 placeholder，#525252，13px</li>
+          <li><b>装饰</b>：输入框左侧 16×16px 篝火图标（静态 SVG）</li>
+          <li><b>为什么问句不用陈述句？</b>——问句触发回答本能，引导内容方向形成"分享故事"而非"打分吐槽"的氛围。</li>
+        </ul>
       </div>
 
-      <h3>自研启动器策略</h3>
+      <h3>官方标签体系</h3>
       <table>
-        <thead><tr><th>模块</th><th>设计方案</th><th>更新频率</th></tr></thead>
+        <thead><tr><th>标签</th><th>场景</th><th>规格</th></tr></thead>
         <tbody>
-          <tr><td><b>登录页背景</b></td><td>「哥特荒野日历」——每日自动切换场景（跟随游戏内赛季/昼夜/天气），满月日用暗紫色调，新赛季前七天逐渐切换新群系</td><td>每日自动</td></tr>
-          <tr><td><b>启动按钮</b></td><td>圆形篝火图标 + 「进入荒野」文案，悬浮时火焰摇曳动效</td><td>固定</td></tr>
-          <tr><td><b>公告区</b></td><td>左侧竖向「营地告示板」，最新 3 条公告标题，点击展开不遮挡启动按钮</td><td>跟随官方发布</td></tr>
-          <tr><td><b>活动预热</b></td><td>右下角迷你卡片：新赛季倒计时/UGC 热门作品/好友动态，不可全屏弹窗</td><td>实时</td></tr>
-          <tr><td><b>社交 Hook</b></td><td>「你的家园昨晚被 [好友名] 参观了」小气泡——引导进入游戏查看</td><td>事件驱动</td></tr>
+          <tr><td><b>猪人工作室</b></td><td>开发者发帖/回复</td><td>背景 #2A1C2A · 文字 #C67BC6 · 猪鼻图标</td></tr>
+          <tr><td><b>官方攻略</b></td><td>PGC 攻略标注</td><td>背景 #1C2A2A · 文字 #7BC6C6 · 书本图标</td></tr>
+          <tr><td><b>饥智团成员</b></td><td>认证创作者</td><td>背景 #2A2A1C · 文字 #C6C67B · 画笔图标</td></tr>
+          <tr><td><b>版本速递</b></td><td>更新公告</td><td>背景 #1C2A1C · 文字 #7BC67B · 闪电图标</td></tr>
+          <tr><td><b>BUG 已收录</b></td><td>官方确认 BUG</td><td>背景 #2A1C1C · 文字 #C67B7B · 虫子图标</td></tr>
         </tbody>
       </table>
 
+      <h3>创作者入口</h3>
+      <div class="creative-card">
+        <h5>侧边栏创作者中心（常驻）</h5>
+        <ul>
+          <li><b>位置</b>：专区右侧栏 Top，160px 高</li>
+          <li><b>视觉</b>：暗色卡片 #1C1C1C，顶部装饰条墨绿→篝火橙渐变</li>
+          <li><b>标题</b>：「成为荒野创作者」16px Bold 白</li>
+          <li><b>描述</b>：「制作地图 · 写攻略 · 做视频，官方流量扶持等你来」12px #A3A3A3</li>
+          <li><b>按钮</b>：「了解详情」100×32px 描边 #7BC67B</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>截图分享快捷入口（发帖按钮旁）</h5>
+        <ul>
+          <li>点击进入"选截图+加描述"轻量发布流程</li>
+          <li>图标：相机+篝火 16×16px #E8820C</li>
+          <li><b>为什么单独做？</b>——降低 UGC 门槛。截图+一句话零门槛，适合冷启动填充内容。</li>
+        </ul>
+      </div>
+
+      <div class="verdict">
+        <p><b>氛围核心</b>：让社区像「一群人围坐篝火旁聊天」而非「在应用商店打分」。暖橙色点缀、篝火图标、故事性引导语——都指向一个情绪：温暖的求生同伴感。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 7: 启动器 Banner Brief -->
+    <div x-show="page === 7" x-cloak>
+      <h2 class="text-xl font-bold mb-2">启动器首页 Banner Brief：公测前/中/后三套</h2>
+      <p class="muted mb-6">WeGame 启动器首页轮播 Banner 的阶段化设计方案</p>
+
+      <h3>通用规格</h3>
+      <table>
+        <thead><tr><th>参数</th><th>规格</th></tr></thead>
+        <tbody>
+          <tr><td>尺寸</td><td><b>1120×360px</b>（启动器标准）</td></tr>
+          <tr><td>安全区</td><td>左 60% 文案区，右 40% 视觉区</td></tr>
+          <tr><td>格式</td><td>静态 JPG + 动态 WebM 5s</td></tr>
+          <tr><td>字体</td><td>标题饥荒手写体，正文系统黑体</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Phase 1：公测前（预热期）—— 「篝火倒计时」</h3>
+      <div class="creative-card">
+        <h5>方案</h5>
+        <ul>
+          <li><b>画面</b>：左大字"武器不抽卡了。" + 倒计时；右侧未点燃的篝火木堆，周围黑暗。动态版火星偶尔闪。</li>
+          <li><b>主文案</b>：「武器不抽卡了。」48px Bold #FFFFFF</li>
+          <li><b>副文案</b>：「饥困荒野 全面取消抽卡 · XX月XX日公测」16px #A3A3A3</li>
+          <li><b>CTA</b>：「预约抢先」#E8820C</li>
+          <li><b>配色</b>：背景 #0F0D0B，微光 #4A2800</li>
+          <li><b>设计逻辑</b>：未燃篝火 = 游戏未开，制造"等待点火"期待感。</li>
+        </ul>
+      </div>
+
+      <h3>Phase 2：公测中（首周）—— 「篝火已燃」</h3>
+      <div class="creative-card">
+        <h5>方案</h5>
+        <ul>
+          <li><b>画面</b>：同一堆柴现在熊熊燃烧，火光照亮 4 个围坐角色剪影。远景地平线上冒险者剪影队列。</li>
+          <li><b>主文案</b>：「荒野已开，篝火已燃。」48px Bold #FFFFFF</li>
+          <li><b>副文案</b>：「饥困荒野 现已公测 · 与好友一起活过第一夜」16px #A3A3A3</li>
+          <li><b>CTA</b>：「立即下载」#F5A623（比预热期更亮更紧迫）</li>
+          <li><b>设计逻辑</b>：与 Phase 1 视觉叙事连续——同一堆柴从暗到明，让老用户产生"终于点着了"的满足。</li>
+        </ul>
+      </div>
+
+      <h3>Phase 3：公测后（长线运营）—— 「赛季轮换」模板</h3>
+      <div class="creative-card">
+        <h5>方案</h5>
+        <ul>
+          <li><b>画面</b>：以当前赛季主题为视觉——"绿洲之诗"用沙漠+绿洲，"鹤唳春归"用国风鹤人+樱花。</li>
+          <li><b>主文案</b>：「[赛季名] 已开启」48px Bold</li>
+          <li><b>CTA</b>：「进入荒野」按钮颜色跟随赛季主题色</li>
+          <li><b>固定锚点</b>：无论赛季如何变，右下角始终保留 80×80px 小型篝火作为品牌锚点，确保连续性。</li>
+        </ul>
+      </div>
+
+      <div class="verdict">
+        <p><b>三阶段逻辑</b>：篝火"未燃→燃烧→常驻"叙事线，让公测周期 Banner 成为完整故事。用户每次看到饥困荒野都感知"世界在持续发展"。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 8: 每日触达弹窗 -->
+    <div x-show="page === 8" x-cloak>
+      <h2 class="text-xl font-bold mb-2">每日触达弹窗 Brief：版式 / 文案 / 按钮 / 频率</h2>
+      <p class="muted mb-6">WeGame 启动器弹窗的克制化设计——不打扰就是最好的触达</p>
+
+      <h3>设计原则</h3>
       <div class="highlight">
-        <p><b>启动器铁律——「不打断，只陪伴」</b>：启动器用户的核心诉求是「快速进游戏」。所有信息传达必须通过背景氛围变化和非阻断式卡片完成。绝不使用全屏弹窗。弹窗 = 流失。</p>
-      </div>
-    </div>
-
-    <!-- PAGE 5 -->
-    <div x-show="page === 5" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
-      <h2 class="text-2xl font-bold mb-6">三个阵地定制转化创意</h2>
-      <div class="verdict"><p><b>核心判断</b>：每个阵地需要一个「只有饥困荒野能做、只有这个阵地适合」的核心创意——不是通用运营手段，而是深度绑定 IP 特色和阵地特性的定制方案。</p></div>
-
-      <div class="creative-card">
-        <span class="tag">商店页</span>
-        <h5>创意 1：「荒野求生指南」互动式商店页</h5>
-        <p><b>概念</b>：将传统的静态商店页改为「翻页绘本」体验——用户向下滚动时，页面以手绘翻页动效展开威尔逊的求生笔记，每翻一页展示一个核心系统（生存→建造→联机→UGC→战斗），最后一页是「加入荒野」预约 CTA。</p>
-        <p><b>差异化</b>：行业内所有商店页都是「视频+图文+按钮」的标准模板，绘本翻页体验直接把「哥特手绘」这一核心美学资产变成交互优势，让用户在浏览过程中已经沉浸在 IP 氛围中。</p>
-        <p><b>KPI</b>：页面停留时间 &gt;120 秒（行业 2x）；预约转化率 &gt;22%；社交分享率 &gt;8%（翻页截图自带传播属性）。</p>
-        <p class="muted">技术要求：CSS scroll-driven animation + SVG 手绘帧序列，无需 Canvas/WebGL，兼容 WeGame 内嵌浏览器。</p>
+        <p><b>克制三原则</b>：① 每周最多 2 次（非每日）；② 必须携带实际价值；③ 可一键关闭且记住选择。</p>
+        <p class="muted">为什么不做每日弹窗：用户画像中"被日活逼退"是核心流失原因，频率过高触发"网游化严重"联想。</p>
       </div>
 
-      <div class="creative-card">
-        <span class="tag">游戏专区</span>
-        <h5>创意 2：「奇点频道」——UGC 作品实时直播橱窗</h5>
-        <p><b>概念</b>：在游戏专区首页顶部设置一个实时滚动的「UGC 橱窗」——展示奇点工厂最新上传的玩家自制关卡预览图+游玩人数+评分。每 30 秒自动轮播一个作品，点击可直接跳转游戏内下载该关卡。</p>
-        <p><b>差异化</b>：将 UGC 编辑器从「游戏内功能」提升为「社区核心驱动力」，让专区不再依赖官方内容供给——玩家创作即内容更新。类似 Steam 创意工坊但更前台化、更视觉化。</p>
-        <p><b>KPI</b>：UGC 作品月均上传量 &gt;2000；奇点频道点击率 &gt;15%；因 UGC 内容回访专区的用户占比 &gt;25%。</p>
-        <p class="muted">配套激励：「月度最佳创作者」获实体联名周边 + 游戏内创作者专属头框。</p>
-      </div>
-
-      <div class="creative-card">
-        <span class="tag">启动器</span>
-        <h5>创意 3：「七日荒野」——赛季前启动器渐变叙事</h5>
-        <p><b>概念</b>：每个新赛季开启前 7 天，启动器背景从当前赛季场景逐日变化为新赛季场景——例如「绿洲之诗」赛季前：Day1 沙漠边缘出现绿芽 → Day3 温泉冒出蒸汽 → Day5 绿洲轮廓成型 → Day7 完整绿洲揭晓+新赛季入口按钮亮起。</p>
-        <p><b>差异化</b>：把启动器从「工具」变成「叙事载体」。玩家每天打开启动器不只是为了进游戏，而是为了看「今天荒野又变了什么」——培养仪式感和期待感。</p>
-        <p><b>KPI</b>：赛季前 7 天 DAU 提升 &gt;15%；启动器页面截图社交分享量 &gt;3000/赛季；新赛季首日登录率 &gt;70%（对比无渐变叙事时 55%）。</p>
-        <p class="muted">美术成本：每赛季 7 张场景图（可复用基础底图+叠加元素），约 3 个工作日美术产能。</p>
-      </div>
-    </div>
-
-    <!-- PAGE 6 -->
-    <div x-show="page === 6" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
-      <h2 class="text-2xl font-bold mb-6">视觉规范速查</h2>
-      <div class="verdict"><p><b>核心判断</b>：三个阵地必须在视觉上「像同一个世界的三扇窗户」——统一的色彩体系和设计语言保证品牌一致性，同时每个阵地根据功能差异做适度变体。</p></div>
-
-      <h3>配色体系</h3>
+      <h3>弹窗规格</h3>
       <table>
-        <thead><tr><th>色彩角色</th><th>色值</th><th>使用场景</th><th>三阵地统一度</th></tr></thead>
+        <thead><tr><th>参数</th><th>规格</th><th>理由</th></tr></thead>
         <tbody>
-          <tr><td><b>基底黑</b></td><td>#0c0c0c</td><td>所有页面背景</td><td>100% 统一</td></tr>
-          <tr><td><b>容器灰</b></td><td>#141414 / #1c1c1c</td><td>卡片/模块背景</td><td>100% 统一</td></tr>
-          <tr><td><b>篝火橙</b></td><td>#E8722A</td><td>CTA 按钮/高亮标签/重要提示</td><td>100% 统一</td></tr>
-          <tr><td><b>暗影紫</b></td><td>#6B3FA0</td><td>危险提示/BOSS相关/暗影元素</td><td>100% 统一</td></tr>
-          <tr><td><b>荒野绿</b></td><td>#3D6B3F</td><td>家园/安全区相关模块</td><td>专区&启动器使用，商店页不用</td></tr>
-          <tr><td><b>正文灰</b></td><td>#a3a3a3</td><td>正文段落文字</td><td>100% 统一</td></tr>
-          <tr><td><b>标题白</b></td><td>#ffffff</td><td>标题/强调文字</td><td>100% 统一</td></tr>
-          <tr><td><b>辅助边线</b></td><td>rgba(255,255,255,0.06)</td><td>分隔线/卡片边框</td><td>100% 统一</td></tr>
+          <tr><td>尺寸</td><td><b>480×320px</b></td><td>中等——够展示不遮全屏</td></tr>
+          <tr><td>圆角</td><td>12px</td><td>与游戏 UI 一致</td></tr>
+          <tr><td>背景</td><td>#1A1412 + 顶部 80px 装饰区</td><td>暗色不刺眼</td></tr>
+          <tr><td>关闭</td><td>右上 ✕ 24px（点击区 40px）</td><td>清晰可见不隐藏</td></tr>
+          <tr><td>频率</td><td>每周 2 次（周二/五）</td><td>周二=更新日，周五=周末高峰</td></tr>
+        </tbody>
+      </table>
+
+      <h3>4 种内容模板</h3>
+      <div class="creative-card">
+        <h5>A：版本更新</h5>
+        <ul>
+          <li>顶部：赛季 KV 裁切 480×80px</li>
+          <li>标题：「荒野速报：[版本名] 已更新」18px Bold</li>
+          <li>内容：3 行核心更新点 13px</li>
+          <li>按钮：「查看详情」(#E8820C) + 「稍后再看」(文字)</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>B：限时活动</h5>
+        <ul>
+          <li>顶部：活动主视觉裁切</li>
+          <li>标题：「[活动名] 正在进行」</li>
+          <li>内容：奖励预览 + 剩余时间</li>
+          <li>按钮：「前往参加」+ 「不再提醒本活动」</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>C：UGC 精选</h5>
+        <ul>
+          <li>顶部：精选作品截图</li>
+          <li>标题：「本周荒野之最：[作品名]」</li>
+          <li>内容：创作者简介 + 一句话描述</li>
+          <li>按钮：「去看看」+ 「下次换一个」</li>
+        </ul>
+      </div>
+      <div class="creative-card">
+        <h5>D：回归召回（7 天未登录触发）</h5>
+        <ul>
+          <li>顶部：篝火快熄灭画面（余烬微弱）</li>
+          <li>标题：「你的篝火快灭了……」18px Bold</li>
+          <li>内容：「回来添把柴吧。你离开的这几天，荒野有了新变化。」</li>
+          <li>按钮：「回到荒野」+ 「再等等」</li>
+          <li><b>为什么用篝火熄灭？</b>——将"回来玩"的营销压力转化为游戏内叙事，情感驱动替代利益驱动。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PAGE 9: 统一规范 + 终审 -->
+    <div x-show="page === 9" x-cloak>
+      <h2 class="text-xl font-bold mb-2">三阵地统一视觉规范速查表 + 终审清单</h2>
+      <p class="muted mb-6">确保商店页/专区/启动器三阵地视觉一致性</p>
+
+      <h3>色彩规范</h3>
+      <table>
+        <thead><tr><th>角色</th><th>色值</th><th>使用场景</th><th>禁用</th></tr></thead>
+        <tbody>
+          <tr><td><b>篝火橙（主强调）</b></td><td>#E8820C</td><td>CTA、高亮、火光</td><td>大面积背景</td></tr>
+          <tr><td><b>篝火亮橙（hover）</b></td><td>#F5A623</td><td>hover、进度条、选中</td><td>文字色</td></tr>
+          <tr><td><b>焦褐暗底</b></td><td>#1A1412</td><td>所有阵地主背景</td><td>文字色</td></tr>
+          <tr><td><b>墨绿（次强调）</b></td><td>#2D3B2A</td><td>信任标签、创作者元素</td><td>大面积</td></tr>
+          <tr><td><b>暗紫（暗影）</b></td><td>#3B2D42</td><td>暗影视觉、装饰线</td><td>正面信息</td></tr>
+          <tr><td><b>正文灰</b></td><td>#A3A3A3</td><td>正文、说明文字</td><td>—</td></tr>
+          <tr><td><b>辅助灰</b></td><td>#737373</td><td>次要信息、时间戳</td><td>重要信息</td></tr>
+          <tr><td><b>信任绿</b></td><td>#7BC67B</td><td>「不抽卡」标签文字</td><td>警告/负面</td></tr>
         </tbody>
       </table>
 
       <h3>字体规范</h3>
       <table>
-        <thead><tr><th>层级</th><th>字体</th><th>字号</th><th>场景</th></tr></thead>
+        <thead><tr><th>层级</th><th>字号</th><th>字重</th><th>颜色</th><th>场景</th></tr></thead>
         <tbody>
-          <tr><td><b>大标题</b></td><td>思源宋体 Bold / Source Han Serif</td><td>24-32px</td><td>页面主标题、KV slogan——哥特绘本感</td></tr>
-          <tr><td><b>模块标题</b></td><td>思源黑体 Bold</td><td>16-18px</td><td>Tab名/模块名/卡片标题</td></tr>
-          <tr><td><b>正文</b></td><td>思源黑体 Regular</td><td>13-14px</td><td>段落/列表/表格内容</td></tr>
-          <tr><td><b>标签/辅助</b></td><td>思源黑体 Medium</td><td>11-12px</td><td>标签/时间戳/版本号</td></tr>
-          <tr><td><b>特殊：笔记体</b></td><td>手绘风格 webfont（备选：站酷快乐体）</td><td>14-16px</td><td>启动器公告标题/专区百科引用——增加手绘温度</td></tr>
+          <tr><td>H1</td><td>48-64px</td><td>Bold</td><td>#FFFFFF</td><td>Banner 主文案</td></tr>
+          <tr><td>H2</td><td>20-24px</td><td>Bold</td><td>#FFFFFF</td><td>板块标题</td></tr>
+          <tr><td>H3</td><td>16px</td><td>Bold</td><td>#FFFFFF</td><td>卡片标题</td></tr>
+          <tr><td>正文</td><td>14px</td><td>Regular</td><td>#A3A3A3</td><td>描述文字</td></tr>
+          <tr><td>辅助</td><td>12px</td><td>Regular</td><td>#737373</td><td>时间戳/计数</td></tr>
+          <tr><td>标签</td><td>11px</td><td>Semi-Bold</td><td>随标签色</td><td>各类标签</td></tr>
         </tbody>
       </table>
+      <p class="muted">Banner 标题建议用饥荒手写体（Volt）或「站酷快乐体」。正文：-apple-system/PingFang SC/Microsoft YaHei。</p>
 
-      <h3>图标与装饰</h3>
+      <h3>间距与圆角</h3>
       <table>
-        <thead><tr><th>元素</th><th>统一规范</th><th>阵地差异</th></tr></thead>
+        <thead><tr><th>元素</th><th>圆角</th><th>内边距</th><th>外间距</th></tr></thead>
         <tbody>
-          <tr><td><b>图标风格</b></td><td>粗线条手绘风（2px stroke，不规则线条）</td><td>商店页图标更精致（展示用）；启动器图标更简化（快速识别）</td></tr>
-          <tr><td><b>分隔线</b></td><td>手绘不规则线条（SVG path 模拟）</td><td>专区分隔线最密集（内容多）；启动器最少（极简）</td></tr>
-          <tr><td><b>卡片圆角</b></td><td>6px（统一）</td><td>无差异</td></tr>
-          <tr><td><b>动效风格</b></td><td>缓入缓出，时长 300-500ms，篝火微光脉冲</td><td>商店页动效最丰富；启动器仅背景+按钮；专区内容区无动效</td></tr>
+          <tr><td>卡片</td><td>8px</td><td>16-20px</td><td>16px</td></tr>
+          <tr><td>主 CTA</td><td>8px</td><td>12px 24px</td><td>—</td></tr>
+          <tr><td>次要按钮</td><td>6px</td><td>8px 16px</td><td>—</td></tr>
+          <tr><td>标签</td><td>4px</td><td>2px 8px</td><td>4px</td></tr>
+          <tr><td>弹窗</td><td>12px</td><td>24px</td><td>—</td></tr>
         </tbody>
       </table>
 
-      <h3>布局原则</h3>
-      <div class="highlight">
+      <h3>视觉禁区</h3>
+      <div class="risk-card">
         <ul>
-          <li><b>商店页</b>：单列纵向叙事流（翻页绘本逻辑），最大宽度 1200px，首屏占满视口</li>
-          <li><b>游戏专区</b>：左 Tab + 右内容的经典双栏，内容区最大宽度 960px，信息密度高但留白充足</li>
-          <li><b>启动器</b>：全屏沉浸背景 + 居中启动按钮 + 四角信息模块（左上Logo/右上设置/左下公告/右下活动），信息量极低</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- PAGE 7 -->
-    <div x-show="page === 7" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
-      <h2 class="text-2xl font-bold mb-6">执行时间线与预算</h2>
-      <div class="verdict"><p><b>核心判断</b>：以暑期公测为 T-0，三阵地建设分为基建期（T-90→T-60）、预热期（T-60→T-30）、爆发期（T-30→T-0）三段。总预算估算约 180-250 万元（含设计+开发+内容+运营）。</p></div>
-
-      <h3>三阶段总览</h3>
-      <table>
-        <thead><tr><th>阶段</th><th>时间</th><th>商店页</th><th>游戏专区</th><th>启动器</th></tr></thead>
-        <tbody>
-          <tr><td><b>基建期</b></td><td>T-90→T-60</td><td>绘本式页面框架开发+主 KV 定稿+视频剪辑</td><td>Tab 架构+百科模板+奇点工厂对接</td><td>哥特日历系统开发+登录页美术</td></tr>
-          <tr><td><b>预热期</b></td><td>T-60→T-30</td><td>互动翻页上线+信任标签组+底部浮动条</td><td>UGC 橱窗上线+社区激励体系+首批攻略</td><td>每日场景轮转上线+公告板系统</td></tr>
-          <tr><td><b>爆发期</b></td><td>T-30→T-0</td><td>首屏切换「公测倒计时」+评价墙更新</td><td>特质搭配器上线+家园秀活动启动</td><td>「七日荒野」渐变叙事启动+下载入口</td></tr>
-        </tbody>
-      </table>
-
-      <h3>详细排期：基建期（T-90→T-60）</h3>
-      <table>
-        <thead><tr><th>周</th><th>商店页</th><th>游戏专区</th><th>启动器</th></tr></thead>
-        <tbody>
-          <tr><td><b>W1-W2</b></td><td>KV 概念稿 × 3方向 + 翻页交互原型</td><td>Tab 架构确认+奇点工厂 API 对接评估</td><td>启动器 UI 改版方案定稿+日历系统技术选型</td></tr>
-          <tr><td><b>W3</b></td><td>KV 终稿+视频精华 20 秒剪辑完成</td><td>百科数据结构定义+首批 50 个图鉴词条</td><td>登录页 7 个基础场景美术外包下单</td></tr>
-          <tr><td><b>W4</b></td><td>绘本翻页交互前端开发完成+内部测试</td><td>奇点工厂展示页前端完成+测试数据填充</td><td>日历轮转逻辑开发完成+首批场景接入</td></tr>
-        </tbody>
-      </table>
-
-      <h3>详细排期：预热期（T-60→T-30）</h3>
-      <table>
-        <thead><tr><th>周</th><th>商店页</th><th>游戏专区</th><th>启动器</th></tr></thead>
-        <tbody>
-          <tr><td><b>W5</b></td><td>商店页首版上线（绘本+KV+预约）</td><td>奇点工厂 Tab 正式上线+种子内容铺设</td><td>完整日历系统上线（跟随游戏内赛季）</td></tr>
-          <tr><td><b>W6</b></td><td>信任标签组+底部浮动条上线</td><td>家园秀活动首期启动+社区版主招募</td><td>公告板系统上线+社交 Hook 开发</td></tr>
-          <tr><td><b>W7</b></td><td>AB 测试（KV 方案/按钮文案/视频位置）</td><td>攻略区首批 10 篇精品攻略入库</td><td>活动迷你卡片系统上线</td></tr>
-          <tr><td><b>W8</b></td><td>根据 AB 数据优化+评价墙素材收集</td><td>特质搭配器前端开发完成+内部测试</td><td>「七日荒野」素材制作启动</td></tr>
-        </tbody>
-      </table>
-
-      <h3>详细排期：爆发期（T-30→T-0）</h3>
-      <table>
-        <thead><tr><th>周</th><th>商店页</th><th>游戏专区</th><th>启动器</th></tr></thead>
-        <tbody>
-          <tr><td><b>W9</b></td><td>倒计时组件上线+首屏增加动态预约数</td><td>特质搭配器正式上线+攻略KOL合作帖</td><td>倒计时 D-30 启动+背景开始微变化</td></tr>
-          <tr><td><b>W10</b></td><td>评价墙正式上线+外围联动流量高峰准备</td><td>家园秀活动加码+社区热度监测</td><td>社交 Hook 正式上线</td></tr>
-          <tr><td><b>W11</b></td><td>「1000 万预约达成全服福利」进度条</td><td>公测攻略预发布+FAQ 置顶</td><td>「七日荒野」渐变叙事启动（D-7）</td></tr>
-          <tr><td><b>W12</b></td><td>公测当天：页面切换为「立即下载」</td><td>公测当天：实时讨论区+战绩系统上线</td><td>Day7：完整新赛季揭晓+「进入荒野」按钮高亮</td></tr>
-        </tbody>
-      </table>
-
-      <h3>预算估算</h3>
-      <table>
-        <thead><tr><th>项目</th><th>内容</th><th>预算范围</th></tr></thead>
-        <tbody>
-          <tr><td><b>美术设计</b></td><td>KV × 3方案 + 场景图 × 14张 + 图标体系 + 手绘装饰素材库</td><td>50-70 万</td></tr>
-          <tr><td><b>前端开发</b></td><td>商店页绘本交互 + 专区奇点工厂/搭配器 + 启动器日历系统</td><td>60-80 万</td></tr>
-          <tr><td><b>内容运营</b></td><td>百科词条 200+ + 攻略 30 篇 + 社区运营 3 个月</td><td>30-40 万</td></tr>
-          <tr><td><b>KOL 合作</b></td><td>B站/抖音 UP主攻略合作 + 评价墙素材</td><td>20-30 万</td></tr>
-          <tr><td><b>AB测试+数据</b></td><td>商店页多版本测试 + 数据埋点 + 分析报告</td><td>10-15 万</td></tr>
-          <tr><td><b>应急储备</b></td><td>突发需求/优化迭代/加班成本</td><td>15-20 万</td></tr>
-        </tbody>
-      </table>
-      <div class="highlight"><p><b>总预算</b>：185-255 万元（不含外围平台投放费用）。对比行业：千万预约级手游的阵地建设预算通常在 200-400 万元区间，本方案处于中偏低位——因饥荒 IP 的手绘美术风格天然降低了 3D 渲染和动效开发成本。</p></div>
-    </div>
-
-    <!-- PAGE 8 -->
-    <div x-show="page === 8" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
-      <h2 class="text-2xl font-bold mb-6">风险预警</h2>
-      <div class="verdict"><p><b>核心判断</b>：饥困荒野的阵地运营面临三大特殊风险——IP 信任修复失败、UGC 内容冷启动失败、赛季间内容断档。每个风险都有量化触发条件和分级预案。</p></div>
-
-      <div class="risk-card">
-        <span class="tag">高风险 · 商店页</span>
-        <h5>风险 1：「信任修复失败」——用户仍然认为是饥荒传奇</h5>
-        <p><b>触发条件</b>：商店页上线两周后，评论区负面关键词「传奇」「骗氪」「跳票」出现频率 &gt;20%；预约转化率持续低于 12%。</p>
-        <p><b>根因分析</b>：信任标签不够醒目/措辞不够直白；过去 4 次测试的负面记忆太深；缺少第三方背书。</p>
-        <p><b>预案</b>：① 48h 内将信任标签升级为首屏「承诺宣言」板块（直接引用制作人原话+官方公告截图）；② 邀请曾经批评过游戏的 KOL 二次体验并在商店页展示其态度转变；③ 增加「Klei 官方认证」徽章位置（与 Klei 端游页面联动）；④ 极端情况：制作人录制 30 秒视频放在首屏——正脸对镜头说「抽卡永久取消」。</p>
-      </div>
-
-      <div class="risk-card">
-        <span class="tag">高风险 · 游戏专区</span>
-        <h5>风险 2：「UGC 冷启动失败」——奇点工厂无人创作</h5>
-        <p><b>触发条件</b>：奇点工厂上线 30 天后，UGC 作品总数 &lt;100 个；日均新增 &lt;3 个。</p>
-        <p><b>根因分析</b>：编辑器门槛过高（当前仅支持单人短关卡）；缺乏创作激励；展示位不够显眼。</p>
-        <p><b>预案</b>：① 官方种子内容——制作组发布 20 个官方模板关卡供玩家二次修改（降低创作门槛）；② 与头部创作者签约——前 3 个月每月 5 位签约创作者保底产出；③ 启动「首发创作者」计划——前 100 位上传者获永久限定头框；④ 将奇点工厂从专区次级 Tab 提升为首页顶部轮播位。</p>
-      </div>
-
-      <div class="risk-card">
-        <span class="tag">高风险 · 启动器</span>
-        <h5>风险 3：「赛季间断档」——日历背景无新内容导致审美疲劳</h5>
-        <p><b>触发条件</b>：某赛季最后两周 + 下赛季「七日荒野」启动前，启动器 DAU 较赛季中期下降 &gt;20%。</p>
-        <p><b>根因分析</b>：赛季间隙无新场景更新；日历系统变成静态壁纸；玩家失去打开启动器的理由。</p>
-        <p><b>预案</b>：① 赛季间插入「彩蛋周」——随机出现端游经典场景（洞穴/海难/哈姆雷特）唤起情怀；② 引入社区投票选择下期场景主题；③ 季间开放「家园参观模式」——启动器直接展示好友家园截图轮播；④ 与 UGC 联动——奇点工厂高分作品场景截图进入启动器背景池。</p>
-      </div>
-
-      <div class="risk-card">
-        <span class="tag">中风险 · 全局</span>
-        <h5>风险 4：端游新作分流——《饥荒：异域》公布后手游热度被稀释</h5>
-        <p><b>触发条件</b>：Klei 公布新作《饥荒：异域》发售日期后，手游相关搜索量/预约增速下降 &gt;30%。</p>
-        <p><b>预案</b>：① 将端游新作转化为手游宣传势能——在三阵地统一上线「饥荒宇宙」概念（端游+手游=完整体验）；② 商店页增加「移动端独占内容」标签强调差异化（UGC 编辑器/社交系统/碎片化玩法）；③ 与 Klei 协调信息发布节奏——避免手游公测窗口与端游新作公布撞期。</p>
-      </div>
-
-      <div class="risk-card">
-        <span class="tag">中风险 · 全局</span>
-        <h5>风险 5：三阵地视觉一致性在多次迭代后碎片化</h5>
-        <p><b>触发条件</b>：上线 3 个月后，用户反馈「商店页/专区/启动器看起来不像同一个游戏」。</p>
-        <p><b>预案</b>：① 建立统一设计资产库（Figma 组件库），所有阵地更新必须从库中取色/组件；② 每次版本更新前执行「三阵地并排走查」流程；③ 指定唯一视觉负责人对三阵地拥有最终审批权。</p>
-      </div>
-    </div>
-
-    <!-- PAGE 9 -->
-    <div x-show="page === 9" x-cloak class="page-content">
-      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
-      <h2 class="text-2xl font-bold mb-6">终审意见</h2>
-      <div class="verdict"><p><b>终审结论</b>：饥困荒野的阵地宣发核心命题不是「怎么让游戏看起来好」，而是「怎么让玩家相信这次是真的好」。三大阵地的一切设计决策都必须服务于这个信任重建目标。</p></div>
-
-      <h3>核心 KPI 仪表盘</h3>
-      <table>
-        <thead><tr><th>阵地</th><th>核心 KPI</th><th>目标值</th><th>监测频率</th></tr></thead>
-        <tbody>
-          <tr><td><b>WeGame 商店页</b></td><td>预约/下载转化率</td><td>&gt;20%</td><td>日报</td></tr>
-          <tr><td><b>WeGame 商店页</b></td><td>首屏跳出率</td><td>&lt;40%</td><td>日报</td></tr>
-          <tr><td><b>游戏专区</b></td><td>日活跃用户数</td><td>&gt;预约数的 8%</td><td>日报</td></tr>
-          <tr><td><b>游戏专区</b></td><td>UGC 月新增作品数</td><td>&gt;500</td><td>周报</td></tr>
-          <tr><td><b>游戏专区</b></td><td>特质搭配器日均 UV</td><td>&gt;5000</td><td>日报</td></tr>
-          <tr><td><b>自研启动器</b></td><td>日启动率（安装用户中）</td><td>&gt;60%</td><td>日报</td></tr>
-          <tr><td><b>自研启动器</b></td><td>新赛季首日登录率</td><td>&gt;70%</td><td>赛季报</td></tr>
-          <tr><td><b>全局</b></td><td>三阵地联动 NPS</td><td>&gt;40</td><td>月度调研</td></tr>
-        </tbody>
-      </table>
-
-      <h3>给执行团队的五条建议</h3>
-      <div class="highlight">
-        <ul>
-          <li><b>1. 信任先于一切</b>：不要急着展示新内容有多酷——先让用户相信过去的问题已经解决。「取消抽卡」这句话在三个阵地出现的次数永远不嫌多。</li>
-          <li><b>2. 让 IP 说话</b>：饥荒的哥特手绘美学是行业独一无二的视觉资产。不要因为「手游要酷炫」就去模仿明日之后的写实风或原神的二次元风——越像饥荒本身，用户越放心。</li>
-          <li><b>3. UGC 是长期生命线</b>：奇点工厂的成败决定了专区和启动器的长线内容供给能力。初期官方必须重投入（种子内容+创作者签约+工具优化），不能等玩家自发创作。</li>
-          <li><b>4. 节奏纪律</b>：三个阵地的重大更新必须同步——任何一个阵地的内容断档都会让另外两个阵地的引流白费。建立「三阵地联动日历」，每周同步一次进度。</li>
-          <li><b>5. 对标洛克王国:世界</b>：同为「不卖数值+情怀IP」组合，洛克王国世界已经用首月 6.75 亿流水证明了这条路可以走通。饥困荒野的优势是全球 3000 万销量的 IP 基础和独一无二的美学——把这两张牌打好。</li>
+          <li><b>禁止</b>：金色/彩虹品阶光效出现在商店页素材</li>
+          <li><b>禁止</b>：使用"传奇""神装""满星"等网游措辞</li>
+          <li><b>禁止</b>：展示伤害数字飘字的战斗截图/视频</li>
+          <li><b>禁止</b>：高饱和度（S&gt;50%）背景色</li>
+          <li><b>禁止</b>：写实人体比例角色展示</li>
+          <li><b>禁止</b>：弹窗频率超过每周 2 次</li>
+          <li><b>禁止</b>：隐藏关闭按钮或误导性关闭交互</li>
+          <li><b>禁止</b>：未经手绘线条处理的纯 3D 渲染图</li>
         </ul>
       </div>
 
-      <h3>报告适用范围与更新计划</h3>
+      <h3>终审 Checklist</h3>
       <table>
-        <thead><tr><th>项目</th><th>说明</th></tr></thead>
+        <thead><tr><th>#</th><th>审查项</th><th>通过标准</th><th>阵地</th></tr></thead>
         <tbody>
-          <tr><td><b>适用时间</b></td><td>2026 年 6 月 - 暑期公测后 3 个月</td></tr>
-          <tr><td><b>更新节点</b></td><td>公测日期确认后 / 首周数据回收后 / 首赛季结束后 各更新一次</td></tr>
-          <tr><td><b>与其他报告关系</b></td><td>本报告聚焦三大固定阵地；外围平台投放策略见「运营阶段」报告；整体宏观定位见「宏观视角」报告</td></tr>
+          <tr><td>1</td><td>0.3s 辨识度</td><td>缩小到 200px 宽仍能识别"这是饥荒"</td><td>全部</td></tr>
+          <tr><td>2</td><td>反传奇检查</td><td>无金光/品阶/数字飘字/红点满屏</td><td>全部</td></tr>
+          <tr><td>3</td><td>信任标签可见</td><td>"不抽卡"首屏可见（不需滚动）</td><td>商店页</td></tr>
+          <tr><td>4</td><td>篝火锚点</td><td>每阵地至少一处篝火元素</td><td>全部</td></tr>
+          <tr><td>5</td><td>色彩一致</td><td>三阵地同一色板无偏移</td><td>全部</td></tr>
+          <tr><td>6</td><td>手绘质感</td><td>所有美术保留手绘线条层</td><td>全部</td></tr>
+          <tr><td>7</td><td>弹窗频率</td><td>单用户每周 ≤ 2 次</td><td>启动器</td></tr>
+          <tr><td>8</td><td>CTA 文案</td><td>使用游戏语言（篝火/荒野/冒险者）</td><td>全部</td></tr>
+          <tr><td>9</td><td>UGC 入口</td><td>≤ 2 次点击到达创作者入口</td><td>专区</td></tr>
+          <tr><td>10</td><td>移动适配</td><td>375px 宽度关键信息完整展示</td><td>商店页</td></tr>
         </tbody>
       </table>
 
       <div class="verdict">
-        <p><b>最终判断</b>：饥困荒野坐拥全球顶级 IP、千万预约基础、已验证的「不卖数值」商业模式转型——三大阵地的任务不是「从零说服用户」，而是「把已经心动但心有疑虑的人推过决策门槛」。信任标签+哥特沉浸+UGC 引擎，三箭齐发，把荒野延伸到每一个触点。</p>
+        <p><b>终审总结</b>：三阵地设计核心浓缩为一句——<b>「让用户在 WeGame 每个触点都闻到篝火味，同时确信火旁边没有抽卡机」</b>。篝火是情感锚点，不抽卡是信任锚点，两者缺一不可。</p>
+      </div>
+
+      <div class="highlight" style="margin-top:40px;">
+        <p><b>数据支撑</b></p>
+        <ul>
+          <li>饥荒 IP 全平台数千万份销量，TGP 2016 开服 2 周 50 万</li>
+          <li>饥困荒野 TapTap 预约 211 万，全平台千万级</li>
+          <li>TapTap 6.9 分（7083 评），核心矛盾已通过取消抽卡回应</li>
+          <li>洛克王国世界"三不承诺"公测 10 天 iOS 流水 1.03 亿</li>
+          <li>明日之后运营 7.5 年稳居畅销榜百名</li>
+          <li>"不抽卡"成为 2025-2026 手游商业化新潮流</li>
+        </ul>
       </div>
     </div>
 
   </main>
 </div>
 
-<footer class="border-t border-bdr py-6 text-center">
-  <p class="text-[11px] text-neutral-600">饥困荒野 — 阵地宣发设计方案 · 2026-06-02 · game-tracker-v2</p>
+<footer class="border-t border-bdr py-6 text-center text-[11px] text-neutral-600">
+  Game Tracker v2 · 阵地定制视角 · 饥困荒野 · 2026-06-03
 </footer>
-
 <!-- THEME_TOGGLE_INJECT_START -->
 <!-- Theme toggle: 注入在每份报告 </body> 之前 -->
 <style>
