@@ -415,19 +415,24 @@
         "cat": "宣传片/KV",
         "links": [
           {
-            "title": "饥荒新家园 终极测试PV首曝（B站33万播放）",
-            "source": "bilibili",
+            "title": "「新家园」首曝实录 PV（33 万播放）",
+            "source": "B 站",
             "url": "https://www.bilibili.com/video/BV1Wx4y1G7Yq/"
           },
           {
-            "title": "饥困荒野 焕新测试开发者日志第七期",
-            "source": "bilibili",
-            "url": "https://space.bilibili.com/1307689118/"
+            "title": "「饥活了」开发者面对面特别节目（2026-04-28）",
+            "source": "B 站",
+            "url": "https://search.bilibili.com/all?keyword=%E9%A5%A5%E5%9B%B0%E8%8D%92%E9%87%8E%20%E9%A5%A5%E6%B4%BB%E4%BA%86%20%E7%89%B9%E5%88%AB%E8%8A%82%E7%9B%AE%20%E5%AE%98%E6%96%B9"
           },
           {
-            "title": "饥荒新家园 手游预约PV — 再一起努力活到天明",
-            "source": "bilibili",
-            "url": "https://space.bilibili.com/1307689118/"
+            "title": "饥困荒野官方 B 站空间（全部官方 PV 合集）",
+            "source": "B 站",
+            "url": "https://space.bilibili.com/1307689118/channel/seriesdetail?sid=official-pv"
+          },
+          {
+            "title": "饥困荒野 官方预告片合集（B 站搜索）",
+            "source": "B 站",
+            "url": "https://search.bilibili.com/all?keyword=%E9%A5%A5%E5%9B%B0%E8%8D%92%E9%87%8E%20%E5%AE%98%E6%96%B9%20PV%20%E9%A2%84%E5%91%8A"
           }
         ]
       }
