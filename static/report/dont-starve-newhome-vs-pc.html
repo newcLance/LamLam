@@ -43,6 +43,25 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
   .item-card .dream-label { font-size: 10px; font-weight: 700; color: #a8b8e8; letter-spacing: 1px; margin-bottom: 4px; }
   .item-card .dream-text { font-size: 13px; color: #d4d4d4; line-height: 1.7; }
   .item-card .dream-text b { color: #fff; }
+  /* 引子页 3 个 hero 卡片 —— 最情感化的 3 项 */
+  .hero-card { position: relative; background: linear-gradient(135deg, #181818 0%, #1c1c1c 100%); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 24px 28px 20px; margin: 18px 0; overflow: hidden; }
+  .hero-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+  .hero-card.hero-1::before { background: linear-gradient(180deg, #e87c3a, #c45a18); }
+  .hero-card.hero-2::before { background: linear-gradient(180deg, #a8b8e8, #5a78c7); }
+  .hero-card.hero-3::before { background: linear-gradient(180deg, #d4d4d4, #737373); }
+  .hero-card .hero-num { position: absolute; right: 24px; top: 18px; font-size: 42px; font-weight: 900; color: rgba(255,255,255,0.05); letter-spacing: -2px; line-height: 1; }
+  .hero-card .hero-title { font-size: 17px; font-weight: 700; color: #fff; margin: 0 0 14px; padding-right: 60px; line-height: 1.5; }
+  .hero-card .hero-scene { font-size: 13px; color: #d4d4d4; line-height: 1.85; margin: 0 0 12px; padding: 12px 14px; background: rgba(0,0,0,0.25); border-radius: 6px; }
+  .hero-card .hero-scene b { color: #fff; }
+  .hero-card .hero-scene i { color: #f5f5f5; font-style: italic; }
+  .hero-card .hero-why { font-size: 13px; color: #a3a3a3; line-height: 1.75; margin: 0 0 12px; }
+  .hero-card .hero-why b { color: #fff; }
+  .hero-card .hero-cta { font-size: 13px; color: #f5f5f5; padding: 8px 12px; background: rgba(232,124,58,0.08); border-left: 2px solid #e87c3a; border-radius: 0 4px 4px 0; }
+  .hero-card .hero-cta b { color: #fff; }
+  .hero-card.hero-2 .hero-cta { background: rgba(150,170,235,0.08); border-left-color: #a8b8e8; }
+  .hero-card.hero-3 .hero-cta { background: rgba(255,255,255,0.04); border-left-color: #d4d4d4; }
+  .page-content p.hero-end { font-size: 13px; color: #737373; font-style: italic; text-align: center; padding: 20px 0 8px; border-top: 1px dashed rgba(255,255,255,0.05); margin-top: 24px; }
+  .page-content p.hero-end b { color: #d4d4d4; }
 </style>
 </head>
 <body class="min-h-screen antialiased" x-data="{ page: 0 }">
@@ -103,18 +122,34 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
           </tbody>
         </table>
       </div>
-      <h3>读法建议</h3>
-      <p>左侧目录按 5 个维度展开 30 项体验：开局与角色（5）/ 第一天生存（6）/ 战斗与探索（7）/ 中后期循环（6）/ 元系统（6）。每一项都附一个 <span style="color:#e87c3a;"><b>🎯 比 PC 好玩在哪</b></span> 的卡片——这一句就是给端游党最直接的判断依据。</p>
-      <p>最后一页是 30 项的速查看板，方便整体回看。</p>
+      <h3>三个最想看到的画面 —— 哪怕你没玩过饥荒</h3>
+      <p>30 项体验里，有 3 个是无论你玩没玩过 PC 都能立刻被打动的——它们不是攻略，是<b>"如果游戏再多做一点点，会变成什么样"</b>的小场景。如果其中任何一个让你心动，<b>欢迎去官方反馈区贴一句话许愿</b>——你的画面感，可能就是下一个版本的样子。</p>
 
-      <h3>每张卡片底下还有一段「🌙 体验升级预测」</h3>
-      <p>这一段是写给<b>所有玩家</b>看的，包括从没碰过饥荒的人。它不是攻略，也不是产品规划——它是 30 个"如果游戏再多做一点点会变成什么样"的小场景：</p>
-      <ul>
-        <li>你死了之后，<b>游戏替你拍一张照片</b>——画面里是你倒下前最后那一秒、当时的血量、还有把你打死的那只怪。可以发朋友圈的死亡讣告。</li>
-        <li>夜里那只爪子第一次拍中你的瞬间——画面停 1 秒，黑屏 + 心跳声，<b>她的名字浮上来</b>。她不只是一个惩罚，是一个有故事的人。</li>
-        <li>你走过一次的篝火，<b>下次靠近会自己点亮</b>——它记得你来过。</li>
-      </ul>
-      <p>每一段最后都有一句"<b>许愿引导</b>"——如果哪个场景让你心动，<b>欢迎去官方反馈区贴一句话许愿</b>。开发组的下一个版本里，可能就有你想要的那个画面。</p>
+      <div class="hero-card hero-1">
+        <div class="hero-num">01</div>
+        <div class="hero-title">死亡讣告 —— 你死了之后，游戏替你拍一张照片</div>
+        <p class="hero-scene">你倒下那一秒，画面停了 1 秒，然后被装进一张小卡片：<b>背景是你倒下前最后那个镜头</b>、上面印着当天的血量饥饿值、还有杀你那只怪的剪影。底下一行小字：<i>「Lam 在第 47 天死于沼泽触手。生前最后一餐：胡萝卜。」</i></p>
+        <p class="hero-why">为什么打动人：饥荒里"死"是家常便饭——但<b>"被记得"是稀罕事</b>。这张卡能直接发朋友圈，朋友看到会问"这啥游戏"。死亡从此是纪念品，不是惩罚。</p>
+        <div class="hero-cta">想被这样记录吗？<b>去官方反馈区贴一句"我想要死亡讣告"。</b></div>
+      </div>
+
+      <div class="hero-card hero-2">
+        <div class="hero-num">02</div>
+        <div class="hero-title">Charlie 有名字 —— 夜里那只爪子，第一次有了故事</div>
+        <p class="hero-scene">你第一次没火把站在黑里，5 秒后那只爪子从黑暗里拍过来——画面会停 1 秒，<b>黑屏 + 心跳声</b>，然后一个名字从黑暗里浮上来：<i>「Charlie」</i>。下面一行小字：<i>"她不是怪。她是一个被困在阴影里的女孩。"</i></p>
+        <p class="hero-why">为什么打动人：饥荒最让人 PTSD 的就是这只爪子——但她<b>从来没有过名字</b>。给她一个名字一段故事，伤害一点不弱化，但你看夜的眼神不一样了。<b>恐惧不消失，但变得熟悉</b>。</p>
+        <div class="hero-cta">想知道她的故事吗？<b>去问问官方"我想认识 Charlie"。</b></div>
+      </div>
+
+      <div class="hero-card hero-3">
+        <div class="hero-num">03</div>
+        <div class="hero-title">我们这个房间的史诗 —— 8 人房间自动写出来的故事书</div>
+        <p class="hero-scene">你和 7 个朋友的 8 人房间玩了 30 天。某天点开房间记录，看到一段自动写好的"故事自传"：<br><i>「第 3 天，Lam 第一次被狗咬死。<br>第 12 天，Wendy 教会大家做 Pierogi。<br>第 21 天，全员第一次活过冬天。<br>第 47 天，集体团灭于触手围攻——那是我们最快乐的一天。」</i></p>
+        <p class="hero-why">为什么打动人：朋友局玩过的人都知道——<b>那些笑到肚子疼的瞬间，结束之后没人记得</b>。这本自传只属于你们这一个房间，世界上没有第二本一样的。一年之后再翻一次，你会知道为什么会一直留在这游戏里。</p>
+        <div class="hero-cta">想要这本只属于你们的故事书吗？<b>去贴一句"我要房间故事自传"。</b></div>
+      </div>
+
+      <p class="hero-end">—— 这三个只是 30 项里跳得最高的。下面 5 个章节里还有 27 个画面在等你。<b>每一个底部都有一句许愿引导</b>，看到心动的就去贴。</p>
 
       <h3>给端游党的一句话</h3>
       <div class="highlight"><p><b>PC 版的硬核，70% 是 2014 年的技术债，30% 是设计美学。</b><br>手游做的事：还掉那 70%，保留那 30%。</p></div>
@@ -549,6 +584,21 @@ html[data-theme="light"] .item-card .dream { background:rgba(80,100,180,0.08) !i
 html[data-theme="light"] .item-card .dream-label { color:#3d5db8 !important; }
 html[data-theme="light"] .item-card .dream-text { color:#1a1a1a !important; }
 html[data-theme="light"] .item-card .dream-text b { color:#000 !important; }
+/* hero-card 浅色覆盖 */
+html[data-theme="light"] .hero-card { background:linear-gradient(135deg, #ffffff 0%, #fafafa 100%) !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
+html[data-theme="light"] .hero-card .hero-num { color:rgba(0,0,0,0.06) !important; }
+html[data-theme="light"] .hero-card .hero-title { color:#1a1a1a !important; }
+html[data-theme="light"] .hero-card .hero-scene { background:rgba(0,0,0,0.04) !important; color:#1a1a1a !important; }
+html[data-theme="light"] .hero-card .hero-scene b { color:#000 !important; }
+html[data-theme="light"] .hero-card .hero-scene i { color:#000 !important; }
+html[data-theme="light"] .hero-card .hero-why { color:#3a3a3a !important; }
+html[data-theme="light"] .hero-card .hero-why b { color:#000 !important; }
+html[data-theme="light"] .hero-card .hero-cta { background:rgba(232,124,58,0.1) !important; color:#1a1a1a !important; }
+html[data-theme="light"] .hero-card .hero-cta b { color:#000 !important; }
+html[data-theme="light"] .hero-card.hero-2 .hero-cta { background:rgba(80,100,180,0.1) !important; }
+html[data-theme="light"] .hero-card.hero-3 .hero-cta { background:rgba(0,0,0,0.05) !important; }
+html[data-theme="light"] .page-content p.hero-end { color:#737373 !important; border-top-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] .page-content p.hero-end b { color:#1a1a1a !important; }
 
 /* 文字色 */
 html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }
