@@ -39,6 +39,10 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
   .item-card .pitch-label { font-size: 10px; font-weight: 700; color: #e87c3a; letter-spacing: 1px; margin-bottom: 4px; }
   .item-card .pitch-text { font-size: 13px; color: #f5f5f5; line-height: 1.6; }
   .item-card .pitch-text b { color:#fff; }
+  .item-card .dream { background: rgba(150,170,235,0.07); border-left: 2px solid #a8b8e8; padding: 8px 12px; margin-top: 10px; border-radius: 0 4px 4px 0; }
+  .item-card .dream-label { font-size: 10px; font-weight: 700; color: #a8b8e8; letter-spacing: 1px; margin-bottom: 4px; }
+  .item-card .dream-text { font-size: 13px; color: #d4d4d4; line-height: 1.7; }
+  .item-card .dream-text b { color: #fff; }
 </style>
 </head>
 <body class="min-h-screen antialiased" x-data="{ page: 0 }">
@@ -102,6 +106,16 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
       <h3>读法建议</h3>
       <p>左侧目录按 5 个维度展开 30 项体验：开局与角色（5）/ 第一天生存（6）/ 战斗与探索（7）/ 中后期循环（6）/ 元系统（6）。每一项都附一个 <span style="color:#e87c3a;"><b>🎯 比 PC 好玩在哪</b></span> 的卡片——这一句就是给端游党最直接的判断依据。</p>
       <p>最后一页是 30 项的速查看板，方便整体回看。</p>
+
+      <h3>每张卡片底下还有一段「🌙 体验升级预测」</h3>
+      <p>这一段是写给<b>所有玩家</b>看的，包括从没碰过饥荒的人。它不是攻略，也不是产品规划——它是 30 个"如果游戏再多做一点点会变成什么样"的小场景：</p>
+      <ul>
+        <li>你死了之后，<b>游戏替你拍一张照片</b>——画面里是你倒下前最后那一秒、当时的血量、还有把你打死的那只怪。可以发朋友圈的死亡讣告。</li>
+        <li>夜里那只爪子第一次拍中你的瞬间——画面停 1 秒，黑屏 + 心跳声，<b>她的名字浮上来</b>。她不只是一个惩罚，是一个有故事的人。</li>
+        <li>你走过一次的篝火，<b>下次靠近会自己点亮</b>——它记得你来过。</li>
+      </ul>
+      <p>每一段最后都有一句"<b>许愿引导</b>"——如果哪个场景让你心动，<b>欢迎去官方反馈区贴一句话许愿</b>。开发组的下一个版本里，可能就有你想要的那个画面。</p>
+
       <h3>给端游党的一句话</h3>
       <div class="highlight"><p><b>PC 版的硬核，70% 是 2014 年的技术债，30% 是设计美学。</b><br>手游做的事：还掉那 70%，保留那 30%。</p></div>
     </div>
@@ -116,6 +130,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">默认要装<b>几何放置</b>（让建筑摆齐）+ <b>Craft Pop</b>（食谱预览）+ <b>Insight</b>（物品提示）三件套。新手装完已经天黑。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">建造网格、烹饪图鉴、物品长按详情<b>全部出厂内置</b>。世界设定从 38 个滑块简化为「一键直进」+ 难度无感兜底。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「PC 老饥荒人装 mod 折腾了十年的事，手游开服就齐。<b>装 mod 的时间，省下来打 boss</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">想象一下你打开游戏，连「是否启用洞穴」这种页面都不用选——什么都默认开好。但有一个隐藏开关给硬核党：拨过去，提示全关、季节难度 +30%、复活惩罚加重，专门服务"我自找苦吃"的玩家。<b>喜欢这个想法？去官方反馈区贴一句"我要老饥荒人模式"。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -124,6 +139,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">38 个角色每个都有独家技能与缺陷。新人选错就是 4 天后才发现「这角色玩不下去」。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">经典角色全部转 NPC + 16 费<b>特质 BD 自由组合</b>。可以同时拿 Wendy 的「夜晚不掉理智」、Wolfgang 的「满状态多伤」、Wickerbottom 的「读书无消耗」。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「PC 一个号只能玩一个角色，<b>手游一个号能玩出 38 个角色的味道</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">你点开"威尔逊"的头像，弹出一段 45 秒小短片：1500 小时的端游老玩家在这个角色身上做过的最骚操作——不是攻略，是另一个人留在这里的回忆。<b>你想看哪个角色的故事？去许个愿，官方在收集。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -132,6 +148,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">没火把站黑暗、攻击一只猪招来全村、踩中触手、点了蜂巢、燧石没采够、不知道斧子要先合成——<b>新人 6 种死法都遇过</b>。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text"><b>一键回家园 + 永秋避难所兜底 + 多套低门槛复活</b>。前 30 分钟带玩家走一次完整循环，让兜底机制不只是存在，而是主动用上。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「PC 第 1 天死过的那 6 种死法，<b>手游每一种都给了一个解</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">第一次进游戏，屏幕上有人对你说："欢迎。这个世界以前杀过 6 万种新人，我们把那 6 种最经典的死法画成了贴纸送你——拿去吧，等会儿你大概会用上。"<b>你最怕哪种死法？去贴一张你期待的死亡场景。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -140,6 +157,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">死后变幽魂飘 5 分钟找触摸石，复活扣 75% 血。<b>死亡点装备食物会被猪/蜘蛛吃掉</b>——10 分钟探险白干。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">家园复活默认 + 死亡点装备保留。触摸石作为情怀机制保留——硬核党可以选「触摸石模式」自找苦吃。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「Charlie 还在，但你回家就是。<b>触摸石你想用还能用，不想用就别用</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">你死了之后，游戏会替你拍一张照片——画面里是你倒下前最后那一秒、当时的血量饥饿值、还有那个把你打死的家伙。一张可以发朋友圈的死亡讣告。<b>你愿意被这样记录吗？告诉官方"我想要死亡相册"。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -148,6 +166,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">教朋友的第一句话永远是「先打开 don't-starve.fandom.com」。然后教他装 8 个 mod。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">长按任意物品 = 弹出<b>统一物品详情</b>：数值、来源、用途、关联、PC 致敬。锁屏默认开「百科按钮」一键直达。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「PC 版 wiki 永远开在第二屏，<b>手游版 wiki 长按就能看见</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">"那个紫色的、会跳的、看起来像蜗牛的玩意儿叫啥？"——你这样问游戏，它直接给你答案。再也不用退出来开浏览器查 wiki。<b>这个功能你最想用在哪个怪上？去许个愿。</b></div></div>
       </div>
     </div>
 
@@ -162,6 +181,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">第 1 天必须 40 草 40 枝 3 燧石。地图运气不好要走 8 个屏幕宽。被狗咬一口都得回头舔。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">采集机制保留 + 屏幕右上常驻<b>「今日采集预算」</b>小条。掉指标不会暴毙——回家睡一觉明天接着来。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>40 草强迫症</b>终于有了仪表盘。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">屏幕右上常驻一条小小的"今日预算"：草 0/40、枝 0/40、燧石 0/3。完成一项打钩，集齐解锁一张"生存者档案"——你的第一根长矛、第一坨黄金、第一次活过冬天，全在档案册里。<b>你最想给自己第几天发个奖牌？告诉官方。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -170,6 +190,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">所有保鲜资源都是消耗品。冰箱齿轮稀缺到要砸坟墓。屯了 30 块怪物肉一夜全成腐肉是经典暴毙原因。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text"><b>家园仓库 = 永久保鲜</b>。野外背包仍会腐烂——保留"出门要算时间"的紧张感。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「PC 版屯肉是和时间赛跑，<b>手游版屯肉是和自己的胃赛跑</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">你存进仓库的每一块肉都被记账：来自哪只兔子、第几天打的、当天下没下雨。一年游戏时间后，你拥有一座属于自己的"腌肉博物馆"——属于你的味觉编年史。<b>你想给哪一块肉留个名字？去许愿。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -178,6 +199,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">营火 = 4 木维持 6 分钟。冬天 90% 时间在砍树。睡觉前必须确认营火够烧到天亮。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">家园住所自带光源永久照明。野外营火机制保留——给爱搭野营的玩家留出空间。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>砍树的家务</b>，从天天做变成想做才做。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">走过一次的野外营火，下次靠近会自动重新点亮——它记得你来过。家园升到一定等级，仓库直接连着火堆，柴不够时自己会续。砍 10000 棵树的玩家有专属斧子皮肤——给爱砍柴的人留个奖杯。<b>你想拿哪个奖杯？告诉官方。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -186,6 +208,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">攻略原文：「武器最近格、然后光源、然后工具」——靠肌肉记忆背口诀。慢半秒等于死。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text"><b>情境化快捷槽</b>：黄昏自动推火把、战斗自动推武器和木甲、进沼泽自动推蓝甲。手动派可以一键关闭。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>"切错格"暴毙，从今天开始消失</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">夜晚降临前 30 秒，火把自己跳到你手上。怪物冲过来的瞬间，武器和盾自动顶到最前。这不是自动战斗——这是游戏在替你预判。<b>你想让哪个物品自动登场？许愿区见。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -194,6 +217,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">黄昏每分钟 -5 理智。新人前一周经常吃成 50%——开始看见远处黑影。屏幕颜色越来越暗，新人不知道为啥。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">理智机制完全保留 + <b>睡在家园 = 理智回满</b>。低理智第一次触发弹一次性 tip：「黑影是真的，回家睡一觉就没了」。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>恐惧被解释了，但恐惧还在</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">你的理智掉到 30% 以下，移动速度反而 +15%，看到的稀有资源会发出微光——把"快疯了"变成"有便宜可以捡"。从惩罚到诱惑。<b>你想拿这个特质去做什么疯事？去贴一句。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -202,6 +226,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">站黑暗里 1 秒 -100 理智，5 秒后 Charlie 一爪 200 伤害。机制硬核但毫无 lore 解释。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">惩罚强度<b>不弱化</b>，但 Charlie 第一次拍你触发<b>剧情前传</b>——她有名字、有故事、有原因。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>从一个 jump scare 变成一个有名字的恐怖故事女主</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">第一次被夜里那只爪子拍中时，画面会停 1 秒——黑屏 + 心跳声 + 一个名字浮上来：「Charlie」。她不只是惩罚，她是一个有故事的人。<b>你想知道她的故事吗？去问问官方。</b></div></div>
       </div>
     </div>
 
@@ -216,6 +241,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">「攻击 3 下 → 退一步 → 等怪挥空 → 再 3 下」——靠手速。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">闪避踏步保留 + <b>七元素克制系统</b>（冰/火/草/雷/光/暗/物理）+ 战斗宠物释放协同元素技。元素不只是伤害数字——<b>火 + 草地 = 火灾扩散</b>，<b>雷 + 水域 = 全图水生敌人僵直</b>。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「你以为你还会玩饥荒——<b>第一个高难副本就让你重新背书</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">"火元素 + 草地 = 火灾扩散两屏"，"雷元素 + 水域 = 全图水生敌人僵直"，"暗元素 + 夜晚 = 怪物刷新 +50%"——元素不是伤害数字，是世界的天气。<b>你最想看到哪个元素改变这个世界？许愿区。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -224,6 +250,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">长矛 = 2 木 + 1 燧石 + 1 草。火腿棒 = 怪物肉 + 树枝。所有武器都是工作台路径。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">武器与宠物全部从抽卡<b>移除</b>，进入<b>免费兑换商店</b>。沙盒材料就能换。每把武器合成时弹一段<b>PC 版前世经典死法</b>小卡。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「PC 怎么做长矛，手游也怎么做长矛——<b>只是换了一种 UI</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">做一把长矛时，弹出一张小卡片："这把矛在 2017 年端游里被一个叫 Jake 的玩家用来打死过最大的 Boss"——每件武器都带着它的前世记忆。<b>你想给哪把武器写一段前世？去贴。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -232,6 +259,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">木甲 → 蜂巢甲 → 大理石甲 → 鞋牙甲，纯数值递进。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">装甲体系保留 + <b>质变型词条镶嵌</b>：「下雨时移速 +30%」「夜晚视野 +50%」「沼泽不被减速」——<b>根据要去哪搭装备</b>，不是 farm 大词条。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>装甲不再是数字递进，而是路线选择</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">"下雨时移速 +30%"、"夜晚视野 +50%"、"沼泽里不被减速"——装备不是数字大小号，是路线选择。出门前看看天，决定穿哪件。<b>你想要什么样的特效？许愿区。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -240,6 +268,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">每个生物群都是采集 KPI 任务——「啊又是去沙漠搞 5 个骨片，无聊」。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">生物群保留 + <b>地理之谜</b>（漂浮的盒子、不会消失的脚印、说话的石头）+ <b>UGC 奇点工厂</b>让玩家给地图写故事。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「PC 第 3 年没地图能逛——<b>手游第 3 年还有 100 张玩家做的地图等你</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">走进新生物群可能撞见一个"不会消失的脚印"、一块"会说话的石头"、一只"飘起来的盒子"——这些谜团 wiki 上也查不到，只有亲自走才能遇见。或者，你连续 30 分钟什么都不干就在地图上闲逛——游戏会奖励你一个限定相机滤镜。<b>你想撞见什么样的怪事？告诉官方。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -248,6 +277,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">每跳虫洞 -15 理智。新手不读 wiki 不知道，跳 7 次就疯。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">理智惩罚<b>大幅减弱</b>（保留下降但不致命）+ 发现的虫洞所有连接关系做成<b>路径地图</b>。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>在脑子里画虫洞图</b>这件事，终于不需要了。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">你跳过的虫洞会在地图上画成一张连接图——再也不用在脑子里背虫洞编号。第一次跳过的虫洞才解锁路径——保留"发现的浪漫"。<b>这个功能你想要吗？去许个愿。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -256,6 +286,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">打蚁狮要：沙漠护目镜、暗剑、木甲、暖石、降温篝火、鸟笼蛋帕罗吉、回血药水——<b>全在 wiki 上</b>。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">接近 boss → 弹<b>战前装备 check</b>：建议物品列表 + 已有打钩 + 未有显示就近合成路径。失败后弹<b>复盘</b>——你为啥死的。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「Boss 战难度没变——<b>但'第一次去打不该带啥就翻车'的羞辱感没了</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">走近 Boss 区域，弹出"今日装备 check"：建议带的物品打钩、缺的标灰，旁边还指了哪里能就近合成。死了之后弹复盘卡："你被打了 8 下、关键时刻没吃药、武器属性选错了"。自虐党可以选"裸打挑战"——什么都不带就上，赢了拿专属称号。<b>你最怕哪个 Boss？告诉他们。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -264,6 +295,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">触手从地里冒出来一巴掌 200 伤害。新手再也不去了。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">触手出现前 1 秒地面有<b>水波涟漪</b>——保留惊吓但给反应时间。进沼泽<b>独立 BGM + 屏幕边缘绿色 vignette</b>，告诉你"你进了一个不同规则的地方"。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>触手击杀次数从被打的耻辱柱，变成可以炫耀的计数器</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">触手钻出来前 1 秒，地面会有一圈水波涟漪——你看见就来得及躲。死亡复盘里有一个"触手击杀次数"计数器——把恐惧变成可以炫耀的纪念品。喜欢沼泽的人可以选"沼泽信徒"特质：在沼泽 +20% 移速，触手攻击不再把你打飞。<b>你和触手的故事讲一下？去贴。</b></div></div>
       </div>
     </div>
 
@@ -278,6 +310,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">园丁帽要 3 种子 + 电气元件 + 一桶屎；一桶屎要 4 木 + 2 骨片 + 3 粪便；骨片要砸沙漠骷髅——<b>连环深渊</b>。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">园丁帽<b>初始就给基础版</b>（识别 5 种主流作物）。要识别更多走进阶链路。农场加<b>作物长大动画</b> —— 等待变成期待。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>种菜不再是 PhD 论文起步</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">第一天你就能种菜——基础版园丁帽白送，能识别 5 种主流作物。每株菜长大都有可视化进度条，长大那一刻还有提示音。把"等待"变成"期待"。<b>你想种什么？许愿区有人会记下。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -286,6 +319,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">Perogi = 1 肉 + 1 蛋 + 1 蔬菜 + 任意填料 + 优先级 1。<b>食材权重表全靠 wiki</b>。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">烹饪锅 UI 直接做<b>组合预览</b>——拖入 4 个食材，<b>实时显示会出什么菜</b>（包括失败品）。解锁过的菜留在<b>食谱书</b>，标"第一次解锁日期"。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>PC 玩家梦了十年的 Craft Pop mod</b>，手游官方做了。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">把 4 种食材拖进锅里，UI 实时显示"你将做出 Perogi（恢复 40 血）"——再也不用拿小本本记配方了。每解锁一道菜留在"食谱书"，上面写着"第一次做出这道菜：第 17 天"。故意做出最难看的失败菜 5 种，解锁"焦炭锅"专属皮肤。<b>你想做出什么菜？许愿。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -294,6 +328,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">冬天前清单：暖石、冬帽、暖衣（薄/中/厚）、足量燃料、Pierogi、保暖食物——任何一项没准备好，第 21 天死给你看。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">第 16/18/20 天<b>三段式预警</b>提示。第 20 天进入「冬季前夜」全屏雪花漫天 —— <b>恐惧变成节日</b>。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>第 21 天的暴毙仪式</b>，从此变成全服打卡的雪夜节日。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">第 16 天弹一次："冬天还有 5 天，你的暖石做了吗？"。第 18 天再弹一次（语气更急）。第 20 天 BGM 切歌，全屏雪花漫天——"冬季前夜"像一个节日。冬天那天家园外飘雪、限时活动、全服打卡——把恐惧变成节日。<b>你想给哪个季节加什么仪式？去说。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -302,6 +337,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">队友复活护符 = 1 紫宝石 + 1 椰子核 + 4 蛛丝。新手哪有这些。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">队友复活做成<b>「最后告别」仪式</b>：濒死前 3 秒画面变慢，队友视角弹"按住屏幕拉一把"。死后留<b>30 秒灵魂态</b>——可以飘到队友身边喊话。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>"过命之交"从一句台词变成了一个动作镜头</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">你濒死那 3 秒画面变慢，队友视角弹一个按钮："按住屏幕拉一把"——救人不再是 UI 操作，是动作镜头。死了之后还能化作灵魂飘 30 秒，跟队友说话或留遗言。救活之后双方共同 BGM 响起，解锁"过命之交"成就。<b>你最想为谁做这件事？告诉他们。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -310,6 +346,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">不装几何放置 mod 的话，木墙会歪 1 度。10 年都没解决。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">家园建造网格内置 + <b>建造预览模式</b>（不消耗材料先全图摆位 + 截图保存）+ <b>家园截图相册</b>每周存图做"家园成长史"。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>强迫症的胜利</b>，从此免费。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">摆建筑前可以先用"预览模式"全图试摆——不消耗材料，满意了再按确认。每周自动给你的家园拍一张照，做成"我的家园成长史"相册。还能生成一个分享码——好友扫码可以进入你家园 3D 巡游版（不能破坏只能逛）。<b>你想给谁炫耀你的家？官方反馈区见。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -318,6 +355,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">单机版第 3 年所有 boss 打完、所有食谱解锁、所有地图探完——没动力。联机靠 mod 救命。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text"><b>8 人联机 + UGC 奇点工厂 + 马戏团大逃杀（装备数值归一）+ 季节性活动 + 长老计划</b>（满 1 年的玩家自动加入「长老圈」，月度老饥荒人聚会）。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>"老饥荒人"从此是个身份，不只是个回忆</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">玩满 1 年的玩家自动加入"长老圈"——专属服务器、限定皮肤、限定故事任务，每月一次"老饥荒人聚会"。UGC 地图作者像 UP 主一样有粉丝积累——你做的地图被多少人玩过、有人专门关注你。<b>你想成为长老还是 UGC 作者？告诉官方。</b></div></div>
       </div>
     </div>
 
@@ -332,6 +370,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">6 人房间 + Steam 启动器 + 端口转发 + 服务器配置文件。帮老妈进房间要先改 1 小时设置。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text"><b>8 人房间 + 房主离线访客也能玩</b>。每个房间有<b>故事自传</b>——自动记录全员重大事件（第一次冬天、第一个 boss、集体死亡）→ "我们这个房间的史诗"。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>朋友局门槛从「学路由器」变成「打开 APP」</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">你设定"周末家园开放"，路过的陌生玩家能进来逛、留言。你离线时队友能替你完成日常——双方加亲密度。每个 8 人房间有"故事自传"：自动记录全员重大事件——第一次冬天、第一个 Boss、集体死亡那一天——这是你们这个房间的史诗。<b>你最想跟谁有这种回忆？告诉官方。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -340,6 +379,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">「You died on day 47, by Tentacle」——一行字。没有数据、没有截图、没有反思素材。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text"><b>死亡相册</b>（场景 + 死因 + 当时数据 + 那一秒画面）+ <b>人生统计</b>（活了多少天、走了多少步、吃了多少只兔子）做成 Spotify Wrapped 风格年报 + <b>死亡传奇榜</b>（单服活最久 / 走最远 / 吃最多）。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>每一次死亡都成了可分享的小卡片</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">每次死亡自动生成 1 张照片：场景 + 死因 + 当时数据 + 那一秒的画面，可以发朋友圈。年终生成"人生年报"——这个号活了 217 天、走了多少步、吃了多少只兔子、回家了多少次。每个服务器有"死亡传奇榜"：活最久、走最远、吃最多的玩家上墙。<b>你想上哪个榜？许愿。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -348,6 +388,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">"完全正常的树（Totally Normal Tree）"是种树名——它是个木乃伊版的树，砍下去是普通木头。这种"自带 lore 但没解释"的东西 PC 版有 200+ 个。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">长按 = 五 tab 图鉴 + <b>「老饥荒人志」</b>每个有名物品配 1 段 PC 老玩家口述（30 字内）。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>知识债，还清了</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">长按一棵看起来普通的树，弹出图鉴页，最后一段是端游老玩家口述："这玩意儿叫『完全正常的树』，你信吗？我玩了 800 小时才知道它真的就是普通的树。"<b>你想听哪个物品的故事？许愿区。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -356,6 +397,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">mod 工坊质量参差。Insight、Combined Status、Minimap HUD、Wormhole Marks……8 个 mod 起步。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">实用型 mod 全部<b>官方化为内置</b>。<b>奇点工厂 UGC</b> 让玩家做地图、做玩法、做规则。被官方推荐过的 UGC 作者获<b>奇点工厂荣誉徽章</b>。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>玩家创作不再是"为了让游戏勉强好玩"，而是"让游戏一直好玩下去"</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">端游党 8 个 mod 起步的图鉴 / 提示 / 标记功能，手游全官方做了——再也不用为了好玩去装一堆补丁。被官方推荐过的 UGC 作者拿到"奇点工厂荣誉徽章"。每季 5 张玩家地图入选官方推荐，作者能拿 30 天分成。<b>你最想做什么样的地图？去贴。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -364,6 +406,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">单机里玩 1500h 没人知道。情怀这事只在自己 Steam 主页里。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">Steam OpenID / Klei 账号联动 → 三档：<b>「荒野求生者」(100h)</b> / <b>「永恒领域居民」(500h)</b> / <b>「暗影王座知情者」(1000h)</b>。1000h+ 玩家专属聊天框可被 8 人房间和大逃杀的其他玩家看见。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>老饥荒人"被看见"了</b>——你那 1500h 现在是身份卡。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">你 PC 版玩了 1500h，绑定账号那一刻拿到三档专属：100h 称号、500h 经典皮肤、1000h "暗影王座知情者"特殊聊天框——别人在 8 人房间和大逃杀里都看得见你。1000h+ 的老玩家可以认领新人 7 天，完成则双方各拿限定皮肤。<b>你想成为接待员吗？告诉官方。</b></div></div>
       </div>
 
       <div class="item-card">
@@ -372,6 +415,7 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
         <div class="row"><div class="row-label">PC 版</div><div class="row-text">换电脑要拷 saves 文件夹。Steam / Switch / 手机版的存档完全独立。</div></div>
         <div class="row"><div class="row-label">手游版</div><div class="row-text">云端存档默认。设备切换 → "<b>换设备故事卡</b>"用 1 句话回忆上次进度："上次你在 iPad 玩到 day 67，今天用手机继续——胡萝卜还在烤"。</div></div>
         <div class="pitch"><div class="pitch-label">🎯 比 PC 好玩在哪</div><div class="pitch-text">「<b>iPad 上盖的房子，手机能进去看</b>。」</div></div>
+        <div class="dream"><div class="dream-label">🌙 体验升级预测</div><div class="dream-text">每周固定时段开放 PC ↔ 手游跨服联机房间——你那 1500h 不只是装饰，能真的进来下场。换设备时弹一张小卡："上次你在 iPad 玩到 day 67，今天用手机继续——胡萝卜还在烤。"<b>你想跟 PC 朋友联机吗？去贴一句愿望。</b></div></div>
       </div>
     </div>
 
@@ -501,6 +545,10 @@ html[data-theme="light"] .item-card .pitch { background:rgba(232,124,58,0.08) !i
 html[data-theme="light"] .item-card .pitch-label { color:#c45a18 !important; }
 html[data-theme="light"] .item-card .pitch-text { color:#1a1a1a !important; }
 html[data-theme="light"] .item-card .pitch-text b { color:#000 !important; }
+html[data-theme="light"] .item-card .dream { background:rgba(80,100,180,0.08) !important; border-left-color:#5a78c7 !important; }
+html[data-theme="light"] .item-card .dream-label { color:#3d5db8 !important; }
+html[data-theme="light"] .item-card .dream-text { color:#1a1a1a !important; }
+html[data-theme="light"] .item-card .dream-text b { color:#000 !important; }
 
 /* 文字色 */
 html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }
