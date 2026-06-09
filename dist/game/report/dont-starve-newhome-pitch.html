@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>饥困荒野 — 宣发卖点提炼</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-1':'#141414','surface-2':'#1c1c1c','surface-3':'#252525','bdr':'rgba(255,255,255,0.06)' } } } }
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background: #0c0c0c; color: #e5e5e5; }
+  * { scrollbar-width: thin; scrollbar-color: #333 transparent; }
+  .page-content h3 { font-size: 16px; font-weight: 700; color: #fff; margin: 28px 0 12px; }
+  .page-content h4 { font-size: 14px; font-weight: 600; color: #d4d4d4; margin: 20px 0 8px; }
+  .page-content p { font-size: 14px; line-height: 1.8; color: #a3a3a3; margin: 0 0 12px; }
+  .page-content ul { padding-left: 20px; margin: 0 0 16px; }
+  .page-content li { font-size: 13px; line-height: 1.7; color: #a3a3a3; margin-bottom: 4px; }
+  .page-content li::marker { color: #525252; }
+  .page-content strong, .page-content b { color: #fff; font-weight: 600; }
+  .page-content .highlight { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 16px; margin: 16px 0; }
+  .page-content .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.06); color: #737373; border: 1px solid rgba(255,255,255,0.06); margin-right: 4px; }
+  .page-content table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
+  .page-content th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #737373; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .page-content td { padding: 8px 12px; color: #a3a3a3; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; line-height: 1.7; }
+  .verdict { background: #141414; border-left: 3px solid #fff; padding: 16px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; }
+  .verdict p { color: #d4d4d4; }
+  .pitch-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 22px 24px; margin: 16px 0; }
+  .pitch-card .pitch-rank { display:inline-block; font-size:10px; font-weight:700; color:#737373; letter-spacing:1.5px; margin-bottom:6px; }
+  .pitch-card.tier-s { border-left: 3px solid #e87c3a; }
+  .pitch-card.tier-a { border-left: 3px solid #d4d4d4; }
+  .pitch-card.tier-b { border-left: 3px solid #525252; }
+  .pitch-card h5 { font-size: 16px; font-weight: 700; color: #fff; margin: 0 0 12px; line-height: 1.5; }
+  .pitch-card .one-liner { background: rgba(232,124,58,0.06); border-left: 2px solid #e87c3a; padding: 10px 14px; margin: 10px 0 14px; border-radius: 0 4px 4px 0; }
+  .pitch-card .one-liner-label { font-size: 10px; font-weight: 700; color: #e87c3a; letter-spacing: 1px; margin-bottom: 4px; }
+  .pitch-card .one-liner-text { font-size: 14px; color: #f5f5f5; line-height: 1.6; font-style: italic; }
+  .pitch-card .meta { display:grid; grid-template-columns: 110px 1fr; gap: 8px; padding: 5px 0; font-size: 12px; }
+  .pitch-card .meta-label { color:#737373; font-weight: 600; letter-spacing: 0.3px; }
+  .pitch-card .meta-text { color:#d4d4d4; line-height: 1.6; }
+  .danger-card { background: #141414; border: 1px solid rgba(196,60,60,0.2); border-left: 3px solid #c43c3c; border-radius: 6px; padding: 16px 20px; margin: 14px 0; }
+  .danger-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .layer-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+  .layer-card h5 { font-size: 15px; font-weight: 700; color: #fff; margin: 0 0 4px; }
+  .layer-card .layer-sub { font-size: 12px; color:#737373; margin-bottom: 10px; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../dont-starve-newhome.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">饥困荒野 — 宣发卖点提炼<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-06-09</span></h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="dont-starve-newhome.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
+      <a href="dont-starve-newhome-vs-pc.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">比PC好玩在哪</a>
+      <a href="dont-starve-newhome-pitch.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">宣发卖点提炼</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="dont-starve-newhome-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">总览</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">两条主线，分层服务</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">卖点矩阵</div>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">第一梯队 · 必讲卖点（3）</button>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">第二梯队 · 差异化肌肉（4）</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">第三梯队 · 路人盘破冰（3）</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">人群对照页</div>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">B/C/D 三层切片母版</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">禁区</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">一票否决与谨慎口径</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">主线配比与节奏</button>
+    </div>
+  </nav>
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">总览 · 00</div>
+      <h2 class="text-2xl font-bold text-white mb-6">两条主线，分层服务</h2>
+      <div class="verdict"><p><b>核心策略</b>：宣发不能只押注一条故事线。"砍抽卡 = 信任修复"打的是观望者和伤疤党，"PC 痛点 → 手游解法"打的是端游铁杆和路人盘。<b>两条线必须并行启动，错位投放</b>。</p></div>
+
+      <h3>两条主线的分工</h3>
+      <table>
+        <thead><tr><th>主线</th><th>核心叙事</th><th>服务人群</th><th>预期效果</th></tr></thead>
+        <tbody>
+          <tr><td><b>信任修复轴</b></td><td>「武器池砍了。宠物池砍了。传奇那味儿，没了。」</td><td>A 观望者 / D 伤疤党</td><td>评分翻转 + 召回流失用户</td></tr>
+          <tr><td><b>体验对照轴</b></td><td>「PC 老饥荒人忍下来的痛点，手游一项一项还回来」</td><td>B 端游铁杆 / C 路人盘</td><td>新用户拉新 + 端游党激活</td></tr>
+        </tbody>
+      </table>
+
+      <h3>四层人群快查</h3>
+      <table>
+        <thead><tr><th>层</th><th>画像</th><th>当前状态</th><th>主打主线</th></tr></thead>
+        <tbody>
+          <tr><td><b>A 观望者</b></td><td>测试期参与 + 流失 + 关注「饥活了」</td><td>方向认可，等公测验证</td><td>信任修复</td></tr>
+          <tr><td><b>B 端游铁杆</b></td><td>DST Steam 500h+，从未下载手游</td><td>对手游天然抗拒，但有 IP 情怀</td><td>体验对照</td></tr>
+          <tr><td><b>C 路人盘</b></td><td>预约但从未测试过的千万用户</td><td>对「饥荒传奇」无切身体验</td><td>体验对照</td></tr>
+          <tr><td><b>D 伤疤党</b></td><td>充过钱 + 被伤害 + 给一星</td><td>情绪激烈，最难转化</td><td>信任修复（靠口碑后传）</td></tr>
+        </tbody>
+      </table>
+
+      <h3>10 个卖点的全局视图</h3>
+      <table>
+        <thead><tr><th>梯队</th><th>编号</th><th>卖点</th><th>主打人群</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="3"><b>S 必讲</b></td><td>S1</td><td>砍抽卡</td><td>A / D</td></tr>
+          <tr><td>S2</td><td>家园即避难所</td><td>B / C</td></tr>
+          <tr><td>S3</td><td>食物永久保鲜</td><td>B</td></tr>
+          <tr><td rowspan="4"><b>A 差异化</b></td><td>A1</td><td>七元素战斗策略</td><td>B</td></tr>
+          <tr><td>A2</td><td>特质 BD 16 费自由组合</td><td>B</td></tr>
+          <tr><td>A3</td><td>DST 老玩家回家礼</td><td>B</td></tr>
+          <tr><td>A4</td><td>8 人联机 + 房主离线</td><td>C</td></tr>
+          <tr><td rowspan="3"><b>B 破冰</b></td><td>B1</td><td>UGC 奇点工厂</td><td>C</td></tr>
+          <tr><td>B2</td><td>马戏团大逃杀（装备归一）</td><td>C</td></tr>
+          <tr><td>B3</td><td>密友寄养系统</td><td>C</td></tr>
+        </tbody>
+      </table>
+
+      <h3>读法建议</h3>
+      <p>左侧目录三个梯队页可以独立看——每个卖点都给了一句话、服务人群、表现形式建议、预期效果四件套。最后两页是禁区清单和资源配比节奏，帮整体把控。</p>
+
+      <h3>使用提醒</h3>
+      <div class="highlight"><p>每一个卖点都<b>不可单独投放</b>——都要带一个"反向防御"配套。比如讲「家园是避难所」就必须配「但大世界该死还是死」；讲「特质自由组合」就必须配「老角色没消失，他们成了你的师父」。<b>没有反向防御的单边卖点，会立刻在端游党社区炸锅</b>。</p></div>
+    </div>
+
+    <div x-show="page === 1" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">卖点矩阵 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">第一梯队 · 必讲卖点（3）</h2>
+      <div class="verdict"><p><b>第一梯队定义</b>：每一条都必须有专门的内容物，且公测首日就要打透。任何一个没穿透到目标人群，整个宣发战役判负。</p></div>
+
+      <div class="pitch-card tier-s">
+        <span class="pitch-rank">S1 · 信任修复轴 · 主打 A/D 层</span>
+        <h5>武器池砍了。宠物池砍了。传奇那味儿，没了。</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「国产手游史上第一个砍掉已上线抽卡系统的 IP 手游。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">A 观望者 + D 伤疤党</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">拷打策划 EP1（B 站）+ 视觉锤"删除线"系列物料 + 公测首日"无抽卡宣言"前 3 分钟全屏画面</div></div>
+        <div class="meta"><div class="meta-label">情绪锚</div><div class="meta-text">不可置信 → 信任重建</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">不要包装为"商业化优化"——必须用<b>"砍"</b>这个动词。</div></div>
+        <div class="meta"><div class="meta-label">预期效果</div><div class="meta-text">公测首日 24h 内"饥困荒野真的删了抽卡"成 TapTap/B 站游戏区高频信息</div></div>
+      </div>
+
+      <div class="pitch-card tier-s">
+        <span class="pitch-rank">S2 · 体验对照轴 · 主打 B/C 层</span>
+        <h5>天黑了？回家。</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「PC 版你死过的 6 种死法，手游每一种都给了一个解。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">B 端游铁杆 + C 路人盘</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">60s before/after 短视频系列：对照 PC 版第 1 天暴毙现场 vs 手游版回家流程；端游 UP 主直播实测</div></div>
+        <div class="meta"><div class="meta-label">情绪锚</div><div class="meta-text">PC 党的"被理解" + 路人盘的"我也能玩"</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">不能讲成"再也不会死"——必须配<b>"回家是撤退的权利，不是免死金牌——大世界该死还是死"</b>。</div></div>
+        <div class="meta"><div class="meta-label">预期效果</div><div class="meta-text">B 层社区出现"哎手游做了我端游想做的事"自发讨论</div></div>
+      </div>
+
+      <div class="pitch-card tier-s">
+        <span class="pitch-rank">S3 · 体验对照轴 · 主打 B 层情怀</span>
+        <h5>你那条腌肉终于不会臭了。</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「家园仓库永久保鲜——PC 版屯肉烂掉的那个夏天，没了。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">B 端游铁杆（情怀向）</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">UP 主"开仓库炫耀腌肉"内容；PC 版屯肉一周快进 vs 手游仓库 30 天保鲜对照视频</div></div>
+        <div class="meta"><div class="meta-label">情绪锚</div><div class="meta-text">共情，不挑衅</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">不要讲"解决 PC 痛点"——讲"你那条腌肉终于不会臭了"，让 PC 党自己点头。</div></div>
+        <div class="meta"><div class="meta-label">预期效果</div><div class="meta-text">端游党第一眼就能感知的福利点，社区"哎我端游烂过 N 次"引发集体共鸣</div></div>
+      </div>
+    </div>
+
+    <div x-show="page === 2" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">卖点矩阵 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">第二梯队 · 差异化肌肉（4）</h2>
+      <div class="verdict"><p><b>第二梯队定义</b>：差异化叙事的核心肌肉，决定"用户来了之后愿不愿意留下"。每一条都对应一个具体的功能或服务点，可以在公测前 7 天到首周陆续投放。</p></div>
+
+      <div class="pitch-card tier-a">
+        <span class="pitch-rank">A1 · 主打 B 层 · 战斗策略</span>
+        <h5>七元素战斗 = 给端游党的全新策略层</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「你以为你还会玩饥荒——第一个高难副本就让你重新背书。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">B 端游铁杆（手感党 + 求新党）</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">老饥荒主播挑战副本死给观众看；元素生态系演示视频（火 + 草地 = 火灾扩散，雷 + 水域 = 全图水生敌人僵直）</div></div>
+        <div class="meta"><div class="meta-label">情绪锚</div><div class="meta-text">"我老玩家居然还要重新学" 的反差爽感</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">不要讲"比 PC 战斗更深"——讲"PC 战斗的肌肉记忆还在，多了一层策略空间"。</div></div>
+      </div>
+
+      <div class="pitch-card tier-a">
+        <span class="pitch-rank">A2 · 主打 B 层 · 角色情怀</span>
+        <h5>特质 BD 16 费自由组合</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「老角色没消失，他们都成了你的师父。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">B 端游铁杆（爱组合 BD）</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">"你能搓出一个 Wendy + Wickerbottom + Wolfgang 的怪物吗？" 投票活动；社区 BD 推荐 Top 100</div></div>
+        <div class="meta"><div class="meta-label">情绪锚</div><div class="meta-text">"端游 38 个角色现在 1 个号能玩出味道" 的解放感</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">不要讲"自由度比 PC 高"——讲"经典角色没消失，他们成了你的师父"。</div></div>
+      </div>
+
+      <div class="pitch-card tier-a">
+        <span class="pitch-rank">A3 · 主打 B 层 · 身份认同</span>
+        <h5>DST 老玩家回家礼（账号绑定 + 三档称号）</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「PC 那 1500 小时，终于有人替你看见。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">B 端游铁杆（情怀向 / 身份认同向）</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">Klei 联动公告 + Steam 联动开放日；三档称号「荒野求生者」(100h) /「永恒领域居民」(500h) /「暗影王座知情者」(1000h)</div></div>
+        <div class="meta"><div class="meta-label">投放时机</div><div class="meta-text"><b>不在公测首日</b>——单独抽出来放公测前 7 天作为 B 层激活独立事件</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">三档称号必须<b>纯外观无数值加成</b>——和"不卖数值"承诺保持一致。</div></div>
+      </div>
+
+      <div class="pitch-card tier-a">
+        <span class="pitch-rank">A4 · 主打 C 层 · 社交破冰</span>
+        <h5>8 人联机 + 房主离线访客也能玩</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「饥荒第一次让你能跟 7 个朋友一起玩。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">C 路人盘（社交向）</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">朋友局直播 / 抖音家园建造合作素材；"故事自传"自动记录全员重大事件→集体史诗</div></div>
+        <div class="meta"><div class="meta-label">情绪锚</div><div class="meta-text">"原来饥荒也能像我的世界一样开黑"</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">不要把"8 人"作为唯一卖点——必须配"房主离线也能玩"+"故事自传"，否则像普通联机功能。</div></div>
+      </div>
+    </div>
+
+    <div x-show="page === 3" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">卖点矩阵 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">第三梯队 · 路人盘破冰（3）</h2>
+      <div class="verdict"><p><b>第三梯队定义</b>：节奏拉到公测后 7-30 天的功能型卖点。给 C 层路人盘的"为什么留下来"提供具体答案，也给 D 层伤疤党在听到 S1 后愿意点开看看的次级理由。</p></div>
+
+      <div class="pitch-card tier-b">
+        <span class="pitch-rank">B1 · 主打 C 层 · 创作生态</span>
+        <h5>UGC 奇点工厂</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「删了抽卡，玩家自己造地图。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">C 路人盘（创作向 / 长草期续航）</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">UGC TOP 100 评选公测首日上架；创作者奇点工厂荣誉徽章；UGC 季选每季 5 张玩家地图入选官方推荐 + 30 天分成</div></div>
+        <div class="meta"><div class="meta-label">投放时机</div><div class="meta-text">公测首周内启动征集，公测后 14 天首批 UGC 上线</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">UGC 入口必须"漂流瓶式"而不是"地图广场"——避免变成另一个论坛。</div></div>
+      </div>
+
+      <div class="pitch-card tier-b">
+        <span class="pitch-rank">B2 · 主打 C 层 · 公平 PVP</span>
+        <h5>马戏团大逃杀（装备数值归一）</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「饥荒版吃鸡，没人能氪赢。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">C 路人盘 + D 伤疤党（"PVP 装备碾压"是 D 层第二大伤疤）</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">短视频"零充小白击败大佬"剪辑；公测首周末马戏团首战</div></div>
+        <div class="meta"><div class="meta-label">情绪锚</div><div class="meta-text">"原来手游也能打公平局"</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">必须强调<b>"装备数值归一"</b>——避免被识别为另一个氪金 PVP。</div></div>
+      </div>
+
+      <div class="pitch-card tier-b">
+        <span class="pitch-rank">B3 · 主打 C 层 · 异步社交</span>
+        <h5>密友寄养系统</h5>
+        <div class="one-liner">
+          <div class="one-liner-label">🎯 一句话</div>
+          <div class="one-liner-text">「你寄养给朋友的坐骑，朋友会替你养肥。」</div>
+        </div>
+        <div class="meta"><div class="meta-label">服务人群</div><div class="meta-text">C 路人盘（轻度社交 / 异步在线）</div></div>
+        <div class="meta"><div class="meta-label">表现形式</div><div class="meta-text">抖音"养宠"切片；亲密度成长记录卡</div></div>
+        <div class="meta"><div class="meta-label">情绪锚</div><div class="meta-text">"我离线时朋友替我玩" 的羁绊感</div></div>
+        <div class="meta"><div class="meta-label">反向防御</div><div class="meta-text">不能强制每天上线打卡——保持"轻度社交"边界。</div></div>
+      </div>
+    </div>
+
+    <div x-show="page === 4" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">人群对照页 · 04</div>
+      <h2 class="text-2xl font-bold text-white mb-6">B/C/D 三层切片母版</h2>
+      <div class="verdict"><p><b>使用方法</b>：这三张表是直接交给内容组做切片素材的母版。每张表的左栏列举该人群的"刺痛点"，右栏给出手游对应的解。三张表就是三组短视频脚本骨架。</p></div>
+
+      <div class="layer-card">
+        <h5>B 层 · 端游铁杆 500h+</h5>
+        <div class="layer-sub">主题：「你那 500 小时不白玩」 · 走情怀 + 对照</div>
+        <table>
+          <thead><tr><th>PC 版你最熟的瞬间</th><th>手游版会怎样</th></tr></thead>
+          <tbody>
+            <tr><td>第 1 天采 40 草 40 枝</td><td><b>完全保留</b>——肌肉记忆还作数</td></tr>
+            <tr><td>黄昏切火把</td><td><b>完全保留</b>——只是 UI 换成了大拇指能点的轮盘</td></tr>
+            <tr><td>装几何放置 mod</td><td><b>手游内置</b>——摆建筑齐到强迫症友好</td></tr>
+            <tr><td>研究 Perogi 食谱靠记</td><td><b>手游内置图鉴</b>——拖入食材实时预览</td></tr>
+            <tr><td>选 Wendy 玩到 20 天发现妹妹太弱</td><td><b>特质 BD</b>：把妹妹特质 + Wolfgang 怒气特质混搭</td></tr>
+            <tr><td>第二年秋季被熊大撞穿基地</td><td><b>熊大撞树伐木策略保留</b>——但你可以选择正面打</td></tr>
+            <tr><td>蚁狮地震震毁基地</td><td><b>保留</b>——这是饥荒的味道</td></tr>
+            <tr><td>端游买断没续作</td><td><b>手游 = Klei 正版授权 + DLC 移植（哈姆雷特/天体风暴）</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="layer-card">
+        <h5>C 层 · 路人盘 / 没玩过 PC</h5>
+        <div class="layer-sub">主题：「你听说的硬核，现在友好多了」 · 走破冰 + 答疑</div>
+        <table>
+          <thead><tr><th>你听说的"饥荒很难"</th><th>手游做了什么</th></tr></thead>
+          <tbody>
+            <tr><td>第一晚就会死</td><td>一键回家 + 家园避难所</td></tr>
+            <tr><td>食物会臭</td><td>家园仓库永久保鲜</td></tr>
+            <tr><td>角色一死全没</td><td>多套低门槛复活 + 触摸石保留</td></tr>
+            <tr><td>看不懂 wiki</td><td>长按物品 = 五 tab 图鉴跳转</td></tr>
+            <tr><td>抽卡氪金</td><td>已经全砍了</td></tr>
+            <tr><td>没朋友玩不动</td><td>8 人联机 + 密友寄养</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="layer-card">
+        <h5>D 层 · 观望者 / 测试流失</h5>
+        <div class="layer-sub">主题：「你骂的那些，全砍了」 · 走信任修复 + 检索</div>
+        <table>
+          <thead><tr><th>你骂过的事</th><th>现在</th></tr></thead>
+          <tbody>
+            <tr><td>武器池 98 一抽</td><td>兑换商店免费</td></tr>
+            <tr><td>宠物池金色 200 抽</td><td>兑换商店免费</td></tr>
+            <tr><td>武器突破要抽卡材料</td><td>沙盒材料够了</td></tr>
+            <tr><td>马戏团大逃杀氪金碾压</td><td>装备数值归一</td></tr>
+            <tr><td>日常副本只 2 次</td><td>调整中（待验证）</td></tr>
+            <tr><td>主播特权饥智团</td><td>公测全开</td></tr>
+            <tr><td>老角色变 NPC 没情怀</td><td>特质 BD + 老饥荒账号绑定礼</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>三张表的投放节奏</h3>
+      <table>
+        <thead><tr><th>表</th><th>投放时机</th><th>主战场</th><th>预期 KPI</th></tr></thead>
+        <tbody>
+          <tr><td>D 层切片</td><td>公测前 14 天</td><td>TapTap 推送 + B 站粉丝动态</td><td>测试期流失用户回流意愿</td></tr>
+          <tr><td>B 层切片</td><td>公测前 7 天</td><td>Steam 社区 + B 站饥荒 UP 主合作</td><td>端游党社区出现"试试看"自发讨论</td></tr>
+          <tr><td>C 层切片</td><td>公测首日 → 第 7 天</td><td>抖音 / 应用商店 / 微信视频号</td><td>路人盘下载量 + 留存</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div x-show="page === 5" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">禁区 · 05</div>
+      <h2 class="text-2xl font-bold text-white mb-6">一票否决与谨慎口径</h2>
+      <div class="verdict"><p><b>核心原则</b>：宣发能不能成功，60% 看做对了什么，40% 看没做错什么。本页清单是一票否决的红线——任何一条触碰都会让宣发战役崩塌一次。</p></div>
+
+      <h3>❌ 绝对禁讲（一票否决）</h3>
+
+      <div class="danger-card">
+        <h5>不要讲：「难度大幅降低，新手友好」</h5>
+        <p>B 层端游铁杆立即反弹"那不是饥荒了"。改为：「<b>回家是撤退的权利，不是免死金牌——大世界该死还是死</b>」。</p>
+      </div>
+
+      <div class="danger-card">
+        <h5>不要讲：「轻松休闲沙盒」</h5>
+        <p>撞 2026 年初的"轻松休闲手游"广告体，会被立刻识别为传奇广告。改为：「<b>篝火已升起。回来吗？</b>」</p>
+      </div>
+
+      <div class="danger-card">
+        <h5>不要讲：「全新世界观」</h5>
+        <p>浣猫人 / 企鸥人 / 鹤人是手游原创势力，是 B 层最敏感的雷区。讲法必须是<b>"扩充"</b>不是<b>"重写"</b>——「<b>Klei 授权下的世界扩展，端游 IP 没改</b>」。</p>
+      </div>
+
+      <div class="danger-card">
+        <h5>不要讲：「装备养成深度」</h5>
+        <p>这是传奇话术 DNA。改用：「<b>沙盒材料合成 + 质变型词条镶嵌</b>」——把"养成"换成"组合"。</p>
+      </div>
+
+      <h3>⚠️ 谨慎讲，必须配反向防御</h3>
+      <table>
+        <thead><tr><th>卖点</th><th>不能这样讲</th><th>应该这样讲</th></tr></thead>
+        <tbody>
+          <tr><td>一键回家</td><td>"再也不会死"</td><td>"回家是撤退的权利，不是免死金牌——大世界该死还是死"</td></tr>
+          <tr><td>特质技能树</td><td>"比 PC 版自由度更高"</td><td>"经典角色没消失，他们成了你的师父"</td></tr>
+          <tr><td>七元素战斗</td><td>"比 PC 版战斗更深"</td><td>"PC 版战斗的肌肉记忆还在，多了一层策略空间"</td></tr>
+          <tr><td>永久保鲜</td><td>"解决 PC 版痛点"</td><td>"你那条腌肉终于不会臭了" —— 共情，不挑衅</td></tr>
+          <tr><td>UGC 工厂</td><td>"我的世界级别的 UGC"</td><td>"删了抽卡，玩家自己造地图"</td></tr>
+          <tr><td>账号绑定礼</td><td>"端游玩家专属福利"</td><td>"PC 那 1500 小时，终于有人替你看见"</td></tr>
+        </tbody>
+      </table>
+
+      <h3>暂时不能宣传的项目（公测前必须修复）</h3>
+      <p>这些项目目前仍是体验服反馈源头，公测前必须修复或在宣发中规避：</p>
+      <table>
+        <thead><tr><th>痛点</th><th>强度</th><th>宣发处理</th></tr></thead>
+        <tbody>
+          <tr><td>新手 1 小时不知道家园是核心</td><td>⭐⭐⭐⭐⭐</td><td>公测版必须有 30 分钟新手破冰；首日宣发依赖此修复</td></tr>
+          <tr><td>长按物品没有图鉴跳转</td><td>⭐⭐⭐⭐⭐</td><td>公测前必修复，否则"PC 痛点解决"叙事崩塌</td></tr>
+          <tr><td>家园 3 级断崖式劝退</td><td>⭐⭐⭐⭐⭐</td><td>公测前调整曲线</td></tr>
+          <tr><td>小地图全黑遮挡</td><td>⭐⭐⭐⭐</td><td>调成"灰色透明轮廓"</td></tr>
+          <tr><td>智能助手定位混乱</td><td>⭐⭐⭐⭐</td><td>合并到聊天框 + 提升问答质量</td></tr>
+        </tbody>
+      </table>
+
+      <h3>视觉一票否决</h3>
+      <p>每一张物料上线前必须通过<b>"传奇测试"</b>：</p>
+      <div class="highlight"><p><b>拿给一个不玩手游的人看 3 秒，问：「这像不像仙侠/传奇类广告？」</b><br>如果答案是「像」或「有点像」——立刻推翻重做。没有第二次机会。</p></div>
+      <ul>
+        <li>禁色：金色渐变（#ffd700 系）/ 紫色荧光（抽卡稀有度）/ 红色促销标</li>
+        <li>禁词：限时 / 独家 / SSR / 十连 / 首充双倍</li>
+        <li>禁构图：角色居中 + 武器发光 + 星级标识</li>
+      </ul>
+    </div>
+
+    <div x-show="page === 6" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">禁区 · 06</div>
+      <h2 class="text-2xl font-bold text-white mb-6">主线配比与节奏</h2>
+      <div class="verdict"><p><b>核心策略</b>：信任轴和功能轴不能均衡发力——必须随阶段变化重心。首周拉穿信任，第二周开始过渡到功能。否则评分翻转和路人留存都拿不到。</p></div>
+
+      <h3>三轴定义</h3>
+      <table>
+        <thead><tr><th>轴</th><th>定义</th><th>对应卖点</th><th>主打人群</th></tr></thead>
+        <tbody>
+          <tr><td><b>信任轴</b></td><td>砍抽卡、装备归一、首日无充值弹窗</td><td>S1</td><td>A / D</td></tr>
+          <tr><td><b>功能轴</b></td><td>家园、八人联机、UGC、特质 BD、七元素</td><td>S2 + A1/A2/A4 + B1/B2/B3</td><td>B / C</td></tr>
+          <tr><td><b>情怀轴</b></td><td>永久保鲜、DST 账号绑定、老饥荒人志、长老计划</td><td>S3 + A3</td><td>B</td></tr>
+        </tbody>
+      </table>
+
+      <h3>分阶段配比</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>信任轴</th><th>功能轴</th><th>情怀轴</th><th>核心动作</th></tr></thead>
+        <tbody>
+          <tr><td>公测前 14 天</td><td>50%</td><td>30%</td><td>20%</td><td>拷打策划 EP1 / 视觉锤删除线物料 / D 层切片母版</td></tr>
+          <tr><td>公测前 7 天</td><td>40%</td><td>40%</td><td>20%</td><td>DST 账号绑定礼独立事件 / B 层切片上线 / 前 7 天 KOL 提前评测</td></tr>
+          <tr><td><b>公测首日</b></td><td><b>60%</b></td><td><b>30%</b></td><td><b>10%</b></td><td>无抽卡宣言 + 商城空旷验证 + 晚 8 点开箱直播</td></tr>
+          <tr><td>公测第 2-7 天</td><td>40%</td><td>50%</td><td>10%</td><td>UGC 征集启动 / 8 人联机演示 / 永久保鲜挑战短视频</td></tr>
+          <tr><td>公测第 2 周</td><td>30%</td><td>50%</td><td>20%</td><td>拷打策划 EP2 / UGC 首批作品上架 / 季节预警节日化</td></tr>
+          <tr><td>公测第 3-4 周</td><td>20%</td><td>50%</td><td>30%</td><td>长老计划上线 / 老饥荒人志口述 / 死亡相册首批分享</td></tr>
+        </tbody>
+      </table>
+
+      <h3>关键节点</h3>
+      <ul>
+        <li><b>公测前 7 天</b>：DST 账号绑定礼<b>单独成事件</b>——不在公测首日"分流"信任叙事</li>
+        <li><b>公测首日 24h</b>：信任轴 60% 集中投放——"砍抽卡"必须穿透到 TapTap 评论区 / B 站游戏区高频信息位</li>
+        <li><b>公测第 7 天</b>：评分应该有可见正向（即便只是 0.2 分）——否则启动 Plan B 紧急内容注入</li>
+        <li><b>公测第 14 天</b>：UGC 首批上架，进入"功能轴接棒"</li>
+        <li><b>公测第 30 天</b>：评分应稳定在 7.3+——若仍 < 6.9，回到产品层面做第二次重大改革</li>
+      </ul>
+
+      <h3>预算分配建议</h3>
+      <table>
+        <thead><tr><th>层级</th><th>主力渠道</th><th>内容形态</th><th>预算占比</th></tr></thead>
+        <tbody>
+          <tr><td>A 观望者</td><td>TapTap 推送 + B 站粉丝动态</td><td>1min 短视频（before/after）</td><td>30%</td></tr>
+          <tr><td>B 端游铁杆</td><td>Steam 社区 + 饥荒 UP 主</td><td>深度测评（10min+）</td><td>20%</td></tr>
+          <tr><td>C 路人盘</td><td>应用商店推荐 + 信息流买量</td><td>15s 竖屏实机</td><td>40%</td></tr>
+          <tr><td>D 伤疤党</td><td>不主动触达（等口碑扩散）</td><td>—</td><td>10%（应急）</td></tr>
+        </tbody>
+      </table>
+
+      <h3>结语</h3>
+      <div class="highlight">
+        <p>人们不会为完美鼓掌，会为浪子回头鼓掌。<br>
+        但只对一条故事鼓掌不够——<b>你还得让他们觉得"这个浪子，做的还是我熟悉的那个生意"</b>。</p>
+        <p>信任轴讲的是浪子回头，功能轴讲的是熟悉的生意。<br>
+        两条轴必须并行，错位投放，才能拿到完整翻盘。</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- THEME_TOGGLE_INJECT_START -->
+<!-- Theme toggle: 注入在每份报告 </body> 之前 -->
+<style>
+/* ===== 浅色模式覆盖（仅在 html[data-theme="light"] 时生效） ===== */
+html[data-theme="light"] body { background:#f5f5f5 !important; color:#1a1a1a !important; }
+html[data-theme="light"] header { background:rgba(245,245,245,0.95) !important; border-bottom-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] header h1 { color:#1a1a1a !important; }
+html[data-theme="light"] header a { color:#525252 !important; }
+html[data-theme="light"] header a:hover { color:#000 !important; }
+html[data-theme="light"] header .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] header .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] header .bg-white\/\[\.08\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; border-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] header .hover\:bg-white\/\[\.04\]:hover { background:rgba(0,0,0,0.05) !important; color:#000 !important; }
+html[data-theme="light"] header .bg-white\/10, html[data-theme="light"] header .bg-white\/\[\.04\] { background:rgba(0,0,0,0.1) !important; }
+
+/* 左侧 nav 区（主报告页结构） */
+html[data-theme="light"] aside, html[data-theme="light"] nav { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] aside button, html[data-theme="light"] nav button { color:#525252 !important; }
+html[data-theme="light"] aside button:hover, html[data-theme="light"] nav button:hover { color:#000 !important; background:rgba(0,0,0,0.04) !important; }
+html[data-theme="light"] .bg-white\/\[\.06\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; }
+html[data-theme="light"] .bg-white\/\[\.04\] { background:rgba(0,0,0,0.05) !important; }
+
+/* 内容卡片 */
+html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+html[data-theme="light"] .verdict { border-left-color:#1a1a1a !important; }
+html[data-theme="light"] .verdict p { color:#1a1a1a !important; }
+html[data-theme="light"] .risk-card { border-left-color:#c43c3c !important; }
+html[data-theme="light"] .creative-card h5, html[data-theme="light"] .risk-card h5 { color:#1a1a1a !important; }
+
+/* 文字色 */
+html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }
+html[data-theme="light"] .page-content p, html[data-theme="light"] .page-content li { color:#3a3a3a !important; }
+html[data-theme="light"] .page-content b, html[data-theme="light"] .page-content strong, html[data-theme="light"] b, html[data-theme="light"] strong { color:#000 !important; }
+html[data-theme="light"] .text-white { color:#1a1a1a !important; }
+html[data-theme="light"] .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-600 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-300 { color:#3a3a3a !important; }
+html[data-theme="light"] .quote { color:#1a1a1a !important; }
+html[data-theme="light"] .muted { color:#737373 !important; }
+
+/* 表格 */
+html[data-theme="light"] table th { color:#525252 !important; border-bottom-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] table td { color:#3a3a3a !important; border-bottom-color:rgba(0,0,0,0.06) !important; }
+
+/* tag */
+html[data-theme="light"] .tag { background:rgba(0,0,0,0.05) !important; color:#525252 !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] .tag:hover { color:#000 !important; }
+
+/* 分隔线 */
+html[data-theme="light"] .bg-white\/10 { background:rgba(0,0,0,0.1) !important; }
+html[data-theme="light"] .border-bdr, html[data-theme="light"] .border-white\/10, html[data-theme="light"] .border-white\/\[\.06\] { border-color:rgba(0,0,0,0.08) !important; }
+
+/* compare 卡片专用 */
+html[data-theme="light"] .text-3xl, html[data-theme="light"] .text-2xl, html[data-theme="light"] .text-xl { color:#1a1a1a !important; }
+html[data-theme="light"] .report-date { color:#737373 !important; }
+
+/* ===== 切换按钮本体 ===== */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.theme-toggle-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+.theme-toggle-btn svg { width: 22px; height: 22px; transition: all 0.25s ease; }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-on { display: block; color: #fbbf24; filter: drop-shadow(0 0 4px rgba(251,191,36,0.6)); }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-off { display: none; }
+html[data-theme="light"] .theme-toggle-btn { background: #ffffff; border-color: rgba(0,0,0,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+html[data-theme="light"] .theme-toggle-btn:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-on { display: none; }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-off { display: block; color: #737373; }
+
+/* 拉绳小动画 */
+.theme-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+}
+html[data-theme="light"] .theme-toggle-btn::before { background: rgba(0,0,0,0.15); }
+</style>
+
+<button class="theme-toggle-btn" onclick="toggleReportTheme()" title="切换深浅色模式" aria-label="切换主题">
+  <!-- 点亮的灯泡（深色模式显示） -->
+  <svg class="icon-bulb-on" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z"/>
+  </svg>
+  <!-- 熄灭的灯泡（浅色模式显示） -->
+  <svg class="icon-bulb-off" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  // 初始化：从 localStorage 读，没有就默认 dark
+  var savedTheme = localStorage.getItem('report-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+function toggleReportTheme() {
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('report-theme', next);
+}
+</script>
+
+<!-- THEME_TOGGLE_INJECT_END -->
+</body>
+</html>
