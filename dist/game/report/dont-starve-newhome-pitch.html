@@ -503,11 +503,32 @@ html[data-theme="light"] .bg-white\/\[\.06\] { background:rgba(0,0,0,0.08) !impo
 html[data-theme="light"] .bg-white\/\[\.04\] { background:rgba(0,0,0,0.05) !important; }
 
 /* 内容卡片 */
-html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card, html[data-theme="light"] .pitch-card, html[data-theme="light"] .danger-card, html[data-theme="light"] .layer-card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
 html[data-theme="light"] .verdict { border-left-color:#1a1a1a !important; }
 html[data-theme="light"] .verdict p { color:#1a1a1a !important; }
 html[data-theme="light"] .risk-card { border-left-color:#c43c3c !important; }
 html[data-theme="light"] .creative-card h5, html[data-theme="light"] .risk-card h5 { color:#1a1a1a !important; }
+
+/* pitch-card（宣发卖点矩阵专用） */
+html[data-theme="light"] .pitch-card h5 { color:#1a1a1a !important; }
+html[data-theme="light"] .pitch-card .pitch-rank { color:#737373 !important; }
+html[data-theme="light"] .pitch-card.tier-s { border-left-color:#e87c3a !important; }
+html[data-theme="light"] .pitch-card.tier-a { border-left-color:#525252 !important; }
+html[data-theme="light"] .pitch-card.tier-b { border-left-color:#a3a3a3 !important; }
+html[data-theme="light"] .pitch-card .one-liner { background:rgba(232,124,58,0.08) !important; border-left-color:#e87c3a !important; }
+html[data-theme="light"] .pitch-card .one-liner-label { color:#c45a18 !important; }
+html[data-theme="light"] .pitch-card .one-liner-text { color:#1a1a1a !important; }
+html[data-theme="light"] .pitch-card .meta-label { color:#737373 !important; }
+html[data-theme="light"] .pitch-card .meta-text { color:#3a3a3a !important; }
+html[data-theme="light"] .pitch-card .meta-text b { color:#000 !important; }
+
+/* danger-card（一票否决禁区） */
+html[data-theme="light"] .danger-card { border-left-color:#c43c3c !important; }
+html[data-theme="light"] .danger-card h5 { color:#1a1a1a !important; }
+
+/* layer-card（B/C/D 切片母版） */
+html[data-theme="light"] .layer-card h5 { color:#1a1a1a !important; }
+html[data-theme="light"] .layer-card .layer-sub { color:#737373 !important; }
 
 /* 文字色 */
 html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }
