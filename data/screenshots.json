@@ -2956,5 +2956,19 @@
         }
       ]
     }
+  ],
+  "Animula Nook": [
+    {
+      "module": "封面页",
+      "screens": [
+        {
+          "title": "Animula Nook - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/animula-nook/cover.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

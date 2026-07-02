@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>粒粒的小人国 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<a href="../index.html" id="back-btn"
+   class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-2/90 backdrop-blur-sm border border-white/[.08] hover:bg-surface-3 hover:border-white/[.15] text-neutral-300 hover:text-white text-sm font-medium transition-all shadow-lg shadow-black/30">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  返回
+  <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
+</a>
+<script>
+(function(){
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable]')) return;
+    // Don't navigate if lightbox is open (Alpine handles that)
+    try { if (window.Alpine && Alpine.store('lightbox') && Alpine.store('lightbox').open) return; } catch(x){}
+    window.location.href = '../index.html';
+  });
+})();
+</script>
+
+
+<div id="sec-header" class="relative w-full overflow-hidden">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/animula-nook/cover.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">粒粒的小人国</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">腾讯游戏 × LilliLandia Games (北极光工作室群·银之心) · Simulation · 2026 下半年</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">腾讯北极光工作室群与 LilliLandia Games 联合开发的小人国题材生活模拟治愈游戏。你意外变小到拇指大小，与「粒粒」们在书桌一角建造家园，用缩小枪把日常杂物变成建材，无任务驱动的慢生活体验。全球预约 800 万+，TapTap 9.6 分。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">小人国微缩视角</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">生活模拟治愈</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">缩小枪造家</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">免费全平台</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">无任务慢生活</span>
+        
+      </div>
+      
+    </div>
+
+    
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      <a href="#sec-assets"
+         class="group flex items-center gap-2 px-5 py-3 rounded bg-white text-black font-bold hover:bg-neutral-200 text-sm transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
+
+  
+  
+  
+  
+    
+      
+        
+      
+    
+  
+
+  
+
+  
+  
+  <section id="sec-worldview" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      游戏世界观
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">BACKGROUND</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">游戏背景</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">书桌一角的微观乌托邦「摇粒乡」，日常巨物化的软科幻童话</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你踏进的是一片<b>书桌一角就是整个世界</b>的地方——名字叫「<b>摇粒乡</b>」，官方英文 Minietopia。灵感很生活化：主创趴工位补觉，梦见自己变小回到日常，眼镜盒变沙发，闹钟变得和人一样大。基调是<b>治愈、慢节奏、无压力的赛博乌托邦</b>——牛奶盒变洋房、耳机变秋千、皮包变公交站台，走的是宫崎骏《借东西的小人阿莉埃蒂》×《猫和老鼠》杰瑞家的路子。这里没有敌人、没有攻击键，只有<b>「日常物品的巨物化」</b>制造的视觉反差和「重新发现寻常美好」的哲学。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">摇粒乡</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">微观乌托邦</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">巨物化日常</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">慢节奏治愈</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">MAIN STORY</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">主线剧情</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">拇指大小的「心想家」与原住民「粒粒」们共建家园</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你扮演意外变小到拇指大小的<b>「心想家」</b>，身份不是这片土地的管理者，而是<b>陪伴者</b>。这里的原住民叫「<b>粒粒</b>」——形态各异：卜卜族是毛绒绒的小动物（首曝角色嘉儿就是卜卜族，乌噜村裁缝铺老板）；SPARK 2026 官宣的新种族<b>因索族</b>是赛博机械冷金属质感的机器人；还有毛茸茸的乌帕，你能抓着它的尾巴穿越乌帕森林。整个玩法<b>没有任务驱动、没有强制社交</b>，制作人原话是「传统的第三空间在消失，大家都比较孤独」——它就是为孤独的当代人做的赛博自处空间。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">心想家</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">粒粒原住民</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">卜卜族/因索族</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">第三空间</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">COMBAT</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">战斗系统</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">缩小枪造家 + 空气瓶捕光 + 弹弓打露珠，无攻击键</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">这里没有战斗，只有「诗意采集」和「创意改造」。核心工具是<b>缩小枪 Shrink Gun</b>——把桌上杂物变成建材：巧克力棒建房子、牛奶盒变洋房、茶杯变街角咖啡馆、瓶盖当屋顶、纽扣当板凳、蜡烛变篝火、纸牌搭帐篷、耳机变音箱。采集也全是脑洞：<b>空气瓶捕捉阳光</b>、摇晃花朵采花粉、<b>弹弓打露珠</b>、吸香瓶收集「被遗忘的气味」、弹弓弹奏白风铃。<b>整个游戏没有攻击键</b>——「对抗关系」在这里的对应物是人 vs 巨大日常物品的视角错位。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">缩小枪</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">诗意采集</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">无攻击键</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">创意改造</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">CORE LOOP</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">核心循环</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">探索-收集-创造-共鸣，非资源累积的情感型循环</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你玩起来是一款<b>无任务驱动的生活模拟</b>：核心循环叫「<b>探索-收集-创造-共鸣</b>」，替代传统模拟经营的「资源累积-规模扩张」。你会种下微小种子看它长成巨大玫瑰、让花瓣托住自己、和粒粒们组 8 种乐器的小乐队、在森林茶话会「弱动机」轻社交、自定义家园与穿搭（英伦风+下午茶、学者服+图书馆）。想深度体验，官方还留了「<b>暗星深井挑战</b>」——一个想搭建通往共情桥梁的深情感模式。<b>百万字对话</b>加 AI 让粒粒记住你做过的事，形成「有温度、有记忆的情感连接」。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">情感循环</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">无任务驱动</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">暗星深井</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">AI记忆陪伴</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-5 text-neutral-500">IP / STORY</div>
+  
+
+  
+  
+  <div class="mb-6 pb-6 border-b border-white/[.06]">
+    
+    <div class="text-[15px] md:text-base font-semibold text-white/90 leading-relaxed mb-5 italic tracking-wide">
+      “<b>大世界小烦恼</b>——闹钟变得和人一样大，你和粒粒们把书桌活成一座乌托邦。”
+    </div>
+    
+    
+    <div class="space-y-4">
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">想象你趴在工位上补了个午觉，一睁眼<b>整个世界忽然被放大了几百倍</b>——你缩到拇指大小，站在自己的书桌上。叶子能当雨伞，闹钟和一栋楼一样大，牛奶盒是一栋洋房，眼镜盒是一张软沙发，耳机线蜿蜒着能荡秋千。这片地方叫「<b>摇粒乡</b>」，是当代打工人的黄粱一梦，也是官方所说的<b>赛博乌托邦</b>。这里没有任务、没有 KPI，甚至<b>没有攻击键</b>——只有一件事：<b>重新发现寻常的美好</b>。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">你是「<b>心想家</b>」——不是这片土地的管理者，只是<b>陪伴者</b>。原住民叫「粒粒」：毛绒绒的卜卜族在乌噜村开裁缝铺，赛博金属的因索族马上要住进来；毛茸茸的乌帕替你穿越乌帕森林。你手里握着<b>缩小枪</b>，把巧克力棒缩成房梁、瓶盖敲成屋顶、纸牌搭成帐篷；你拿空气瓶去捕捉阳光，摇晃花朵采下花粉，用弹弓打落草尖那颗晨露、也能弹奏出一串白风铃。累了，就让一片花瓣托住你，或钻进郁金香的花苞里。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">可越住下去越发现<b>「变小」是一面镜子</b>：<b>那些你以为无聊的日常小物</b>，为什么变小之后突然值得凝视？<b>那些粒粒的对话</b>，AI 会让它们记住你送过的礼、走过的路，它们真的记得你，还是你在写一人的独角戏？<b>「暗星深井挑战」藏在暖光背后</b>——治愈的另一面，是不是每个来这里的人心里都有一口没说过的深井？这不是打怪升级的故事，是关于<b>「一个孤独的当代人，愿意在书桌角落停多久，把自己拼回一个完整的人」</b>的故事——粒粒们摇着花朵招手，你今晚变小几点回？</p>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-3 text-neutral-500">DETAILS</div>
+  
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>模糊的当代日常</b>——一个打工人趴在工位补觉，梦见自己变小的那个下午</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>「摇粒乡」——书桌一角的微观乌托邦</b>：星畔家园、乌帕森林、乌噜村、窗台、橱柜、生态瓶</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text">「<b>拇指大小的「心想家」</b>」——粒粒家园的陪伴者，与卜卜族/因索族/乌帕共处</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>缩小枪 × 诗意采集器物</b>——空气瓶捕阳光、吸香瓶集气味、弹弓打露珠，日常物品被巨物化</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>无攻击键——「对抗」= 人 vs 巨大的日常物品</b>：眼镜盒变沙发、耳机变秋千的视角错位</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>非开放世界的箱庭书桌</b>：安家测试期开放书桌+窗台两个场景，逐步扩展到橱柜、生态瓶等生活角落</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">视觉母题</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>缩小枪 × 巨物化日常 × 花瓣托举</b>；温暖暖光与毛绒绒边缘构成招牌辨识度</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">美学谱系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>类皮克斯绘本风</b>——Unity 引擎、暖色调柔光影、绘本线条 × 超写实材质（clay/fabric/wood）</div>
+  </div>
+  
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+
+    
+    
+    
+    
+    <div class="rounded-xl border border-white/[.08] bg-white/[.02] p-6 mb-8">
+      
+      <div class="flex items-baseline gap-3 mb-5 pb-5 border-b border-white/[.06]">
+        <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">AESTHETIC LABEL</span>
+        <span class="text-[20px] md:text-[22px] font-extrabold text-white tracking-tight">微观治愈童话 Micro Cozy Tale</span>
+      </div>
+      
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q1 · 这是什么美学</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">「微观治愈童话」，是把<b>类皮克斯绘本风</b>和<b>日常物品的巨物化</b>缝进同一张书桌的美学。底子是<b>富有生活感的风格化卡通渲染</b>——暖光融融、毛绒绒的边缘、木桌温和光泽；变异在于把耳机、纽扣、瓶盖、蜡烛这些桌面杂物<b>放大到建筑级别</b>，制造微观视角特有的视觉反差。色彩以<b>暖光的橘黄米白</b>为骨，撞粒粒毛色的柔粉与花瓣的浅绿。整体调性温柔、克制、无压力，是那种「随手截图都是壁纸」的治愈系童话。</p>
+        </div>
+        
+
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q2 · 共识如何发展</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">「微观治愈生活模拟」这套美学血脉清晰。<b>1952 年</b>玛丽·诺顿的儿童文学《The Borrowers 借东西的小人》定义了微缩题材的想象母题。<b>2010 年</b>吉卜力《借东西的小人阿莉埃蒂》把这套微观视角推到画面顶点，成为这一作最直接的美学母本。<b>2020 年</b>任天堂《集合啦！动物森友会》让治愈系生活模拟成为疫情时代的现象级产品。<b>2020 年</b> Obsidian《Grounded》从生存对抗方向验证了微缩题材的可行性。粒粒的小人国走的是第三条路：<b>把微缩题材从阿莉埃蒂的诗意</b>、<b>动森的社交</b>、<b>Grounded 的求生</b>三种血脉里各取一勺，做成一款<b>无任务无攻击的纯陪伴品类</b>。腾讯春笋计划孵化，北极光工作室群银之心承接。</p>
+        </div>
+        
+      </div>
+
+      
+      <div class="mt-6 pt-6 border-t border-white/[.06]">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-3">Q3 · 借鉴谱系（值得美术设计参考的游戏 / 电影 / 动漫 / 剧集）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                借东西的小人阿莉埃蒂
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2010</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>微缩视角的直接美学母本</b>；吉卜力对日常物品巨物化的诗意想象源头</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                集合啦！动物森友会
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2020</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>治愈系生活模拟的现象级标杆</b>；社区节奏与无压力慢生活的对标</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                星露谷物语
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2016</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>农场经营深度的品类参照</b>；种植与陪伴 NPC 的机制母本</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                Grounded
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2020</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>微缩题材求生向的先例</b>；证明微观视角在 3D 世界的可玩性（差异在治愈 vs 对抗）</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                亲爱的，我把孩子缩小了
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1989</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>「缩小灾难」的影像母题</b>；日常物品巨物化的视觉反差参照</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              漫画
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                哆啦A梦
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1969</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>缩小灯道具的童年记忆</b>；把日常放大成奇观的想象根系</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                心动小镇
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2024</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>国产治愈系生活模拟的近邻</b>；玩家常评价这一作为「高配版心动小镇」</div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">书桌摇粒乡 - 巨物化日常的暖光童话</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">场景是<b>书桌一角的微观世界</b>——摇粒乡、星畔家园、乌帕森林、乌噜村、窗台、橱柜、生态瓶。视觉狠抓两点：一是<b>日常物品的巨物化</b>（牛奶盒变洋房、耳机变秋千、皮包变公交站台、瓶盖当屋顶）；二是<b>暖光融融的场景光影</b>——木质桌面既有清晰纹理也有多年使用的温和光泽。Unity 引擎搭配 RVT 运行时虚拟纹理、实时全局光照、体积雾。色调用<b>橘黄米白暖光</b>压底，让粒粒毛色的柔粉、花瓣的浅绿、蜡烛的暖橘在画面里点亮</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">毛绒卜卜族 × 赛博因索族 × 拇指心想家</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">角色阵营呈<b>「毛绒 vs 赛博」双色调</b>：<b>卜卜族</b>是毛绒绒的小动物形态（拟态兔耳、柔软材质、喜欢甜味食物），如首曝角色嘉儿——乌噜村裁缝铺老板；<b>因索族</b>是赛博机械冷金属质感的机器人。主角「心想家」拇指大小，可自定义发型、服装多槽位，玩家戏称 OOTD 每日穿搭：英伦风加下午茶主题、学者服加图书馆。乌帕是毛茸茸的伙伴型生物，可抓住尾巴当交通工具</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">极简陪伴 UI - 无战斗HUD，让位微观奇观</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI 做到极简克制——<b>没有传统 3A 那些血条、法力、任务追踪</b>，因为这里根本没有战斗和任务。核心界面服务于<b>缩小枪的建材切换、诗意采集器物栏、粒粒对话与亲密度</b>。整体信息密度低到几乎「消失」——玩家评价「随手一拍都是壁纸级画面」正是 UI 主动隐形的结果。<b>UI 让位于微观奇观</b>——耳机秋千、蜡烛篝火、瓶盖屋顶的画面才是主角</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">缩小枪 × 巨物化日常 × 花瓣托举</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">核心视觉符号：<b>缩小枪 Shrink Gun</b>（把日常杂物变成建材的标志性工具，也是所有创意改造的起点）、<b>被放大的日常小物</b>（牛奶盒洋房、眼镜盒沙发、耳机秋千、瓶盖屋顶——玩家最容易记住的画面）、<b>花瓣托举心想家</b>（累了让一片花瓣接住你的招牌治愈画面）；色彩母题锁定<b>暖光橘黄 + 毛绒柔粉 + 花瓣浅绿</b></div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">「电子布洛芬」现象 - 800万预约与破亿曝光</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发核心打<b>「腾讯在最卷的赛道做最不卷的游戏」</b>话题——首曝 PV B站播放破 500 万登上每周必看第 340 期，首日全平台热度破 3000 万、两周破亿；Steam 全球免费新游趋势榜连续 7 日霸榜，全球预约<b>500万→774万→800万+</b>；TapTap 9.6 分、国内预约超 86 万；玩家自发起「关服仪式」冲抖音快手 B站小红书微博热搜。<b>「最不像腾子的一集」「电子布洛芬」</b>成为社区高频评价；Key Art 以心想家立于巨物化书桌为核心</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'bili' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV12Ap2zjE5C/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《粒粒的小人国》首曝PV&实机演示丨世界无限放大，烦恼统统变小</span>
+          <span class="text-xs text-neutral-500 shrink-0">580万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1BKPpzHE8n/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">正式定档！《粒粒的小人国》3月19日开启测试！</span>
+          <span class="text-xs text-neutral-500 shrink-0">114万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV13LFNzmEHK/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《粒粒的小人国》安家测试招募开启丨春暖花开，欢迎你来</span>
+          <span class="text-xs text-neutral-500 shrink-0">58万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1HeVJ6ZEYo/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">小一点，生活就大一点</span>
+          <span class="text-xs text-neutral-500 shrink-0">40万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1YGAZz3EnV/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">小人国新朋友丨恩俊</span>
+          <span class="text-xs text-neutral-500 shrink-0">3.1万播放</span>
+        </a>
+        
+      </div>
+      
+
+      
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>「腾讯在最卷的赛道做最不卷的游戏」</b>——观察者网标题直接点破治愈品类的意外
+    
+      <span class="text-xs text-neutral-600 ml-1">— 观察者网</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>类皮克斯绘本风 + 巨物化日常</b>——媒体反复夸的美术记忆点
+    
+      <span class="text-xs text-neutral-600 ml-1">— 游民星空 / 17173</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>首曝 PV B站500万播放登每周必看</b>——首日全平台破3000万、两周破亿曝光
+    
+      <span class="text-xs text-neutral-600 ml-1">— 游侠 / TapTap</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>牛奶盒变洋房、眼镜盒变沙发</b>——日常小物创意改造的爽点被反复引用
+    
+      <span class="text-xs text-neutral-600 ml-1">— 腾讯网 / Enduins</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>空气瓶捕阳光、弹弓打露珠</b>——诗意采集机制被赞脑洞独特
+    
+      <span class="text-xs text-neutral-600 ml-1">— 观察者网</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>无任务无KPI的慢节奏</b>——被玩家形容「打工人的电子布洛芬」
+    
+      <span class="text-xs text-neutral-600 ml-1">— 17173 / TapTap</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>首曝 PV vs 测试实机画质落差</b>——NGA 帖指出物理碰撞未做好（双脚离地、滑板平移）
+    
+      <span class="text-xs text-neutral-600 ml-1">— NGA</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>「腾讯做治愈单机」的信任度重建</b>——需上线成品验证不氪不肝承诺
+    
+      <span class="text-xs text-neutral-600 ml-1">— 观察者网 / 玩家共识</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>无任务的自驱力挑战</b>——部分玩家担心长线留存缺少目标感
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap 讨论</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Free to Play 定价</b>——玩家警惕后续内购机制是否偏移「治愈」定位
+    
+      <span class="text-xs text-neutral-600 ml-1">— 行业共识</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>发售延后至2026下半年</b>——热度需靠持续内容更新维系
+    
+      <span class="text-xs text-neutral-600 ml-1">— SPARK 2026</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span>「<b>最不像腾子的一集 / 电子布洛芬</b>」成为社区对它的核心标签
+    
+      <span class="text-xs text-neutral-600 ml-1">— 17173 / 玩家评价</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>关服仪式冲上5大平台热搜</b>——玩家「戒断反应」情感浓度罕见
+    
+      <span class="text-xs text-neutral-600 ml-1">— 腾讯网关服报道</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>上班党太需要轻社交了</b>——TapTap 高频评价，戳中当代人孤独感
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>随手一拍都是壁纸级画面</b>——毛绒绒小世界的视觉共识
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap / 小红书</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>版号「移动/客户端」双端</b>——引发「会不会做成手游氪金」的担忧
+    
+      <span class="text-xs text-neutral-600 ml-1">— 贴吧 / 小黑盒</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>NPC 对话依赖 AI</b>——部分玩家担心记忆感是伪装的算法
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap 讨论</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>「腾讯出品」的品牌折损</b>——部分老玩家坚持观望不预约
+    
+      <span class="text-xs text-neutral-600 ml-1">— 小黑盒 / NGA</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>无攻击键的长线动力</b>——追求成长曲线的玩家可能中途弃坑
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区观察</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">集合啦！动物森友会 <span class="text-xs text-neutral-500 font-normal ml-1">Nintendo</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1"><b>治愈系生活模拟的现象级标杆</b>——动森是粒粒最直接的对标，媒体常并列讨论</div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">星露谷物语 <span class="text-xs text-neutral-500 font-normal ml-1">ConcernedApe</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1"><b>农场经营与陪伴 NPC 的品类母本</b>——粒粒的种植与粒粒亲密度机制的参照</div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">双人成行 <span class="text-xs text-neutral-500 font-normal ml-1">Hazelight Studios / EA</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1"><b>合作生活模拟的电影级演出</b>——双人成行与粒粒共享跨平台联机与「零门槛偶遇社交」的合作路线</div>
+          </div>
+        </div>
+        
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        
+        
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    
+    
+    <div x-show="assetTab === 'official'" x-cloak x-ref="panelOfficial">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">商店页 + 官网</h4>
+        <div class="space-y-1">
+          
+          <a href="https://store.steampowered.com/app/3767320/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Steam 商店页</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Steam</span>
+          </a>
+          
+          <a href="https://life.qq.com/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">腾讯官网</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">官网</span>
+          </a>
+          
+          <a href="https://animulanook.com" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">海外官网</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">官网</span>
+          </a>
+          
+          <a href="https://weibo.com/u/8015318801" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方微博 @粒粒的小人国</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">微博</span>
+          </a>
+          
+          <a href="https://www.biligame.com/detail/?id=116241" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">B站游戏中心</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">B站</span>
+          </a>
+          
+          <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%B2%92%E7%B2%92%E7%9A%84%E5%B0%8F%E4%BA%BA%E5%9B%BD" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">小红书搜索「粒粒的小人国」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">小红书</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色建模 / 概念设定图</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=Animula%20Nook" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「Animula Nook」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=Animula%20Nook%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Pinterest 搜索「Animula Nook art」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelOfficial.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+    
+    
+    <div x-show="assetTab === 'inspiration'" x-cloak x-ref="panelInspiration">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">概念美术 / Concept Art</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=Animula%20Nook%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「Animula Nook concept art」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=Animula%20Nook%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Pinterest 搜索「Animula Nook concept art」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色设计</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=Animula%20Nook%20character" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「Animula Nook character」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.behance.net/search/projects?search=Animula%20Nook" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Behance 搜索「Animula Nook」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Behance</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">UI 界面 / 纹理材质</h4>
+        <div class="space-y-1">
+          
+          <a href="https://dribbble.com/search/Animula%20Nook%20UI" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Dribbble 搜索「Animula Nook UI」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Dribbble</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=Animula%20Nook%20environment" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「Animula Nook environment」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelInspiration.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-worldview',   label:'游戏世界观'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+
+// Track visit for "浏览历史" module
+(function() {
+  var slug = 'animula-nook';
+  var key = 'game_history';
+  var now = Date.now();
+  var SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+
+  var history = {};
+  try { history = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e) {}
+
+  // Dedup: same game only counts once within 30 minutes
+  var prev = history[slug];
+  if (prev && (now - prev.last) < 30 * 60 * 1000) return;
+
+  // Update: record last visit time + increment count
+  history[slug] = {
+    last: now,
+    count: (prev ? prev.count : 0) + 1
+  };
+
+  // Clean entries older than 7 days
+  Object.keys(history).forEach(function(k) {
+    if (now - history[k].last > SEVEN_DAYS) delete history[k];
+  });
+
+  localStorage.setItem(key, JSON.stringify(history));
+})();
+</script>
+
+</body>
+</html>
