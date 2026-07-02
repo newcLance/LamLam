@@ -417,10 +417,10 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 检索「Death Stranding 2: On the Beach」",
+            "title": "Interface In Game 游戏列表",
             "source": "InterfaceInGame",
-            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20Death%20Stranding%202%3A%20On%20the%20Beach",
-            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
+            "url": "https://interfaceingame.com/games/games/",
+            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Death Stranding 2: On the Beach》(未直接收录时手动扫)"
           },
           {
             "title": "GameUI.net 游戏列表(找《死亡搁浅2：冥滩之上》)",

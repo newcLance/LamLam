@@ -407,10 +407,10 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 检索「Counter-Strike 2」",
+            "title": "Interface In Game 游戏列表",
             "source": "InterfaceInGame",
-            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20Counter-Strike%202",
-            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
+            "url": "https://interfaceingame.com/games/games/",
+            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Counter-Strike 2》(未直接收录时手动扫)"
           },
           {
             "title": "GameUI.net 游戏列表(找《反恐精英2》)",

@@ -44,9 +44,10 @@ def process(slug, dry_run=False, verbose=True):
         return "no-ui-cat"
 
     new_links = build_ui_links(name_cn, name_en, try_iig_direct=True)
-    old_srcs = [l.get("source", "") for l in ui_grp.get("links", [])]
-    new_srcs = [l.get("source", "") for l in new_links]
-    changed = old_srcs != new_srcs
+    # 用 url+note 组合判断是否真变了 (source 相同但 url 可能不同)
+    def sig(links):
+        return [(l.get("source",""), l.get("url",""), l.get("note","")) for l in links]
+    changed = sig(ui_grp.get("links", [])) != sig(new_links)
 
     if verbose:
         hit = any(l.get("source") == "InterfaceInGame" and "InterfaceInGame" and "search?q=" not in l.get("url", "")

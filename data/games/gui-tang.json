@@ -385,10 +385,10 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 检索「Blood Message」",
+            "title": "Interface In Game 游戏列表",
             "source": "InterfaceInGame",
-            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20Blood%20Message",
-            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
+            "url": "https://interfaceingame.com/games/games/",
+            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Blood Message》(未直接收录时手动扫)"
           },
           {
             "title": "GameUI.net 游戏列表(找《归唐》)",

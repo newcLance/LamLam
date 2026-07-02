@@ -487,10 +487,10 @@
         "cat": "UI 界面 / HUD 设计",
         "links": [
           {
-            "title": "Interface In Game 检索「Roco Kingdom: World」",
+            "title": "Interface In Game 游戏列表",
             "source": "InterfaceInGame",
-            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20Roco%20Kingdom%3A%20World",
-            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
+            "url": "https://interfaceingame.com/games/games/",
+            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Roco Kingdom: World》(未直接收录时手动扫)"
           },
           {
             "title": "GameUI.net 游戏列表(找《洛克王国：世界》)",

@@ -61,7 +61,9 @@ def iig_slug_variants(name_en):
 
 
 def find_interfaceingame(name_en):
-    """返回 (最佳链接, 状态描述, is_direct_hit)"""
+    """返回 (最佳链接, 状态描述, is_direct_hit)
+    v2 (2026-07-02): 未命中不再用 Bing 中转,给 iig 全站游戏列表页,让用户直接进站找。
+    """
     if not name_en:
         return None, "无英文名", False
     for slug in iig_slug_variants(name_en):
@@ -72,9 +74,7 @@ def find_interfaceingame(name_en):
                 return url, f"直连命中 ({slug})", True
         except Exception:
             continue
-    # 未命中 → 返回带 Bing 兜底的搜索指引 URL
-    q = urllib.parse.quote(f"site:interfaceingame.com {name_en}")
-    return f"https://www.bing.com/search?q={q}", "iig 未直连命中, 用 Bing site: 兜底搜索", False
+    return "https://interfaceingame.com/games/games/", "iig 未直连命中, 给全站游戏列表页(按字母/年份找)", False
 
 
 # ── gameui.net ────────────────────────────────────────────────
@@ -100,13 +100,13 @@ def build_ui_links(name_cn, name_en, verbose=True):
             links.append({
                 "title": f"Interface In Game《{name_en}》UI 收录页",
                 "source": "InterfaceInGame", "url": iig_url,
-                "note": "国外单机 UI 数据库,官方收录页 (直链命中)"
+                "note": "国外单机 UI 数据库·直链命中"
             })
         else:
             links.append({
-                "title": f"Interface In Game 搜索《{name_en}》",
+                "title": "Interface In Game 游戏列表",
                 "source": "InterfaceInGame", "url": iig_url,
-                "note": "国外单机 UI 数据库,若无收录用 Bing site: 兜底"
+                "note": f"国外单机 UI 数据库·进站按字母/发布年份找《{name_en}》(未直接收录时手动扫)"
             })
 
     gu_url, gu_info, gu_hit = find_gameui(name_cn, name_en)

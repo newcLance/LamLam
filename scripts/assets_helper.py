@@ -52,7 +52,14 @@ def _try_iig(name_en, timeout=8):
 
 def build_ui_links(name_cn, name_en, try_iig_direct=True):
     """构造 UI 界面 / 纹理材质 分类的 links 列表。
-    优先级: iig 直链(若命中) > iig 搜索兜底 > gameui 列表页(带说明) > ArtStation UI 兜底 > Pinterest UI 兜底"""
+
+    策略 (2026-07-02 v2, 用户反馈: 之前 Bing/gameui 首页跳站体验不佳):
+    - iig 直连命中 -> 精确 /games/games/{slug}/ 详情页
+    - iig 未命中 -> iig 全站游戏列表页(/games/games/) + note 提示手动扫
+    - gameui.net -> 永远给游戏列表首页 /game/ + note 提示进站搜索
+    - ArtStation / Pinterest UI 保留作为兜底
+
+    彻底不再用 Bing/Google 中转 URL, 一次点击即落到 UI 数据库站内。"""
     links = []
     # 1. Interface In Game
     if name_en:
@@ -61,15 +68,14 @@ def build_ui_links(name_cn, name_en, try_iig_direct=True):
             links.append({
                 "title": f"Interface In Game《{name_en}》UI 收录页",
                 "source": "InterfaceInGame", "url": iig_url,
-                "note": "国外单机 UI 数据库·官方直链命中"
+                "note": "国外单机 UI 数据库·直链命中"
             })
         else:
-            q = urllib.parse.quote(f"site:interfaceingame.com {name_en}")
             links.append({
-                "title": f"Interface In Game 检索「{name_en}」",
+                "title": "Interface In Game 游戏列表",
                 "source": "InterfaceInGame",
-                "url": f"https://www.bing.com/search?q={q}",
-                "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
+                "url": "https://interfaceingame.com/games/games/",
+                "note": f"国外单机 UI 数据库·进站按字母/发布年份找《{name_en}》(未直接收录时手动扫)"
             })
     # 2. GameUI.net (无稳定搜索, 给列表页入口 + 明确指引)
     gu_query = name_cn or name_en or ""

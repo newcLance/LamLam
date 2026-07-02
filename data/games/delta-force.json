@@ -394,10 +394,10 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 检索「Delta Force (三角洲行动)」",
+            "title": "Interface In Game 游戏列表",
             "source": "InterfaceInGame",
-            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20Delta%20Force%20%28%E4%B8%89%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8%29",
-            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
+            "url": "https://interfaceingame.com/games/games/",
+            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Delta Force (三角洲行动)》(未直接收录时手动扫)"
           },
           {
             "title": "GameUI.net 游戏列表(找《三角洲行动》)",
