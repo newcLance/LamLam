@@ -417,16 +417,16 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 游戏列表",
+            "title": "Google 搜索「site:interfaceingame.com Death Stranding 2: On the Beach」",
             "source": "InterfaceInGame",
-            "url": "https://interfaceingame.com/games/games/",
-            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Death Stranding 2: On the Beach》(未直接收录时手动扫)"
+            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Death%20Stranding%202%3A%20On%20the%20Beach",
+            "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
           },
           {
-            "title": "GameUI.net 游戏列表(找《死亡搁浅2：冥滩之上》)",
+            "title": "Google 搜索「site:gameui.net 死亡搁浅2：冥滩之上」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「死亡搁浅2：冥滩之上」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E6%AD%BB%E4%BA%A1%E6%90%81%E6%B5%852%EF%BC%9A%E5%86%A5%E6%BB%A9%E4%B9%8B%E4%B8%8A",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「死亡搁浅2：冥滩之上」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「Death Stranding 2: On the Beach UI」",

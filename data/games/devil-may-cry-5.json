@@ -418,10 +418,10 @@
             "note": "国外单机 UI 数据库·直链命中"
           },
           {
-            "title": "GameUI.net 游戏列表(找《鬼泣5》)",
+            "title": "Google 搜索「site:gameui.net 鬼泣5」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「鬼泣5」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E9%AC%BC%E6%B3%A35",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「鬼泣5」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「Devil May Cry 5 UI」",

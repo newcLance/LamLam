@@ -365,10 +365,10 @@
             "note": "国外单机 UI 数据库·直链命中"
           },
           {
-            "title": "GameUI.net 游戏列表(找《消逝的光芒：野兽》)",
+            "title": "Google 搜索「site:gameui.net 消逝的光芒：野兽」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「消逝的光芒：野兽」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E6%B6%88%E9%80%9D%E7%9A%84%E5%85%89%E8%8A%92%EF%BC%9A%E9%87%8E%E5%85%BD",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「消逝的光芒：野兽」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「Dying Light: The Beast UI」",

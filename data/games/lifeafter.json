@@ -366,16 +366,16 @@
         "cat": "UI",
         "links": [
           {
-            "title": "Interface In Game 游戏列表",
+            "title": "Google 搜索「site:interfaceingame.com LifeAfter」",
             "source": "InterfaceInGame",
-            "url": "https://interfaceingame.com/games/games/",
-            "note": "国外单机 UI 数据库·进站按字母/发布年份找《LifeAfter》(未直接收录时手动扫)"
+            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20LifeAfter",
+            "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
           },
           {
-            "title": "GameUI.net 游戏列表(找《明日之后》)",
+            "title": "Google 搜索「site:gameui.net 明日之后」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「明日之后」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E6%98%8E%E6%97%A5%E4%B9%8B%E5%90%8E",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「明日之后」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「LifeAfter UI」",

@@ -357,16 +357,16 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 游戏列表",
+            "title": "Google 搜索「site:interfaceingame.com Where Winds Meet」",
             "source": "InterfaceInGame",
-            "url": "https://interfaceingame.com/games/games/",
-            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Where Winds Meet》(未直接收录时手动扫)"
+            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Where%20Winds%20Meet",
+            "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
           },
           {
-            "title": "GameUI.net 游戏列表(找《燕云十六声》)",
+            "title": "Google 搜索「site:gameui.net 燕云十六声」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「燕云十六声」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E7%87%95%E4%BA%91%E5%8D%81%E5%85%AD%E5%A3%B0",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「燕云十六声」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「Where Winds Meet UI」",

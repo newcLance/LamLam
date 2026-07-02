@@ -62,7 +62,7 @@ def iig_slug_variants(name_en):
 
 def find_interfaceingame(name_en):
     """返回 (最佳链接, 状态描述, is_direct_hit)
-    v2 (2026-07-02): 未命中不再用 Bing 中转,给 iig 全站游戏列表页,让用户直接进站找。
+    v3 (2026-07-02): 直连命中优先精确直链; 未命中走 Google site: 搜索(用户偏好)。
     """
     if not name_en:
         return None, "无英文名", False
@@ -74,17 +74,17 @@ def find_interfaceingame(name_en):
                 return url, f"直连命中 ({slug})", True
         except Exception:
             continue
-    return "https://interfaceingame.com/games/games/", "iig 未直连命中, 给全站游戏列表页(按字母/年份找)", False
+    q = urllib.parse.quote(f"site:interfaceingame.com {name_en}")
+    return f"https://www.google.com/search?q={q}", "iig 未直连命中, 走 Google site: 搜索", False
 
 
 # ── gameui.net ────────────────────────────────────────────────
 def find_gameui(name_cn, name_en):
-    """gameui 无稳定搜索/sitemap, 无法自动定位 game id。给出检索指引 URL。
+    """gameui 无稳定搜索/sitemap → 直接走 Google site:gameui.net。
     返回 (URL, 状态描述, is_direct_hit)"""
-    # 用户明确说 ?s= 会跳首页, 也不给设计师看假搜索。
-    # 折中方案：给站内分类页链接 + 明确的检索说明（在 assets note 里带上）
-    # 站内浏览入口: https://www.gameui.net/game/ 是最新游戏列表
-    return "https://www.gameui.net/game/", "gameui 无稳定搜索, 给游戏列表页入口, 设计师手动查", False
+    query = name_cn or name_en or ""
+    q = urllib.parse.quote(f"site:gameui.net {query}")
+    return f"https://www.google.com/search?q={q}", "gameui 走 Google site: 搜索", False
 
 
 # ── 主流程 ────────────────────────────────────────────────────
@@ -104,19 +104,20 @@ def build_ui_links(name_cn, name_en, verbose=True):
             })
         else:
             links.append({
-                "title": "Interface In Game 游戏列表",
+                "title": f"Google 搜索「site:interfaceingame.com {name_en}」",
                 "source": "InterfaceInGame", "url": iig_url,
-                "note": f"国外单机 UI 数据库·进站按字母/发布年份找《{name_en}》(未直接收录时手动扫)"
+                "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
             })
 
     gu_url, gu_info, gu_hit = find_gameui(name_cn, name_en)
+    query = name_cn or name_en or ""
     if verbose:
-        print(f"gameui.net     : {'✓ 直连' if gu_hit else '~ 列表页'}  {gu_url}\n    {gu_info}")
+        print(f"gameui.net     : Google site: 搜索  {gu_url}\n    {gu_info}")
     if gu_url:
         links.append({
-            "title": f"GameUI.net 游戏列表(搜索「{name_cn or name_en}」)",
+            "title": f"Google 搜索「site:gameui.net {query}」",
             "source": "GameUI.net", "url": gu_url,
-            "note": f"国内/手游 UI 数据库,进站后搜索「{name_cn or name_en}」找到 /game/{{id}} 直链"
+            "note": f"国内/手游 UI 数据库·用 Google site: 定位「{query}」的 /game/{{id}} 直链"
         })
 
     # 传统兜底（保留原 ArtStation/Pinterest, 排在专业站点后面）

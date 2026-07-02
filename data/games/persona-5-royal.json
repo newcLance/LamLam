@@ -378,16 +378,16 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 游戏列表",
+            "title": "Google 搜索「site:interfaceingame.com Persona 5 Royal」",
             "source": "InterfaceInGame",
-            "url": "https://interfaceingame.com/games/games/",
-            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Persona 5 Royal》(未直接收录时手动扫)"
+            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Persona%205%20Royal",
+            "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
           },
           {
-            "title": "GameUI.net 游戏列表(找《女神异闻录5：皇家版》)",
+            "title": "Google 搜索「site:gameui.net 女神异闻录5：皇家版」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「女神异闻录5：皇家版」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E5%A5%B3%E7%A5%9E%E5%BC%82%E9%97%BB%E5%BD%955%EF%BC%9A%E7%9A%87%E5%AE%B6%E7%89%88",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「女神异闻录5：皇家版」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「Persona 5 Royal UI」",

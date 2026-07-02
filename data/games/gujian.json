@@ -395,16 +395,16 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 游戏列表",
+            "title": "Google 搜索「site:interfaceingame.com Gujian」",
             "source": "InterfaceInGame",
-            "url": "https://interfaceingame.com/games/games/",
-            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Gujian》(未直接收录时手动扫)"
+            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Gujian",
+            "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
           },
           {
-            "title": "GameUI.net 游戏列表(找《古剑》)",
+            "title": "Google 搜索「site:gameui.net 古剑」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「古剑」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E5%8F%A4%E5%89%91",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「古剑」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「Gujian UI」",

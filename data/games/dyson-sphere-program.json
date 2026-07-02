@@ -395,16 +395,16 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 游戏列表",
+            "title": "Google 搜索「site:interfaceingame.com Dyson Sphere Program」",
             "source": "InterfaceInGame",
-            "url": "https://interfaceingame.com/games/games/",
-            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Dyson Sphere Program》(未直接收录时手动扫)"
+            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Dyson%20Sphere%20Program",
+            "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
           },
           {
-            "title": "GameUI.net 游戏列表(找《戴森球计划》)",
+            "title": "Google 搜索「site:gameui.net 戴森球计划」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「戴森球计划」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E6%88%B4%E6%A3%AE%E7%90%83%E8%AE%A1%E5%88%92",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「戴森球计划」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「Dyson Sphere Program UI」",

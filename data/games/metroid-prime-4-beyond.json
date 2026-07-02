@@ -402,16 +402,16 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Interface In Game 游戏列表",
+            "title": "Google 搜索「site:interfaceingame.com Metroid Prime 4: Beyond」",
             "source": "InterfaceInGame",
-            "url": "https://interfaceingame.com/games/games/",
-            "note": "国外单机 UI 数据库·进站按字母/发布年份找《Metroid Prime 4: Beyond》(未直接收录时手动扫)"
+            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Metroid%20Prime%204%3A%20Beyond",
+            "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
           },
           {
-            "title": "GameUI.net 游戏列表(找《银河战士Prime 4：超越》)",
+            "title": "Google 搜索「site:gameui.net 银河战士Prime 4：超越」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「银河战士Prime 4：超越」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E9%93%B6%E6%B2%B3%E6%88%98%E5%A3%ABPrime%204%EF%BC%9A%E8%B6%85%E8%B6%8A",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「银河战士Prime 4：超越」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「Metroid Prime 4: Beyond UI」",

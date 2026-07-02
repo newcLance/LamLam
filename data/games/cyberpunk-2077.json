@@ -403,10 +403,10 @@
             "note": "国外单机 UI 数据库·直链命中"
           },
           {
-            "title": "GameUI.net 游戏列表(找《赛博朋克2077》)",
+            "title": "Google 搜索「site:gameui.net 赛博朋克2077」",
             "source": "GameUI.net",
-            "url": "https://www.gameui.net/game/",
-            "note": "国内/手游 UI 数据库·进站后搜索「赛博朋克2077」并找到 /game/{id} 直链"
+            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E8%B5%9B%E5%8D%9A%E6%9C%8B%E5%85%8B2077",
+            "note": "国内/手游 UI 数据库·用 Google site: 定位「赛博朋克2077」的 /game/{id} 直链"
           },
           {
             "title": "ArtStation 搜索「Cyberpunk 2077 UI」",

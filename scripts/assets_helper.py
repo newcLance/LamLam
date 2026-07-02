@@ -53,13 +53,13 @@ def _try_iig(name_en, timeout=8):
 def build_ui_links(name_cn, name_en, try_iig_direct=True):
     """构造 UI 界面 / 纹理材质 分类的 links 列表。
 
-    策略 (2026-07-02 v2, 用户反馈: 之前 Bing/gameui 首页跳站体验不佳):
-    - iig 直连命中 -> 精确 /games/games/{slug}/ 详情页
-    - iig 未命中 -> iig 全站游戏列表页(/games/games/) + note 提示手动扫
-    - gameui.net -> 永远给游戏列表首页 /game/ + note 提示进站搜索
+    策略 (2026-07-02 v3, 用户反馈: 搜索引擎跳转其实更方便):
+    - iig 直连命中 -> 精确 /games/games/{slug}/ 详情页(一次到位)
+    - iig 未命中 -> Google site:interfaceingame.com {name_en}
+    - gameui.net -> Google site:gameui.net {name_cn}
     - ArtStation / Pinterest UI 保留作为兜底
 
-    彻底不再用 Bing/Google 中转 URL, 一次点击即落到 UI 数据库站内。"""
+    Google site: 语法结果精度高, 一次点击到搜索结果页, 候选已列出, 比给"全站列表让手扫"更快。"""
     links = []
     # 1. Interface In Game
     if name_en:
@@ -71,19 +71,21 @@ def build_ui_links(name_cn, name_en, try_iig_direct=True):
                 "note": "国外单机 UI 数据库·直链命中"
             })
         else:
+            q = urllib.parse.quote(f"site:interfaceingame.com {name_en}")
             links.append({
-                "title": "Interface In Game 游戏列表",
+                "title": f"Google 搜索「site:interfaceingame.com {name_en}」",
                 "source": "InterfaceInGame",
-                "url": "https://interfaceingame.com/games/games/",
-                "note": f"国外单机 UI 数据库·进站按字母/发布年份找《{name_en}》(未直接收录时手动扫)"
+                "url": f"https://www.google.com/search?q={q}",
+                "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
             })
-    # 2. GameUI.net (无稳定搜索, 给列表页入口 + 明确指引)
+    # 2. GameUI.net (无 API, 走 Google site: 搜索)
     gu_query = name_cn or name_en or ""
+    q_gu = urllib.parse.quote(f"site:gameui.net {gu_query}")
     links.append({
-        "title": f"GameUI.net 游戏列表(找《{gu_query}》)",
+        "title": f"Google 搜索「site:gameui.net {gu_query}」",
         "source": "GameUI.net",
-        "url": "https://www.gameui.net/game/",
-        "note": f"国内/手游 UI 数据库·进站后搜索「{gu_query}」并找到 /game/{{id}} 直链"
+        "url": f"https://www.google.com/search?q={q_gu}",
+        "note": f"国内/手游 UI 数据库·用 Google site: 定位「{gu_query}」的 /game/{{id}} 直链"
     })
     # 3. 兜底: ArtStation UI + Pinterest UI
     if name_en:
