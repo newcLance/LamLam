@@ -404,19 +404,26 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Dribbble 搜索「Balatro UI」",
-            "source": "Dribbble",
-            "url": "https://dribbble.com/search/Balatro-UI"
+            "title": "Interface In Game 检索「Balatro」",
+            "source": "InterfaceInGame",
+            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20Balatro",
+            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
           },
           {
-            "title": "ArtStation 搜索「Balatro texture material」",
+            "title": "GameUI.net 游戏列表(找《小丑牌》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「小丑牌」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「Balatro UI」",
             "source": "ArtStation",
-            "url": "https://www.artstation.com/search?sort_by=relevance&query=Balatro%20texture%20material"
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Balatro%20UI"
           },
           {
-            "title": "Pinterest 搜索「Balatro texture」",
+            "title": "Pinterest 搜索「Balatro UI」",
             "source": "Pinterest",
-            "url": "https://www.pinterest.com/search/pins/?q=Balatro%20texture"
+            "url": "https://www.pinterest.com/search/pins/?q=Balatro%20UI"
           }
         ]
       }

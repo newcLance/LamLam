@@ -366,14 +366,26 @@
         "cat": "UI",
         "links": [
           {
-            "label": "Sci-Fi/Military UI 参考",
-            "url": "https://www.artstation.com/search?query=military%20game%20UI",
-            "note": "军事终端风格界面"
+            "title": "Interface In Game 检索「LifeAfter」",
+            "source": "InterfaceInGame",
+            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20LifeAfter",
+            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
           },
           {
-            "label": "Dead Space UI 分析",
-            "url": "https://www.artstation.com/search?query=dead%20space%20UI%20design",
-            "note": "沉浸式HUD设计参考"
+            "title": "GameUI.net 游戏列表(找《明日之后》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「明日之后」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「LifeAfter UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=LifeAfter%20UI"
+          },
+          {
+            "title": "Pinterest 搜索「LifeAfter UI」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=LifeAfter%20UI"
           }
         ]
       },

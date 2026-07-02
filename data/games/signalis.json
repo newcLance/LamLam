@@ -399,9 +399,26 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "搜索 Retro Sci-fi Horror UI",
-            "source": "Dribbble",
-            "url": "https://dribbble.com/search/retro-sci-fi-horror-ui"
+            "title": "Interface In Game 检索「SIGNALIS」",
+            "source": "InterfaceInGame",
+            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20SIGNALIS",
+            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
+          },
+          {
+            "title": "GameUI.net 游戏列表(找《信号》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「信号」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「SIGNALIS UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=SIGNALIS%20UI"
+          },
+          {
+            "title": "Pinterest 搜索「SIGNALIS UI」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=SIGNALIS%20UI"
           }
         ]
       }

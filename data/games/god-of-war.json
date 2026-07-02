@@ -383,14 +383,26 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "搜索 God of War Game UI",
-            "source": "Dribbble",
-            "url": "https://dribbble.com/search/god-of-war-game-ui"
+            "title": "Interface In Game《God of War》UI 收录页",
+            "source": "InterfaceInGame",
+            "url": "https://interfaceingame.com/games/games/god-of-war/",
+            "note": "国外单机 UI 数据库·官方直链命中"
           },
           {
-            "title": "动作 RPG UI 设计参考",
+            "title": "GameUI.net 游戏列表(找《战神》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「战神」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「God of War UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=God%20of%20War%20UI"
+          },
+          {
+            "title": "Pinterest 搜索「God of War UI」",
             "source": "Pinterest",
-            "url": "https://www.pinterest.com/search/pins/?q=action%20rpg%20game%20ui%20god%20of%20war"
+            "url": "https://www.pinterest.com/search/pins/?q=God%20of%20War%20UI"
           }
         ]
       }

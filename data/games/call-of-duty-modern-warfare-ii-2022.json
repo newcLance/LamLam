@@ -405,19 +405,26 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Dribbble 搜索「Call of Duty: Modern Warfare II UI」",
-            "source": "Dribbble",
-            "url": "https://dribbble.com/search/Call-of-Duty%3A-Modern-Warfare-II-UI"
+            "title": "Interface In Game《Call of Duty: Modern Warfare II (2022)》UI 收录页",
+            "source": "InterfaceInGame",
+            "url": "https://interfaceingame.com/games/games/call-of-duty/",
+            "note": "国外单机 UI 数据库·官方直链命中"
           },
           {
-            "title": "ArtStation 搜索「Call of Duty: Modern Warfare II texture material」",
+            "title": "GameUI.net 游戏列表(找《使命召唤：现代战争2 (2022)》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「使命召唤：现代战争2 (2022)」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「Call of Duty: Modern Warfare II (2022) UI」",
             "source": "ArtStation",
-            "url": "https://www.artstation.com/search?sort_by=relevance&query=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20texture%20material"
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20%282022%29%20UI"
           },
           {
-            "title": "Pinterest 搜索「Call of Duty: Modern Warfare II texture」",
+            "title": "Pinterest 搜索「Call of Duty: Modern Warfare II (2022) UI」",
             "source": "Pinterest",
-            "url": "https://www.pinterest.com/search/pins/?q=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20texture"
+            "url": "https://www.pinterest.com/search/pins/?q=Call%20of%20Duty%3A%20Modern%20Warfare%20II%20%282022%29%20UI"
           }
         ]
       }

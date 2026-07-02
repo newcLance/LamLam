@@ -394,14 +394,26 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "搜索 Military FPS Game UI",
-            "source": "Dribbble",
-            "url": "https://dribbble.com/search/military-fps-game-ui"
+            "title": "Interface In Game 检索「Delta Force (三角洲行动)」",
+            "source": "InterfaceInGame",
+            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20Delta%20Force%20%28%E4%B8%89%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8%29",
+            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
           },
           {
-            "title": "军事射击游戏 HUD/UI 参考",
+            "title": "GameUI.net 游戏列表(找《三角洲行动》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「三角洲行动」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「Delta Force (三角洲行动) UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Delta%20Force%20%28%E4%B8%89%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8%29%20UI"
+          },
+          {
+            "title": "Pinterest 搜索「Delta Force (三角洲行动) UI」",
             "source": "Pinterest",
-            "url": "https://www.pinterest.com/search/pins/?q=military%20shooter%20game%20ui%20hud%20design"
+            "url": "https://www.pinterest.com/search/pins/?q=Delta%20Force%20%28%E4%B8%89%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8%29%20UI"
           }
         ]
       }

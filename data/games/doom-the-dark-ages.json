@@ -409,7 +409,30 @@
       },
       {
         "cat": "UI 界面 / 纹理材质",
-        "links": []
+        "links": [
+          {
+            "title": "Interface In Game《Doom: The Dark Ages》UI 收录页",
+            "source": "InterfaceInGame",
+            "url": "https://interfaceingame.com/games/games/doom-the-dark-ages/",
+            "note": "国外单机 UI 数据库·官方直链命中"
+          },
+          {
+            "title": "GameUI.net 游戏列表(找《毁灭战士：黑暗时代》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「毁灭战士：黑暗时代」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「Doom: The Dark Ages UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Doom%3A%20The%20Dark%20Ages%20UI"
+          },
+          {
+            "title": "Pinterest 搜索「Doom: The Dark Ages UI」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Doom%3A%20The%20Dark%20Ages%20UI"
+          }
+        ]
       }
     ]
   }

@@ -418,19 +418,26 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Dribbble 搜索「Honkai: Star Rail UI」",
-            "source": "Dribbble",
-            "url": "https://dribbble.com/search/Honkai%3A-Star-Rail-UI"
+            "title": "Interface In Game《Honkai: Star Rail》UI 收录页",
+            "source": "InterfaceInGame",
+            "url": "https://interfaceingame.com/games/games/honkai-star-rail/",
+            "note": "国外单机 UI 数据库·官方直链命中"
           },
           {
-            "title": "ArtStation 搜索「Honkai: Star Rail texture material」",
+            "title": "GameUI.net 游戏列表(找《崩坏：星穹铁道》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「崩坏：星穹铁道」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「Honkai: Star Rail UI」",
             "source": "ArtStation",
-            "url": "https://www.artstation.com/search?sort_by=relevance&query=Honkai%3A%20Star%20Rail%20texture%20material"
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Honkai%3A%20Star%20Rail%20UI"
           },
           {
-            "title": "Pinterest 搜索「Honkai: Star Rail texture」",
+            "title": "Pinterest 搜索「Honkai: Star Rail UI」",
             "source": "Pinterest",
-            "url": "https://www.pinterest.com/search/pins/?q=Honkai%3A%20Star%20Rail%20texture"
+            "url": "https://www.pinterest.com/search/pins/?q=Honkai%3A%20Star%20Rail%20UI"
           }
         ]
       }

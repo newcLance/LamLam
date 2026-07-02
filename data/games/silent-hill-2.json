@@ -379,14 +379,26 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "搜索 Horror Game UI",
-            "source": "Dribbble",
-            "url": "https://dribbble.com/search/horror-game-ui"
+            "title": "Interface In Game 检索「SILENT HILL 2」",
+            "source": "InterfaceInGame",
+            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20SILENT%20HILL%202",
+            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
           },
           {
-            "title": "Silent Hill 恐怖游戏 UI 参考",
+            "title": "GameUI.net 游戏列表(找《寂静岭2》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「寂静岭2」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「SILENT HILL 2 UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=SILENT%20HILL%202%20UI"
+          },
+          {
+            "title": "Pinterest 搜索「SILENT HILL 2 UI」",
             "source": "Pinterest",
-            "url": "https://www.pinterest.com/search/pins/?q=silent%20hill%20horror%20game%20ui%20interface"
+            "url": "https://www.pinterest.com/search/pins/?q=SILENT%20HILL%202%20UI"
           }
         ]
       }

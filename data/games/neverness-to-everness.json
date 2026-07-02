@@ -391,19 +391,26 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Dribbble 搜索「Neverness to Everness UI」",
-            "source": "Dribbble",
-            "url": "https://dribbble.com/search/Neverness-to-Everness-UI"
+            "title": "Interface In Game 检索「Neverness to Everness」",
+            "source": "InterfaceInGame",
+            "url": "https://www.bing.com/search?q=site%3Ainterfaceingame.com%20Neverness%20to%20Everness",
+            "note": "国外单机 UI 数据库·若无收录用 Bing site: 兜底"
           },
           {
-            "title": "ArtStation 搜索「Neverness to Everness texture material」",
+            "title": "GameUI.net 游戏列表(找《异环》)",
+            "source": "GameUI.net",
+            "url": "https://www.gameui.net/game/",
+            "note": "国内/手游 UI 数据库·进站后搜索「异环」并找到 /game/{id} 直链"
+          },
+          {
+            "title": "ArtStation 搜索「Neverness to Everness UI」",
             "source": "ArtStation",
-            "url": "https://www.artstation.com/search?sort_by=relevance&query=Neverness%20to%20Everness%20texture%20material"
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Neverness%20to%20Everness%20UI"
           },
           {
-            "title": "Pinterest 搜索「Neverness to Everness texture」",
+            "title": "Pinterest 搜索「Neverness to Everness UI」",
             "source": "Pinterest",
-            "url": "https://www.pinterest.com/search/pins/?q=Neverness%20to%20Everness%20texture"
+            "url": "https://www.pinterest.com/search/pins/?q=Neverness%20to%20Everness%20UI"
           }
         ]
       }
