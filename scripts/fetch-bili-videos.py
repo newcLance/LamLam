@@ -32,6 +32,14 @@ import re
 import argparse
 from pathlib import Path
 
+# Windows GBK 控制台无法打印 emoji（如视频标题里的🤡）会 UnicodeEncodeError 崩溃。
+# 强制 stdout/stderr 用 UTF-8，遇到无法编码的字符替换而非崩溃。
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 # ── 配置 ──────────────────────────────────────────────
 BILI_SEARCH_API = "https://api.bilibili.com/x/web-interface/search/type"
 BILI_VIEW_API = "https://api.bilibili.com/x/web-interface/view"
@@ -109,6 +117,9 @@ GENERIC_CN_NAMES = {
     "异环",          # Neverness to Everness
     "无限大",        # Ananta
     "披萨塔",        # Pizza Tower
+    "归唐",          # Blood Message（唐/归唐是常见词，需英文名 Blood Message 命中）
+    "古剑",          # GuJian（会撞老古剑奇谭1/2/3，需实机/烛龙/古剑奇谭四 命中）
+    "湮灭之潮",      # Tides of Annihilation（湮灭是常见词）
 }
 
 # ── 工具函数 ──────────────────────────────────────────

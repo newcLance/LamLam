@@ -2858,5 +2858,103 @@
         }
       ]
     }
+  ],
+  "Lost Soul Aside": [
+    {
+      "module": "封面页",
+      "screens": [
+        {
+          "title": "Lost Soul Aside - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/lost-soul-aside/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Onimusha: Way of the Sword": [
+    {
+      "module": "封面页",
+      "screens": [
+        {
+          "title": "Onimusha: Way of the Sword - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/onimusha-way-of-the-sword/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Gujian": [
+    {
+      "module": "封面页",
+      "screens": [
+        {
+          "title": "Gujian - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/gujian/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Blood Message": [
+    {
+      "module": "封面页",
+      "screens": [
+        {
+          "title": "Blood Message - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/gui-tang/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Tides of Annihilation": [
+    {
+      "module": "封面页",
+      "screens": [
+        {
+          "title": "Tides of Annihilation - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/tides-of-annihilation/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Windrose": [
+    {
+      "module": "封面页",
+      "screens": [
+        {
+          "title": "Windrose - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/windrose/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Mistfall Hunter": [
+    {
+      "module": "封面页",
+      "screens": [
+        {
+          "title": "Mistfall Hunter - 封面",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/mistfall-hunter/cover.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

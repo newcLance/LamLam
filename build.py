@@ -46,10 +46,18 @@ def slugify(text):
 def main():
     print("=== Building Game Design Tracker (v2) ===")
 
-    # Clean
+    # Clean (clear contents in-place to avoid Windows dir-handle locks)
     if DIST.exists():
-        shutil.rmtree(DIST)
-    DIST.mkdir(parents=True)
+        for item in DIST.iterdir():
+            try:
+                if item.is_dir():
+                    shutil.rmtree(item)
+                else:
+                    item.unlink()
+            except PermissionError:
+                pass
+    else:
+        DIST.mkdir(parents=True)
 
     # Load data
     products = load(DATA / "products.json")
@@ -188,6 +196,12 @@ def main():
         shutil.copytree(str(SCREENSHOTS_SRC), str(DIST / "screenshots"), dirs_exist_ok=True)
         n = sum(1 for _ in (DIST / "screenshots").rglob("*") if _.is_file())
         print(f"  [OK] screenshots/ ({n} images)")
+    # 5b. 项目内本地封面源（在外部源之后拷，覆盖/补充；用于新立项游戏封面持久化）
+    local_ss = ROOT / "screenshots_local"
+    if local_ss.exists():
+        shutil.copytree(str(local_ss), str(DIST / "screenshots"), dirs_exist_ok=True)
+        m = sum(1 for _ in local_ss.rglob("*") if _.is_file())
+        print(f"  [OK] screenshots_local/ ({m} images merged)")
 
     # 6. Client data JSON (for compare page)
     ddir = DIST / "data"
