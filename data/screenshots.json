@@ -1001,17 +1001,13 @@
   ],
   "Ghost of Yotei": [
     {
-      "module": "官网首页",
+      "module": "封面",
       "screens": [
         {
-          "title": "Ghost of Yotei - PlayStation 官网",
-          "url": "https://www.playstation.com/en-us/games/ghost-of-yotei/",
-          "date": "2026-04-10",
-          "tag": "最新",
+          "title": "Ghost of Yotei - 封面",
+          "tag": "封面",
           "imgs": [
-            "screenshots/ghost-of-yotei/home-1.webp",
-            "screenshots/ghost-of-yotei/home-2.webp",
-            "screenshots/ghost-of-yotei/home-3.webp"
+            "screenshots/ghost-of-yotei/cover.webp"
           ]
         }
       ]
