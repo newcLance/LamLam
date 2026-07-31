@@ -491,16 +491,16 @@
         "cat": "UI 界面 / 纹理材质",
         "links": [
           {
-            "title": "Google 搜索「site:interfaceingame.com Phantom Blade Zero」",
-            "source": "InterfaceInGame",
-            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Phantom%20Blade%20Zero",
-            "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
+            "title": "小红书搜索「影之刃零 UI 界面」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%BD%B1%E4%B9%8B%E5%88%83%E9%9B%B6%20UI%20%E7%95%8C%E9%9D%A2",
+            "note": "玩家实拍/二测界面截图，未上线手游 UI 首选"
           },
           {
-            "title": "Google 搜索「site:gameui.net 影之刃零」",
-            "source": "GameUI.net",
-            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E5%BD%B1%E4%B9%8B%E5%88%83%E9%9B%B6",
-            "note": "国内/手游 UI 数据库·用 Google site: 定位「影之刃零」的 /game/{id} 直链"
+            "title": "花瓣网搜索「影之刃零 游戏 UI」",
+            "source": "花瓣网",
+            "url": "https://huaban.com/search?q=%E5%BD%B1%E4%B9%8B%E5%88%83%E9%9B%B6%20%E6%B8%B8%E6%88%8F%20UI",
+            "note": "国内 UI 设计参考主站，界面/图标/排版采集"
           },
           {
             "title": "ArtStation 搜索「Phantom Blade Zero UI」",

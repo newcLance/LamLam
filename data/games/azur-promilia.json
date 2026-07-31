@@ -401,18 +401,18 @@
       {
         "cat": "UI 界面 / 纹理材质",
         "links": [
-          {
-            "title": "Google 搜索「site:interfaceingame.com Azur Promilia」",
-            "source": "InterfaceInGame",
-            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Azur%20Promilia",
-            "note": "国外单机 UI 数据库·未直接收录, Google site: 搜索兜底"
-          },
-          {
-            "title": "Google 搜索「site:gameui.net 蓝色星原」",
-            "source": "GameUI.net",
-            "url": "https://www.google.com/search?q=site%3Agameui.net%20%E8%93%9D%E8%89%B2%E6%98%9F%E5%8E%9F",
-            "note": "国内/手游 UI 数据库·用 Google site: 定位「蓝色星原」的 /game/{id} 直链"
-          },
+        {
+          "title": "小红书搜索「蓝色星原 UI 界面」",
+          "source": "小红书",
+          "url": "https://www.xiaohongshu.com/search_result?keyword=%E8%93%9D%E8%89%B2%E6%98%9F%E5%8E%9F%20UI%20%E7%95%8C%E9%9D%A2",
+          "note": "二测玩家实拍界面截图最多的来源，未上线手游 UI 首选"
+        },
+        {
+          "title": "花瓣网搜索「蓝色星原 游戏 UI」",
+          "source": "花瓣网",
+          "url": "https://huaban.com/search?q=%E8%93%9D%E8%89%B2%E6%98%9F%E5%8E%9F%20%E6%B8%B8%E6%88%8F%20UI",
+          "note": "国内 UI 设计参考主站，界面 / 图标 / 排版采集"
+        },
           {
             "title": "ArtStation 搜索「Azur Promilia UI」",
             "source": "ArtStation",
