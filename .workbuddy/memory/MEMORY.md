@@ -20,3 +20,25 @@
 
 ## 已知站内重复检查
 - 立项前必查 games.json 是否已存在（按 nameCN/alias/slug）。例：燕云十六声 = where-winds-meet(id=155) 早已立项。
+- 又例：Ghost of Yotei = ghost-of-yotei(id=113) 2026-07-03 用户说"立项"时其实早已存在。
+
+## 立项接单：查重 → 分流（**必做，2026-07-03 教训**）
+用户说「立项 XXX / 做新游戏立项 XXX」时的分流：
+- **已存在** → 「缺口修复模式」：查 detail 完成度、封面、B站视频数、UI 链接是否 v3 Google site:；缺哪补哪，**不重跑管线、不重写老文案**
+- **不存在** → 走 6 阶段完整管线（load game-tracker-content-pipeline skill）
+- 不查就重跑会浪费大量算力 + 覆盖历史内容
+
+## story.dims 数量标准（澄清）
+- **全站主流 7 维（84%）**；8 维只是 2026-06 起我这批新立项拉高的标准
+- selfcheck_new8.py 里 `len(dims)<8` 只对那 7 款新立项适用，不是全站硬规则
+- 老游戏 dims=7 完全 OK，不用强补
+
+## PS5 / 无 Steam 独占游戏封面来源
+- 无 Steam appid → 走 `image.api.playstation.com`
+- PS 官网 og:image 常是方图（1024×1024，用于 ratings/badge），**不适合直接作封面**（裁 460×215 会砍掉大部分画面）
+- 正确做法：从 PS 游戏页 HTML 里 grep 所有 `image.api.playstation.com` URL，挑 **ratio ≥ 1.6** 的是真 hero/key art（通常 3840×2160）
+- 裁 460×215 webp 双写 `screenshots_local/{slug}/cover.webp` + `dist/screenshots/{slug}/cover.webp`
+
+## screenshots.json 老条目陷阱
+- 老游戏 detail 里的 screenshots.json 条目常引用 `screenshots/{slug}/home-*.webp` 但**这些文件早已不存在**（老流程遗留）→ 导致详情页破图
+- 缺口修复模式必查：`for img in mod.screens[].imgs: if not os.path.exists(img.replace('screenshots/','screenshots_local/')): 剔除`

@@ -5439,5 +5439,40 @@
     "slug": "animula-nook",
     "appid": 3767320,
     "website": "https://animulanook.com"
+  },
+  {
+    "id": 323,
+    "name": "Azur Promilia",
+    "nameCN": "蓝色星原：旅谣",
+    "alias": "蓝色星原,旅谣,蓝色星原旅谣,Azur Promilia,アズールプロミリア",
+    "icon": "🌌",
+    "company": "蛮啾网络 Manjuu（积咪网络开发 / 碧蓝航线团队）",
+    "category": "即将发售",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "PS5",
+      "Android",
+      "iOS"
+    ],
+    "model": "免费制",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2026 年",
+    "releaseDate": "2026 年（测试中）",
+    "desc": "碧蓝航线开发商蛮啾网络首款星宠结伴 × 幻想大世界 RPG。你以失忆的「星临者」身份降临幻想大陆普罗米利亚，与名为「奇波」的幻想生物星结结伴——捕捉、孵化、进化，让它们既能并肩战斗，也能在家园采矿种田、化作坐骑载你飞越星原。融合开放世界探索、3 人小队即时战斗与大牧场经营的帕鲁 like 玩法。三端测试进行中，2026 旅迹测试招募开启。",
+    "features": [
+      "星宠奇波捕捉养成",
+      "幻想开放世界",
+      "3人小队+奇波战斗",
+      "大牧场家园经营",
+      "骑乘飞行探索"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-07-31",
+    "slug": "azur-promilia",
+    "website": "https://azurpromilia.manjuu.com/home/"
   }
 ]
