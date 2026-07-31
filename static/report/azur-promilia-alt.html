@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蓝色星原：旅谣 — 公测前运营节奏（运营阶段视角）</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'surface-0': '#0c0c0c',
+        'surface-1': '#141414',
+        'surface-2': '#1c1c1c',
+        'surface-3': '#252525',
+        'bdr': 'rgba(255,255,255,0.06)',
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background: #0c0c0c; color: #e5e5e5; }
+  * { scrollbar-width: thin; scrollbar-color: #333 transparent; }
+  .page-content h3 { font-size: 16px; font-weight: 700; color: #fff; margin: 28px 0 12px; }
+  .page-content h4 { font-size: 14px; font-weight: 600; color: #d4d4d4; margin: 20px 0 8px; }
+  .page-content p { font-size: 14px; line-height: 1.8; color: #a3a3a3; margin: 0 0 12px; }
+  .page-content ul { padding-left: 20px; margin: 0 0 16px; }
+  .page-content li { font-size: 13px; line-height: 1.7; color: #a3a3a3; margin-bottom: 4px; }
+  .page-content li::marker { color: #525252; }
+  .page-content strong, .page-content b { color: #fff; font-weight: 600; }
+  .page-content .highlight { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 16px; margin: 16px 0; }
+  .page-content .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.06); color: #737373; border: 1px solid rgba(255,255,255,0.06); margin-right: 4px; text-decoration: none; }
+  .page-content .tag:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+  .page-content table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
+  .page-content th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #737373; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .page-content td { padding: 8px 12px; color: #a3a3a3; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .creative-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; }
+  .creative-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .verdict { background: #141414; border-left: 3px solid #fff; padding: 16px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; }
+  .verdict p { color: #d4d4d4; }
+  .risk-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; border-left: 3px solid #c43c3c; }
+  .risk-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .risk-card .mitigation { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 12px; padding-top: 12px; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../azur-promilia.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">蓝色星原：旅谣 — 公测前运营节奏<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-07-31</span></h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="azur-promilia.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
+      <a href="azur-promilia-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">运营阶段</a>
+      <a href="azur-promilia-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">阵地定制</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="azur-promilia-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">当前运营阶段诊断</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">目标用户行为路径</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">阶段情感钩子</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">内容节奏策略</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">社区信任修复</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">内容排期表</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个阶段性创意</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">转化漏斗设计</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警与应对</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">顾问终审意见</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+
+    <!-- PAGE 0 -->
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">当前运营阶段诊断</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：旅谣正处在"<b>多轮删档测试期 → 公测</b>"之间最微妙的运营窗口。它手握 211 万 TapTap 预约与 8.9 分的高预期，但也背着二测暴露的"逼肝"体感和挥之不去的"缝合"标签。这个阶段的核心命题不是"拉新"，而是<b>"把测试口碑变成可累积的信任资产，别让预期在删档反复里被磨掉"</b>。</p>
+      </div>
+
+      <h3>时间轴：旅谣现在站在哪</h3>
+      <table>
+        <thead><tr><th>节点</th><th>事件</th><th>运营含义</th></tr></thead>
+        <tbody>
+          <tr><td>2024-03</td><td>首曝 PV + 全平台预约开启（B站 PV 千万级播放）</td><td>声量峰值，建立第一印象</td></tr>
+          <tr><td>2024-05</td><td>官方 B 站粉丝破 100 万 <a href="https://zh.moegirl.org.cn/蓝色星原：旅谣" target="_blank" rel="noopener" class="tag">萌娘百科 ↗</a></td><td>核心粉丝盘成型</td></tr>
+          <tr><td>2025-08</td><td>星至测试（一测，仅 PC，不计费删档）</td><td>验证美术口碑，暴露"开放世界没劲/优化"问题</td></tr>
+          <tr><td>2026-04</td><td>恒序测试（二测，PC+移动端，不计费删档）</td><td>内容密度提升，但"逼肝"成最大吐槽点</td></tr>
+          <tr><td><b>2026-07（现在）</b></td><td><b>旅迹测试（三测，限量计费删档）</b></td><td><b>付费验证 + 公测前最后一次口碑校准</b></td></tr>
+          <tr><td>未定</td><td>正式公测</td><td>热度与信任能否兑现的终考</td></tr>
+        </tbody>
+      </table>
+
+      <h3>这个阶段的三个真实病症</h3>
+      <ul>
+        <li><b>病症一：口碑在"惊艳"与"吐槽"之间摇摆</b>——一测 GameLook 记录"上手后玩家惊呼超预期"，但同期也有"开放世界没回过劲""捡垃圾收集材料""优化问题"的质疑；二测称"内容密度高的答卷"，但"重度肝"成为最大实测吐槽 <a href="http://www.gamelook.com.cn/2025/08/576682" target="_blank" rel="noopener" class="tag">GameLook 一测实测 ↗</a></li>
+        <li><b>病症二：删档计费在消耗信任</b>——三测已开始计费但结束删档，玩家投入的付费与养成会清零，这是社区焦虑的高发点 <a href="https://www.taptap.cn/app/593829" target="_blank" rel="noopener" class="tag">TapTap 官方页 ↗</a></li>
+        <li><b>病症三：战线太长，热度有保质期</b>——三测跨越近一年，公测时间未定，"测试疲劳"正在积累</li>
+      </ul>
+
+      <div class="highlight">
+        <p><b>阶段结论</b>：旅谣不缺声量（211 万预约摆在那），缺的是<b>"把每一轮测试都变成一次可见的进步证明"</b>的运营能力。当前阶段的每一分预算，都应该花在"让观望玩家看到旅谣在认真改，而不是在反复删档里空转"上。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div x-show="page === 1" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">目标用户行为路径</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：当前阶段要盯的不是"新增预约"，而是<b>"预约用户会不会掉队"</b>。211 万预约里，真正会在公测日打开游戏的比例，取决于他们在这段测试期里接收到的是"越来越期待"还是"算了再看看"的信号。运营要沿着"预约 → 关注测试 → 参与/围观 → 公测激活"这条链路，逐环节堵漏。</p>
+      </div>
+
+      <h3>预约用户的四段行为路径</h3>
+      <table>
+        <thead><tr><th>阶段</th><th>用户状态</th><th>流失风险点</th><th>运营抓手</th></tr></thead>
+        <tbody>
+          <tr><td><b>已预约·沉默期</b></td><td>2024 首曝时冲动预约，之后很久没消息</td><td>遗忘、被其他新游分流</td><td>定期"进度汇报"唤醒，制造"它还在认真做"的存在感</td></tr>
+          <tr><td><b>关注测试·围观期</b></td><td>没资格/没参与测试，靠 UP 主实机围观</td><td>被负面实测（逼肝/缝合）劝退</td><td>控制 UP 主内容口径，让"减负/治愈"卖点先于"逼肝"吐槽触达</td></tr>
+          <tr><td><b>参与测试·体验期</b></td><td>拿到测试资格，亲手玩</td><td>删档挫败、逼肝弃坑</td><td>删档补偿承诺 + 收集/家园的即时成就感设计</td></tr>
+          <tr><td><b>公测激活·转化期</b></td><td>公测日决定是否回归</td><td>热度已凉、被竞品占据时间</td><td>公测前 30 天集中引爆 + 老测试用户召回礼</td></tr>
+        </tbody>
+      </table>
+
+      <h3>三类用户的差异化行为动机</h3>
+      <ul>
+        <li><b>碧蓝老盘</b>：会持续关注但高敏感，行为取决于"蛮啾有没有守住调性"——一个性别向传言就可能让他们从"期待"转"观望"</li>
+        <li><b>捉宠收集党</b>：会横向对比帕鲁再决定，行为取决于"奇波深度有没有说服他们"——TapTap 已有"自由度比帕鲁低"的实测原声 <a href="https://www.taptap.cn/app/593829/review" target="_blank" rel="noopener" class="tag">TapTap 原声 ↗</a></li>
+        <li><b>治愈休闲盘</b>：最容易被"减负/生活感"打动，也最容易被"逼肝"劝退——二测"重度肝"的吐槽恰恰精准打击了这圈人的核心诉求</li>
+      </ul>
+
+      <div class="highlight">
+        <p><b>路径结论</b>：旅谣的运营漏斗漏点集中在"围观期"和"体验期"两环——<b>负面实测在围观期先入为主，删档逼肝在体验期消耗耐心</b>。运营的钱要优先花在这两环的堵漏上，而不是继续在已经饱和的"预约拉新"上加码。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div x-show="page === 2" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">阶段情感钩子</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：测试期的情感钩子不能再是首曝时的"惊艳"（那张牌已经打过了），而应该是<b>"陪伴式共建"</b>——让预约玩家觉得"旅谣是和我一起长大的，我的反馈它真的听进去了"。这个阶段卖的不是产品，是"参与感"和"被重视感"。</p>
+      </div>
+
+      <h3>为什么"陪伴共建"是这个阶段的最优钩子</h3>
+      <p>测试期玩家的心理很特殊——他们既是用户，也是"产品的早期见证者"。用好这重身份，能把删档的负面（"我的进度没了"）转化为正面（"我参与了它变好的过程"）：</p>
+      <ul>
+        <li><b>对冲删档焦虑</b>：删档让玩家觉得"投入白费"，而"共建"叙事把它重构成"你的每次测试都在帮旅谣变好，公测那个更好的版本里有你的一份"</li>
+        <li><b>对冲测试疲劳</b>：战线长容易凉，但"看着它一测测变好"的养成式陪伴，反而能把长战线变成情感积累</li>
+        <li><b>激活老盘认同</b>：碧蓝老盘最吃"被重视"这一套——蛮啾当年就是靠听劝、听玩家意见积累了口碑</li>
+      </ul>
+
+      <h3>情感钩子的三层递进</h3>
+      <table>
+        <thead><tr><th>层次</th><th>情感诉求</th><th>落地表达</th></tr></thead>
+        <tbody>
+          <tr><td><b>被听见</b></td><td>"我的吐槽有人管"</td><td>每轮测试后公开"这次改了什么"，点名回应高频反馈（尤其逼肝问题）</td></tr>
+          <tr><td><b>被记得</b></td><td>"我参与过的痕迹被保留"</td><td>删档但保留"测试者身份/纪念徽章/公测专属称号"，让投入有情感残值</td></tr>
+          <tr><td><b>被期待</b></td><td>"公测那个版本值得等"</td><td>把每轮改进串成"通往公测的成长线"，让等待本身变成期待累积</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>钩子结论</b>：一句话概括这个阶段的情感主线——<b>"予你的星光牧场，是我们一起种出来的"</b>。把首曝的"惊艳感"降级为背景，把"共建陪伴"升为主线，才能让 211 万预约在漫长测试期里不掉队、还越等越热。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div x-show="page === 3" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
+      <h2 class="text-2xl font-bold text-white mb-6">内容节奏策略</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：测试期内容不能"憋大招等公测一次放"，而要<b>"高频、小步、可见"</b>——用密集的小内容让玩家持续感知"旅谣一直在动"。节奏的关键是把"角色 PV"这个已验证的爆款范式做成常态化连载，同时用"改进汇报"稳住信任。</p>
+      </div>
+
+      <h3>已验证的内容爆点：角色 PV 连载</h3>
+      <p>旅谣有一个现成的、被数据验证过的内容引擎——<b>单角色 PV</b>。忒拉拉 PV 拿到 250 万+播放，说明"逐个揭示可玩角色"的范式对这个用户盘极其有效： <a href="https://space.bilibili.com/3546569016085336" target="_blank" rel="noopener" class="tag">官方B站空间 ↗</a></p>
+      <table>
+        <thead><tr><th>已知 PV</th><th>播放量</th><th>范式价值</th></tr></thead>
+        <tbody>
+          <tr><td>首曝 PV + 实机</td><td><b>1028 万</b></td><td>建立世界观第一印象</td></tr>
+          <tr><td>向蓝色的彼方启航</td><td><b>427 万</b></td><td>情感叙事定调</td></tr>
+          <tr><td>忒拉拉 PV</td><td><b>255 万</b></td><td>单角色魅力验证（可复制范式）</td></tr>
+          <tr><td>旅迹测试招募</td><td><b>194 万</b></td><td>测试节点声量拉动</td></tr>
+        </tbody>
+      </table>
+      <p><b>So what</b>：二测已累计 21 个可操作角色，这意味着旅谣有充足的"角色弹药库"支撑常态化 PV 连载。把角色 PV 做成"每 2-3 周一位"的稳定连载，既能持续供给内容、喂养核心盘，又能把每个角色的粉丝盘逐个激活。</p>
+
+      <h3>内容节奏的三条并行线</h3>
+      <table>
+        <thead><tr><th>内容线</th><th>频率</th><th>作用</th></tr></thead>
+        <tbody>
+          <tr><td><b>角色 PV 连载</b></td><td>每 2-3 周一位</td><td>持续声量、逐个激活粉丝盘</td></tr>
+          <tr><td><b>奇波图鉴档案</b></td><td>每周 1-2 只</td><td>喂养收集党、强化"奇波有性格"的差异化</td></tr>
+          <tr><td><b>开发者共建日志</b></td><td>每轮测试后 + 月度</td><td>公开"改了什么"，修复信任、对冲逼肝质疑</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>节奏结论</b>：测试期的内容策略是"<b>三线并行、高频小步</b>"——角色 PV 供声量，奇波档案供收集欲，共建日志供信任。三条线交织，让玩家在漫长测试期里每周都有新东西可看，把"等待公测"的空窗填满。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div x-show="page === 4" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
+      <h2 class="text-2xl font-bold text-white mb-6">社区信任修复</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：旅谣当前的信任账户上挂着三笔"欠账"——缝合质疑、逼肝焦虑、性别向敏感。信任修复不是靠公关话术，而是靠<b>"用产品行动逐笔还债"</b>：缝合用差异化实机还，逼肝用版本减负还，性别向用口径一致还。每还一笔，都要让社区看得见。</p>
+      </div>
+
+      <h3>三笔信任欠账与还债方式</h3>
+      <div class="risk-card">
+        <h5>欠账一：缝合帕鲁质疑</h5>
+        <p>TapTap 原声："奇波系统只算中规中矩""很难说不是换皮"。GameLook 给了"国产二次元帕鲁"标签。 <a href="https://www.taptap.cn/app/593829/review" target="_blank" rel="noopener" class="tag">TapTap 原声 ↗</a></p>
+        <div class="mitigation">
+          <p><b>还债方式</b>：用"奇波性格羁绊 + 四阶进化 + 人宠共斗战斗"的深度实机主动讲差异，把"缝合"重构为"取长补短的进化"。不辩解玩法像不像，而是证明"体验完全不同"。</p>
+        </div>
+      </div>
+      <div class="risk-card">
+        <h5>欠账二：逼肝焦虑</h5>
+        <p>二测最大实测吐槽："重度肝、养成材料同源体力不够、家园/坐骑双重饱食度、异色闪光内卷"。 <a href="https://www.taptap.cn/app/593829" target="_blank" rel="noopener" class="tag">TapTap 实测 ↗</a></p>
+        <div class="mitigation">
+          <p><b>还债方式</b>：这是唯一必须靠"改产品"还的债。公测前重构养成/家园节奏，把二测的"重度肝"改成真正的减负，然后用"我们把肝度降下来了"作为公测前最重磅的口碑事件公布。</p>
+        </div>
+      </div>
+      <div class="risk-card">
+        <h5>欠账三：性别向敏感</h5>
+        <p>2024 首曝"疑似加入可抽男性角色"传言引发舆论风暴，蛮啾连发两声明澄清。 <a href="http://www.gamelook.com.cn/2024/03/540545/" target="_blank" rel="noopener" class="tag">GameLook ↗</a></p>
+        <div class="mitigation">
+          <p><b>还债方式</b>：口径绝对统一——"卡池只出女性角色"不留解读空间。所有角色内容发布前做敏感度预审，建立传言 24 小时响应机制。</p>
+        </div>
+      </div>
+
+      <div class="highlight">
+        <p><b>修复结论</b>：信任修复的顺序很重要——<b>逼肝（产品债）优先级最高，缝合（认知债）次之，性别向（沟通债）持续维护</b>。逼肝若不改，其他两笔还得再好也没用，因为玩家真上手就会被劝退。产品端还债，宣发端才有底气把债务翻篇。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div x-show="page === 5" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
+      <h2 class="text-2xl font-bold text-white mb-6">内容排期表</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：以"公测日"为锚点倒推，把测试期切成三个运营波段——<b>沉默唤醒期 → 信任修复期 → 公测引爆期</b>。每个波段有明确的主命题和内容配比，避免"内容平均用力、高潮缺失"。</p>
+      </div>
+
+      <h3>三波段运营排期</h3>
+      <table>
+        <thead><tr><th>波段</th><th>时间（相对公测）</th><th>主命题</th><th>核心动作</th></tr></thead>
+        <tbody>
+          <tr><td><b>沉默唤醒期</b></td><td>公测前 T-90 以外（测试期常态）</td><td>让预约用户不掉队</td><td>角色 PV 连载 + 奇波档案 + 共建日志三线并行</td></tr>
+          <tr><td><b>信任修复期</b></td><td>T-90 ~ T-30</td><td>还清三笔信任欠账</td><td>发布"减负实机"、"奇波不是帕鲁"深度片、性别向定调</td></tr>
+          <tr><td><b>公测引爆期</b></td><td>T-30 ~ T-0</td><td>把积累的信任变成激活</td><td>公测定档 PV + 老测试用户召回 + KOL 集中铺量</td></tr>
+        </tbody>
+      </table>
+
+      <h3>关键节点内容配比</h3>
+      <table>
+        <thead><tr><th>节点</th><th>内容重点</th><th>目标</th></tr></thead>
+        <tbody>
+          <tr><td>三测期（当前）</td><td>付费点体验反馈收集 + 减负测试 + 每日角色/奇波内容</td><td>验证商业化、打磨手感、维持声量</td></tr>
+          <tr><td>三测结束复盘</td><td>公开"三测收到的反馈 + 公测将改进的方向"</td><td>把删档转化为"共建"正面叙事</td></tr>
+          <tr><td>T-30 公测定档</td><td>公测定档 PV（延续首曝级制作规格）+ 召回礼公布</td><td>声量二次引爆、老用户回流</td></tr>
+          <tr><td>T-7 冲刺</td><td>KOL 实机测评集中释放 + 预下载开启</td><td>转化临门一脚</td></tr>
+          <tr><td>T-0 公测日</td><td>"万人星光牧场"UGC 集中展示 + 首日活动</td><td>激活留存、首日口碑冲榜</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>排期结论</b>：排期的灵魂是"<b>把信任修复放在公测引爆之前</b>"——先在 T-90~T-30 把逼肝/缝合的债还清、口碑洗白，再在 T-30~T-0 集中引爆。顺序反了（先引爆再修复），只会把更多人拉进来看到没改好的问题，放大负面。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 6 -->
+    <div x-show="page === 6" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三个阶段性创意</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：三个创意对应三个运营波段的核心命题——唤醒期"让删档有意义"、修复期"让改进被看见"、引爆期"让老用户回来"。它们是时间上递进的运营组合拳。</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意一（唤醒期）：「星原共建者」—— 把删档测试变成荣誉档案</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>为每一位参与过测试的玩家建立"星原共建者档案"——记录他参与过哪几次测试、捕获过哪些奇波、建过什么家园。即使数据删档，这份"共建履历"永久保留，并在公测时兑换成专属称号/纪念奇波皮肤/共建者徽章。把"删档=白玩"的挫败感，转化为"我是元老共建者"的荣誉感。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>三测期上线档案系统 → 每轮测试累积记录 → 公测日兑换共建者专属权益</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 80-150 万（档案系统开发 + 专属皮肤/徽章美术 + 运营）</td></tr>
+            <tr><td><b>KPI</b></td><td>测试用户档案激活率 ≥ 70%；老测试用户公测回流率 ≥ 45%；删档相关负面词条下降 25%</td></tr>
+            <tr><td><b>落地平台</b></td><td>游戏内档案 + 官网 H5 + TapTap 社区展示</td></tr>
+            <tr><td><b>参考案例</b></td><td>《原神》"旅行者"成长档案；MMO 常见的"内测元老"身份体系</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意二（修复期）：「我们把肝度降下来了」—— 减负改进的透明汇报事件</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>把"回应二测逼肝吐槽"做成一次高调的正面事件：官方发布一支"减负改进对照实机"——用二测 vs 公测版本的同屏对比，逐条展示"养成材料获取变简单了""家园/坐骑饱食度合并了""异色闪光不再逼你内卷了"。标题直给「你们说太肝，我们改了」。把最大的产品债，还成最响的口碑加分。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>三测结束复盘时预告 → T-45 发布减负对照实机 → 配合玩家实测二次验证</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 60-120 万（对照实机制作 + UP 主验证投放 + 舆情运营）</td></tr>
+            <tr><td><b>KPI</b></td><td>视频播放 1500 万+；"逼肝/太肝"负面词条占比下降 40%；治愈休闲盘预约意愿回升 20%</td></tr>
+            <tr><td><b>落地平台</b></td><td>B站（主）+ TapTap 官方公告置顶 + 抖音切片</td></tr>
+            <tr><td><b>参考案例</b></td><td>《鸣潮》二测后"我们听到了"式改进沟通；《FF14》制作人书信体透明运营</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意三（引爆期）：「星临者归来」—— 老测试用户召回 + 新用户裂变</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>公测前 30 天启动双向召回：对老测试用户推"你共建的星光牧场公测了，回来看看它变成什么样"，附共建者专属礼与"你上次养的奇波已进化"式情感召回；同时开放"邀请好友组队入星原"裂变机制——老用户带新用户各得奖励，把 211 万预约的存量转化为拉新的杠杆。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>T-30 启动召回推送 → T-14 开启好友裂变 → T-0 公测日双向奖励集中发放</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 150-280 万（召回系统 + 裂变奖励池 + 推送/短信/KOL 铺量）</td></tr>
+            <tr><td><b>KPI</b></td><td>老用户召回激活 ≥ 45%；裂变带新占公测首周新增 ≥ 20%；公测首日 TapTap 榜单进入前 3</td></tr>
+            <tr><td><b>落地平台</b></td><td>官方推送 + TapTap/B站 + 社交裂变 H5</td></tr>
+            <tr><td><b>参考案例</b></td><td>《光·遇》情感召回文案；各大手游公测"老友回归"礼包体系</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAGE 7 -->
+    <div x-show="page === 7" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
+      <h2 class="text-2xl font-bold text-white mb-6">转化漏斗设计</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：旅谣的转化漏斗不是"曝光→下载"的标准模型，而是"<b>预约存量 → 测试期不掉队 → 公测激活</b>"的存量运营模型。211 万预约是漏斗顶部的水池，运营的任务是别让水在测试期漏光，并在公测日把它精准放出来。</p>
+      </div>
+
+      <h3>四层转化漏斗</h3>
+      <table>
+        <thead><tr><th>漏斗层</th><th>当前量级</th><th>转化目标</th><th>关键动作</th></tr></thead>
+        <tbody>
+          <tr><td><b>预约池</b></td><td>TapTap 211 万预约 / 209 万关注（B站另有百万级粉丝）<a href="https://www.taptap.cn/app/593829" target="_blank" rel="noopener" class="tag">TapTap ↗</a></td><td>维持不流失</td><td>常态化内容唤醒</td></tr>
+          <tr><td><b>活跃关注</b></td><td>持续看 PV/实机的活跃预约用户</td><td>转化为"越等越期待"</td><td>角色 PV 连载 + 共建日志</td></tr>
+          <tr><td><b>测试参与/围观</b></td><td>参与三测 + 围观 UP 主的用户</td><td>形成正面体验记忆</td><td>减负改进 + 共建者档案</td></tr>
+          <tr><td><b>公测激活</b></td><td>公测日实际打开的用户</td><td>首周留存 + 首充转化</td><td>召回礼 + 首日活动 + 裂变</td></tr>
+        </tbody>
+      </table>
+
+      <h3>每层漏斗的堵漏优先级</h3>
+      <ul>
+        <li><b>最该堵的漏点：测试参与/围观层</b>——这是负面实测（逼肝/缝合）造成流失的重灾区，减负改进 + 差异化实机要优先砸资源</li>
+        <li><b>次优先：活跃关注层</b>——用高频内容维持"它还在动"的存在感，防止预约用户遗忘</li>
+        <li><b>临门一脚：公测激活层</b>——召回礼与首日体验决定 211 万预约里有多少真的变成 DAU</li>
+      </ul>
+
+      <div class="highlight">
+        <p><b>漏斗结论</b>：旅谣不需要在漏斗顶部继续砸钱拉预约（211 万已够撑起一次成功公测），要把预算集中砸在<b>"中段防漏 + 末段激活"</b>。一个残酷的现实：预约量再高，若测试期口碑崩了，公测激活率也会腰斩——所以运营的胜负手在中段的信任修复，而非顶部的声量。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 8 -->
+    <div x-show="page === 8" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
+      <h2 class="text-2xl font-bold text-white mb-6">风险预警与应对</h2>
+
+      <div class="risk-card">
+        <h5>风险一：减负没改到位，公测口碑崩盘（高风险）</h5>
+        <p>逼肝是二测最大实测吐槽，若公测版本仍未真正减负，"减负宣传"会变成"虚假宣传"，反噬更狠——玩家会觉得被骗。这是所有运营动作的地基风险。 <a href="https://www.taptap.cn/app/593829" target="_blank" rel="noopener" class="tag">TapTap 实测 ↗</a></p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>减负改进必须先做到、再宣传——绝不能宣传领先于产品</li>
+            <li>公测前小范围回归测试验证减负效果，用真实测试用户的反馈背书</li>
+            <li>预留"公测后首月快速迭代"预案，一旦仍有肝度反馈立即热更</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险二：删档挫败累积，测试用户提前离场（中高风险）</h5>
+        <p>三测计费删档，玩家付费与养成清零。若删档补偿/共建叙事做得不够，核心测试用户可能在公测前就心累离场。</p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>用"星原共建者"档案（创意一）把删档转化为荣誉，给投入以情感残值</li>
+            <li>计费删档的付费给予公测双倍返还或专属补偿，明确告知规则不玩文字游戏</li>
+            <li>每轮测试后的复盘必须真诚，让玩家看到"我的删档换来了它的进步"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险三：公测时间未定，热度过保质期（中风险）</h5>
+        <p>三测跨越近一年公测仍未定档，"测试疲劳"真实存在，竞品（无限大 ANANTA 已预计 2026 暑期公测）可能先占据用户时间。 <a href="https://m.ali213.net/news/gl2605/1773203.html" target="_blank" rel="noopener" class="tag">游侠（ANANTA 进度）↗</a></p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>尽快给出公测定档信号，哪怕先给"季度窗口"，也比无限期观望强</li>
+            <li>把长战线做成"成长叙事"——每轮测试的进步串成通往公测的故事线，让等待有意义</li>
+            <li>与 ANANTA 错峰或差异化定位，避免暑期档正面撞车分流</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card" style="border-left-color: #a16207;">
+        <h5>风险四：商业化公布引发氪金焦虑（中风险）</h5>
+        <p>商业化机制官方至今未公开，一旦公布若被解读为"逼氪"，会叠加"逼肝"焦虑形成双重劝退。 <a href="https://m.18183.com/news/yxxw/202607/8968871.html" target="_blank" rel="noopener" class="tag">18183（商业化未定）↗</a></p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>商业化公布克制透明，付费点向外观/家园/收集倾斜，避开战力氪金</li>
+            <li>坚守"卡池只出女性角色"承诺，同时明确付费不影响核心养成节奏</li>
+            <li>公布前做核心盘小范围沟通预热，避免"突然袭击"式引爆焦虑</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 9 -->
+    <div x-show="page === 9" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
+      <h2 class="text-2xl font-bold text-white mb-6">顾问终审意见</h2>
+
+      <div class="verdict">
+        <p><b>终审判断：GO（前提是产品端先还清逼肝这笔债）</b></p>
+        <p>从运营阶段看，旅谣的底子很好——211 万预约、8.9 分、百万级 B 站粉、可复制的角色 PV 爆款范式，这些都是别人求之不得的运营弹药。但当前阶段的胜负手不在"怎么放大声量"，而在<b>"怎么在测试期把信任守住"</b>。逼肝这笔产品债不还清，再漂亮的运营节奏都是在漏水的池子里加水。</p>
+      </div>
+
+      <h3>三个尖锐问题</h3>
+      <div class="highlight">
+        <p><b>1. "共建陪伴"叙事能不能扛住又一次删档？</b><br>共建叙事很动人，但玩家的耐心是有限的。如果三测之后还有四测、五测，"共建"会从感动变成消耗。<b>建议</b>：把三测明确定位为"最后一次删档测试"，给玩家一个确定的终点，让共建叙事有兑现的时间表。</p>
+        <p><b>2. 减负和"手游长线留存"的矛盾在运营端怎么解？</b><br>减负是修复口碑的必需，但运营需要玩家有持续目标才能长线留存。减太狠会"毕业快"，减不够会"劝退"。<b>建议</b>：把长线动力从"体力/日常肝"迁移到"奇波收集完整度 + 家园养成成就 + 社交攀比（闪光名录）"，用兴趣驱动替代任务驱动。</p>
+        <p><b>3. 公测定档迟迟不定，是产品没打磨好还是在等档期？</b><br>如果是前者，运营再努力也救不了未完成的产品；如果是后者，长期观望会消耗热度。<b>建议</b>：运营团队需要向制作端要一个明确的公测窗口，才能倒推所有排期——没有锚点的运营节奏是无根之木。</p>
+      </div>
+
+      <h3>第一优先行动清单</h3>
+      <table>
+        <thead><tr><th>优先级</th><th>行动</th><th>负责团队</th></tr></thead>
+        <tbody>
+          <tr><td><b>最高</b></td><td>推动产品端确认"逼肝减负"改进落地，并将三测定位为"最后一次删档测试"</td><td>制作 / 运营</td></tr>
+          <tr><td><b>最高</b></td><td>上线"星原共建者"档案（创意一），把删档焦虑转化为元老荣誉</td><td>运营 / 前端</td></tr>
+          <tr><td><b>高</b></td><td>三测结束复盘公开"改了什么"，预告"减负对照实机"（创意二）</td><td>市场 / 内容</td></tr>
+          <tr><td><b>高</b></td><td>建立角色 PV / 奇波档案 / 共建日志三线并行的常态化内容排期</td><td>内容 / 社区</td></tr>
+          <tr><td><b>中</b></td><td>向制作端争取公测定档窗口，倒推 T-90~T-0 全排期</td><td>运营 / 制作</td></tr>
+        </tbody>
+      </table>
+
+      <div class="verdict">
+        <p><b>最终建议</b>：这个阶段的运营核心是一句话——<b>"把每一次删档，都变成一次让玩家看得见的进步。"</b> 旅谣不缺预约、不缺声量、不缺角色弹药，它缺的是"让 211 万观望者相信旅谣在认真变好"的确定性。守住信任、还清逼肝债、把删档做成共建，公测那天 211 万预约才不会只是一个漂亮的数字。</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- THEME_TOGGLE_INJECT_START -->
+<!-- Theme toggle: 注入在每份报告 </body> 之前 -->
+<style>
+/* ===== 浅色模式覆盖（仅在 html[data-theme="light"] 时生效） ===== */
+html[data-theme="light"] body { background:#f5f5f5 !important; color:#1a1a1a !important; }
+html[data-theme="light"] header { background:rgba(245,245,245,0.95) !important; border-bottom-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] header h1 { color:#1a1a1a !important; }
+html[data-theme="light"] header a { color:#525252 !important; }
+html[data-theme="light"] header a:hover { color:#000 !important; }
+html[data-theme="light"] header .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] header .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] header .bg-white\/\[\.08\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; border-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] header .hover\:bg-white\/\[\.04\]:hover { background:rgba(0,0,0,0.05) !important; color:#000 !important; }
+html[data-theme="light"] header .bg-white\/10, html[data-theme="light"] header .bg-white\/\[\.04\] { background:rgba(0,0,0,0.1) !important; }
+
+/* 左侧 nav 区（主报告页结构） */
+html[data-theme="light"] aside, html[data-theme="light"] nav { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] aside button, html[data-theme="light"] nav button { color:#525252 !important; }
+html[data-theme="light"] aside button:hover, html[data-theme="light"] nav button:hover { color:#000 !important; background:rgba(0,0,0,0.04) !important; }
+html[data-theme="light"] .bg-white\/\[\.06\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; }
+html[data-theme="light"] .bg-white\/\[\.04\] { background:rgba(0,0,0,0.05) !important; }
+
+/* 内容卡片 */
+html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+html[data-theme="light"] .verdict { border-left-color:#1a1a1a !important; }
+html[data-theme="light"] .verdict p { color:#1a1a1a !important; }
+html[data-theme="light"] .risk-card { border-left-color:#c43c3c !important; }
+html[data-theme="light"] .creative-card h5, html[data-theme="light"] .risk-card h5 { color:#1a1a1a !important; }
+
+/* 文字色 */
+html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }
+html[data-theme="light"] .page-content p, html[data-theme="light"] .page-content li { color:#3a3a3a !important; }
+html[data-theme="light"] .page-content b, html[data-theme="light"] .page-content strong, html[data-theme="light"] b, html[data-theme="light"] strong { color:#000 !important; }
+html[data-theme="light"] .text-white { color:#1a1a1a !important; }
+html[data-theme="light"] .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-600 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-300 { color:#3a3a3a !important; }
+html[data-theme="light"] .quote { color:#1a1a1a !important; }
+html[data-theme="light"] .muted { color:#737373 !important; }
+
+/* 表格 */
+html[data-theme="light"] table th { color:#525252 !important; border-bottom-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] table td { color:#3a3a3a !important; border-bottom-color:rgba(0,0,0,0.06) !important; }
+
+/* tag */
+html[data-theme="light"] .tag { background:rgba(0,0,0,0.05) !important; color:#525252 !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] .tag:hover { color:#000 !important; }
+
+/* 分隔线 */
+html[data-theme="light"] .bg-white\/10 { background:rgba(0,0,0,0.1) !important; }
+html[data-theme="light"] .border-bdr, html[data-theme="light"] .border-white\/10, html[data-theme="light"] .border-white\/\[\.06\] { border-color:rgba(0,0,0,0.08) !important; }
+
+/* compare 卡片专用 */
+html[data-theme="light"] .text-3xl, html[data-theme="light"] .text-2xl, html[data-theme="light"] .text-xl { color:#1a1a1a !important; }
+html[data-theme="light"] .report-date { color:#737373 !important; }
+
+/* ===== 切换按钮本体 ===== */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.theme-toggle-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+.theme-toggle-btn svg { width: 22px; height: 22px; transition: all 0.25s ease; }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-on { display: block; color: #fbbf24; filter: drop-shadow(0 0 4px rgba(251,191,36,0.6)); }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-off { display: none; }
+html[data-theme="light"] .theme-toggle-btn { background: #ffffff; border-color: rgba(0,0,0,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+html[data-theme="light"] .theme-toggle-btn:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-on { display: none; }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-off { display: block; color: #737373; }
+
+/* 拉绳小动画 */
+.theme-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+}
+html[data-theme="light"] .theme-toggle-btn::before { background: rgba(0,0,0,0.15); }
+</style>
+
+<button class="theme-toggle-btn" onclick="toggleReportTheme()" title="切换深浅色模式" aria-label="切换主题">
+  <!-- 点亮的灯泡（深色模式显示） -->
+  <svg class="icon-bulb-on" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z"/>
+  </svg>
+  <!-- 熄灭的灯泡（浅色模式显示） -->
+  <svg class="icon-bulb-off" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  // 初始化：从 localStorage 读，没有就默认 dark
+  var savedTheme = localStorage.getItem('report-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+function toggleReportTheme() {
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('report-theme', next);
+}
+</script>
+
+<!-- THEME_TOGGLE_INJECT_END -->
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蓝色星原：旅谣 — 市场机会与品牌策略（宏观视角）</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'surface-0': '#0c0c0c',
+        'surface-1': '#141414',
+        'surface-2': '#1c1c1c',
+        'surface-3': '#252525',
+        'bdr': 'rgba(255,255,255,0.06)',
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background: #0c0c0c; color: #e5e5e5; }
+  * { scrollbar-width: thin; scrollbar-color: #333 transparent; }
+  .page-content h3 { font-size: 16px; font-weight: 700; color: #fff; margin: 28px 0 12px; }
+  .page-content h4 { font-size: 14px; font-weight: 600; color: #d4d4d4; margin: 20px 0 8px; }
+  .page-content p { font-size: 14px; line-height: 1.8; color: #a3a3a3; margin: 0 0 12px; }
+  .page-content ul { padding-left: 20px; margin: 0 0 16px; }
+  .page-content li { font-size: 13px; line-height: 1.7; color: #a3a3a3; margin-bottom: 4px; }
+  .page-content li::marker { color: #525252; }
+  .page-content strong, .page-content b { color: #fff; font-weight: 600; }
+  .page-content .highlight { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 16px; margin: 16px 0; }
+  .page-content .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.06); color: #737373; border: 1px solid rgba(255,255,255,0.06); margin-right: 4px; text-decoration: none; }
+  .page-content .tag:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+  .page-content table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
+  .page-content th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #737373; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .page-content td { padding: 8px 12px; color: #a3a3a3; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .creative-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; }
+  .creative-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .verdict { background: #141414; border-left: 3px solid #fff; padding: 16px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; }
+  .verdict p { color: #d4d4d4; }
+  .risk-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; border-left: 3px solid #c43c3c; }
+  .risk-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .risk-card .mitigation { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 12px; padding-top: 12px; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../azur-promilia.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">蓝色星原：旅谣 — 市场机会与品牌策略<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-07-31</span></h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="azur-promilia.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">宏观视角</a>
+      <a href="azur-promilia-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">运营阶段</a>
+      <a href="azur-promilia-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">阵地定制</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="azur-promilia-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">市场背景与品类机会</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">玩家画像与情绪地图</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">核心记忆符号：星光牧场</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉定位与美学谱系</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">竞品象限与差异化壁垒</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">宣发核心物料清单</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个杀手级宣发创意</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范速查</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警与应对</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">顾问终审意见</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+
+    <!-- PAGE 0 -->
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">市场背景与品类机会</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：蓝色星原不是踩在一条上升曲线上，而是踩在<b>两条曲线的交点</b>——二次元手游大盘连续两年负增长（存量厮杀），但"捉宠+家园经营"被《幻兽帕鲁》验证为全球级新需求。旅谣的机会不在"品类红利"，而在"用一个还没有强统治者的新玩法，从祛魅的存量盘里撬出增量"。宣发口径必须从"又一个二次元开放世界"切换到"第一个把治愈捉宠做成高端二次元的产品"。</p>
+      </div>
+
+      <h3>趋势一：二次元大盘在收缩，这是逆风局</h3>
+      <p>先把最残酷的事实摆上桌面——旅谣入场的赛道正在<b>连续负增长</b>，不能再用三年前"二游躺赢"的心态做宣发：</p>
+      <table>
+        <thead><tr><th>年份</th><th>二次元手游收入</th><th>同比</th></tr></thead>
+        <tbody>
+          <tr><td>2024</td><td>约 <b>293.48 亿元</b></td><td><b>-7.44%</b> <a href="https://k.sina.cn/article_3231588240_c09e1f9000101frcw.html" target="_blank" rel="noopener" class="tag">游戏工委·伽马数据 ↗</a></td></tr>
+          <tr><td>2025 上半年</td><td>约 145.77 亿元</td><td><b>-8%</b> <a href="https://www.gameres.com/wl?m=d01a233b058c9cd77c29a5968dd4f491" target="_blank" rel="noopener" class="tag">2025年1-6月产业报告 ↗</a></td></tr>
+          <tr><td>2025 全年</td><td>约 282.81 亿元</td><td><b>-3.64%</b>（降幅收窄）<a href="https://www.gameres.com/wl?m=d01a233b058c9cd77c29a5968dd4f491" target="_blank" rel="noopener" class="tag">伽马数据 ↗</a></td></tr>
+        </tbody>
+      </table>
+      <p>连头部产品都在下行——原神 2025 年 iOS 国区预估收入同比约 <b>-37%</b>，米哈游在 Sensor Tower 全球发行商收入排名一度<b>跌出前三、退至第 5</b>。<a href="https://xueqiu.com/5187193467/390976965" target="_blank" rel="noopener" class="tag">七麦/Sensor Tower 转述 ↗</a></p>
+      <p><b>So what</b>：伽马数据把下滑归因于"头部流水下行 + 新品玩法同质化 + 玩家消费意愿减弱"。这句话反过来就是旅谣的机会说明书——<b>玩家不是不玩二游了，是不想再玩"又一个换皮开放世界"</b>。谁能给出玩法上的真差异，谁就能在存量里逆势起量。</p>
+
+      <h3>趋势二：捉宠 + 家园经营，是被验证过的全球级新需求</h3>
+      <p>旅谣真正的顺风来自另一条曲线——《幻兽帕鲁》在 2024 年初用一组恐怖数字，证明了"捕捉生物 + 家园劳作"这套玩法的市场容量：</p>
+      <table>
+        <thead><tr><th>数据点</th><th>数值</th><th>意义</th></tr></thead>
+        <tbody>
+          <tr><td>发售 3 天销量</td><td><b>500 万份</b>（每小时 8.6 万份）</td><td>捉宠玩法的付费意愿 <a href="https://new.qq.com/rain/a/20240122A09OUA00" target="_blank" rel="noopener" class="tag">IT之家引Pocketpair ↗</a></td></tr>
+          <tr><td>Steam 同时在线峰值</td><td><b>210 万人</b>（史上第二）</td><td>玩法承载力天花板 <a href="https://www.21jingji.com/article/20240131/herald/" target="_blank" rel="noopener" class="tag">21世纪经济报道引SteamDB ↗</a></td></tr>
+          <tr><td>上线 1 个月玩家</td><td><b>2500 万</b>（Steam 1500万+Xbox 1000万）</td><td>市场容量验证 <a href="https://palworld.co.jp/zh/" target="_blank" rel="noopener" class="tag">Palworld 官方 ↗</a></td></tr>
+          <tr><td>2026-07 累计玩家</td><td><b>4000 万+</b>（1.0 正式版）</td><td>长线生命力 <a href="https://new.qq.com/rain/a/20260708A07AKC00" target="_blank" rel="noopener" class="tag">IT之家引官方 ↗</a></td></tr>
+        </tbody>
+      </table>
+      <p><b>So what</b>：Palworld 用"帕鲁打工=赛博牛马"的现实梗完成了病毒式自传播，但它有一个明显的空位——<b>它的生物是工具，不是情感对象；它的角色审美粗糙，撑不起情感付费</b>。旅谣要打的正是这个空位：用蛮啾最擅长的"美少女 + 萌系奇波"填补 Palworld 缺失的情感与审美层。</p>
+
+      <h3>趋势三：两条曲线的交点，目前是无人区</h3>
+      <div class="highlight">
+        <p>横轴"二次元开放世界"上站着原神、鸣潮、绝区零、无限大；纵轴"捉宠家园经营"上站着帕鲁及一堆帕鲁 like。<b>但同时站在两条轴交点、并以"高品质二次元角色情感"为商业内核的，目前只有旅谣一款</b>。这是它最值钱的卡位——不是在拥挤的赛道里多挤一个身位，而是在两个成熟赛道的缝隙里开一块新地。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div x-show="page === 1" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">玩家画像与情绪地图</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：旅谣的用户分四圈——碧蓝航线老盘（信任但高敏感）、捉宠收集党（挑剔且爱横向对比）、治愈休闲盘（要生活感不要黑深残）、以及决定成败的杂食流动玩家。四圈入口不同，但共享一个情绪出口：<b>"我想有一只属于我的奇波，和一个不逼我肝的家"</b>。</p>
+      </div>
+
+      <h3>第一圈：碧蓝航线老盘（种子信任层）</h3>
+      <p><b>他们是谁</b>：跟了碧蓝航线 8-9 年的纯爱男性向（ML）用户，对蛮啾的角色美术有高信任、高情感。</p>
+      <ul>
+        <li><b>核心特征</b>：会用碧蓝的标准苛求新作，且对"性别向"议题极度警觉——2024 首曝时一则"疑似加入可抽男性角色"的传言就引发舆论风暴，逼得蛮啾连发两条声明澄清"卡池只有女性角色"才平息 <a href="http://www.gamelook.com.cn/2024/03/540545/" target="_blank" rel="noopener" class="tag">GameLook ↗</a></li>
+        <li><b>情绪空位</b>："我信任蛮啾画的人，但我怕它把我熟悉的调性做没了"</li>
+      </ul>
+      <p><b>沟通策略</b>：对这圈人打<b>确定性牌</b>——反复强化"卡池只出女性角色"的承诺不动摇、角色立绘与建模的品质展示，让他们确认"还是那个懂二次元的蛮啾"。这圈是口碑的定盘星，绝不能让他们感到背刺。</p>
+
+      <h3>第二圈：捉宠收集党（挑剔的横向对比层）</h3>
+      <p><b>他们是谁</b>：宝可梦、帕鲁、洛克王国的用户，被奇波系统吸引进来。</p>
+      <ul>
+        <li><b>核心痛点</b>：他们会拿旅谣直接对标帕鲁——TapTap 评论区已有原声吐槽"奔着捉宠来的多少玩过宝可梦和帕鲁……奇波系统只算中规中矩""场上只能一个奇波战斗、自由度比帕鲁低" <a href="https://www.taptap.cn/app/593829/review" target="_blank" rel="noopener" class="tag">TapTap 玩家原声 ↗</a></li>
+        <li><b>情绪空位</b>："我要的是能收集、能养出感情、战斗还得有花样的宠，不是收集图鉴的数据填充"</li>
+      </ul>
+      <p><b>沟通策略</b>：对这圈人展示<b>奇波的深度与独特性</b>——四阶进化链、闪光变异个体（刷新率不足 0.1%）、奇波性格羁绊叙事，用"每只奇波都有性格背景"对抗"换皮"质疑。</p>
+
+      <h3>第三圈：治愈休闲盘（生活感偏好层）</h3>
+      <p><b>他们是谁</b>：下班后想放松、要"生活感"而非"黑深残"剧情的上班族。</p>
+      <ul>
+        <li><b>核心买点</b>：二测实测已被媒体点名的差异化——<b>无体力限制探索、自由飞行、家园装备全可产出不制造战力焦虑</b> <a href="https://a.4399.cn/gl/52571113_359122.html" target="_blank" rel="noopener" class="tag">4399 二测实测 ↗</a></li>
+        <li><b>情绪空位</b>："我玩够了逼我每日打卡的游戏，我想要一个能挂机、能种田、能看着奇波打工的电子桃花源"</li>
+      </ul>
+      <p><b>沟通策略</b>：对这圈人主打<b>"星光牧场"的治愈慢节奏</b>——离线经营、骑乘飞行、家园自定义，把游戏定位成"电子疗愈"而非"又一个肝度爆表的养成"。</p>
+
+      <h3>第四圈：杂食流动玩家（决定成败的破圈层）</h3>
+      <p><b>他们是谁</b>：不属任何厂商基本盘、"流动着玩"的泛玩家。玩家自评："新游很难让各家基本盘迁移，主要靠杂食玩家流动" <a href="https://www.taptap.cn/app/593829/review" target="_blank" rel="noopener" class="tag">TapTap 玩家原声 ↗</a></p>
+      <div class="highlight">
+        <p>四圈人虽然入口不同，但都能被同一句话击中：<b>"我想有一只属于我的奇波，和一个不逼我肝的家。"</b> 这是旅谣最强的情绪锚点——它不卖"拯救世界"的宏大叙事，卖的是"在破碎世界里重新拥有牵挂"的治愈感。这个锚点对上班族、对收集党、对老盘都成立，是四圈汇聚的最大公约数。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div x-show="page === 2" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">核心记忆符号：星光牧场</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>："星光牧场"是旅谣该占住的超级符号——它一词讲清了两个冲突气质的缝合：<b>「星光」= 138 亿年的宏大浪漫幻想，「牧场」= 奇波打工种田的治愈日常烟火气</b>。这是旅谣的《只狼》"死"字、《影之刃零》"功夫朋克"。它自解释、有辨识度、能撑起整个视觉与叙事体系。</p>
+      </div>
+
+      <h3>为什么是「星光牧场」而不是"二次元开放世界"</h3>
+      <p>"二次元开放世界"是个公共品类名，说出来等于没说——原神、鸣潮、无限大都能用。而"星光牧场"做到了三件竞品做不到的事：</p>
+      <table>
+        <thead><tr><th>条件</th><th>「星光牧场」的表现</th><th>对比</th></tr></thead>
+        <tbody>
+          <tr><td><b>自解释</b></td><td>星光（浪漫/宏大）+ 牧场（治愈/日常）→ 一听就知道是"能种田养宠的幻想世界"</td><td>"星宠开放世界"太行业黑话，玩家无感</td></tr>
+          <tr><td><b>唯一性</b></td><td>没有第二款二次元产品占据"牧场治愈"的心智——原神是探索、鸣潮是战斗、帕鲁是硬核生存</td><td>"开放世界"已被原神焊死</td></tr>
+          <tr><td><b>可延展</b></td><td>能撑起视觉（星空幽蓝×治愈暖阳双色）、玩法（离线经营）、情感（重寻牵挂）三层体系</td><td>"捉宠"只能延展玩法，撑不起情感</td></tr>
+        </tbody>
+      </table>
+
+      <h3>「星光牧场」如何回应三大质疑</h3>
+      <p>这个符号不只是好听，它是旅谣抵御社区攻击的<b>正面弹药</b>：</p>
+      <ul>
+        <li><b>对"帕鲁缝合"质疑</b>：帕鲁是"赛博牛马打工"的黑色幽默，旅谣是"星光下的治愈牧场"——同样是捉宠家园，情绪内核完全相反。用"牧场"的温度对冲"缝合"的冷嘲</li>
+        <li><b>对"逼肝逼氪"质疑</b>：二测已验证"家园装备全可产出、不制造战力焦虑"，"牧场"符号天然传达"慢节奏、无压力"，正好对冲玩家最大的实测吐槽 <a href="https://a.4399.cn/gl/52571113_359122.html" target="_blank" rel="noopener" class="tag">4399 实测 ↗</a></li>
+        <li><b>对"赛道拥挤祛魅"质疑</b>："星光牧场"根本不站在原神的赛道上——它另开了一条"治愈捉宠"的道，祛魅的是"开放世界战斗"，不是"治愈牧场"</li>
+      </ul>
+
+      <h3>如何把「星光牧场」焊进玩家心智</h3>
+      <ul>
+        <li><b>语言层</b>：所有官方传播锁定"星光""牧场""奇波""138 亿年"这组词，不换说法、不稀释</li>
+        <li><b>视觉层</b>：主视觉永远是"昼牧场（暖阳奇波遍地）× 夜星空（幽蓝星光洒满）"的昼夜双面</li>
+        <li><b>情感层</b>：把 slogan「予你的，是一场 138 亿年的星光之约」做成品牌资产，一切物料回归这句诗</li>
+        <li><b>社区层</b>：鼓励玩家晒"我的家园""我的奇波"，让 UGC 自动强化"这是属于我的星光牧场"</li>
+      </ul>
+
+      <div class="highlight">
+        <p><b>终极目标</b>：当玩家提起"能养宠、能种田、画风还特别治愈的二次元开放世界"时，第一反应是《蓝色星原：旅谣》。<b>把"星光牧场"这个心智位占住，就是旅谣在拥挤赛道里唯一的护城河。</b></p>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div x-show="page === 3" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
+      <h2 class="text-2xl font-bold text-white mb-6">视觉定位与美学谱系</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：旅谣的双色 DNA 是「<b>星空幽蓝 × 治愈暖阳</b>」——同一片大陆的昼夜两副情绪面孔。白昼是暖阳下奇波遍地的治愈牧场，夜晚是 138 亿年星光洒满的幽蓝浪漫。这套色彩编码缩到手机缩略图也能跟原神的"提瓦特金绿"、鸣潮的"冷调科技蓝"一秒区分。</p>
+      </div>
+
+      <h3>双色 DNA 定义</h3>
+      <table>
+        <thead><tr><th>色彩角色</th><th>情绪含义</th><th>使用场景</th><th>使用比例</th></tr></thead>
+        <tbody>
+          <tr><td><b>治愈暖阳</b></td><td>牧场日常 / 烟火气 / 治愈慢节奏</td><td>白昼场景、家园经营、奇波互动</td><td>白昼主调 60-70%</td></tr>
+          <tr><td><b>星空幽蓝</b></td><td>宏大幻想 / 浪漫 / 138 亿年星光母题</td><td>夜晚场景、主视觉、情感高潮</td><td>夜晚主调 + 荧彩强调 30-40%</td></tr>
+          <tr><td><b>奇波荧彩</b></td><td>幻想生物 / 闪光稀有个体</td><td>奇波高光、图鉴品质分级</td><td>点缀强调 ≤15%</td></tr>
+        </tbody>
+      </table>
+
+      <h3>美学谱系：从哪里来，到哪里去</h3>
+      <p>"幻想开放世界 + 生物收集"的视觉共识跨越近三十年，旅谣站在这条积累线的交汇点上：</p>
+      <table>
+        <thead><tr><th>参照作品</th><th>年代</th><th>借鉴了什么</th><th>旅谣的差异化</th></tr></thead>
+        <tbody>
+          <tr><td><b>吉卜力（天空之城/幽灵公主）</b></td><td>1986</td><td>治愈系幻想自然、浮空岛、人与自然魔法</td><td>把"看的动画"变成"住进去养宠的世界"</td></tr>
+          <tr><td><b>数码宝贝 大冒险</b></td><td>1999</td><td>生物结伴、进化羁绊的情感叙事</td><td>奇波不只进化，还能打工种田当坐骑</td></tr>
+          <tr><td><b>塞尔达：旷野之息</b></td><td>2017</td><td>无缝幻想开放世界、柔光调色、翻山探索</td><td>加入无体力飞行 + 家园经营的生活层</td></tr>
+          <tr><td><b>原神</b></td><td>2020</td><td>二次元卡通渲染撑起 3A 级开放世界规模</td><td>把"探索战斗"重心挪到"治愈养成"</td></tr>
+          <tr><td><b>幻兽帕鲁</b></td><td>2024</td><td>萌系生物捕捉 + 家园劳作自动化</td><td>用美少女+高审美填补帕鲁的情感空位</td></tr>
+          <tr><td><b>碧蓝航线（蛮啾自研）</b></td><td>2017</td><td>"最懂二次元"的角色比例、发色、服装美学</td><td>从 2D 立绘升级为 3D 卡通渲染大世界</td></tr>
+        </tbody>
+      </table>
+
+      <h3>场景语言公式</h3>
+      <p><b>分区色彩人格 × 昼夜双面情绪</b></p>
+      <ul>
+        <li>普罗米利亚多生态大陆：夏露露村暖色草地、南方山谷雾生菌林、镜花洲水乡花境、蒸汽朋克工业城勒布的锈铜——每个分区有独立色彩人格</li>
+        <li>湖水与浮空岛的通透感是画面记忆点，走高饱和 3D 卡通渲染 + 柔和昼夜光照</li>
+        <li>关键红线：昼夜双面必须成对出现——只有暖阳会显得平淡，只有星空会失去烟火气</li>
+      </ul>
+
+      <h3>角色与奇波剪影法则</h3>
+      <ul>
+        <li><b>角色</b>：蛮啾一脉的二次元比例，但用"种族+武器"强化剪影辨识——狼族忒拉拉的长枪兽耳、精灵夏儿的巨枪羽翼、熊猫佩佩的圆润帕米体型，涂黑也能秒辨</li>
+        <li><b>奇波</b>：萌系剪影梯度——<b>越萌的奇波轮廓越圆，越危险的凶兽轮廓越尖锐带刺</b>，剪影即身份</li>
+      </ul>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div x-show="page === 4" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
+      <h2 class="text-2xl font-bold text-white mb-6">竞品象限与差异化壁垒</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：在"玩法内核（战斗探索 ↔ 养成经营）× 情感内核（宏大热血 ↔ 治愈陪伴）"的二维象限中，旅谣占据了"养成经营 + 治愈陪伴"的无人区。原神/鸣潮/无限大都在"战斗探索"这半边，帕鲁在"养成经营"但情感是黑色幽默——旅谣是唯一把"治愈陪伴"做进捉宠家园的产品。</p>
+      </div>
+
+      <h3>竞品象限定位</h3>
+      <table>
+        <thead><tr><th>产品</th><th>玩法内核</th><th>情感内核</th><th>象限位置</th></tr></thead>
+        <tbody>
+          <tr><td><b>原神</b></td><td>探索 + 元素战斗</td><td>宏大冒险</td><td>探索 + 宏大</td></tr>
+          <tr><td><b>鸣潮</b></td><td>无缝探索 + 高速战斗</td><td>热血硬核</td><td>战斗 + 热血</td></tr>
+          <tr><td><b>无限大 ANANTA</b></td><td>都市开放世界 + 动作</td><td>写实赛博</td><td>探索 + 写实</td></tr>
+          <tr><td><b>幻兽帕鲁</b></td><td>捕捉 + 家园生存</td><td>黑色幽默（打工梗）</td><td>经营 + 冷嘲</td></tr>
+          <tr><td><b>蓝色星原：旅谣</b></td><td><b>捉宠 + 大牧场经营</b></td><td><b>治愈陪伴</b></td><td><b>经营 + 治愈 ← 无人区</b></td></tr>
+        </tbody>
+      </table>
+      <p><b>So what</b>：帕鲁占了"经营"但情感是冷的（生物是工具、梗是嘲讽）；原神系占了"宏大"但玩法是战斗探索。旅谣是唯一同时做到"养成经营玩法"和"治愈陪伴情感"的二次元产品——它的对手不是原神，是玩家心里"想放松又没地方去"的那块空缺。</p>
+
+      <h3>逐竞品差异化拆解</h3>
+      <table>
+        <thead><tr><th>竞品</th><th>它的弱点（对旅谣而言）</th><th>旅谣的优势</th></tr></thead>
+        <tbody>
+          <tr><td><b>原神</b></td><td>探索养成节奏偏重、体力墙、无家园经营深度</td><td>无体力探索 + 离线大牧场，主打"轻负担治愈"</td></tr>
+          <tr><td><b>无限大 ANANTA</b></td><td>写实都市题材、动作硬核，与治愈盘正交</td><td>题材正交（奇幻治愈 vs 赛博都市），抢档期不抢核心玩家</td></tr>
+          <tr><td><b>鸣潮</b></td><td>战斗硬核、叙事偏热血，缺"生活感"</td><td>奇波羁绊 + 家园慢节奏，填补"陪伴型"需求</td></tr>
+          <tr><td><b>幻兽帕鲁</b></td><td>角色审美粗糙、无情感付费、无二次元浓度</td><td>蛮啾"最懂二次元"的角色美学，用美少女补齐情感层</td></tr>
+        </tbody>
+      </table>
+
+      <h3>但要清醒：无人区也是靶心</h3>
+      <div class="highlight">
+        <p>差异化清晰，靶点也清晰。旅谣同时面临<b>双重拥挤</b>——横轴的二次元开放世界（原神/鸣潮/无限大），纵轴的帕鲁 like（Palworld 之后国内已宣布含"帕鲁"元素游戏超 11 款，且米哈游《崩坏：因缘精灵》、腾讯《洛克王国：世界》都在做捉宠大世界）<a href="https://www.toutiao.com/article/7444227827446202920" target="_blank" rel="noopener" class="tag">钛媒体/眸娱 ↗</a>。旅谣的壁垒不是单一玩法，而是一组不可轻易复制的组合：<b>蛮啾 8-9 年二次元角色美学 DNA + 川井宪次配乐 + "星光牧场"品牌词条 + 治愈陪伴的情感卡位</b>。任何竞品想追齐这四块，难度极大。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div x-show="page === 5" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
+      <h2 class="text-2xl font-bold text-white mb-6">宣发核心物料清单</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：旅谣所有宣发物料都应服务于一个原则——<b>每一份物料都是"星光牧场"这个符号的情感证据</b>。不是在推销"开放世界有多大"，而是在反复确认"这里有一只属于你的奇波，和一个治愈的家"。</p>
+      </div>
+
+      <h3>Key Art 规范</h3>
+      <ul>
+        <li><b>构图</b>：星临者 + 标志性奇波居中（骑乘飞行/家园相伴瞬间），背景是昼夜双面（暖阳牧场 / 星空浮空岛）</li>
+        <li><b>色彩</b>：严格锁定双色 DNA——治愈暖阳打底 + 星空幽蓝作情感高光，奇波荧彩点缀</li>
+        <li><b>文字</b>：Logo +「予你的，138 亿年的星光」slogan + 预约信息，不超过三行</li>
+        <li><b>适配</b>：竖版（社媒/短视频封面）+ 横版（官网/TapTap Banner）各一套，移动端优先</li>
+      </ul>
+
+      <h3>预告片矩阵（4 条）</h3>
+      <table>
+        <thead><tr><th>类型</th><th>时长</th><th>核心目标</th><th>发布节点</th></tr></thead>
+        <tbody>
+          <tr><td><b>情感向</b></td><td>90s</td><td>确立"星光牧场"品牌认知，星临者与奇波的羁绊叙事，不展示 UI</td><td>已有基底（首曝 PV 1000万级播放）</td></tr>
+          <tr><td><b>奇波向</b></td><td>2-3min</td><td>展示奇波捕捉、四阶进化、闪光个体、打工种田——对标捉宠党</td><td>测试期同步</td></tr>
+          <tr><td><b>家园向</b></td><td>2min</td><td>展示无体力探索、骑乘飞行、家园自定义、离线经营——对标治愈盘</td><td>公测前 T-30</td></tr>
+          <tr><td><b>角色向</b></td><td>单角色 PV 系列</td><td>逐个揭示可玩角色（延续忒拉拉 PV 250万播放的成功范式）——喂养老盘</td><td>持续滚动</td></tr>
+        </tbody>
+      </table>
+
+      <h3>社交媒体首发策略</h3>
+      <ul>
+        <li><b>B站</b>：绝对主阵地（官方号 2024 年已破 100 万粉，首曝 PV 千万级播放）——每支 PV 配合捉宠/家园 UP 主同步实机解读 <a href="https://space.bilibili.com/3546569016085336" target="_blank" rel="noopener" class="tag">官方B站空间 ↗</a></li>
+        <li><b>TapTap</b>：预约转化主阵地（8.9 分/211 万预约）——重点运营评论区，正面回应"逼肝""缝合"质疑 <a href="https://www.taptap.cn/app/593829" target="_blank" rel="noopener" class="tag">TapTap 渠道页 ↗</a></li>
+        <li><b>小红书</b>：奇波萌图 + 家园装修 + 角色立绘，打"治愈审美"牌，主攻女性与休闲盘</li>
+        <li><b>抖音</b>：15s 奇波萌系高光 + 闪光变异开箱式循环，目标破圈杂食盘</li>
+      </ul>
+    </div>
+
+    <!-- PAGE 6 -->
+    <div x-show="page === 6" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三个杀手级宣发创意</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：三个创意分别解决三个课题——"建立治愈心智"、"打消缝合质疑"、"把稀缺奇波变成社交货币"。它们是递进关系：先立情感，再证深度，最后引爆传播。</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意一：「我的星光牧场」—— UGC 家园晒图共创事件</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>把游戏最治愈的"家园自定义 + 奇波打工"做成 UGC 引擎。官方提供家园截图美化模板与"星光相框"，玩家晒出自己的家园布局、奇波阵容、昼夜牧场景，接力话题 #我的星光牧场#。每周官方精选"最治愈家园"给予游戏内奖励与官方账号展示。用真实玩家的家园图，替官方证明"这里值得住进来"。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>测试期启动（现在即可跑）→ 每周精选 → 公测日集中成"万人星光牧场墙"</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 150-250 万（相框/模板设计 + 话题运营 + 每周奖励 + KOL 种子晒图）</td></tr>
+            <tr><td><b>KPI</b></td><td>话题曝光 3 亿+；玩家晒图投稿 5 万+；带动预约/回流新增 30 万+</td></tr>
+            <tr><td><b>落地平台</b></td><td>小红书（主）+ B站动态 + 抖音 + TapTap 社区</td></tr>
+            <tr><td><b>参考案例</b></td><td>《动物森友会》岛屿设计晒图潮；《光·遇》玩家场景摄影生态</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意二：「奇波不是帕鲁」—— 一支正面回应缝合质疑的深度实机</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>与其被动挨"缝合"的骂，不如主动出一支"奇波深度解剖"实机长片：用同屏对比讲清旅谣与帕鲁的三点本质差异——① 奇波有独立性格与羁绊叙事（不是打工工具），② 四阶进化+闪光变异的收集深度，③ 人宠共斗的破韧合击战斗。标题直给「奇波不是帕鲁，是会陪你长大的伙伴」，把最大的舆情靶点转化为最强的差异化宣言。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>公测前 T-45 发布 → 配合捉宠向 UP 主二次解读 → T-30 发官方问答稳住舆论</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 100-180 万（实机拍摄剪辑 + UP 主投放 + 舆情监测运营）</td></tr>
+            <tr><td><b>KPI</b></td><td>视频播放 2000 万+；"缝合/换皮"负面词条占比下降 30%；捉宠党预约转化 +15%</td></tr>
+            <tr><td><b>落地平台</b></td><td>B站（主）+ 抖音切片 + TapTap 置顶</td></tr>
+            <tr><td><b>参考案例</b></td><td>《鸣潮》二测后"我们听到了"式主动回应；《幻兽帕鲁》官方对"缝合"争议的坦然沟通</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意三：「全球第一只闪光」—— 稀有奇波变社交货币</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>旅谣自带一个天然的社交货币——刷新率不足 0.1% 的闪光/渐变变异奇波（如全球数量个位数的绒心布里尼）。官方建立"闪光名录"机制：玩家捕获稀有闪光可上传认证，官方发布"全球闪光地图/稀有度排行"，让"我抓到了一只全服第 3 只的闪光"成为可炫耀的社交资本。稀缺感 + 收集攀比，是收集党最强的多巴胺引擎与自传播引擎。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>公测首月启动"闪光名录" → 每周公布稀有捕获榜 → 季度评选"星原猎手"给予实体/游戏内荣誉</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 120-200 万（认证系统/名录 H5 开发 + 榜单运营 + 季度奖励）</td></tr>
+            <tr><td><b>KPI</b></td><td>闪光认证参与 50 万+；稀有捕获内容二次传播 1.5 亿+曝光；收集党留存 +10%</td></tr>
+            <tr><td><b>落地平台</b></td><td>官网 H5 名录 + B站/抖音开箱式内容 + NGA/贴吧讨论</td></tr>
+            <tr><td><b>参考案例</b></td><td>宝可梦闪光/色违收集文化；《原神》抽卡"欧非"晒卡生态</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAGE 7 -->
+    <div x-show="page === 7" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
+      <h2 class="text-2xl font-bold text-white mb-6">视觉规范速查</h2>
+
+      <h3>色彩系统</h3>
+      <table>
+        <thead><tr><th>Token</th><th>用途</th><th>调性</th></tr></thead>
+        <tbody>
+          <tr><td><b>治愈暖阳</b></td><td>白昼牧场主调 / 家园场景</td><td>暖黄暖橙、柔和高明度，传达日常烟火气</td></tr>
+          <tr><td><b>星空幽蓝</b></td><td>夜晚主调 / 主视觉底色</td><td>深蓝紫、幽邃通透，传达 138 亿年星光浪漫</td></tr>
+          <tr><td><b>奇波荧彩</b></td><td>奇波高光 / 稀有个体 / 图鉴分级</td><td>白/蓝/紫/金四色分级 + 闪光专属高光</td></tr>
+          <tr><td><b>清透白</b></td><td>湖水 / 浮空岛通透质感</td><td>高明度冷白，画面记忆点</td></tr>
+          <tr><td><b>文字主色</b></td><td>标题</td><td>高对比，避免手游 UI 常见的信息轰炸</td></tr>
+        </tbody>
+      </table>
+
+      <h3>图形语言</h3>
+      <ul>
+        <li><b>138 亿年星光</b>：贯穿主视觉与情感母题的浪漫锚点，作为主视觉的引导光源</li>
+        <li><b>流星轨迹线</b>："改变流星轨迹"主题的荧光符号，用于动效与过渡</li>
+        <li><b>星结卡</b>：捕捉隐喻的核心视觉元素，可作为 UI 图鉴与收集系统的图形基底</li>
+        <li><b>奇波剪影</b>：越萌越圆、越危险越尖锐带刺——剪影即身份的设计语言</li>
+      </ul>
+
+      <h3>UI 设计原则</h3>
+      <ul>
+        <li><b>图鉴即核心</b>：奇波图鉴是核心界面，词条品质白/蓝/紫/金四色分级，闪光有专属高光标记</li>
+        <li><b>极简 diegetic</b>：探索时屏幕留白大、信息密度低，只在必要时浮出机关提示与骑乘切换</li>
+        <li><b>星空幽蓝底 + 荧彩强调</b>：与治愈幻想基调统一</li>
+      </ul>
+
+      <h3>设计红线</h3>
+      <div class="highlight">
+        <ul>
+          <li><b>禁止黑深残</b>——旅谣是治愈系，不是末世生存；所有场景保持明亮、通透、有生活感</li>
+          <li><b>昼夜必须成对</b>——只有暖阳会平淡，只有星空会失去烟火气，双面情绪缺一不可</li>
+          <li><b>奇波必须萌</b>——奇波是品牌记忆核心，造型圆润呆萌，与凶兽的尖锐形成对比</li>
+          <li><b>"星光牧场"心智必须贯穿</b>——所有主视觉都要同时出现"星光"与"家园/奇波"元素</li>
+          <li><b>避免信息轰炸</b>——UI 走极简，对抗手游常见的满屏红点与活动横幅</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PAGE 8 -->
+    <div x-show="page === 8" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
+      <h2 class="text-2xl font-bold text-white mb-6">风险预警与应对</h2>
+
+      <div class="risk-card">
+        <h5>风险一：「帕鲁缝合 / 原创性」质疑（高风险）</h5>
+        <p>TapTap 评论区已有大量原声质疑"奇波系统中规中矩""场上只能一个奇波战斗、自由度比帕鲁低""很难说不是换皮"，GameLook 直接给了"国产二次元帕鲁"标签。这是旅谣最高频的负面舆情。 <a href="https://www.taptap.cn/app/593829/review" target="_blank" rel="noopener" class="tag">TapTap 原声 ↗</a></p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>主动出击而非回避——用"奇波不是帕鲁"深度实机（创意二），把靶点转化为差异化宣言</li>
+            <li>强化情感差异："帕鲁是打工工具，奇波是陪你长大的伙伴"——用蛮啾的角色/羁绊叙事筑壁垒</li>
+            <li>补强战斗深度：针对"场上只能一个奇波"的吐槽，测试期迭代后用实机展示合击/切换的策略性</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险二：删档计费 + 逼肝焦虑（高风险）</h5>
+        <p>三测（旅迹）为"限量计费删档"，且二测最大实测吐槽是"重度肝、养成材料同源、家园/坐骑双重饱食度、异色闪光内卷"。逼肝焦虑甚至先于逼氪焦虑爆发；同时商业化（抽卡机制）官方至今未公开。 <a href="https://www.taptap.cn/app/593829" target="_blank" rel="noopener" class="tag">TapTap 实测原声 ↗</a></p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>放大已有的减负设计："家园装备全可产出、不制造战力焦虑"是二测被媒体点名的亮点，要做成宣发主线</li>
+            <li>公测前必须解决二测暴露的"重度肝"体感——离线经营应真正减负而非制造新的每日打卡</li>
+            <li>商业化公布要克制且透明：明确"卡池只出女性角色"，付费点向外观/家园倾斜而非战力，降低氪金焦虑</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险三：性别向舆情反复（中风险）</h5>
+        <p>2024 首曝时一则"疑似加入可抽男性角色"传言就引发大规模舆论风暴，逼蛮啾连发两声明。核心盘（ML 取向）对此极度敏感，任何模糊信号都可能再次引爆。 <a href="http://www.gamelook.com.cn/2024/03/540545/" target="_blank" rel="noopener" class="tag">GameLook ↗</a></p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>信息口径绝对统一——"卡池获取的只有女性角色"这条承诺不含糊、不留解读空间</li>
+            <li>所有角色 PV/立绘发布前做核心盘敏感度预审，避免无意的模糊表述被过度解读</li>
+            <li>建立舆情快速响应机制：一旦出现相关传言，24 小时内官方定调，不让情绪发酵过夜</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card" style="border-left-color: #a16207;">
+        <h5>风险四：赛道拥挤 + 入场偏晚（中风险）</h5>
+        <p>捉宠大世界赛道已拥挤（帕鲁后国内含"帕鲁"元素游戏超 11 款，米哈游《因缘精灵》、腾讯《洛克王国：世界》在做），媒体已点名旅谣"入场时机偏晚、玩法经验受质疑"。且无限大 ANANTA 同为 2026 国产二次元开放世界新品，抢暑期档。 <a href="https://www.233leyuan.com/post-detail/2075507978529882112" target="_blank" rel="noopener" class="tag">233乐园 ↗</a></p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>用"星光牧场治愈卡位"跳出正面拥挤——不与原神/无限大抢"开放世界"，与帕鲁 like 抢"高审美情感"</li>
+            <li>与 ANANTA 做题材正交沟通（奇幻治愈 vs 赛博都市），错峰或差异化抢曝光而非硬碰</li>
+            <li>把"晚"转化为"稳"：强调多轮测试打磨（星至/恒序/旅迹三测）体现"不赶工、打磨到位"的品质承诺</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 9 -->
+    <div x-show="page === 9" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
+      <h2 class="text-2xl font-bold text-white mb-6">顾问终审意见</h2>
+
+      <div class="verdict">
+        <p><b>终审判断：GO（有条件）</b></p>
+        <p>蓝色星原具备在逆风的二次元大盘里逆势起量的核心条件——卡位精准（"经营+治愈"无人区）、品牌符号有力（"星光牧场"可延展）、团队背书扎实（蛮啾 8-9 年二次元角色美学，碧蓝航线经 B 站财报级印证）、玩法有真差异（无体力探索+离线牧场+奇波羁绊）。<b>但 GO 附一个硬条件：公测前必须解决二测暴露的"重度肝"体感与"缝合"舆情</b>——这两点若不改善，再好的卡位也会被口碑反噬。</p>
+      </div>
+
+      <h3>三个尖锐问题</h3>
+      <div class="highlight">
+        <p><b>1. "治愈慢节奏"和"手游长线留存"如何兼容？</b><br>治愈牧场是差异化卖点，但手游需要日活和付费驱动长线运营。如果减负减到没有目标感，玩家会"玩两周就毕业"；如果为了留存加回每日打卡，又背叛了治愈定位。<b>建议</b>：把长线动力放在"收集完整度（奇波图鉴/闪光）"和"家园养成成就感"上，而非体力/日常任务墙。</p>
+        <p><b>2. "卡池只出女性角色"的商业化能否撑起开放世界的研发成本？</b><br>纯女性向卡池锁定了核心盘的信任，但也放弃了男性角色抽卡的收入。一款 3D 开放世界的研发/运营成本极高，仅靠女性角色 + 外观 + 家园付费能否回本，是悬在头上的商业问题。<b>建议</b>：把奇波养成、家园装饰、外观时装做成第二增长曲线，降低对角色卡池的单一依赖。</p>
+        <p><b>3. 多轮测试拉长战线，热度能否撑到公测？</b><br>星至/恒序/旅迹三测跨越近一年，正式公测时间仍未定。测试打磨是好事，但热度是有保质期的，"测试疲劳"是真实风险。<b>建议</b>：每轮测试给出明确的"这次改了什么"内容承诺，把测试本身做成"看得见进步"的营销事件，而非单纯的技术验证。</p>
+      </div>
+
+      <h3>第一优先行动清单</h3>
+      <table>
+        <thead><tr><th>优先级</th><th>行动</th><th>负责团队</th></tr></thead>
+        <tbody>
+          <tr><td><b>最高</b></td><td>公测前解决二测"重度肝"体感——重构离线经营与每日节奏，让减负成为真实体验而非口号</td><td>制作 / 数值</td></tr>
+          <tr><td><b>最高</b></td><td>制作"奇波不是帕鲁"深度实机（创意二），主动定调差异化，压制缝合舆情</td><td>市场 / 内容</td></tr>
+          <tr><td><b>高</b></td><td>启动"我的星光牧场"UGC 共创（创意一），把治愈心智交给玩家 UGC 自证</td><td>社区 / 运营</td></tr>
+          <tr><td><b>高</b></td><td>统一"卡池只出女性角色"信息口径，建立性别向舆情 24 小时响应机制</td><td>市场 / 公关</td></tr>
+          <tr><td><b>中</b></td><td>商业化方案定调：付费向外观/家园/收集倾斜，明确不做战力氪金</td><td>制作 / 商业化</td></tr>
+        </tbody>
+      </table>
+
+      <div class="verdict">
+        <p><b>最终建议</b>：蓝色星原的宣发核心只需做好一件事——<b>让全世界记住"这是第一个能让你养宠、种田、住进去的治愈二次元开放世界"</b>。在原神系疲软、帕鲁验证了容量、而"治愈捉宠"这个心智位还空着的窗口里，旅谣有机会成为品类定义者。但前提是：产品端把"逼肝"改掉，宣发端把"缝合"打回去——把"星光牧场"从一句 slogan，做成玩家真实体验到的那个"不逼我的家"。</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- THEME_TOGGLE_INJECT_START -->
+<!-- Theme toggle: 注入在每份报告 </body> 之前 -->
+<style>
+/* ===== 浅色模式覆盖（仅在 html[data-theme="light"] 时生效） ===== */
+html[data-theme="light"] body { background:#f5f5f5 !important; color:#1a1a1a !important; }
+html[data-theme="light"] header { background:rgba(245,245,245,0.95) !important; border-bottom-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] header h1 { color:#1a1a1a !important; }
+html[data-theme="light"] header a { color:#525252 !important; }
+html[data-theme="light"] header a:hover { color:#000 !important; }
+html[data-theme="light"] header .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] header .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] header .bg-white\/\[\.08\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; border-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] header .hover\:bg-white\/\[\.04\]:hover { background:rgba(0,0,0,0.05) !important; color:#000 !important; }
+html[data-theme="light"] header .bg-white\/10, html[data-theme="light"] header .bg-white\/\[\.04\] { background:rgba(0,0,0,0.1) !important; }
+
+/* 左侧 nav 区（主报告页结构） */
+html[data-theme="light"] aside, html[data-theme="light"] nav { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] aside button, html[data-theme="light"] nav button { color:#525252 !important; }
+html[data-theme="light"] aside button:hover, html[data-theme="light"] nav button:hover { color:#000 !important; background:rgba(0,0,0,0.04) !important; }
+html[data-theme="light"] .bg-white\/\[\.06\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; }
+html[data-theme="light"] .bg-white\/\[\.04\] { background:rgba(0,0,0,0.05) !important; }
+
+/* 内容卡片 */
+html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+html[data-theme="light"] .verdict { border-left-color:#1a1a1a !important; }
+html[data-theme="light"] .verdict p { color:#1a1a1a !important; }
+html[data-theme="light"] .risk-card { border-left-color:#c43c3c !important; }
+html[data-theme="light"] .creative-card h5, html[data-theme="light"] .risk-card h5 { color:#1a1a1a !important; }
+
+/* 文字色 */
+html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }
+html[data-theme="light"] .page-content p, html[data-theme="light"] .page-content li { color:#3a3a3a !important; }
+html[data-theme="light"] .page-content b, html[data-theme="light"] .page-content strong, html[data-theme="light"] b, html[data-theme="light"] strong { color:#000 !important; }
+html[data-theme="light"] .text-white { color:#1a1a1a !important; }
+html[data-theme="light"] .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-600 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-300 { color:#3a3a3a !important; }
+html[data-theme="light"] .quote { color:#1a1a1a !important; }
+html[data-theme="light"] .muted { color:#737373 !important; }
+
+/* 表格 */
+html[data-theme="light"] table th { color:#525252 !important; border-bottom-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] table td { color:#3a3a3a !important; border-bottom-color:rgba(0,0,0,0.06) !important; }
+
+/* tag */
+html[data-theme="light"] .tag { background:rgba(0,0,0,0.05) !important; color:#525252 !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] .tag:hover { color:#000 !important; }
+
+/* 分隔线 */
+html[data-theme="light"] .bg-white\/10 { background:rgba(0,0,0,0.1) !important; }
+html[data-theme="light"] .border-bdr, html[data-theme="light"] .border-white\/10, html[data-theme="light"] .border-white\/\[\.06\] { border-color:rgba(0,0,0,0.08) !important; }
+
+/* compare 卡片专用 */
+html[data-theme="light"] .text-3xl, html[data-theme="light"] .text-2xl, html[data-theme="light"] .text-xl { color:#1a1a1a !important; }
+html[data-theme="light"] .report-date { color:#737373 !important; }
+
+/* ===== 切换按钮本体 ===== */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.theme-toggle-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+.theme-toggle-btn svg { width: 22px; height: 22px; transition: all 0.25s ease; }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-on { display: block; color: #fbbf24; filter: drop-shadow(0 0 4px rgba(251,191,36,0.6)); }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-off { display: none; }
+html[data-theme="light"] .theme-toggle-btn { background: #ffffff; border-color: rgba(0,0,0,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+html[data-theme="light"] .theme-toggle-btn:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-on { display: none; }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-off { display: block; color: #737373; }
+
+/* 拉绳小动画 */
+.theme-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+}
+html[data-theme="light"] .theme-toggle-btn::before { background: rgba(0,0,0,0.15); }
+</style>
+
+<button class="theme-toggle-btn" onclick="toggleReportTheme()" title="切换深浅色模式" aria-label="切换主题">
+  <!-- 点亮的灯泡（深色模式显示） -->
+  <svg class="icon-bulb-on" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z"/>
+  </svg>
+  <!-- 熄灭的灯泡（浅色模式显示） -->
+  <svg class="icon-bulb-off" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  // 初始化：从 localStorage 读，没有就默认 dark
+  var savedTheme = localStorage.getItem('report-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+function toggleReportTheme() {
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('report-theme', next);
+}
+</script>
+
+<!-- THEME_TOGGLE_INJECT_END -->
+</body>
+</html>

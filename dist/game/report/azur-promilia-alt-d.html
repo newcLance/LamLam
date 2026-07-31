@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>蓝色星原：旅谣 — 三大宣发阵地定制（阵地定制视角）</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'surface-0': '#0c0c0c',
+        'surface-1': '#141414',
+        'surface-2': '#1c1c1c',
+        'surface-3': '#252525',
+        'bdr': 'rgba(255,255,255,0.06)',
+      }
+    }
+  }
+}
+</script>
+<style>
+  [x-cloak] { display: none !important; }
+  body { background: #0c0c0c; color: #e5e5e5; }
+  * { scrollbar-width: thin; scrollbar-color: #333 transparent; }
+  .page-content h3 { font-size: 16px; font-weight: 700; color: #fff; margin: 28px 0 12px; }
+  .page-content h4 { font-size: 14px; font-weight: 600; color: #d4d4d4; margin: 20px 0 8px; }
+  .page-content p { font-size: 14px; line-height: 1.8; color: #a3a3a3; margin: 0 0 12px; }
+  .page-content ul { padding-left: 20px; margin: 0 0 16px; }
+  .page-content li { font-size: 13px; line-height: 1.7; color: #a3a3a3; margin-bottom: 4px; }
+  .page-content li::marker { color: #525252; }
+  .page-content strong, .page-content b { color: #fff; font-weight: 600; }
+  .page-content .highlight { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 16px; margin: 16px 0; }
+  .page-content .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; background: rgba(255,255,255,0.06); color: #737373; border: 1px solid rgba(255,255,255,0.06); margin-right: 4px; text-decoration: none; }
+  .page-content .tag:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
+  .page-content table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 13px; }
+  .page-content th { text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 600; color: #737373; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .page-content td { padding: 8px 12px; color: #a3a3a3; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .creative-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; }
+  .creative-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .verdict { background: #141414; border-left: 3px solid #fff; padding: 16px 20px; margin: 20px 0; border-radius: 0 6px 6px 0; }
+  .verdict p { color: #d4d4d4; }
+  .risk-card { background: #141414; border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 20px; margin: 16px 0; border-left: 3px solid #c43c3c; }
+  .risk-card h5 { font-size: 14px; font-weight: 700; color: #fff; margin: 0 0 8px; }
+  .risk-card .mitigation { border-top: 1px solid rgba(255,255,255,0.06); margin-top: 12px; padding-top: 12px; }
+</style>
+</head>
+<body class="min-h-screen antialiased" x-data="{ page: 0 }">
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-sm border-b border-bdr">
+  <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <a href="../azur-promilia.html" class="flex items-center gap-2 text-sm text-neutral-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        返回详情页
+      </a>
+      <div class="h-4 w-px bg-white/10"></div>
+      <h1 class="text-sm font-bold text-white">蓝色星原：旅谣 — 三大宣发阵地定制<span class="report-date ml-3 text-[11px] text-neutral-600 font-normal">2026-07-31</span></h1>
+    </div>
+    <div class="flex items-center gap-1">
+      <a href="azur-promilia.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">宏观视角</a>
+      <a href="azur-promilia-alt.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">运营阶段</a>
+      <a href="azur-promilia-alt-d.html" class="px-3 py-1.5 rounded text-[11px] font-medium bg-white/[.08] text-white border border-white/10">阵地定制</a>
+      <div class="w-px h-4 bg-white/10 mx-1"></div>
+      <a href="azur-promilia-compare.html" class="px-3 py-1.5 rounded text-[11px] font-medium text-neutral-500 hover:text-white hover:bg-white/[.04] transition">报告对比</a>
+    </div>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto flex min-h-[calc(100vh-56px)]">
+
+  <nav class="w-56 shrink-0 border-r border-bdr py-8 px-4 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto">
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">识别</div>
+      <button x-on:click="page = 0" :class="page === 0 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三大阵地功能定位</button>
+      <button x-on:click="page = 1" :class="page === 1 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">各阵地用户与行为路径</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">定位</div>
+      <button x-on:click="page = 2" :class="page === 2 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">核心设计语言：一屏一钩</button>
+      <button x-on:click="page = 3" :class="page === 3 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">官网 + TapTap 视觉策略</button>
+      <button x-on:click="page = 4" :class="page === 4 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">B站 + 自研启动器策略</button>
+    </div>
+    <div class="mb-6">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">构建</div>
+      <button x-on:click="page = 5" :class="page === 5 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">三个阵地定制创意</button>
+      <button x-on:click="page = 6" :class="page === 6 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">视觉规范速查</button>
+      <button x-on:click="page = 7" :class="page === 7 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">执行时间线与预算</button>
+    </div>
+    <div>
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-3">收尾</div>
+      <button x-on:click="page = 8" :class="page === 8 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">风险预警与应对</button>
+      <button x-on:click="page = 9" :class="page === 9 ? 'bg-white/[.06] text-white border-white/10' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-white/[.03]'" class="w-full text-left px-3 py-2 rounded text-[13px] font-medium border transition mb-1">顾问终审意见</button>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-8 px-10 max-w-4xl">
+
+    <!-- PAGE 0 -->
+    <div x-show="page === 0" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 01</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三大阵地功能定位</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：旅谣是<b>蛮啾自发行、不走 WeGame</b>的产品，它的宣发阵地是自己的三块自留地——<b>官网（预约转化第一入口）、TapTap（口碑与社区主阵地）、B站（内容与 PV 声量主阵地）</b>，外加 PC 端<b>自研启动器（每次启动必经的每日触达点）</b>。三个阵地承担完全不同的任务，套用同一套物料是最大的浪费。</p>
+      </div>
+
+      <h3>为什么旅谣不套 WeGame 而用自有阵地</h3>
+      <p>WeGame 是腾讯系发行的标配阵地，但旅谣是蛮啾自研自发（国服蛮啾，海外分区悠星/NEXON/NIJIGEN），它的流量和转化几乎全在自有触点上完成。所以阵地定制必须回到旅谣的真实分发结构：</p>
+      <table>
+        <thead><tr><th>阵地</th><th>核心职能</th><th>承担的转化任务</th></tr></thead>
+        <tbody>
+          <tr><td><b>① 官网 azurpromilia.manjuu.com</b></td><td>预约 / 预下载 / 品牌门户</td><td>第一印象 + 预约转化 + 世界观沉浸</td></tr>
+          <tr><td><b>② TapTap 渠道页</b></td><td>评分 / 评价 / 社区讨论</td><td>口碑背书 + 舆情主战场 + 长期粘性</td></tr>
+          <tr><td><b>③ B站官方号 + 自研启动器</b></td><td>内容声量 / PC 端每日触达</td><td>PV 传播 + 内容沉淀 + 启动前氛围预热</td></tr>
+        </tbody>
+      </table>
+
+      <h3>三大阵地的现状盘点</h3>
+      <ul>
+        <li><b>官网</b>：已有首页/角色/奇波/文明/资讯完整结构，是品牌沉浸的核心门户 <a href="https://azurpromilia.manjuu.com/home/" target="_blank" rel="noopener" class="tag">官网 ↗</a></li>
+        <li><b>TapTap</b>：8.9 分 / 211 万预约 / 209 万关注，测试热度榜 #2——既是口碑资产，也是"逼肝/缝合"舆情的集中地 <a href="https://www.taptap.cn/app/593829" target="_blank" rel="noopener" class="tag">TapTap ↗</a></li>
+        <li><b>B站</b>：官方号 2024 年已破 100 万粉，首曝 PV 千万级、忒拉拉 PV 250 万级播放，是内容传播的绝对主阵地 <a href="https://space.bilibili.com/3546569016085336" target="_blank" rel="noopener" class="tag">官方B站空间 ↗</a></li>
+      </ul>
+
+      <div class="highlight">
+        <p><b>阵地结论</b>：旅谣的阵地打法不是"多平台铺量"，而是"<b>三块自留地各司其职、接力转化</b>"——B站负责把人"吸进来"，官网负责把人"转成预约"，TapTap 负责把口碑"沉下来"，启动器负责在公测后"每天见一面"。四个触点串成一条完整的用户旅程。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div x-show="page === 1" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">识别 · 02</div>
+      <h2 class="text-2xl font-bold text-white mb-6">各阵地用户与行为路径</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：同一个玩家在三个阵地里的"心理状态"完全不同——在 B站是"被内容吸引的围观者"，在官网是"考虑要不要预约的评估者"，在 TapTap 是"看别人评价再决策的谨慎者"，在启动器里是"已入坑的日常玩家"。物料必须匹配每个阵地里用户的真实心态。</p>
+      </div>
+
+      <h3>各阵地用户行为拆解</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>用户心态</th><th>停留时长</th><th>决策动作</th></tr></thead>
+        <tbody>
+          <tr><td><b>B站</b></td><td>"这 PV 好看，这游戏是啥？"（被动种草）</td><td>一支视频 2-5 分钟</td><td>点赞/三连/点简介跳官网</td></tr>
+          <tr><td><b>官网</b></td><td>"值不值得我预约？"（主动评估）</td><td>数分钟浏览</td><td>点预约 / 看世界观 / 关走</td></tr>
+          <tr><td><b>TapTap</b></td><td>"别人玩了觉得怎么样？"（社会验证）</td><td>翻评价 5-15 分钟</td><td>预约 / 看差评犹豫 / 弃</td></tr>
+          <tr><td><b>启动器</b></td><td>"今天玩点啥？"（已入坑日常）</td><td>每次启动 3-10 秒</td><td>看公告 / 直接进游戏</td></tr>
+        </tbody>
+      </table>
+
+      <h3>三条关键转化路径</h3>
+      <ul>
+        <li><b>路径 A（种草→预约）</b>：B站看 PV → 被治愈画风/奇波打动 → 点简介进官网 → 预约。<b>断点</b>：B站到官网的跳转损耗，简介引导要够强</li>
+        <li><b>路径 B（评估→决策）</b>：官网/搜索 → TapTap 看评价 → 被"逼肝/缝合"差评劝退。<b>断点</b>：TapTap 评论区的负面首屏，是最大的转化杀手</li>
+        <li><b>路径 C（入坑→留存）</b>：公测后 PC 玩家每次开游戏经过启动器 → 看到公告/新奇波/活动 → 保持粘性。<b>断点</b>：启动器若只是"点开就进"的空白页，浪费了每日触达</li>
+      </ul>
+
+      <div class="highlight">
+        <p><b>路径结论</b>：三个阵地的用户不是三批人，而是同一批人在不同决策阶段的不同面孔。旅谣要做的是<b>让物料在每个阵地都"接得住上一环、递得出下一环"</b>——B站种的草，官网要接得住转化；TapTap 的差评，官方要顶得住引导；启动器的每日触达，要用起来而不是浪费。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div x-show="page === 2" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 03</div>
+      <h2 class="text-2xl font-bold text-white mb-6">核心设计语言：一屏一钩</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：三大阵地统一遵循一条设计语言——<b>"一屏一钩"</b>：每个阵地的首屏/首视觉只承担一个最核心的钩子，不贪多。官网首屏钩"沉浸"，TapTap 首屏钩"信任"，B站封面钩"点击"，启动器首屏钩"每日新鲜感"。一屏只讲一件事，是对抗手游宣发信息轰炸的最有效武器。</p>
+      </div>
+
+      <h3>为什么是"一屏一钩"而非"信息堆满"</h3>
+      <p>手游宣发最常见的错误是"每个位置都想说全部"——首屏堆满卖点、UI 塞满红点。但旅谣的核心定位是"治愈、减负、不轰炸"，宣发阵地的设计语言必须<b>与产品气质一致</b>：如果连宣发页都信息爆炸，怎么让人相信游戏是治愈慢节奏的？</p>
+      <ul>
+        <li><b>视觉层</b>：贯彻"星空幽蓝 × 治愈暖阳"双色 DNA + 大量留白，让每个阵地都有旅谣的辨识度</li>
+        <li><b>信息层</b>：每屏只留一个主行动点（预约/下载/看评价/进游戏），次要信息折叠</li>
+        <li><b>情感层</b>：所有阵地首屏都回归 slogan「予你的，138 亿年的星光」，统一情感锚点</li>
+      </ul>
+
+      <h3>四阵地的"钩子分工"</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>唯一核心钩子</th><th>首屏该出现的</th><th>首屏不该出现的</th></tr></thead>
+        <tbody>
+          <tr><td><b>官网</b></td><td>沉浸感 → 预约</td><td>昼夜牧场主视觉 + 预约大按钮</td><td>密密麻麻的玩法列表</td></tr>
+          <tr><td><b>TapTap</b></td><td>信任感 → 决策</td><td>高分 + 精选好评 + 减负差异化</td><td>无引导的负面首屏</td></tr>
+          <tr><td><b>B站封面</b></td><td>点击欲 → 播放</td><td>奇波萌点 / 角色魅力单焦点</td><td>塞满文字的封面</td></tr>
+          <tr><td><b>启动器</b></td><td>新鲜感 → 进游戏</td><td>今日/本周新内容一句话</td><td>空白页或纯 loading</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>设计语言结论</b>：一屏一钩的本质是<b>"克制"</b>——这既是设计策略，也是对旅谣治愈定位的自我兑现。当玩家在任何一个阵地都感受到"干净、不吵、只讲重点"，他对"这游戏是治愈慢节奏"的信任就在宣发触点上被预先建立了。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div x-show="page === 3" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 04</div>
+      <h2 class="text-2xl font-bold text-white mb-6">官网 + TapTap 视觉策略</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：官网要做"沉浸式品牌门户"——让人一进来就想留下；TapTap 要做"信任前置的口碑阵地"——用好评和减负差异化，抢在负面之前建立第一印象。这两个阵地一个管"心动"，一个管"放心"。</p>
+      </div>
+
+      <h3>阵地① 官网：沉浸式品牌门户</h3>
+      <p>官网已有首页/角色/奇波/文明/资讯的完整结构，视觉策略要强化"沉浸"而非"信息展示"：</p>
+      <ul>
+        <li><b>首屏</b>：全屏昼夜双面主视觉（可交互切换白昼牧场/夜晚星空），一个"立即预约"大按钮，slogan 居中——一屏只做"心动+预约"</li>
+        <li><b>奇波页</b>：做成"图鉴式"探索——每只奇波有独立卡片、性格档案、进化链动画，把"收集欲"在官网就点燃</li>
+        <li><b>文明页</b>：世界观沉浸区，用普罗米利亚的多生态大陆做视觉叙事，喂养想深入了解的评估者</li>
+        <li><b>关键动作</b>：预约按钮全站常驻悬浮，任何页面滚动都能一键预约，减少转化损耗</li>
+      </ul>
+
+      <h3>阵地② TapTap：信任前置的口碑阵地</h3>
+      <p>TapTap 是双刃剑——8.9 分是资产，但评论区"逼肝/缝合"差评是转化杀手。视觉与内容策略核心是<b>"让正面信息前置"</b>：</p>
+      <table>
+        <thead><tr><th>位置</th><th>策略</th><th>目标</th></tr></thead>
+        <tbody>
+          <tr><td><b>顶部素材位</b></td><td>轮播突出"减负治愈"差异化实机 + 高光奇波</td><td>用差异化卖点定第一印象</td></tr>
+          <tr><td><b>官方动态置顶</b></td><td>置顶"减负改进汇报""卡池只出女性角色"承诺</td><td>抢在负面前正面定调</td></tr>
+          <tr><td><b>评论区运营</b></td><td>官方认真回复高赞差评（尤其逼肝），展示"在听在改"</td><td>把差评区变成"被重视"的证明</td></tr>
+          <tr><td><b>精选好评引导</b></td><td>引导治愈/收集向真实好评获赞，优化默认排序观感</td><td>让评估者先看到正面社会验证</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>官网+TapTap 结论</b>：官网负责"让人心动到愿意预约"，TapTap 负责"让犹豫者放心到愿意决策"。两个阵地的视觉都要贯彻"一屏一钩"和双色 DNA，但内容重心不同——<b>官网卖沉浸，TapTap 卖信任</b>。尤其 TapTap，与其被动挨差评，不如主动用"减负改进 + 认真回复"把评论区经营成"这个团队真的在听劝"的正面证据。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div x-show="page === 4" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">定位 · 05</div>
+      <h2 class="text-2xl font-bold text-white mb-6">B站 + 自研启动器策略</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：B站是旅谣声量的绝对引擎（官方号百万粉、PV 千万播放），策略是把"角色 PV 爆款范式"做成常态化连载矩阵；自研启动器是被严重低估的"每日触达金矿"，策略是把它从"点开就进的空白页"改造成"每次启动都有惊喜的氛围预热屏"。</p>
+      </div>
+
+      <h3>阵地③-A B站：内容声量引擎</h3>
+      <p>B站是旅谣验证过的爆款土壤——首曝 PV 1028 万、忒拉拉 PV 255 万播放，说明这个用户盘对"高质量角色 PV"极其买账。视觉与内容策略：</p>
+      <ul>
+        <li><b>封面策略</b>：贯彻"一屏一钩"——每支视频封面聚焦单一钩子（一个角色魅力点 / 一只萌奇波 / 一个治愈场景），不堆文字</li>
+        <li><b>内容矩阵</b>：角色 PV 连载（每 2-3 周一位）+ 奇波档案短片 + 开发者共建日志，三线供给</li>
+        <li><b>UP 主生态</b>：分层合作——捉宠向 UP 讲奇波深度（打缝合质疑）、治愈向 UP 讲家园慢节奏（打逼肝质疑）、颜值向 UP 讲角色立绘（喂老盘）</li>
+        <li><b>互动区运营</b>：官方账号在评论区活跃"接梗"，把"最懂二次元的小黄鸡"人设做成社区亲和力</li>
+      </ul>
+
+      <h3>阵地③-B 自研启动器：被低估的每日触达金矿</h3>
+      <p>PC 端玩家每次启动游戏必经启动器——这是公测后<b>唯一 100% 触达活跃用户的位置</b>，但绝大多数游戏把它浪费成一个纯 loading 页。旅谣应该把它做成"每日氛围预热屏"：</p>
+      <table>
+        <thead><tr><th>启动器模块</th><th>设计</th><th>作用</th></tr></thead>
+        <tbody>
+          <tr><td><b>动态主视觉</b></td><td>昼夜双面随真实时间切换（白天暖阳牧场/夜晚星空）</td><td>每次启动都强化"星光牧场"氛围</td></tr>
+          <tr><td><b>今日一句</b></td><td>一句治愈文案 + 今日新内容提示（新奇波/活动）</td><td>用"一屏一钩"给每日新鲜感</td></tr>
+          <tr><td><b>奇波陪伴位</b></td><td>玩家的招牌奇波出现在启动器角落，会有小动作</td><td>把"陪伴"从游戏内延伸到启动前</td></tr>
+          <tr><td><b>公告轻提示</b></td><td>重要公告用小气泡，不打断、不轰炸</td><td>信息传达但不破坏治愈感</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>B站+启动器结论</b>：B站是"拉新引擎"，负责把千万级流量变成官网预约；启动器是"留存引擎"，负责在公测后用每日触达维系粘性。两者一头一尾——<b>B站在用户入坑前拉，启动器在用户入坑后守</b>。尤其启动器，把它从空白页做成"每次开游戏都先感受到星光牧场氛围"的预热屏，是旅谣治愈定位最自然的延伸点，且几乎零边际成本。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div x-show="page === 5" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 06</div>
+      <h2 class="text-2xl font-bold text-white mb-6">三个阵地定制创意</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：三个创意分别激活三个阵地的独特能力——官网做"可玩的沉浸预约"、TapTap 做"差评区反转"、启动器做"每日陪伴仪式"。每个创意都只在对应阵地成立，不是通用物料的复制粘贴。</p>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意一（官网）：「星原漫游」—— 官网首页做成可交互的治愈微体验</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>把官网首屏从"静态主视觉"升级为轻交互 H5 微体验——用户滚动/拖拽即可让画面从白昼牧场过渡到夜晚星空，鼠标划过会有奇波探头、星光飘落的微动效，滚到底自然浮出"立即预约"。让评估者在还没进游戏时，就先体验了 30 秒的"星光牧场治愈感"，把"沉浸"变成可感知的预约理由。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>T-45 完成 H5 微体验开发 → T-30 上线官网首页 → 配合公测定档更新</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 80-150 万（交互 H5 设计开发 + 美术资源 + 多端适配）</td></tr>
+            <tr><td><b>KPI</b></td><td>官网首页平均停留时长 +60%；首页到预约转化率 +25%；微体验分享传播 5 万+</td></tr>
+            <tr><td><b>落地平台</b></td><td>官网首页（PC + 移动端 H5）</td></tr>
+            <tr><td><b>参考案例</b></td><td>《光·遇》官网沉浸式滚动叙事；苹果产品页的滚动交互体验</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意二（TapTap）：「差评变共建」—— 把评论区差评做成可见的改进清单</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>在 TapTap 官方动态开设"星原改进清单"连载——把玩家高赞差评（尤其逼肝、奇波战斗自由度）逐条列出，标注"已收到 → 改进中 → 已解决"三种状态，附上对应的版本改动实机。让每个吐槽过的玩家都能在清单里找到自己的声音被处理。把 TapTap 差评区从"劝退区"反转成"这个团队真在改"的信任区。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>三测后启动首期清单 → 每次版本更新同步清单状态 → 公测前发布"清单大结算"</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 40-80 万（内容运营 + 改动实机剪辑 + 社区维护）</td></tr>
+            <tr><td><b>KPI</b></td><td>TapTap 评分回升/稳定在 9.0+；差评转好评/追评率 +30%；官方动态互动量 +50%</td></tr>
+            <tr><td><b>落地平台</b></td><td>TapTap 官方动态 + 官网资讯同步</td></tr>
+            <tr><td><b>参考案例</b></td><td>《无人深空》口碑逆转式改进沟通；《鸣潮》TapTap 官方回应运营</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="creative-card">
+        <h5>创意三（启动器）：「今日星语」—— 启动器做成每日治愈陪伴仪式</h5>
+        <table>
+          <tbody>
+            <tr><td style="width:100px"><b>核心概念</b></td><td>把 PC 自研启动器改造成"每日星语"仪式屏：每次启动，玩家的招牌奇波会出现并做一个随机小动作（打哈欠/蹭屏幕），配一句当日治愈文案（"今天的星原有点想你"），昼夜主视觉随真实时间切换。重要内容用轻气泡提示，绝不弹窗轰炸。把"打开游戏前的 5 秒"从等待，变成一个让人会心一笑的治愈仪式，强化"星光牧场是每天陪着你的"情感。</td></tr>
+            <tr><td><b>执行时间线</b></td><td>公测前完成启动器改版 → 公测日随客户端上线 → 节日/版本更新文案与奇波动作</td></tr>
+            <tr><td><b>预算区间</b></td><td>¥ 60-120 万（启动器前端改造 + 奇波动效资源 + 文案库运营）</td></tr>
+            <tr><td><b>KPI</b></td><td>启动器公告点击率 +40%；玩家对"治愈感"的正面提及 +30%；每日启动到进入游戏的留存无损耗</td></tr>
+            <tr><td><b>落地平台</b></td><td>PC 自研启动器</td></tr>
+            <tr><td><b>参考案例</b></td><td>《原神》启动器动态壁纸 + 每日签到；《FF14》启动器情报氛围营造</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- PAGE 6 -->
+    <div x-show="page === 6" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 07</div>
+      <h2 class="text-2xl font-bold text-white mb-6">视觉规范速查</h2>
+
+      <h3>三大阵地统一色彩系统</h3>
+      <table>
+        <thead><tr><th>Token</th><th>用途</th><th>阵地应用</th></tr></thead>
+        <tbody>
+          <tr><td><b>治愈暖阳</b></td><td>白昼主调、家园氛围</td><td>官网白昼态、启动器日间、B站治愈向封面</td></tr>
+          <tr><td><b>星空幽蓝</b></td><td>夜晚主调、品牌底色</td><td>官网夜晚态、启动器夜间、主视觉底色</td></tr>
+          <tr><td><b>奇波荧彩</b></td><td>高光、稀有个体、强调</td><td>图鉴品质分级、封面萌点高光、按钮点缀</td></tr>
+        </tbody>
+      </table>
+
+      <h3>各阵地物料尺寸规范</h3>
+      <table>
+        <thead><tr><th>阵地</th><th>关键物料</th><th>设计要点</th></tr></thead>
+        <tbody>
+          <tr><td><b>官网</b></td><td>全屏主视觉 + 悬浮预约按钮</td><td>昼夜可切换，预约按钮全站常驻</td></tr>
+          <tr><td><b>TapTap</b></td><td>顶部轮播素材 + 动态图文</td><td>首图必现"减负/治愈"差异化，非战斗轰炸</td></tr>
+          <tr><td><b>B站</b></td><td>视频封面（横版）+ 动态图</td><td>一屏一钩，单焦点，禁止满屏文字</td></tr>
+          <tr><td><b>启动器</b></td><td>动态主视觉 + 轻气泡公告</td><td>昼夜随时切换，公告不弹窗</td></tr>
+        </tbody>
+      </table>
+
+      <h3>跨阵地设计红线</h3>
+      <div class="highlight">
+        <ul>
+          <li><b>一屏一钩</b>——每个阵地首屏只承担一个核心钩子，禁止信息堆满</li>
+          <li><b>双色 DNA 贯穿</b>——四个阵地都必须出现"星空幽蓝 × 治愈暖阳"，保持辨识度统一</li>
+          <li><b>禁止轰炸式 UI</b>——不满屏红点、不弹窗打断，宣发页的克制即产品治愈感的预兑现</li>
+          <li><b>slogan 统一</b>——所有阵地回归「予你的，138 亿年的星光」，不换说法</li>
+          <li><b>奇波必萌</b>——奇波是跨阵地的品牌记忆核心，任何阵地出现的奇波都保持呆萌造型</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PAGE 7 -->
+    <div x-show="page === 7" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">构建 · 08</div>
+      <h2 class="text-2xl font-bold text-white mb-6">执行时间线与预算</h2>
+      <div class="verdict">
+        <p><b>核心判断</b>：三大阵地的改造要按"先修口碑阵地、再做转化阵地、最后建留存阵地"的顺序推进——TapTap（口碑）最急，官网（转化）次之，启动器（留存）随公测客户端上线。总预算区间约 <b>¥ 280-530 万</b>，集中在公测前的关键窗口。</p>
+      </div>
+
+      <h3>阵地改造时间线</h3>
+      <table>
+        <thead><tr><th>时间（相对公测）</th><th>阵地动作</th><th>对应创意</th></tr></thead>
+        <tbody>
+          <tr><td><b>三测后立即</b></td><td>TapTap"星原改进清单"启动，评论区运营到位</td><td>创意二（差评变共建）</td></tr>
+          <tr><td><b>T-45</b></td><td>官网"星原漫游"H5 微体验开发完成</td><td>创意一（星原漫游）</td></tr>
+          <tr><td><b>T-30</b></td><td>官网首页上线微体验；B站角色 PV 连载进入密集期</td><td>创意一 + B站矩阵</td></tr>
+          <tr><td><b>T-14</b></td><td>启动器改版完成，随预下载客户端推送测试</td><td>创意三（今日星语）</td></tr>
+          <tr><td><b>T-0 公测</b></td><td>启动器"今日星语"正式上线；四阵地协同引爆</td><td>创意三 + 全阵地</td></tr>
+        </tbody>
+      </table>
+
+      <h3>预算分配</h3>
+      <table>
+        <thead><tr><th>阵地/创意</th><th>预算区间</th><th>优先级</th></tr></thead>
+        <tbody>
+          <tr><td>TapTap 差评变共建（创意二）</td><td>¥ 40-80 万</td><td>最高（口碑地基）</td></tr>
+          <tr><td>官网星原漫游（创意一）</td><td>¥ 80-150 万</td><td>高（转化核心）</td></tr>
+          <tr><td>启动器今日星语（创意三）</td><td>¥ 60-120 万</td><td>高（留存基建）</td></tr>
+          <tr><td>B站内容矩阵（常态化）</td><td>¥ 100-180 万</td><td>持续（声量引擎）</td></tr>
+          <tr><td><b>合计</b></td><td><b>¥ 280-530 万</b></td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p><b>预算结论</b>：这份预算的分配逻辑是"<b>地基优先、四两拨千斤</b>"——TapTap 改进清单花钱最少但优先级最高（它守住口碑地基），启动器改造是一次性投入却能带来公测后每日的免费触达。把钱花在"能持续产生复利"的阵地基建上，比一次性的大规模投放更划算。</p>
+      </div>
+    </div>
+
+    <!-- PAGE 8 -->
+    <div x-show="page === 8" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 09</div>
+      <h2 class="text-2xl font-bold text-white mb-6">风险预警与应对</h2>
+
+      <div class="risk-card">
+        <h5>风险一：TapTap 差评区失控，官网转化被反向拖累（高风险）</h5>
+        <p>路径 B 显示，官网/搜索来的评估者会跳到 TapTap 看评价，若差评区"逼肝/缝合"负面首屏未经营，会直接杀死官网辛苦拉来的转化意愿。 <a href="https://www.taptap.cn/app/593829/review" target="_blank" rel="noopener" class="tag">TapTap 原声 ↗</a></p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>"星原改进清单"（创意二）必须最优先落地，抢在公测流量涌入前把差评区经营成"在改"的信任区</li>
+            <li>官方认真回复高赞差评，用真诚沟通稀释负面首屏的杀伤力</li>
+            <li>引导真实好评获赞，优化默认排序观感（但绝不刷分造假，一旦被识破反噬更狠）</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险二：B站流量到官网转化断层（中高风险）</h5>
+        <p>B站 PV 千万播放，但"看完视频→进官网预约"的跳转损耗巨大，如果引导不强，声量无法沉淀为预约。</p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>每支 PV 简介置顶预约直链 + 评论区官方置顶引导，降低跳转摩擦</li>
+            <li>官网承接页做"星原漫游"微体验（创意一），让跳过来的用户不流失、被沉浸留住</li>
+            <li>B站动态挂预约组件，让用户不离开 B站也能预约</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card">
+        <h5>风险三：启动器改造被当"锦上添花"砍预算（中风险）</h5>
+        <p>启动器留存价值被低估，容易在预算紧张时第一个被砍，浪费了公测后唯一 100% 触达活跃用户的位置。</p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>用数据说服决策层：启动器是公测后零边际成本的每日触达点，ROI 远高于付费投放</li>
+            <li>做 MVP 版先上线（动态主视觉 + 今日一句），验证留存提升后再迭代完整版</li>
+            <li>把它绑定"治愈定位"叙事——启动器的治愈氛围是产品体验的一部分，不是营销附属品</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-card" style="border-left-color: #a16207;">
+        <h5>风险四：四阵地视觉口径不统一，品牌辨识度稀释（低风险）</h5>
+        <p>官网、TapTap、B站、启动器若各做各的视觉，双色 DNA 和 slogan 不统一，会稀释"星光牧场"的品牌记忆。</p>
+        <div class="mitigation">
+          <p><b>应对策略</b>：</p>
+          <ul>
+            <li>建立跨阵地视觉规范手册（本报告"视觉规范速查"即基础），四阵地强制遵循</li>
+            <li>所有阵地物料上线前做一次"双色 DNA + slogan + 奇波萌点"三要素核验</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 9 -->
+    <div x-show="page === 9" class="page-content">
+      <div class="text-[10px] font-bold text-neutral-600 tracking-widest uppercase mb-2">收尾 · 10</div>
+      <h2 class="text-2xl font-bold text-white mb-6">顾问终审意见</h2>
+
+      <div class="verdict">
+        <p><b>终审判断：GO</b></p>
+        <p>从阵地定制看，旅谣的分发结构非常清晰且可控——四个自有阵地（官网/TapTap/B站/启动器）各司其职，且都已有扎实基础（官网结构完整、TapTap 211 万预约、B站百万粉）。阵地打法的核心不是"多花钱铺量"，而是"<b>让每个阵地都做它最擅长的那件事，并接得住上一环、递得出下一环</b>"。这套定制方案落地性强、预算可控（280-530 万），风险主要集中在 TapTap 差评区的经营上。</p>
+      </div>
+
+      <h3>三个尖锐问题</h3>
+      <div class="highlight">
+        <p><b>1. 启动器改造需要客户端团队配合，市场端能推得动吗？</b><br>"今日星语"启动器改造涉及客户端开发资源，市场团队未必能独立推动。<b>建议</b>：先做数据论证（每日触达 ROI），把它列为"产品体验的一部分"而非"营销需求"，争取制作端把它纳入公测客户端排期。</p>
+        <p><b>2. TapTap 差评区"经营"的边界在哪，会不会被质疑控评？</b><br>引导好评、优化排序若做过头，会被玩家识破为"控评"，反噬极狠（尤其对高敏感的核心盘）。<b>建议</b>：只做"真诚回复 + 改进清单 + 引导真实好评"，绝不删差评、绝不刷分。让差评区的正面观感来自"真的在改"，而非"把差评压下去"。</p>
+        <p><b>3. 四阵地协同需要一个统一的物料中台，谁来统筹？</b><br>官网、TapTap、B站、启动器分属不同执行团队，视觉口径易散。<b>建议</b>：设立一个跨阵地的"品牌视觉守门人"角色，所有阵地物料上线前过一次三要素核验，确保"星光牧场"的辨识度不被稀释。</p>
+      </div>
+
+      <h3>第一优先行动清单</h3>
+      <table>
+        <thead><tr><th>优先级</th><th>行动</th><th>负责团队</th></tr></thead>
+        <tbody>
+          <tr><td><b>最高</b></td><td>TapTap"星原改进清单"（创意二）立即启动，经营口碑地基</td><td>社区 / 内容</td></tr>
+          <tr><td><b>高</b></td><td>官网"星原漫游"H5 微体验（创意一）立项开发，T-30 上线</td><td>市场 / 前端</td></tr>
+          <tr><td><b>高</b></td><td>推动启动器"今日星语"（创意三）纳入公测客户端排期</td><td>市场 / 制作</td></tr>
+          <tr><td><b>高</b></td><td>B站角色 PV 连载矩阵 + 分层 UP 主合作规划落地</td><td>内容 / BD</td></tr>
+          <tr><td><b>中</b></td><td>建立四阵地视觉规范手册，设立品牌视觉守门人</td><td>品牌设计</td></tr>
+        </tbody>
+      </table>
+
+      <div class="verdict">
+        <p><b>最终建议</b>：旅谣的阵地打法核心是一句话——<b>"四块自留地，接力一场星光牧场的旅程。"</b> B站把人吸进来、官网让人心动预约、TapTap 让人放心决策、启动器让人每天回来。不需要 WeGame，不需要大水漫灌，把自己的四个触点经营到"各司其职、环环相扣"，就是蛮啾这种自研自发厂商最扎实的宣发地基。而这一切的前提，仍是产品端把"逼肝"改好——阵地做得再精致，也接不住一个玩家上手就想弃的产品。</p>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- THEME_TOGGLE_INJECT_START -->
+<!-- Theme toggle: 注入在每份报告 </body> 之前 -->
+<style>
+/* ===== 浅色模式覆盖（仅在 html[data-theme="light"] 时生效） ===== */
+html[data-theme="light"] body { background:#f5f5f5 !important; color:#1a1a1a !important; }
+html[data-theme="light"] header { background:rgba(245,245,245,0.95) !important; border-bottom-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] header h1 { color:#1a1a1a !important; }
+html[data-theme="light"] header a { color:#525252 !important; }
+html[data-theme="light"] header a:hover { color:#000 !important; }
+html[data-theme="light"] header .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] header .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] header .bg-white\/\[\.08\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; border-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] header .hover\:bg-white\/\[\.04\]:hover { background:rgba(0,0,0,0.05) !important; color:#000 !important; }
+html[data-theme="light"] header .bg-white\/10, html[data-theme="light"] header .bg-white\/\[\.04\] { background:rgba(0,0,0,0.1) !important; }
+
+/* 左侧 nav 区（主报告页结构） */
+html[data-theme="light"] aside, html[data-theme="light"] nav { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] aside button, html[data-theme="light"] nav button { color:#525252 !important; }
+html[data-theme="light"] aside button:hover, html[data-theme="light"] nav button:hover { color:#000 !important; background:rgba(0,0,0,0.04) !important; }
+html[data-theme="light"] .bg-white\/\[\.06\] { background:rgba(0,0,0,0.08) !important; color:#1a1a1a !important; }
+html[data-theme="light"] .bg-white\/\[\.04\] { background:rgba(0,0,0,0.05) !important; }
+
+/* 内容卡片 */
+html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+html[data-theme="light"] .verdict { border-left-color:#1a1a1a !important; }
+html[data-theme="light"] .verdict p { color:#1a1a1a !important; }
+html[data-theme="light"] .risk-card { border-left-color:#c43c3c !important; }
+html[data-theme="light"] .creative-card h5, html[data-theme="light"] .risk-card h5 { color:#1a1a1a !important; }
+
+/* 文字色 */
+html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }
+html[data-theme="light"] .page-content p, html[data-theme="light"] .page-content li { color:#3a3a3a !important; }
+html[data-theme="light"] .page-content b, html[data-theme="light"] .page-content strong, html[data-theme="light"] b, html[data-theme="light"] strong { color:#000 !important; }
+html[data-theme="light"] .text-white { color:#1a1a1a !important; }
+html[data-theme="light"] .text-neutral-400 { color:#525252 !important; }
+html[data-theme="light"] .text-neutral-500 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-600 { color:#737373 !important; }
+html[data-theme="light"] .text-neutral-300 { color:#3a3a3a !important; }
+html[data-theme="light"] .quote { color:#1a1a1a !important; }
+html[data-theme="light"] .muted { color:#737373 !important; }
+
+/* 表格 */
+html[data-theme="light"] table th { color:#525252 !important; border-bottom-color:rgba(0,0,0,0.12) !important; }
+html[data-theme="light"] table td { color:#3a3a3a !important; border-bottom-color:rgba(0,0,0,0.06) !important; }
+
+/* tag */
+html[data-theme="light"] .tag { background:rgba(0,0,0,0.05) !important; color:#525252 !important; border-color:rgba(0,0,0,0.08) !important; }
+html[data-theme="light"] .tag:hover { color:#000 !important; }
+
+/* 分隔线 */
+html[data-theme="light"] .bg-white\/10 { background:rgba(0,0,0,0.1) !important; }
+html[data-theme="light"] .border-bdr, html[data-theme="light"] .border-white\/10, html[data-theme="light"] .border-white\/\[\.06\] { border-color:rgba(0,0,0,0.08) !important; }
+
+/* compare 卡片专用 */
+html[data-theme="light"] .text-3xl, html[data-theme="light"] .text-2xl, html[data-theme="light"] .text-xl { color:#1a1a1a !important; }
+html[data-theme="light"] .report-date { color:#737373 !important; }
+
+/* ===== 切换按钮本体 ===== */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.theme-toggle-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
+.theme-toggle-btn svg { width: 22px; height: 22px; transition: all 0.25s ease; }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-on { display: block; color: #fbbf24; filter: drop-shadow(0 0 4px rgba(251,191,36,0.6)); }
+html[data-theme="dark"] .theme-toggle-btn .icon-bulb-off { display: none; }
+html[data-theme="light"] .theme-toggle-btn { background: #ffffff; border-color: rgba(0,0,0,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+html[data-theme="light"] .theme-toggle-btn:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-on { display: none; }
+html[data-theme="light"] .theme-toggle-btn .icon-bulb-off { display: block; color: #737373; }
+
+/* 拉绳小动画 */
+.theme-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 10px;
+  background: rgba(255,255,255,0.2);
+}
+html[data-theme="light"] .theme-toggle-btn::before { background: rgba(0,0,0,0.15); }
+</style>
+
+<button class="theme-toggle-btn" onclick="toggleReportTheme()" title="切换深浅色模式" aria-label="切换主题">
+  <!-- 点亮的灯泡（深色模式显示） -->
+  <svg class="icon-bulb-on" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7zM9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1z"/>
+  </svg>
+  <!-- 熄灭的灯泡（浅色模式显示） -->
+  <svg class="icon-bulb-off" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+  </svg>
+</button>
+
+<script>
+(function() {
+  // 初始化：从 localStorage 读，没有就默认 dark
+  var savedTheme = localStorage.getItem('report-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+})();
+
+function toggleReportTheme() {
+  var current = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('report-theme', next);
+}
+</script>
+
+<!-- THEME_TOGGLE_INJECT_END -->
+</body>
+</html>

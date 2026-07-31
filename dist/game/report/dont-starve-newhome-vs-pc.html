@@ -543,7 +543,9 @@ tailwind.config = { theme: { extend: { colors: { 'surface-0':'#0c0c0c','surface-
 </div>
 
 <!-- THEME_TOGGLE_INJECT_START -->
+<!-- Theme toggle: 注入在每份报告 </body> 之前 -->
 <style>
+/* ===== 浅色模式覆盖（仅在 html[data-theme="light"] 时生效） ===== */
 html[data-theme="light"] body { background:#f5f5f5 !important; color:#1a1a1a !important; }
 html[data-theme="light"] header { background:rgba(245,245,245,0.95) !important; border-bottom-color:rgba(0,0,0,0.08) !important; }
 html[data-theme="light"] header h1 { color:#1a1a1a !important; }
@@ -563,42 +565,11 @@ html[data-theme="light"] .bg-white\/\[\.06\] { background:rgba(0,0,0,0.08) !impo
 html[data-theme="light"] .bg-white\/\[\.04\] { background:rgba(0,0,0,0.05) !important; }
 
 /* 内容卡片 */
-html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card, html[data-theme="light"] .item-card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+html[data-theme="light"] .verdict, html[data-theme="light"] .creative-card, html[data-theme="light"] .risk-card, html[data-theme="light"] .highlight, html[data-theme="light"] .card { background:#ffffff !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
 html[data-theme="light"] .verdict { border-left-color:#1a1a1a !important; }
 html[data-theme="light"] .verdict p { color:#1a1a1a !important; }
 html[data-theme="light"] .risk-card { border-left-color:#c43c3c !important; }
 html[data-theme="light"] .creative-card h5, html[data-theme="light"] .risk-card h5 { color:#1a1a1a !important; }
-
-/* item-card（vs-pc 报告专用：30 项体验对照卡） */
-html[data-theme="light"] .item-card h5 { color:#1a1a1a !important; }
-html[data-theme="light"] .item-card .item-num { color:#737373 !important; }
-html[data-theme="light"] .item-card .row { border-bottom-color:rgba(0,0,0,0.06) !important; }
-html[data-theme="light"] .item-card .row-label { color:#737373 !important; }
-html[data-theme="light"] .item-card .row-text { color:#3a3a3a !important; }
-html[data-theme="light"] .item-card .row-text b { color:#000 !important; }
-html[data-theme="light"] .item-card .pitch { background:rgba(232,124,58,0.08) !important; border-left-color:#e87c3a !important; }
-html[data-theme="light"] .item-card .pitch-label { color:#c45a18 !important; }
-html[data-theme="light"] .item-card .pitch-text { color:#1a1a1a !important; }
-html[data-theme="light"] .item-card .pitch-text b { color:#000 !important; }
-html[data-theme="light"] .item-card .dream { background:rgba(80,100,180,0.08) !important; border-left-color:#5a78c7 !important; }
-html[data-theme="light"] .item-card .dream-label { color:#3d5db8 !important; }
-html[data-theme="light"] .item-card .dream-text { color:#1a1a1a !important; }
-html[data-theme="light"] .item-card .dream-text b { color:#000 !important; }
-/* hero-card 浅色覆盖 */
-html[data-theme="light"] .hero-card { background:linear-gradient(135deg, #ffffff 0%, #fafafa 100%) !important; border-color:rgba(0,0,0,0.08) !important; box-shadow:0 2px 6px rgba(0,0,0,0.04); }
-html[data-theme="light"] .hero-card .hero-num { color:rgba(0,0,0,0.06) !important; }
-html[data-theme="light"] .hero-card .hero-title { color:#1a1a1a !important; }
-html[data-theme="light"] .hero-card .hero-scene { background:rgba(0,0,0,0.04) !important; color:#1a1a1a !important; }
-html[data-theme="light"] .hero-card .hero-scene b { color:#000 !important; }
-html[data-theme="light"] .hero-card .hero-scene i { color:#000 !important; }
-html[data-theme="light"] .hero-card .hero-why { color:#3a3a3a !important; }
-html[data-theme="light"] .hero-card .hero-why b { color:#000 !important; }
-html[data-theme="light"] .hero-card .hero-cta { background:rgba(232,124,58,0.1) !important; color:#1a1a1a !important; }
-html[data-theme="light"] .hero-card .hero-cta b { color:#000 !important; }
-html[data-theme="light"] .hero-card.hero-2 .hero-cta { background:rgba(80,100,180,0.1) !important; }
-html[data-theme="light"] .hero-card.hero-3 .hero-cta { background:rgba(0,0,0,0.05) !important; }
-html[data-theme="light"] .page-content p.hero-end { color:#737373 !important; border-top-color:rgba(0,0,0,0.08) !important; }
-html[data-theme="light"] .page-content p.hero-end b { color:#1a1a1a !important; }
 
 /* 文字色 */
 html[data-theme="light"] .page-content h2, html[data-theme="light"] .page-content h3, html[data-theme="light"] .page-content h4 { color:#1a1a1a !important; }

@@ -2966,5 +2966,22 @@
         }
       ]
     }
+  ],
+  "Azur Promilia": [
+    {
+      "module": "Official",
+      "screens": [
+        {
+          "title": "蓝色星原：旅谣 — 官方网站",
+          "url": "https://azurpromilia.manjuu.com/home/",
+          "date": "2026-07-31",
+          "tag": "官网",
+          "imgs": [
+            "screenshots/azur-promilia/cover.webp",
+            "screenshots/azur-promilia/home-1.webp"
+          ]
+        }
+      ]
+    }
   ]
 }
