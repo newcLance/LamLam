@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>碧蓝幻想 Relink - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<a href="../index.html" id="back-btn"
+   class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-2/90 backdrop-blur-sm border border-white/[.08] hover:bg-surface-3 hover:border-white/[.15] text-neutral-300 hover:text-white text-sm font-medium transition-all shadow-lg shadow-black/30">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  返回
+  <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
+</a>
+<script>
+(function(){
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable]')) return;
+    // Don't navigate if lightbox is open (Alpine handles that)
+    try { if (window.Alpine && Alpine.store('lightbox') && Alpine.store('lightbox').open) return; } catch(x){}
+    window.location.href = '../index.html';
+  });
+})();
+</script>
+
+
+<div id="sec-header" class="relative w-full overflow-hidden">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/granblue-fantasy-relink/cover.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">碧蓝幻想 Relink</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">Cygames（亚洲区 SEGA 发行） · Action RPG · 2024-02-01</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">Cygames 基于国民手游《碧蓝幻想》打造、耗时约八年的动作 RPG。你在浮空岛构成的天空世界里，率四人小队即时作战——切人连招、破盾、四人奥义连锁爆发，打怪猎式的巨型 Boss 讨伐战。买断制单机 + 最多四人联机，无抽卡无逼氪，靠华丽战斗手感与 Cygames 动画级演出撑起终局刷装循环。发售 11 天销量破百万，累计超 200 万，Fami 通 36/40。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">四人小队动作战斗</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">奥义连锁爆发</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">怪猎式Boss讨伐</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">买断制无抽卡</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">Cygames动画级演出</span>
+        
+      </div>
+      
+    </div>
+
+    
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      <a href="#sec-assets"
+         class="group flex items-center gap-2 px-5 py-3 rounded bg-white text-black font-bold hover:bg-neutral-200 text-sm transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
+
+  
+  
+  
+  
+    
+      
+        
+      
+    
+  
+
+  
+
+  
+  
+  <section id="sec-worldview" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      游戏世界观
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">BACKGROUND</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">游戏背景</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">帝斯特亚天空世界——浮空岛、骑空艇与星晶兽守护的空之尽头</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">故事发生在一片<b>由无数浮空岛屿漂浮在蔚蓝天空中构成的世界</b>。人们乘着「<b>骑空艇</b>」在云海之间往来冒险，一座座岛屿由被称为「<b>星晶兽</b>」的强大存在守护——比如原初之龙巴哈姆特这样的巨兽。传说在天空的尽头，有一座星晶族的乐园之岛「艾斯塔露西亚」，是所有骑空士向往的终点。Relink 的舞台是一片<b>全新的空域「泽加格兰德」</b>，你不用玩过原作《碧蓝幻想》也能看懂——一落地就撞上暴走的星晶兽和图谋不轨的教会，冒险就此展开。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">浮空岛天空世界</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">骑空艇冒险</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">星晶兽</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">艾斯塔露西亚</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">MAIN STORY</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">主线剧情</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">你率骑空艇团队——追寻天空尽头，卷入星晶族的复活阴谋</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">你扮演<b>骑空艇「格兰赛法号」的船长（古兰或姬塔）</b>，带着会说话的小龙碧、拥有神秘力量的少女露莉亚，和卡塔莉娜等一船伙伴，向天空尽头的艾斯塔露西亚进发。可船一到泽加格兰德空域就被怪物击落，你们被卷入一场大麻烦：阿维亚教会的莉莉丝想牺牲露莉亚吸收的星晶兽之力、<b>强行打开通往乐园的门</b>——这会毁掉整个天空世界。你要联合半路结识的祭司罗兰、亦敌亦友的伊德，一路强攻浮空巨岛、击退失控的原初之龙。这不是升级打怪，而是<b>你如何守住一船人共同追梦的那趟旅程</b>。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">格兰赛法号船长</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">露莉亚与小龙</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">教会阴谋</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">守护旅程</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">COMBAT</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">战斗系统</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">四人小队即时动作——连招破盾，四人奥义连锁爆发</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">战斗是<b>四人小队的即时动作 ARPG</b>——你操一名角色亲自连招走位，另外三名由 AI 或联机队友控制，随时能在备战时换主控。每个角色手感天差地别：拉卡姆双枪风筝、齐格飞大剑重斩、娜露梅太刀切式。核心爽点是<b>「破盾 + 奥义连锁」</b>：Boss 有愤怒和破防循环，你打满连锁槽触发全队同步攻击、敌人减速；四人依次放出奥义「<b>天司之术</b>」还能连成 Full Burst 打出巨额伤害。比如围攻一头巨龙 Boss，就得卡准它的破防窗口，四人奥义一口气连锁爆发。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">四人小队动作</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">破盾连锁</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">奥义Full Burst</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">怪猎式Boss</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">CORE LOOP</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">核心循环</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">主线通关 → 任务板讨伐 → 刷素材因子 → 强化 build 的终局循环</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">玩起来是<b>「主线动作剧情 + 终局刷装」的怪猎式循环</b>——十来小时主线通关后，真正的内容才展开：你从任务板接一百多个 Boss 讨伐、限时、生存任务，反复刷素材和「<b>印记因子</b>」。因子是可镶嵌的属性词条，配武器强化和天赋树把角色 build 磨到毕业。它是买断制单机 + 四人联机，<b>没有抽卡、没有付费角色、没有体力墙</b>，通关加兑换券就能解锁全部角色。循环就是：挑战更硬的 Boss → 掉更好的因子武器 → build 变强 → 打更高难度讨伐。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">主线+终局刷装</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">任务板讨伐</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">印记因子build</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">买断无抽卡</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-5 text-neutral-500">IP / STORY</div>
+  
+
+  
+  
+  <div class="mb-6 pb-6 border-b border-white/[.06]">
+    
+    <div class="text-[15px] md:text-base font-semibold text-white/90 leading-relaxed mb-5 italic tracking-wide">
+      “<b>浮空岛冒险 × 四人共斗</b>——追着天空的尽头，打一场华丽到发光的动作战。”
+    </div>
+    
+    
+    <div class="space-y-4">
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">想象一片<b>由无数浮空岛漂在蔚蓝天空里的世界</b>：人们乘骑空艇穿梭云海，一座座岛屿由名为星晶兽的巨兽守护，而天空的尽头传说有一座星晶族的乐园之岛。你是骑空艇「格兰赛法号」的船长，带着会说话的小龙、拥有神秘力量的少女露莉亚，和一整船伙伴，朝那座传说之岛进发——直到船在陌生空域被击落。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">落地的泽加格兰德空域并不太平：阿维亚教会想牺牲露莉亚体内的星晶兽之力、<b>强行撬开通往乐园的门</b>，而这会<b>毁掉整个天空世界</b>。你必须联合半路结识的祭司罗兰、身世成谜的伊德，去平息暴走的星晶兽、强攻教会盘踞的浮空巨岛。每个伙伴各有一手绝活：卡塔莉娜的骑士剑、拉卡姆的双枪、娜露梅的太刀——组起队来，一场动作大戏就此拉开。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text"><b>你第一次把连锁槽打满、四人奥义连成 Full Burst</b>、整个屏幕炸成一片光的那个瞬间，你会明白 Cygames 磨了八年到底磨的是什么。可当伊德体内潜藏的力量暴走、<b>昔日并肩的伙伴反目相向</b>，你才发现这场冒险的代价从来不轻。这不是一个关于打败魔王的故事，<b>而是一个关于「把彼此的梦扛到天空尽头」的故事</b>——你准备好带谁踏上下一段航程了吗？</p>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-3 text-neutral-500">DETAILS</div>
+  
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>骑空士自由冒险的天空纪元</b>——一个乘骑空艇往来浮空岛、追寻天空尽头乐园的奇幻年代，与原作主线不同地点的外传时空</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>全新空域「泽加格兰德」</b>——由浮空岛、云海、古代遗迹与浮空巨岛构成的天空世界，箱庭关卡+副本结构而非开放世界</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>骑空艇船长（古兰 / 姬塔）</b>——率领一整船伙伴的冒险队长，可在四人小队中切换主控角色，各角色武器手感截然不同</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>魔法 × 骑空艇机械 × 星晶超自然</b>——既有骑空艇的蒸汽机械，也有星晶兽召唤、天司奥义等超自然力量并存的奇幻科技</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>骑空艇团队 vs 阿维亚教会 vs 暴走星晶兽</b>——表层是阻止教会的复活阴谋，深层是守住一船人共同追梦的旅程不被野心毁掉</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>章节制箱庭 + 任务板副本</b>：主线十章推进剧情，通关后从任务板刷上百个 Boss 讨伐、限时、生存任务，非开放世界</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">视觉母题</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>浮空岛云海 × 巨兽讨伐 × 奥义连锁光效</b>——蔚蓝天空的幻想壮丽、怪猎式巨型 Boss 战与四人连锁爆发的华丽演出</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">美学谱系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>Cygames 动画电影级卡通渲染</b>——把手游 2D 立绘完美转译为 3D 排线阴影，鲜艳明亮的日式奇幻，每帧可当壁纸</div>
+  </div>
+  
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+
+    
+    
+    
+    
+    <div class="rounded-xl border border-white/[.08] bg-white/[.02] p-6 mb-8">
+      
+      <div class="flex items-baseline gap-3 mb-5 pb-5 border-b border-white/[.06]">
+        <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">AESTHETIC LABEL</span>
+        <span class="text-[20px] md:text-[22px] font-extrabold text-white tracking-tight">天空幻想 Cygames Anime ARPG</span>
+      </div>
+      
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q1 · 这是什么美学</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text"><b>日式奇幻 × 动画电影级卡通渲染</b>，是 Cygames 把运营十年的《碧蓝幻想》<b>2D 手绘立绘</b>完美转译成<b>全 3D 动作游戏</b>的招牌美学。底色是<b>浮空岛与云海构成的蔚蓝天空世界</b>——骑空艇、星晶兽、天司奥义共同撑起鲜艳明亮的奇幻壮丽；变异在于角色模型上叠了<b>2D 式排线阴影</b>模拟手绘质感，连奥义演出都做成动画级 CG。色彩锁定<b>天空湛蓝 × 星晶金辉</b>的明亮组合，整体调性是不走暗黑、只走华丽热血的日式王道奇幻。</p>
+        </div>
+        
+
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q2 · 共识如何发展</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">「日式奇幻动作」的视觉共识跨越了近四十年。<b>1987 年</b>《最终幻想》一脉奠定了日式奇幻 RPG 的召唤兽、水晶与飞空艇美术母题。<b>1997 年</b>《最终幻想 VII》把 JRPG 的过场演出推向电影化。<b>2014 年</b>《碧蓝幻想》手游以皆叶英夫领衔的顶级 2D 立绘和成田勤配乐，定义了 IP 的天空幻想基调。<b>2020 年</b>《碧蓝幻想 Versus》先行验证了把 2D 立绘 3D 化的格斗尝试。<b>2024 年</b>《碧蓝幻想 Relink》集大成——用定制引擎把排线阴影做进 3D 模型、把奥义连锁做成动画级演出，被媒体称为「史上最接近手绘动画的动作 RPG」。</p>
+        </div>
+        
+      </div>
+
+      
+      <div class="mt-6 pt-6 border-t border-white/[.06]">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-3">Q3 · 借鉴谱系（值得美术设计参考的游戏 / 电影 / 动漫 / 剧集）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                碧蓝幻想（手游原作）
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2014</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>天空幻想 IP 的美术母体</b>；皆叶英夫的 2D 立绘、星晶兽与骑空艇设计是 Relink 3D 化的直接蓝本</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                最终幻想 VII 重制版
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2020</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>日式奇幻的电影化过场</b>；召唤兽登场演出与 Boss 战镜头语言可与 Relink 奥义 CG 对照</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                怪物猎人 World
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2018</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>巨型 Boss 讨伐 + 刷素材终局</b>的玩法美术原型；破盾、部位破坏与任务板循环的设计参照</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              动画
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                碧蓝幻想 THE ANIMATION
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2017</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>IP 的动画化质感</b>；角色性格、天空世界氛围与 Relink 的过场演出一脉相承</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                宫崎骏《天空之城》
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1986</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>浮空岛与飞行浪漫</b>母题源头；骑空艇、云海与空中巨兽的东方动画质感底色</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              动画
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                最终幻想：核心
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2007</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>召唤兽与光效演出</b>参照；奥义 Full Burst 的爆发式光效可溯源于日式奇幻的必杀技美学</div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">浮空岛云海 × 遗迹箱庭</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">场景以<b>泽加格兰德空域的浮空岛屿</b>为骨架——弗尔卡村的暖色田园、云海中的古代遗迹、教会盘踞的浮空巨岛，每个关卡都是精心搭建的箱庭而非开放世界。美术走<b>高饱和动画渲染 + 通透昼空光照</b>，云海与阳光的层次是画面记忆点。最关键的是<b>「天空湛蓝 × 星晶金辉」的双色气质</b>：白昼的空岛是明媚壮丽的冒险乐园，星晶兽登场时又染上金蓝交织的超自然光辉——同一片天空，日常与神迹两副面孔。它刻意不走暗黑，只走鲜艳热血的王道奇幻。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">骑空士剪影 × 武器职业辨识</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">角色采用<b>Cygames 一脉的高完成度奇幻人设</b>——每个骑空士的服装、发色都对应元素属性与阵营。用<b>武器强化剪影辨识</b>：齐格飞的大剑与厚甲、拉卡姆的双枪与飞行员夹克、娜露梅的太刀与和风振袖、巴萨拉卡的巨镰与重铠，涂黑也能秒辨谁是谁。与人形角色对比的是<b>星晶兽 Boss 的巨兽轮廓</b>——角色越灵动，巨龙巴哈姆特这类 Boss 的剪影越庞大狰狞带棱角。角色模型上叠 2D 排线阴影，让 3D 建模保留手绘立绘的质感。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">动作战斗 HUD × 讨伐任务板</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI 以<b>「动作战斗 + 怪猎任务」为隐喻</b>——战斗界面集中在底部技能栏、奥义槽与四人连锁槽，顶部是 Boss 血条与破防状态，屏幕大部分留给连招走位。终局的任务板像怪猎的接单大厅，按难度、Boss 分类挑选讨伐。养成界面用<b>印记因子的镶嵌网格</b>呈现 build 搭配。整体<b>天空蓝底 + 金色高光</b>，信息分层清晰，奥义连锁触发时全屏光效与连锁计数联动——把动作爽感直接可视化，避免手游式的信息堆砌。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">骑空艇 × 星晶兽 × 奥义连锁光效</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">核心视觉符号：<b>骑空艇格兰赛法号</b>（一船人共同追梦的载体与品牌记忆核心）、<b>星晶兽</b>（守护岛屿的巨型召唤兽，尤以原初之龙巴哈姆特为标志）、<b>天司奥义连锁光效</b>（四人 Full Burst 炸满屏幕的爆发式金蓝光辉，战斗爽感的视觉签名）、<b>浮空岛云海</b>（天空幻想世界的招牌地貌）。色彩母题是<b>天空湛蓝 × 星晶金辉</b>——把日式奇幻的壮丽与动作爆发的华丽，用连锁光效这一符号缝到一起。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">Cygames 动画级演出 + 八年磨一剑口碑</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发核心是<b>「Cygames 动画电影级品质」的招牌</b>——用奥义 CG、星晶兽登场、Boss 转阶段的动画级演出，把「每帧可当壁纸」做成传播点。背书打<b>国民手游《碧蓝幻想》正统 3D 化</b>，配皆叶英夫美术、成田勤配乐的顶级规格，以及「耗时约八年、白金退出后 Cygames 独立完成」的匠心叙事。发售 11 天破百万、累计超两百万、<b>Fami 通 36/40</b> 的成绩，本身就是最硬的口碑物料——买断制无抽卡的良心定位更是差异化卖点。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'bili' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1SZ421U7MA/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">爽快又耐玩！《碧蓝幻想relink》是款什么样的游戏？</span>
+          <span class="text-xs text-neutral-500 shrink-0">128万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1hU421o7tn/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【碧蓝幻想Relink】新手建议！角色选择、队友搭配、前期注意事项，从入门到通关你只需要了解这些。</span>
+          <span class="text-xs text-neutral-500 shrink-0">108万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1np4y1m7XH/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【碧蓝幻想：Relink】4K 最高画质 全流程通关攻略 日式动作RPG游戏 正式版 - Granblue Fantasy: Relinkp【完结】</span>
+          <span class="text-xs text-neutral-500 shrink-0">93万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1w4421w7jq/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【步步深挖碧蓝幻想Relink】通关之后干什么？角色毕业流程详解</span>
+          <span class="text-xs text-neutral-500 shrink-0">52万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1Hmf6YgE1x/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【碧蓝幻想Relink】2025新手教学入门答案攻略</span>
+          <span class="text-xs text-neutral-500 shrink-0">28万播放</span>
+        </a>
+        
+      </div>
+      
+
+      
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>四人小队即时动作 + 奥义连锁</b>——切人连招、破盾、四人 Full Burst 炸满屏的战斗爽感是最强记忆点
+    
+      <a href="https://www.ign.com/articles/granblue-fantasy-relink-review/" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Cygames 动画电影级演出</b>——奥义 CG、星晶兽登场、Boss 转阶段，被称「每帧可当壁纸」
+    
+      <a href="https://gamingtrend.com/granblue-fantasy-relink-review-final-hunter-fantasy" target="_blank" rel="noopener" class="src-link">— GamingTrend ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>浮空岛天空幻想世界</b>——骑空艇、星晶兽守护的空之世界，鲜艳明亮的日式王道奇幻
+    
+      <a href="https://store.steampowered.com/app/881020/" target="_blank" rel="noopener" class="src-link">— Steam官方 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>19+ 角色手感割裂如换武器</b>——大剑重斩、太刀切式、双枪风筝，换主控就是换一套战斗
+    
+      <a href="https://www.thegamer.com/granblue-fantasy-relink-playable-characters-ranked-best" target="_blank" rel="noopener" class="src-link">— TheGamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>怪猎式巨型 Boss 讨伐</b>——愤怒破防循环、部位破坏，被玩家称「二次元怪猎」的高燃对决
+    
+      <a href="https://gamingbolt.com/granblue-fantasy-relink-everything-you-need-to-know" target="_blank" rel="noopener" class="src-link">— GamingBolt ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>买断制无抽卡的良心</b>——40 美元一次性、通关加兑换券解锁全角色，无付费墙
+    
+      <a href="https://www.163.com/dy/article/IS9HQVKI05268CC2.html" target="_blank" rel="noopener" class="src-link">— 网易游研 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>主线偏短、叙事套路化</b>——本体主线仅 15-20 小时，经典王道 JRPG 模板，反转少
+    
+      <a href="https://www.ign.com/articles/granblue-fantasy-relink-review/" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>终局重复度高、毕业周期长</b>——刷极品词条武器需反复刷同系列 Boss，独狼久刷枯燥
+    
+      <a href="https://loot.hk/p/granblue-fantasy-relink-steam-rpg-guide-2026" target="_blank" rel="noopener" class="src-link">— loot.hk ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>高难 Boss 特效过密</b>——混战中全屏特效看不清怪物动作，易「暴毙」，索敌不够智能
+    
+      <a href="https://www.taptap.cn/app/718155/review" target="_blank" rel="noopener" class="src-link">— TapTap ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>纯剧情党期待落差</b>——追求超长单机剧情或开放世界的玩家，会嫌主线短、地图线性
+    
+      <a href="https://www.ign.com/articles/granblue-fantasy-relink-review/" target="_blank" rel="noopener" class="src-link">— IGN ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>DLC 换皮怪争议</b>——追加内容超七成为本体老 Boss 换色+数值膨胀，剧情切得碎
+    
+      <a href="https://new.qq.com/rain/a/20260715A05P6W00" target="_blank" rel="noopener" class="src-link">— 腾讯新闻 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>「八年磨一剑」的匠心</b>——2016 立项、白金退出、Cygames 独立完成，社区津津乐道的研发史
+    
+      <span class="text-xs text-neutral-600 ml-1">— Wiki / 社区</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>「让 JRPG 再次伟大」</b>——发售 11 天破百万、累计超两百万、Fami 通 36/40 的口碑
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区综合</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>四人联机共斗的社交爽感</b>——和好友组队刷本、奥义连锁配合，是社区最推荐的玩法
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>吃美术这口的玩家「绝对不亏」</b>——为 Cygames 演出与角色魅力买单的核心受众高度满意
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区综合</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>PC 优化个体差异</b>——部分机型间歇黑屏/闪退、无 DLSS、图形选项少
+    
+      <span class="text-xs text-neutral-600 ml-1">— Steam 评测</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>早期无跨平台联机</b>——PS 与 PC 早期不互通，后 DLC 期才改善，分割了联机池
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区综合</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>买断 vs 抽卡的定位争议</b>——被拿来和抽卡二游对比引发辩论，部分玩家质疑内容量对不起赛道
+    
+      <span class="text-xs text-neutral-600 ml-1">— TapTap</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>终局刷刷刷的疲劳</b>——毕业后缺乏持续新内容，独狼玩家易因重复而弃坑
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区综合</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        
+        <a href="azur-promilia.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">蓝色星原：旅谣 <span class="text-xs text-neutral-500 font-normal ml-1">蛮啾网络 Manjuu（积咪网络开发 / 碧蓝航线团队）</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>二次元角色动作 RPG + 高品质卡通渲染</b>，Relink 的四人共斗与旅谣的人宠共斗都主打「切换角色 + 华丽动作」的战斗爽感与二次元审美</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        <a href="zenless-zone-zero.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">绝区零 <span class="text-xs text-neutral-500 font-normal ml-1">米哈游 (miHoYo/HoYoverse)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>二次元角色即时动作战斗 + 切人连携爽感</b>，绝区零的连招连携与 Relink 的奥义连锁是最直接的动作手感对标</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">鸣潮 <span class="text-xs text-neutral-500 font-normal ml-1">库洛游戏 (Kuro Games)</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>二次元角色动作 RPG + 华丽连招演出</b>，鸣潮的战斗手感与 Relink 争夺同一批为动作爽感与角色养成买单的玩家</div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <a href="genshin-impact.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">原神 <span class="text-xs text-neutral-500 font-normal ml-1">米哈游 (miHoYo/HoYoverse)</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>二次元角色养成 + 队伍配合战斗</b>，IGN 直接把 Relink 的角色机制多样性类比原神，两者争夺泛二次元动作 RPG 用户</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        
+        
+        
+        <button onclick="window.open('../compare.html?ids=325,323,236,234','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 4 款游戏
+        </button>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    
+    
+    <div x-show="assetTab === 'official'" x-cloak x-ref="panelOfficial">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">商店页 + 官网</h4>
+        <div class="space-y-1">
+          
+          <a href="https://store.steampowered.com/app/881020/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Steam 商店页（app 881020）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Steam</span>
+          </a>
+          
+          <a href="https://relink.granbluefantasy.jp/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方网站（英/日）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">官网</span>
+          </a>
+          
+          <a href="https://asia.sega.com/relink.granbluefantasy/cn/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">SEGA 亚洲中文页</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">SEGA</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色建模 / 概念设定图</h4>
+        <div class="space-y-1">
+          
+          <a href="https://search.bilibili.com/all?keyword=%E7%A2%A7%E8%93%9D%E5%B9%BB%E6%83%B3%20Relink%20%E5%AE%98%E6%96%B9" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方 B 站搜索 — PV/角色演示</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">bilibili</span>
+          </a>
+          
+          <a href="https://www.xiaohongshu.com/search_result?keyword=%E7%A2%A7%E8%93%9D%E5%B9%BB%E6%83%B3%20Relink%20%E8%A7%92%E8%89%B2" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">小红书搜索「碧蓝幻想 Relink 角色」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">小红书</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelOfficial.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+    
+    
+    <div x-show="assetTab === 'inspiration'" x-cloak x-ref="panelInspiration">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">概念美术 / Concept Art</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=Granblue%20Fantasy%20Relink" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「Granblue Fantasy Relink」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=Granblue%20Fantasy%20Relink%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Pinterest 搜索「Granblue Fantasy Relink concept」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">角色设计</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=Granblue%20Fantasy%20character" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「Granblue Fantasy character」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=Granblue%20Fantasy%20character%20design" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Pinterest 搜索「Granblue Fantasy character design」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+          <a href="https://www.pixiv.net/tags/%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%96%E3%83%AB%E3%83%BC%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC/artworks" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Pixiv 搜索「グランブルーファンタジー」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pixiv</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">UI 界面 / 纹理材质</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.google.com/search?q=site%3Ainterfaceingame.com%20Granblue%20Fantasy%20Relink" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Google 搜索「site:interfaceingame.com Granblue Fantasy Relink」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">InterfaceInGame</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=Granblue%20Fantasy%20Relink%20UI" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「Granblue Fantasy Relink UI」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://huaban.com/search?q=%E7%A2%A7%E8%93%9D%E5%B9%BB%E6%83%B3%20UI" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">花瓣网搜索「碧蓝幻想 UI」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">花瓣网</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelInspiration.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-worldview',   label:'游戏世界观'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+
+// Track visit for "浏览历史" module
+(function() {
+  var slug = 'granblue-fantasy-relink';
+  var key = 'game_history';
+  var now = Date.now();
+  var SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+
+  var history = {};
+  try { history = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e) {}
+
+  // Dedup: same game only counts once within 30 minutes
+  var prev = history[slug];
+  if (prev && (now - prev.last) < 30 * 60 * 1000) return;
+
+  // Update: record last visit time + increment count
+  history[slug] = {
+    last: now,
+    count: (prev ? prev.count : 0) + 1
+  };
+
+  // Clean entries older than 7 days
+  Object.keys(history).forEach(function(k) {
+    if (now - history[k].last > SEVEN_DAYS) delete history[k];
+  });
+
+  localStorage.setItem(key, JSON.stringify(history));
+})();
+</script>
+
+</body>
+</html>

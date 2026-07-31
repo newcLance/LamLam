@@ -2983,5 +2983,53 @@
         }
       ]
     }
+  ],
+  "Azur Lane": [
+    {
+      "module": "封面",
+      "screens": [
+        {
+          "title": "Azur Lane",
+          "url": "",
+          "date": "2026-07-31",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/azur-lane/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Granblue Fantasy: Relink": [
+    {
+      "module": "封面",
+      "screens": [
+        {
+          "title": "Granblue Fantasy: Relink",
+          "url": "",
+          "date": "2026-07-31",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/granblue-fantasy-relink/cover.webp"
+          ]
+        }
+      ]
+    }
+  ],
+  "Blue Protocol: Star Resonance": [
+    {
+      "module": "封面",
+      "screens": [
+        {
+          "title": "Blue Protocol: Star Resonance",
+          "url": "",
+          "date": "2026-07-31",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/blue-protocol-star-resonance/cover.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

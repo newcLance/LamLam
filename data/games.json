@@ -5474,5 +5474,110 @@
     "lastUpdate": "2026-07-31",
     "slug": "azur-promilia",
     "website": "https://azurpromilia.manjuu.com/home/"
+  },
+  {
+    "id": 324,
+    "name": "Azur Lane",
+    "nameCN": "碧蓝航线",
+    "alias": "碧蓝航线,碧藍航線,Azur Lane,アズールレーン,舰B,蔚蓝档案勿混",
+    "icon": "⚓",
+    "company": "蛮啾网络 Manjuu + 勇仕网络（B站国服 / Yostar 海外发行）",
+    "category": "已运营",
+    "region": "国产",
+    "platforms": [
+      "Android",
+      "iOS",
+      "PC"
+    ],
+    "model": "免费+内购",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2017 年",
+    "releaseDate": "2017-05-25（国服）",
+    "desc": "蛮啾网络的成名作，把二战军舰拟人成美少女「舰船」的横版弹幕射击养成手游。你扮演指挥官，在塞壬入侵的海洋世界里建造、编队、养成舰船，前排走位躲弹幕、后排炮击航空清屏。以「最懂二次元」的角色美术、不逼氪不逼肝的良心运营著称，2017 年登顶日本 App Store 畅销榜，运营八九年仍是 B 站财报里的长青支柱——也是《蓝色星原：旅谣》的美术 DNA 与玩家盘源头。",
+    "features": [
+      "舰船拟人养成",
+      "横版弹幕海战",
+      "最懂二次元美术",
+      "不逼氪长青运营",
+      "后宅与誓约"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-07-31",
+    "slug": "azur-lane",
+    "website": "https://www.manjuu.com/"
+  },
+  {
+    "id": 325,
+    "name": "Granblue Fantasy: Relink",
+    "nameCN": "碧蓝幻想 Relink",
+    "alias": "碧蓝幻想Relink,碧藍幻想Relink,Granblue Fantasy Relink,グランブルーファンタジー リリンク,GBF Relink",
+    "icon": "⚔️",
+    "company": "Cygames（亚洲区 SEGA 发行）",
+    "category": "已发售",
+    "region": "日本",
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Switch"
+    ],
+    "model": "买断制",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2024 年",
+    "releaseDate": "2024-02-01",
+    "desc": "Cygames 基于国民手游《碧蓝幻想》打造、耗时约八年的动作 RPG。你在浮空岛构成的天空世界里，率四人小队即时作战——切人连招、破盾、四人奥义连锁爆发，打怪猎式的巨型 Boss 讨伐战。买断制单机 + 最多四人联机，无抽卡无逼氪，靠华丽战斗手感与 Cygames 动画级演出撑起终局刷装循环。发售 11 天销量破百万，累计超 200 万，Fami 通 36/40。",
+    "features": [
+      "四人小队动作战斗",
+      "奥义连锁爆发",
+      "怪猎式Boss讨伐",
+      "买断制无抽卡",
+      "Cygames动画级演出"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-07-31",
+    "slug": "granblue-fantasy-relink",
+    "website": "https://relink.granbluefantasy.jp/",
+    "appid": 881020
+  },
+  {
+    "id": 326,
+    "name": "Blue Protocol: Star Resonance",
+    "nameCN": "蓝色协议：星痕共鸣",
+    "alias": "蓝色协议,藍色協議,星痕共鸣,Blue Protocol,Blue Protocol Star Resonance,BLUE PROTOCOL",
+    "icon": "🔷",
+    "company": "上海宝可拉（腾讯发行）／原版 Bandai Namco",
+    "category": "已运营",
+    "region": "国产",
+    "platforms": [
+      "PC",
+      "Android",
+      "iOS"
+    ],
+    "model": "免费+内购",
+    "genre": "Action RPG",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2025 年",
+    "releaseDate": "2025-07-17（简中服）",
+    "desc": "万代南梦宫《蓝色协议》停运后，由腾讯系上海宝可拉基于其 IP 推倒重制的多端二次元动作 MMO。你在星球雷格纳斯上捏一个失忆冒险者，用武器决定职业、随时切换流派，在动画电影级卡通渲染的开放大地图里探索古代遗迹、打世界 Boss、经营生活职业与家园。原版曾被寄望为「日本的原神」却因内容匮乏一年暴死；重制版主打「二次元 MMO + 日式动漫风」差异化，多端同服跨平台。",
+    "features": [
+      "日式动画级卡通渲染",
+      "武器决定职业",
+      "开放世界MMO",
+      "多端同服跨平台",
+      "生活职业与家园"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-07-31",
+    "slug": "blue-protocol-star-resonance",
+    "website": "https://gm.qq.com/",
+    "appid": 3681810
   }
 ]

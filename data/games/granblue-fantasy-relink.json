@@ -1,0 +1,425 @@
+{
+  "id": 325,
+  "slug": "granblue-fantasy-relink",
+  "report": false,
+  "worldview": {
+    "background": {
+      "title": "帝斯特亚天空世界——浮空岛、骑空艇与星晶兽守护的空之尽头",
+      "value": "故事发生在一片<b>由无数浮空岛屿漂浮在蔚蓝天空中构成的世界</b>。人们乘着「<b>骑空艇</b>」在云海之间往来冒险，一座座岛屿由被称为「<b>星晶兽</b>」的强大存在守护——比如原初之龙巴哈姆特这样的巨兽。传说在天空的尽头，有一座星晶族的乐园之岛「艾斯塔露西亚」，是所有骑空士向往的终点。Relink 的舞台是一片<b>全新的空域「泽加格兰德」</b>，你不用玩过原作《碧蓝幻想》也能看懂——一落地就撞上暴走的星晶兽和图谋不轨的教会，冒险就此展开。",
+      "keywords": [
+        "浮空岛天空世界",
+        "骑空艇冒险",
+        "星晶兽",
+        "艾斯塔露西亚"
+      ]
+    },
+    "mainStory": {
+      "title": "你率骑空艇团队——追寻天空尽头，卷入星晶族的复活阴谋",
+      "value": "你扮演<b>骑空艇「格兰赛法号」的船长（古兰或姬塔）</b>，带着会说话的小龙碧、拥有神秘力量的少女露莉亚，和卡塔莉娜等一船伙伴，向天空尽头的艾斯塔露西亚进发。可船一到泽加格兰德空域就被怪物击落，你们被卷入一场大麻烦：阿维亚教会的莉莉丝想牺牲露莉亚吸收的星晶兽之力、<b>强行打开通往乐园的门</b>——这会毁掉整个天空世界。你要联合半路结识的祭司罗兰、亦敌亦友的伊德，一路强攻浮空巨岛、击退失控的原初之龙。这不是升级打怪，而是<b>你如何守住一船人共同追梦的那趟旅程</b>。",
+      "keywords": [
+        "格兰赛法号船长",
+        "露莉亚与小龙",
+        "教会阴谋",
+        "守护旅程"
+      ]
+    },
+    "combat": {
+      "title": "四人小队即时动作——连招破盾，四人奥义连锁爆发",
+      "value": "战斗是<b>四人小队的即时动作 ARPG</b>——你操一名角色亲自连招走位，另外三名由 AI 或联机队友控制，随时能在备战时换主控。每个角色手感天差地别：拉卡姆双枪风筝、齐格飞大剑重斩、娜露梅太刀切式。核心爽点是<b>「破盾 + 奥义连锁」</b>：Boss 有愤怒和破防循环，你打满连锁槽触发全队同步攻击、敌人减速；四人依次放出奥义「<b>天司之术</b>」还能连成 Full Burst 打出巨额伤害。比如围攻一头巨龙 Boss，就得卡准它的破防窗口，四人奥义一口气连锁爆发。",
+      "keywords": [
+        "四人小队动作",
+        "破盾连锁",
+        "奥义Full Burst",
+        "怪猎式Boss"
+      ]
+    },
+    "coreLoop": {
+      "title": "主线通关 → 任务板讨伐 → 刷素材因子 → 强化 build 的终局循环",
+      "value": "玩起来是<b>「主线动作剧情 + 终局刷装」的怪猎式循环</b>——十来小时主线通关后，真正的内容才展开：你从任务板接一百多个 Boss 讨伐、限时、生存任务，反复刷素材和「<b>印记因子</b>」。因子是可镶嵌的属性词条，配武器强化和天赋树把角色 build 磨到毕业。它是买断制单机 + 四人联机，<b>没有抽卡、没有付费角色、没有体力墙</b>，通关加兑换券就能解锁全部角色。循环就是：挑战更硬的 Boss → 掉更好的因子武器 → build 变强 → 打更高难度讨伐。",
+      "keywords": [
+        "主线+终局刷装",
+        "任务板讨伐",
+        "印记因子build",
+        "买断无抽卡"
+      ]
+    }
+  },
+  "story": {
+    "overview": {
+      "tagline": "<b>浮空岛冒险 × 四人共斗</b>——追着天空的尽头，打一场华丽到发光的动作战。",
+      "paragraphs": [
+        "想象一片<b>由无数浮空岛漂在蔚蓝天空里的世界</b>：人们乘骑空艇穿梭云海，一座座岛屿由名为星晶兽的巨兽守护，而天空的尽头传说有一座星晶族的乐园之岛。你是骑空艇「格兰赛法号」的船长，带着会说话的小龙、拥有神秘力量的少女露莉亚，和一整船伙伴，朝那座传说之岛进发——直到船在陌生空域被击落。",
+        "落地的泽加格兰德空域并不太平：阿维亚教会想牺牲露莉亚体内的星晶兽之力、<b>强行撬开通往乐园的门</b>，而这会<b>毁掉整个天空世界</b>。你必须联合半路结识的祭司罗兰、身世成谜的伊德，去平息暴走的星晶兽、强攻教会盘踞的浮空巨岛。每个伙伴各有一手绝活：卡塔莉娜的骑士剑、拉卡姆的双枪、娜露梅的太刀——组起队来，一场动作大戏就此拉开。",
+        "<b>你第一次把连锁槽打满、四人奥义连成 Full Burst</b>、整个屏幕炸成一片光的那个瞬间，你会明白 Cygames 磨了八年到底磨的是什么。可当伊德体内潜藏的力量暴走、<b>昔日并肩的伙伴反目相向</b>，你才发现这场冒险的代价从来不轻。这不是一个关于打败魔王的故事，<b>而是一个关于「把彼此的梦扛到天空尽头」的故事</b>——你准备好带谁踏上下一段航程了吗？"
+      ]
+    },
+    "dims": [
+      {
+        "label": "时间",
+        "value": "<b>骑空士自由冒险的天空纪元</b>——一个乘骑空艇往来浮空岛、追寻天空尽头乐园的奇幻年代，与原作主线不同地点的外传时空"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>全新空域「泽加格兰德」</b>——由浮空岛、云海、古代遗迹与浮空巨岛构成的天空世界，箱庭关卡+副本结构而非开放世界"
+      },
+      {
+        "label": "角色扮演什么",
+        "value": "<b>骑空艇船长（古兰 / 姬塔）</b>——率领一整船伙伴的冒险队长，可在四人小队中切换主控角色，各角色武器手感截然不同"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>魔法 × 骑空艇机械 × 星晶超自然</b>——既有骑空艇的蒸汽机械，也有星晶兽召唤、天司奥义等超自然力量并存的奇幻科技"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>骑空艇团队 vs 阿维亚教会 vs 暴走星晶兽</b>——表层是阻止教会的复活阴谋，深层是守住一船人共同追梦的旅程不被野心毁掉"
+      },
+      {
+        "label": "地图",
+        "value": "<b>章节制箱庭 + 任务板副本</b>：主线十章推进剧情，通关后从任务板刷上百个 Boss 讨伐、限时、生存任务，非开放世界"
+      },
+      {
+        "label": "视觉母题",
+        "value": "<b>浮空岛云海 × 巨兽讨伐 × 奥义连锁光效</b>——蔚蓝天空的幻想壮丽、怪猎式巨型 Boss 战与四人连锁爆发的华丽演出"
+      },
+      {
+        "label": "美学谱系",
+        "value": "<b>Cygames 动画电影级卡通渲染</b>——把手游 2D 立绘完美转译为 3D 排线阴影，鲜艳明亮的日式奇幻，每帧可当壁纸"
+      }
+    ]
+  },
+  "aesthetic": {
+    "summary": {
+      "label": "天空幻想 Cygames Anime ARPG",
+      "definition": "<b>日式奇幻 × 动画电影级卡通渲染</b>，是 Cygames 把运营十年的《碧蓝幻想》<b>2D 手绘立绘</b>完美转译成<b>全 3D 动作游戏</b>的招牌美学。底色是<b>浮空岛与云海构成的蔚蓝天空世界</b>——骑空艇、星晶兽、天司奥义共同撑起鲜艳明亮的奇幻壮丽；变异在于角色模型上叠了<b>2D 式排线阴影</b>模拟手绘质感，连奥义演出都做成动画级 CG。色彩锁定<b>天空湛蓝 × 星晶金辉</b>的明亮组合，整体调性是不走暗黑、只走华丽热血的日式王道奇幻。",
+      "evolution": "「日式奇幻动作」的视觉共识跨越了近四十年。<b>1987 年</b>《最终幻想》一脉奠定了日式奇幻 RPG 的召唤兽、水晶与飞空艇美术母题。<b>1997 年</b>《最终幻想 VII》把 JRPG 的过场演出推向电影化。<b>2014 年</b>《碧蓝幻想》手游以皆叶英夫领衔的顶级 2D 立绘和成田勤配乐，定义了 IP 的天空幻想基调。<b>2020 年</b>《碧蓝幻想 Versus》先行验证了把 2D 立绘 3D 化的格斗尝试。<b>2024 年</b>《碧蓝幻想 Relink》集大成——用定制引擎把排线阴影做进 3D 模型、把奥义连锁做成动画级演出，被媒体称为「史上最接近手绘动画的动作 RPG」。",
+      "references": [
+        {
+          "type": "game",
+          "title": "碧蓝幻想（手游原作）",
+          "year": "2014",
+          "note": "<b>天空幻想 IP 的美术母体</b>；皆叶英夫的 2D 立绘、星晶兽与骑空艇设计是 Relink 3D 化的直接蓝本"
+        },
+        {
+          "type": "game",
+          "title": "最终幻想 VII 重制版",
+          "year": "2020",
+          "note": "<b>日式奇幻的电影化过场</b>；召唤兽登场演出与 Boss 战镜头语言可与 Relink 奥义 CG 对照"
+        },
+        {
+          "type": "game",
+          "title": "怪物猎人 World",
+          "year": "2018",
+          "note": "<b>巨型 Boss 讨伐 + 刷素材终局</b>的玩法美术原型；破盾、部位破坏与任务板循环的设计参照"
+        },
+        {
+          "type": "anime",
+          "title": "碧蓝幻想 THE ANIMATION",
+          "year": "2017",
+          "note": "<b>IP 的动画化质感</b>；角色性格、天空世界氛围与 Relink 的过场演出一脉相承"
+        },
+        {
+          "type": "film",
+          "title": "宫崎骏《天空之城》",
+          "year": "1986",
+          "note": "<b>浮空岛与飞行浪漫</b>母题源头；骑空艇、云海与空中巨兽的东方动画质感底色"
+        },
+        {
+          "type": "anime",
+          "title": "最终幻想：核心",
+          "year": "2007",
+          "note": "<b>召唤兽与光效演出</b>参照；奥义 Full Burst 的爆发式光效可溯源于日式奇幻的必杀技美学"
+        }
+      ]
+    },
+    "scene": {
+      "title": "浮空岛云海 × 遗迹箱庭",
+      "value": "场景以<b>泽加格兰德空域的浮空岛屿</b>为骨架——弗尔卡村的暖色田园、云海中的古代遗迹、教会盘踞的浮空巨岛，每个关卡都是精心搭建的箱庭而非开放世界。美术走<b>高饱和动画渲染 + 通透昼空光照</b>，云海与阳光的层次是画面记忆点。最关键的是<b>「天空湛蓝 × 星晶金辉」的双色气质</b>：白昼的空岛是明媚壮丽的冒险乐园，星晶兽登场时又染上金蓝交织的超自然光辉——同一片天空，日常与神迹两副面孔。它刻意不走暗黑，只走鲜艳热血的王道奇幻。",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "costume": {
+      "title": "骑空士剪影 × 武器职业辨识",
+      "value": "角色采用<b>Cygames 一脉的高完成度奇幻人设</b>——每个骑空士的服装、发色都对应元素属性与阵营。用<b>武器强化剪影辨识</b>：齐格飞的大剑与厚甲、拉卡姆的双枪与飞行员夹克、娜露梅的太刀与和风振袖、巴萨拉卡的巨镰与重铠，涂黑也能秒辨谁是谁。与人形角色对比的是<b>星晶兽 Boss 的巨兽轮廓</b>——角色越灵动，巨龙巴哈姆特这类 Boss 的剪影越庞大狰狞带棱角。角色模型上叠 2D 排线阴影，让 3D 建模保留手绘立绘的质感。",
+      "anchorRule": [
+        3
+      ]
+    },
+    "ui": {
+      "title": "动作战斗 HUD × 讨伐任务板",
+      "value": "UI 以<b>「动作战斗 + 怪猎任务」为隐喻</b>——战斗界面集中在底部技能栏、奥义槽与四人连锁槽，顶部是 Boss 血条与破防状态，屏幕大部分留给连招走位。终局的任务板像怪猎的接单大厅，按难度、Boss 分类挑选讨伐。养成界面用<b>印记因子的镶嵌网格</b>呈现 build 搭配。整体<b>天空蓝底 + 金色高光</b>，信息分层清晰，奥义连锁触发时全屏光效与连锁计数联动——把动作爽感直接可视化，避免手游式的信息堆砌。",
+      "anchorRule": [
+        5
+      ]
+    },
+    "symbol": {
+      "title": "骑空艇 × 星晶兽 × 奥义连锁光效",
+      "value": "核心视觉符号：<b>骑空艇格兰赛法号</b>（一船人共同追梦的载体与品牌记忆核心）、<b>星晶兽</b>（守护岛屿的巨型召唤兽，尤以原初之龙巴哈姆特为标志）、<b>天司奥义连锁光效</b>（四人 Full Burst 炸满屏幕的爆发式金蓝光辉，战斗爽感的视觉签名）、<b>浮空岛云海</b>（天空幻想世界的招牌地貌）。色彩母题是<b>天空湛蓝 × 星晶金辉</b>——把日式奇幻的壮丽与动作爆发的华丽，用连锁光效这一符号缝到一起。",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "promo": {
+      "title": "Cygames 动画级演出 + 八年磨一剑口碑",
+      "value": "宣发核心是<b>「Cygames 动画电影级品质」的招牌</b>——用奥义 CG、星晶兽登场、Boss 转阶段的动画级演出，把「每帧可当壁纸」做成传播点。背书打<b>国民手游《碧蓝幻想》正统 3D 化</b>，配皆叶英夫美术、成田勤配乐的顶级规格，以及「耗时约八年、白金退出后 Cygames 独立完成」的匠心叙事。发售 11 天破百万、累计超两百万、<b>Fami 通 36/40</b> 的成绩，本身就是最硬的口碑物料——买断制无抽卡的良心定位更是差异化卖点。",
+      "anchorRule": [
+        1
+      ]
+    },
+    "rivals": [
+      {
+        "id": 323,
+        "reason": "同为<b>二次元角色动作 RPG + 高品质卡通渲染</b>，Relink 的四人共斗与旅谣的人宠共斗都主打「切换角色 + 华丽动作」的战斗爽感与二次元审美"
+      },
+      {
+        "id": 236,
+        "reason": "同为<b>二次元角色即时动作战斗 + 切人连携爽感</b>，绝区零的连招连携与 Relink 的奥义连锁是最直接的动作手感对标"
+      },
+      {
+        "id": 291,
+        "reason": "同为<b>二次元角色动作 RPG + 华丽连招演出</b>，鸣潮的战斗手感与 Relink 争夺同一批为动作爽感与角色养成买单的玩家"
+      },
+      {
+        "id": 234,
+        "reason": "同为<b>二次元角色养成 + 队伍配合战斗</b>，IGN 直接把 Relink 的角色机制多样性类比原神，两者争夺泛二次元动作 RPG 用户"
+      }
+    ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页（app 881020）",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/881020/"
+          },
+          {
+            "title": "官方网站（英/日）",
+            "source": "官网",
+            "url": "https://relink.granbluefantasy.jp/"
+          },
+          {
+            "title": "SEGA 亚洲中文页",
+            "source": "SEGA",
+            "url": "https://asia.sega.com/relink.granbluefantasy/cn/"
+          }
+        ]
+      },
+      {
+        "cat": "角色建模 / 概念设定图",
+        "links": [
+          {
+            "title": "官方 B 站搜索 — PV/角色演示",
+            "source": "bilibili",
+            "url": "https://search.bilibili.com/all?keyword=%E7%A2%A7%E8%93%9D%E5%B9%BB%E6%83%B3%20Relink%20%E5%AE%98%E6%96%B9"
+          },
+          {
+            "title": "小红书搜索「碧蓝幻想 Relink 角色」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E7%A2%A7%E8%93%9D%E5%B9%BB%E6%83%B3%20Relink%20%E8%A7%92%E8%89%B2"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Granblue Fantasy Relink」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Granblue%20Fantasy%20Relink"
+          },
+          {
+            "title": "Pinterest 搜索「Granblue Fantasy Relink concept」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Granblue%20Fantasy%20Relink%20concept%20art"
+          }
+        ]
+      },
+      {
+        "cat": "角色设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Granblue Fantasy character」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Granblue%20Fantasy%20character"
+          },
+          {
+            "title": "Pinterest 搜索「Granblue Fantasy character design」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Granblue%20Fantasy%20character%20design"
+          },
+          {
+            "title": "Pixiv 搜索「グランブルーファンタジー」",
+            "source": "Pixiv",
+            "url": "https://www.pixiv.net/tags/%E3%82%B0%E3%83%A9%E3%83%B3%E3%83%96%E3%83%AB%E3%83%BC%E3%83%95%E3%82%A1%E3%83%B3%E3%82%BF%E3%82%B8%E3%83%BC/artworks"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Google 搜索「site:interfaceingame.com Granblue Fantasy Relink」",
+            "source": "InterfaceInGame",
+            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Granblue%20Fantasy%20Relink",
+            "note": "国外单机 UI 数据库，Relink 是买断单机大概率收录"
+          },
+          {
+            "title": "ArtStation 搜索「Granblue Fantasy Relink UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Granblue%20Fantasy%20Relink%20UI"
+          },
+          {
+            "title": "花瓣网搜索「碧蓝幻想 UI」",
+            "source": "花瓣网",
+            "url": "https://huaban.com/search?q=%E7%A2%A7%E8%93%9D%E5%B9%BB%E6%83%B3%20UI",
+            "note": "国内 UI 设计参考主站"
+          }
+        ]
+      }
+    ]
+  },
+  "playerExp": {
+    "media": {
+      "memory": [
+        {
+          "text": "<b>四人小队即时动作 + 奥义连锁</b>——切人连招、破盾、四人 Full Burst 炸满屏的战斗爽感是最强记忆点",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/granblue-fantasy-relink-review/"
+        },
+        {
+          "text": "<b>Cygames 动画电影级演出</b>——奥义 CG、星晶兽登场、Boss 转阶段，被称「每帧可当壁纸」",
+          "src": "GamingTrend",
+          "url": "https://gamingtrend.com/granblue-fantasy-relink-review-final-hunter-fantasy"
+        },
+        {
+          "text": "<b>浮空岛天空幻想世界</b>——骑空艇、星晶兽守护的空之世界，鲜艳明亮的日式王道奇幻",
+          "src": "Steam官方",
+          "url": "https://store.steampowered.com/app/881020/"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>19+ 角色手感割裂如换武器</b>——大剑重斩、太刀切式、双枪风筝，换主控就是换一套战斗",
+          "src": "TheGamer",
+          "url": "https://www.thegamer.com/granblue-fantasy-relink-playable-characters-ranked-best"
+        },
+        {
+          "text": "<b>怪猎式巨型 Boss 讨伐</b>——愤怒破防循环、部位破坏，被玩家称「二次元怪猎」的高燃对决",
+          "src": "GamingBolt",
+          "url": "https://gamingbolt.com/granblue-fantasy-relink-everything-you-need-to-know"
+        },
+        {
+          "text": "<b>买断制无抽卡的良心</b>——40 美元一次性、通关加兑换券解锁全角色，无付费墙",
+          "src": "网易游研",
+          "url": "https://www.163.com/dy/article/IS9HQVKI05268CC2.html"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>主线偏短、叙事套路化</b>——本体主线仅 15-20 小时，经典王道 JRPG 模板，反转少",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/granblue-fantasy-relink-review/"
+        },
+        {
+          "text": "<b>终局重复度高、毕业周期长</b>——刷极品词条武器需反复刷同系列 Boss，独狼久刷枯燥",
+          "src": "loot.hk",
+          "url": "https://loot.hk/p/granblue-fantasy-relink-steam-rpg-guide-2026"
+        },
+        {
+          "text": "<b>高难 Boss 特效过密</b>——混战中全屏特效看不清怪物动作，易「暴毙」，索敌不够智能",
+          "src": "TapTap",
+          "url": "https://www.taptap.cn/app/718155/review"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>纯剧情党期待落差</b>——追求超长单机剧情或开放世界的玩家，会嫌主线短、地图线性",
+          "src": "IGN",
+          "url": "https://www.ign.com/articles/granblue-fantasy-relink-review/"
+        },
+        {
+          "text": "<b>DLC 换皮怪争议</b>——追加内容超七成为本体老 Boss 换色+数值膨胀，剧情切得碎",
+          "src": "腾讯新闻",
+          "url": "https://new.qq.com/rain/a/20260715A05P6W00"
+        }
+      ]
+    },
+    "community": {
+      "memory": [
+        {
+          "text": "<b>「八年磨一剑」的匠心</b>——2016 立项、白金退出、Cygames 独立完成，社区津津乐道的研发史",
+          "src": "Wiki / 社区"
+        },
+        {
+          "text": "<b>「让 JRPG 再次伟大」</b>——发售 11 天破百万、累计超两百万、Fami 通 36/40 的口碑",
+          "src": "社区综合"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>四人联机共斗的社交爽感</b>——和好友组队刷本、奥义连锁配合，是社区最推荐的玩法",
+          "src": "TapTap"
+        },
+        {
+          "text": "<b>吃美术这口的玩家「绝对不亏」</b>——为 Cygames 演出与角色魅力买单的核心受众高度满意",
+          "src": "社区综合"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>PC 优化个体差异</b>——部分机型间歇黑屏/闪退、无 DLSS、图形选项少",
+          "src": "Steam 评测"
+        },
+        {
+          "text": "<b>早期无跨平台联机</b>——PS 与 PC 早期不互通，后 DLC 期才改善，分割了联机池",
+          "src": "社区综合"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>买断 vs 抽卡的定位争议</b>——被拿来和抽卡二游对比引发辩论，部分玩家质疑内容量对不起赛道",
+          "src": "TapTap"
+        },
+        {
+          "text": "<b>终局刷刷刷的疲劳</b>——毕业后缺乏持续新内容，独狼玩家易因重复而弃坑",
+          "src": "社区综合"
+        }
+      ]
+    },
+    "biliVideos": [
+      {
+        "title": "爽快又耐玩！《碧蓝幻想relink》是款什么样的游戏？",
+        "bvid": "BV1SZ421U7MA",
+        "views": "128万"
+      },
+      {
+        "title": "【碧蓝幻想Relink】新手建议！角色选择、队友搭配、前期注意事项，从入门到通关你只需要了解这些。",
+        "bvid": "BV1hU421o7tn",
+        "views": "108万"
+      },
+      {
+        "title": "【碧蓝幻想：Relink】4K 最高画质 全流程通关攻略 日式动作RPG游戏 正式版 - Granblue Fantasy: Relinkp【完结】",
+        "bvid": "BV1np4y1m7XH",
+        "views": "93万"
+      },
+      {
+        "title": "【步步深挖碧蓝幻想Relink】通关之后干什么？角色毕业流程详解",
+        "bvid": "BV1w4421w7jq",
+        "views": "52万"
+      },
+      {
+        "title": "【碧蓝幻想Relink】2025新手教学入门答案攻略",
+        "bvid": "BV1Hmf6YgE1x",
+        "views": "28万"
+      }
+    ]
+  }
+}
