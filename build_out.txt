@@ -1,0 +1,12 @@
+=== Building Game Design Tracker (v2) ===
+  [OK] index.html
+  [OK] 93 detail pages
+  [OK] 16 platform detail pages
+  [OK] compare.html
+  [OK] static/
+  [OK] report/ (20 pages)
+  [OK] screenshots/ (866 images)
+  [OK] screenshots_local/ (13 images merged)
+  [OK] data/
+
+=== Done! dist/ = 102.8 MB ===

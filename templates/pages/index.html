@@ -12,27 +12,97 @@
     <p class="text-sm text-neutral-500 mt-2 max-w-lg">覆盖 {{ total_products }} 款产品 · {{ total_screenshots }} 张官网截图 · 持续更新中</p>
   </div>
 
-  {# ===== SEARCH ===== #}
-  <div x-data="{ query: '' }" class="mb-14">
-    <input type="text" x-model="query" placeholder="搜索游戏、公司、品类..."
-           class="w-full max-w-sm px-4 py-3 rounded bg-surface-2 border border-bdr text-white text-sm outline-none focus:border-white/20 transition placeholder:text-neutral-600"
-           x-on:input="
-             let q = query.toLowerCase().trim();
-             document.querySelectorAll('[data-search]').forEach(el => {
-               let hay = el.dataset.search || '';
-               el.style.display = (!q || hay.includes(q)) ? '' : 'none';
-             });
-             document.querySelectorAll('.game-section').forEach(sec => {
-               let cards = sec.querySelectorAll('[data-search]');
-               let visible = Array.from(cards).filter(c => c.style.display !== 'none').length;
-               sec.style.display = visible > 0 ? '' : 'none';
-             });
-             let trendingSec = document.getElementById('recentTrending');
-             if (trendingSec) trendingSec.style.display = q ? 'none' : '';
-             let anyVisible = Array.from(document.querySelectorAll('.game-section')).some(s => s.style.display !== 'none');
-             document.getElementById('emptyState').style.display = anyVisible ? 'none' : 'flex';
-           ">
+  {# ===== SEARCH + FILTER TOOLBAR ===== #}
+  <div x-data="gameFilter()" x-init="init()" class="mb-14">
+    {# 搜索框 + 结果计数 + 清除 #}
+    <div class="flex flex-wrap items-center gap-3 mb-4">
+      <input type="text" x-model="query" x-on:input="apply()" placeholder="搜索游戏、公司、品类..."
+             class="w-full max-w-sm px-4 py-3 rounded bg-surface-2 border border-bdr text-white text-sm outline-none focus:border-white/20 transition placeholder:text-neutral-600">
+      <div class="flex items-center gap-3 text-xs">
+        <span class="text-neutral-500">筛出 <span class="text-white font-bold" x-text="resultCount"></span> 款</span>
+        <button x-show="hasActive()" x-on:click="clearAll()" x-cloak
+                class="text-neutral-500 hover:text-white underline underline-offset-2 transition">清除筛选</button>
+      </div>
+    </div>
+
+    {# 筛选组 #}
+    <div class="space-y-2.5">
+      <template x-for="grp in groups" :key="grp.key">
+        <div class="flex items-start gap-3">
+          <span class="text-[11px] font-semibold text-neutral-600 shrink-0 w-10 pt-1.5 text-right" x-text="grp.label"></span>
+          <div class="flex flex-wrap gap-1.5">
+            <template x-for="opt in grp.options" :key="opt">
+              <button x-on:click="toggle(grp.key, opt)"
+                      :class="isOn(grp.key, opt) ? 'bg-white text-black border-white' : 'bg-surface-2 text-neutral-400 border-bdr hover:border-white/25 hover:text-white'"
+                      class="px-2.5 py-1 rounded text-[12px] font-medium border transition"
+                      x-text="opt"></button>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
   </div>
+  <script>
+  function gameFilter() {
+    return {
+      query: '',
+      active: { genre: [], platform: [], region: [], category: [] },
+      resultCount: 0,
+      groups: [
+        { key:'genre',    label:'品类', options:['Action','Shooter','Action RPG','RPG','Adventure','Survival','Horror','Simulation'] },
+        { key:'platform', label:'平台', options:['PC','PlayStation','Xbox','任天堂','移动端'] },
+        { key:'region',   label:'地区', options:['国产','国际','欧美','日韩'] },
+        { key:'category', label:'状态', options:['已发售','已运营','即将发售','未发售','抢先体验'] },
+      ],
+      init() { this.$nextTick(() => this.apply()); },
+      hasActive() { return this.query.trim() || Object.values(this.active).some(a => a.length); },
+      isOn(k, v) { return this.active[k].includes(v); },
+      toggle(k, v) {
+        const i = this.active[k].indexOf(v);
+        if (i >= 0) this.active[k].splice(i, 1); else this.active[k].push(v);
+        this.apply();
+      },
+      clearAll() {
+        this.query = '';
+        Object.keys(this.active).forEach(k => this.active[k] = []);
+        this.apply();
+      },
+      matchGroup(cardVal, selected) {
+        if (!selected.length) return true;              // 该组未选 → 不约束
+        const vals = (cardVal || '').split('|');         // 卡片可能多值
+        return selected.some(s => vals.includes(s));     // 组内 OR
+      },
+      apply() {
+        const q = this.query.toLowerCase().trim();
+        let count = 0;
+        document.querySelectorAll('.game-card').forEach(el => {
+          const okSearch = !q || (el.dataset.search || '').includes(q);
+          const okG = this.matchGroup(el.dataset.genre, this.active.genre);
+          const okP = this.matchGroup(el.dataset.platform, this.active.platform);
+          const okR = this.matchGroup(el.dataset.region, this.active.region);
+          const okC = this.matchGroup(el.dataset.category, this.active.category);
+          const show = okSearch && okG && okP && okR && okC;  // 跨组 AND
+          el.style.display = show ? '' : 'none';
+          if (show) count++;
+        });
+        this.resultCount = count;
+        // 空 section 隐藏（平台 section 无 game-card，不动）
+        document.querySelectorAll('.game-section').forEach(sec => {
+          const cards = sec.querySelectorAll('.game-card');
+          if (!cards.length) return;
+          const vis = Array.from(cards).filter(c => c.style.display !== 'none').length;
+          sec.style.display = vis > 0 ? '' : 'none';
+        });
+        // 浏览历史：有任意筛选时隐藏
+        const trending = document.getElementById('recentTrending');
+        if (trending) trending.style.display = this.hasActive() ? 'none' : '';
+        // 空状态
+        const empty = document.getElementById('emptyState');
+        if (empty) empty.style.display = count > 0 ? 'none' : 'flex';
+      }
+    };
+  }
+  </script>
 
   {# ===== 浏览历史 (Recent History) ===== #}
   <section id="recentTrending" x-data="recentHistory()" x-init="init()" x-show="items.length > 0" x-cloak class="mb-14">

@@ -110,26 +110,96 @@ document.addEventListener('alpine:init', function() {
   </div>
 
   
-  <div x-data="{ query: '' }" class="mb-14">
-    <input type="text" x-model="query" placeholder="搜索游戏、公司、品类..."
-           class="w-full max-w-sm px-4 py-3 rounded bg-surface-2 border border-bdr text-white text-sm outline-none focus:border-white/20 transition placeholder:text-neutral-600"
-           x-on:input="
-             let q = query.toLowerCase().trim();
-             document.querySelectorAll('[data-search]').forEach(el => {
-               let hay = el.dataset.search || '';
-               el.style.display = (!q || hay.includes(q)) ? '' : 'none';
-             });
-             document.querySelectorAll('.game-section').forEach(sec => {
-               let cards = sec.querySelectorAll('[data-search]');
-               let visible = Array.from(cards).filter(c => c.style.display !== 'none').length;
-               sec.style.display = visible > 0 ? '' : 'none';
-             });
-             let trendingSec = document.getElementById('recentTrending');
-             if (trendingSec) trendingSec.style.display = q ? 'none' : '';
-             let anyVisible = Array.from(document.querySelectorAll('.game-section')).some(s => s.style.display !== 'none');
-             document.getElementById('emptyState').style.display = anyVisible ? 'none' : 'flex';
-           ">
+  <div x-data="gameFilter()" x-init="init()" class="mb-14">
+    
+    <div class="flex flex-wrap items-center gap-3 mb-4">
+      <input type="text" x-model="query" x-on:input="apply()" placeholder="搜索游戏、公司、品类..."
+             class="w-full max-w-sm px-4 py-3 rounded bg-surface-2 border border-bdr text-white text-sm outline-none focus:border-white/20 transition placeholder:text-neutral-600">
+      <div class="flex items-center gap-3 text-xs">
+        <span class="text-neutral-500">筛出 <span class="text-white font-bold" x-text="resultCount"></span> 款</span>
+        <button x-show="hasActive()" x-on:click="clearAll()" x-cloak
+                class="text-neutral-500 hover:text-white underline underline-offset-2 transition">清除筛选</button>
+      </div>
+    </div>
+
+    
+    <div class="space-y-2.5">
+      <template x-for="grp in groups" :key="grp.key">
+        <div class="flex items-start gap-3">
+          <span class="text-[11px] font-semibold text-neutral-600 shrink-0 w-10 pt-1.5 text-right" x-text="grp.label"></span>
+          <div class="flex flex-wrap gap-1.5">
+            <template x-for="opt in grp.options" :key="opt">
+              <button x-on:click="toggle(grp.key, opt)"
+                      :class="isOn(grp.key, opt) ? 'bg-white text-black border-white' : 'bg-surface-2 text-neutral-400 border-bdr hover:border-white/25 hover:text-white'"
+                      class="px-2.5 py-1 rounded text-[12px] font-medium border transition"
+                      x-text="opt"></button>
+            </template>
+          </div>
+        </div>
+      </template>
+    </div>
   </div>
+  <script>
+  function gameFilter() {
+    return {
+      query: '',
+      active: { genre: [], platform: [], region: [], category: [] },
+      resultCount: 0,
+      groups: [
+        { key:'genre',    label:'品类', options:['Action','Shooter','Action RPG','RPG','Adventure','Survival','Horror','Simulation'] },
+        { key:'platform', label:'平台', options:['PC','PlayStation','Xbox','任天堂','移动端'] },
+        { key:'region',   label:'地区', options:['国产','国际','欧美','日韩'] },
+        { key:'category', label:'状态', options:['已发售','已运营','即将发售','未发售','抢先体验'] },
+      ],
+      init() { this.$nextTick(() => this.apply()); },
+      hasActive() { return this.query.trim() || Object.values(this.active).some(a => a.length); },
+      isOn(k, v) { return this.active[k].includes(v); },
+      toggle(k, v) {
+        const i = this.active[k].indexOf(v);
+        if (i >= 0) this.active[k].splice(i, 1); else this.active[k].push(v);
+        this.apply();
+      },
+      clearAll() {
+        this.query = '';
+        Object.keys(this.active).forEach(k => this.active[k] = []);
+        this.apply();
+      },
+      matchGroup(cardVal, selected) {
+        if (!selected.length) return true;              // 该组未选 → 不约束
+        const vals = (cardVal || '').split('|');         // 卡片可能多值
+        return selected.some(s => vals.includes(s));     // 组内 OR
+      },
+      apply() {
+        const q = this.query.toLowerCase().trim();
+        let count = 0;
+        document.querySelectorAll('.game-card').forEach(el => {
+          const okSearch = !q || (el.dataset.search || '').includes(q);
+          const okG = this.matchGroup(el.dataset.genre, this.active.genre);
+          const okP = this.matchGroup(el.dataset.platform, this.active.platform);
+          const okR = this.matchGroup(el.dataset.region, this.active.region);
+          const okC = this.matchGroup(el.dataset.category, this.active.category);
+          const show = okSearch && okG && okP && okR && okC;  // 跨组 AND
+          el.style.display = show ? '' : 'none';
+          if (show) count++;
+        });
+        this.resultCount = count;
+        // 空 section 隐藏（平台 section 无 game-card，不动）
+        document.querySelectorAll('.game-section').forEach(sec => {
+          const cards = sec.querySelectorAll('.game-card');
+          if (!cards.length) return;
+          const vis = Array.from(cards).filter(c => c.style.display !== 'none').length;
+          sec.style.display = vis > 0 ? '' : 'none';
+        });
+        // 浏览历史：有任意筛选时隐藏
+        const trending = document.getElementById('recentTrending');
+        if (trending) trending.style.display = this.hasActive() ? 'none' : '';
+        // 空状态
+        const empty = document.getElementById('emptyState');
+        if (empty) empty.style.display = count > 0 ? 'none' : 'flex';
+      }
+    };
+  }
+  </script>
 
   
   <section id="recentTrending" x-data="recentHistory()" x-init="init()" x-show="items.length > 0" x-cloak class="mb-14">
@@ -707,10 +777,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/doom-the-dark-ages.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="毁灭战士：黑暗时代 doom: the dark ages id software / bethesda shooter doom新作,毁灭战士"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/doom-the-dark-ages/cover.webp"
@@ -728,10 +817,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/s-t-a-l-k-e-r-2-heart-of-chornobyl.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="潜行者2：切尔诺贝利之心 s.t.a.l.k.e.r. 2: heart of chornobyl gsc game world shooter 潜行者2,stalker2"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/s-t-a-l-k-e-r-2-heart-of-chornobyl/cover.webp"
@@ -749,10 +854,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/atomfall.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="原子陨落 atomfall rebellion shooter atomfall"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/atomfall/cover.webp"
@@ -770,10 +897,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/call-of-duty-modern-warfare-ii-2022.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="使命召唤：现代战争2 (2022) call of duty: modern warfare ii (2022) infinity ward / activision shooter cod mw2,codmw2,使命召唤,使命召唤19,cod19,现代战争2"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/cod-mw2-2022/home-1.webp"
@@ -791,10 +940,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/counter-strike-2.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="反恐精英2 counter-strike 2 valve shooter cs2,csgo"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/counter-strike-2/cover.webp"
@@ -812,10 +974,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/avatar-frontiers-of-pandora.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="阿凡达：潘多拉边境 avatar: frontiers of pandora massive entertainment / ubisoft shooter 阿凡达"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/avatar-frontiers-of-pandora/cover.webp"
@@ -833,10 +1014,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/call-of-duty-modern-warfare-iii-2023.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="使命召唤：现代战争3 (2023) call of duty: modern warfare iii (2023) sledgehammer games / activision shooter cod mw3,codmw3,使命召唤,使命召唤20,cod20,现代战争3"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/cod-mw3-2023/home-1.webp"
@@ -854,10 +1057,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/helldivers-2.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="绝地潜兵2 helldivers 2 arrowhead game studios / sie shooter hd2,地狱潜兵2,绝地潜兵,绝地潜兵2"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/helldivers-2/cover.webp"
@@ -875,10 +1094,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/call-of-duty-black-ops-6.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="使命召唤：黑色行动6 call of duty: black ops 6 treyarch / activision shooter cod bo6,codbo6"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/call-of-duty-black-ops-6/cover.webp"
@@ -896,10 +1137,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/delta-force.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="三角洲行动 delta force (三角洲行动) 琳琅天上 / 腾讯 shooter df,三角洲"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/delta-force/home-1.webp"
@@ -917,10 +1177,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/killing-floor-3.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="杀戮空间3 killing floor 3 tripwire interactive shooter kf3"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/killing-floor-3/cover.webp"
@@ -938,10 +1217,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/crossfire-hong.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="穿越火线：虹 crossfire: hong 琳琅天上 (腾讯) ['shooter', 'horror'] 穿越火线虹,cf虹,crossfire hong,cfh"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter|Horror"
+   data-platform="PC"
+   data-region="国产"
+   data-category="即将发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/crossfire-hong/home-1.webp"
@@ -959,10 +1251,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/out-of-control.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="失控进化 out of control 腾讯天美 shooter 失控进化,out of control,skjh"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|移动端"
+   data-region="国产"
+   data-category="即将发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/out-of-control/cover.webp"
@@ -980,10 +1288,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/rainbow-six-siege-x.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="彩虹六号：围攻x rainbow six siege x ubisoft montreal shooter 彩虹六号围攻x,r6 siege x,rainbow six x,r6x,siege x"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="日韩"
+   data-category="已运营">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/rainbow-six-siege-x/home-full.webp"
@@ -1001,10 +1328,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/arc-raiders.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="arc 奇袭者 arc raiders embark studios shooter arc raiders,奇袭者,arc raiders,arc"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="日韩"
+   data-category="已运营">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/arc-raiders/cover.webp"
@@ -1022,10 +1368,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/escape-from-tarkov.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="逃离塔科夫 escape from tarkov battlestate games shooter 逃离塔科夫,塔科夫,eft,tarkov"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter"
+   data-platform="PC"
+   data-region="日韩"
+   data-category="已运营">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/escape-from-tarkov/cover.webp"
@@ -1043,10 +1402,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/hunt-showdown-1896.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="猎杀：对决 1896 hunt: showdown 1896 crytek ['shooter', 'horror'] 猎杀对决,猎杀1896,hunt showdown,hunt 1896"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter|Horror"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="日韩"
+   data-category="已运营">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/hunt-showdown-1896/cover.webp"
@@ -1078,10 +1456,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/silent-hill-2.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="寂静岭2 silent hill 2 bloober team / konami ['horror', 'adventure'] sh2,寂静岭2重制版"
-   data-type="game">
+   data-type="game"
+   data-genre="Horror|Adventure"
+   data-platform="PC|PlayStation"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/silent-hill-2/cover.webp"
@@ -1099,10 +1493,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/resident-evil-village.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="生化危机：村庄 resident evil village capcom ['action', 'horror'] re8,生化8"
-   data-type="game">
+   data-type="game"
+   data-genre="Action|Horror"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="日韩"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/resident-evil-village/cover.webp"
@@ -1120,10 +1533,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/crossfire-hong.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="穿越火线：虹 crossfire: hong 琳琅天上 (腾讯) ['shooter', 'horror'] 穿越火线虹,cf虹,crossfire hong,cfh"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter|Horror"
+   data-platform="PC"
+   data-region="国产"
+   data-category="即将发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/crossfire-hong/home-1.webp"
@@ -1141,10 +1567,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/hunt-showdown-1896.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="猎杀：对决 1896 hunt: showdown 1896 crytek ['shooter', 'horror'] 猎杀对决,猎杀1896,hunt showdown,hunt 1896"
-   data-type="game">
+   data-type="game"
+   data-genre="Shooter|Horror"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="日韩"
+   data-category="已运营">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/hunt-showdown-1896/cover.webp"
@@ -1162,10 +1607,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/alan-wake-2.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="心灵杀手 2 alan wake 2 remedy entertainment horror 心灵杀手2,alan wake 2,aw2,alan wake ii,心灵杀手ii"
-   data-type="game">
+   data-type="game"
+   data-genre="Horror"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="日韩"
+   data-category="已运营">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/alan-wake-2/cover.webp"
@@ -1183,10 +1647,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/resident-evil-requiem.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="生化危机：安魂曲 resident evil requiem capcom horror resident evil requiem,生化危机9,生化危机安魂曲,biohazard requiem,re9"
-   data-type="game">
+   data-type="game"
+   data-genre="Horror"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="日韩"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/resident-evil-requiem/cover.webp"
@@ -1218,10 +1701,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/astro-bot.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="宇宙机器人 astro bot team asobi action 太空机器人,astro bot"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PlayStation"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/astro-bot/cover.webp"
@@ -1239,10 +1735,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/sekiro-shadows-die-twice.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="只狼：影逝二度 sekiro: shadows die twice fromsoftware action sekiro,sekiro: shadows die twice,只狼"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/sekiro-shadows-die-twice/cover.webp"
@@ -1260,10 +1775,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/devil-may-cry-5.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="鬼泣5 devil may cry 5 capcom action dmc5,devil may cry 5,鬼泣,鬼泣5"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/devil-may-cry-5/cover.webp"
@@ -1281,10 +1815,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/god-of-war.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="战神 god of war santa monica studio action gow,战神2018"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|PlayStation"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/god-of-war/cover.webp"
@@ -1302,10 +1855,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/hollow-knight-silksong.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="空洞骑士：丝之歌 hollow knight: silksong team cherry action 丝之歌,silksong"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|任天堂|PlayStation|Xbox"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/hollow-knight-silksong/cover.webp"
@@ -1323,10 +1898,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/hi-fi-rush.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="完美音浪 hi-fi rush tango gameworks / krafton action hifi rush,hi-fi rush"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="日韩"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/hi-fi-rush/cover.webp"
@@ -1344,10 +1938,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/stellar-blade.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="星刃 stellar blade shift up / sony action project eve,stellar blade,剑星,星刃"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|PlayStation"
+   data-region="日韩"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/stellar-blade/cover.webp"
@@ -1365,10 +1975,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/resident-evil-village.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="生化危机：村庄 resident evil village capcom ['action', 'horror'] re8,生化8"
-   data-type="game">
+   data-type="game"
+   data-genre="Action|Horror"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="日韩"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/resident-evil-village/cover.webp"
@@ -1386,10 +2015,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/marvels-spider-man-remastered.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="漫威蜘蛛侠 marvel's spider-man remastered insomniac games / sony action 蜘蛛侠,spider-man"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|PlayStation"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/marvels-spider-man-remastered/cover.webp"
@@ -1407,10 +2052,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/vampire-survivors.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="吸血鬼幸存者 vampire survivors poncle action 吸血鬼幸存者"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|Xbox|任天堂"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/vampire-survivors/cover.webp"
@@ -1428,10 +2092,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/pizza-tower.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="披萨塔 pizza tower tour de pizza action pizzatower"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|任天堂"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/pizza-tower/cover.webp"
@@ -1449,10 +2129,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/onimusha-way-of-the-sword.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="鬼武者：剑之道 onimusha: way of the sword capcom action 鬼武者,鬼武者剑之道,onimusha,way of the sword"
-   data-type="game">
+   data-type="game"
+   data-genre="Action"
+   data-platform="PC|PlayStation|Xbox|任天堂"
+   data-region="日韩"
+   data-category="未发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/onimusha-way-of-the-sword/cover.webp"
@@ -1484,10 +2186,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/black-myth-wukong.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="黑神话：悟空 black myth: wukong 游戏科学 (game science) action rpg 黑悟空,悟空,黑猴,wukong"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/black-myth-wukong/cover.webp"
@@ -1505,10 +2223,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/elden-ring-shadow-of-the-erdtree.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="艾尔登法环：黄金树幽影 elden ring: shadow of the erdtree fromsoftware action rpg er,elden ring sote,法环,法环dlc,老头环,艾尔登法环 黄金树幽影"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/elden-ring-shadow-of-the-erdtree/cover.webp"
@@ -1526,10 +2266,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/nioh-3.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="仁王3 nioh 3 team ninja / koei tecmo action rpg 仁王,nioh"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/nioh-3/cover.webp"
@@ -1547,10 +2303,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/where-winds-meet.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="燕云十六声 where winds meet everstone / netease action rpg 燕云,where winds meet"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation"
+   data-region="国产"
+   data-category="已运营">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/where-winds-meet/cover.webp"
@@ -1568,10 +2340,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/wuchang-fallen-feathers.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="明末：渊虚之羽 wuchang: fallen feathers leenzee / 505 games action rpg 明末,wuchang"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/wuchang-fallen-feathers/cover.webp"
@@ -1589,10 +2380,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/atomic-heart.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="原子之心 atomic heart mundfish action rpg ah,原子之心1"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/atomic-heart/cover.webp"
@@ -1610,10 +2423,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/phantom-blade-zero.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="影之刃零 phantom blade zero s-game action rpg 影刃零,pbz"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation"
+   data-region="国产"
+   data-category="即将发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/phantom-blade-zero/cover.webp"
@@ -1631,10 +2460,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/hades-2.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="哈迪斯2 hades ii supergiant games action rpg hades2,黑帝斯2"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/hades-2/cover.webp"
@@ -1652,10 +2500,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/hogwarts-legacy.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="霍格沃茨之遗 hogwarts legacy avalanche software / wb action rpg 哈利波特,霍格沃茨"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|Xbox|任天堂"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/hogwarts-legacy/cover.webp"
@@ -1673,10 +2543,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/cult-of-the-lamb.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="咩咩启示录 cult of the lamb massive monster action rpg 羊教,小羊邪教"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|Xbox|任天堂"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/cult-of-the-lamb/cover.webp"
@@ -1694,10 +2586,35 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/genshin-impact.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="原神 genshin impact 米哈游 (mihoyo/hoyoverse) action rpg 原神,genshin,gi"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|移动端"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/genshin-impact/home-full.webp"
@@ -1715,10 +2632,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/zenless-zone-zero.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="绝区零 zenless zone zero 米哈游 (mihoyo/hoyoverse) action rpg 绝区零,zzz,绝零"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|移动端"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/zenless-zone-zero/cover.webp"
@@ -1736,10 +2675,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/neverness-to-everness.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="异环 neverness to everness hotta studio / 完美世界 action rpg 异环,nte"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|移动端"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/neverness-to-everness/home-full.webp"
@@ -1757,10 +2718,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/ananta.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="无限大 ananta 网易游戏 (netease) action rpg 无限大,ananta"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|移动端"
+   data-region="国产"
+   data-category="即将发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/ananta/home-full.webp"
@@ -1778,10 +2761,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/gujian.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="古剑 gujian 上海烛龙 (aurogon shanghai) action rpg 古剑,古剑奇谭四,古剑4,gujian"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国产"
+   data-category="未发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/gujian/cover.webp"
@@ -1799,10 +2801,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/tides-of-annihilation.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="湮灭之潮 tides of annihilation 成都蛇夫座 日蚀边缘工作室 (eclipse glow games) action rpg 湮灭之潮,tides of annihilation"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国产"
+   data-category="未发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/tides-of-annihilation/cover.webp"
@@ -1820,10 +2841,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/lost-soul-aside.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="失落之魂 lost soul aside ultizero games (上海零犀) action rpg 失落之魂,迷失之魂,lost soul aside"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/lost-soul-aside/cover.webp"
@@ -1841,10 +2878,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/azur-promilia.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="蓝色星原：旅谣 azur promilia 蛮啾网络 manjuu（积咪网络开发 / 碧蓝航线团队） action rpg 蓝色星原,旅谣,蓝色星原旅谣,azur promilia,アズールプロミリア"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|移动端"
+   data-region="国产"
+   data-category="即将发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/azur-promilia/cover.webp"
@@ -1862,10 +2921,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/azur-lane.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="碧蓝航线 azur lane 蛮啾网络 manjuu + 勇仕网络（b站国服 / yostar 海外发行） action rpg 碧蓝航线,碧藍航線,azur lane,アズールレーン,舰b,蔚蓝档案勿混"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="移动端|PC"
+   data-region="国产"
+   data-category="已运营">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/azur-lane/cover.webp"
@@ -1883,10 +2961,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/granblue-fantasy-relink.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="碧蓝幻想 relink granblue fantasy: relink cygames（亚洲区 sega 发行） action rpg 碧蓝幻想relink,碧藍幻想relink,granblue fantasy relink,グランブルーファンタジー リリンク,gbf relink"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|PlayStation|任天堂"
+   data-region="日韩"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/granblue-fantasy-relink/cover.webp"
@@ -1904,10 +3004,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/blue-protocol-star-resonance.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="蓝色协议：星痕共鸣 blue protocol: star resonance 上海宝可拉（腾讯发行）／原版 bandai namco action rpg 蓝色协议,藍色協議,星痕共鸣,blue protocol,blue protocol star resonance,blue protocol"
-   data-type="game">
+   data-type="game"
+   data-genre="Action RPG"
+   data-platform="PC|移动端"
+   data-region="国产"
+   data-category="已运营">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/blue-protocol-star-resonance/cover.webp"
@@ -1939,10 +3058,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/final-fantasy-vii-rebirth.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="最终幻想7：重生 final fantasy vii rebirth square enix rpg ff7r,最终幻想7"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PlayStation|PC"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/final-fantasy-vii-rebirth/cover.webp"
@@ -1960,10 +3095,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/metaphor-refantazio.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="暗喻幻想 metaphor: refantazio atlus rpg mrf,metaphor"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/metaphor-refantazio/cover.webp"
@@ -1981,10 +3138,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/clair-obscur-expedition-33.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="光暗交响：远征33 clair obscur: expedition 33 sandfall interactive rpg co33"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/clair-obscur-expedition-33/cover.webp"
@@ -2002,10 +3178,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/the-outer-worlds-2.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="天外世界2 the outer worlds 2 obsidian / xbox rpg 外部世界2,tow2"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PC|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/the-outer-worlds-2/cover.webp"
@@ -2023,10 +3215,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/baldurs-gate-3.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="博德之门3 baldur's gate 3 larian studios rpg bg3,博德之门"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/baldurs-gate-3/cover.webp"
@@ -2044,10 +3255,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/persona-5-royal.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="女神异闻录5：皇家版 persona 5 royal atlus / sega rpg p5r,persona 5,女神异闻录5"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PC|PlayStation|Xbox|任天堂"
+   data-region="日韩"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/persona-5-royal/cover.webp"
@@ -2065,10 +3298,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/kingdom-come-deliverance-2.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="天国：拯救2 kingdom come: deliverance ii warhorse studios / deep silver rpg kcd2,天国拯救2"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/kingdom-come-deliverance-2/cover.webp"
@@ -2086,10 +3338,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/cyberpunk-2077.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="赛博朋克2077 cyberpunk 2077 cd projekt red rpg cp2077,赛博朋克"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/cyberpunk-2077/cover.webp"
@@ -2107,10 +3378,35 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/disco-elysium.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="极乐迪斯科：最终剪辑版 disco elysium - the final cut za/um rpg disco elysium,de,极乐迪斯科"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PC|PlayStation|Xbox|任天堂"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/disco-elysium/cover.webp"
@@ -2128,10 +3424,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/roco-kingdom-world.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="洛克王国：世界 roco kingdom: world 腾讯魔方工作室群 rpg 洛克王国世界,洛克王国:世界,roco kingdom world,洛克王国手游"
-   data-type="game">
+   data-type="game"
+   data-genre="RPG"
+   data-platform="PC|移动端"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/roco-kingdom-world/cover.webp"
@@ -2163,10 +3478,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/death-stranding-2-on-the-beach.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="死亡搁浅2：冥滩之上 death stranding 2: on the beach kojima productions adventure ds2,死亡搁浅2"
-   data-type="game">
+   data-type="game"
+   data-genre="Adventure"
+   data-platform="PlayStation|PC"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/death-stranding-2-on-the-beach/cover.webp"
@@ -2184,10 +3515,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/ghost-of-yotei.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="羊蹄山之魂 ghost of yotei sucker punch adventure 对马岛续作,goy"
-   data-type="game">
+   data-type="game"
+   data-genre="Adventure"
+   data-platform="PlayStation"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/ghost-of-yotei/cover.webp"
@@ -2205,10 +3549,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/indiana-jones-and-the-great-circle.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="夺宝奇兵：大圈 indiana jones and the great circle machinegames / bethesda adventure 夺宝奇兵,印第安纳琼斯"
-   data-type="game">
+   data-type="game"
+   data-genre="Adventure"
+   data-platform="PC|Xbox|PlayStation"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/indiana-jones-and-the-great-circle/cover.webp"
@@ -2226,10 +3589,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/ghost-of-tsushima.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="对马岛之魂：导演剪辑版 ghost of tsushima director's cut sucker punch productions adventure 对马岛,got"
-   data-type="game">
+   data-type="game"
+   data-genre="Adventure"
+   data-platform="PC|PlayStation"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/ghost-of-tsushima/cover.webp"
@@ -2247,10 +3629,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/silent-hill-2.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="寂静岭2 silent hill 2 bloober team / konami ['horror', 'adventure'] sh2,寂静岭2重制版"
-   data-type="game">
+   data-type="game"
+   data-genre="Horror|Adventure"
+   data-platform="PC|PlayStation"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/silent-hill-2/cover.webp"
@@ -2268,10 +3666,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/stray.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="迷失 stray bluetwelve studio / annapurna adventure 流浪猫"
-   data-type="game">
+   data-type="game"
+   data-genre="Adventure"
+   data-platform="PC|PlayStation|任天堂"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/stray/cover.webp"
@@ -2289,10 +3709,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/signalis.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="信号 signalis rose-engine adventure signalis"
-   data-type="game">
+   data-type="game"
+   data-genre="Adventure"
+   data-platform="PC|PlayStation|Xbox|任天堂"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/signalis/cover.webp"
@@ -2310,10 +3752,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/split-fiction.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="分裂虚构 split fiction hazelight studios adventure split fiction"
-   data-type="game">
+   data-type="game"
+   data-genre="Adventure"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/split-fiction/cover.webp"
@@ -2331,10 +3792,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/days-gone.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="往日不再 days gone bend studio / sony adventure 往日不再"
-   data-type="game">
+   data-type="game"
+   data-genre="Adventure"
+   data-platform="PC|PlayStation"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/days-gone/cover.webp"
@@ -2352,10 +3829,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/dredge.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="疏浚 dredge black salt games adventure dredge"
-   data-type="game">
+   data-type="game"
+   data-genre="Adventure"
+   data-platform="PC|PlayStation|Xbox|任天堂"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/dredge/cover.webp"
@@ -2387,10 +3886,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/dying-light-the-beast.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="消逝的光芒：野兽 dying light: the beast techland survival 消光野兽,dl"
-   data-type="game">
+   data-type="game"
+   data-genre="Survival"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/dying-light-the-beast/cover.webp"
@@ -2408,10 +3926,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/metroid-prime-4-beyond.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="银河战士prime 4：超越 metroid prime 4: beyond retro studios / nintendo survival 银河战士4,mp4"
-   data-type="game">
+   data-type="game"
+   data-genre="Survival"
+   data-platform="任天堂"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/metroid-prime-4/homepage.webp"
@@ -2429,10 +3963,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/high-on-life-2.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="嗨皮人生2 high on life 2 squanch games survival hol2"
-   data-type="game">
+   data-type="game"
+   data-genre="Survival"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/high-on-life-2/cover.webp"
@@ -2450,10 +4003,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/dave-the-diver.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="潜水员戴夫 dave the diver mintrocket survival 戴夫"
-   data-type="game">
+   data-type="game"
+   data-genre="Survival"
+   data-platform="PC|PlayStation|任天堂"
+   data-region="日韩"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/dave-the-diver/cover.webp"
@@ -2471,10 +4046,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/lethal-company.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="致命公司 lethal company zeekerss survival 致命公司"
-   data-type="game">
+   data-type="game"
+   data-genre="Survival"
+   data-platform="PC"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/lethal-company/cover.webp"
@@ -2492,10 +4080,26 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/dont-starve-newhome.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="饥困荒野 don't starve: newhome 猪人工作室 / 腾讯 survival 饥困荒野,饥荒新家园,don't starve new home,don't starve newhome,饥荒手游"
-   data-type="game">
+   data-type="game"
+   data-genre="Survival"
+   data-platform="移动端"
+   data-region="国产"
+   data-category="未发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/dont-starve-newhome/cover.webp"
@@ -2513,10 +4117,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/lifeafter.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="明日之后 lifeafter 网易 survival lifeafter,明日之后,life after"
-   data-type="game">
+   data-type="game"
+   data-genre="Survival"
+   data-platform="移动端|PC"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/lifeafter/cover.webp"
@@ -2534,10 +4157,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/once-human.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="七日世界 once human 网易 survival once human,七日世界"
-   data-type="game">
+   data-type="game"
+   data-genre="Survival"
+   data-platform="PC|移动端"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/once-human/cover.webp"
@@ -2555,10 +4197,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/windrose.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="风启之旅 windrose kraken express survival 风启之旅,windrose"
-   data-type="game">
+   data-type="game"
+   data-genre="Survival"
+   data-platform="PC"
+   data-region="日韩"
+   data-category="抢先体验">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/windrose/cover.webp"
@@ -2590,10 +4245,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/inscryption.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="邪恶冥刻 inscryption daniel mullins games simulation 邪恶铭刻"
-   data-type="game">
+   data-type="game"
+   data-genre="Simulation"
+   data-platform="PC|PlayStation|任天堂"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/inscryption/cover.webp"
@@ -2611,10 +4288,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/balatro.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="小丑牌 balatro localthunk simulation balatro"
-   data-type="game">
+   data-type="game"
+   data-genre="Simulation"
+   data-platform="PC|PlayStation|Xbox|任天堂"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/balatro/cover.webp"
@@ -2632,10 +4331,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/satisfactory.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="幸福工厂 satisfactory coffee stain studios simulation 幸福工厂"
-   data-type="game">
+   data-type="game"
+   data-genre="Simulation"
+   data-platform="PC"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/satisfactory/cover.webp"
@@ -2653,10 +4365,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/teardown.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="拆迁 teardown tuxedo labs simulation 拆迁,teardown"
-   data-type="game">
+   data-type="game"
+   data-genre="Simulation"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/teardown/cover.webp"
@@ -2674,10 +4405,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/dyson-sphere-program.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="戴森球计划 dyson sphere program youthcat studio simulation 戴森球"
-   data-type="game">
+   data-type="game"
+   data-genre="Simulation"
+   data-platform="PC"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/dyson-sphere-program/cover.webp"
@@ -2695,10 +4439,23 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+
+
 <a href="game/the-planet-crafter.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="星球工匠 the planet crafter miju games simulation 星球工匠"
-   data-type="game">
+   data-type="game"
+   data-genre="Simulation"
+   data-platform="PC"
+   data-region="欧美"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/the-planet-crafter/cover.webp"
@@ -2716,10 +4473,35 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/animula-nook.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="粒粒的小人国 animula nook 腾讯游戏 × lillilandia games (北极光工作室群·银之心) simulation 粒粒的小人国,粒粒小人国,小人国,animula,animula nook"
-   data-type="game">
+   data-type="game"
+   data-genre="Simulation"
+   data-platform="PC|PlayStation|任天堂|移动端"
+   data-region="国产"
+   data-category="未发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/animula-nook/cover.webp"
@@ -3152,10 +4934,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/eggy-party.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="蛋仔派对 eggy party 网易游戏 (netease) party eggy,eggy party,蛋仔,蛋仔派对"
-   data-type="game">
+   data-type="game"
+   data-genre="Party"
+   data-platform="移动端|PC"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/eggy-party/home-full.webp"
@@ -3173,10 +4974,35 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/fall-guys.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="糖豆人：终极淘汰赛 fall guys: ultimate knockout mediatonic / epic games party 糖豆人,fall guys"
-   data-type="game">
+   data-type="game"
+   data-genre="Party"
+   data-platform="PC|PlayStation|Xbox|任天堂"
+   data-region="国际"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/fall-guys/home-full.webp"
@@ -3208,10 +5034,32 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/honkai-star-rail.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="崩坏：星穹铁道 honkai: star rail 米哈游 (mihoyo/hoyoverse) turn-based rpg 星铁,星穹铁道,hsr,崩铁"
-   data-type="game">
+   data-type="game"
+   data-genre="Turn-based RPG"
+   data-platform="PC|PlayStation|移动端"
+   data-region="国产"
+   data-category="已发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/honkai-star-rail/home-full.webp"
@@ -3243,10 +5091,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/gui-tang.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="归唐 blood message 网易雷火 临安24工作室 (24 entertainment) action-adventure 归唐,blood message,沙州归唐"
-   data-type="game">
+   data-type="game"
+   data-genre="Action-Adventure"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国产"
+   data-category="未发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/gui-tang/cover.webp"
@@ -3278,10 +5145,29 @@ document.addEventListener('alpine:init', function() {
 
 
 
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
 <a href="game/mistfall-hunter.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="雾影猎人 mistfall hunter bellring games (深圳林子互娱) extraction shooter 雾影猎人,mistfall hunter"
-   data-type="game">
+   data-type="game"
+   data-genre="Extraction Shooter"
+   data-platform="PC|PlayStation|Xbox"
+   data-region="国产"
+   data-category="未发售">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     
     <img src="screenshots/mistfall-hunter/cover.webp"

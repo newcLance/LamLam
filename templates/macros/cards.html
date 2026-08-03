@@ -3,10 +3,27 @@
 {% set ss = screenshots.get(g.name, []) %}
 {% set ns = namespace(img=none) %}
 {% for m in ss %}{% for s in m.screens %}{% if s.imgs and not ns.img %}{% set ns.img = s.imgs[0] %}{% endif %}{% endfor %}{% endfor %}
+{# --- 归一化筛选 facet（平台/地区/状态值零散，在此归并成用户心智维度） --- #}
+{% set plats = g.platforms if (g.platforms is iterable and g.platforms is not string) else [g.platforms] %}
+{% set pf = namespace(items=[]) %}
+{% for p in plats %}
+  {% if p in ["PC","Mac"] %}{% if "PC" not in pf.items %}{% set _ = pf.items.append("PC") %}{% endif %}
+  {% elif p in ["PS5","PS4","PS3","PS1","Vita"] %}{% if "PlayStation" not in pf.items %}{% set _ = pf.items.append("PlayStation") %}{% endif %}
+  {% elif "Xbox" in (p or "") %}{% if "Xbox" not in pf.items %}{% set _ = pf.items.append("Xbox") %}{% endif %}
+  {% elif "Switch" in (p or "") or p in ["Wii","GameCube","N64","GameBoy","GBA"] %}{% if "任天堂" not in pf.items %}{% set _ = pf.items.append("任天堂") %}{% endif %}
+  {% elif p in ["iOS","Android","Mobile","移动"] %}{% if "移动端" not in pf.items %}{% set _ = pf.items.append("移动端") %}{% endif %}
+  {% endif %}
+{% endfor %}
+{% set region_norm = {"国产":"国产","中国":"国产","国际+国产":"国产","国际":"国际","欧美":"欧美","日韩":"日韩","日本":"日韩","海外":"日韩"} %}
+{% set cat_norm = {"已发售":"已发售","已运营":"已运营","即将发售":"即将发售","未发售":"未发售","未上线":"未发售","抢先体验":"抢先体验"} %}
 <a href="{{ prefix }}game/{{ g.slug }}.html"
-   class="group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
+   class="game-card group block bg-surface-1 border border-bdr rounded overflow-hidden hover:border-white/20 transition-all"
    data-search="{{ (g.nameCN or '')|lower }} {{ g.name|lower }} {{ g.company|lower }} {{ (g.genre or '')|lower }} {{ (g.alias or '')|lower }}"
-   data-type="game">
+   data-type="game"
+   data-genre="{% if g.genre is string %}{{ g.genre }}{% elif g.genre is iterable %}{{ g.genre|join('|') }}{% endif %}"
+   data-platform="{{ pf.items|join('|') }}"
+   data-region="{{ region_norm.get(g.region, g.region or '') }}"
+   data-category="{{ cat_norm.get(g.category, g.category or '') }}">
   <div class="relative w-full pt-[56.25%] bg-surface-2 overflow-hidden">
     {% if ns.img %}
     <img src="{{ prefix }}screenshots/{{ ns.img.split('screenshots/')[1] if 'screenshots/' in ns.img else ns.img }}"
