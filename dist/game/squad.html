@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>战术小队 - 游戏竞品分析</title>
+<link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32.png">
+<link rel="apple-touch-icon" href="../static/apple-touch-icon.png">
+<!-- Tailwind CSS CDN (Play mode) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        surface: { 0:'#0c0c0c', 1:'#141414', 2:'#1c1c1c', 3:'#252525' },
+        bdr: 'rgba(255,255,255,.08)',
+        accent: '#ffffff',
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        sm: '2px',
+        md: '6px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '8px',
+      }
+    }
+  }
+}
+</script>
+<style type="text/tailwindcss">
+@layer base {
+  body { @apply bg-surface-0 text-neutral-300 antialiased; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  /* Minimal dark scrollbar */
+  * { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.1) transparent; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.2); }
+}
+@layer components {
+  .data-text b { @apply text-white font-semibold bg-white/[.06] px-0.5 rounded-sm; }
+  a.src-link { @apply text-neutral-400 text-xs opacity-80 hover:opacity-100 hover:text-white hover:underline transition-all; }
+}
+</style>
+<!-- Alpine.js CDN -->
+<script>
+document.addEventListener('alpine:init', function() {
+  Alpine.store('lightbox', {
+    open: false,
+    src: '',
+    imgs: [],
+    idx: 0,
+    show: function(imgSrc) {
+      this.src = imgSrc;
+      this.imgs = Array.from(document.querySelectorAll('[data-lightbox-src]')).map(function(el) {
+        return el.getAttribute('data-lightbox-src');
+      });
+      this.idx = this.imgs.indexOf(imgSrc);
+      if (this.idx < 0) this.idx = 0;
+      this.open = true;
+      document.body.style.overflow = 'hidden';
+    },
+    close: function() {
+      this.open = false;
+      document.body.style.overflow = '';
+    },
+    prev: function() {
+      if (this.idx > 0) { this.idx--; this.src = this.imgs[this.idx]; }
+    },
+    next: function() {
+      if (this.idx < this.imgs.length - 1) { this.idx++; this.src = this.imgs[this.idx]; }
+    }
+  });
+});
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="min-h-screen">
+
+
+<header class="sticky top-0 z-50 bg-surface-0/95 backdrop-blur-xl border-b border-bdr">
+  <div class="max-w-6xl mx-auto px-6 h-14 flex items-center gap-4">
+    <a href="../index.html" class="flex items-center gap-2 shrink-0">
+      <img src="../static/logo.png" alt="Logo" class="w-6 h-6 rounded">
+      <span class="font-extrabold text-sm text-white tracking-tight">GAME TRACKER</span>
+    </a>
+    
+    <nav class="ml-auto flex gap-1 text-xs">
+      
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<a href="../index.html" id="back-btn"
+   class="fixed top-5 left-5 z-50 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-surface-2/90 backdrop-blur-sm border border-white/[.08] hover:bg-surface-3 hover:border-white/[.15] text-neutral-300 hover:text-white text-sm font-medium transition-all shadow-lg shadow-black/30">
+  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  返回
+  <kbd class="ml-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-normal bg-white/[.06] border border-white/[.1] text-neutral-500">ESC</kbd>
+</a>
+<script>
+(function(){
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    if (e.target && e.target.closest && e.target.closest('input,textarea,[contenteditable]')) return;
+    // Don't navigate if lightbox is open (Alpine handles that)
+    try { if (window.Alpine && Alpine.store('lightbox') && Alpine.store('lightbox').open) return; } catch(x){}
+    window.location.href = '../index.html';
+  });
+})();
+</script>
+
+
+<div id="sec-header" class="relative w-full overflow-hidden">
+  
+  
+  <div class="absolute inset-0 z-0">
+    <img src="../screenshots/squad/cover.webp" class="w-full h-full object-cover" style="filter:blur(40px) brightness(0.35) saturate(1.3); transform:scale(1.15);">
+  </div>
+  
+  
+  <div class="absolute inset-0 z-[1] bg-gradient-to-t from-surface-0 via-surface-0/60 to-transparent"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-r from-surface-0/80 to-transparent"></div>
+
+  
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-10 pb-10 flex items-end gap-8">
+    
+    <div class="flex-1 min-w-0">
+
+      <div class="flex items-center gap-3 mb-4">
+                <div>
+          <h1 class="text-3xl font-extrabold tracking-tight leading-tight">战术小队</h1>
+          <div class="text-sm text-neutral-400 mt-0.5">Offworld Industries（腾讯代理国服 / 腾讯参股） · Shooter · 2020-09-23（正式版）</div>
+        </div>
+      </div>
+
+      <p class="text-sm text-neutral-500 leading-relaxed max-w-2xl mb-5">Offworld Industries 打造的大规模硬核战术 FPS，脱胎于《战地2》传奇 MOD《Project Reality》。单局 50v50 一百人同场，你加入九人小队、听小队长和指挥官调度，靠内置语音沟通协同——运补给、建前进基地 FOB、架机枪、开装甲车和直升机、一寸寸争夺据点。没有红点标记、没有一人屠城，机瞄、弹道下坠、压制与医疗兵救援让每一枪都生死攸关。节奏慢、门槛高，沟通即生命。2022 已超 300 万销量，Steam 特别好评，腾讯代理国服《破晓攻势》2026 运营。</p>
+
+      
+      
+      <div class="flex gap-2 flex-wrap">
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">50v50大规模对抗</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">九人小队+指挥官层级</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">内置语音沟通</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">FOB建造与后勤补给</span>
+        
+        <span class="px-3 py-1 rounded text-xs font-medium bg-white/[.06] text-neutral-400 border border-white/[.06]">载具与据点争夺</span>
+        
+      </div>
+      
+    </div>
+
+    
+    <div class="shrink-0 hidden md:flex items-center gap-3">
+      
+      <a href="#sec-assets"
+         class="group flex items-center gap-2 px-5 py-3 rounded bg-white text-black font-bold hover:bg-neutral-200 text-sm transition-all">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        找素材
+      </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+
+<div x-data class="max-w-5xl mx-auto px-6 pt-6 pb-16">
+
+  
+  
+  
+  
+    
+      
+        
+      
+    
+  
+
+  
+
+  
+  
+  <section id="sec-worldview" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      游戏世界观
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">BACKGROUND</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">游戏背景</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">无剧本的现代战场——真实地形上，十三支武装力量的硬核对抗</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">这里没有编好的故事，只有一场场<b>现代战争的军事模拟</b>。你可以扮演美军、俄军、英军、加军、澳军、乌军、中国人民解放军，也可以是中东叛军或东欧民兵——<b>十三个取材自现实的武装阵营</b>各有各的枪械、载具和制服。战场也都照着真实地形还原：东欧针叶林里的叶霍里夫卡、中东废墟中的法卢杰、东亚沿海的三贤群岛，最大的地图足有十六平方公里。比如你蹲在一片麦田边缘，对面村庄的轮廓在晨雾里若隐若现——没有任务提示，这一仗怎么打，全看你和队友。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">现代战争模拟</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">十三个真实阵营</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">真实地形地图</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">无剧情</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">MAIN STORY</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">主线剧情</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">你是百人战场里的一名普通士兵——剧情，由每一局的你们亲手写</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">Squad 没有主角、没有过场动画。你就是<b>一百人同场厮杀里的一名普通士兵</b>，故事由每一局玩家自己创造。你会加入一支最多九人的小队，听小队长指挥，而整支队伍又由一名玩家投票选出的<b>指挥官统筹全局</b>——他能呼叫无人机侦察和炮火支援。这盘你可能是冲在最前的步枪兵，下盘又成了开着后勤卡车来回运弹药的「蓝莓」。真正让人记住的从不是击杀数，而是<b>你和一群陌生人靠麦克风把一盘散沙拧成纪律之师</b>的那种时刻。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">无主角</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">玩家创造叙事</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">指挥官层级</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">百人同场</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">COMBAT</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">战斗系统</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">机瞄、弹道下坠、压制与医疗兵——每一枪都生死攸关的致命交火</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">战斗是<b>反英雄主义的硬核拟真</b>——没有红点标记、没有一人屠城。你只能靠<b>机械瞄具和画中画光学镜</b>瞄准，子弹有下坠和飞行时间，远距离得压着准星提前量打。中弹往往一两发就倒地，腿挨一枪就跑不动，得喊战斗医疗兵拖你到掩体后救起。更要命的是<b>压制系统</b>：子弹擦着耳边飞过时，屏幕收窄、准星剧烈晃动，你会本能地缩回战壕。比如你和队友被一挺机枪压在断墙后，谁都不敢探头——这时候只有靠语音喊出敌人方位、协同反击，才能活下来。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">机瞄无红点</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">弹道下坠</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">压制系统</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">医疗兵救援</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+      
+      
+
+
+<div class="rounded-xl p-6 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] hover:bg-white/[.03] transition-colors">
+  <div class="flex items-baseline gap-3 mb-3">
+    <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">CORE LOOP</span>
+    <span class="text-[11px] font-semibold text-neutral-600">·</span>
+    <span class="text-[11px] font-semibold text-neutral-500">核心循环</span>
+  </div>
+  <div class="text-[15px] font-bold text-white mb-3 leading-snug">加小队 → 建 FOB 运补给 → 多兵种协同推进 → 耗尽敌方票数取胜</div>
+  <div class="text-[14px] leading-[1.85] text-neutral-300 data-text">玩起来是<b>「集结—补给—机动—交火」的大规模攻防循环</b>——你加入九人小队，小队长用后勤卡车或直升机运来补给，建起<b>前进基地 FOB 和重生掩体 HAB</b>，再架沙袋、机枪、迫击炮。每一发子弹背后都有一条玩家跑出来的补给链。然后多兵种协同推进，一个个争夺地图上的据点。双方各有一条<b>票数线</b>模拟战斗力：丢据点、死人、炸载具都扣票，守不住时扣得更快，<b>谁的票先归零谁就输</b>。爽点循环就是：建好据点 → 协同推进拿点 → 用载具和炮火碾压 → 逼对面票数见底。</div>
+  
+  <div class="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-white/[.05]">
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">FOB建造补给</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">多兵种协同</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">据点争夺</span>
+    
+    <span class="px-2 py-0.5 rounded text-[11px] font-medium bg-white/[.05] text-neutral-500 border border-white/[.05]">票数系统</span>
+    
+  </div>
+  
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-story" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      IP / 故事剧情
+    </h2>
+    
+<div class="rounded p-6 border border-white/[.08] bg-white/[.02]">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-5 text-neutral-500">IP / STORY</div>
+  
+
+  
+  
+  <div class="mb-6 pb-6 border-b border-white/[.06]">
+    
+    <div class="text-[15px] md:text-base font-semibold text-white/90 leading-relaxed mb-5 italic tracking-wide">
+      “<b>一百人同场 × 硬核拟真</b>——这里没有一人屠城的英雄，只有沟通即生命。”
+    </div>
+    
+    
+    <div class="space-y-4">
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">想象一张十六平方公里的<b>真实地形战场</b>：东欧的针叶林、中东的断壁残垣、东亚沿海的滩涂村庄。两支各五十人的军队在这里对峙——没有剧本、没有主角，你只是<b>一百人同场里的一名普通士兵</b>。你加入一支九人小队，耳机里是小队长的部署、指挥官的调度，和子弹擦过耳边时队友压低嗓子的那句「趴下」。这是《战地2》传奇 MOD《Project Reality》的精神续作，一场把「真实」刻进骨子里的现代战争。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">可这场仗打起来，和你玩过的任何射击游戏都不一样。<b>中弹往往一两发就倒地，腿挨一枪就跑不动</b>，得喊医疗兵冒着火力把你拖回掩体。没有红点标记，只有机瞄和子弹下坠；机枪一响，屏幕收窄、准星乱抖，你本能地缩回战壕。一局动辄半小时到几个钟头，你可能有大半时间在运补给、修工事、当电台中继——<b>真正开枪击杀的，一百人里也许不到十个</b>。</p>
+      
+      <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">但正是这种「慢」，逼出了别的游戏给不了的东西。<b>当一群陌生人靠一副麦克风拧成纪律之师</b>，你会突然明白：这里最强的武器从来不是枪法，而是你愿不愿意开口沟通、愿不愿意为队友多跑一趟补给。这不是一个关于个人英雄的故事，<b>而是一个关于「一群人如何成为一支队伍」的故事</b>——下一盘，你会是那个把大家喊到一起的人吗？</p>
+      
+    </div>
+    
+  </div>
+  
+
+  
+  
+  
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-3 text-neutral-500">DETAILS</div>
+  
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">时间</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>当代现代战争</b>——没有具体年份与战役，是一个把现实中各国现役武装、枪械载具还原进来的架空现代战场</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">发生地</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>十六平方公里的真实地形地图</b>——取材东欧针叶林、中东废墟、南亚高山、东亚沿海、北欧雪原等现实地区，照卫星地形还原</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">角色扮演什么</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>百人战场里的一名普通士兵</b>——可选步枪兵、医疗兵、反坦克、机枪手、载具乘员、小队长等兵种，在九人小队与指挥体系里各司其职</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">科技水平</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>当代常规军事科技</b>——主战坦克、步兵战车、武装与运输直升机、无人机侦察、火炮支援，全部按现实型号建模，无科幻元素</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">对抗关系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>十三支武装阵营的大规模对抗</b>——西方常规军、俄军、解放军、叛军与民兵按派系分组交战，表层是夺点，深层是团队纪律的较量</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">地图</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>超大开放战场 + 据点推进</b>：50v50 一百人同场，AAS/RAAS/攻防等模式围绕一连串据点展开，靠 FOB 重生点逐线争夺</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">视觉母题</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>写实军武 × 尘土战场</b>——真实制服涂装、机械化载具、被战火磨损的村庄与工事，构成硬核纪实质感而非炫酷特效</div>
+  </div>
+  
+  <div class="py-2 border-b border-white/5 last:border-0">
+    <div class="text-[11px] font-bold uppercase tracking-wide text-neutral-600 mb-1">美学谱系</div>
+    <div class="text-[13.5px] leading-7 text-neutral-400 data-text"><b>现代军事模拟写实主义</b>——承接《Project Reality》与 Arma 一脉的拟真军武美学，强调可信度、克制感与战场的粗粝尘土味</div>
+  </div>
+  
+  
+</div>
+
+  </section>
+  
+
+  
+  
+  <section id="sec-aesthetic" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家审美偏好
+    </h2>
+
+    
+    
+    
+    
+    <div class="rounded-xl border border-white/[.08] bg-white/[.02] p-6 mb-8">
+      
+      <div class="flex items-baseline gap-3 mb-5 pb-5 border-b border-white/[.06]">
+        <span class="text-[10px] font-extrabold tracking-widest uppercase text-neutral-500">AESTHETIC LABEL</span>
+        <span class="text-[20px] md:text-[22px] font-extrabold text-white tracking-tight">现代军武写实主义 Modern Milsim Realism</span>
+      </div>
+      
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6">
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q1 · 这是什么美学</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text"><b>纪实级军事写实 × 大规模战场尘土感</b>，是把真实战争的粗粝与克制搬进游戏的硬核美学。底色是<b>照现实还原的现代军武</b>——各国现役制服涂装、按型号建模的枪械与坦克直升机、卫星地形还原的十六平方公里战场；变异在于它刻意<b>反炫酷、反英雄</b>，没有夸张特效和华丽击杀，只有压制时收窄的视野、中弹就倒的致命感。色彩锁定<b>军绿橄榄 × 尘土沙黄</b>的低饱和组合，整体调性是一种让人紧绷、不敢乱动的战场真实感。</p>
+        </div>
+        
+
+        
+        <div>
+          <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-2">Q2 · 共识如何发展</div>
+          <p class="text-[14px] leading-[1.95] text-neutral-300 data-text">「大规模军事写实」的视觉共识走了二十多年。<b>1987 年</b>库布里克《全金属外壳》把战争的去浪漫化、冷峻纪实质感立成标杆。<b>2005 年</b>《战地2》的 MOD《Project Reality》第一次把「真实团队协作 + 后勤补给」做进大规模 FPS，定义了这套玩法美学的雏形。<b>2008 年</b>美剧《杀戮一代》用手持纪录片式镜头还原伊拉克战争的琐碎与真实。<b>2013 年</b>《武装突袭 3》把军事模拟的拟真度推到沙盒级高度。<b>2020 年</b>《战术小队》正式版集大成——把百人战场、机瞄弹道、压制医疗与尘土写实焊到一起，成了硬核战术 FPS 的标杆。</p>
+        </div>
+        
+      </div>
+
+      
+      <div class="mt-6 pt-6 border-t border-white/[.06]">
+        <div class="text-[11px] font-bold uppercase tracking-widest text-neutral-600 mb-3">Q3 · 借鉴谱系（值得美术设计参考的游戏 / 电影 / 动漫 / 剧集）</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                Project Reality（战地2 MOD）
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2005</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>Squad 的前身与精神母体</b>；团队协作、后勤补给与大规模据点战的玩法美学可直接对照溯源</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                战地2 Battlefield 2
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2005</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>大规模现代战场</b>的载具、兵种与指挥系统原型；Squad 继承其骨架再往硬核拟真推</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              游戏
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                武装突袭3 Arma 3
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2013</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>军事模拟拟真度</b>的参照系；弹道、机瞄与克制战场节奏的美学同梯队，可偷学可信度细节</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                全金属外壳 Full Metal Jacket
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 1987</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>去浪漫化的战争纪实美学</b>源头；冷峻、克制、反英雄的视觉基调是军武写实的底色</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              电影
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                黑鹰坠落 Black Hawk Down
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2001</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>现代城市巷战</b>的尘土质感与混乱纪实镜头；断墙废墟、尘烟与压制感的场景参照</div>
+              
+            </div>
+          </div>
+          
+          <div class="flex gap-3 items-start py-1">
+            <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/[.06] text-neutral-400 border border-white/[.06] mt-0.5 min-w-[42px] text-center">
+              剧集
+            </span>
+            <div class="flex-1 min-w-0">
+              <div class="text-[13.5px] font-semibold text-white leading-snug">
+                杀戮一代 Generation Kill
+                <span class="text-[11px] text-neutral-600 font-normal ml-1">· 2008</span>
+              </div>
+              
+              <div class="text-[12.5px] text-neutral-400 leading-6 mt-0.5 data-text"><b>手持纪录片式战争还原</b>；伊拉克战场的琐碎、等待与真实感，正是 Squad「慢」的情绪母题</div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SCENE</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">真实地形战场 × 尘土色彩人格</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">场景以<b>卫星地形还原的十六平方公里战场</b>为骨架——东欧的针叶林与麦田、中东被战火啃过的断墙废墟、东亚沿海的滩涂村庄，每种地貌都有自己的色彩人格。美术走<b>低饱和纪实路线 + 自然光照</b>，晨雾、尘烟与远山的层次是沉浸感来源。最关键的是<b>「军绿橄榄 × 尘土沙黄」的双色基底</b>：植被战区是压抑的橄榄冷绿，沙漠废墟是呛人的尘土暖黄——同一场仗，不同战场两副面孔。它刻意不要炫酷特效，只要战场的粗粝可信。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">COSTUME</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">阵营制服剪影 × 真实装备辨识</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">角色靠<b>各国现役制服与装具的真实差异</b>区分剪影——美军的 MultiCam 迷彩与圆盔、俄军的数码迷彩、解放军的 07 式迷彩、叛军的便装加简陋承载具，涂黑也能靠头盔轮廓和负重剪影分辨敌我。与常规军整齐的装备对比的是<b>非正规民兵与叛军的杂糅剪影</b>——破旧拖鞋配 AK、民用皮卡焊机枪。所有制服、护目镜、背囊都带着<b>风尘、磨损与汗渍的使用感</b>，不是刚出厂的样板货，而是打过仗的真家伙。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">UI</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">极简战术 HUD × 地图与无线电</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">UI 走<b>极简 diegetic 路线</b>——屏幕上几乎没有常驻信息，没有小地图雷达、没有击杀提示飘字，info 密度被刻意压到最低，逼你靠眼睛观察和耳朵听语音。需要时才调出<b>战术大地图</b>标记据点、FOB 与队友位置，像指挥官桌上的作战图。重生、补给、建造都在地图界面完成。沟通全靠<b>分层无线电与近距语音</b>而非屏幕文字。这种「信息留白」本身就是设计——它把玩家从依赖 HUD 推回到依赖观察与沟通，让战场回归真实。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">SYMBOL</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">前进基地 FOB × 无线电 × 尘土与弹道</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">核心视觉符号：<b>前进基地 FOB 与 HESCO 挡墙沙袋工事</b>（玩家亲手搭出的战线，团队协作的实体化象征）、<b>无线电与语音波纹</b>（沟通即生命的符号）、<b>弹道曳光与压制时收窄的视野</b>（硬核拟真的招牌体验）、<b>尘烟与战火磨损的战场</b>（纪实质感的载体）。色彩母题是<b>军绿橄榄 × 尘土沙黄</b>——把现代军武的冷硬与战场的粗粝，用 FOB 工事和尘烟这些符号焊到一起。</div>
+</div>
+
+      
+      
+      
+      
+
+<div class="rounded p-5 border border-white/[.08] bg-white/[.02] hover:border-white/[.15] transition-colors">
+  <div class="text-[10px] font-extrabold tracking-widest uppercase mb-1 text-neutral-500">PROMO</div>
+  <div class="text-sm font-bold text-white mb-3 leading-snug">Project Reality 正统传承 + 硬核社区口碑</div>
+  <div class="text-[13.5px] leading-7 text-neutral-400 data-text">宣发核心是<b>《Project Reality》精神续作</b>的血统招牌——用「真团队、真协作、真战争」的硬核定位，把一批厌倦了快餐 FPS 的老兵玩家聚起来。背书打<b>Offworld 自研 + 腾讯参股</b>、国服《破晓攻势》代理的牌，强调全部玩法内容与地图免费、只卖外观的非掠夺式商业模式。实机宣传主打百人同场的宏大、语音协作的沉浸、尘土写实的战场质感；2022 已超三百万销量、Steam 特别好评，靠社区口碑长线滚动。</div>
+</div>
+
+      
+      
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-playerexp" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-6">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      玩家游戏体验清单
+    </h2>
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden"
+         x-data="{ tab: 'bili' }">
+      
+      <div class="flex border-b border-bdr">
+        
+        
+        
+        
+        <button x-on:click="tab='bili'"
+                :class="tab==='bili' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">B站试玩视频</button>
+        
+        <button x-on:click="tab='media'"
+                :class="tab==='media' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">媒体试玩评测</button>
+        
+        <button x-on:click="tab='community'"
+                :class="tab==='community' ? 'text-white border-white bg-white/5' : 'text-neutral-500 border-transparent hover:text-neutral-300 hover:bg-surface-2'"
+                class="flex-1 px-5 py-3.5 text-sm font-semibold border-b-2 transition text-center">玩家社区讨论</button>
+        
+      </div>
+
+      
+      
+      <div x-show="tab==='bili'" class="p-4">
+        
+        <a href="https://www.bilibili.com/video/BV1M7VK6AEGh/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/10 text-white
+            ">1</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">《战术小队：破晓攻势》首曝PV | 全体都有，准备战斗！</span>
+          <span class="text-xs text-neutral-500 shrink-0">737万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1kBaN6eETX/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.08] text-neutral-300
+            ">2</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【战术小队】月光会带我们相聚，并肩是最好的团圆</span>
+          <span class="text-xs text-neutral-500 shrink-0">3万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1pJ4m157Fg/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-white/[.06] text-neutral-400
+            ">3</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">【战术小队】中法交流赛解说！当法国玩家提出登岛作战时，中国玩家极力掩饰嘴角的笑容！</span>
+          <span class="text-xs text-neutral-500 shrink-0">466万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1FFeK6TEaj/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">4</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">DLSS 5《战术小队》这还是游戏吗？</span>
+          <span class="text-xs text-neutral-500 shrink-0">1万播放</span>
+        </a>
+        
+        <a href="https://www.bilibili.com/video/BV1U7kNBeEgw/" target="_blank" rel="noopener"
+           class="flex items-center gap-3 px-4 py-3.5 rounded-xl border border-transparent hover:bg-surface-2 hover:border-bdr transition">
+          <span class="w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold
+            bg-surface-2 text-neutral-500">5</span>
+          <span class="w-7 h-7 rounded-full bg-white/[.08] flex items-center justify-center text-[11px] text-neutral-400 shrink-0">▶</span>
+          <span class="flex-1 text-sm text-neutral-200 font-medium truncate">战术小队怎么玩,新手该干什么 战术小队新手教程—完整流程帮你理清思路</span>
+          <span class="text-xs text-neutral-500 shrink-0">42万播放</span>
+        </a>
+        
+      </div>
+      
+
+      
+      <div x-show="tab==='media'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>50v50 一百人同场的大规模战场</b>——九人小队编制 + 指挥官层级，正式版首开百人服务器
+    
+      <a href="https://store.steampowered.com/app/393380/" target="_blank" rel="noopener" class="src-link">— Steam官方 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>业界顶级的内置语音系统</b>——近距语音、小队语音、指挥频道分层，「沟通是士兵最重要的工具」
+    
+      <a href="https://www.pcgamer.com/how-modders-and-veterans-created-squad-a-military-sim-like-no-other" target="_blank" rel="noopener" class="src-link">— PC Gamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>《Project Reality》精神续作</b>——脱胎于《战地2》传奇 MOD，把真实团队协作与后勤补给做进大规模 FPS
+    
+      <a href="https://en.wikipedia.org/wiki/Squad_(video_game)" target="_blank" rel="noopener" class="src-link">— Wikipedia ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>真实团队配合的沉浸感</b>——靠沟通才能赢，一群陌生人被捏成纪律小队，常结下长期友谊
+    
+      <a href="https://www.pcgamer.com/how-modders-and-veterans-created-squad-a-military-sim-like-no-other" target="_blank" rel="noopener" class="src-link">— PC Gamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>顶级音效设计</b>——超音速弹丸擦头而过的爆音、远处炮击的闷响，带来无与伦比的战场沉浸
+    
+      <a href="https://www.pcgamer.com/how-modders-and-veterans-created-squad-a-military-sim-like-no-other" target="_blank" rel="noopener" class="src-link">— PC Gamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>FOB 建造与玩家驱动的补给链</b>——每一发子弹背后都有后勤支撑，运补修工事本身就是爽点
+    
+      <a href="https://store.steampowered.com/app/393380/" target="_blank" rel="noopener" class="src-link">— Steam官方 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>上手门槛极高</b>——原版缺系统新手教程，新人常「我是谁、我在哪、为什么就死了」
+    
+      <a href="https://c.m.163.com/news/a/KU4OHRQ305268VHQ.html" target="_blank" rel="noopener" class="src-link">— 网易 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>强麦克风依赖</b>——没麦、遇到不配合的队友，体验大打折扣
+    
+      <a href="https://www.pcgamer.com/how-modders-and-veterans-created-squad-a-military-sim-like-no-other" target="_blank" rel="noopener" class="src-link">— PC Gamer ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>节奏慢、有效开枪少</b>——一局大半时间在运补给、修工事、当电台中继，「打半小时绷带、开五分钟枪」
+    
+      <a href="https://en.wikipedia.org/wiki/Squad_(video_game)" target="_blank" rel="noopener" class="src-link">— 媒体综合 ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>ICO 步兵改版争议</b>——枪械「过度弹跳」、压制过苛，部分老玩家认为改得过头，引发差评
+    
+      <a href="https://en.techinbengali.com/?p=4090" target="_blank" rel="noopener" class="src-link">— 媒体综合 ↗</a>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>UE5 升级的性能问题</b>——卡顿掉帧、硬件门槛提高，叠加 ICO 争议使近期评价转「褒贬不一」
+    
+      <a href="https://steamdb.info/app/393380/" target="_blank" rel="noopener" class="src-link">— SteamDB ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+
+      
+      <div x-show="tab==='community'" x-cloak class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6">
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">记忆点 Memory</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>「沟通即生命」的硬核标签</b>——最重要的技能不是枪法，而是准时上线、戴着能用的麦克风
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区共识</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>非掠夺式商业模式</b>——玩法内容与地图全免费、只卖外观，社区忠诚度极高
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区共识</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">兴奋点 Excitement</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>指挥协作的爽感</b>——好的小队长能把一群陌生人捏成纪律之师，每局叙事由玩家创造
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区共识</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>Project Reality 老兵情怀</b>——前身 MOD 的硬核玩家把 Squad 当作正统传承，社区凝聚力强
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区共识</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">痛点 Pain</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>遇到「蓝莓」散兵体验差</b>——不沟通、不跟队的随机玩家会毁掉整局配合
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区综合</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>官方自承「信任受损」</b>——2025 承认改版动摇玩家信任，成立社区开发团队小步快跑回炉手感
+    
+      <a href="https://www.puregamestats.com/game/393380/squad" target="_blank" rel="noopener" class="src-link">— PCGamesN ↗</a>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+        
+        <div class="bg-surface-2/60 border border-bdr rounded-xl p-5">
+          <div class="text-sm font-bold mb-3">流失点 Churn</div>
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>硬核劝退轻度玩家</b>——高死亡惩罚、慢节奏、强沟通门槛，不适应快餐 FPS 的人很快流失
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区综合</span>
+    
+  </span>
+</div>
+
+          
+          
+<div class="flex gap-2 py-2 border-b border-white/[.04] last:border-0 text-[13.5px] leading-7 text-neutral-400 data-text">
+  <span class="text-neutral-600 shrink-0 mt-0.5">›</span>
+  <span><b>不配合队友的挫败</b>——团队游戏成败系于队友，碰上不开麦的整队体验崩塌
+    
+      <span class="text-xs text-neutral-600 ml-1">— 社区综合</span>
+    
+  </span>
+</div>
+
+          
+        </div>
+        
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-rivals" class="mb-14">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      综合竞品推荐
+    </h2>
+    <p class="text-xs text-neutral-500 mb-6 ml-3">基于体验清单 · 审美偏好 · IP故事三维度综合选出</p>
+
+    <div class="bg-surface-1 border border-bdr rounded-2xl overflow-hidden">
+      <div class="divide-y divide-white/[.04]">
+        
+        
+        
+        
+        <div class="flex items-center gap-4 px-5 py-4 cursor-not-allowed">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-600 font-bold shrink-0">1</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold text-neutral-300">武装突袭3 <span class="text-xs text-neutral-500 font-normal ml-1">Bohemia Interactive</span> <span class="text-[10px] text-neutral-500 ml-2 px-1.5 py-0.5 rounded bg-white/[.03] border border-white/[.06]">还没建档</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>现代军事模拟写实 FPS</b>，Arma 的拟真弹道、机瞄与克制战场节奏和 Squad 同梯队同源，Squad 常被视为「更易上手的大规模现代战」</div>
+          </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        <a href="delta-force.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">2</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">三角洲行动 <span class="text-xs text-neutral-500 font-normal ml-1">琳琅天上 / 腾讯</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>现代战争题材 + 大规模团队战术对抗</b>，三角洲行动的大战场模式与 Squad 的载具协同据点战争夺同一批军事战术射击玩家</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        <a href="call-of-duty-modern-warfare-ii-2022.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">3</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">使命召唤：现代战争2 (2022) <span class="text-xs text-neutral-500 font-normal ml-1">Infinity Ward / Activision</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>现代军事战争 FPS</b>，争夺同一批现代战争射击用户，但 CoD 走街机爽快、Squad 走硬核拟真，是军事 FPS 光谱的两极对照</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+        
+        
+        
+        <a href="escape-from-tarkov.html"
+           class="flex items-center gap-4 px-5 py-4 hover:bg-surface-2 transition">
+          <span class="text-sm w-8 h-8 rounded bg-surface-2 flex items-center justify-center text-neutral-500 font-bold shrink-0">4</span>
+          <div class="flex-1 min-w-0">
+            <div class="text-sm font-semibold">逃离塔科夫 <span class="text-xs text-neutral-500 font-normal ml-1">Battlestate Games</span></div>
+            <div class="text-xs text-neutral-500 leading-snug mt-1">同为<b>硬核拟真 + 高死亡惩罚的射击</b>，逃离塔科夫的致命 TTK、机瞄与沉浸感门槛和 Squad 共享「真实即残酷」的硬核玩家画像</div>
+          </div>
+          <span class="text-xs text-neutral-600 shrink-0">查看 →</span>
+        </a>
+        
+        
+        
+      </div>
+      <div class="p-5 border-t border-bdr">
+        
+        
+        
+        <button onclick="window.open('../compare.html?ids=327,147,140,243','_blank')"
+                class="w-full py-3.5 rounded-xl border border-white/20 bg-white/[.06] text-white text-sm font-bold hover:bg-white/10 hover:border-white/30 transition text-center cursor-pointer">
+          一键对比这 4 款游戏
+        </button>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <section id="sec-assets" class="mb-14" x-data="{ assetTab: 'official' }">
+    <h2 class="text-lg font-bold flex items-center gap-2 mb-2">
+      <span class="w-1 h-5 rounded-full bg-white inline-block"></span>
+      找素材
+    </h2>
+    <p class="text-xs text-neutral-500 mb-5 ml-3">点击链接跳转到对应平台查看 · 仅整理外部链接</p>
+
+    
+    <div class="flex gap-1 p-1 rounded bg-surface-1 border border-white/[.04] mb-6 w-fit">
+      <button x-on:click="assetTab = 'official'"
+              :class="assetTab === 'official' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">官方素材</button>
+      <button x-on:click="assetTab = 'inspiration'"
+              :class="assetTab === 'inspiration' ? 'bg-white text-black' : 'text-neutral-400 hover:text-white hover:bg-white/[.04]'"
+              class="px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition">设计师灵感</button>
+    </div>
+
+    
+    
+    <div x-show="assetTab === 'official'" x-cloak x-ref="panelOfficial">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">商店页 + 官网</h4>
+        <div class="space-y-1">
+          
+          <a href="https://store.steampowered.com/app/393380/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Steam 商店页（app 393380）</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Steam</span>
+          </a>
+          
+          <a href="https://joinsquad.com/" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方网站 joinsquad.com</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">官网</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">阵营 / 载具设定图</h4>
+        <div class="space-y-1">
+          
+          <a href="https://search.bilibili.com/all?keyword=%E6%88%98%E6%9C%AF%E5%B0%8F%E9%98%9F%20%E5%AE%98%E6%96%B9" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">官方 B 站搜索 — 战术小队 PV/实机</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">bilibili</span>
+          </a>
+          
+          <a href="https://www.xiaohongshu.com/search_result?keyword=%E6%88%98%E6%9C%AF%E5%B0%8F%E9%98%9F%20Squad%20%E8%BD%BD%E5%85%B7" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">小红书搜索「战术小队 Squad 载具」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">小红书</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelOfficial.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+    
+    
+    <div x-show="assetTab === 'inspiration'" x-cloak x-ref="panelInspiration">
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">概念美术 / Concept Art</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=Squad%20game%20concept%20art" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「Squad game concept art」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=Squad%20game%20Offworld%20Industries" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Pinterest 搜索「Squad game Offworld」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">军武 / 载具设计</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=military%20vehicle%20concept" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「military vehicle concept」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+          <a href="https://www.pinterest.com/search/pins/?q=modern%20military%20milsim%20concept" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Pinterest 搜索「modern military milsim」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">Pinterest</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=Squad%20Offworld%20environment" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「Squad Offworld environment」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <div class="mb-5">
+        <h4 class="text-[11px] font-semibold text-neutral-500 tracking-wide mb-2">UI 界面 / 纹理材质</h4>
+        <div class="space-y-1">
+          
+          <a href="https://www.google.com/search?q=site%3Ainterfaceingame.com%20Squad" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">Google 搜索「site:interfaceingame.com Squad」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">InterfaceInGame</span>
+          </a>
+          
+          <a href="https://huaban.com/search?q=%E6%88%98%E6%9C%AF%E5%B0%8F%E9%98%9F%20UI" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">花瓣网搜索「战术小队 UI」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">花瓣网</span>
+          </a>
+          
+          <a href="https://www.artstation.com/search?sort_by=relevance&query=military%20HUD%20UI" target="_blank" rel="noopener"
+             class="flex items-center justify-between gap-4 px-3 py-2.5 rounded bg-surface-1 border border-white/[.04] hover:border-white/15 hover:bg-surface-2 group transition-all">
+            <div class="flex-1 min-w-0">
+              <span class="text-[13px] text-neutral-300 group-hover:text-white transition">ArtStation 搜索「military HUD UI」</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 shrink-0">ArtStation</span>
+          </a>
+          
+        </div>
+      </div>
+      
+      <button x-on:click="$refs.panelInspiration.querySelectorAll('a[target=_blank]').forEach(a => window.open(a.href, '_blank'))"
+              class="mt-4 flex items-center gap-2 px-4 py-2 rounded border border-neutral-700 text-neutral-400 text-xs font-medium hover:border-neutral-500 hover:text-white transition-all">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        一键打开全部
+      </button>
+    </div>
+    
+
+  </section>
+  
+
+</div>
+
+
+<nav x-data="anchorNav()" x-init="init()"
+     class="fixed right-5 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col gap-0.5 bg-surface-1/95 backdrop-blur-xl border border-bdr rounded px-2.5 py-3 shadow-2xl"
+     x-on:scroll.window.throttle.100ms="onScroll()">
+  <template x-for="s in sections" :key="s.id">
+    <a :href="'#' + s.id"
+       x-on:click.prevent="scrollTo(s.id)"
+       class="group flex items-center gap-2.5 px-2.5 py-2 rounded text-xs transition-all"
+       :class="active === s.id ? 'bg-white/10 text-white' : 'text-neutral-600 hover:text-neutral-300 hover:bg-surface-2'">
+      <span class="w-1.5 h-1.5 rounded-full shrink-0 transition-colors"
+            :class="active === s.id ? 'bg-white' : 'bg-neutral-700 group-hover:bg-neutral-500'"></span>
+      <span x-text="s.label" class="whitespace-nowrap"></span>
+    </a>
+  </template>
+</nav>
+
+
+
+
+<div x-data
+     x-on:keydown.escape.window="$store.lightbox.close()"
+     x-on:keydown.left.window="if($store.lightbox.open) $store.lightbox.prev()"
+     x-on:keydown.right.window="if($store.lightbox.open) $store.lightbox.next()"
+     x-show="$store.lightbox.open" x-cloak
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-[999] bg-black/95 flex flex-col items-center justify-center"
+     x-on:click="$store.lightbox.close()">
+
+  <!-- Top bar -->
+  <div class="absolute top-0 inset-x-0 h-14 flex items-center justify-between px-5 z-20" x-on:click.stop>
+    <div x-show="$store.lightbox.imgs.length > 1" class="px-3 py-1.5 rounded-lg bg-white/5 text-white/60 text-xs font-medium"
+         x-text="($store.lightbox.idx+1) + ' / ' + $store.lightbox.imgs.length"></div>
+    <div x-show="$store.lightbox.imgs.length <= 1"></div>
+    <button class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 text-white/70 hover:text-white flex items-center justify-center transition"
+            x-on:click="$store.lightbox.close()">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Prev btn -->
+  <button x-show="$store.lightbox.idx > 0"
+          class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.prev()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+  </button>
+
+  <!-- Next btn -->
+  <button x-show="$store.lightbox.idx < $store.lightbox.imgs.length - 1"
+          class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-2xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white text-xl flex items-center justify-center transition z-20"
+          x-on:click.stop="$store.lightbox.next()">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+  </button>
+
+  <!-- Image -->
+  <img x-bind:src="$store.lightbox.src" class="max-w-[94vw] max-h-[88vh] rounded-xl shadow-2xl cursor-default select-none" x-on:click.stop>
+
+  <!-- Bottom hint -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/30 text-[11px] select-none" x-on:click.stop>
+    按 ← → 切换 · ESC 关闭
+  </div>
+</div>
+
+
+<button x-data="{show:false}"
+        x-on:scroll.window="show = window.scrollY > 400"
+        x-show="show" x-cloak
+        x-on:click="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-6 right-6 w-10 h-10 rounded bg-white text-black flex items-center justify-center text-lg shadow-lg z-50 hover:bg-neutral-200 transition">
+  ↑
+</button>
+
+
+<script>
+function anchorNav() {
+  return {
+    sections: [],
+    active: '',
+    init() {
+      var defs = [
+        {id:'sec-header',     label:'基本信息'},
+        {id:'sec-screenshots', label:'官网截图'},
+        {id:'sec-worldview',   label:'游戏世界观'},
+        {id:'sec-story',       label:'IP/故事'},
+        {id:'sec-aesthetic',   label:'审美偏好'},
+        {id:'sec-playerexp',   label:'体验清单'},
+        {id:'sec-rivals',      label:'竞品推荐'},
+        {id:'sec-assets',      label:'找素材'}
+      ];
+      this.sections = defs.filter(function(d) {
+        return document.getElementById(d.id);
+      });
+      if (this.sections.length) this.active = this.sections[0].id;
+      this.onScroll();
+    },
+    onScroll() {
+      var offset = 120;
+      var current = this.active;
+      for (var i = this.sections.length - 1; i >= 0; i--) {
+        var el = document.getElementById(this.sections[i].id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+          current = this.sections[i].id;
+          break;
+        }
+      }
+      this.active = current;
+    },
+    scrollTo(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        window.scrollTo({top: el.offsetTop - 60, behavior: 'smooth'});
+      }
+    }
+  }
+}
+
+// Track visit for "浏览历史" module
+(function() {
+  var slug = 'squad';
+  var key = 'game_history';
+  var now = Date.now();
+  var SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
+
+  var history = {};
+  try { history = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e) {}
+
+  // Dedup: same game only counts once within 30 minutes
+  var prev = history[slug];
+  if (prev && (now - prev.last) < 30 * 60 * 1000) return;
+
+  // Update: record last visit time + increment count
+  history[slug] = {
+    last: now,
+    count: (prev ? prev.count : 0) + 1
+  };
+
+  // Clean entries older than 7 days
+  Object.keys(history).forEach(function(k) {
+    if (now - history[k].last > SEVEN_DAYS) delete history[k];
+  });
+
+  localStorage.setItem(key, JSON.stringify(history));
+})();
+</script>
+
+</body>
+</html>

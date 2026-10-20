@@ -1,0 +1,422 @@
+{
+  "id": 327,
+  "slug": "squad",
+  "report": false,
+  "worldview": {
+    "background": {
+      "title": "无剧本的现代战场——真实地形上，十三支武装力量的硬核对抗",
+      "value": "这里没有编好的故事，只有一场场<b>现代战争的军事模拟</b>。你可以扮演美军、俄军、英军、加军、澳军、乌军、中国人民解放军，也可以是中东叛军或东欧民兵——<b>十三个取材自现实的武装阵营</b>各有各的枪械、载具和制服。战场也都照着真实地形还原：东欧针叶林里的叶霍里夫卡、中东废墟中的法卢杰、东亚沿海的三贤群岛，最大的地图足有十六平方公里。比如你蹲在一片麦田边缘，对面村庄的轮廓在晨雾里若隐若现——没有任务提示，这一仗怎么打，全看你和队友。",
+      "keywords": [
+        "现代战争模拟",
+        "十三个真实阵营",
+        "真实地形地图",
+        "无剧情"
+      ]
+    },
+    "mainStory": {
+      "title": "你是百人战场里的一名普通士兵——剧情，由每一局的你们亲手写",
+      "value": "Squad 没有主角、没有过场动画。你就是<b>一百人同场厮杀里的一名普通士兵</b>，故事由每一局玩家自己创造。你会加入一支最多九人的小队，听小队长指挥，而整支队伍又由一名玩家投票选出的<b>指挥官统筹全局</b>——他能呼叫无人机侦察和炮火支援。这盘你可能是冲在最前的步枪兵，下盘又成了开着后勤卡车来回运弹药的「蓝莓」。真正让人记住的从不是击杀数，而是<b>你和一群陌生人靠麦克风把一盘散沙拧成纪律之师</b>的那种时刻。",
+      "keywords": [
+        "无主角",
+        "玩家创造叙事",
+        "指挥官层级",
+        "百人同场"
+      ]
+    },
+    "combat": {
+      "title": "机瞄、弹道下坠、压制与医疗兵——每一枪都生死攸关的致命交火",
+      "value": "战斗是<b>反英雄主义的硬核拟真</b>——没有红点标记、没有一人屠城。你只能靠<b>机械瞄具和画中画光学镜</b>瞄准，子弹有下坠和飞行时间，远距离得压着准星提前量打。中弹往往一两发就倒地，腿挨一枪就跑不动，得喊战斗医疗兵拖你到掩体后救起。更要命的是<b>压制系统</b>：子弹擦着耳边飞过时，屏幕收窄、准星剧烈晃动，你会本能地缩回战壕。比如你和队友被一挺机枪压在断墙后，谁都不敢探头——这时候只有靠语音喊出敌人方位、协同反击，才能活下来。",
+      "keywords": [
+        "机瞄无红点",
+        "弹道下坠",
+        "压制系统",
+        "医疗兵救援"
+      ]
+    },
+    "coreLoop": {
+      "title": "加小队 → 建 FOB 运补给 → 多兵种协同推进 → 耗尽敌方票数取胜",
+      "value": "玩起来是<b>「集结—补给—机动—交火」的大规模攻防循环</b>——你加入九人小队，小队长用后勤卡车或直升机运来补给，建起<b>前进基地 FOB 和重生掩体 HAB</b>，再架沙袋、机枪、迫击炮。每一发子弹背后都有一条玩家跑出来的补给链。然后多兵种协同推进，一个个争夺地图上的据点。双方各有一条<b>票数线</b>模拟战斗力：丢据点、死人、炸载具都扣票，守不住时扣得更快，<b>谁的票先归零谁就输</b>。爽点循环就是：建好据点 → 协同推进拿点 → 用载具和炮火碾压 → 逼对面票数见底。",
+      "keywords": [
+        "FOB建造补给",
+        "多兵种协同",
+        "据点争夺",
+        "票数系统"
+      ]
+    }
+  },
+  "story": {
+    "overview": {
+      "tagline": "<b>一百人同场 × 硬核拟真</b>——这里没有一人屠城的英雄，只有沟通即生命。",
+      "paragraphs": [
+        "想象一张十六平方公里的<b>真实地形战场</b>：东欧的针叶林、中东的断壁残垣、东亚沿海的滩涂村庄。两支各五十人的军队在这里对峙——没有剧本、没有主角，你只是<b>一百人同场里的一名普通士兵</b>。你加入一支九人小队，耳机里是小队长的部署、指挥官的调度，和子弹擦过耳边时队友压低嗓子的那句「趴下」。这是《战地2》传奇 MOD《Project Reality》的精神续作，一场把「真实」刻进骨子里的现代战争。",
+        "可这场仗打起来，和你玩过的任何射击游戏都不一样。<b>中弹往往一两发就倒地，腿挨一枪就跑不动</b>，得喊医疗兵冒着火力把你拖回掩体。没有红点标记，只有机瞄和子弹下坠；机枪一响，屏幕收窄、准星乱抖，你本能地缩回战壕。一局动辄半小时到几个钟头，你可能有大半时间在运补给、修工事、当电台中继——<b>真正开枪击杀的，一百人里也许不到十个</b>。",
+        "但正是这种「慢」，逼出了别的游戏给不了的东西。<b>当一群陌生人靠一副麦克风拧成纪律之师</b>，你会突然明白：这里最强的武器从来不是枪法，而是你愿不愿意开口沟通、愿不愿意为队友多跑一趟补给。这不是一个关于个人英雄的故事，<b>而是一个关于「一群人如何成为一支队伍」的故事</b>——下一盘，你会是那个把大家喊到一起的人吗？"
+      ]
+    },
+    "dims": [
+      {
+        "label": "时间",
+        "value": "<b>当代现代战争</b>——没有具体年份与战役，是一个把现实中各国现役武装、枪械载具还原进来的架空现代战场"
+      },
+      {
+        "label": "发生地",
+        "value": "<b>十六平方公里的真实地形地图</b>——取材东欧针叶林、中东废墟、南亚高山、东亚沿海、北欧雪原等现实地区，照卫星地形还原"
+      },
+      {
+        "label": "角色扮演什么",
+        "value": "<b>百人战场里的一名普通士兵</b>——可选步枪兵、医疗兵、反坦克、机枪手、载具乘员、小队长等兵种，在九人小队与指挥体系里各司其职"
+      },
+      {
+        "label": "科技水平",
+        "value": "<b>当代常规军事科技</b>——主战坦克、步兵战车、武装与运输直升机、无人机侦察、火炮支援，全部按现实型号建模，无科幻元素"
+      },
+      {
+        "label": "对抗关系",
+        "value": "<b>十三支武装阵营的大规模对抗</b>——西方常规军、俄军、解放军、叛军与民兵按派系分组交战，表层是夺点，深层是团队纪律的较量"
+      },
+      {
+        "label": "地图",
+        "value": "<b>超大开放战场 + 据点推进</b>：50v50 一百人同场，AAS/RAAS/攻防等模式围绕一连串据点展开，靠 FOB 重生点逐线争夺"
+      },
+      {
+        "label": "视觉母题",
+        "value": "<b>写实军武 × 尘土战场</b>——真实制服涂装、机械化载具、被战火磨损的村庄与工事，构成硬核纪实质感而非炫酷特效"
+      },
+      {
+        "label": "美学谱系",
+        "value": "<b>现代军事模拟写实主义</b>——承接《Project Reality》与 Arma 一脉的拟真军武美学，强调可信度、克制感与战场的粗粝尘土味"
+      }
+    ]
+  },
+  "aesthetic": {
+    "summary": {
+      "label": "现代军武写实主义 Modern Milsim Realism",
+      "definition": "<b>纪实级军事写实 × 大规模战场尘土感</b>，是把真实战争的粗粝与克制搬进游戏的硬核美学。底色是<b>照现实还原的现代军武</b>——各国现役制服涂装、按型号建模的枪械与坦克直升机、卫星地形还原的十六平方公里战场；变异在于它刻意<b>反炫酷、反英雄</b>，没有夸张特效和华丽击杀，只有压制时收窄的视野、中弹就倒的致命感。色彩锁定<b>军绿橄榄 × 尘土沙黄</b>的低饱和组合，整体调性是一种让人紧绷、不敢乱动的战场真实感。",
+      "evolution": "「大规模军事写实」的视觉共识走了二十多年。<b>1987 年</b>库布里克《全金属外壳》把战争的去浪漫化、冷峻纪实质感立成标杆。<b>2005 年</b>《战地2》的 MOD《Project Reality》第一次把「真实团队协作 + 后勤补给」做进大规模 FPS，定义了这套玩法美学的雏形。<b>2008 年</b>美剧《杀戮一代》用手持纪录片式镜头还原伊拉克战争的琐碎与真实。<b>2013 年</b>《武装突袭 3》把军事模拟的拟真度推到沙盒级高度。<b>2020 年</b>《战术小队》正式版集大成——把百人战场、机瞄弹道、压制医疗与尘土写实焊到一起，成了硬核战术 FPS 的标杆。",
+      "references": [
+        {
+          "type": "game",
+          "title": "Project Reality（战地2 MOD）",
+          "year": "2005",
+          "note": "<b>Squad 的前身与精神母体</b>；团队协作、后勤补给与大规模据点战的玩法美学可直接对照溯源"
+        },
+        {
+          "type": "game",
+          "title": "战地2 Battlefield 2",
+          "year": "2005",
+          "note": "<b>大规模现代战场</b>的载具、兵种与指挥系统原型；Squad 继承其骨架再往硬核拟真推"
+        },
+        {
+          "type": "game",
+          "title": "武装突袭3 Arma 3",
+          "year": "2013",
+          "note": "<b>军事模拟拟真度</b>的参照系；弹道、机瞄与克制战场节奏的美学同梯队，可偷学可信度细节"
+        },
+        {
+          "type": "film",
+          "title": "全金属外壳 Full Metal Jacket",
+          "year": "1987",
+          "note": "<b>去浪漫化的战争纪实美学</b>源头；冷峻、克制、反英雄的视觉基调是军武写实的底色"
+        },
+        {
+          "type": "film",
+          "title": "黑鹰坠落 Black Hawk Down",
+          "year": "2001",
+          "note": "<b>现代城市巷战</b>的尘土质感与混乱纪实镜头；断墙废墟、尘烟与压制感的场景参照"
+        },
+        {
+          "type": "show",
+          "title": "杀戮一代 Generation Kill",
+          "year": "2008",
+          "note": "<b>手持纪录片式战争还原</b>；伊拉克战场的琐碎、等待与真实感，正是 Squad「慢」的情绪母题"
+        }
+      ]
+    },
+    "scene": {
+      "title": "真实地形战场 × 尘土色彩人格",
+      "value": "场景以<b>卫星地形还原的十六平方公里战场</b>为骨架——东欧的针叶林与麦田、中东被战火啃过的断墙废墟、东亚沿海的滩涂村庄，每种地貌都有自己的色彩人格。美术走<b>低饱和纪实路线 + 自然光照</b>，晨雾、尘烟与远山的层次是沉浸感来源。最关键的是<b>「军绿橄榄 × 尘土沙黄」的双色基底</b>：植被战区是压抑的橄榄冷绿，沙漠废墟是呛人的尘土暖黄——同一场仗，不同战场两副面孔。它刻意不要炫酷特效，只要战场的粗粝可信。",
+      "anchorRule": [
+        1,
+        2
+      ]
+    },
+    "costume": {
+      "title": "阵营制服剪影 × 真实装备辨识",
+      "value": "角色靠<b>各国现役制服与装具的真实差异</b>区分剪影——美军的 MultiCam 迷彩与圆盔、俄军的数码迷彩、解放军的 07 式迷彩、叛军的便装加简陋承载具，涂黑也能靠头盔轮廓和负重剪影分辨敌我。与常规军整齐的装备对比的是<b>非正规民兵与叛军的杂糅剪影</b>——破旧拖鞋配 AK、民用皮卡焊机枪。所有制服、护目镜、背囊都带着<b>风尘、磨损与汗渍的使用感</b>，不是刚出厂的样板货，而是打过仗的真家伙。",
+      "anchorRule": [
+        3,
+        4
+      ]
+    },
+    "ui": {
+      "title": "极简战术 HUD × 地图与无线电",
+      "value": "UI 走<b>极简 diegetic 路线</b>——屏幕上几乎没有常驻信息，没有小地图雷达、没有击杀提示飘字，info 密度被刻意压到最低，逼你靠眼睛观察和耳朵听语音。需要时才调出<b>战术大地图</b>标记据点、FOB 与队友位置，像指挥官桌上的作战图。重生、补给、建造都在地图界面完成。沟通全靠<b>分层无线电与近距语音</b>而非屏幕文字。这种「信息留白」本身就是设计——它把玩家从依赖 HUD 推回到依赖观察与沟通，让战场回归真实。",
+      "anchorRule": [
+        5
+      ]
+    },
+    "symbol": {
+      "title": "前进基地 FOB × 无线电 × 尘土与弹道",
+      "value": "核心视觉符号：<b>前进基地 FOB 与 HESCO 挡墙沙袋工事</b>（玩家亲手搭出的战线，团队协作的实体化象征）、<b>无线电与语音波纹</b>（沟通即生命的符号）、<b>弹道曳光与压制时收窄的视野</b>（硬核拟真的招牌体验）、<b>尘烟与战火磨损的战场</b>（纪实质感的载体）。色彩母题是<b>军绿橄榄 × 尘土沙黄</b>——把现代军武的冷硬与战场的粗粝，用 FOB 工事和尘烟这些符号焊到一起。",
+      "anchorRule": [
+        1,
+        4
+      ]
+    },
+    "promo": {
+      "title": "Project Reality 正统传承 + 硬核社区口碑",
+      "value": "宣发核心是<b>《Project Reality》精神续作</b>的血统招牌——用「真团队、真协作、真战争」的硬核定位，把一批厌倦了快餐 FPS 的老兵玩家聚起来。背书打<b>Offworld 自研 + 腾讯参股</b>、国服《破晓攻势》代理的牌，强调全部玩法内容与地图免费、只卖外观的非掠夺式商业模式。实机宣传主打百人同场的宏大、语音协作的沉浸、尘土写实的战场质感；2022 已超三百万销量、Steam 特别好评，靠社区口碑长线滚动。",
+      "anchorRule": [
+        1
+      ]
+    },
+    "rivals": [
+      {
+        "id": 300,
+        "reason": "同为<b>现代军事模拟写实 FPS</b>，Arma 的拟真弹道、机瞄与克制战场节奏和 Squad 同梯队同源，Squad 常被视为「更易上手的大规模现代战」"
+      },
+      {
+        "id": 147,
+        "reason": "同为<b>现代战争题材 + 大规模团队战术对抗</b>，三角洲行动的大战场模式与 Squad 的载具协同据点战争夺同一批军事战术射击玩家"
+      },
+      {
+        "id": 140,
+        "reason": "同为<b>现代军事战争 FPS</b>，争夺同一批现代战争射击用户，但 CoD 走街机爽快、Squad 走硬核拟真，是军事 FPS 光谱的两极对照"
+      },
+      {
+        "id": 243,
+        "reason": "同为<b>硬核拟真 + 高死亡惩罚的射击</b>，逃离塔科夫的致命 TTK、机瞄与沉浸感门槛和 Squad 共享「真实即残酷」的硬核玩家画像"
+      }
+    ]
+  },
+  "assets": {
+    "official": [
+      {
+        "cat": "商店页 + 官网",
+        "links": [
+          {
+            "title": "Steam 商店页（app 393380）",
+            "source": "Steam",
+            "url": "https://store.steampowered.com/app/393380/"
+          },
+          {
+            "title": "官方网站 joinsquad.com",
+            "source": "官网",
+            "url": "https://joinsquad.com/"
+          }
+        ]
+      },
+      {
+        "cat": "阵营 / 载具设定图",
+        "links": [
+          {
+            "title": "官方 B 站搜索 — 战术小队 PV/实机",
+            "source": "bilibili",
+            "url": "https://search.bilibili.com/all?keyword=%E6%88%98%E6%9C%AF%E5%B0%8F%E9%98%9F%20%E5%AE%98%E6%96%B9"
+          },
+          {
+            "title": "小红书搜索「战术小队 Squad 载具」",
+            "source": "小红书",
+            "url": "https://www.xiaohongshu.com/search_result?keyword=%E6%88%98%E6%9C%AF%E5%B0%8F%E9%98%9F%20Squad%20%E8%BD%BD%E5%85%B7"
+          }
+        ]
+      }
+    ],
+    "inspiration": [
+      {
+        "cat": "概念美术 / Concept Art",
+        "links": [
+          {
+            "title": "ArtStation 搜索「Squad game concept art」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Squad%20game%20concept%20art"
+          },
+          {
+            "title": "Pinterest 搜索「Squad game Offworld」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=Squad%20game%20Offworld%20Industries"
+          }
+        ]
+      },
+      {
+        "cat": "军武 / 载具设计",
+        "links": [
+          {
+            "title": "ArtStation 搜索「military vehicle concept」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=military%20vehicle%20concept"
+          },
+          {
+            "title": "Pinterest 搜索「modern military milsim」",
+            "source": "Pinterest",
+            "url": "https://www.pinterest.com/search/pins/?q=modern%20military%20milsim%20concept"
+          },
+          {
+            "title": "ArtStation 搜索「Squad Offworld environment」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=Squad%20Offworld%20environment"
+          }
+        ]
+      },
+      {
+        "cat": "UI 界面 / 纹理材质",
+        "links": [
+          {
+            "title": "Google 搜索「site:interfaceingame.com Squad」",
+            "source": "InterfaceInGame",
+            "url": "https://www.google.com/search?q=site%3Ainterfaceingame.com%20Squad",
+            "note": "国外单机 UI 数据库，Squad 大概率收录"
+          },
+          {
+            "title": "花瓣网搜索「战术小队 UI」",
+            "source": "花瓣网",
+            "url": "https://huaban.com/search?q=%E6%88%98%E6%9C%AF%E5%B0%8F%E9%98%9F%20UI",
+            "note": "国内 UI 设计参考主站"
+          },
+          {
+            "title": "ArtStation 搜索「military HUD UI」",
+            "source": "ArtStation",
+            "url": "https://www.artstation.com/search?sort_by=relevance&query=military%20HUD%20UI"
+          }
+        ]
+      }
+    ]
+  },
+  "playerExp": {
+    "media": {
+      "memory": [
+        {
+          "text": "<b>50v50 一百人同场的大规模战场</b>——九人小队编制 + 指挥官层级，正式版首开百人服务器",
+          "src": "Steam官方",
+          "url": "https://store.steampowered.com/app/393380/"
+        },
+        {
+          "text": "<b>业界顶级的内置语音系统</b>——近距语音、小队语音、指挥频道分层，「沟通是士兵最重要的工具」",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/how-modders-and-veterans-created-squad-a-military-sim-like-no-other"
+        },
+        {
+          "text": "<b>《Project Reality》精神续作</b>——脱胎于《战地2》传奇 MOD，把真实团队协作与后勤补给做进大规模 FPS",
+          "src": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Squad_(video_game)"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>真实团队配合的沉浸感</b>——靠沟通才能赢，一群陌生人被捏成纪律小队，常结下长期友谊",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/how-modders-and-veterans-created-squad-a-military-sim-like-no-other"
+        },
+        {
+          "text": "<b>顶级音效设计</b>——超音速弹丸擦头而过的爆音、远处炮击的闷响，带来无与伦比的战场沉浸",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/how-modders-and-veterans-created-squad-a-military-sim-like-no-other"
+        },
+        {
+          "text": "<b>FOB 建造与玩家驱动的补给链</b>——每一发子弹背后都有后勤支撑，运补修工事本身就是爽点",
+          "src": "Steam官方",
+          "url": "https://store.steampowered.com/app/393380/"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>上手门槛极高</b>——原版缺系统新手教程，新人常「我是谁、我在哪、为什么就死了」",
+          "src": "网易",
+          "url": "https://c.m.163.com/news/a/KU4OHRQ305268VHQ.html"
+        },
+        {
+          "text": "<b>强麦克风依赖</b>——没麦、遇到不配合的队友，体验大打折扣",
+          "src": "PC Gamer",
+          "url": "https://www.pcgamer.com/how-modders-and-veterans-created-squad-a-military-sim-like-no-other"
+        },
+        {
+          "text": "<b>节奏慢、有效开枪少</b>——一局大半时间在运补给、修工事、当电台中继，「打半小时绷带、开五分钟枪」",
+          "src": "媒体综合",
+          "url": "https://en.wikipedia.org/wiki/Squad_(video_game)"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>ICO 步兵改版争议</b>——枪械「过度弹跳」、压制过苛，部分老玩家认为改得过头，引发差评",
+          "src": "媒体综合",
+          "url": "https://en.techinbengali.com/?p=4090"
+        },
+        {
+          "text": "<b>UE5 升级的性能问题</b>——卡顿掉帧、硬件门槛提高，叠加 ICO 争议使近期评价转「褒贬不一」",
+          "src": "SteamDB",
+          "url": "https://steamdb.info/app/393380/"
+        }
+      ]
+    },
+    "community": {
+      "memory": [
+        {
+          "text": "<b>「沟通即生命」的硬核标签</b>——最重要的技能不是枪法，而是准时上线、戴着能用的麦克风",
+          "src": "社区共识"
+        },
+        {
+          "text": "<b>非掠夺式商业模式</b>——玩法内容与地图全免费、只卖外观，社区忠诚度极高",
+          "src": "社区共识"
+        }
+      ],
+      "excitement": [
+        {
+          "text": "<b>指挥协作的爽感</b>——好的小队长能把一群陌生人捏成纪律之师，每局叙事由玩家创造",
+          "src": "社区共识"
+        },
+        {
+          "text": "<b>Project Reality 老兵情怀</b>——前身 MOD 的硬核玩家把 Squad 当作正统传承，社区凝聚力强",
+          "src": "社区共识"
+        }
+      ],
+      "pain": [
+        {
+          "text": "<b>遇到「蓝莓」散兵体验差</b>——不沟通、不跟队的随机玩家会毁掉整局配合",
+          "src": "社区综合"
+        },
+        {
+          "text": "<b>官方自承「信任受损」</b>——2025 承认改版动摇玩家信任，成立社区开发团队小步快跑回炉手感",
+          "src": "PCGamesN",
+          "url": "https://www.puregamestats.com/game/393380/squad"
+        }
+      ],
+      "churn": [
+        {
+          "text": "<b>硬核劝退轻度玩家</b>——高死亡惩罚、慢节奏、强沟通门槛，不适应快餐 FPS 的人很快流失",
+          "src": "社区综合"
+        },
+        {
+          "text": "<b>不配合队友的挫败</b>——团队游戏成败系于队友，碰上不开麦的整队体验崩塌",
+          "src": "社区综合"
+        }
+      ]
+    },
+    "biliVideos": [
+      {
+        "title": "《战术小队：破晓攻势》首曝PV | 全体都有，准备战斗！",
+        "bvid": "BV1M7VK6AEGh",
+        "views": "737万"
+      },
+      {
+        "title": "【战术小队】月光会带我们相聚，并肩是最好的团圆",
+        "bvid": "BV1kBaN6eETX",
+        "views": "3万"
+      },
+      {
+        "title": "【战术小队】中法交流赛解说！当法国玩家提出登岛作战时，中国玩家极力掩饰嘴角的笑容！",
+        "bvid": "BV1pJ4m157Fg",
+        "views": "466万"
+      },
+      {
+        "title": "DLSS 5《战术小队》这还是游戏吗？",
+        "bvid": "BV1FFeK6TEaj",
+        "views": "1万"
+      },
+      {
+        "title": "战术小队怎么玩,新手该干什么 战术小队新手教程—完整流程帮你理清思路",
+        "bvid": "BV1U7kNBeEgw",
+        "views": "42万"
+      }
+    ]
+  }
+}

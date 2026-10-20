@@ -3031,5 +3031,21 @@
         }
       ]
     }
+  ],
+  "Squad": [
+    {
+      "module": "封面",
+      "screens": [
+        {
+          "title": "Squad",
+          "url": "",
+          "date": "2026-10-20",
+          "tag": "封面",
+          "imgs": [
+            "screenshots/squad/cover.webp"
+          ]
+        }
+      ]
+    }
   ]
 }

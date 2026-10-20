@@ -5579,5 +5579,38 @@
     "slug": "blue-protocol-star-resonance",
     "website": "https://gm.qq.com/",
     "appid": 3681810
+  },
+  {
+    "id": 327,
+    "name": "Squad",
+    "nameCN": "战术小队",
+    "alias": "战术小队,战术小隊,Squad,破晓攻势,战术小队破晓攻势,Project Reality续作",
+    "icon": "🎖️",
+    "company": "Offworld Industries（腾讯代理国服 / 腾讯参股）",
+    "category": "已发售",
+    "region": "欧美",
+    "platforms": [
+      "PC"
+    ],
+    "model": "买断制",
+    "genre": "Shooter",
+    "scale": "—",
+    "mau": "—",
+    "games": "—",
+    "established": "2020 年",
+    "releaseDate": "2020-09-23（正式版）",
+    "desc": "Offworld Industries 打造的大规模硬核战术 FPS，脱胎于《战地2》传奇 MOD《Project Reality》。单局 50v50 一百人同场，你加入九人小队、听小队长和指挥官调度，靠内置语音沟通协同——运补给、建前进基地 FOB、架机枪、开装甲车和直升机、一寸寸争夺据点。没有红点标记、没有一人屠城，机瞄、弹道下坠、压制与医疗兵救援让每一枪都生死攸关。节奏慢、门槛高，沟通即生命。2022 已超 300 万销量，Steam 特别好评，腾讯代理国服《破晓攻势》2026 运营。",
+    "features": [
+      "50v50大规模对抗",
+      "九人小队+指挥官层级",
+      "内置语音沟通",
+      "FOB建造与后勤补给",
+      "载具与据点争夺"
+    ],
+    "changes": [],
+    "lastUpdate": "2026-10-20",
+    "slug": "squad",
+    "website": "https://joinsquad.com/",
+    "appid": 393380
   }
 ]
